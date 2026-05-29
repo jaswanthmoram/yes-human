@@ -1,0 +1,158 @@
+[
+  {
+    "id": "ref.github.ecc.2026-05-29",
+    "topic": "ECC Agent and Skill Harness",
+    "created_at": "2026-05-29T12:46:30Z",
+    "sources": [
+      {
+        "url": "https://github.com/affaan-m/ECC",
+        "kind": "github_repo",
+        "stars": 1250,
+        "license": "MIT",
+        "commit": "master",
+        "used_for": [
+          "workflow structure",
+          "checklist concepts",
+          "agent schemas"
+        ],
+        "notes": "Primary reference for ECC plugin structure and multi-agent layout."
+      }
+    ],
+    "minimum_sources_met": true,
+    "license_risk": "low",
+    "reviewed_by": "bootstrap-agent"
+  },
+  {
+    "id": "ref.github.stop-slop.2026-05-29",
+    "topic": "Stop Slop Heuristics",
+    "created_at": "2026-05-29T16:20:06Z",
+    "sources": [
+      {
+        "url": "https://github.com/hardikpandya/stop-slop",
+        "kind": "github_repo",
+        "stars": 100,
+        "license": "MIT",
+        "commit": "master",
+        "used_for": [
+          "anti-slop prose rules",
+          "writing quality scoring",
+          "rhythm variety metrics"
+        ],
+        "notes": "Used as the standard policy reference for writing and content generation agents to eliminate AI writing indicators."
+      }
+    ],
+    "minimum_sources_met": true,
+    "license_risk": "low",
+    "reviewed_by": "bootstrap-agent"
+  },
+  {
+    "id": "ref.github.claude-bughunter.2026-05-29",
+    "topic": "Claude BugHunter Methodologies",
+    "created_at": "2026-05-29T16:20:06Z",
+    "sources": [
+      {
+        "url": "https://github.com/elementalsouls/Claude-BugHunter",
+        "kind": "github_repo",
+        "stars": 200,
+        "license": "MIT",
+        "commit": "master",
+        "used_for": [
+          "security testing workflows",
+          "vulnerability triage validation",
+          "bug classification checklists"
+        ],
+        "notes": "Used as the core methodology reference for security-reviewer and testing-qa agents."
+      }
+    ],
+    "minimum_sources_met": true,
+    "license_risk": "low",
+    "reviewed_by": "bootstrap-agent"
+  },
+  {
+    "id": "ref.github.markitdown.2026-05-29",
+    "topic": "Microsoft MarkItDown Document Conversion",
+    "created_at": "2026-05-29T16:26:50Z",
+    "sources": [
+      {
+        "url": "https://github.com/microsoft/markitdown",
+        "kind": "github_repo",
+        "stars": 22000,
+        "license": "MIT",
+        "commit": "main",
+        "used_for": [
+          "document conversion utility",
+          "token reduction workflow",
+          "offline parsing logic"
+        ],
+        "notes": "Converts PDF, PPTX, Docx, and Excel to markdown to save context tokens."
+      }
+    ],
+    "minimum_sources_met": true,
+    "license_risk": "low",
+    "reviewed_by": "bootstrap-agent"
+  },
+  {
+    "id": "ref.github.claude-repos-pack.2026-05-29",
+    "topic": "Curated Claude-Native Ecosystem Repositories",
+    "created_at": "2026-05-29T16:26:50Z",
+    "sources": [
+      {
+        "url": "https://github.com/anthropics/claude-code",
+        "kind": "github_repo",
+        "stars": 10000,
+        "license": "MIT",
+        "commit": "main",
+        "used_for": ["CLI agent logic", "shell loop design"],
+        "notes": "Official Claude CLI reference."
+      },
+      {
+        "url": "https://github.com/anthropics/claude-cookbook",
+        "kind": "github_repo",
+        "stars": 15000,
+        "license": "MIT",
+        "commit": "main",
+        "used_for": ["Prompt recipes", "API usage patterns"],
+        "notes": "Official cookbook reference."
+      },
+      {
+        "url": "https://github.com/continuedev/continue",
+        "kind": "github_repo",
+        "stars": 12000,
+        "license": "Apache-2.0",
+        "commit": "main",
+        "used_for": ["IDE integration context models"],
+        "notes": "Context model reference."
+      },
+      {
+        "url": "https://github.com/cline/cline",
+        "kind": "github_repo",
+        "stars": 8000,
+        "license": "MIT",
+        "commit": "main",
+        "used_for": ["Plan-act loop structures", "permission gates"],
+        "notes": "IDE agent executor reference."
+      },
+      {
+        "url": "https://github.com/Aider-AI/aider",
+        "kind": "github_repo",
+        "stars": 18000,
+        "license": "Apache-2.0",
+        "commit": "main",
+        "used_for": ["Git-aware editing", "repository mapping"],
+        "notes": "CLI agent editor reference."
+      },
+      {
+        "url": "https://github.com/OpenHands/OpenHands",
+        "kind": "github_repo",
+        "stars": 24000,
+        "license": "MIT",
+        "commit": "main",
+        "used_for": ["Sandboxed browser/shell execution"],
+        "notes": "Developer sandbox reference."
+      }
+    ],
+    "minimum_sources_met": true,
+    "license_risk": "low",
+    "reviewed_by": "bootstrap-agent"
+  }
+]

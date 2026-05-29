@@ -1,0 +1,28 @@
+{
+  "id": "graph-build-state-machine",
+  "version": "1.0.0",
+  "description": "Codebase graph build/refresh lifecycle with large-repo approval gate (§17A.5).",
+  "initial": "requested",
+  "states": [
+    { "name": "requested", "type": "normal", "description": "graph build requested for a path" },
+    { "name": "size_gate", "type": "gate", "gate": "ask", "description": "ask before indexing a large repo" },
+    { "name": "scanning", "type": "normal", "description": "enumerate files + compute hashes" },
+    { "name": "indexing", "type": "normal", "description": "build symbol + file-context indexes" },
+    { "name": "snapshot", "type": "normal", "description": "write snapshot + manifest" },
+    { "name": "ready", "type": "normal", "description": "graph available for context-pack queries" },
+    { "name": "stale", "type": "normal", "description": "tracked file hashes changed; refresh needed" },
+    { "name": "failed", "type": "terminal", "description": "build aborted or errored" }
+  ],
+  "transitions": [
+    { "from": "requested", "on": "start", "to": "size_gate" },
+    { "from": "size_gate", "on": "small_repo", "to": "scanning" },
+    { "from": "size_gate", "on": "approved", "to": "scanning" },
+    { "from": "size_gate", "on": "deny", "to": "failed" },
+    { "from": "scanning", "on": "scanned", "to": "indexing" },
+    { "from": "indexing", "on": "indexed", "to": "snapshot" },
+    { "from": "indexing", "on": "error", "to": "failed" },
+    { "from": "snapshot", "on": "written", "to": "ready" },
+    { "from": "ready", "on": "hash_changed", "to": "stale" },
+    { "from": "stale", "on": "refresh", "to": "scanning" }
+  ]
+}

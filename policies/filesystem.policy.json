@@ -1,0 +1,24 @@
+{
+  "id": "filesystem.policy",
+  "version": "1.0.0",
+  "description": "Filesystem access control policy",
+  "applies_to": ["file.write", "file.read", "file.delete"],
+  "default": "allow",
+  "rules": [
+    {
+      "match": { "path": { "$contains": [".env", ".key", ".pem", ".secret"] } },
+      "decision": "deny",
+      "reason": "Sensitive files are protected"
+    },
+    {
+      "match": { "path": { "$contains": [".ssh", ".aws", ".gnupg"] } },
+      "decision": "deny",
+      "reason": "SSH keys and credentials are protected"
+    },
+    {
+      "match": { "path": { "$contains": ["node_modules", ".git"] } },
+      "decision": "ask",
+      "reason": "Modifying node_modules or .git requires confirmation"
+    }
+  ]
+}

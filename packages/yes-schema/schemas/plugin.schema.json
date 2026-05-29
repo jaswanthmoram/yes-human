@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Yes-human Plugin Manifest",
+  "type": "object",
+  "required": ["id", "name", "version", "schema_version", "description", "startup", "exports", "registries"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:-[0-9A-Za-z.-]+)?$" },
+    "schema_version": { "type": "string" },
+    "description": { "type": "string" },
+    "license": { "type": "string" },
+    "homepage": { "type": "string", "format": "uri" },
+    "runtime": {
+      "type": "object",
+      "properties": {
+        "node": { "type": "string" },
+        "python": { "type": "string" },
+        "sqlite": { "type": "string" }
+      }
+    },
+    "startup": {
+      "type": "object",
+      "required": ["boot_file", "route_table", "target_tokens", "hard_cap_tokens"],
+      "properties": {
+        "boot_file": { "type": "string" },
+        "route_table": { "type": "string" },
+        "target_tokens": { "type": "integer", "minimum": 0 },
+        "hard_cap_tokens": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "exports": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "registries": {
+      "type": "object",
+      "required": ["agents", "skills", "workflows", "tools", "mcps"],
+      "properties": {
+        "agents": { "type": "string" },
+        "skills": { "type": "string" },
+        "workflows": { "type": "string" },
+        "tools": { "type": "string" },
+        "mcps": { "type": "string" }
+      }
+    }
+  },
+  "additionalProperties": false
+}

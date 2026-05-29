@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Yes-human Route Schema",
+  "type": "object",
+  "required": ["route_id", "match", "target", "confidence", "budget_band", "fallback"],
+  "properties": {
+    "route_id": { "type": "string" },
+    "match": {
+      "type": "object",
+      "required": ["keywords"],
+      "properties": {
+        "keywords": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "aliases": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "negative_keywords": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "target": {
+      "type": "object",
+      "required": ["domain_master", "agent"],
+      "properties": {
+        "domain_master": { "type": "string" },
+        "agent": { "type": "string" },
+        "skills": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "workflow": { "type": "string" }
+      }
+    },
+    "confidence": {
+      "type": "object",
+      "properties": {
+        "exact": { "type": "number", "minimum": 0, "maximum": 1 },
+        "alias": { "type": "number", "minimum": 0, "maximum": 1 },
+        "graph": { "type": "number", "minimum": 0, "maximum": 1 },
+        "semantic": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "budget_band": { "type": "string", "enum": ["micro", "standard", "expanded", "deep"] },
+    "fallback": { "type": "string" }
+  },
+  "additionalProperties": false
+}

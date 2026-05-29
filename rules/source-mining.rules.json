@@ -1,0 +1,49 @@
+{
+  "id": "source-mining.rules",
+  "version": "1.0.0",
+  "description": "Content absorption rules and license compliance",
+  "applies_to": ["absorb"],
+  "default": "deny",
+  "rules": [
+    {
+      "when": { "source.license": { "$in": ["MIT", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "ISC", "Unlicense"] } },
+      "then": "allow",
+      "reason": "Permissive license allowed"
+    },
+    {
+      "when": { "source.license": { "$in": ["GPL-2.0", "GPL-3.0", "LGPL-2.1", "LGPL-3.0", "MPL-2.0"] } },
+      "then": "ask",
+      "reason": "Copyleft license requires review"
+    },
+    {
+      "when": { "source.license": { "$in": ["AGPL-3.0", "SSPL", "EUPL-1.2"] } },
+      "then": "deny",
+      "reason": "Strong copyleft license blocked"
+    },
+    {
+      "when": { "source.license": "UNKNOWN" },
+      "then": "deny",
+      "reason": "Unknown license blocked"
+    },
+    {
+      "when": { "source.license": { "$eq": null } },
+      "then": "deny",
+      "reason": "Missing license blocked"
+    },
+    {
+      "when": { "source.provenance": { "$eq": null } },
+      "then": "deny",
+      "reason": "Missing provenance blocked"
+    },
+    {
+      "when": { "source.stars": { "$lt": 10 } },
+      "then": "ask",
+      "reason": "Low-star repository requires review"
+    },
+    {
+      "when": { "source.last_updated": { "$older_than_days": 365 } },
+      "then": "ask",
+      "reason": "Stale repository (>1 year) requires review"
+    }
+  ]
+}

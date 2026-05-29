@@ -1,0 +1,26 @@
+{
+  "domain": "engineering",
+  "description": "Routing fixtures for the engineering vertical slice (5 flagship agents).",
+  "fixtures": [
+    { "prompt": "fix build immediately", "expected_route": "route.engineering.build-resolver" },
+    { "prompt": "got a build error again", "expected_route": "route.engineering.build-resolver" },
+
+    { "prompt": "tdd", "expected_route": "route.engineering.tdd-guide" },
+    { "prompt": "test driven development", "expected_route": "route.engineering.tdd-guide" },
+    { "prompt": "use red green refactor here", "expected_route": "route.engineering.tdd-guide" },
+    { "prompt": "write failing test for login", "expected_route": "route.engineering.tdd-guide" },
+    { "prompt": "do test first then implement", "expected_route": "route.engineering.tdd-guide" },
+
+    { "prompt": "system design", "expected_route": "route.engineering.architect" },
+    { "prompt": "architecture review", "expected_route": "route.engineering.architect" },
+    { "prompt": "design the architecture for billing", "expected_route": "route.engineering.architect" },
+    { "prompt": "write an architecture decision record", "expected_route": "route.engineering.architect" },
+    { "prompt": "we need a high level design", "expected_route": "route.engineering.architect" },
+
+    { "prompt": "update docs", "expected_route": "route.engineering.docs-updater" },
+    { "prompt": "update documentation", "expected_route": "route.engineering.docs-updater" },
+    { "prompt": "write documentation for this module", "expected_route": "route.engineering.docs-updater" },
+    { "prompt": "update readme with new steps", "expected_route": "route.engineering.docs-updater" },
+    { "prompt": "document the api endpoints", "expected_route": "route.engineering.docs-updater" }
+  ]
+}

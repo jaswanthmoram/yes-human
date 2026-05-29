@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Yes-human Trace Schema",
+  "type": "object",
+  "required": ["trace_id", "route_id", "success"],
+  "properties": {
+    "trace_id": { "type": "string" },
+    "task_hash": { "type": "string" },
+    "host": { "type": "string" },
+    "route_id": { "type": "string" },
+    "agents": { "type": "array", "items": { "type": "string" } },
+    "skills": { "type": "array", "items": { "type": "string" } },
+    "tools": { "type": "array", "items": { "type": "string" } },
+    "input_tokens_est": { "type": "integer", "minimum": 0 },
+    "output_tokens_est": { "type": "integer", "minimum": 0 },
+    "cost_band": { "type": "string", "enum": ["micro", "standard", "expanded", "deep"] },
+    "success": { "type": "boolean" },
+    "failure_class": { "type": ["string", "null"] },
+    "verification": {
+      "type": "object",
+      "properties": {
+        "commands": { "type": "array", "items": { "type": "string" } },
+        "passed": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "learning_candidate": { "type": "boolean" }
+  },
+  "additionalProperties": false
+}

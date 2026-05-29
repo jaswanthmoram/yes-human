@@ -1,0 +1,32 @@
+{
+  "id": "absorb-state-machine",
+  "version": "1.0.0",
+  "description": "External source/plugin absorption lifecycle with license + provenance gates (§17A, §25 parity rule).",
+  "initial": "discovered",
+  "states": [
+    { "name": "discovered", "type": "normal", "description": "GitHub URL or local folder identified" },
+    { "name": "fetch_gate", "type": "gate", "gate": "ask", "description": "ask before crawling many repos" },
+    { "name": "fetched", "type": "normal", "description": "content fetched into staging/incoming" },
+    { "name": "license_check", "type": "gate", "gate": "deny", "description": "license/provenance validation (unknown = block)" },
+    { "name": "normalized", "type": "normal", "description": "schema-normalized into staging/normalized" },
+    { "name": "deduped", "type": "normal", "description": "duplicate detection vs existing artifacts" },
+    { "name": "reviewed", "type": "normal", "description": "quality score + host portability + route test" },
+    { "name": "promoted", "type": "normal", "description": "promoted to production with rollback record (can still be rolled back)" },
+    { "name": "rejected", "type": "terminal", "description": "blocked: license, duplicate, or low quality" },
+    { "name": "rolled_back", "type": "terminal", "description": "promotion reverted via rollback record" }
+  ],
+  "transitions": [
+    { "from": "discovered", "on": "start", "to": "fetch_gate" },
+    { "from": "fetch_gate", "on": "allow", "to": "fetched" },
+    { "from": "fetch_gate", "on": "deny", "to": "rejected" },
+    { "from": "fetched", "on": "check_license", "to": "license_check" },
+    { "from": "license_check", "on": "allow", "to": "normalized" },
+    { "from": "license_check", "on": "deny", "to": "rejected", "reason": "forbidden/unknown license" },
+    { "from": "normalized", "on": "dedupe", "to": "deduped" },
+    { "from": "deduped", "on": "unique", "to": "reviewed" },
+    { "from": "deduped", "on": "duplicate", "to": "rejected" },
+    { "from": "reviewed", "on": "passed", "to": "promoted", "guard": "quality_score>=80 && route_fixtures_pass" },
+    { "from": "reviewed", "on": "failed", "to": "rejected" },
+    { "from": "promoted", "on": "rollback", "to": "rolled_back" }
+  ]
+}

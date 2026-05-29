@@ -1,0 +1,45 @@
+{
+  "id": "workflow.rules",
+  "version": "1.0.0",
+  "description": "Workflow selection and routing hints",
+  "applies_to": ["route"],
+  "default": "allow",
+  "rules": [
+    {
+      "when": { "task": { "$contains": ["review", "code review", "pull request review"] } },
+      "then": "prefer_workflow",
+      "reason": "Use code-review workflow",
+      "workflow": "engineering.code-review"
+    },
+    {
+      "when": { "task": { "$contains": ["build error", "fix build", "compilation error"] } },
+      "then": "prefer_workflow",
+      "reason": "Use build-error-resolver workflow",
+      "workflow": "engineering.build-error-resolver"
+    },
+    {
+      "when": { "task": { "$contains": ["tdd", "test driven", "write tests"] } },
+      "then": "prefer_workflow",
+      "reason": "Use TDD workflow",
+      "workflow": "engineering.tdd-guide"
+    },
+    {
+      "when": { "task": { "$contains": ["security audit", "vulnerability scan", "security review"] } },
+      "then": "prefer_workflow",
+      "reason": "Use security review workflow",
+      "workflow": "security.security-reviewer"
+    },
+    {
+      "when": { "task": { "$contains": ["deploy", "release", "ship"] } },
+      "then": "prefer_workflow",
+      "reason": "Use deployment workflow",
+      "workflow": "platform.deployment"
+    },
+    {
+      "when": { "task": { "$contains": ["research", "investigate", "deep dive"] } },
+      "then": "prefer_workflow",
+      "reason": "Use research workflow",
+      "workflow": "meta-system.research"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "id": "routing.rules",
+  "version": "1.0.0",
+  "description": "Routing decision logic with signal-word matching and tiebreakers",
+  "applies_to": ["route"],
+  "default": "allow",
+  "rules": [
+    {
+      "when": { "task": { "$contains": ["delete", "drop", "rm -rf", "force push"] } },
+      "then": "ask",
+      "reason": "Destructive task requires confirmation"
+    },
+    {
+      "when": { "task": { "$contains": ["rewrite history", "git reset --hard"] } },
+      "then": "deny",
+      "reason": "Dangerous git operation blocked"
+    },
+    {
+      "when": { "signal_words": { "$contains": ["build", "bug"] } },
+      "then": "prefer_route",
+      "reason": "Multi-domain task: engineering",
+      "route": "route.engineering.master"
+    },
+    {
+      "when": { "signal_words": { "$contains": ["deploy", "test"] } },
+      "then": "prefer_route",
+      "reason": "Multi-domain task: platform + engineering",
+      "route": "route.platform.master"
+    },
+    {
+      "when": { "signal_words": { "$contains": ["review", "audit"] } },
+      "then": "prefer_route",
+      "reason": "Review/audit task",
+      "route": "route.engineering.code-reviewer"
+    },
+    {
+      "when": { "signal_words": { "$contains": ["security", "vulnerability"] } },
+      "then": "prefer_route",
+      "reason": "Security task",
+      "route": "route.security.master"
+    }
+  ],
+  "tiebreakers": {
+    "pipeline": {
+      "default": "route.platform.master",
+      "context": {
+        "sales pipeline": "route.sales.master",
+        "data pipeline": "route.data-ai.master",
+        "CI pipeline": "route.platform.master"
+      }
+    },
+    "review": {
+      "default": "route.engineering.code-reviewer",
+      "context": {
+        "security review": "route.security.master",
+        "legal review": "route.legal-compliance.master",
+        "design review": "route.design-content.master"
+      }
+    }
+  }
+}

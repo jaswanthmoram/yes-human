@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Yes-human Category Schema",
+  "type": "object",
+  "required": ["id", "name", "parent", "master_agent", "keywords", "children", "default_budget_band", "quality_threshold"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "parent": { "type": ["string", "null"] },
+    "master_agent": { "type": "string" },
+    "keywords": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "children": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "default_budget_band": { "type": "string", "enum": ["micro", "standard", "expanded", "deep"] },
+    "quality_threshold": { "type": "number", "minimum": 0, "maximum": 1 }
+  },
+  "additionalProperties": false
+}

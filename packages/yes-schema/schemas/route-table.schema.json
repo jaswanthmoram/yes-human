@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Yes-human Hot Route Table",
+  "type": "object",
+  "required": ["version", "fallback", "routes", "pointers"],
+  "properties": {
+    "version": { "type": "string" },
+    "generated_at": { "type": "string" },
+    "fallback": { "type": "string" },
+    "routes": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "pointers": {
+      "type": "object",
+      "required": ["aliases", "workflow_cache", "graph", "route_definitions"],
+      "properties": {
+        "aliases": { "type": "string" },
+        "workflow_cache": { "type": "string" },
+        "graph": { "type": "string" },
+        "route_definitions": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

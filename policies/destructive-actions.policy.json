@@ -1,0 +1,63 @@
+{
+  "id": "destructive-actions.policy",
+  "version": "1.0.0",
+  "description": "Dangerous operation gating and confirmation requirements",
+  "default": "allow",
+  "rules": [
+    {
+      "match": { "action": "file.delete", "path": { "$not_matches": "node_modules|dist|build|\\.tmp|\\.cache" } },
+      "decision": "ask",
+      "reason": "File deletion requires confirmation"
+    },
+    {
+      "match": { "action": "git.push", "args": { "$contains": "--force" } },
+      "decision": "deny",
+      "reason": "Force push is blocked"
+    },
+    {
+      "match": { "action": "git.push", "args": { "$contains": "-f" } },
+      "decision": "deny",
+      "reason": "Force push is blocked"
+    },
+    {
+      "match": { "action": "git.reset", "args": { "$contains": "--hard" } },
+      "decision": "ask",
+      "reason": "Hard reset requires confirmation"
+    },
+    {
+      "match": { "action": "git.clean", "args": { "$contains": "-fd" } },
+      "decision": "ask",
+      "reason": "Git clean requires confirmation"
+    },
+    {
+      "match": { "action": "database.drop" },
+      "decision": "deny",
+      "reason": "Database drop is blocked"
+    },
+    {
+      "match": { "action": "database.truncate" },
+      "decision": "ask",
+      "reason": "Database truncate requires confirmation"
+    },
+    {
+      "match": { "action": "docker.rm", "args": { "$contains": "-f" } },
+      "decision": "ask",
+      "reason": "Force docker removal requires confirmation"
+    },
+    {
+      "match": { "action": "docker.system.prune" },
+      "decision": "ask",
+      "reason": "Docker system prune requires confirmation"
+    },
+    {
+      "match": { "action": "npm.publish" },
+      "decision": "ask",
+      "reason": "NPM publish requires confirmation"
+    },
+    {
+      "match": { "action": "production.deploy" },
+      "decision": "ask",
+      "reason": "Production deployment requires confirmation"
+    }
+  ]
+}

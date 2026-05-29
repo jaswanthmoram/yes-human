@@ -1,0 +1,19 @@
+{
+  "id": "mcp-trust.policy",
+  "version": "1.0.0",
+  "description": "MCP server trust policy",
+  "applies_to": ["tool.execute"],
+  "default": "allow",
+  "rules": [
+    {
+      "match": { "tool": "mcp", "server": { "$in": ["github", "filesystem", "memory", "playwright", "sequential-thinking", "firecrawl", "exa", "context7"] } },
+      "decision": "allow",
+      "reason": "Trusted MCP server"
+    },
+    {
+      "match": { "tool": "mcp", "server": { "$not_in": ["github", "filesystem", "memory", "playwright", "sequential-thinking", "firecrawl", "exa", "context7"] } },
+      "decision": "deny",
+      "reason": "Unknown MCP server blocked"
+    }
+  ]
+}

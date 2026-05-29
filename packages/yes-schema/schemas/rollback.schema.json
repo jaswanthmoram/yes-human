@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Yes-human Rollback Schema",
+  "type": "object",
+  "required": ["change_id", "created_at", "reason", "rollback_command", "safe_to_auto_rollback"],
+  "properties": {
+    "change_id": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "reason": { "type": "string" },
+    "files_added": { "type": "array", "items": { "type": "string" } },
+    "files_modified": { "type": "array", "items": { "type": "string" } },
+    "registry_entries_added": { "type": "array", "items": { "type": "string" } },
+    "graph_edges_added": { "type": "array", "items": { "type": "string" } },
+    "previous_hashes": { "type": "object" },
+    "rollback_command": { "type": "string" },
+    "safe_to_auto_rollback": { "type": "boolean" }
+  },
+  "additionalProperties": false
+}

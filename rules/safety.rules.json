@@ -1,0 +1,39 @@
+{
+  "id": "safety.rules",
+  "version": "1.0.0",
+  "description": "Destructive action blocking and safety checks",
+  "applies_to": ["tool.execute", "file.write", "bash.execute"],
+  "default": "allow",
+  "rules": [
+    {
+      "when": { "tool": "bash", "args": { "$contains": ["rm -rf /"] } },
+      "then": "deny",
+      "reason": "Destructive filesystem operation blocked (rm -rf /)"
+    },
+    {
+      "when": { "tool": "bash", "args": { "$contains": ["rm -rf ~"] } },
+      "then": "deny",
+      "reason": "Destructive home directory operation blocked"
+    },
+    {
+      "when": { "tool": "bash", "args": { "$contains": ["git push --force", "git push -f"] } },
+      "then": "ask",
+      "reason": "Force push requires confirmation"
+    },
+    {
+      "when": { "tool": "bash", "args": { "$contains": ["git reset --hard"] } },
+      "then": "ask",
+      "reason": "Hard reset requires confirmation"
+    },
+    {
+      "when": { "tool": "bash", "args": { "$contains": ["chmod 777"] } },
+      "then": "ask",
+      "reason": "Overly permissive file permissions require confirmation"
+    },
+    {
+      "when": { "tool": "bash", "args": { "$contains": ["sudo"] } },
+      "then": "ask",
+      "reason": "Sudo command requires confirmation"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Yes-human Source Reference Schema",
+  "type": "object",
+  "required": ["id", "topic", "created_at", "sources", "minimum_sources_met", "license_risk", "reviewed_by"],
+  "properties": {
+    "id": { "type": "string" },
+    "topic": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["url", "kind", "stars", "license", "used_for"],
+        "properties": {
+          "url": { "type": "string", "format": "uri" },
+          "kind": { "type": "string", "enum": ["github_repo", "official_docs", "standards_doc", "research_paper", "vendor_docs", "technical_blog"] },
+          "stars": { "type": "integer", "minimum": 0 },
+          "license": { "type": "string" },
+          "commit": { "type": "string" },
+          "used_for": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "minimum_sources_met": { "type": "boolean" },
+    "license_risk": { "type": "string", "enum": ["low", "medium", "high", "unacceptable"] },
+    "reviewed_by": { "type": "string" }
+  },
+  "additionalProperties": false
+}

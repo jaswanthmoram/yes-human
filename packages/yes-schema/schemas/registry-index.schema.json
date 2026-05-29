@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Yes-human Registry Index",
+  "type": "object",
+  "required": ["version", "generated_at", "count", "items"],
+  "properties": {
+    "version": { "type": "string" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "count": { "type": "integer", "minimum": 0 },
+    "items": { "type": "array" }
+  },
+  "additionalProperties": false
+}

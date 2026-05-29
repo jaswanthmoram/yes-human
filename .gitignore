@@ -1,0 +1,15 @@
+node_modules/
+.venv/
+__pycache__/
+.DS_Store
+.cursor/hooks/state/
+graph/indexes/yes.sqlite
+graph/embeddings/
+graph/snapshots/
+graph/memory/
+generated/
+staging/incoming/
+
+*.log
+.env
+.env.*

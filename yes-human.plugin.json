@@ -1,0 +1,28 @@
+{
+  "id": "yes-human",
+  "name": "Yes-human",
+  "version": "2.0.0",
+  "schema_version": "2.0",
+  "description": "Portable low-token agentic control plane",
+  "license": "MIT-or-Apache-2.0",
+  "homepage": "https://github.com/moramvenkatasatyajaswanth/yes-human",
+  "runtime": {
+    "node": ">=20",
+    "python": ">=3.11",
+    "sqlite": ">=3.40"
+  },
+  "startup": {
+    "boot_file": "YES_BOOT.md",
+    "route_table": "graph/indexes/ROUTE_TABLE.min.json",
+    "target_tokens": 180,
+    "hard_cap_tokens": 300
+  },
+  "exports": ["claude", "codex", "opencode", "agent-md", "cli", "mcp", "cursor", "windsurf", "generic"],
+  "registries": {
+    "agents": "registry/agents.json",
+    "skills": "registry/skills.json",
+    "workflows": "registry/workflows.json",
+    "tools": "registry/tools.json",
+    "mcps": "registry/mcps.json"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "version": "2.0.0",
+  "generated_at": "2026-05-29T00:00:00Z",
+  "count": 7,
+  "items": [
+    {
+      "name": "firecrawl",
+      "type": "local",
+      "package": "firecrawl-mcp",
+      "env_var": "FIRECRAWL_API_KEY",
+      "enabled": true,
+      "description": "MCP server for Firecrawl — search, scrape, and interact with the web"
+    },
+    {
+      "name": "exa",
+      "type": "local",
+      "package": "exa-mcp-server",
+      "env_var": "EXA_API_KEY",
+      "enabled": true,
+      "description": "MCP server with Exa for web search and web crawling"
+    },
+    {
+      "name": "github",
+      "type": "local",
+      "package": "@modelcontextprotocol/server-github",
+      "enabled": true,
+      "description": "GitHub MCP server for repository operations",
+      "source": "ECC"
+    },
+    {
+      "name": "context7",
+      "type": "local",
+      "package": "@upstash/context7-mcp",
+      "enabled": true,
+      "description": "Context7 MCP for documentation lookup",
+      "source": "ECC"
+    },
+    {
+      "name": "memory",
+      "type": "local",
+      "package": "@modelcontextprotocol/server-memory",
+      "enabled": true,
+      "description": "Memory MCP server for persistent context",
+      "source": "ECC"
+    },
+    {
+      "name": "playwright",
+      "type": "local",
+      "package": "@playwright/mcp",
+      "enabled": true,
+      "description": "Playwright MCP for browser automation",
+      "source": "ECC"
+    },
+    {
+      "name": "sequential-thinking",
+      "type": "local",
+      "package": "@modelcontextprotocol/server-sequential-thinking",
+      "enabled": true,
+      "description": "Sequential thinking MCP for structured reasoning",
+      "source": "ECC"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "licensing.policy",
+  "version": "1.0.0",
+  "description": "License compliance policy",
+  "applies_to": ["absorb", "import"],
+  "default": "deny",
+  "rules": [
+    {
+      "match": { "license": { "$in": ["MIT", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "ISC", "Unlicense", "CC0-1.0"] } },
+      "decision": "allow",
+      "reason": "Permissive license allowed"
+    },
+    {
+      "match": { "license": { "$in": ["GPL-2.0", "GPL-3.0", "LGPL-2.1", "LGPL-3.0", "MPL-2.0"] } },
+      "decision": "ask",
+      "reason": "Copyleft license requires review"
+    },
+    {
+      "match": { "license": { "$in": ["AGPL-3.0", "SSPL", "EUPL-1.2"] } },
+      "decision": "deny",
+      "reason": "Strong copyleft license blocked"
+    },
+    {
+      "match": { "license": "UNKNOWN" },
+      "decision": "deny",
+      "reason": "Unknown license blocked"
+    },
+    {
+      "match": { "license": "PROPRIETARY" },
+      "decision": "deny",
+      "reason": "Proprietary license blocked"
+    }
+  ]
+}

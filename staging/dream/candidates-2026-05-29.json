@@ -1,0 +1,224 @@
+[
+  {
+    "type": "skill",
+    "pattern": "Successful route.engineering.master tasks",
+    "count": 21,
+    "avg_duration": 5500,
+    "examples": [
+      {
+        "task": "build feature",
+        "duration": 5000,
+        "timestamp": "2026-05-29T17:19:56.802Z"
+      },
+      {
+        "task": "build another feature",
+        "duration": 6000,
+        "timestamp": "2026-05-29T17:19:56.806Z"
+      },
+      {
+        "task": "build third feature",
+        "duration": 5500,
+        "timestamp": "2026-05-29T17:19:56.807Z"
+      },
+      {
+        "task": "build feature",
+        "duration": 5000,
+        "timestamp": "2026-05-29T17:20:14.697Z"
+      },
+      {
+        "task": "build another feature",
+        "duration": 6000,
+        "timestamp": "2026-05-29T17:20:14.701Z"
+      }
+    ],
+    "recommendation": "Consider promoting to skill registry",
+    "priority": "high"
+  },
+  {
+    "type": "skill",
+    "pattern": "Successful undefined tasks",
+    "count": 7,
+    "avg_duration": 0,
+    "examples": [
+      {
+        "task": "build React app",
+        "timestamp": "2026-05-29T17:19:56.835Z"
+      },
+      {
+        "task": "build React app",
+        "timestamp": "2026-05-29T17:20:14.795Z"
+      },
+      {
+        "task": "build React app",
+        "timestamp": "2026-05-29T17:23:32.471Z"
+      },
+      {
+        "task": "build React app",
+        "timestamp": "2026-05-29T17:24:00.583Z"
+      },
+      {
+        "task": "build React app",
+        "timestamp": "2026-05-29T17:24:15.733Z"
+      }
+    ],
+    "recommendation": "Consider promoting to skill registry",
+    "priority": "medium"
+  },
+  {
+    "type": "skill",
+    "pattern": "Successful route.engineering.code-reviewer tasks",
+    "count": 42,
+    "avg_duration": 3333,
+    "examples": [
+      {
+        "task": "review code 0",
+        "duration": 3000,
+        "timestamp": "2026-05-29T17:19:56.838Z"
+      },
+      {
+        "task": "review code 1",
+        "duration": 3000,
+        "timestamp": "2026-05-29T17:19:56.841Z"
+      },
+      {
+        "task": "review code 2",
+        "duration": 3000,
+        "timestamp": "2026-05-29T17:19:56.841Z"
+      },
+      {
+        "task": "review code 3",
+        "duration": 3000,
+        "timestamp": "2026-05-29T17:19:56.842Z"
+      },
+      {
+        "task": "review code 4",
+        "duration": 3000,
+        "timestamp": "2026-05-29T17:19:56.842Z"
+      }
+    ],
+    "recommendation": "Consider promoting to skill registry",
+    "priority": "high"
+  },
+  {
+    "type": "skill",
+    "pattern": "Successful route.test tasks",
+    "count": 21,
+    "avg_duration": 1000,
+    "examples": [
+      {
+        "task": "test task",
+        "duration": 1000,
+        "timestamp": "2026-05-29T17:19:56.854Z"
+      },
+      {
+        "task": "test task",
+        "duration": 1000,
+        "timestamp": "2026-05-29T17:19:56.883Z"
+      },
+      {
+        "task": "test task",
+        "duration": 1000,
+        "timestamp": "2026-05-29T17:19:56.886Z"
+      },
+      {
+        "task": "test task",
+        "duration": 1000,
+        "timestamp": "2026-05-29T17:20:14.754Z"
+      },
+      {
+        "task": "test task",
+        "duration": 1000,
+        "timestamp": "2026-05-29T17:20:14.773Z"
+      }
+    ],
+    "recommendation": "Consider promoting to skill registry",
+    "priority": "high"
+  },
+  {
+    "type": "lesson",
+    "pattern": "Failed route.test tasks",
+    "count": 21,
+    "examples": [
+      {
+        "task": "failing task 0",
+        "duration": 2000,
+        "timestamp": "2026-05-29T17:19:56.872Z"
+      },
+      {
+        "task": "failing task 1",
+        "duration": 2000,
+        "timestamp": "2026-05-29T17:19:56.872Z"
+      },
+      {
+        "task": "failing task 2",
+        "duration": 2000,
+        "timestamp": "2026-05-29T17:19:56.872Z"
+      },
+      {
+        "task": "failing task 0",
+        "duration": 2000,
+        "timestamp": "2026-05-29T17:20:14.762Z"
+      },
+      {
+        "task": "failing task 1",
+        "duration": 2000,
+        "timestamp": "2026-05-29T17:20:14.763Z"
+      }
+    ],
+    "recommendation": "Extract lesson and add to semantic memory",
+    "priority": "high"
+  },
+  {
+    "type": "mistake",
+    "pattern": "timeout errors",
+    "count": 21,
+    "common_tools": "webfetch(21)",
+    "examples": [
+      {
+        "error_message": "Request timeout",
+        "task": "fetch url 0",
+        "tool": "webfetch",
+        "timestamp": "2026-05-29T17:19:56.848Z"
+      },
+      {
+        "error_message": "Request timeout",
+        "task": "fetch url 1",
+        "tool": "webfetch",
+        "timestamp": "2026-05-29T17:19:56.849Z"
+      },
+      {
+        "error_message": "Request timeout",
+        "task": "fetch url 2",
+        "tool": "webfetch",
+        "timestamp": "2026-05-29T17:19:56.849Z"
+      }
+    ],
+    "recommendation": "Add to mistake graph for future avoidance",
+    "priority": "high"
+  },
+  {
+    "type": "mistake",
+    "pattern": "unknown errors",
+    "count": 7,
+    "common_tools": "",
+    "examples": [
+      {
+        "error_message": "test error",
+        "task": "test task",
+        "timestamp": "2026-05-29T17:19:56.858Z"
+      },
+      {
+        "error_message": "test error",
+        "task": "test task",
+        "timestamp": "2026-05-29T17:20:14.973Z"
+      },
+      {
+        "error_message": "test error",
+        "task": "test task",
+        "timestamp": "2026-05-29T17:23:32.501Z"
+      }
+    ],
+    "recommendation": "Add to mistake graph for future avoidance",
+    "priority": "high"
+  }
+]

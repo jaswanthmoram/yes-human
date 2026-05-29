@@ -1,0 +1,44 @@
+{
+  "id": "budget.rules",
+  "version": "1.0.0",
+  "description": "Token budget constraints and enforcement",
+  "applies_to": ["route", "tool.execute", "file.write"],
+  "default": "deny",
+  "rules": [
+    {
+      "when": { "estimatedTokens": { "$lte": 180 } },
+      "then": "allow",
+      "reason": "Within startup budget (180 tokens)"
+    },
+    {
+      "when": { "estimatedTokens": { "$gt": 180, "$lte": 300 } },
+      "then": "ask",
+      "reason": "Exceeds startup budget, requires approval (hard cap: 300 tokens)"
+    },
+    {
+      "when": { "estimatedTokens": { "$gt": 300 } },
+      "then": "deny",
+      "reason": "Exceeds hard cap (300 tokens)"
+    },
+    {
+      "when": { "budget_band": "micro", "estimatedTokens": { "$gt": 4000 } },
+      "then": "deny",
+      "reason": "Exceeds micro budget band (4000 tokens)"
+    },
+    {
+      "when": { "budget_band": "standard", "estimatedTokens": { "$gt": 16000 } },
+      "then": "deny",
+      "reason": "Exceeds standard budget band (16000 tokens)"
+    },
+    {
+      "when": { "budget_band": "expanded", "estimatedTokens": { "$gt": 64000 } },
+      "then": "deny",
+      "reason": "Exceeds expanded budget band (64000 tokens)"
+    },
+    {
+      "when": { "budget_band": "deep", "estimatedTokens": { "$gt": 128000 } },
+      "then": "ask",
+      "reason": "Deep budget band requires approval (128000 tokens)"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": "route-state-machine",
+  "version": "1.0.0",
+  "description": "Task routing + execution lifecycle (architecture §17A.2).",
+  "initial": "received",
+  "states": [
+    { "name": "received", "type": "normal", "description": "User prompt received" },
+    { "name": "pre_route", "type": "normal", "description": "pre-route hook: normalize, budget, safety" },
+    { "name": "routed", "type": "normal", "description": "route resolved (exact/alias/keyword/fallback)" },
+    { "name": "agent_loaded", "type": "normal", "description": "context pack loaded for selected agent" },
+    { "name": "tool_gate", "type": "gate", "gate": "ask", "description": "pre-tool policy gate" },
+    { "name": "executing", "type": "normal", "description": "tool/agent execution" },
+    { "name": "write_gate", "type": "gate", "gate": "ask", "description": "pre-write scope/policy gate" },
+    { "name": "verifying", "type": "normal", "description": "validators + verification command" },
+    { "name": "complete", "type": "terminal", "description": "on-task-complete: trace + mistake graph" },
+    { "name": "blocked", "type": "terminal", "description": "denied by policy or budget" },
+    { "name": "failed", "type": "terminal", "description": "on-error: classified failure" }
+  ],
+  "transitions": [
+    { "from": "received", "on": "start", "to": "pre_route" },
+    { "from": "pre_route", "on": "allowed", "to": "routed" },
+    { "from": "pre_route", "on": "denied", "to": "blocked", "reason": "budget/safety/loop gate" },
+    { "from": "routed", "on": "agent_selected", "to": "agent_loaded" },
+    { "from": "agent_loaded", "on": "needs_tool", "to": "tool_gate" },
+    { "from": "agent_loaded", "on": "no_tool", "to": "verifying" },
+    { "from": "tool_gate", "on": "allow", "to": "executing" },
+    { "from": "tool_gate", "on": "deny", "to": "blocked" },
+    { "from": "executing", "on": "needs_write", "to": "write_gate" },
+    { "from": "executing", "on": "read_only_done", "to": "verifying" },
+    { "from": "write_gate", "on": "allow", "to": "verifying" },
+    { "from": "write_gate", "on": "deny", "to": "blocked" },
+    { "from": "verifying", "on": "passed", "to": "complete" },
+    { "from": "verifying", "on": "error", "to": "failed" },
+    { "from": "executing", "on": "error", "to": "failed" }
+  ]
+}

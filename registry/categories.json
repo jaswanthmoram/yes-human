@@ -1,0 +1,57 @@
+{
+  "version": "2.0.0",
+  "generated_at": "2026-05-29T16:45:00Z",
+  "count": 5,
+  "items": [
+    {
+      "id": "engineering",
+      "name": "Software Engineering",
+      "parent": null,
+      "master_agent": "engineering.master",
+      "keywords": ["code", "refactor", "bug", "compiler", "pr", "diff"],
+      "children": ["engineering.language-review"],
+      "default_budget_band": "standard",
+      "quality_threshold": 0.85
+    },
+    {
+      "id": "engineering.language-review",
+      "name": "Language and Code Review",
+      "parent": "engineering",
+      "master_agent": "engineering.master",
+      "keywords": ["review code", "code review", "build error", "fix build"],
+      "children": [],
+      "default_budget_band": "standard",
+      "quality_threshold": 0.85
+    },
+    {
+      "id": "security",
+      "name": "Security and Risk Mitigation",
+      "parent": null,
+      "master_agent": "security.master",
+      "keywords": ["vulnerability", "cve", "threat model", "leak", "secret scan"],
+      "children": [],
+      "default_budget_band": "standard",
+      "quality_threshold": 0.90
+    },
+    {
+      "id": "platform",
+      "name": "Platform and DevOps",
+      "parent": null,
+      "master_agent": "platform.master",
+      "keywords": ["deploy", "ci/cd", "kubernetes", "infra", "observability", "incident"],
+      "children": [],
+      "default_budget_band": "standard",
+      "quality_threshold": 0.85
+    },
+    {
+      "id": "meta-system",
+      "name": "Meta-System Operations",
+      "parent": null,
+      "master_agent": "meta-system.master",
+      "keywords": ["supreme-router", "route", "system error", "compile registry"],
+      "children": [],
+      "default_budget_band": "micro",
+      "quality_threshold": 0.95
+    }
+  ]
+}

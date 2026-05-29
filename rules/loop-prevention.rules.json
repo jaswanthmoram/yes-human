@@ -1,0 +1,34 @@
+{
+  "id": "loop-prevention.rules",
+  "version": "1.0.0",
+  "description": "Loop prevention and depth limiting (from AgentMaster pattern)",
+  "applies_to": ["route"],
+  "default": "allow",
+  "rules": [
+    {
+      "when": { "depth": { "$gt": 2 } },
+      "then": "deny",
+      "reason": "Max routing depth (2) exceeded"
+    },
+    {
+      "when": { "visited": { "$contains_current_route": true } },
+      "then": "deny",
+      "reason": "Circular route detected"
+    },
+    {
+      "when": { "self_invocation": true },
+      "then": "deny",
+      "reason": "Self-invocation blocked"
+    },
+    {
+      "when": { "visited_count": { "$gt": 5 } },
+      "then": "deny",
+      "reason": "Too many route visits (>5)"
+    },
+    {
+      "when": { "recursion_detected": true },
+      "then": "deny",
+      "reason": "Recursion detected and blocked"
+    }
+  ]
+}

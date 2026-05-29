@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Yes-human MCP Binding Schema",
+  "type": "object",
+  "required": ["id", "provider", "kind", "purpose", "required_auth", "trust_level"],
+  "properties": {
+    "id": { "type": "string" },
+    "provider": { "type": "string" },
+    "kind": { "type": "string", "enum": ["mcp", "shell", "http"] },
+    "purpose": { "type": "string" },
+    "required_auth": { "type": "boolean" },
+    "trust_level": { "type": "string", "enum": ["trusted", "reviewed", "untrusted"] },
+    "allowed_agents": { "type": "array", "items": { "type": "string" } },
+    "allowed_workflows": { "type": "array", "items": { "type": "string" } },
+    "cost_profile": { "type": "string" },
+    "fallback": { "type": "string" },
+    "policy": { "type": "string" }
+  },
+  "additionalProperties": false
+}

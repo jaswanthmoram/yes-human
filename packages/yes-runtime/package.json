@@ -1,0 +1,9 @@
+{
+  "name": "@yes-human/runtime",
+  "version": "2.0.0",
+  "description": "Yes-human execution runtime and tool wrappers",
+  "main": "index.js",
+  "private": true,
+  "type": "module",
+  "dependencies": {}
+}

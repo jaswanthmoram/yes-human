@@ -1,0 +1,107 @@
+{
+  "version": "2.0.0",
+  "generated_at": "2026-05-29T00:00:00Z",
+  "count": 5,
+  "items": [
+    {
+      "id": "engineering.code-review-with-security",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "Review changed code for quality and security in parallel, then merge findings by severity.",
+      "task_family": "code_review",
+      "inputs": ["changed_files", "diff", "project_rules"],
+      "outputs": ["findings", "severity_ordered_report", "test_gaps"],
+      "route": {
+        "domain_master": "engineering.master",
+        "agents": ["engineering.code-reviewer", "security.master"],
+        "parallel": true,
+        "max_parallel_agents": 2
+      },
+      "budget": { "band": "expanded", "max_context_tokens": 3500, "max_tool_calls": 12 },
+      "gates": ["pre-route", "pre-tool", "post-tool", "on-task-complete"],
+      "verification": ["lint_if_available", "test_if_available", "security_scan_if_available"],
+      "rollback": "trace_based",
+      "promotion": { "can_learn": true, "min_successes_before_update": 2 }
+    },
+    {
+      "id": "engineering.fix-build-error",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "Diagnose a build/compile failure from logs and apply the minimal fix, then re-run the build.",
+      "task_family": "build_repair",
+      "inputs": ["build_log", "changed_files"],
+      "outputs": ["root_cause", "fix_suggestions", "build_result"],
+      "route": {
+        "domain_master": "engineering.master",
+        "agents": ["engineering.build-resolver"],
+        "parallel": false,
+        "max_parallel_agents": 1
+      },
+      "budget": { "band": "standard", "max_context_tokens": 2000, "max_tool_calls": 8 },
+      "gates": ["pre-route", "pre-tool", "pre-write", "post-tool"],
+      "verification": ["build_passes", "test_if_available"],
+      "rollback": "trace_based",
+      "promotion": { "can_learn": true, "min_successes_before_update": 2 }
+    },
+    {
+      "id": "engineering.tdd-feature",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "Implement a feature or bug fix via red-green-refactor with a failing test first.",
+      "task_family": "feature_dev",
+      "inputs": ["task_description", "test_command"],
+      "outputs": ["failing_test", "implementation", "verification_summary"],
+      "route": {
+        "domain_master": "engineering.master",
+        "agents": ["engineering.tdd-guide"],
+        "parallel": false,
+        "max_parallel_agents": 1
+      },
+      "budget": { "band": "standard", "max_context_tokens": 2500, "max_tool_calls": 10 },
+      "gates": ["pre-route", "pre-write", "post-tool", "on-task-complete"],
+      "verification": ["test_runs_red_then_green", "relevant_suite_passes"],
+      "rollback": "trace_based",
+      "promotion": { "can_learn": true, "min_successes_before_update": 2 }
+    },
+    {
+      "id": "engineering.repo-onboarding",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "Build a high-level understanding of an unfamiliar repo and its architecture before changes.",
+      "task_family": "onboarding",
+      "inputs": ["repo_path", "goal"],
+      "outputs": ["architecture_overview", "key_modules", "risk_notes"],
+      "route": {
+        "domain_master": "engineering.master",
+        "agents": ["engineering.architect"],
+        "parallel": false,
+        "max_parallel_agents": 1
+      },
+      "budget": { "band": "expanded", "max_context_tokens": 4000, "max_tool_calls": 10 },
+      "gates": ["pre-route", "pre-tool"],
+      "verification": ["overview_cites_real_files"],
+      "rollback": "no_write",
+      "promotion": { "can_learn": true, "min_successes_before_update": 2 }
+    },
+    {
+      "id": "engineering.docs-update",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "Reconcile documentation with actual current code behavior after a change.",
+      "task_family": "documentation",
+      "inputs": ["changed_files", "existing_docs"],
+      "outputs": ["updated_docs", "changelog_note"],
+      "route": {
+        "domain_master": "engineering.master",
+        "agents": ["engineering.docs-updater"],
+        "parallel": false,
+        "max_parallel_agents": 1
+      },
+      "budget": { "band": "standard", "max_context_tokens": 2000, "max_tool_calls": 8 },
+      "gates": ["pre-route", "pre-write", "post-tool"],
+      "verification": ["doc_examples_match_current_api"],
+      "rollback": "trace_based",
+      "promotion": { "can_learn": true, "min_successes_before_update": 2 }
+    }
+  ]
+}

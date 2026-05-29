@@ -1,0 +1,21 @@
+{
+  "domain": "seed",
+  "description": "Seed routing fixtures across existing routes plus fallback and negative-keyword cases.",
+  "fixtures": [
+    { "prompt": "review code", "expected_route": "route.engineering.code-reviewer" },
+    { "prompt": "code review", "expected_route": "route.engineering.code-reviewer" },
+    { "prompt": "cr", "expected_route": "route.engineering.code-reviewer" },
+    { "prompt": "pr review", "expected_route": "route.engineering.code-reviewer" },
+    { "prompt": "please review code for me", "expected_route": "route.engineering.code-reviewer" },
+    { "prompt": "fix build", "expected_route": "route.engineering.build-resolver" },
+    { "prompt": "build error", "expected_route": "route.engineering.build-resolver" },
+    { "prompt": "I hit a build error in CI", "expected_route": "route.engineering.build-resolver" },
+    { "prompt": "software development", "expected_route": "route.engineering.master" },
+    { "prompt": "security review", "expected_route": "route.security.master" },
+    { "prompt": "run a vulnerability scan", "expected_route": "route.security.master" },
+    { "prompt": "devops deploy", "expected_route": "route.platform.master" },
+    { "prompt": "incident response", "expected_route": "route.platform.master" },
+    { "prompt": "do something totally unrelated like cooking", "expected_route": "route.meta-system.supreme-router" },
+    { "prompt": "legal review code", "expected_route": "route.meta-system.supreme-router" }
+  ]
+}

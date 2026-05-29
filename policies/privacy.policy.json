@@ -1,0 +1,39 @@
+{
+  "id": "privacy.policy",
+  "version": "1.0.0",
+  "description": "Privacy and data protection policy",
+  "applies_to": ["file.write", "tool.execute", "network.request"],
+  "default": "allow",
+  "rules": [
+    {
+      "match": { "content": { "$matches": "sk-[a-zA-Z0-9]{20,}" } },
+      "decision": "deny",
+      "reason": "OpenAI API key detected"
+    },
+    {
+      "match": { "content": { "$matches": "ghp_[a-zA-Z0-9]{20,}" } },
+      "decision": "deny",
+      "reason": "GitHub personal access token detected"
+    },
+    {
+      "match": { "content": { "$matches": "AKIA[0-9A-Z]{16}" } },
+      "decision": "deny",
+      "reason": "AWS access key detected"
+    },
+    {
+      "match": { "content": { "$matches": "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}" } },
+      "decision": "ask",
+      "reason": "Email address detected in content"
+    },
+    {
+      "match": { "content": { "$matches": "\\b\\d{3}-\\d{2}-\\d{4}\\b" } },
+      "decision": "deny",
+      "reason": "Social Security Number detected"
+    },
+    {
+      "match": { "content": { "$matches": "\\b\\d{4}[- ]?\\d{4}[- ]?\\d{4}[- ]?\\d{4}\\b" } },
+      "decision": "deny",
+      "reason": "Credit card number detected"
+    }
+  ]
+}

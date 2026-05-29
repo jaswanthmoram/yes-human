@@ -1,0 +1,291 @@
+[
+  {
+    "route_id": "route.meta-system.supreme-router",
+    "match": {
+      "keywords": [
+        "help",
+        "route"
+      ],
+      "aliases": [],
+      "negative_keywords": []
+    },
+    "target": {
+      "domain_master": "meta-system.master",
+      "agent": "meta-system.supreme-router",
+      "skills": [],
+      "workflow": "workflow.meta-system.route-task"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "micro",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.engineering.build-resolver",
+    "match": {
+      "keywords": [
+        "fix build",
+        "build error"
+      ],
+      "aliases": [],
+      "negative_keywords": []
+    },
+    "target": {
+      "domain_master": "engineering.master",
+      "agent": "engineering.build-resolver",
+      "skills": [],
+      "workflow": "workflow.engineering.build-resolver"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.engineering.code-reviewer",
+    "match": {
+      "keywords": [
+        "review code",
+        "code review"
+      ],
+      "aliases": [
+        "cr",
+        "pr review"
+      ],
+      "negative_keywords": [
+        "legal review",
+        "tax review"
+      ]
+    },
+    "target": {
+      "domain_master": "engineering.master",
+      "agent": "engineering.code-reviewer",
+      "skills": [],
+      "workflow": "workflow.engineering.code-reviewer"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.engineering.master",
+    "match": {
+      "keywords": [
+        "engineering task",
+        "software development"
+      ],
+      "aliases": [],
+      "negative_keywords": []
+    },
+    "target": {
+      "domain_master": "engineering.master",
+      "agent": "engineering.master",
+      "skills": [],
+      "workflow": "workflow.engineering.master"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.meta-system.master",
+    "match": {
+      "keywords": [
+        "supreme-router",
+        "system route",
+        "system compile"
+      ],
+      "aliases": [],
+      "negative_keywords": []
+    },
+    "target": {
+      "domain_master": "meta-system.master",
+      "agent": "meta-system.master",
+      "skills": [],
+      "workflow": "workflow.meta-system.master"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "micro",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.platform.master",
+    "match": {
+      "keywords": [
+        "devops deploy",
+        "ci configuration",
+        "incident response"
+      ],
+      "aliases": [],
+      "negative_keywords": []
+    },
+    "target": {
+      "domain_master": "platform.master",
+      "agent": "platform.master",
+      "skills": [],
+      "workflow": "workflow.platform.master"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.security.master",
+    "match": {
+      "keywords": [
+        "security review",
+        "penetration test",
+        "vulnerability scan"
+      ],
+      "aliases": [],
+      "negative_keywords": []
+    },
+    "target": {
+      "domain_master": "security.master",
+      "agent": "security.master",
+      "skills": [],
+      "workflow": "workflow.security.master"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.engineering.architect",
+    "match": {
+      "keywords": [
+        "system design",
+        "architecture review",
+        "design the architecture",
+        "architecture decision record",
+        "high level design"
+      ],
+      "aliases": [
+        "architect"
+      ],
+      "negative_keywords": [
+        "security review",
+        "code review"
+      ]
+    },
+    "target": {
+      "domain_master": "engineering.master",
+      "agent": "engineering.architect",
+      "skills": [
+        "engineering.architecture-decision-records"
+      ],
+      "workflow": "workflow.engineering.architect"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "expanded",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.engineering.docs-updater",
+    "match": {
+      "keywords": [
+        "update docs",
+        "update documentation",
+        "write documentation",
+        "update readme",
+        "document the api"
+      ],
+      "aliases": [
+        "docs"
+      ],
+      "negative_keywords": [
+        "legal document",
+        "contract document"
+      ]
+    },
+    "target": {
+      "domain_master": "engineering.master",
+      "agent": "engineering.docs-updater",
+      "skills": [
+        "engineering.documentation"
+      ],
+      "workflow": "workflow.engineering.docs-updater"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.engineering.tdd-guide",
+    "match": {
+      "keywords": [
+        "tdd",
+        "test driven development",
+        "red green refactor",
+        "write failing test",
+        "test first"
+      ],
+      "aliases": [
+        "tdd guide"
+      ],
+      "negative_keywords": [
+        "load test",
+        "penetration test"
+      ]
+    },
+    "target": {
+      "domain_master": "engineering.master",
+      "agent": "engineering.tdd-guide",
+      "skills": [
+        "engineering.tdd"
+      ],
+      "workflow": "workflow.engineering.tdd-guide"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
+  }
+]

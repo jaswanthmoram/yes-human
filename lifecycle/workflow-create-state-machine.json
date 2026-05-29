@@ -1,0 +1,25 @@
+{
+  "id": "workflow-create-state-machine",
+  "version": "1.0.0",
+  "description": "Promote a repeated task trace into a reusable workflow, eval-gated (§15, §17A, §30.7).",
+  "initial": "trace_detected",
+  "states": [
+    { "name": "trace_detected", "type": "normal", "description": "on-task-complete recorded a trace" },
+    { "name": "pattern_match", "type": "normal", "description": "on-workflow-suggest: repeated pattern detected" },
+    { "name": "candidate", "type": "normal", "description": "workflow candidate drafted from traces" },
+    { "name": "validation", "type": "normal", "description": "workflow.validator: inputs/outputs/gates/success" },
+    { "name": "eval_gate", "type": "gate", "gate": "ask", "description": "eval gate: routing + cost + security must still pass" },
+    { "name": "promoted", "type": "terminal", "description": "workflow added to registry, staged candidate cleared" },
+    { "name": "rejected", "type": "terminal", "description": "validation or eval failed" }
+  ],
+  "transitions": [
+    { "from": "trace_detected", "on": "recurring", "to": "pattern_match" },
+    { "from": "trace_detected", "on": "one_off", "to": "rejected" },
+    { "from": "pattern_match", "on": "draft", "to": "candidate" },
+    { "from": "candidate", "on": "validate", "to": "validation" },
+    { "from": "validation", "on": "valid", "to": "eval_gate" },
+    { "from": "validation", "on": "invalid", "to": "rejected" },
+    { "from": "eval_gate", "on": "passed", "to": "promoted", "guard": "min_successes>=2 && cost_regression<5%" },
+    { "from": "eval_gate", "on": "failed", "to": "rejected" }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "version": "1.0.0",
+  "description": "Hook registry for yes-human lifecycle events",
+  "hooks": [
+    {
+      "id": "hook.pre-route.budget-safety",
+      "event": "pre-route",
+      "runtime": "node",
+      "entry": "hooks/pre-route.js",
+      "inputs": ["task", "estimatedTokens", "context"],
+      "outputs": ["modified_task", "block_reason"],
+      "policy_dependencies": ["budget.rules.json", "safety.rules.json"],
+      "host_support": {
+        "cli": "native",
+        "mcp": "wrapper",
+        "opencode": "plugin",
+        "cursor": "wrapper"
+      }
+    },
+    {
+      "id": "hook.pre-tool.permission-strategy",
+      "event": "pre-tool",
+      "runtime": "node",
+      "entry": "hooks/pre-tool.js",
+      "inputs": ["tool", "args", "agent"],
+      "outputs": ["modified_tool", "fallback_chain", "block_reason"],
+      "policy_dependencies": ["tool-use.rules.json", "mcp-trust.policy.json"],
+      "host_support": {
+        "cli": "native",
+        "mcp": "native",
+        "opencode": "plugin"
+      }
+    },
+    {
+      "id": "hook.pre-write.policy-contract",
+      "event": "pre-write",
+      "runtime": "node",
+      "entry": "hooks/pre-write.js",
+      "inputs": ["filePath", "content", "agent"],
+      "outputs": ["allowed", "block_reason"],
+      "policy_dependencies": ["filesystem.policy.json", "privacy.policy.json"],
+      "host_support": {
+        "cli": "native",
+        "opencode": "plugin"
+      }
+    },
+    {
+      "id": "hook.post-tool.audit-learning",
+      "event": "post-tool",
+      "runtime": "node",
+      "entry": "hooks/post-tool.js",
+      "inputs": ["tool", "args", "result", "duration"],
+      "outputs": ["logged"],
+      "policy_dependencies": ["telemetry.policy.json"],
+      "host_support": {
+        "cli": "native",
+        "mcp": "wrapper",
+        "opencode": "plugin"
+      }
+    },
+    {
+      "id": "hook.on-error.mistake-graph",
+      "event": "on-error",
+      "runtime": "node",
+      "entry": "hooks/on-error.js",
+      "inputs": ["error", "task", "agent"],
+      "outputs": ["handled"],
+      "policy_dependencies": [],
+      "host_support": {
+        "cli": "native",
+        "opencode": "plugin"
+      }
+    },
+    {
+      "id": "hook.on-task-complete.trace-ledger",
+      "event": "on-task-complete",
+      "runtime": "node",
+      "entry": "hooks/on-task-complete.js",
+      "inputs": ["task", "route", "agents", "duration", "success"],
+      "outputs": ["recorded"],
+      "policy_dependencies": ["telemetry.policy.json"],
+      "host_support": {
+        "cli": "native",
+        "opencode": "plugin"
+      }
+    },
+    {
+      "id": "hook.on-absorb.provenance-license",
+      "event": "on-absorb",
+      "runtime": "node",
+      "entry": "hooks/on-absorb.js",
+      "inputs": ["source", "content", "agent"],
+      "outputs": ["absorbed", "block_reason"],
+      "policy_dependencies": ["licensing.policy.json", "source-mining.rules.json"],
+      "host_support": {
+        "cli": "native",
+        "opencode": "plugin"
+      }
+    }
+  ]
+}

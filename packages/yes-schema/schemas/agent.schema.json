@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Yes-human Agent Frontmatter",
+  "type": "object",
+  "required": [
+    "id", "name", "version", "status", "category", "kind", "summary", 
+    "triggers", "inputs", "outputs", "allowed_tools", "budget_band", 
+    "max_context_tokens", "failure_modes", "verification", "source_references", "quality_gate"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:-[0-9A-Za-z.-]+)?$" },
+    "status": { "type": "string", "enum": ["active", "draft", "retired", "experimental"] },
+    "category": { "type": "string" },
+    "kind": { "type": "string", "enum": ["specialist", "master", "meta", "orchestrator"] },
+    "summary": { "type": "string" },
+    "triggers": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "aliases": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "negative_keywords": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "inputs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "outputs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "allowed_tools": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "required_skills": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "budget_band": { "type": "string", "enum": ["micro", "standard", "expanded", "deep"] },
+    "max_context_tokens": { "type": "integer", "minimum": 0 },
+    "failure_modes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "verification": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "source_references": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "quality_gate": { "type": "string", "enum": ["draft", "staging", "production"] }
+  },
+  "additionalProperties": false
+}

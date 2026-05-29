@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Yes-human Host Bundle Schema",
+  "type": "object",
+  "required": ["host", "generated_at", "boot_file", "files"],
+  "properties": {
+    "host": {
+      "type": "string",
+      "enum": ["claude", "codex", "opencode", "agent-md", "cli", "mcp", "cursor", "windsurf", "vscode", "sourcegraph", "generic"]
+    },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "boot_file": { "type": "string" },
+    "route_table": { "type": "string" },
+    "files": { "type": "array", "items": { "type": "string" } },
+    "validation": {
+      "type": "object",
+      "properties": {
+        "boot_under_cap": { "type": "boolean" },
+        "routes_resolve": { "type": "boolean" },
+        "commands_valid": { "type": "boolean" },
+        "hooks_status": { "type": "string", "enum": ["native", "wrapper", "unsupported"] }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

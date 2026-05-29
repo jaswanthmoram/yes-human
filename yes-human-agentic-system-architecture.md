@@ -2,9 +2,19 @@
 
 **Version:** 2.0 complete architecture draft  
 **Date:** 2026-05-28  
+**Last Updated:** 2026-05-29 (ECC deep research integration)  
 **Status:** v2 architecture complete, implementation plan pending  
 **Renamed from:** `jas-human`  
 **Goal:** build a universal, open-source, low-token agentic operating system that can run across Claude, Codex, CLI, IDEs, MCP hosts, and future agent runtimes.
+
+**Companion artifacts:**
+
+- `YES-HUMAN_DEVELOPMENT_PLAN.md`: Phased engineering roadmap with ECC source map integration
+- `YES-HUMAN_REVIEW_AND_AGENT_CREATION_PLAN.md`: Review findings, blockers, and agent creation strategy
+- `YES-HUMAN_SOURCE_MAP.md`: Validated category-level source seed registry for agent/workflow creation
+- `reports/ECC-SKILL-SOURCE-MAP-DEEP-RESEARCH.md`: Deep research report mapping 180+ GitHub repositories across 8 ECC skill categories with 14 critical architecture patterns
+
+**Document Purpose:** This is the comprehensive architecture reference. For execution details, see the development plan. For review findings, see the review plan. For source references, see the source map.
 
 ---
 
@@ -58,6 +68,13 @@ This architecture uses the following primary references as design inputs:
 - OpenPipe ART: Agent Reinforcement Trainer for multi-step agents using GRPO. Source: https://github.com/openpipe/art
 
 These sources should influence the architecture, not be copied wholesale.
+
+The broad references above are not enough to promote production agents. Every
+production subagent, skill, workflow, connector binding, and absorbed source must
+also pass the source-dossier protocol in Section 31 and use the seed registry in
+`YES-HUMAN_SOURCE_MAP.md`. A category-level source is only a starting point; it
+does not replace an agent-specific dossier, license check, provenance record,
+route fixture, and validation report.
 
 ---
 
@@ -630,7 +647,7 @@ No agent list. No full category list. No giant prompt.
 `YES_BOOT.md` target shape:
 
 ```text
-You are using Yes-human. Route every task through registry/ROUTE_TABLE.min.json first. Load only selected agents, skills, workflows, and graph slices. Default budget is micro unless the user asks for deep work.
+You are using Yes-human. Route every task through graph/indexes/ROUTE_TABLE.min.json first. Load only selected agents, skills, workflows, and graph slices. Default budget is micro unless the user asks for deep work.
 ```
 
 This should be the default plugin behavior, similar in spirit to Superpowers: one always-on entrypoint, with all heavy capability lazy-loaded behind it.
@@ -2996,6 +3013,14 @@ That combination is the product.
 ---
 
 ## 23. Implementation plan
+
+### Phase -1: Review, source map, and vertical-slice gate
+
+- use `YES-HUMAN_REVIEW_AND_AGENT_CREATION_PLAN.md` as the execution gate before full v2 implementation
+- use `YES-HUMAN_SOURCE_MAP.md` as the seed source registry for all category and agent dossiers
+- do not generate long-tail agents before schemas, validators, source dossiers, route fixtures, and cost checks exist
+- prove one vertical slice first: source dossier -> category master -> specialist agent -> workflow -> route fixture -> context pack -> host export check
+- treat the previous `jas-human` corpus as staging input, not production content
 
 ### Phase 0: Preserve existing backup
 

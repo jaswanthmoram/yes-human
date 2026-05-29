@@ -1,0 +1,385 @@
+{
+  "version": "2.0.0",
+  "generated_at": "2026-05-29T17:30:33.432Z",
+  "count": 9,
+  "items": [
+    {
+      "id": "engineering.architect",
+      "name": "Software Architect",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "engineering.architecture",
+      "kind": "specialist",
+      "summary": "Designs system architecture, evaluates trade-offs, and writes architecture decision records.",
+      "triggers": [
+        "system design",
+        "architecture review",
+        "design the architecture",
+        "architecture decision record",
+        "high level design"
+      ],
+      "aliases": [
+        "architect"
+      ],
+      "negative_keywords": [
+        "security review",
+        "code review"
+      ],
+      "inputs": [
+        "requirements",
+        "constraints",
+        "existing_context"
+      ],
+      "outputs": [
+        "architecture_options",
+        "recommendation",
+        "decision_record"
+      ],
+      "allowed_tools": [
+        "filesystem.read",
+        "code_graph.query"
+      ],
+      "required_skills": [
+        "engineering.architecture-decision-records"
+      ],
+      "budget_band": "expanded",
+      "max_context_tokens": 4000,
+      "failure_modes": [
+        "over-engineers for hypothetical scale",
+        "ignores existing system constraints",
+        "recommends without stating trade-offs"
+      ],
+      "verification": [
+        "decision_record_lists_alternatives_and_tradeoffs"
+      ],
+      "source_references": [
+        "ref.github.ecc.2026-05-29"
+      ],
+      "quality_gate": "staging"
+    },
+    {
+      "id": "engineering.build-resolver",
+      "name": "Build Error Resolver",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "engineering.language-review",
+      "kind": "specialist",
+      "summary": "Resolves build and compilation errors.",
+      "triggers": [
+        "fix build",
+        "build error"
+      ],
+      "inputs": [
+        "build_log"
+      ],
+      "outputs": [
+        "fix_suggestions"
+      ],
+      "allowed_tools": [
+        "shell.readonly"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 1200,
+      "failure_modes": [
+        "cannot resolve complex library dependency mismatches"
+      ],
+      "verification": [
+        "compiler_check"
+      ],
+      "source_references": [
+        "ref.github.ecc.2026-05-29"
+      ],
+      "quality_gate": "staging"
+    },
+    {
+      "id": "engineering.code-reviewer",
+      "name": "Code Reviewer",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "engineering.language-review",
+      "kind": "specialist",
+      "summary": "Reviews code quality, maintainability, and styling.",
+      "triggers": [
+        "review code",
+        "code review"
+      ],
+      "aliases": [
+        "cr",
+        "pr review"
+      ],
+      "negative_keywords": [
+        "legal review",
+        "tax review"
+      ],
+      "inputs": [
+        "changed_files"
+      ],
+      "outputs": [
+        "findings"
+      ],
+      "allowed_tools": [
+        "filesystem.read"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 1200,
+      "failure_modes": [
+        "misses logical edge cases"
+      ],
+      "verification": [
+        "compiler_check"
+      ],
+      "source_references": [
+        "ref.github.ecc.2026-05-29"
+      ],
+      "quality_gate": "staging"
+    },
+    {
+      "id": "engineering.docs-updater",
+      "name": "Docs Updater",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "engineering.docs",
+      "kind": "specialist",
+      "summary": "Updates documentation, READMEs, and API docs to match current code behavior.",
+      "triggers": [
+        "update docs",
+        "update documentation",
+        "write documentation",
+        "update readme",
+        "document the api"
+      ],
+      "aliases": [
+        "docs"
+      ],
+      "negative_keywords": [
+        "legal document",
+        "contract document"
+      ],
+      "inputs": [
+        "changed_files",
+        "existing_docs"
+      ],
+      "outputs": [
+        "updated_docs",
+        "changelog_note"
+      ],
+      "allowed_tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "required_skills": [
+        "engineering.documentation"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 1500,
+      "failure_modes": [
+        "documents intended behavior instead of actual behavior",
+        "leaves stale examples that no longer run",
+        "invents API surface that does not exist"
+      ],
+      "verification": [
+        "doc_examples_match_current_api"
+      ],
+      "source_references": [
+        "ref.github.ecc.2026-05-29"
+      ],
+      "quality_gate": "staging"
+    },
+    {
+      "id": "engineering.master",
+      "name": "Engineering Master",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "engineering",
+      "kind": "master",
+      "summary": "Orchestrates all software engineering subtasks and delegates to language or review specialists.",
+      "triggers": [
+        "engineering task",
+        "software development"
+      ],
+      "inputs": [
+        "prompt"
+      ],
+      "outputs": [
+        "resolution"
+      ],
+      "allowed_tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 16000,
+      "failure_modes": [
+        "cannot route specialized domain tasks outside engineering"
+      ],
+      "verification": [
+        "compiler_check"
+      ],
+      "source_references": [
+        "ref.github.ecc.2026-05-29"
+      ],
+      "quality_gate": "staging"
+    },
+    {
+      "id": "engineering.tdd-guide",
+      "name": "TDD Guide",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "engineering.dev-workflow",
+      "kind": "specialist",
+      "summary": "Drives red-green-refactor test-driven development for features and bug fixes.",
+      "triggers": [
+        "tdd",
+        "test driven development",
+        "red green refactor",
+        "write failing test",
+        "test first"
+      ],
+      "aliases": [
+        "tdd guide"
+      ],
+      "negative_keywords": [
+        "load test",
+        "penetration test"
+      ],
+      "inputs": [
+        "task_description",
+        "test_command"
+      ],
+      "outputs": [
+        "failing_test",
+        "implementation",
+        "verification_summary"
+      ],
+      "allowed_tools": [
+        "filesystem.read",
+        "filesystem.write",
+        "shell.readonly"
+      ],
+      "required_skills": [
+        "engineering.tdd"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 1500,
+      "failure_modes": [
+        "writes implementation before the failing test",
+        "skips the refactor step",
+        "over-mocks and tests implementation details instead of behavior"
+      ],
+      "verification": [
+        "test_runs_red_then_green",
+        "relevant_suite_passes"
+      ],
+      "source_references": [
+        "ref.github.ecc.2026-05-29"
+      ],
+      "quality_gate": "staging"
+    },
+    {
+      "id": "meta-system.master",
+      "name": "Meta-System Master",
+      "version": "2.0.0",
+      "status": "active",
+      "category": "meta-system",
+      "kind": "master",
+      "summary": "Orchestrates router compiles, dossier reviews, quality gates, and system-wide configurations.",
+      "triggers": [
+        "supreme-router",
+        "system route",
+        "system compile"
+      ],
+      "inputs": [
+        "system_request"
+      ],
+      "outputs": [
+        "routing_decision"
+      ],
+      "allowed_tools": [
+        "filesystem.read"
+      ],
+      "budget_band": "micro",
+      "max_context_tokens": 4000,
+      "failure_modes": [
+        "cannot compile without files"
+      ],
+      "verification": [
+        "self_check"
+      ],
+      "source_references": [
+        "ref.github.ecc.2026-05-29"
+      ],
+      "quality_gate": "production"
+    },
+    {
+      "id": "platform.master",
+      "name": "Platform Master",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "platform",
+      "kind": "master",
+      "summary": "Orchestrates DevOps operations, CI/CD pipeline management, and monitoring/logging configurations.",
+      "triggers": [
+        "devops deploy",
+        "ci configuration",
+        "incident response"
+      ],
+      "inputs": [
+        "deployment_manifests"
+      ],
+      "outputs": [
+        "deployment_status"
+      ],
+      "allowed_tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 16000,
+      "failure_modes": [
+        "cannot write cloud infrastructure without human approval"
+      ],
+      "verification": [
+        "deployment_check"
+      ],
+      "source_references": [
+        "ref.github.claude-repos-pack.2026-05-29"
+      ],
+      "quality_gate": "staging"
+    },
+    {
+      "id": "security.master",
+      "name": "Security Master",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "security",
+      "kind": "master",
+      "summary": "Orchestrates all security audits, vulnerability scanning, and threat modeling.",
+      "triggers": [
+        "security review",
+        "penetration test",
+        "vulnerability scan"
+      ],
+      "inputs": [
+        "source_code"
+      ],
+      "outputs": [
+        "security_report"
+      ],
+      "allowed_tools": [
+        "filesystem.read"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 16000,
+      "failure_modes": [
+        "cannot patch binaries directly"
+      ],
+      "verification": [
+        "security_scanner"
+      ],
+      "source_references": [
+        "ref.github.claude-bughunter.2026-05-29"
+      ],
+      "quality_gate": "staging"
+    }
+  ]
+}

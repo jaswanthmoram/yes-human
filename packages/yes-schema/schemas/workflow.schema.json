@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Yes-human Workflow Schema",
+  "type": "object",
+  "required": [
+    "id", "version", "status", "summary", "task_family", "inputs", "outputs", 
+    "route", "budget", "gates", "verification", "rollback"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:-[0-9A-Za-z.-]+)?$" },
+    "status": { "type": "string", "enum": ["active", "draft", "retired", "experimental"] },
+    "summary": { "type": "string" },
+    "task_family": { "type": "string" },
+    "inputs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "outputs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "route": {
+      "type": "object",
+      "required": ["domain_master", "agents"],
+      "properties": {
+        "domain_master": { "type": "string" },
+        "agents": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "parallel": { "type": "boolean" },
+        "max_parallel_agents": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "budget": {
+      "type": "object",
+      "required": ["band", "max_context_tokens", "max_tool_calls"],
+      "properties": {
+        "band": { "type": "string", "enum": ["micro", "standard", "expanded", "deep"] },
+        "max_context_tokens": { "type": "integer", "minimum": 0 },
+        "max_tool_calls": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "gates": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["pre-route", "pre-tool", "pre-write", "post-tool", "on-error", "on-task-complete", "on-absorb"] }
+    },
+    "verification": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "rollback": { "type": "string" },
+    "promotion": {
+      "type": "object",
+      "properties": {
+        "can_learn": { "type": "boolean" },
+        "min_successes_before_update": { "type": "integer", "minimum": 1 }
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,43 @@
+{
+  "version": "2.0.0",
+  "generated_at": "2026-05-29T17:30:33.436Z",
+  "count": 1,
+  "items": [
+    {
+      "id": "research.document-to-markdown",
+      "name": "Document to Markdown Conversion",
+      "version": "1.0.0",
+      "category": "research.data-extraction",
+      "summary": "Converts PDF, PPTX, DOCX, and XLSX files to Markdown using Microsoft MarkItDown to optimize context tokens.",
+      "triggers": [
+        "parse pdf",
+        "parse pptx",
+        "convert document",
+        "process ppt"
+      ],
+      "prerequisites": [
+        "markitdown_installed"
+      ],
+      "steps": [
+        "verify file exists and is supported format",
+        "execute markitdown tool wrapper",
+        "capture converted markdown content",
+        "swap raw reference with markdown content path"
+      ],
+      "outputs": [
+        "markdown_content",
+        "token_savings"
+      ],
+      "budget_band": "micro",
+      "rollback": [
+        "delete generated markdown file"
+      ],
+      "validators": [
+        "skill.validator"
+      ],
+      "source_references": [
+        "ref.github.markitdown.2026-05-29"
+      ]
+    }
+  ]
+}

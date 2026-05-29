@@ -1,0 +1,11 @@
+[
+  {
+    "id": "prov.bootstrap.yes-human.2026-05-29",
+    "item_id": "yes-human",
+    "kind": "plugin",
+    "source": "https://github.com/moramvenkatasatyajaswanth/yes-human",
+    "created_at": "2026-05-29T12:46:30Z",
+    "confidence": 1.0,
+    "author": "bootstrap-agent"
+  }
+]

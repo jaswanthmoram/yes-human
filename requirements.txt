@@ -1,0 +1,9 @@
+# Python dependencies for yes-human document conversion (MarkItDown by Microsoft).
+# Install into a project-local virtual environment:
+#   python3 -m venv .venv
+#   .venv/bin/python -m pip install -r requirements.txt
+#
+# Document extras only (pdf, docx, pptx, xlsx, xls, outlook). The markitdown[all]
+# bundle additionally pulls audio/youtube/azure deps that are not needed for
+# document-to-markdown conversion and break resolution on bleeding-edge Python.
+markitdown[pdf,docx,pptx,xlsx,xls,outlook]==0.1.6

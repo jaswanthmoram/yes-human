@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "generated_at": "2026-05-29T00:00:00Z",
+  "default_budget_band": "micro",
+  "bands": {
+    "micro": { "max_context_tokens": 4000 },
+    "standard": { "max_context_tokens": 16000 },
+    "expanded": { "max_context_tokens": 64000 },
+    "deep": { "max_context_tokens": 128000 }
+  }
+}

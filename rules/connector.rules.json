@@ -1,0 +1,45 @@
+{
+  "id": "connector.rules",
+  "version": "1.0.0",
+  "description": "MCP/adapter selection and routing hints",
+  "applies_to": ["route"],
+  "default": "allow",
+  "rules": [
+    {
+      "when": { "task": { "$contains": ["github", "pr", "issue", "pull request"] } },
+      "then": "prefer_connector",
+      "reason": "Use GitHub MCP for GitHub tasks",
+      "connector": "github"
+    },
+    {
+      "when": { "task": { "$contains": ["database", "sql", "query", "postgres"] } },
+      "then": "prefer_connector",
+      "reason": "Use database MCP for database tasks",
+      "connector": "postgresql"
+    },
+    {
+      "when": { "task": { "$contains": ["browser", "screenshot", "e2e", "playwright"] } },
+      "then": "prefer_connector",
+      "reason": "Use Playwright MCP for browser automation",
+      "connector": "playwright"
+    },
+    {
+      "when": { "task": { "$contains": ["file", "read", "write", "directory"] } },
+      "then": "prefer_connector",
+      "reason": "Use filesystem MCP for file operations",
+      "connector": "filesystem"
+    },
+    {
+      "when": { "task": { "$contains": ["memory", "remember", "context"] } },
+      "then": "prefer_connector",
+      "reason": "Use memory MCP for context management",
+      "connector": "memory"
+    },
+    {
+      "when": { "task": { "$contains": ["search", "web", "research"] } },
+      "then": "prefer_connector",
+      "reason": "Use search MCP for web research",
+      "connector": "firecrawl"
+    }
+  ]
+}

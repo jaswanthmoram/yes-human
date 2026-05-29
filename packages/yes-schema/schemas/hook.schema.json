@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Yes-human Hook Schema",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "event": {
+      "type": "string",
+      "enum": ["pre-route", "pre-tool", "pre-write", "post-tool", "on-error", "on-task-complete", "on-absorb"]
+    },
+    "runtime": { "type": "string", "enum": ["node", "python", "shell"] },
+    "entry": { "type": "string" },
+    "inputs": { "type": "array", "items": { "type": "string" } },
+    "outputs": { "type": "array", "items": { "type": "string" } },
+    "policy_dependencies": { "type": "array", "items": { "type": "string" } },
+    "host_support": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "version": { "type": "string" },
+    "description": { "type": "string" },
+    "hooks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "event", "runtime", "entry"],
+        "properties": {
+          "id": { "type": "string" },
+          "event": { "type": "string" },
+          "runtime": { "type": "string" },
+          "entry": { "type": "string" },
+          "inputs": { "type": "array", "items": { "type": "string" } },
+          "outputs": { "type": "array", "items": { "type": "string" } },
+          "policy_dependencies": { "type": "array", "items": { "type": "string" } },
+          "host_support": {
+            "type": "object",
+            "additionalProperties": { "type": "string" }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

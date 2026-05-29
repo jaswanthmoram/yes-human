@@ -1,0 +1,28 @@
+{
+  "dossier_id": "dossier.engineering.code-reviewer.2026-05-29",
+  "agent_id": "engineering.code-reviewer",
+  "domain": "engineering.language-review",
+  "created_at": "2026-05-29T16:45:00Z",
+  "expires_at": "2026-08-27T16:45:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/affaan-m/ECC",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "master",
+      "used_for": ["code review check lists", "agent prompts"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 1,
+    "official_docs": 0,
+    "github_quality": 85,
+    "license_safety": 95,
+    "maintenance": 80,
+    "pattern_clarity": 90,
+    "testability": 80,
+    "total": 86
+  },
+  "promotion_decision": "staging"
+}
