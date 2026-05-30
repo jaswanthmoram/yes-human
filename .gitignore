@@ -7,6 +7,7 @@ graph/indexes/yes.sqlite
 graph/embeddings/
 graph/snapshots/
 graph/memory/
+# generated host bundles — built by `yes build <host>`, not hand-maintained
 generated/
 staging/incoming/
 

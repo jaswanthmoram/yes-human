@@ -16,3 +16,9 @@
 {"candidate_id":0,"decision":"reject","rationale":"Not relevant","timestamp":"2026-05-29T17:31:34.702Z"}
 {"candidate_id":4,"decision":"graduate","rationale":"This is a test lesson","timestamp":"2026-05-29T17:36:29.176Z"}
 {"candidate_id":0,"decision":"reject","rationale":"Not relevant","timestamp":"2026-05-29T17:36:29.182Z"}
+{"candidate_id":4,"decision":"graduate","rationale":"This is a test lesson","timestamp":"2026-05-30T05:18:51.313Z"}
+{"candidate_id":0,"decision":"reject","rationale":"Not relevant","timestamp":"2026-05-30T05:18:51.318Z"}
+{"candidate_id":4,"decision":"graduate","rationale":"This is a test lesson","timestamp":"2026-05-30T05:31:41.865Z"}
+{"candidate_id":0,"decision":"reject","rationale":"Not relevant","timestamp":"2026-05-30T05:31:41.882Z"}
+{"candidate_id":4,"decision":"graduate","rationale":"This is a test lesson","timestamp":"2026-05-30T05:32:04.021Z"}
+{"candidate_id":0,"decision":"reject","rationale":"Not relevant","timestamp":"2026-05-30T05:32:04.031Z"}

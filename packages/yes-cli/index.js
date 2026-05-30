@@ -7,6 +7,8 @@ import { resolveRoute } from '../yes-runtime/router.js';
 import { checkAgentPromotion } from '../../validators/promotion.validator.js';
 import { DreamCycle } from '../yes-runtime/dream-cycle.js';
 import { MemoryManager } from '../yes-runtime/memory-manager.js';
+import { loadBuildContext, buildHost, buildAll } from '../yes-adapters/index.js';
+import { validateHostBundle } from '../../validators/host-bundle.validator.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -263,6 +265,51 @@ function cmdDossier(args) {
   return 1;
 }
 
+async function cmdBuild(args) {
+  const HOSTS = ['claude', 'codex', 'opencode', 'mcp', 'all'];
+  const host = args[0];
+  if (!host || !HOSTS.includes(host)) {
+    console.error(`Usage: yes build <host>  (hosts: ${HOSTS.join(', ')})`);
+    return 1;
+  }
+  console.log(`Building yes-human bundle: ${host}\n`);
+  let ctx;
+  try {
+    ctx = loadBuildContext();
+  } catch (e) {
+    console.error(`✗ Failed to load build context: ${e.message}`);
+    return 1;
+  }
+
+  try {
+    if (host === 'all') {
+      await buildAll(ctx);
+    } else {
+      await buildHost(host, ctx);
+    }
+  } catch (e) {
+    console.error(`✗ Build failed: ${e.message}`);
+    return 1;
+  }
+
+  // Auto-validate after build
+  const hostsBuilt = host === 'all' ? ['claude', 'codex', 'opencode', 'mcp'] : [host];
+  let allOk = true;
+  for (const h of hostsBuilt) {
+    const dir = path.join(repoRoot, 'generated', h);
+    const { ok, checks } = validateHostBundle(h, dir);
+    const icon = ok ? '✓' : '✗';
+    console.log(`\n${icon} ${h} bundle validation:`);
+    for (const c of checks) {
+      console.log(`  ${c.passed ? '✓' : '✗'} ${c.label}${c.detail ? ' — ' + c.detail : ''}`);
+    }
+    if (!ok) allOk = false;
+  }
+
+  console.log(allOk ? '\n✓ All bundles valid.' : '\n✗ Some bundles failed validation.');
+  return allOk ? 0 : 1;
+}
+
 function help() {
   console.log(`yes — Yes-human control plane CLI
 
@@ -274,6 +321,7 @@ Usage:
   yes compile                    Recompile registries and route table from content
   yes promote --check <agent>    Check if an agent's dossier qualifies for promotion
   yes dossier validate <agent>   Validate an agent's source dossier and score
+  yes build <host|all>           Generate host bundle (claude|codex|opencode|mcp|all)
   yes doctor                     Environment + project health check
   yes dream                      Run nightly dream cycle (pattern extraction)
   yes memory <status|clear|archive>  Memory management
@@ -306,6 +354,8 @@ async function main() {
       return cmdPromote(rest);
     case 'dossier':
       return cmdDossier(rest);
+    case 'build':
+      return await cmdBuild(rest);
     case 'doctor':
       return cmdDoctor();
     case 'dream':

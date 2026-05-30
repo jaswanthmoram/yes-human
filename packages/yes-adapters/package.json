@@ -1,0 +1,9 @@
+{
+  "name": "@yes-human/adapters",
+  "version": "2.0.0",
+  "description": "Yes-human host adapter generators — single canonical source to multi-host bundles",
+  "type": "module",
+  "main": "index.js",
+  "private": true,
+  "engines": { "node": ">=20" }
+}
