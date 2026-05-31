@@ -9,6 +9,7 @@ import { DreamCycle } from '../yes-runtime/dream-cycle.js';
 import { MemoryManager } from '../yes-runtime/memory-manager.js';
 import { loadBuildContext, buildHost, buildAll } from '../yes-adapters/index.js';
 import { validateHostBundle } from '../../validators/host-bundle.validator.js';
+import { CodeGraph } from '../yes-graph/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -265,6 +266,112 @@ function cmdDossier(args) {
   return 1;
 }
 
+// ── yes graph ─────────────────────────────────────────────────────────────────
+
+const LARGE_REPO_FILE_THRESHOLD = 5000;
+const DEFAULT_GRAPH_DB = 'graph/indexes/yes.sqlite';
+
+function countCandidateFiles(repoPath) {
+  const SKIP = new Set([
+    'node_modules', '.git', '.venv', 'venv', '__pycache__',
+    'dist', 'build', 'target', '.next', '.nuxt',
+    'coverage', '.cache', 'generated'
+  ]);
+  const KNOWN_EXT = new Set([
+    '.js', '.mjs', '.cjs', '.ts', '.tsx', '.jsx', '.py', '.go',
+    '.rs', '.java', '.rb', '.md', '.json', '.yaml', '.yml', '.toml', '.sql'
+  ]);
+  let n = 0;
+  (function walk(dir) {
+    let entries;
+    try { entries = fs.readdirSync(dir, { withFileTypes: true }); } catch { return; }
+    for (const e of entries) {
+      if (SKIP.has(e.name) || e.name.startsWith('.git')) continue;
+      const full = path.join(dir, e.name);
+      if (e.isDirectory()) walk(full);
+      else if (e.isFile() && KNOWN_EXT.has(path.extname(e.name))) n++;
+    }
+  })(path.resolve(repoPath));
+  return n;
+}
+
+async function cmdGraph(args) {
+  const sub = args[0];
+
+  if (sub === 'build') {
+    const target = args[1] || '.';
+    const force = args.includes('--yes') || args.includes('-y');
+    const dbPath = path.join(repoRoot, DEFAULT_GRAPH_DB);
+
+    const candidateCount = countCandidateFiles(target);
+    if (candidateCount > LARGE_REPO_FILE_THRESHOLD && !force) {
+      console.error(`✗ Large repo detected (${candidateCount} candidate files > ${LARGE_REPO_FILE_THRESHOLD} threshold).`);
+      console.error(`  Re-run with --yes to confirm: yes graph build ${target} --yes`);
+      return 1;
+    }
+
+    console.log(`Building code graph for ${path.resolve(target)} → ${DEFAULT_GRAPH_DB}`);
+    console.log(`Candidate files: ${candidateCount}`);
+    const t0 = Date.now();
+    const result = await CodeGraph.build(target, dbPath, {
+      onProgress: (n, total) => process.stderr.write(`\r  indexed ${n}/${total}`)
+    });
+    process.stderr.write('\n');
+    const dt = ((Date.now() - t0) / 1000).toFixed(2);
+    console.log(`✓ Indexed ${result.filesIndexed} files, ${result.symbols} symbols, ${result.imports} imports in ${dt}s`);
+    return 0;
+  }
+
+  if (sub === 'stats') {
+    const dbPath = path.join(repoRoot, DEFAULT_GRAPH_DB);
+    if (!fs.existsSync(dbPath)) {
+      console.error('✗ No graph yet. Run: yes graph build <path>');
+      return 1;
+    }
+    const graph = new CodeGraph(dbPath);
+    const brief = graph.briefing();
+    graph.close();
+    console.log(`Repo: ${brief.repo_path}`);
+    console.log(`Built: ${brief.built_at}`);
+    console.log(`Files: ${brief.file_count} | Symbols: ${brief.symbol_count} | Imports: ${brief.import_count}\n`);
+    console.log('Languages:');
+    for (const r of brief.languages) console.log(`  ${r.language.padEnd(12)} ${r.n}`);
+    console.log('\nSymbol kinds:');
+    for (const r of brief.symbol_kinds) console.log(`  ${r.kind.padEnd(12)} ${r.n}`);
+    return 0;
+  }
+
+  if (sub === 'query') {
+    const query = args.slice(1).join(' ').trim();
+    if (!query) {
+      console.error('Usage: yes graph query "<symbol or path keyword>"');
+      return 1;
+    }
+    const dbPath = path.join(repoRoot, DEFAULT_GRAPH_DB);
+    if (!fs.existsSync(dbPath)) {
+      console.error('✗ No graph yet. Run: yes graph build <path>');
+      return 1;
+    }
+    const graph = new CodeGraph(dbPath);
+    const hits = graph.search(query, { limit: 20 });
+    graph.close();
+    if (hits.length === 0) {
+      console.log('(no matches)');
+      return 0;
+    }
+    console.log(`${hits.length} hit(s):\n`);
+    for (const h of hits) {
+      const loc = h.source === 'symbol' ? `${h.file}:${h.line}` : h.file;
+      const label = h.source === 'symbol' ? `${h.kind} ${h.name}` : `file (${h.kind})`;
+      console.log(`  ${loc.padEnd(60)} ${label}`);
+    }
+    return 0;
+  }
+
+  console.error('Usage: yes graph <build|stats|query>');
+  return 1;
+}
+
 async function cmdBuild(args) {
   const HOSTS = ['claude', 'codex', 'opencode', 'mcp', 'all'];
   const host = args[0];
@@ -322,6 +429,9 @@ Usage:
   yes promote --check <agent>    Check if an agent's dossier qualifies for promotion
   yes dossier validate <agent>   Validate an agent's source dossier and score
   yes build <host|all>           Generate host bundle (claude|codex|opencode|mcp|all)
+  yes graph build [<path>]       Build local code graph (SQLite); --yes for large repos
+  yes graph stats                Show indexed graph statistics
+  yes graph query "<term>"       Search symbols and file paths
   yes doctor                     Environment + project health check
   yes dream                      Run nightly dream cycle (pattern extraction)
   yes memory <status|clear|archive>  Memory management
@@ -356,6 +466,8 @@ async function main() {
       return cmdDossier(rest);
     case 'build':
       return await cmdBuild(rest);
+    case 'graph':
+      return await cmdGraph(rest);
     case 'doctor':
       return cmdDoctor();
     case 'dream':

@@ -22,3 +22,7 @@
 {"candidate_id":0,"decision":"reject","rationale":"Not relevant","timestamp":"2026-05-30T05:31:41.882Z"}
 {"candidate_id":4,"decision":"graduate","rationale":"This is a test lesson","timestamp":"2026-05-30T05:32:04.021Z"}
 {"candidate_id":0,"decision":"reject","rationale":"Not relevant","timestamp":"2026-05-30T05:32:04.031Z"}
+{"candidate_id":4,"decision":"graduate","rationale":"This is a test lesson","timestamp":"2026-05-31T13:31:57.017Z"}
+{"candidate_id":0,"decision":"reject","rationale":"Not relevant","timestamp":"2026-05-31T13:31:57.022Z"}
+{"candidate_id":4,"decision":"graduate","rationale":"This is a test lesson","timestamp":"2026-05-31T13:32:10.575Z"}
+{"candidate_id":0,"decision":"reject","rationale":"Not relevant","timestamp":"2026-05-31T13:32:10.578Z"}

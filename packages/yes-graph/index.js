@@ -77,3 +77,5 @@ export function buildTrieFromRouteMap(routeMap) {
   }
   return trie;
 }
+
+export { CodeGraph } from './code-graph.js';
