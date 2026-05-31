@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-05-29T17:30:33.438Z",
-  "count": 5,
+  "generated_at": "2026-05-31T15:01:30.020Z",
+  "count": 11,
   "items": [
     {
       "id": "cr",
@@ -22,6 +22,30 @@
     {
       "id": "tdd guide",
       "route_id": "route.engineering.tdd-guide"
+    },
+    {
+      "id": "data ai",
+      "route_id": "route.data-ai.master"
+    },
+    {
+      "id": "ml task",
+      "route_id": "route.data-ai.master"
+    },
+    {
+      "id": "integrations",
+      "route_id": "route.integrations.master"
+    },
+    {
+      "id": "external service",
+      "route_id": "route.integrations.master"
+    },
+    {
+      "id": "startup ops",
+      "route_id": "route.startup-ops.master"
+    },
+    {
+      "id": "solo founder",
+      "route_id": "route.startup-ops.master"
     }
   ]
 }

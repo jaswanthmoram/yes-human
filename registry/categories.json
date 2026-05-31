@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-05-29T16:45:00Z",
-  "count": 5,
+  "generated_at": "2026-05-31T00:00:00Z",
+  "count": 8,
   "items": [
     {
       "id": "engineering",
@@ -52,6 +52,36 @@
       "children": [],
       "default_budget_band": "micro",
       "quality_threshold": 0.95
+    },
+    {
+      "id": "data-ai",
+      "name": "Data and AI",
+      "parent": null,
+      "master_agent": "data-ai.master",
+      "keywords": ["data engineering", "machine learning", "rag", "model evaluation", "data analytics"],
+      "children": [],
+      "default_budget_band": "standard",
+      "quality_threshold": 0.85
+    },
+    {
+      "id": "integrations",
+      "name": "Connectors and External Integrations",
+      "parent": null,
+      "master_agent": "integrations.master",
+      "keywords": ["integration", "connector", "mcp", "github operation", "browser automation"],
+      "children": [],
+      "default_budget_band": "standard",
+      "quality_threshold": 0.85
+    },
+    {
+      "id": "startup-ops",
+      "name": "Startup Operations and Founder Lifecycle",
+      "parent": null,
+      "master_agent": "startup-ops.master",
+      "keywords": ["office hours", "plan ceo review", "ship feature", "founder workflow", "startup operations"],
+      "children": [],
+      "default_budget_band": "standard",
+      "quality_threshold": 0.85
     }
   ]
 }

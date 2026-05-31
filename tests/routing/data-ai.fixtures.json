@@ -1,0 +1,13 @@
+{
+  "domain": "data-ai",
+  "description": "Routing fixtures for the Data & AI master and its dispatch boundary with adjacent domains.",
+  "fixtures": [
+    { "prompt": "data engineering", "expected_route": "route.data-ai.master" },
+    { "prompt": "machine learning", "expected_route": "route.data-ai.master" },
+    { "prompt": "rag pipeline", "expected_route": "route.data-ai.master" },
+    { "prompt": "model evaluation", "expected_route": "route.data-ai.master" },
+    { "prompt": "data analytics", "expected_route": "route.data-ai.master" },
+    { "prompt": "build a rag pipeline for our docs", "expected_route": "route.data-ai.master" },
+    { "prompt": "evaluate our model on a held-out set with model evaluation", "expected_route": "route.data-ai.master" }
+  ]
+}

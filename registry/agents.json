@@ -1,8 +1,62 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-05-29T17:30:33.432Z",
-  "count": 9,
+  "generated_at": "2026-05-31T15:01:30.017Z",
+  "count": 12,
   "items": [
+    {
+      "id": "data-ai.master",
+      "name": "Data & AI Master",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "data-ai",
+      "kind": "master",
+      "summary": "Orchestrates data engineering, ML/AI, RAG, eval, and analytics tasks; delegates to specialists.",
+      "triggers": [
+        "data engineering",
+        "machine learning",
+        "rag pipeline",
+        "model evaluation",
+        "data analytics"
+      ],
+      "aliases": [
+        "data ai",
+        "ml task"
+      ],
+      "negative_keywords": [
+        "business analytics",
+        "financial analysis",
+        "market research"
+      ],
+      "inputs": [
+        "prompt",
+        "dataset_or_source",
+        "eval_criteria"
+      ],
+      "outputs": [
+        "routing_decision",
+        "delegated_plan",
+        "eval_report"
+      ],
+      "allowed_tools": [
+        "filesystem.read",
+        "code_graph.query"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 16000,
+      "failure_modes": [
+        "confuses business analytics (route to product-business) with data engineering",
+        "dispatches RAG tasks without checking existing retrieval layer",
+        "skips eval gate before promoting a model change"
+      ],
+      "verification": [
+        "delegation_target_is_valid_specialist",
+        "eval_report_cites_concrete_metric"
+      ],
+      "source_references": [
+        "ref.github.data-ai-master.2026-05-31"
+      ],
+      "quality_gate": "staging"
+    },
     {
       "id": "engineering.architect",
       "name": "Software Architect",
@@ -276,6 +330,59 @@
       "quality_gate": "staging"
     },
     {
+      "id": "integrations.master",
+      "name": "Integrations Master",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "integrations",
+      "kind": "master",
+      "summary": "Routes connector/MCP/external-service tasks (GitHub, browser, Figma, Notion, Vercel, Stripe) to the right binding.",
+      "triggers": [
+        "integration task",
+        "connector setup",
+        "mcp server",
+        "github operation",
+        "browser automation"
+      ],
+      "aliases": [
+        "integrations",
+        "external service"
+      ],
+      "negative_keywords": [
+        "code review",
+        "security audit",
+        "data pipeline"
+      ],
+      "inputs": [
+        "prompt",
+        "target_service",
+        "auth_state"
+      ],
+      "outputs": [
+        "chosen_connector",
+        "auth_plan",
+        "fallback_chain"
+      ],
+      "allowed_tools": [
+        "filesystem.read"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 16000,
+      "failure_modes": [
+        "picks a connector that requires auth the user has not granted",
+        "misses a documented fallback (shell vs MCP vs HTTP)",
+        "allows write actions on a service before policy check"
+      ],
+      "verification": [
+        "selected_connector_in_registry_mcps",
+        "auth_requirement_explicit"
+      ],
+      "source_references": [
+        "ref.github.integrations-master.2026-05-31"
+      ],
+      "quality_gate": "staging"
+    },
+    {
       "id": "meta-system.master",
       "name": "Meta-System Master",
       "version": "2.0.0",
@@ -378,6 +485,60 @@
       ],
       "source_references": [
         "ref.github.claude-bughunter.2026-05-29"
+      ],
+      "quality_gate": "staging"
+    },
+    {
+      "id": "startup-ops.master",
+      "name": "Startup Operations Master",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "startup-ops",
+      "kind": "master",
+      "summary": "Orchestrates founder-grade lifecycle roles — CEO rethink, eng-management, QA, release, doc-engineering — for solo/small-team shipping.",
+      "triggers": [
+        "office hours",
+        "plan ceo review",
+        "ship feature",
+        "founder workflow",
+        "startup operations"
+      ],
+      "aliases": [
+        "startup ops",
+        "solo founder"
+      ],
+      "negative_keywords": [
+        "corporate hr",
+        "large enterprise",
+        "legal contract"
+      ],
+      "inputs": [
+        "prompt",
+        "product_context",
+        "shipping_target"
+      ],
+      "outputs": [
+        "role_dispatched",
+        "lifecycle_step",
+        "go_no_go"
+      ],
+      "allowed_tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 16000,
+      "failure_modes": [
+        "confuses startup operations with enterprise HR or large-org workflows",
+        "skips QA or review step in the lifecycle",
+        "dispatches \"ship\" without prior CEO-review on the same feature"
+      ],
+      "verification": [
+        "lifecycle_step_named_explicitly",
+        "dispatch_target_role_exists"
+      ],
+      "source_references": [
+        "ref.github.startup-ops-master.2026-05-31"
       ],
       "quality_gate": "staging"
     }

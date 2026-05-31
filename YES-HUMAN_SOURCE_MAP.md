@@ -442,4 +442,93 @@ These are projects with similar goals to yes-human (portable agent routing, cros
 
 Adaptation rule: These are direct competitors with overlapping goals. Absorb specific patterns (see `YES-HUMAN_DEVELOPMENT_PLAN.md` Phases 1-5 for the 20 prioritized patterns), not wholesale implementations. Each competitor has gaps yes-human fills (graph routing, token budgets, provenance tracking).
 
+---
+
+## 22. Startup Leadership And Solo-Founder Toolkit (Added 2026-05-31)
+
+Use for `startup-ops.master`, `startup-ops.ceo-rethink`, `startup-ops.eng-mgmt`, `startup-ops.release`, `startup-ops.qa`, `startup-ops.doc-eng`, `security.threat-modeling` (OWASP/STRIDE), and `design-content.frontend-design` (anti-slop).
+
+| Source | URL | Use for Yes-human |
+|---|---|---|
+| gstack (Garry Tan / Y Combinator) | https://github.com/garrytan/gstack | 23 slash-command founder/CEO roles, OWASP+STRIDE security audit checklist, doc-engineer pattern, AI-slop detection, end-to-end office-hours → plan-ceo-review → review → QA → release lifecycle |
+
+**Repo profile:** 105K stars · MIT · production-validated by YC president  
+**Patterns to absorb:** Slash-command role taxonomy (CEO, designer, eng-mgr, reviewer, QA-lead, security-officer, release-eng, doc-engineer), `/office-hours` discovery pattern, `/plan-ceo-review` feature-validation gate, `/qa` browser-based verification loop, AI-slop detection heuristics for design output.
+
+Adaptation rule: copy_policy = `patterns_only`. Cite gstack as source in dossiers but do not duplicate slash-command markdown verbatim.
+
+---
+
+## 23. Browser Automation For Agents (Added 2026-05-31)
+
+Use for `integrations.browser-auto`, `engineering.e2e-runner`, `design-content.frontend-design`, `data-ai.eval` (visual eval), and `manufacturing.logistics` (carrier-site scraping).
+
+| Source | URL | Use for Yes-human |
+|---|---|---|
+| vercel-labs/agent-browser | https://github.com/vercel-labs/agent-browser | Native Rust browser-automation CLI for AI agents — single-binary install, Chrome-for-Testing provisioning, agent-oriented command surface |
+
+**Repo profile:** 35K stars · Apache-2.0 (requires notice preservation) · Vercel Labs maintained  
+**Patterns to absorb:** Single-binary CLI distribution model, Chrome-for-Testing provisioning step, agent-friendly invocation shape.
+
+Adaptation rule: complements `Playwright MCP` already in §7 — use agent-browser when a native binary is preferred over npx-spawned MCP. Apache-2.0 notice must be preserved in any distributed bundle.
+
+---
+
+## 24. Healthcare And Clinical-Decision Support (New sector, 2026-05-31)
+
+Use for `healthcare.master`, `healthcare.clinical-decision-support`, `healthcare.EHR-patterns`, `healthcare.PHI-compliance`, and `healthcare.eval-harness`. **High-stakes domain** — mandatory disclaimers + human-clinician review gates per architecture §29.
+
+| Source | URL | Use for Yes-human |
+|---|---|---|
+| TxAgent (Harvard MIMS) | https://github.com/mims-harvard/TxAgent | clinical decision-support agent reference, multi-tool clinical reasoning loop |
+| Doctor-R1 (Tsinghua) | https://github.com/thu-unicorn/Doctor-R1 | medical reasoning eval harness and benchmark structure |
+| COMPASS-Engine | https://github.com/stvsever/compass-engine | clinical compass / care-pathway pattern |
+| Meissa | https://github.com/Schuture/Meissa | medical agent orchestration reference |
+| Cerebra | https://github.com/shengliu66/Cerebra | medical reasoning architecture reference |
+
+Adaptation rule: no PHI in prompts; outputs must cite deterministic clinical-pathway sources; every output carries a "not medical advice — clinician review required" disclaimer. License audit required per source — block any GPL-derived clinical pathway content.
+
+---
+
+## 25. Education And Personalized Learning (New sector, 2026-05-31)
+
+Use for `education.master`, `education.curriculum`, `education.tutor`, `education.assessment`, and `education.lms-patterns`.
+
+| Source | URL | Use for Yes-human |
+|---|---|---|
+| DeepTutor (HKUDS) | https://github.com/HKUDS/DeepTutor | agent-native personalized tutor patterns, learner-state modeling |
+| LearnOS | https://github.com/Abelo9996/LearnOS | learning-OS scaffolding patterns |
+| OpenMAIC (Tsinghua) | https://github.com/THU-MAIC/OpenMAIC | curriculum generation and assessment loop |
+| OpenTutor | https://github.com/zijinz456/OpenTutor | tutor agent reference |
+
+Adaptation rule: education outputs targeting minors (K-12) must surface age/grade level metadata and avoid medical/legal/financial-advice content beyond grade level.
+
+---
+
+## 26. Manufacturing, Supply-Chain, And Operations (New sector, 2026-05-31)
+
+Use for `manufacturing.master`, `manufacturing.inventory`, `manufacturing.demand-planning`, `manufacturing.quality-nonconformance`, and `manufacturing.logistics`.
+
+| Source | URL | Use for Yes-human |
+|---|---|---|
+| Carbon (crbnos) | https://github.com/crbnos/carbon | modern manufacturing ERP — data model, MRP, BoM, quality reference |
+| ERPNext | https://github.com/frappe/erpnext | inventory + production-planning workflow reference (cross-references §11) |
+| NexusAI-ERP | https://github.com/mbilaljunaid/nexusai-erp | AI-augmented ERP workflow reference |
+
+Adaptation rule: manufacturing agents producing production-schedule, demand-plan, or quality-nonconformance outputs require human-supervisor review before downstream execution. Connector requirement: ERP-write actions are policy-gated.
+
+---
+
+## 27. Scientific Research And Self-Improving Agent Patterns (Added 2026-05-31)
+
+Use for `research.master`, `research.scientific-lit`, `meta-system.workflow-miner`, and as cross-cutting reference for self-improving agent designs across all domains.
+
+| Source | URL | Use for Yes-human |
+|---|---|---|
+| Agent Design Patterns (huangjia2019) | https://github.com/huangjia2019/agent-design-patterns | reference pattern library — patterns by category |
+| GenericAgent (sirbrasscat) | https://github.com/sirbrasscat/GenericAgent | self-evolving agent — skill-tree growth pattern from 3.3K-line seed, 6× token-efficient claim |
+| Agent Handbook (vasilyevdm) | https://github.com/vasilyevdm/ai-agent-handbook | broad cross-pattern survey, useful for skill-gap detection |
+| MARTI (Tsinghua C3I) | https://github.com/TsinghuaC3I/MARTI | multi-agent research toolkit, agent-learning loop reference |
+
+Adaptation rule: self-improving patterns must integrate with the existing eval-gate ladder — `report_outcome` → mistake graph → eval pass → promotion. Skill-tree growth is permitted only if every new skill passes the standard dossier + fixture + cost gates.
 

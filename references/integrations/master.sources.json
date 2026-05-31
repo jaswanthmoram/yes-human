@@ -1,0 +1,60 @@
+{
+  "dossier_id": "dossier.integrations.master.2026-05-31",
+  "agent_id": "integrations.master",
+  "domain": "integrations",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2026-08-29T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/modelcontextprotocol/servers",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": ["canonical MCP server implementations", "protocol semantics by example", "trust-level vocabulary"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/modelcontextprotocol/registry",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": ["registry metadata model for connector discovery"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/github/github-mcp-server",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": ["GitHub binding patterns, OAuth scope discipline"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/microsoft/playwright-mcp",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": ["browser-automation MCP binding pattern"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/vercel-labs/agent-browser",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": ["native-CLI fallback pattern for browser tasks"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 5,
+    "official_docs": 0,
+    "github_quality": 94,
+    "license_safety": 92,
+    "maintenance": 92,
+    "pattern_clarity": 92,
+    "testability": 80,
+    "total": 91
+  },
+  "promotion_decision": "staging"
+}

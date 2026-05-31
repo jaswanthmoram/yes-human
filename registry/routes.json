@@ -287,5 +287,110 @@
     },
     "budget_band": "standard",
     "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.data-ai.master",
+    "match": {
+      "keywords": [
+        "data engineering",
+        "machine learning",
+        "rag pipeline",
+        "model evaluation",
+        "data analytics"
+      ],
+      "aliases": [
+        "data ai",
+        "ml task"
+      ],
+      "negative_keywords": [
+        "business analytics",
+        "financial analysis",
+        "market research"
+      ]
+    },
+    "target": {
+      "domain_master": "data-ai.master",
+      "agent": "data-ai.master",
+      "skills": [],
+      "workflow": "workflow.data-ai.master"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.integrations.master",
+    "match": {
+      "keywords": [
+        "integration task",
+        "connector setup",
+        "mcp server",
+        "github operation",
+        "browser automation"
+      ],
+      "aliases": [
+        "integrations",
+        "external service"
+      ],
+      "negative_keywords": [
+        "code review",
+        "security audit",
+        "data pipeline"
+      ]
+    },
+    "target": {
+      "domain_master": "integrations.master",
+      "agent": "integrations.master",
+      "skills": [],
+      "workflow": "workflow.integrations.master"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.startup-ops.master",
+    "match": {
+      "keywords": [
+        "office hours",
+        "plan ceo review",
+        "ship feature",
+        "founder workflow",
+        "startup operations"
+      ],
+      "aliases": [
+        "startup ops",
+        "solo founder"
+      ],
+      "negative_keywords": [
+        "corporate hr",
+        "large enterprise",
+        "legal contract"
+      ]
+    },
+    "target": {
+      "domain_master": "startup-ops.master",
+      "agent": "startup-ops.master",
+      "skills": [],
+      "workflow": "workflow.startup-ops.master"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
   }
 ]

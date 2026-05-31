@@ -1,0 +1,13 @@
+{
+  "domain": "startup-ops",
+  "description": "Routing fixtures for the Startup Operations master (gstack lifecycle).",
+  "fixtures": [
+    { "prompt": "office hours", "expected_route": "route.startup-ops.master" },
+    { "prompt": "plan ceo review", "expected_route": "route.startup-ops.master" },
+    { "prompt": "ship feature", "expected_route": "route.startup-ops.master" },
+    { "prompt": "founder workflow", "expected_route": "route.startup-ops.master" },
+    { "prompt": "startup operations", "expected_route": "route.startup-ops.master" },
+    { "prompt": "let's run office hours on this idea", "expected_route": "route.startup-ops.master" },
+    { "prompt": "plan ceo review for next sprint", "expected_route": "route.startup-ops.master" }
+  ]
+}
