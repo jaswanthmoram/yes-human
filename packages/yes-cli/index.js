@@ -10,6 +10,7 @@ import { MemoryManager } from '../yes-runtime/memory-manager.js';
 import { loadBuildContext, buildHost, buildAll } from '../yes-adapters/index.js';
 import { validateHostBundle } from '../../validators/host-bundle.validator.js';
 import { CodeGraph } from '../yes-graph/index.js';
+import * as absorber from '../yes-absorber/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -372,6 +373,88 @@ async function cmdGraph(args) {
   return 1;
 }
 
+// ── yes absorb ────────────────────────────────────────────────────────────────
+
+async function cmdAbsorb(args) {
+  const sub = args[0];
+
+  if (!sub || sub === 'help') {
+    console.error('Usage:');
+    console.error('  yes absorb stage <github-url | local-path>   Stage a source through the license gate');
+    console.error('  yes absorb apply <slug>                      Promote a staged source (writes rollback record)');
+    console.error('  yes absorb list                              Show staged / promoted / rejected / rollback records');
+    console.error('  yes absorb rollback <change-id>              Revert a promotion');
+    return 1;
+  }
+
+  if (sub === 'stage') {
+    const input = args[1];
+    if (!input) { console.error('Usage: yes absorb stage <url-or-path>'); return 1; }
+    console.log(`Staging: ${input}\n`);
+    try {
+      const r = await absorber.stage(input);
+      const m = r.manifest;
+      console.log(`  slug         : ${r.slug}`);
+      console.log(`  source       : ${m.source.kind} ${m.source.origin_url}`);
+      console.log(`  commit/ver   : ${m.source.commit_or_version}`);
+      console.log(`  license      : ${m.license.spdx ?? '(unknown)'} → ${m.license.decision}`);
+      console.log(`  classification: ${m.classification.total_files} files (agents:${m.classification.agents}, skills:${m.classification.skills}, workflows:${m.classification.workflows}, commands:${m.classification.commands}, hooks:${m.classification.hooks})`);
+      console.log(`  duplicates   : ${m.duplicates.exact_overlap_count} exact, ${m.duplicates.slug_collision_count} slug collisions`);
+      console.log(`  manifest     : ${r.manifestPath}`);
+      console.log(r.decision === 'staged' ? `\n✓ Staged. Review then run: yes absorb apply ${r.slug}` : `\n✗ Rejected: ${m.reason}`);
+      return r.decision === 'staged' ? 0 : 1;
+    } catch (e) {
+      console.error(`✗ ${e.message}`);
+      return 1;
+    }
+  }
+
+  if (sub === 'apply') {
+    const slug = args[1];
+    if (!slug) { console.error('Usage: yes absorb apply <slug>'); return 1; }
+    try {
+      const r = await absorber.apply(slug);
+      console.log(`✓ Promoted ${slug}`);
+      console.log(`  change_id : ${r.changeId}`);
+      console.log(`  promoted  : ${r.promotedPath}`);
+      console.log(`  rollback  : ${r.rollbackPath}`);
+      return 0;
+    } catch (e) {
+      console.error(`✗ ${e.message}`);
+      return 1;
+    }
+  }
+
+  if (sub === 'rollback') {
+    const changeId = args[1];
+    if (!changeId) { console.error('Usage: yes absorb rollback <change-id>'); return 1; }
+    try {
+      const r = await absorber.rollback(changeId);
+      console.log(`✓ Rolled back ${r.changeId}`);
+      return 0;
+    } catch (e) {
+      console.error(`✗ ${e.message}`);
+      return 1;
+    }
+  }
+
+  if (sub === 'list') {
+    const l = absorber.list();
+    console.log(`Staged (normalized): ${l.normalized.length}`);
+    for (const e of l.normalized) console.log(`  ${e.slug.padEnd(40)} ${e.license ?? '?'.padEnd(10)} ${e.origin}`);
+    console.log(`\nRejected: ${l.rejected.length}`);
+    for (const e of l.rejected) console.log(`  ${e.slug.padEnd(40)} ${e.license ?? '?'.padEnd(10)} ${e.origin}`);
+    console.log(`\nPromoted: ${l.promoted.length}`);
+    for (const e of l.promoted) console.log(`  ${e.change_id}`);
+    console.log(`\nRollback records: ${l.rollback.length}`);
+    for (const e of l.rollback) console.log(`  ${e.change_id}`);
+    return 0;
+  }
+
+  console.error(`Unknown absorb subcommand: ${sub}`);
+  return 1;
+}
+
 async function cmdBuild(args) {
   const HOSTS = ['claude', 'codex', 'opencode', 'mcp', 'all'];
   const host = args[0];
@@ -432,6 +515,10 @@ Usage:
   yes graph build [<path>]       Build local code graph (SQLite); --yes for large repos
   yes graph stats                Show indexed graph statistics
   yes graph query "<term>"       Search symbols and file paths
+  yes absorb stage <url|path>    Stage external source through license + dedupe gates
+  yes absorb apply <slug>        Promote staged source (writes rollback record)
+  yes absorb list                Show staged / promoted / rejected / rollback records
+  yes absorb rollback <id>       Revert a promotion
   yes doctor                     Environment + project health check
   yes dream                      Run nightly dream cycle (pattern extraction)
   yes memory <status|clear|archive>  Memory management
@@ -468,6 +555,8 @@ async function main() {
       return await cmdBuild(rest);
     case 'graph':
       return await cmdGraph(rest);
+    case 'absorb':
+      return await cmdAbsorb(rest);
     case 'doctor':
       return cmdDoctor();
     case 'dream':

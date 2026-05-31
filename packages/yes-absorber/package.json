@@ -1,0 +1,9 @@
+{
+  "name": "@yes-human/absorber",
+  "version": "2.0.0",
+  "description": "Yes-human source absorption pipeline — fetch, license-gate, normalize, dedupe, stage, promote, rollback",
+  "type": "module",
+  "main": "index.js",
+  "private": true,
+  "engines": { "node": ">=20" }
+}
