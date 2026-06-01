@@ -777,5 +777,311 @@
     },
     "budget_band": "standard",
     "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.data-ai.eval-engineer",
+    "match": {
+      "keywords": [
+        "eval harness",
+        "regression eval",
+        "agent eval suite",
+        "llm regression test",
+        "eval fixtures build"
+      ],
+      "aliases": [
+        "evals"
+      ],
+      "negative_keywords": [
+        "performance review",
+        "product review",
+        "financial audit"
+      ]
+    },
+    "target": {
+      "domain_master": "data-ai.master",
+      "agent": "data-ai.eval-engineer",
+      "skills": [],
+      "workflow": "workflow.data-ai.eval-engineer"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.data-ai.ml-engineer",
+    "match": {
+      "keywords": [
+        "fine tune model",
+        "model training",
+        "ml inference setup",
+        "ml model serving",
+        "ml pipeline build"
+      ],
+      "aliases": [
+        "ml"
+      ],
+      "negative_keywords": [
+        "product review",
+        "performance review",
+        "financial forecast"
+      ]
+    },
+    "target": {
+      "domain_master": "data-ai.master",
+      "agent": "data-ai.ml-engineer",
+      "skills": [],
+      "workflow": "workflow.data-ai.ml-engineer"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "expanded",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.data-ai.rag-engineer",
+    "match": {
+      "keywords": [
+        "rag implementation",
+        "vector search setup",
+        "embedding pipeline",
+        "chunking strategy",
+        "retrieval augmented generation"
+      ],
+      "aliases": [
+        "rag"
+      ],
+      "negative_keywords": [
+        "product roadmap",
+        "code review",
+        "financial forecast"
+      ]
+    },
+    "target": {
+      "domain_master": "data-ai.master",
+      "agent": "data-ai.rag-engineer",
+      "skills": [],
+      "workflow": "workflow.data-ai.rag-engineer"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.platform.ci-cd-engineer",
+    "match": {
+      "keywords": [
+        "github actions workflow",
+        "ci pipeline config",
+        "build pipeline",
+        "cd pipeline",
+        "ci cd setup"
+      ],
+      "aliases": [
+        "cicd"
+      ],
+      "negative_keywords": [
+        "production scheduling",
+        "code review",
+        "financial forecast"
+      ]
+    },
+    "target": {
+      "domain_master": "platform.master",
+      "agent": "platform.ci-cd-engineer",
+      "skills": [],
+      "workflow": "workflow.platform.ci-cd-engineer"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.platform.devops-engineer",
+    "match": {
+      "keywords": [
+        "iac terraform",
+        "kubernetes deploy",
+        "infrastructure code",
+        "k8s deployment",
+        "cloud infrastructure"
+      ],
+      "aliases": [
+        "devops"
+      ],
+      "negative_keywords": [
+        "software release",
+        "code review",
+        "financial forecast"
+      ]
+    },
+    "target": {
+      "domain_master": "platform.master",
+      "agent": "platform.devops-engineer",
+      "skills": [],
+      "workflow": "workflow.platform.devops-engineer"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.platform.incident-responder",
+    "match": {
+      "keywords": [
+        "incident postmortem",
+        "outage response",
+        "blameless postmortem",
+        "incident triage",
+        "war room"
+      ],
+      "aliases": [
+        "oncall"
+      ],
+      "negative_keywords": [
+        "product review",
+        "code review",
+        "financial forecast"
+      ]
+    },
+    "target": {
+      "domain_master": "platform.master",
+      "agent": "platform.incident-responder",
+      "skills": [],
+      "workflow": "workflow.platform.incident-responder"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.security.secret-scan-agent",
+    "match": {
+      "keywords": [
+        "secret detection",
+        "credential leak check",
+        "gitleaks audit",
+        "secret rotation",
+        "key rotation plan"
+      ],
+      "aliases": [
+        "secrets"
+      ],
+      "negative_keywords": [
+        "performance review",
+        "product review",
+        "code review"
+      ]
+    },
+    "target": {
+      "domain_master": "security.master",
+      "agent": "security.secret-scan-agent",
+      "skills": [],
+      "workflow": "workflow.security.secret-scan-agent"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.security.security-reviewer",
+    "match": {
+      "keywords": [
+        "code security audit",
+        "owasp top 10 check",
+        "security code review",
+        "appsec audit",
+        "security baseline"
+      ],
+      "aliases": [
+        "secrev"
+      ],
+      "negative_keywords": [
+        "financial audit",
+        "product review",
+        "performance review"
+      ]
+    },
+    "target": {
+      "domain_master": "security.master",
+      "agent": "security.security-reviewer",
+      "skills": [],
+      "workflow": "workflow.security.security-reviewer"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.security.threat-modeler",
+    "match": {
+      "keywords": [
+        "threat model",
+        "stride model",
+        "attack surface",
+        "trust boundary diagram",
+        "abuse case design"
+      ],
+      "aliases": [
+        "threatmod"
+      ],
+      "negative_keywords": [
+        "product roadmap",
+        "financial model",
+        "performance model"
+      ]
+    },
+    "target": {
+      "domain_master": "security.master",
+      "agent": "security.threat-modeler",
+      "skills": [],
+      "workflow": "workflow.security.threat-modeler"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
   }
 ]

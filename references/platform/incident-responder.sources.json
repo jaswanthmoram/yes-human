@@ -1,0 +1,44 @@
+{
+  "dossier_id": "dossier.platform.incident-responder.2026-05-31",
+  "agent_id": "platform.incident-responder",
+  "domain": "platform",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2026-08-29T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/open-telemetry/opentelemetry-collector",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": ["telemetry signal taxonomy for triage"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/prometheus/prometheus",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": ["alert/recording-rule patterns for sev classification"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/garrytan/gstack",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": ["release lifecycle and gating concepts adapted for incident comms"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 0,
+    "github_quality": 95,
+    "license_safety": 92,
+    "maintenance": 92,
+    "pattern_clarity": 86,
+    "testability": 80,
+    "total": 89
+  },
+  "promotion_decision": "staging"
+}

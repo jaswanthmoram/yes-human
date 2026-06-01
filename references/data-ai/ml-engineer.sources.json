@@ -1,0 +1,44 @@
+{
+  "dossier_id": "dossier.data-ai.ml-engineer.2026-05-31",
+  "agent_id": "data-ai.ml-engineer",
+  "domain": "data-ai",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2026-08-29T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/mlflow/mlflow",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "master",
+      "used_for": ["experiment tracking, model registry, and reproducibility patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/bentoml/BentoML",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": ["model serving topology and packaging patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/ray-project/ray",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "master",
+      "used_for": ["distributed training and inference pipeline patterns"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 0,
+    "github_quality": 95,
+    "license_safety": 95,
+    "maintenance": 95,
+    "pattern_clarity": 90,
+    "testability": 85,
+    "total": 91
+  },
+  "promotion_decision": "staging"
+}

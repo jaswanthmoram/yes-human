@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-06-01T06:04:49.391Z",
-  "count": 33,
+  "generated_at": "2026-06-01T06:21:27.057Z",
+  "count": 42,
   "items": [
     {
       "id": "cr",
@@ -134,6 +134,42 @@
     {
       "id": "mrp",
       "route_id": "route.manufacturing.master"
+    },
+    {
+      "id": "evals",
+      "route_id": "route.data-ai.eval-engineer"
+    },
+    {
+      "id": "ml",
+      "route_id": "route.data-ai.ml-engineer"
+    },
+    {
+      "id": "rag",
+      "route_id": "route.data-ai.rag-engineer"
+    },
+    {
+      "id": "cicd",
+      "route_id": "route.platform.ci-cd-engineer"
+    },
+    {
+      "id": "devops",
+      "route_id": "route.platform.devops-engineer"
+    },
+    {
+      "id": "oncall",
+      "route_id": "route.platform.incident-responder"
+    },
+    {
+      "id": "secrets",
+      "route_id": "route.security.secret-scan-agent"
+    },
+    {
+      "id": "secrev",
+      "route_id": "route.security.security-reviewer"
+    },
+    {
+      "id": "threatmod",
+      "route_id": "route.security.threat-modeler"
     }
   ]
 }

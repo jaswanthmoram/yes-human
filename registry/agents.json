@@ -1,8 +1,63 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-06-01T06:04:49.387Z",
-  "count": 23,
+  "generated_at": "2026-06-01T06:21:27.051Z",
+  "count": 32,
   "items": [
+    {
+      "id": "data-ai.eval-engineer",
+      "name": "Eval Engineer",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "data-ai",
+      "kind": "specialist",
+      "summary": "Builds reproducible LLM/agent eval harnesses with regression-blocking gates.",
+      "triggers": [
+        "eval harness",
+        "regression eval",
+        "agent eval suite",
+        "llm regression test",
+        "eval fixtures build"
+      ],
+      "aliases": [
+        "evals"
+      ],
+      "negative_keywords": [
+        "performance review",
+        "product review",
+        "financial audit"
+      ],
+      "inputs": [
+        "target_capability",
+        "dataset_or_fixtures",
+        "scoring_criteria"
+      ],
+      "outputs": [
+        "eval_harness",
+        "regression_report",
+        "threshold_recommendation"
+      ],
+      "allowed_tools": [
+        "filesystem.read",
+        "filesystem.write",
+        "shell.readonly"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 4000,
+      "failure_modes": [
+        "cherry-picked test examples instead of representative sample",
+        "thresholds set after seeing results",
+        "regression eval that depends on non-deterministic graders without checks"
+      ],
+      "verification": [
+        "fixtures_representative",
+        "thresholds_set_before_results",
+        "non_determinism_quantified"
+      ],
+      "source_references": [
+        "ref.github.data-ai.eval-engineer.2026-05-31"
+      ],
+      "quality_gate": "staging"
+    },
     {
       "id": "data-ai.master",
       "name": "Data & AI Master",
@@ -54,6 +109,114 @@
       ],
       "source_references": [
         "ref.github.data-ai-master.2026-05-31"
+      ],
+      "quality_gate": "staging"
+    },
+    {
+      "id": "data-ai.ml-engineer",
+      "name": "ML Engineer",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "data-ai",
+      "kind": "specialist",
+      "summary": "Designs and operates ML training, fine-tuning, serving, and inference pipelines with reproducibility and monitoring.",
+      "triggers": [
+        "fine tune model",
+        "model training",
+        "ml inference setup",
+        "ml model serving",
+        "ml pipeline build"
+      ],
+      "aliases": [
+        "ml"
+      ],
+      "negative_keywords": [
+        "product review",
+        "performance review",
+        "financial forecast"
+      ],
+      "inputs": [
+        "dataset_or_task",
+        "latency_budget",
+        "serving_constraints"
+      ],
+      "outputs": [
+        "training_plan",
+        "serving_topology",
+        "monitoring_plan"
+      ],
+      "allowed_tools": [
+        "filesystem.read",
+        "shell.readonly"
+      ],
+      "budget_band": "expanded",
+      "max_context_tokens": 4000,
+      "failure_modes": [
+        "launches training without a held-out eval split",
+        "serves without latency/cost monitoring",
+        "bakes training-time data leakage into the pipeline"
+      ],
+      "verification": [
+        "eval_split_isolated",
+        "monitoring_attached",
+        "data_leakage_check_documented"
+      ],
+      "source_references": [
+        "ref.github.data-ai.ml-engineer.2026-05-31"
+      ],
+      "quality_gate": "staging"
+    },
+    {
+      "id": "data-ai.rag-engineer",
+      "name": "RAG Engineer",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "data-ai",
+      "kind": "specialist",
+      "summary": "Designs and tunes retrieval-augmented generation pipelines with measured retrieval quality before generation quality.",
+      "triggers": [
+        "rag implementation",
+        "vector search setup",
+        "embedding pipeline",
+        "chunking strategy",
+        "retrieval augmented generation"
+      ],
+      "aliases": [
+        "rag"
+      ],
+      "negative_keywords": [
+        "product roadmap",
+        "code review",
+        "financial forecast"
+      ],
+      "inputs": [
+        "corpus_description",
+        "latency_budget",
+        "eval_criteria"
+      ],
+      "outputs": [
+        "retrieval_pipeline_design",
+        "eval_harness",
+        "tuning_recommendations"
+      ],
+      "allowed_tools": [
+        "filesystem.read",
+        "code_graph.query"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 4000,
+      "failure_modes": [
+        "tunes generation before retrieval is measurably good",
+        "skips eval harness build before A/B comparisons",
+        "picks an embedding model without latency/cost analysis"
+      ],
+      "verification": [
+        "retrieval_metrics_baseline_set",
+        "eval_fixtures_present",
+        "tradeoffs_explicit"
+      ],
+      "source_references": [
+        "ref.github.data-ai.rag-engineer.2026-05-31"
       ],
       "quality_gate": "staging"
     },
@@ -859,6 +1022,167 @@
       "quality_gate": "production"
     },
     {
+      "id": "platform.ci-cd-engineer",
+      "name": "CI/CD Engineer",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "platform",
+      "kind": "specialist",
+      "summary": "Designs and reviews CI/CD pipelines — GitHub Actions, Drone, Tekton, build/test/deploy automation.",
+      "triggers": [
+        "github actions workflow",
+        "ci pipeline config",
+        "build pipeline",
+        "cd pipeline",
+        "ci cd setup"
+      ],
+      "aliases": [
+        "cicd"
+      ],
+      "negative_keywords": [
+        "production scheduling",
+        "code review",
+        "financial forecast"
+      ],
+      "inputs": [
+        "repo_layout",
+        "existing_pipeline",
+        "target_environment"
+      ],
+      "outputs": [
+        "pipeline_yaml",
+        "cache_strategy",
+        "rollout_plan"
+      ],
+      "allowed_tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 4000,
+      "failure_modes": [
+        "introduces a step that needs secrets without env declarations",
+        "bypasses required reviews on protected branches",
+        "caches stale dependencies leading to flaky builds"
+      ],
+      "verification": [
+        "dry_run_validates",
+        "secrets_declared_via_env",
+        "cache_keys_explicit"
+      ],
+      "source_references": [
+        "ref.github.platform.ci-cd-engineer.2026-05-31"
+      ],
+      "quality_gate": "staging"
+    },
+    {
+      "id": "platform.devops-engineer",
+      "name": "DevOps Engineer",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "platform",
+      "kind": "specialist",
+      "summary": "Designs and reviews infrastructure-as-code, Kubernetes deployments, and cloud-infrastructure changes; read-only diagnosis first, gated writes.",
+      "triggers": [
+        "iac terraform",
+        "kubernetes deploy",
+        "infrastructure code",
+        "k8s deployment",
+        "cloud infrastructure"
+      ],
+      "aliases": [
+        "devops"
+      ],
+      "negative_keywords": [
+        "software release",
+        "code review",
+        "financial forecast"
+      ],
+      "inputs": [
+        "target_environment",
+        "existing_iac",
+        "change_description"
+      ],
+      "outputs": [
+        "infrastructure_plan",
+        "apply_plan_or_diff",
+        "rollback_plan"
+      ],
+      "allowed_tools": [
+        "filesystem.read",
+        "shell.readonly"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 4000,
+      "failure_modes": [
+        "issues an apply without a plan and dry-run",
+        "skips state-drift check before changes",
+        "misses the rollback path"
+      ],
+      "verification": [
+        "plan_output_attached",
+        "rollback_path_specified"
+      ],
+      "source_references": [
+        "ref.github.platform.devops-engineer.2026-05-31"
+      ],
+      "quality_gate": "staging"
+    },
+    {
+      "id": "platform.incident-responder",
+      "name": "Incident Responder",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "platform",
+      "kind": "specialist",
+      "summary": "Drives incident triage, sev assessment, comms, and blameless postmortems.",
+      "triggers": [
+        "incident postmortem",
+        "outage response",
+        "blameless postmortem",
+        "incident triage",
+        "war room"
+      ],
+      "aliases": [
+        "oncall"
+      ],
+      "negative_keywords": [
+        "product review",
+        "code review",
+        "financial forecast"
+      ],
+      "inputs": [
+        "alert_or_signal",
+        "service_topology",
+        "sev_definition"
+      ],
+      "outputs": [
+        "triage_state",
+        "status_update",
+        "postmortem_draft"
+      ],
+      "allowed_tools": [
+        "filesystem.read",
+        "shell.readonly"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 4000,
+      "failure_modes": [
+        "assigns blame instead of contributing factors",
+        "skips comms cadence during active incident",
+        "declares resolved without verification"
+      ],
+      "verification": [
+        "sev_level_explicit",
+        "comms_cadence_followed",
+        "root_cause_distinguishes_cause_from_factors"
+      ],
+      "source_references": [
+        "ref.github.platform.incident-responder.2026-05-31"
+      ],
+      "quality_gate": "staging"
+    },
+    {
       "id": "platform.master",
       "name": "Platform Master",
       "version": "1.0.0",
@@ -1086,6 +1410,167 @@
       ],
       "source_references": [
         "ref.github.claude-bughunter.2026-05-29"
+      ],
+      "quality_gate": "staging"
+    },
+    {
+      "id": "security.secret-scan-agent",
+      "name": "Secret Scan Agent",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "security",
+      "kind": "specialist",
+      "summary": "Runs deterministic secret detection, classifies findings, and produces rotation plans without leaking detected secrets.",
+      "triggers": [
+        "secret detection",
+        "credential leak check",
+        "gitleaks audit",
+        "secret rotation",
+        "key rotation plan"
+      ],
+      "aliases": [
+        "secrets"
+      ],
+      "negative_keywords": [
+        "performance review",
+        "product review",
+        "code review"
+      ],
+      "inputs": [
+        "repo_or_path",
+        "secret_classes",
+        "rotation_constraints"
+      ],
+      "outputs": [
+        "findings_redacted",
+        "rotation_plan",
+        "prevention_recommendations"
+      ],
+      "allowed_tools": [
+        "filesystem.read",
+        "shell.readonly"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 4000,
+      "failure_modes": [
+        "includes detected secret values in output",
+        "misses .env / config / history paths",
+        "skips rotation steps after detection"
+      ],
+      "verification": [
+        "all_findings_redacted",
+        "rotation_plan_includes_revoke_and_replace",
+        "history_scope_explicit"
+      ],
+      "source_references": [
+        "ref.github.security.secret-scan-agent.2026-05-31"
+      ],
+      "quality_gate": "staging"
+    },
+    {
+      "id": "security.security-reviewer",
+      "name": "Security Reviewer",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "security",
+      "kind": "specialist",
+      "summary": "Performs OWASP-baseline security code review with deterministic-scanner-first discipline.",
+      "triggers": [
+        "code security audit",
+        "owasp top 10 check",
+        "security code review",
+        "appsec audit",
+        "security baseline"
+      ],
+      "aliases": [
+        "secrev"
+      ],
+      "negative_keywords": [
+        "financial audit",
+        "product review",
+        "performance review"
+      ],
+      "inputs": [
+        "changed_files",
+        "threat_context",
+        "scanner_output"
+      ],
+      "outputs": [
+        "findings_by_severity",
+        "reproducer_or_evidence",
+        "remediation_plan"
+      ],
+      "allowed_tools": [
+        "filesystem.read",
+        "shell.readonly"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 4000,
+      "failure_modes": [
+        "reports findings without evidence or reproducer",
+        "relies on LLM judgment over deterministic scanner output",
+        "misses input-validation gaps in fetched/external data paths"
+      ],
+      "verification": [
+        "every_finding_has_evidence",
+        "scanner_output_consulted_first",
+        "severity_uses_cvss_or_org_scale"
+      ],
+      "source_references": [
+        "ref.github.security.security-reviewer.2026-05-31"
+      ],
+      "quality_gate": "staging"
+    },
+    {
+      "id": "security.threat-modeler",
+      "name": "Threat Modeler",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "security",
+      "kind": "specialist",
+      "summary": "Produces STRIDE/PASTA-style threat models with explicit trust boundaries and abuse cases.",
+      "triggers": [
+        "threat model",
+        "stride model",
+        "attack surface",
+        "trust boundary diagram",
+        "abuse case design"
+      ],
+      "aliases": [
+        "threatmod"
+      ],
+      "negative_keywords": [
+        "product roadmap",
+        "financial model",
+        "performance model"
+      ],
+      "inputs": [
+        "architecture_diagram",
+        "data_classifications",
+        "actor_inventory"
+      ],
+      "outputs": [
+        "threat_list_by_category",
+        "trust_boundary_diagram",
+        "mitigation_recommendations"
+      ],
+      "allowed_tools": [
+        "filesystem.read"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 4000,
+      "failure_modes": [
+        "generic threats not tied to actual data flows",
+        "missing trust boundaries between services",
+        "confuses controls with threats"
+      ],
+      "verification": [
+        "trust_boundaries_named",
+        "threats_mapped_to_data_flows",
+        "controls_distinguished_from_threats"
+      ],
+      "source_references": [
+        "ref.github.security.threat-modeler.2026-05-31"
       ],
       "quality_gate": "staging"
     },

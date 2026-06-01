@@ -1,0 +1,23 @@
+{
+  "domain": "data-ai-specialists",
+  "description": "Routing fixtures for Wave-4 data-ai specialists.",
+  "fixtures": [
+    { "prompt": "rag implementation", "expected_route": "route.data-ai.rag-engineer" },
+    { "prompt": "vector search setup", "expected_route": "route.data-ai.rag-engineer" },
+    { "prompt": "embedding pipeline", "expected_route": "route.data-ai.rag-engineer" },
+    { "prompt": "chunking strategy", "expected_route": "route.data-ai.rag-engineer" },
+    { "prompt": "retrieval augmented generation", "expected_route": "route.data-ai.rag-engineer" },
+
+    { "prompt": "eval harness", "expected_route": "route.data-ai.eval-engineer" },
+    { "prompt": "regression eval", "expected_route": "route.data-ai.eval-engineer" },
+    { "prompt": "agent eval suite", "expected_route": "route.data-ai.eval-engineer" },
+    { "prompt": "llm regression test", "expected_route": "route.data-ai.eval-engineer" },
+    { "prompt": "eval fixtures build", "expected_route": "route.data-ai.eval-engineer" },
+
+    { "prompt": "fine tune model", "expected_route": "route.data-ai.ml-engineer" },
+    { "prompt": "model training", "expected_route": "route.data-ai.ml-engineer" },
+    { "prompt": "ml inference setup", "expected_route": "route.data-ai.ml-engineer" },
+    { "prompt": "ml model serving", "expected_route": "route.data-ai.ml-engineer" },
+    { "prompt": "ml pipeline build", "expected_route": "route.data-ai.ml-engineer" }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "domain": "platform-specialists",
+  "description": "Routing fixtures for Wave-4 platform specialists.",
+  "fixtures": [
+    { "prompt": "iac terraform", "expected_route": "route.platform.devops-engineer" },
+    { "prompt": "kubernetes deploy", "expected_route": "route.platform.devops-engineer" },
+    { "prompt": "infrastructure code", "expected_route": "route.platform.devops-engineer" },
+    { "prompt": "k8s deployment", "expected_route": "route.platform.devops-engineer" },
+    { "prompt": "cloud infrastructure", "expected_route": "route.platform.devops-engineer" },
+
+    { "prompt": "github actions workflow", "expected_route": "route.platform.ci-cd-engineer" },
+    { "prompt": "ci pipeline config", "expected_route": "route.platform.ci-cd-engineer" },
+    { "prompt": "build pipeline", "expected_route": "route.platform.ci-cd-engineer" },
+    { "prompt": "cd pipeline", "expected_route": "route.platform.ci-cd-engineer" },
+    { "prompt": "ci cd setup", "expected_route": "route.platform.ci-cd-engineer" },
+
+    { "prompt": "incident postmortem", "expected_route": "route.platform.incident-responder" },
+    { "prompt": "outage response", "expected_route": "route.platform.incident-responder" },
+    { "prompt": "blameless postmortem", "expected_route": "route.platform.incident-responder" },
+    { "prompt": "incident triage", "expected_route": "route.platform.incident-responder" },
+    { "prompt": "war room", "expected_route": "route.platform.incident-responder" }
+  ]
+}

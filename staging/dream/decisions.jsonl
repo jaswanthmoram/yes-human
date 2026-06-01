@@ -38,3 +38,5 @@
 {"candidate_id":0,"decision":"reject","rationale":"Not relevant","timestamp":"2026-06-01T06:05:00.820Z"}
 {"candidate_id":4,"decision":"graduate","rationale":"This is a test lesson","timestamp":"2026-06-01T06:05:53.362Z"}
 {"candidate_id":0,"decision":"reject","rationale":"Not relevant","timestamp":"2026-06-01T06:05:53.364Z"}
+{"candidate_id":4,"decision":"graduate","rationale":"This is a test lesson","timestamp":"2026-06-01T06:21:37.170Z"}
+{"candidate_id":0,"decision":"reject","rationale":"Not relevant","timestamp":"2026-06-01T06:21:37.174Z"}

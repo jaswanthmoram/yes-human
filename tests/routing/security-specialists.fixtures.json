@@ -1,0 +1,23 @@
+{
+  "domain": "security-specialists",
+  "description": "Routing fixtures for Wave-4 security specialists.",
+  "fixtures": [
+    { "prompt": "code security audit", "expected_route": "route.security.security-reviewer" },
+    { "prompt": "owasp top 10 check", "expected_route": "route.security.security-reviewer" },
+    { "prompt": "security code review", "expected_route": "route.security.security-reviewer" },
+    { "prompt": "appsec audit", "expected_route": "route.security.security-reviewer" },
+    { "prompt": "security baseline", "expected_route": "route.security.security-reviewer" },
+
+    { "prompt": "threat model", "expected_route": "route.security.threat-modeler" },
+    { "prompt": "stride model", "expected_route": "route.security.threat-modeler" },
+    { "prompt": "attack surface", "expected_route": "route.security.threat-modeler" },
+    { "prompt": "trust boundary diagram", "expected_route": "route.security.threat-modeler" },
+    { "prompt": "abuse case design", "expected_route": "route.security.threat-modeler" },
+
+    { "prompt": "secret detection", "expected_route": "route.security.secret-scan-agent" },
+    { "prompt": "credential leak check", "expected_route": "route.security.secret-scan-agent" },
+    { "prompt": "gitleaks audit", "expected_route": "route.security.secret-scan-agent" },
+    { "prompt": "secret rotation", "expected_route": "route.security.secret-scan-agent" },
+    { "prompt": "key rotation plan", "expected_route": "route.security.secret-scan-agent" }
+  ]
+}
