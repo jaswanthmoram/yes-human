@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-05-31T15:01:30.020Z",
-  "count": 11,
+  "generated_at": "2026-06-01T05:54:32.094Z",
+  "count": 21,
   "items": [
     {
       "id": "cr",
@@ -46,6 +46,46 @@
     {
       "id": "solo founder",
       "route_id": "route.startup-ops.master"
+    },
+    {
+      "id": "design content",
+      "route_id": "route.design-content.master"
+    },
+    {
+      "id": "ui ux",
+      "route_id": "route.design-content.master"
+    },
+    {
+      "id": "marketing task",
+      "route_id": "route.marketing.master"
+    },
+    {
+      "id": "growth marketing",
+      "route_id": "route.marketing.master"
+    },
+    {
+      "id": "product business",
+      "route_id": "route.product-business.master"
+    },
+    {
+      "id": "pm task",
+      "route_id": "route.product-business.master"
+    },
+    {
+      "id": "research task",
+      "route_id": "route.research.master"
+    },
+    {
+      "id": "deep dive",
+      "route_id": "route.research.master"
+    },
+    {
+      "id": "sales task",
+      "route_id": "route.sales.master"
+    },
+    {
+      "id": "deal review",
+      "route_id": "route.sales.master"
     }
   ]
 }

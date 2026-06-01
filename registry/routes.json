@@ -392,5 +392,180 @@
     },
     "budget_band": "standard",
     "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.design-content.master",
+    "match": {
+      "keywords": [
+        "ui design",
+        "ux design",
+        "frontend design",
+        "brand strategy",
+        "technical writing"
+      ],
+      "aliases": [
+        "design content",
+        "ui ux"
+      ],
+      "negative_keywords": [
+        "code review",
+        "infrastructure design",
+        "legal document"
+      ]
+    },
+    "target": {
+      "domain_master": "design-content.master",
+      "agent": "design-content.master",
+      "skills": [],
+      "workflow": "workflow.design-content.master"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.marketing.master",
+    "match": {
+      "keywords": [
+        "marketing strategy",
+        "content marketing",
+        "seo strategy",
+        "email marketing",
+        "campaign analysis"
+      ],
+      "aliases": [
+        "marketing task",
+        "growth marketing"
+      ],
+      "negative_keywords": [
+        "sales pipeline",
+        "product roadmap",
+        "financial forecast"
+      ]
+    },
+    "target": {
+      "domain_master": "marketing.master",
+      "agent": "marketing.master",
+      "skills": [],
+      "workflow": "workflow.marketing.master"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.product-business.master",
+    "match": {
+      "keywords": [
+        "product management",
+        "growth strategy",
+        "customer success",
+        "partnership strategy",
+        "go to market"
+      ],
+      "aliases": [
+        "product business",
+        "pm task"
+      ],
+      "negative_keywords": [
+        "financial forecast",
+        "sales pipeline",
+        "marketing campaign"
+      ]
+    },
+    "target": {
+      "domain_master": "product-business.master",
+      "agent": "product-business.master",
+      "skills": [],
+      "workflow": "workflow.product-business.master"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.research.master",
+    "match": {
+      "keywords": [
+        "deep research",
+        "market intel",
+        "competitive intel",
+        "literature review",
+        "research synthesis"
+      ],
+      "aliases": [
+        "research task",
+        "deep dive"
+      ],
+      "negative_keywords": [
+        "code review",
+        "security review",
+        "product roadmap"
+      ]
+    },
+    "target": {
+      "domain_master": "research.master",
+      "agent": "research.master",
+      "skills": [],
+      "workflow": "workflow.research.master"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "expanded",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.sales.master",
+    "match": {
+      "keywords": [
+        "sales strategy",
+        "pipeline analysis",
+        "proposal generation",
+        "pricing strategy",
+        "account management"
+      ],
+      "aliases": [
+        "sales task",
+        "deal review"
+      ],
+      "negative_keywords": [
+        "marketing campaign",
+        "product roadmap",
+        "financial forecast"
+      ]
+    },
+    "target": {
+      "domain_master": "sales.master",
+      "agent": "sales.master",
+      "skills": [],
+      "workflow": "workflow.sales.master"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
   }
 ]

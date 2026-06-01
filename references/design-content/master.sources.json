@@ -1,0 +1,52 @@
+{
+  "dossier_id": "dossier.design-content.master.2026-05-31",
+  "agent_id": "design-content.master",
+  "domain": "design-content",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2026-08-29T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/storybookjs/storybook",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "next",
+      "used_for": ["component documentation and UI testing workflow"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/shadcn-ui/ui",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": ["component-system and registry patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/dequelabs/axe-core",
+      "source_type": "github_repo",
+      "license": "MPL-2.0",
+      "version_or_commit": "develop",
+      "used_for": ["WCAG 2.1 AA accessibility rule taxonomy (patterns only — no copied rule definitions)"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/hardikpandya/stop-slop",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": ["anti-slop detection heuristics for customer-facing content"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 0,
+    "github_quality": 94,
+    "license_safety": 88,
+    "maintenance": 92,
+    "pattern_clarity": 90,
+    "testability": 82,
+    "total": 89
+  },
+  "promotion_decision": "staging"
+}

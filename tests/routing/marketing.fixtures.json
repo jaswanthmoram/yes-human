@@ -1,0 +1,13 @@
+{
+  "domain": "marketing",
+  "description": "Routing fixtures for the Marketing master.",
+  "fixtures": [
+    { "prompt": "marketing strategy", "expected_route": "route.marketing.master" },
+    { "prompt": "content marketing", "expected_route": "route.marketing.master" },
+    { "prompt": "seo strategy", "expected_route": "route.marketing.master" },
+    { "prompt": "email marketing", "expected_route": "route.marketing.master" },
+    { "prompt": "campaign analysis", "expected_route": "route.marketing.master" },
+    { "prompt": "draft a marketing strategy for next quarter", "expected_route": "route.marketing.master" },
+    { "prompt": "review the campaign analysis from last month", "expected_route": "route.marketing.master" }
+  ]
+}

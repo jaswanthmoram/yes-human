@@ -1,0 +1,13 @@
+{
+  "domain": "sales",
+  "description": "Routing fixtures for the Sales master.",
+  "fixtures": [
+    { "prompt": "sales strategy", "expected_route": "route.sales.master" },
+    { "prompt": "pipeline analysis", "expected_route": "route.sales.master" },
+    { "prompt": "proposal generation", "expected_route": "route.sales.master" },
+    { "prompt": "pricing strategy", "expected_route": "route.sales.master" },
+    { "prompt": "account management", "expected_route": "route.sales.master" },
+    { "prompt": "do a pipeline analysis for the quarter", "expected_route": "route.sales.master" },
+    { "prompt": "draft a proposal generation template", "expected_route": "route.sales.master" }
+  ]
+}

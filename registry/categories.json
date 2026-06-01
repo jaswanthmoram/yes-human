@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-05-31T00:00:00Z",
-  "count": 8,
+  "generated_at": "2026-05-31T12:00:00Z",
+  "count": 13,
   "items": [
     {
       "id": "engineering",
@@ -79,6 +79,56 @@
       "parent": null,
       "master_agent": "startup-ops.master",
       "keywords": ["office hours", "plan ceo review", "ship feature", "founder workflow", "startup operations"],
+      "children": [],
+      "default_budget_band": "standard",
+      "quality_threshold": 0.85
+    },
+    {
+      "id": "research",
+      "name": "Research and Intelligence",
+      "parent": null,
+      "master_agent": "research.master",
+      "keywords": ["deep research", "market intel", "competitive intel", "literature review", "research synthesis"],
+      "children": [],
+      "default_budget_band": "expanded",
+      "quality_threshold": 0.85
+    },
+    {
+      "id": "product-business",
+      "name": "Product Management and Business Operations",
+      "parent": null,
+      "master_agent": "product-business.master",
+      "keywords": ["product management", "growth strategy", "customer success", "partnership strategy", "go to market"],
+      "children": [],
+      "default_budget_band": "standard",
+      "quality_threshold": 0.85
+    },
+    {
+      "id": "design-content",
+      "name": "Design, Brand, and Content",
+      "parent": null,
+      "master_agent": "design-content.master",
+      "keywords": ["ui design", "ux design", "frontend design", "brand strategy", "technical writing"],
+      "children": [],
+      "default_budget_band": "standard",
+      "quality_threshold": 0.85
+    },
+    {
+      "id": "marketing",
+      "name": "Marketing and Growth Channels",
+      "parent": null,
+      "master_agent": "marketing.master",
+      "keywords": ["marketing strategy", "content marketing", "seo strategy", "email marketing", "campaign analysis"],
+      "children": [],
+      "default_budget_band": "standard",
+      "quality_threshold": 0.85
+    },
+    {
+      "id": "sales",
+      "name": "Sales Pipeline, Proposals, and Account Management",
+      "parent": null,
+      "master_agent": "sales.master",
+      "keywords": ["sales strategy", "pipeline analysis", "proposal generation", "pricing strategy", "account management"],
       "children": [],
       "default_budget_band": "standard",
       "quality_threshold": 0.85

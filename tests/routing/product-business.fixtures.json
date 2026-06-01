@@ -1,0 +1,13 @@
+{
+  "domain": "product-business",
+  "description": "Routing fixtures for the Product & Business master.",
+  "fixtures": [
+    { "prompt": "product management", "expected_route": "route.product-business.master" },
+    { "prompt": "growth strategy", "expected_route": "route.product-business.master" },
+    { "prompt": "customer success", "expected_route": "route.product-business.master" },
+    { "prompt": "partnership strategy", "expected_route": "route.product-business.master" },
+    { "prompt": "go to market", "expected_route": "route.product-business.master" },
+    { "prompt": "draft a product management plan", "expected_route": "route.product-business.master" },
+    { "prompt": "design a growth strategy for retention", "expected_route": "route.product-business.master" }
+  ]
+}

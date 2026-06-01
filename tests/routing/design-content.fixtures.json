@@ -1,0 +1,13 @@
+{
+  "domain": "design-content",
+  "description": "Routing fixtures for the Design & Content master.",
+  "fixtures": [
+    { "prompt": "ui design", "expected_route": "route.design-content.master" },
+    { "prompt": "ux design", "expected_route": "route.design-content.master" },
+    { "prompt": "frontend design", "expected_route": "route.design-content.master" },
+    { "prompt": "brand strategy", "expected_route": "route.design-content.master" },
+    { "prompt": "technical writing", "expected_route": "route.design-content.master" },
+    { "prompt": "do a frontend design review of this mockup", "expected_route": "route.design-content.master" },
+    { "prompt": "draft a brand strategy section for our launch", "expected_route": "route.design-content.master" }
+  ]
+}

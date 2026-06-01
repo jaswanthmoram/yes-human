@@ -1,13 +1,13 @@
 # Dream Cycle Report
 
-**Generated:** 2026-05-31T15:01:31.439Z
+**Generated:** 2026-06-01T05:54:43.580Z
 **Duration:** 1ms
 
 ## Statistics
 
-- Tasks analyzed: 239
-- Errors analyzed: 59
-- Tool executions analyzed: 14
+- Tasks analyzed: 255
+- Errors analyzed: 63
+- Tool executions analyzed: 15
 - Candidates staged: 7
 
 ## Summary
@@ -20,33 +20,33 @@
 ## High Priority Candidates
 
 ### SKILL: Successful route.engineering.master tasks
-- **Count:** 45
+- **Count:** 48
 - **Avg Duration:** 5500ms
 - **Recommendation:** Consider promoting to skill registry
 
 ### SKILL: Successful undefined tasks
-- **Count:** 15
+- **Count:** 16
 - **Recommendation:** Consider promoting to skill registry
 
 ### SKILL: Successful route.engineering.code-reviewer tasks
-- **Count:** 89
-- **Avg Duration:** 3315ms
+- **Count:** 95
+- **Avg Duration:** 3316ms
 - **Recommendation:** Consider promoting to skill registry
 
 ### SKILL: Successful route.test tasks
-- **Count:** 45
+- **Count:** 48
 - **Avg Duration:** 1000ms
 - **Recommendation:** Consider promoting to skill registry
 
 ### LESSON: Failed route.test tasks
-- **Count:** 45
+- **Count:** 48
 - **Recommendation:** Extract lesson and add to semantic memory
 
 ### MISTAKE: timeout errors
-- **Count:** 45
-- **Common Tools:** webfetch(45)
+- **Count:** 48
+- **Common Tools:** webfetch(48)
 - **Recommendation:** Add to mistake graph for future avoidance
 
 ### MISTAKE: unknown errors
-- **Count:** 14
+- **Count:** 15
 - **Recommendation:** Add to mistake graph for future avoidance

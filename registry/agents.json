@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-05-31T15:01:30.017Z",
-  "count": 12,
+  "generated_at": "2026-06-01T05:54:32.090Z",
+  "count": 17,
   "items": [
     {
       "id": "data-ai.master",
@@ -54,6 +54,60 @@
       ],
       "source_references": [
         "ref.github.data-ai-master.2026-05-31"
+      ],
+      "quality_gate": "staging"
+    },
+    {
+      "id": "design-content.master",
+      "name": "Design & Content Master",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "design-content",
+      "kind": "master",
+      "summary": "Orchestrates UI/UX, frontend-design, accessibility, brand, and technical-writing tasks; gates AI-slop.",
+      "triggers": [
+        "ui design",
+        "ux design",
+        "frontend design",
+        "brand strategy",
+        "technical writing"
+      ],
+      "aliases": [
+        "design content",
+        "ui ux"
+      ],
+      "negative_keywords": [
+        "code review",
+        "infrastructure design",
+        "legal document"
+      ],
+      "inputs": [
+        "prompt",
+        "brand_context",
+        "asset_or_copy"
+      ],
+      "outputs": [
+        "design_decision",
+        "asset_or_copy_output",
+        "a11y_findings"
+      ],
+      "allowed_tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 16000,
+      "failure_modes": [
+        "ships customer-facing output without anti-slop check",
+        "misses an a11y violation that the auditor would catch",
+        "confuses brand strategy with paid marketing campaigns"
+      ],
+      "verification": [
+        "customer_facing_output_passed_anti_slop_check",
+        "a11y_findings_cite_WCAG_criterion"
+      ],
+      "source_references": [
+        "ref.github.design-content-master.2026-05-31"
       ],
       "quality_gate": "staging"
     },
@@ -383,6 +437,60 @@
       "quality_gate": "staging"
     },
     {
+      "id": "marketing.master",
+      "name": "Marketing Master",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "marketing",
+      "kind": "master",
+      "summary": "Routes marketing strategy, content, SEO, email, and campaign analysis tasks; gates external sends with policy approval.",
+      "triggers": [
+        "marketing strategy",
+        "content marketing",
+        "seo strategy",
+        "email marketing",
+        "campaign analysis"
+      ],
+      "aliases": [
+        "marketing task",
+        "growth marketing"
+      ],
+      "negative_keywords": [
+        "sales pipeline",
+        "product roadmap",
+        "financial forecast"
+      ],
+      "inputs": [
+        "prompt",
+        "brand_voice",
+        "target_audience"
+      ],
+      "outputs": [
+        "marketing_plan",
+        "asset_or_copy",
+        "campaign_report"
+      ],
+      "allowed_tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 16000,
+      "failure_modes": [
+        "sends a campaign before connector approval",
+        "confuses brand strategy (design-content) with channel execution (this domain)",
+        "ships email copy without an anti-slop check"
+      ],
+      "verification": [
+        "external_sends_have_explicit_connector_approval",
+        "campaign_metrics_cite_actual_data_not_estimates"
+      ],
+      "source_references": [
+        "ref.github.marketing-master.2026-05-31"
+      ],
+      "quality_gate": "staging"
+    },
+    {
       "id": "meta-system.master",
       "name": "Meta-System Master",
       "version": "2.0.0",
@@ -450,6 +558,166 @@
       ],
       "source_references": [
         "ref.github.claude-repos-pack.2026-05-29"
+      ],
+      "quality_gate": "staging"
+    },
+    {
+      "id": "product-business.master",
+      "name": "Product & Business Master",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "product-business",
+      "kind": "master",
+      "summary": "Routes product management, growth, customer success, and partnerships tasks; orchestrates PM/business sub-roles.",
+      "triggers": [
+        "product management",
+        "growth strategy",
+        "customer success",
+        "partnership strategy",
+        "go to market"
+      ],
+      "aliases": [
+        "product business",
+        "pm task"
+      ],
+      "negative_keywords": [
+        "financial forecast",
+        "sales pipeline",
+        "marketing campaign"
+      ],
+      "inputs": [
+        "prompt",
+        "product_context",
+        "metric_set"
+      ],
+      "outputs": [
+        "product_brief",
+        "prioritized_list",
+        "decision_record"
+      ],
+      "allowed_tools": [
+        "filesystem.read"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 16000,
+      "failure_modes": [
+        "confuses growth (this domain) with paid-channel campaign work (marketing)",
+        "emits feature priorities without metric attribution",
+        "silently overrides customer-success boundary into sales territory"
+      ],
+      "verification": [
+        "decisions_cite_a_metric_or_research_artifact",
+        "dispatch_target_role_exists"
+      ],
+      "source_references": [
+        "ref.github.product-business-master.2026-05-31"
+      ],
+      "quality_gate": "staging"
+    },
+    {
+      "id": "research.master",
+      "name": "Research Master",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "research",
+      "kind": "master",
+      "summary": "Orchestrates deep-research, market-intel, scientific-literature, and competitive-intel tasks with source attribution.",
+      "triggers": [
+        "deep research",
+        "market intel",
+        "competitive intel",
+        "literature review",
+        "research synthesis"
+      ],
+      "aliases": [
+        "research task",
+        "deep dive"
+      ],
+      "negative_keywords": [
+        "code review",
+        "security review",
+        "product roadmap"
+      ],
+      "inputs": [
+        "prompt",
+        "scope",
+        "source_constraints"
+      ],
+      "outputs": [
+        "research_brief",
+        "source_list",
+        "synthesis"
+      ],
+      "allowed_tools": [
+        "filesystem.read"
+      ],
+      "budget_band": "expanded",
+      "max_context_tokens": 64000,
+      "failure_modes": [
+        "reports findings without source attribution",
+        "cites unverifiable or paywalled sources without flagging",
+        "confuses competitive intel (this domain) with sales pipeline analysis"
+      ],
+      "verification": [
+        "every_claim_has_a_source_citation",
+        "sources_pass_dossier_license_check"
+      ],
+      "source_references": [
+        "ref.github.research-master.2026-05-31"
+      ],
+      "quality_gate": "staging"
+    },
+    {
+      "id": "sales.master",
+      "name": "Sales Master",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "sales",
+      "kind": "master",
+      "summary": "Routes sales strategy, pipeline analysis, proposals, pricing, and account management tasks; gates external sends.",
+      "triggers": [
+        "sales strategy",
+        "pipeline analysis",
+        "proposal generation",
+        "pricing strategy",
+        "account management"
+      ],
+      "aliases": [
+        "sales task",
+        "deal review"
+      ],
+      "negative_keywords": [
+        "marketing campaign",
+        "product roadmap",
+        "financial forecast"
+      ],
+      "inputs": [
+        "prompt",
+        "deal_context",
+        "pricing_constraints"
+      ],
+      "outputs": [
+        "sales_plan",
+        "proposal_draft",
+        "pricing_recommendation"
+      ],
+      "allowed_tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 16000,
+      "failure_modes": [
+        "sends a proposal before legal review on non-standard terms",
+        "confuses competitive intel (research) with sales-specific battle cards",
+        "commits a discount without policy approval"
+      ],
+      "verification": [
+        "non_standard_terms_routed_to_legal",
+        "pricing_changes_carry_an_approval_record"
+      ],
+      "source_references": [
+        "ref.github.sales-master.2026-05-31"
       ],
       "quality_gate": "staging"
     },

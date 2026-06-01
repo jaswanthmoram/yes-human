@@ -1,0 +1,13 @@
+{
+  "domain": "research",
+  "description": "Routing fixtures for the Research master.",
+  "fixtures": [
+    { "prompt": "deep research", "expected_route": "route.research.master" },
+    { "prompt": "market intel", "expected_route": "route.research.master" },
+    { "prompt": "competitive intel", "expected_route": "route.research.master" },
+    { "prompt": "literature review", "expected_route": "route.research.master" },
+    { "prompt": "research synthesis", "expected_route": "route.research.master" },
+    { "prompt": "do a deep research scan on agentic frameworks", "expected_route": "route.research.master" },
+    { "prompt": "competitive intel on three vendors", "expected_route": "route.research.master" }
+  ]
+}
