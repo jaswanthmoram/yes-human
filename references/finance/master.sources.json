@@ -1,0 +1,52 @@
+{
+  "dossier_id": "dossier.finance.master.2026-05-31",
+  "agent_id": "finance.master",
+  "domain": "finance",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2026-08-29T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/actualbudget/actual",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "master",
+      "used_for": ["personal-finance budgeting workflow patterns, ledger structure"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/borankux/monio",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": ["expense and cash-flow tracking patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/nrajesh/budget-it",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": ["budgeting workflow patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/nrajesh/vaulted.money",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": ["account-balance and forecast workflow patterns"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 0,
+    "github_quality": 82,
+    "license_safety": 95,
+    "maintenance": 80,
+    "pattern_clarity": 82,
+    "testability": 76,
+    "total": 83
+  },
+  "promotion_decision": "staging"
+}

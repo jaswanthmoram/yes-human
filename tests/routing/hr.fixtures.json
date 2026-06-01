@@ -1,0 +1,13 @@
+{
+  "domain": "hr",
+  "description": "Routing fixtures for the HR & People Operations master.",
+  "fixtures": [
+    { "prompt": "hiring process", "expected_route": "route.hr.master" },
+    { "prompt": "onboarding plan", "expected_route": "route.hr.master" },
+    { "prompt": "performance review", "expected_route": "route.hr.master" },
+    { "prompt": "compensation analysis", "expected_route": "route.hr.master" },
+    { "prompt": "hr policy", "expected_route": "route.hr.master" },
+    { "prompt": "design our hiring process for senior engineers", "expected_route": "route.hr.master" },
+    { "prompt": "draft an hr policy on remote work", "expected_route": "route.hr.master" }
+  ]
+}

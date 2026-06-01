@@ -567,5 +567,215 @@
     },
     "budget_band": "standard",
     "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.education.master",
+    "match": {
+      "keywords": [
+        "curriculum design",
+        "learning assessment",
+        "personalized tutor",
+        "lms patterns",
+        "instructional design"
+      ],
+      "aliases": [
+        "education task",
+        "learning design"
+      ],
+      "negative_keywords": [
+        "technical writing",
+        "training data",
+        "code review"
+      ]
+    },
+    "target": {
+      "domain_master": "education.master",
+      "agent": "education.master",
+      "skills": [],
+      "workflow": "workflow.education.master"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.finance.master",
+    "match": {
+      "keywords": [
+        "financial forecast",
+        "budget planning",
+        "cash flow",
+        "expense audit",
+        "monthly close"
+      ],
+      "aliases": [
+        "finance task",
+        "cfo task"
+      ],
+      "negative_keywords": [
+        "product roadmap",
+        "sales pipeline",
+        "marketing campaign"
+      ]
+    },
+    "target": {
+      "domain_master": "finance.master",
+      "agent": "finance.master",
+      "skills": [],
+      "workflow": "workflow.finance.master"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "expanded",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.healthcare.master",
+    "match": {
+      "keywords": [
+        "clinical decision support",
+        "ehr workflow",
+        "phi compliance",
+        "clinical guideline",
+        "medical reasoning"
+      ],
+      "aliases": [
+        "healthcare task",
+        "clinical task"
+      ],
+      "negative_keywords": [
+        "code review",
+        "product review",
+        "financial forecast"
+      ]
+    },
+    "target": {
+      "domain_master": "healthcare.master",
+      "agent": "healthcare.master",
+      "skills": [],
+      "workflow": "workflow.healthcare.master"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.hr.master",
+    "match": {
+      "keywords": [
+        "hiring process",
+        "onboarding plan",
+        "performance review",
+        "compensation analysis",
+        "hr policy"
+      ],
+      "aliases": [
+        "hr task",
+        "people ops"
+      ],
+      "negative_keywords": [
+        "code review",
+        "product roadmap",
+        "financial forecast"
+      ]
+    },
+    "target": {
+      "domain_master": "hr.master",
+      "agent": "hr.master",
+      "skills": [],
+      "workflow": "workflow.hr.master"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.legal-compliance.master",
+    "match": {
+      "keywords": [
+        "contract review",
+        "privacy review",
+        "compliance check",
+        "nda review",
+        "terms draft"
+      ],
+      "aliases": [
+        "legal task",
+        "compliance task"
+      ],
+      "negative_keywords": [
+        "code review",
+        "product roadmap",
+        "sales pipeline"
+      ]
+    },
+    "target": {
+      "domain_master": "legal-compliance.master",
+      "agent": "legal-compliance.master",
+      "skills": [],
+      "workflow": "workflow.legal-compliance.master"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "expanded",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.manufacturing.master",
+    "match": {
+      "keywords": [
+        "inventory planning",
+        "demand planning",
+        "production scheduling",
+        "supply chain",
+        "quality nonconformance"
+      ],
+      "aliases": [
+        "manufacturing task",
+        "mrp"
+      ],
+      "negative_keywords": [
+        "code production",
+        "production release",
+        "financial forecast"
+      ]
+    },
+    "target": {
+      "domain_master": "manufacturing.master",
+      "agent": "manufacturing.master",
+      "skills": [],
+      "workflow": "workflow.manufacturing.master"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
   }
 ]

@@ -1,0 +1,44 @@
+{
+  "dossier_id": "dossier.education.master.2026-05-31",
+  "agent_id": "education.master",
+  "domain": "education",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2026-08-29T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/HKUDS/DeepTutor",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": ["agent-native personalized tutor architecture, learner-state modeling"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/Abelo9996/LearnOS",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": ["learning-OS scaffolding patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/huangjia2019/agent-design-patterns",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": ["agent pattern taxonomy applied to tutor/assessment loops"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 0,
+    "github_quality": 86,
+    "license_safety": 94,
+    "maintenance": 82,
+    "pattern_clarity": 85,
+    "testability": 78,
+    "total": 84
+  },
+  "promotion_decision": "staging"
+}

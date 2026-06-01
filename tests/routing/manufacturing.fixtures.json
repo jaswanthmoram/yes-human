@@ -1,0 +1,13 @@
+{
+  "domain": "manufacturing",
+  "description": "Routing fixtures for the Manufacturing & Supply-Chain master.",
+  "fixtures": [
+    { "prompt": "inventory planning", "expected_route": "route.manufacturing.master" },
+    { "prompt": "demand planning", "expected_route": "route.manufacturing.master" },
+    { "prompt": "production scheduling", "expected_route": "route.manufacturing.master" },
+    { "prompt": "supply chain", "expected_route": "route.manufacturing.master" },
+    { "prompt": "quality nonconformance", "expected_route": "route.manufacturing.master" },
+    { "prompt": "do inventory planning for Q3", "expected_route": "route.manufacturing.master" },
+    { "prompt": "production scheduling for the assembly line", "expected_route": "route.manufacturing.master" }
+  ]
+}

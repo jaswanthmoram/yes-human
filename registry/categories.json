@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-05-31T12:00:00Z",
-  "count": 13,
+  "generated_at": "2026-05-31T18:00:00Z",
+  "count": 19,
   "items": [
     {
       "id": "engineering",
@@ -132,6 +132,66 @@
       "children": [],
       "default_budget_band": "standard",
       "quality_threshold": 0.85
+    },
+    {
+      "id": "healthcare",
+      "name": "Healthcare and Clinical Decision Support (high-stakes)",
+      "parent": null,
+      "master_agent": "healthcare.master",
+      "keywords": ["clinical decision support", "ehr workflow", "phi compliance", "clinical guideline", "medical reasoning"],
+      "children": [],
+      "default_budget_band": "standard",
+      "quality_threshold": 0.92
+    },
+    {
+      "id": "education",
+      "name": "Education and Personalized Learning",
+      "parent": null,
+      "master_agent": "education.master",
+      "keywords": ["curriculum design", "learning assessment", "personalized tutor", "lms patterns", "instructional design"],
+      "children": [],
+      "default_budget_band": "standard",
+      "quality_threshold": 0.85
+    },
+    {
+      "id": "manufacturing",
+      "name": "Manufacturing and Supply Chain",
+      "parent": null,
+      "master_agent": "manufacturing.master",
+      "keywords": ["inventory planning", "demand planning", "production scheduling", "supply chain", "quality nonconformance"],
+      "children": [],
+      "default_budget_band": "standard",
+      "quality_threshold": 0.85
+    },
+    {
+      "id": "hr",
+      "name": "HR and People Operations (high-stakes)",
+      "parent": null,
+      "master_agent": "hr.master",
+      "keywords": ["hiring process", "onboarding plan", "performance review", "compensation analysis", "hr policy"],
+      "children": [],
+      "default_budget_band": "standard",
+      "quality_threshold": 0.90
+    },
+    {
+      "id": "finance",
+      "name": "Finance and Accounting (high-stakes)",
+      "parent": null,
+      "master_agent": "finance.master",
+      "keywords": ["financial forecast", "budget planning", "cash flow", "expense audit", "monthly close"],
+      "children": [],
+      "default_budget_band": "expanded",
+      "quality_threshold": 0.92
+    },
+    {
+      "id": "legal-compliance",
+      "name": "Legal and Compliance (high-stakes)",
+      "parent": null,
+      "master_agent": "legal-compliance.master",
+      "keywords": ["contract review", "privacy review", "compliance check", "nda review", "terms draft"],
+      "children": [],
+      "default_budget_band": "expanded",
+      "quality_threshold": 0.92
     }
   ]
 }

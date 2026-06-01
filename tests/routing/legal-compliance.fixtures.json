@@ -1,0 +1,13 @@
+{
+  "domain": "legal-compliance",
+  "description": "Routing fixtures for the Legal & Compliance master (high-stakes domain).",
+  "fixtures": [
+    { "prompt": "contract review", "expected_route": "route.legal-compliance.master" },
+    { "prompt": "privacy review", "expected_route": "route.legal-compliance.master" },
+    { "prompt": "compliance check", "expected_route": "route.legal-compliance.master" },
+    { "prompt": "nda review", "expected_route": "route.legal-compliance.master" },
+    { "prompt": "terms draft", "expected_route": "route.legal-compliance.master" },
+    { "prompt": "do a contract review of this SaaS agreement", "expected_route": "route.legal-compliance.master" },
+    { "prompt": "compliance check against SOC 2 controls", "expected_route": "route.legal-compliance.master" }
+  ]
+}

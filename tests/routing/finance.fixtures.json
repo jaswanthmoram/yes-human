@@ -1,0 +1,13 @@
+{
+  "domain": "finance",
+  "description": "Routing fixtures for the Finance master (high-stakes domain).",
+  "fixtures": [
+    { "prompt": "financial forecast", "expected_route": "route.finance.master" },
+    { "prompt": "budget planning", "expected_route": "route.finance.master" },
+    { "prompt": "cash flow", "expected_route": "route.finance.master" },
+    { "prompt": "expense audit", "expected_route": "route.finance.master" },
+    { "prompt": "monthly close", "expected_route": "route.finance.master" },
+    { "prompt": "build a financial forecast for next quarter", "expected_route": "route.finance.master" },
+    { "prompt": "monthly close packet for May", "expected_route": "route.finance.master" }
+  ]
+}

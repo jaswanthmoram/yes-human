@@ -1,0 +1,13 @@
+{
+  "domain": "healthcare",
+  "description": "Routing fixtures for the Healthcare master (high-stakes domain).",
+  "fixtures": [
+    { "prompt": "clinical decision support", "expected_route": "route.healthcare.master" },
+    { "prompt": "ehr workflow", "expected_route": "route.healthcare.master" },
+    { "prompt": "phi compliance", "expected_route": "route.healthcare.master" },
+    { "prompt": "clinical guideline", "expected_route": "route.healthcare.master" },
+    { "prompt": "medical reasoning", "expected_route": "route.healthcare.master" },
+    { "prompt": "design clinical decision support workflow", "expected_route": "route.healthcare.master" },
+    { "prompt": "review the ehr workflow for medication reconciliation", "expected_route": "route.healthcare.master" }
+  ]
+}

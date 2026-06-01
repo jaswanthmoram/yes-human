@@ -1,0 +1,39 @@
+{
+  "id": "high-stakes.policy",
+  "version": "1.0.0",
+  "description": "Mandatory disclaimers and human-review gates for regulated domains (legal, finance, hr, healthcare, security, data-ai/PHI). Architecture §29.",
+  "applies_to": ["tool.execute", "file.write", "network.request", "absorb"],
+  "default": "allow",
+  "rules": [
+    {
+      "match": { "content": { "$matches": "\\b(?:diagnosis|patient|HIPAA|PHI|EHR|medical record|MRN)\\b" } },
+      "decision": "deny",
+      "reason": "PHI / patient-health content detected — clinician review required, cannot auto-write"
+    },
+    {
+      "match": { "filePath": { "$matches": "(?:contract|agreement|nda|terms[_-]of[_-]service)" } },
+      "decision": "ask",
+      "reason": "Legal document detected — attorney review required, not legal advice"
+    },
+    {
+      "match": { "agent": { "$matches": "^legal-compliance\\." } },
+      "decision": "ask",
+      "reason": "Legal-compliance agent output — attorney review required, not legal advice"
+    },
+    {
+      "match": { "agent": { "$matches": "^finance\\." } },
+      "decision": "ask",
+      "reason": "Finance agent output — requires disclaimer and human review before external use"
+    },
+    {
+      "match": { "agent": { "$matches": "^hr\\." } },
+      "decision": "ask",
+      "reason": "HR agent output — employment-law caution + human-manager review required"
+    },
+    {
+      "match": { "agent": { "$matches": "^healthcare\\." } },
+      "decision": "ask",
+      "reason": "Healthcare agent output — not medical advice, clinician review required"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-06-01T05:54:32.094Z",
-  "count": 21,
+  "generated_at": "2026-06-01T06:04:49.391Z",
+  "count": 33,
   "items": [
     {
       "id": "cr",
@@ -86,6 +86,54 @@
     {
       "id": "deal review",
       "route_id": "route.sales.master"
+    },
+    {
+      "id": "education task",
+      "route_id": "route.education.master"
+    },
+    {
+      "id": "learning design",
+      "route_id": "route.education.master"
+    },
+    {
+      "id": "finance task",
+      "route_id": "route.finance.master"
+    },
+    {
+      "id": "cfo task",
+      "route_id": "route.finance.master"
+    },
+    {
+      "id": "healthcare task",
+      "route_id": "route.healthcare.master"
+    },
+    {
+      "id": "clinical task",
+      "route_id": "route.healthcare.master"
+    },
+    {
+      "id": "hr task",
+      "route_id": "route.hr.master"
+    },
+    {
+      "id": "people ops",
+      "route_id": "route.hr.master"
+    },
+    {
+      "id": "legal task",
+      "route_id": "route.legal-compliance.master"
+    },
+    {
+      "id": "compliance task",
+      "route_id": "route.legal-compliance.master"
+    },
+    {
+      "id": "manufacturing task",
+      "route_id": "route.manufacturing.master"
+    },
+    {
+      "id": "mrp",
+      "route_id": "route.manufacturing.master"
     }
   ]
 }

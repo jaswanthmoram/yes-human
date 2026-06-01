@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-06-01T05:54:32.090Z",
-  "count": 17,
+  "generated_at": "2026-06-01T06:04:49.387Z",
+  "count": 23,
   "items": [
     {
       "id": "data-ai.master",
@@ -108,6 +108,61 @@
       ],
       "source_references": [
         "ref.github.design-content-master.2026-05-31"
+      ],
+      "quality_gate": "staging"
+    },
+    {
+      "id": "education.master",
+      "name": "Education Master",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "education",
+      "kind": "master",
+      "summary": "Orchestrates curriculum design, learning assessment, personalized tutoring, and LMS-pattern tasks; age/grade-level aware.",
+      "triggers": [
+        "curriculum design",
+        "learning assessment",
+        "personalized tutor",
+        "lms patterns",
+        "instructional design"
+      ],
+      "aliases": [
+        "education task",
+        "learning design"
+      ],
+      "negative_keywords": [
+        "technical writing",
+        "training data",
+        "code review"
+      ],
+      "inputs": [
+        "prompt",
+        "learner_context",
+        "grade_or_age_level"
+      ],
+      "outputs": [
+        "curriculum_outline",
+        "assessment_plan",
+        "tutor_strategy"
+      ],
+      "allowed_tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 16000,
+      "failure_modes": [
+        "ignores age/grade level constraint and emits over-complex content",
+        "mixes corporate L&D with K-12 patterns inappropriately",
+        "skips assessment design when curriculum is requested"
+      ],
+      "verification": [
+        "age_grade_level_explicit_in_output",
+        "assessment_or_learning_objective_present"
+      ],
+      "human_review_gate": true,
+      "source_references": [
+        "ref.github.education-master.2026-05-31"
       ],
       "quality_gate": "staging"
     },
@@ -384,6 +439,174 @@
       "quality_gate": "staging"
     },
     {
+      "id": "finance.master",
+      "name": "Finance Master",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "finance",
+      "kind": "master",
+      "summary": "Routes financial forecasting, budget planning, cash-flow, expense audit, and monthly-close tasks; mandatory disclaimers and human-reviewer handoff.",
+      "triggers": [
+        "financial forecast",
+        "budget planning",
+        "cash flow",
+        "expense audit",
+        "monthly close"
+      ],
+      "aliases": [
+        "finance task",
+        "cfo task"
+      ],
+      "negative_keywords": [
+        "product roadmap",
+        "sales pipeline",
+        "marketing campaign"
+      ],
+      "inputs": [
+        "prompt",
+        "financial_context",
+        "period_or_horizon"
+      ],
+      "outputs": [
+        "forecast_or_budget",
+        "close_packet",
+        "audit_findings"
+      ],
+      "allowed_tools": [
+        "filesystem.read"
+      ],
+      "budget_band": "expanded",
+      "max_context_tokens": 64000,
+      "failure_modes": [
+        "emits forecast without disclaimer",
+        "cites estimates as if they were actuals",
+        "implies tax / investment advice"
+      ],
+      "verification": [
+        "disclaimer_attached",
+        "actuals_vs_estimates_labeled",
+        "reviewer_handoff_marker_present"
+      ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
+      "source_references": [
+        "ref.github.finance-master.2026-05-31"
+      ],
+      "quality_gate": "staging"
+    },
+    {
+      "id": "healthcare.master",
+      "name": "Healthcare Master",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "healthcare",
+      "kind": "master",
+      "summary": "Routes clinical-decision-support, EHR-pattern, PHI-compliance, and healthcare-eval tasks; mandatory disclaimers and clinician review.",
+      "triggers": [
+        "clinical decision support",
+        "ehr workflow",
+        "phi compliance",
+        "clinical guideline",
+        "medical reasoning"
+      ],
+      "aliases": [
+        "healthcare task",
+        "clinical task"
+      ],
+      "negative_keywords": [
+        "code review",
+        "product review",
+        "financial forecast"
+      ],
+      "inputs": [
+        "prompt",
+        "clinical_context",
+        "guideline_set"
+      ],
+      "outputs": [
+        "clinical_recommendation",
+        "guideline_citation",
+        "reviewer_handoff_packet"
+      ],
+      "allowed_tools": [
+        "filesystem.read"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 16000,
+      "failure_modes": [
+        "emits clinical recommendation without a guideline citation",
+        "allows PHI into the prompt or output",
+        "claims medical advice instead of decision support"
+      ],
+      "verification": [
+        "every_recommendation_cites_a_guideline_or_paper",
+        "phi_redacted_before_processing",
+        "clinician_review_marker_present"
+      ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
+      "source_references": [
+        "ref.github.healthcare-master.2026-05-31"
+      ],
+      "quality_gate": "staging"
+    },
+    {
+      "id": "hr.master",
+      "name": "HR & People Operations Master",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "hr",
+      "kind": "master",
+      "summary": "Routes hiring, onboarding, performance, compensation, and HR-policy tasks; employment-law caution and human-manager review.",
+      "triggers": [
+        "hiring process",
+        "onboarding plan",
+        "performance review",
+        "compensation analysis",
+        "hr policy"
+      ],
+      "aliases": [
+        "hr task",
+        "people ops"
+      ],
+      "negative_keywords": [
+        "code review",
+        "product roadmap",
+        "financial forecast"
+      ],
+      "inputs": [
+        "prompt",
+        "role_or_employee_context",
+        "policy_set"
+      ],
+      "outputs": [
+        "hr_plan_or_doc",
+        "hr_review_handoff",
+        "policy_draft"
+      ],
+      "allowed_tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 16000,
+      "failure_modes": [
+        "emits comp/term/perf output without human-manager review marker",
+        "implies legal advice on employment matters",
+        "reveals individual employee data in templated outputs"
+      ],
+      "verification": [
+        "employment_law_caution_attached",
+        "human_review_marker_present_on_individual_outcomes"
+      ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
+      "source_references": [
+        "ref.github.hr-master.2026-05-31"
+      ],
+      "quality_gate": "staging"
+    },
+    {
       "id": "integrations.master",
       "name": "Integrations Master",
       "version": "1.0.0",
@@ -433,6 +656,116 @@
       ],
       "source_references": [
         "ref.github.integrations-master.2026-05-31"
+      ],
+      "quality_gate": "staging"
+    },
+    {
+      "id": "legal-compliance.master",
+      "name": "Legal & Compliance Master",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "legal-compliance",
+      "kind": "master",
+      "summary": "Routes contract review, privacy review, compliance check, NDA review, and terms drafting tasks; mandatory \"not legal advice\" disclaimer and attorney handoff.",
+      "triggers": [
+        "contract review",
+        "privacy review",
+        "compliance check",
+        "nda review",
+        "terms draft"
+      ],
+      "aliases": [
+        "legal task",
+        "compliance task"
+      ],
+      "negative_keywords": [
+        "code review",
+        "product roadmap",
+        "sales pipeline"
+      ],
+      "inputs": [
+        "prompt",
+        "document_or_terms",
+        "jurisdiction_context"
+      ],
+      "outputs": [
+        "risk_summary",
+        "redlines_or_clauses",
+        "attorney_handoff_packet"
+      ],
+      "allowed_tools": [
+        "filesystem.read"
+      ],
+      "budget_band": "expanded",
+      "max_context_tokens": 64000,
+      "failure_modes": [
+        "claims legal advice instead of risk summary",
+        "omits jurisdiction caveat",
+        "skips attorney handoff structure"
+      ],
+      "verification": [
+        "not_legal_advice_disclaimer_attached",
+        "jurisdiction_caveat_present",
+        "attorney_handoff_marker_present"
+      ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
+      "source_references": [
+        "ref.github.legal-compliance-master.2026-05-31"
+      ],
+      "quality_gate": "staging"
+    },
+    {
+      "id": "manufacturing.master",
+      "name": "Manufacturing & Supply-Chain Master",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "manufacturing",
+      "kind": "master",
+      "summary": "Routes inventory planning, demand planning, production scheduling, supply-chain, and quality-nonconformance tasks; human-supervisor review before execution.",
+      "triggers": [
+        "inventory planning",
+        "demand planning",
+        "production scheduling",
+        "supply chain",
+        "quality nonconformance"
+      ],
+      "aliases": [
+        "manufacturing task",
+        "mrp"
+      ],
+      "negative_keywords": [
+        "code production",
+        "production release",
+        "financial forecast"
+      ],
+      "inputs": [
+        "prompt",
+        "bom_or_inventory_state",
+        "capacity_constraints"
+      ],
+      "outputs": [
+        "plan_or_schedule",
+        "bom_analysis",
+        "nonconformance_report"
+      ],
+      "allowed_tools": [
+        "filesystem.read"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 16000,
+      "failure_modes": [
+        "emits a production plan without capacity check",
+        "confuses software release (engineering) with production-line release",
+        "skips supervisor review on a schedule change"
+      ],
+      "verification": [
+        "capacity_constraint_acknowledged",
+        "downstream_impact_listed"
+      ],
+      "human_review_gate": true,
+      "source_references": [
+        "ref.github.manufacturing-master.2026-05-31"
       ],
       "quality_gate": "staging"
     },

@@ -1,0 +1,13 @@
+{
+  "domain": "education",
+  "description": "Routing fixtures for the Education master.",
+  "fixtures": [
+    { "prompt": "curriculum design", "expected_route": "route.education.master" },
+    { "prompt": "learning assessment", "expected_route": "route.education.master" },
+    { "prompt": "personalized tutor", "expected_route": "route.education.master" },
+    { "prompt": "lms patterns", "expected_route": "route.education.master" },
+    { "prompt": "instructional design", "expected_route": "route.education.master" },
+    { "prompt": "design a curriculum design plan for grade 9 python", "expected_route": "route.education.master" },
+    { "prompt": "build a personalized tutor strategy", "expected_route": "route.education.master" }
+  ]
+}
