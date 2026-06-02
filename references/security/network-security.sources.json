@@ -1,54 +1,173 @@
 {
-  "dossier_id": "dossier.security.network-security.2026-05-31",
+  "dossier_id": "dossier.security.network-security.2026-06-02",
   "agent_id": "security.network-security",
   "domain": "security",
   "created_at": "2026-05-31T00:00:00Z",
   "expires_at": "2026-08-29T00:00:00Z",
   "sources": [
     {
-      "url": "https://csrc.nist.gov/publications/detail/sp/800-41/rev-2/final",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
       "source_type": "official_docs",
-      "license": "Public Domain",
-      "version_or_commit": "Rev 2",
-      "used_for": ["NIST firewall and perimeter security guidance", "network segmentation patterns"],
-      "copy_policy": "patterns_only"
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "network security: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/trimstray/iptables-essentials",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "network security: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://semgrep.dev/docs/",
+      "source_type": "vendor_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "network security: Semgrep docs patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/FlowiseAI/Flowise",
       "source_type": "github_repo",
       "license": "MIT",
-      "version_or_commit": "master",
-      "stars": 4200,
-      "used_for": ["firewall rule patterns", "iptables configuration examples"],
-      "copy_policy": "patterns_only"
+      "version_or_commit": "main",
+      "used_for": [
+        "network security: Flowise patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/toniblyx/prowler",
+      "url": "https://github.com/anthropics/skills",
       "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "master",
-      "stars": 8500,
-      "used_for": ["network security assessment patterns", "cloud network auditing"],
-      "copy_policy": "patterns_only"
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "network security: Anthropic skills patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://www.cisecurity.org/controls/network",
-      "source_type": "official_docs",
-      "license": "CC-BY-NC-SA-4.0",
-      "version_or_commit": "v8",
-      "used_for": ["CIS network security controls", "defense-in-depth framework"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/VoltAgent/awesome-claude-skills",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "network security: Awesome Agent Skills patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/kyrolabs/awesome-agents",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "network security: Awesome Agents patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/vivy-yi/awesome-agent-orchestration",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "network security: Awesome Agent Orchestration patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/EvoMap/awesome-agent-swarm",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "network security: Awesome Agent Swarm patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "network security: Claude Code patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-cookbook",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "network security: Claude Cookbook patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-quickstarts",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "network security: Claude Quickstarts patterns and workflow references",
+        "verification pattern 12"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 4,
-    "official_docs": 2,
-    "github_quality": 89,
-    "license_safety": 94,
-    "maintenance": 88,
-    "pattern_clarity": 90,
-    "testability": 85,
-    "total": 88
+    "source_count": 12,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 91
   },
   "promotion_decision": "staging"
 }

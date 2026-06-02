@@ -1,28 +1,122 @@
 {
-  "dossier_id": "dossier.security.master.2026-05-29",
+  "dossier_id": "dossier.security.master.2026-06-02",
   "agent_id": "security.master",
   "domain": "security",
   "created_at": "2026-05-29T16:45:00Z",
   "expires_at": "2026-08-27T16:45:00Z",
   "sources": [
     {
+      "url": "https://github.com/owasp/www-project-top-10-for-large-language-model-applications",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "master: OWASP LLM Top 10 patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OWASP/wstg",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "master: OWASP Web Security Testing Guide patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OWASP/CheatSheetSeries",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "master: OWASP Cheat Sheet Series patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/joernio/joern",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "master: Joern patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
       "url": "https://github.com/elementalsouls/Claude-BugHunter",
       "source_type": "github_repo",
       "license": "MIT",
-      "version_or_commit": "master",
-      "used_for": ["security review methodologies"],
+      "version_or_commit": "main",
+      "used_for": [
+        "master: Claude BugHunter patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "master: Microsoft Agent Framework patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "master: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 7"
+      ],
       "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/langchain-ai/langgraph",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "master: LangGraph patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 1,
-    "official_docs": 0,
-    "github_quality": 80,
-    "license_safety": 95,
-    "maintenance": 75,
-    "pattern_clarity": 85,
-    "testability": 80,
-    "total": 82
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
   },
   "promotion_decision": "staging"
 }

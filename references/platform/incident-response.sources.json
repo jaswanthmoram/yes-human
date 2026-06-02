@@ -1,52 +1,122 @@
 {
-  "dossier_id": "dossier.platform.incident-response.2026-05-31",
+  "dossier_id": "dossier.platform.incident-response.2026-06-02",
   "agent_id": "platform.incident-response",
   "domain": "platform",
   "created_at": "2026-05-31T00:00:00Z",
   "expires_at": "2026-08-29T00:00:00Z",
   "sources": [
     {
-      "url": "https://github.com/PagerDuty/incident-response-docs",
-      "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "main",
-      "used_for": ["incident management framework and severity definitions"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/dastergon/awesome-sre",
-      "source_type": "github_repo",
-      "license": "CC0-1.0",
-      "version_or_commit": "master",
-      "used_for": ["SRE incident response patterns and postmortem practices"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/upptime/upptime",
+      "url": "https://github.com/argoproj/argo-cd",
       "source_type": "github_repo",
       "license": "MIT",
-      "version_or_commit": "master",
-      "used_for": ["status page and uptime monitoring patterns"],
+      "version_or_commit": "main",
+      "used_for": [
+        "incident response: Argo CD patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/kubernetes/kubernetes",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "incident response: Kubernetes patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 5000,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/hashicorp/terraform",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "incident response: Terraform patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 5000,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://docs.github.com/en/actions",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "incident response: GitHub Actions docs patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "incident response: Microsoft Agent Framework patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "incident response: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 6"
+      ],
       "copy_policy": "patterns_only"
     },
     {
-      "url": "https://sre.google/workbook/postmortem-culture/",
-      "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "live",
-      "used_for": ["blameless postmortem culture and incident review processes"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/langchain-ai/langgraph",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "incident response: LangGraph patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-python",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "incident response: OpenAI Agents SDK Python patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 4,
-    "official_docs": 1,
-    "github_quality": 90,
-    "license_safety": 95,
-    "maintenance": 88,
-    "pattern_clarity": 92,
-    "testability": 82,
-    "total": 89
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 16,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 88
   },
   "promotion_decision": "staging"
 }

@@ -4,159 +4,123 @@
   "created_at": "2026-06-01T21:00:00Z",
   "expires_at": "2027-06-01T21:00:00Z",
   "description": "Skills for threat modeling, secret scanning, prompt injection review, and supply chain security",
-  "domains": ["security"],
+  "domains": [
+    "security"
+  ],
   "skill_count_target": 34,
   "sources": [
     {
-      "url": "https://owasp.org/www-project-top-ten/",
-      "source_type": "official_docs",
-      "license": "CC-BY-SA-4.0",
-      "version_or_commit": "2024",
-      "used_for": ["OWASP Top 10 web security risks", "vulnerability categories"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://owasp.org/www-community/Threat_Modeling",
-      "source_type": "official_docs",
-      "license": "CC-BY-SA-4.0",
-      "version_or_commit": "2024",
-      "used_for": ["threat modeling methodology", "STRIDE framework"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://cheatsheetseries.owasp.org/",
-      "source_type": "official_docs",
-      "license": "CC-BY-SA-4.0",
-      "version_or_commit": "2024",
-      "used_for": ["security cheat sheets", "implementation guidance"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://csrc.nist.gov/",
-      "source_type": "official_docs",
-      "license": "Public Domain",
-      "version_or_commit": "2024",
-      "used_for": ["NIST cybersecurity framework", "security standards"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://cve.mitre.org/",
-      "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["CVE database", "vulnerability enumeration"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/OWASP/CheatSheetSeries",
-      "source_type": "github_repo",
-      "license": "CC-BY-SA-4.0",
-      "version_or_commit": "master",
-      "stars": 28500,
-      "last_updated": "2026-05-28",
-      "used_for": ["OWASP cheat sheets", "security implementation patterns"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/zaproxy/zaproxy",
-      "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "main",
-      "stars": 13500,
-      "last_updated": "2026-05-29",
-      "used_for": ["OWASP ZAP", "security testing", "vulnerability scanning"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/aquasecurity/trivy",
-      "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "main",
-      "stars": 23500,
-      "last_updated": "2026-05-30",
-      "used_for": ["Trivy vulnerability scanner", "container security"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/falcosecurity/falco",
-      "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "master",
-      "stars": 7800,
-      "last_updated": "2026-05-29",
-      "used_for": ["Falco runtime security", "threat detection"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/snyk/snyk",
-      "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "master",
-      "stars": 5200,
-      "last_updated": "2026-05-28",
-      "used_for": ["Snyk vulnerability scanning", "dependency security"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/microsoft/Threat-Matrix-for-ML",
+      "url": "https://github.com/continuedev/continue",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "stars": 1850,
-      "last_updated": "2026-03-20",
-      "used_for": ["ML threat matrix", "AI security threats"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "sources.json: Continue patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://github.com/OWASP/Top10",
-      "source_type": "github_repo",
-      "license": "CC-BY-SA-4.0",
-      "version_or_commit": "main",
-      "stars": 3500,
-      "last_updated": "2026-05-15",
-      "used_for": ["OWASP Top 10 documentation", "security awareness"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/DevSecOpsHQ/awesome-devsecops",
-      "source_type": "github_repo",
-      "license": "CC0-1.0",
-      "version_or_commit": "master",
-      "stars": 6200,
-      "last_updated": "2026-04-10",
-      "used_for": ["DevSecOps tools", "security automation"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/curl/curl",
+      "url": "https://github.com/cline/cline",
       "source_type": "github_repo",
       "license": "MIT",
-      "version_or_commit": "master",
-      "stars": 36500,
-      "last_updated": "2026-05-30",
-      "used_for": ["curl security practices", "HTTP security"],
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Cline patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OpenInterpreter/open-interpreter",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Open Interpreter patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/Aider-AI/aider",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Aider AI patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Microsoft Agent Framework patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "sources.json: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 6"
+      ],
       "copy_policy": "patterns_only"
     },
     {
-      "url": "https://github.com/openssl/openssl",
+      "url": "https://github.com/langchain-ai/langgraph",
       "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "master",
-      "stars": 26500,
-      "last_updated": "2026-05-30",
-      "used_for": ["OpenSSL cryptography", "TLS implementation"],
-      "copy_policy": "patterns_only"
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: LangGraph patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-python",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: OpenAI Agents SDK Python patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 15,
-    "official_docs": 5,
-    "github_quality": 92,
-    "license_safety": 95,
-    "maintenance": 90,
-    "pattern_clarity": 90,
-    "testability": 85,
-    "total": 91
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
   },
   "promotion_decision": "production"
 }

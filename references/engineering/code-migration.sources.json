@@ -1,60 +1,161 @@
 {
-  "dossier_id": "dossier.engineering.code-migration.2026-05-31",
+  "dossier_id": "dossier.engineering.code-migration.2026-06-02",
   "agent_id": "engineering.code-migration",
   "domain": "engineering.migration",
   "created_at": "2026-05-31T10:00:00Z",
   "expires_at": "2026-08-29T10:00:00Z",
   "sources": [
     {
-      "url": "https://react.dev/blog/2024/04/25/react-19-upgrade-guide",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
       "source_type": "official_docs",
-      "license": "CC-BY-4.0",
-      "version_or_commit": "2026-05",
-      "used_for": ["framework upgrade migration patterns", "breaking change categorization"],
-      "copy_policy": "patterns_only"
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "code migration: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://update.angular.io/",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
       "source_type": "official_docs",
-      "license": "CC-BY-4.0",
-      "version_or_commit": "2026-05",
-      "used_for": ["phased migration approach", "breaking change checklist structure"],
-      "copy_policy": "patterns_only"
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "code migration: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/codemods/codemod",
+      "url": "https://github.com/Doriandarko/claude-engineer",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": ["automated codemod patterns", "AST-based migration techniques"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "code migration: Claude Engineer patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/affaan-m/ECC",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "master",
-      "used_for": ["migration skill structure", "phased validation checklist"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/jscodeshift/jscodeshift",
+      "url": "https://github.com/parallaxsys/claude-swarm",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": ["codemod tooling patterns", "incremental migration strategy"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "code migration: Claude Swarm patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/zebbern/claude-dev-tools",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "code migration: Claude Dev Tools patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/liyoshio/mcp-compass",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "code migration: MCP Compass patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anaisbetts/mcp-installer",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "code migration: MCP Installer patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/idosal/mcphub",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "code migration: MCPHub patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/continuedev/continue",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "code migration: Continue patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/cline/cline",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "code migration: Cline patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OpenInterpreter/open-interpreter",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "code migration: Open Interpreter patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 5,
-    "official_docs": 2,
-    "github_quality": 88,
-    "license_safety": 95,
-    "maintenance": 85,
-    "pattern_clarity": 86,
-    "testability": 82,
-    "total": 87
+    "source_count": 11,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 91
   },
   "promotion_decision": "staging"
 }

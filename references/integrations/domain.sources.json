@@ -5,187 +5,117 @@
   "expires_at": "2027-06-01T17:00:00Z",
   "sources": [
     {
-      "url": "https://swagger.io/specification/",
+      "url": "https://github.com/punkpeye/awesome-mcp-servers",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Awesome MCP servers patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/appcypher/awesome-mcp-servers",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Awesome MCP servers alternate patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/vercel-labs/agent-browser",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: vercel-labs/agent-browser patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Microsoft Agent Framework patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
       "source_type": "official_docs",
       "license": "Apache-2.0",
-      "version_or_commit": "3.1.0",
-      "used_for": ["OpenAPI specification", "REST API design"],
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "sources.json: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 5"
+      ],
       "copy_policy": "patterns_only"
     },
     {
-      "url": "https://graphql.org/learn/",
-      "source_type": "official_docs",
-      "license": "MIT",
-      "version_or_commit": "2024",
-      "used_for": ["GraphQL specification", "query language"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://grpc.io/docs/",
-      "source_type": "official_docs",
-      "license": "Apache-2.0",
-      "version_or_commit": "v1.64",
-      "used_for": ["gRPC framework", "RPC protocols"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://oauth.net/2/",
-      "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["OAuth 2.0 specification", "authorization framework"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/public-apis/public-apis",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "master",
-      "stars": 320000,
-      "last_updated": "2026-05-30",
-      "used_for": ["public API list", "API discovery"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/OAI/OpenAPI-Specification",
-      "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "main",
-      "stars": 30500,
-      "last_updated": "2026-05-28",
-      "used_for": ["OpenAPI specification repo", "API documentation standards"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/graphql/graphql-spec",
+      "url": "https://github.com/langchain-ai/langgraph",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "stars": 19500,
-      "last_updated": "2026-05-25",
-      "used_for": ["GraphQL specification repo", "schema definition"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "sources.json: LangGraph patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://github.com/grpc/grpc",
-      "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "master",
-      "stars": 42500,
-      "last_updated": "2026-05-30",
-      "used_for": ["gRPC implementation", "service definitions"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/Kong/kong",
-      "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "master",
-      "stars": 40500,
-      "last_updated": "2026-05-30",
-      "used_for": ["Kong API gateway", "API management"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/TykTechnologies/tyk",
-      "source_type": "github_repo",
-      "license": "MPL-2.0",
-      "version_or_commit": "master",
-      "stars": 9800,
-      "last_updated": "2026-05-29",
-      "used_for": ["Tyk API gateway", "rate limiting"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/apigee/apigeecli",
-      "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "main",
-      "stars": 350,
-      "last_updated": "2026-04-20",
-      "used_for": ["Apigee API management", "enterprise API gateway"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/postmanlabs/postman-app-support",
-      "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "main",
-      "stars": 5200,
-      "last_updated": "2026-05-28",
-      "used_for": ["Postman API testing", "API development workflows"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/swagger-api/swagger-ui",
-      "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "master",
-      "stars": 26500,
-      "last_updated": "2026-05-29",
-      "used_for": ["Swagger UI", "API documentation visualization"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/stoplightio/prism",
-      "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "master",
-      "stars": 4200,
-      "last_updated": "2026-05-15",
-      "used_for": ["Prism mock server", "API mocking"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/zalando/zally",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "master",
-      "stars": 1850,
-      "last_updated": "2026-03-10",
-      "used_for": ["Zally API linter", "API design guidelines"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/webhooks/webhooks",
+      "url": "https://github.com/openai/openai-agents-python",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "stars": 850,
-      "last_updated": "2026-02-20",
-      "used_for": ["webhook best practices", "event-driven integrations"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "sources.json: OpenAI Agents SDK Python patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://github.com/stripe/stripe-node",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "master",
-      "stars": 4200,
-      "last_updated": "2026-05-30",
-      "used_for": ["Stripe API integration", "payment processing"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/twilio/twilio-node",
+      "url": "https://github.com/openai/openai-agents-js",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "stars": 1850,
-      "last_updated": "2026-05-28",
-      "used_for": ["Twilio API integration", "communication services"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "sources.json: OpenAI Agents SDK JS patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 18,
-    "official_docs": 4,
-    "github_quality": 90,
-    "license_safety": 95,
-    "maintenance": 90,
-    "pattern_clarity": 88,
-    "testability": 85,
-    "total": 90
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
   },
   "promotion_decision": "production"
 }

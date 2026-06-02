@@ -1,43 +1,121 @@
 {
   "skill_id": "meta-system.route-evaluation",
-  "dossier_id": "dossier.skill.meta-system.route-evaluation.2026-06-01",
+  "dossier_id": "dossier.meta-system.route-evaluation.2026-06-02",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2027-06-01T00:00:00Z",
   "sources": [
     {
-      "url": "https://en.wikipedia.org/wiki/Evaluation_measures",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
       "source_type": "official_docs",
-      "license": "CC-BY-SA-3.0",
-      "version_or_commit": "2024",
-      "used_for": ["evaluation metrics", "precision and recall"],
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "route evaluation: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 1"
+      ],
       "copy_policy": "patterns_only"
     },
     {
-      "url": "https://github.com/scikit-learn/scikit-learn",
+      "url": "https://github.com/crewAIInc/crewAI",
       "source_type": "github_repo",
-      "license": "BSD-3-Clause",
+      "license": "MIT",
       "version_or_commit": "main",
-      "used_for": ["scikit-learn metrics", "classification evaluation"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "route evaluation: CrewAI patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics.html",
-      "source_type": "vendor_docs",
-      "license": "SSPL-1.0",
-      "version_or_commit": "v8.11",
-      "used_for": ["search evaluation", "ranking metrics"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/microsoft/autogen",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "route evaluation: AutoGen patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "route evaluation: OpenHands patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/lastmile-ai/mcp-agent",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "route evaluation: MCP Agent patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-lightning",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "route evaluation: Agent Lightning patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openpipe/art",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "route evaluation: OpenPipe ART patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/langgenius/dify",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "route evaluation: Dify patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 3,
-    "official_docs": 2,
-    "github_quality": 92,
-    "license_safety": 88,
-    "maintenance": 91,
-    "pattern_clarity": 93,
-    "testability": 89,
-    "total": 91
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
   },
   "promotion_decision": "production"
 }

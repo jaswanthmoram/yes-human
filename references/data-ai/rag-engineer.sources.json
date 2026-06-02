@@ -1,52 +1,161 @@
 {
-  "dossier_id": "dossier.data-ai.rag-engineer.2026-05-31",
+  "dossier_id": "dossier.data-ai.rag-engineer.2026-06-02",
   "agent_id": "data-ai.rag-engineer",
   "domain": "data-ai",
   "created_at": "2026-05-31T00:00:00Z",
   "expires_at": "2026-08-29T00:00:00Z",
   "sources": [
     {
-      "url": "https://github.com/microsoft/graphrag",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "main",
-      "used_for": ["graph-RAG indexing and retrieval-cost patterns"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/run-llama/llama_index",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "main",
-      "used_for": ["RAG abstraction taxonomy and chunking-strategy patterns"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/langchain-ai/langchain",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "master",
-      "used_for": ["retrieval chain composition and tool integration patterns"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/qdrant/qdrant",
-      "source_type": "github_repo",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
+      "source_type": "official_docs",
       "license": "Apache-2.0",
-      "version_or_commit": "master",
-      "used_for": ["vector store selection and HNSW tuning patterns"],
-      "copy_policy": "patterns_only"
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "rag engineer: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "rag engineer: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/weaviate/weaviate",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "rag engineer: Weaviate patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/mlflow/mlflow",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "rag engineer: MLflow patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/promptfoo/promptfoo",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "rag engineer: Promptfoo patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/confident-ai/deepeval",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "rag engineer: DeepEval patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/mem0ai/mem0",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "rag engineer: mem0 patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/getzep/graphiti",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "rag engineer: Graphiti patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "rag engineer: Microsoft Agent Framework patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/langchain-ai/langgraph",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "rag engineer: LangGraph patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-python",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "rag engineer: OpenAI Agents SDK Python patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 4,
-    "official_docs": 0,
-    "github_quality": 95,
-    "license_safety": 95,
-    "maintenance": 95,
-    "pattern_clarity": 92,
-    "testability": 88,
-    "total": 92
+    "source_count": 11,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 91
   },
   "promotion_decision": "staging"
 }

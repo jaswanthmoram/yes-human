@@ -1,60 +1,122 @@
 {
-  "dossier_id": "dossier.workflow.security.incident-response-playbook.2026-06-01",
+  "dossier_id": "dossier.security.incident-response-playbook.2026-06-02",
   "workflow_id": "security.incident-response-playbook",
   "domain": "security",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2026-08-30T00:00:00Z",
   "sources": [
     {
-      "url": "https://nvlpubs.nist.gov/nistpubs/specialpublications/NIST.SP.800-61r2.pdf",
-      "source_type": "official_docs",
-      "license": "NIST public domain",
-      "version_or_commit": "rev2",
-      "used_for": [
-        "incident handling lifecycle and procedures"
-      ],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.sans.org/white-papers/incident-response/",
-      "source_type": "official_docs",
-      "license": "SANS educational use",
-      "version_or_commit": "live",
-      "used_for": [
-        "incident response best practices and playbooks"
-      ],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/PagerDuty/incident-response-docs",
+      "url": "https://github.com/OpenInterpreter/open-interpreter",
       "source_type": "github_repo",
-      "license": "Apache-2.0",
+      "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "operational incident response workflows"
+        "incident response playbook: Open Interpreter patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/Aider-AI/aider",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "incident response playbook: Aider AI patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/semgrep/semgrep",
+      "source_type": "github_repo",
+      "license": "LGPL-2.1",
+      "version_or_commit": "main",
+      "used_for": [
+        "incident response playbook: Semgrep patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://semgrep.dev/docs/",
+      "source_type": "vendor_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "incident response playbook: Semgrep docs patterns and workflow references",
+        "verification pattern 4"
       ],
       "copy_policy": "patterns_only"
     },
     {
-      "url": "https://www.first.org/incident-management/",
-      "source_type": "official_docs",
-      "license": "FIRST public",
-      "version_or_commit": "live",
+      "url": "https://github.com/github/codeql",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
       "used_for": [
-        "CSIRT incident management standards"
+        "incident response playbook: CodeQL patterns and workflow references",
+        "verification pattern 5"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "incident response playbook: GitHub CodeQL docs patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/gitleaks/gitleaks",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "incident response playbook: Gitleaks patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/aquasecurity/trivy",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "incident response playbook: Trivy patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 4,
-    "official_docs": 3,
-    "github_quality": 88,
-    "license_safety": 95,
-    "maintenance": 87,
-    "pattern_clarity": 94,
-    "testability": 86,
-    "total": 90
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
   },
   "promotion_decision": "staging"
 }

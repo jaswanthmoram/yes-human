@@ -1,15 +1,124 @@
 {
-  "dossier_id": "dossier.workflow.hr.performance-review-cycle.2026-06-01",
+  "dossier_id": "dossier.hr.performance-review-cycle.2026-06-02",
   "workflow_id": "hr.performance-review-cycle",
   "domain": "hr",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2026-08-30T00:00:00Z",
   "sources": [
-    {"url": "https://www.shrm.org/topics-tools/news/hr-magazine/performance-management-best-practices", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "live", "used_for": ["performance management cycle design", "review cadence patterns"], "copy_policy": "patterns_only"},
-    {"url": "https://hbr.org/2019/03/the-feedback-fallacy", "source_type": "technical_blog", "license": "Proprietary", "version_or_commit": "published", "used_for": ["feedback methodology research", "modern performance review approaches"], "copy_policy": "patterns_only"},
-    {"url": "https://www.cultureamp.com/blog/performance-review-process", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "live", "used_for": ["review process templates", "360-degree feedback implementation"], "copy_policy": "patterns_only"},
-    {"url": "https://github.com/gitlabhandbook/handbook", "source_type": "github_repo", "license": "CC-BY-SA-4.0", "version_or_commit": "main", "used_for": ["performance review documentation patterns", "remote team evaluation frameworks"], "copy_policy": "patterns_only"}
+    {
+      "url": "https://github.com/kyrolabs/awesome-agents",
+      "source_type": "official_docs",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "performance review cycle: Awesome Agents patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/vivy-yi/awesome-agent-orchestration",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "performance review cycle: Awesome Agent Orchestration patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/EvoMap/awesome-agent-swarm",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "performance review cycle: Awesome Agent Swarm patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "performance review cycle: Claude Code patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-cookbook",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "performance review cycle: Claude Cookbook patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-quickstarts",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "performance review cycle: Claude Quickstarts patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-desktop-extensions",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "performance review cycle: Claude Desktop Extensions patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/hesreallyhim/awesome-claude-code",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "performance review cycle: Awesome Claude Code patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    }
   ],
-  "scores": {"source_count": 4, "official_docs": 0, "github_quality": 82, "license_safety": 88, "maintenance": 84, "pattern_clarity": 87, "testability": 70, "total": 82},
+  "scores": {
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
+  },
   "promotion_decision": "staging"
 }

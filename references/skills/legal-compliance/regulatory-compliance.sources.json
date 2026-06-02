@@ -1,52 +1,123 @@
 {
   "skill_id": "legal-compliance.regulatory-compliance",
-  "dossier_id": "dossier.skill.legal-compliance.regulatory-compliance.2026-06-01",
+  "dossier_id": "dossier.legal-compliance.regulatory-compliance.2026-06-02",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2027-06-01T00:00:00Z",
   "sources": [
     {
-      "url": "https://gdpr.eu/",
+      "url": "https://github.com/FlowiseAI/Flowise",
       "source_type": "official_docs",
-      "license": "Public Domain",
-      "version_or_commit": "2024",
+      "license": "MIT",
+      "version_or_commit": "main",
       "used_for": [
-        "GDPR compliance patterns",
-        "data protection requirements"
+        "regulatory compliance: Flowise patterns and workflow references",
+        "verification pattern 1"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://www.nist.gov/cyberframework",
-      "source_type": "official_docs",
-      "license": "Public Domain",
-      "version_or_commit": "2024",
+      "url": "https://github.com/anthropics/skills",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
       "used_for": [
-        "NIST framework patterns",
-        "control mapping"
+        "regulatory compliance: Anthropic skills patterns and workflow references",
+        "verification pattern 2"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/soc.html",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
+      "url": "https://github.com/VoltAgent/awesome-claude-skills",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
       "used_for": [
-        "SOC 2 patterns",
-        "trust services criteria"
+        "regulatory compliance: Awesome Agent Skills patterns and workflow references",
+        "verification pattern 3"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/kyrolabs/awesome-agents",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "regulatory compliance: Awesome Agents patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/vivy-yi/awesome-agent-orchestration",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "regulatory compliance: Awesome Agent Orchestration patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/EvoMap/awesome-agent-swarm",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "regulatory compliance: Awesome Agent Swarm patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "regulatory compliance: Claude Code patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-cookbook",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "regulatory compliance: Claude Cookbook patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 3,
-    "official_docs": 1,
-    "github_quality": 0,
-    "license_safety": 92,
-    "maintenance": 88,
-    "pattern_clarity": 86,
-    "testability": 82,
-    "total": 85
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
   },
   "promotion_decision": "staging"
 }

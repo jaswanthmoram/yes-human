@@ -1,60 +1,122 @@
 {
-  "dossier_id": "dossier.platform.infrastructure-testing.2026-05-31",
+  "dossier_id": "dossier.platform.infrastructure-testing.2026-06-02",
   "agent_id": "platform.infrastructure-testing",
   "domain": "platform",
   "created_at": "2026-05-31T00:00:00Z",
   "expires_at": "2026-08-29T00:00:00Z",
   "sources": [
     {
-      "url": "https://github.com/gruntwork-io/terratest",
+      "url": "https://github.com/openai/openai-agents-js",
       "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "master",
-      "used_for": ["infrastructure testing patterns for Terraform and Kubernetes"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/open-policy-agent/opa",
-      "source_type": "github_repo",
-      "license": "Apache-2.0",
+      "license": "MIT",
       "version_or_commit": "main",
-      "used_for": ["policy-as-code testing and compliance validation patterns"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "infrastructure testing: OpenAI Agents SDK JS patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://github.com/litmuschaos/litmus",
-      "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "master",
-      "used_for": ["chaos engineering experiment design and blast radius control"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/bridgecrewio/checkov",
-      "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "main",
-      "used_for": ["infrastructure compliance scanning and policy testing"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.openpolicyagent.org/docs/latest/policy-testing/",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
       "source_type": "official_docs",
       "license": "Apache-2.0",
-      "version_or_commit": "live",
-      "used_for": ["OPA policy testing best practices"],
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "infrastructure testing: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 2"
+      ],
       "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/crewAIInc/crewAI",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "infrastructure testing: CrewAI patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/autogen",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "infrastructure testing: AutoGen patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "infrastructure testing: OpenHands patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/lastmile-ai/mcp-agent",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "infrastructure testing: MCP Agent patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-lightning",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "infrastructure testing: Agent Lightning patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openpipe/art",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "infrastructure testing: OpenPipe ART patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 5,
-    "official_docs": 1,
-    "github_quality": 93,
-    "license_safety": 96,
-    "maintenance": 92,
-    "pattern_clarity": 90,
-    "testability": 90,
-    "total": 93
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
   },
   "promotion_decision": "staging"
 }

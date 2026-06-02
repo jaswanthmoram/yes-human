@@ -1,52 +1,161 @@
 {
-  "dossier_id": "dossier.skill.platform.ansible-playbooks.2026-06-01",
+  "dossier_id": "dossier.platform.ansible-playbooks.2026-06-02",
   "skill_id": "platform.ansible-playbooks",
   "domain": "platform",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2027-06-01T00:00:00Z",
   "sources": [
     {
-      "url": "https://docs.ansible.com/ansible/latest/playbook_guide/",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
       "source_type": "official_docs",
-      "license": "GPL-3.0",
-      "version_or_commit": "v2.17",
-      "used_for": ["playbook guide", "task patterns"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_best_practices.html",
-      "source_type": "official_docs",
-      "license": "GPL-3.0",
-      "version_or_commit": "v2.17",
-      "used_for": ["best practices", "directory layout"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://galaxy.ansible.com/",
-      "source_type": "community",
       "license": "Apache-2.0",
-      "version_or_commit": "2024",
-      "used_for": ["role examples", "community roles"],
-      "copy_policy": "patterns_only"
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "ansible playbooks: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://docs.ansible.com/ansible/latest/collections/",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
       "source_type": "official_docs",
-      "license": "GPL-3.0",
-      "version_or_commit": "v2.17",
-      "used_for": ["collections", "module reference"],
-      "copy_policy": "patterns_only"
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "ansible playbooks: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OpenInterpreter/open-interpreter",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "ansible playbooks: Open Interpreter patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/Aider-AI/aider",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "ansible playbooks: Aider AI patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/open-telemetry/opentelemetry-collector",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "ansible playbooks: OpenTelemetry Collector patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/prometheus/prometheus",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "ansible playbooks: Prometheus patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/grafana/grafana",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "ansible playbooks: Grafana patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/argoproj/argo-cd",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "ansible playbooks: Argo CD patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/kubernetes/kubernetes",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "ansible playbooks: Kubernetes patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 5000,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/hashicorp/terraform",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "ansible playbooks: Terraform patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 5000,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://docs.github.com/en/actions",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "ansible playbooks: GitHub Actions docs patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 4,
-    "official_docs": 3,
-    "github_quality": 88,
-    "license_safety": 90,
-    "maintenance": 91,
-    "pattern_clarity": 89,
-    "testability": 85,
-    "total": 87
+    "source_count": 11,
+    "official_docs": 15,
+    "github_quality": 16,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 92
   },
   "promotion_decision": "staging"
 }

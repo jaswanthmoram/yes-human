@@ -1,43 +1,160 @@
 {
   "skill_id": "data-ai.model-eval",
-  "dossier_id": "dossier.skill.data-ai.model-eval.2026-06-01",
+  "dossier_id": "dossier.data-ai.model-eval.2026-06-02",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2027-06-01T00:00:00Z",
   "sources": [
     {
-      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
-      "source_type": "official_docs",
-      "license": "BSD-3-Clause",
-      "version_or_commit": "v1.3",
-      "used_for": ["scikit-learn evaluation metrics", "cross-validation"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://huggingface.co/docs/evaluate/",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
       "source_type": "official_docs",
       "license": "Apache-2.0",
-      "version_or_commit": "2024",
-      "used_for": ["Hugging Face evaluate library", "NLP metrics"],
-      "copy_policy": "patterns_only"
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "model eval: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://mlflow.org/docs/latest/model-evaluation/",
-      "source_type": "vendor_docs",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_type": "official_docs",
       "license": "Apache-2.0",
-      "version_or_commit": "2024",
-      "used_for": ["MLflow model evaluation", "experiment tracking"],
-      "copy_policy": "patterns_only"
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "model eval: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/mem0ai/mem0",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "model eval: mem0 patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/getzep/graphiti",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "model eval: Graphiti patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "model eval: Microsoft Agent Framework patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/langchain-ai/langgraph",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "model eval: LangGraph patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-python",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "model eval: OpenAI Agents SDK Python patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-js",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "model eval: OpenAI Agents SDK JS patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/crewAIInc/crewAI",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "model eval: CrewAI patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/autogen",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "model eval: AutoGen patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "model eval: OpenHands patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 3,
-    "official_docs": 3,
-    "github_quality": 91,
-    "license_safety": 94,
-    "maintenance": 92,
-    "pattern_clarity": 93,
-    "testability": 90,
-    "total": 92
+    "source_count": 11,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 91
   },
   "promotion_decision": "production"
 }

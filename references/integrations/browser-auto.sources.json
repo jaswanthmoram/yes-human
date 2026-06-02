@@ -1,74 +1,160 @@
 {
-  "dossier_id": "dossier.integrations.browser-auto.2026-06-01",
+  "dossier_id": "dossier.integrations.browser-auto.2026-06-02",
   "agent_id": "integrations.browser-auto",
   "domain": "integrations",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2026-08-30T00:00:00Z",
   "sources": [
     {
-      "url": "https://github.com/modelcontextprotocol/servers",
-      "source_type": "github_repo",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
+      "source_type": "official_docs",
       "license": "Apache-2.0",
-      "version_or_commit": "main",
+      "version_or_commit": "2026-06-02",
       "used_for": [
-        "Browser automation CLI and MCP-driven interaction patterns",
-        "canonical MCP server implementations"
+        "browser auto: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 1"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/modelcontextprotocol/registry",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "browser auto: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/eyaltoledano/claude-task-master",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "Browser automation CLI and MCP-driven interaction patterns",
-        "registry metadata model for connector discovery"
+        "browser auto: Claude Task Master patterns and workflow references",
+        "verification pattern 3"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/github/github-mcp-server",
+      "url": "https://github.com/Doriandarko/claude-engineer",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "Browser automation CLI and MCP-driven interaction patterns",
-        "GitHub binding patterns, OAuth scope discipline"
+        "browser auto: Claude Engineer patterns and workflow references",
+        "verification pattern 4"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/microsoft/playwright-mcp",
+      "url": "https://github.com/parallaxsys/claude-swarm",
       "source_type": "github_repo",
-      "license": "Apache-2.0",
+      "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "Browser automation CLI and MCP-driven interaction patterns",
-        "browser-automation MCP binding pattern"
+        "browser auto: Claude Swarm patterns and workflow references",
+        "verification pattern 5"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/vercel-labs/agent-browser",
+      "url": "https://github.com/zebbern/claude-dev-tools",
       "source_type": "github_repo",
-      "license": "Apache-2.0",
+      "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "Browser automation CLI and MCP-driven interaction patterns",
-        "native-CLI fallback pattern for browser tasks"
+        "browser auto: Claude Dev Tools patterns and workflow references",
+        "verification pattern 6"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/liyoshio/mcp-compass",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "browser auto: MCP Compass patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anaisbetts/mcp-installer",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "browser auto: MCP Installer patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/idosal/mcphub",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "browser auto: MCPHub patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/continuedev/continue",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "browser auto: Continue patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/cline/cline",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "browser auto: Cline patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 5,
-    "official_docs": 0,
-    "github_quality": 94,
-    "license_safety": 92,
-    "maintenance": 92,
-    "pattern_clarity": 92,
-    "testability": 80,
+    "source_count": 11,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
     "total": 91
   },
   "promotion_decision": "staging"

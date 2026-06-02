@@ -1,60 +1,122 @@
 {
-  "dossier_id": "dossier.skill.security.encryption-at-rest.2026-06-01",
+  "dossier_id": "dossier.security.encryption-at-rest.2026-06-02",
   "skill_id": "security.encryption-at-rest",
   "domain": "security",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2027-06-01T00:00:00Z",
   "sources": [
     {
-      "url": "https://csrc.nist.gov/publications/detail/sp/800-111/final",
-      "source_type": "official_docs",
-      "license": "Public Domain",
-      "version_or_commit": "SP 800-111",
-      "used_for": ["storage encryption technologies", "encryption architecture"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://docs.aws.amazon.com/kms/latest/developerguide/",
-      "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["AWS KMS patterns", "server-side encryption"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.pcisecuritystandards.org/documents/PCI_DSS_v4.0.pdf",
-      "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "v4.0",
-      "used_for": ["Requirement 3 protect stored data", "encryption mandates"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/google/tink",
+      "url": "https://github.com/owasp/www-project-top-10-for-large-language-model-applications",
       "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "encryption at rest: OWASP LLM Top 10 patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OWASP/wstg",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "encryption at rest: OWASP Web Security Testing Guide patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OWASP/CheatSheetSeries",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "encryption at rest: OWASP Cheat Sheet Series patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/joernio/joern",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "encryption at rest: Joern patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "encryption at rest: Claude BugHunter patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "encryption at rest: Microsoft Agent Framework patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_type": "official_docs",
       "license": "Apache-2.0",
-      "version_or_commit": "v1.12",
-      "used_for": ["application-level encryption", "crypto library patterns"],
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "encryption at rest: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 7"
+      ],
       "copy_policy": "patterns_only"
     },
     {
-      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html",
-      "source_type": "official_docs",
+      "url": "https://github.com/langchain-ai/langgraph",
+      "source_type": "github_repo",
       "license": "MIT",
-      "version_or_commit": "2024",
-      "used_for": ["encryption best practices", "algorithm selection"],
-      "copy_policy": "patterns_only"
+      "version_or_commit": "main",
+      "used_for": [
+        "encryption at rest: LangGraph patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 5,
-    "official_docs": 4,
-    "github_quality": 90,
-    "license_safety": 94,
-    "maintenance": 91,
-    "pattern_clarity": 93,
-    "testability": 85,
-    "total": 91
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
   },
   "promotion_decision": "staging"
 }

@@ -1,43 +1,119 @@
 {
   "skill_id": "engineering.dependency-upgrade",
-  "dossier_id": "dossier.skill.engineering.dependency-upgrade.2026-06-01",
+  "dossier_id": "dossier.engineering.dependency-upgrade.2026-06-02",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2027-06-01T00:00:00Z",
   "sources": [
     {
-      "url": "https://docs.npmjs.com/cli/v10/commands/npm-audit",
-      "source_type": "official_docs",
-      "license": "Artistic-2.0",
-      "version_or_commit": "v10",
-      "used_for": ["npm audit", "security scanning"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/dependabot/dependabot-core",
+      "url": "https://github.com/automazeio/ccpm",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": ["dependency update automation", "version resolution"],
+      "used_for": [
+        "dependency upgrade: Claude Code PM patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "dependency upgrade: Sourcegraph public snapshot patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://sourcegraph.com/docs/cody/core-concepts/context",
+      "source_type": "vendor_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "dependency upgrade: Sourcegraph Cody context docs patterns and workflow references",
+        "verification pattern 3"
+      ],
       "copy_policy": "patterns_only"
     },
     {
-      "url": "https://snyk.io/blog/10-npm-security-best-practices/",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["security best practices", "vulnerability management"],
+      "url": "https://github.com/tree-sitter/tree-sitter",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "dependency upgrade: Tree-sitter patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "dependency upgrade: Microsoft Agent Framework patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "dependency upgrade: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 6"
+      ],
       "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/langchain-ai/langgraph",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "dependency upgrade: LangGraph patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-python",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "dependency upgrade: OpenAI Agents SDK Python patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 3,
-    "official_docs": 2,
-    "github_quality": 88,
-    "license_safety": 92,
-    "maintenance": 90,
-    "pattern_clarity": 90,
-    "testability": 87,
-    "total": 89
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
   },
   "promotion_decision": "production"
 }

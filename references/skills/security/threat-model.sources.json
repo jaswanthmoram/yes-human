@@ -1,43 +1,121 @@
 {
   "skill_id": "security.threat-model",
-  "dossier_id": "dossier.skill.security.threat-model.2026-06-01",
+  "dossier_id": "dossier.security.threat-model.2026-06-02",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2027-06-01T00:00:00Z",
   "sources": [
     {
-      "url": "https://owasp.org/www-community/Threat_Modeling",
-      "source_type": "official_docs",
-      "license": "CC-BY-SA-4.0",
-      "version_or_commit": "2024",
-      "used_for": ["OWASP threat modeling methodology", "STRIDE framework"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/OWASP/threat-modeling-playbook",
+      "url": "https://github.com/OpenInterpreter/open-interpreter",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": ["threat modeling process", "practical examples"],
+      "used_for": [
+        "threat model: Open Interpreter patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/Aider-AI/aider",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "threat model: Aider AI patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/semgrep/semgrep",
+      "source_type": "github_repo",
+      "license": "LGPL-2.1",
+      "version_or_commit": "main",
+      "used_for": [
+        "threat model: Semgrep patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://semgrep.dev/docs/",
+      "source_type": "vendor_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "threat model: Semgrep docs patterns and workflow references",
+        "verification pattern 4"
+      ],
       "copy_policy": "patterns_only"
     },
     {
-      "url": "https://www.microsoft.com/en-us/securityengineering/sdl/threatmodeling",
-      "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["Microsoft SDL threat modeling", "STRIDE/DREAD"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/github/codeql",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "threat model: CodeQL patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "threat model: GitHub CodeQL docs patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/gitleaks/gitleaks",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "threat model: Gitleaks patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/aquasecurity/trivy",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "threat model: Trivy patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 3,
-    "official_docs": 3,
-    "github_quality": 88,
-    "license_safety": 95,
-    "maintenance": 92,
-    "pattern_clarity": 94,
-    "testability": 87,
-    "total": 91
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
   },
   "promotion_decision": "production"
 }

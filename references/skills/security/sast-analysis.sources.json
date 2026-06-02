@@ -1,52 +1,173 @@
 {
-  "dossier_id": "dossier.skill.security.sast-analysis.2026-06-01",
+  "dossier_id": "dossier.security.sast-analysis.2026-06-02",
   "skill_id": "security.sast-analysis",
   "domain": "security",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2027-06-01T00:00:00Z",
   "sources": [
     {
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "sast analysis: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/agents",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "sast analysis: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
       "url": "https://semgrep.dev/docs/",
-      "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["SAST rules", "custom rule writing"],
-      "copy_policy": "patterns_only"
+      "source_type": "vendor_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "sast analysis: Semgrep docs patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://codeql.github.com/docs/",
-      "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["CodeQL queries", "data flow analysis"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://owasp.org/www-project-web-security-testing-guide/",
-      "source_type": "official_docs",
-      "license": "CC BY-SA 4.0",
-      "version_or_commit": "v4.2",
-      "used_for": ["source code review patterns", "vulnerability detection"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/returntocorp/semgrep-rules",
+      "url": "https://github.com/owasp/www-project-top-10-for-large-language-model-applications",
       "source_type": "github_repo",
       "license": "MIT",
-      "version_or_commit": "2024",
-      "used_for": ["community rules", "security rule sets"],
-      "copy_policy": "patterns_only"
+      "version_or_commit": "main",
+      "used_for": [
+        "sast analysis: OWASP LLM Top 10 patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OWASP/wstg",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sast analysis: OWASP Web Security Testing Guide patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OWASP/CheatSheetSeries",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sast analysis: OWASP Cheat Sheet Series patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/joernio/joern",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sast analysis: Joern patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sast analysis: Claude BugHunter patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sast analysis: Microsoft Agent Framework patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/langchain-ai/langgraph",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sast analysis: LangGraph patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-python",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sast analysis: OpenAI Agents SDK Python patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-js",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sast analysis: OpenAI Agents SDK JS patterns and workflow references",
+        "verification pattern 12"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 4,
-    "official_docs": 3,
-    "github_quality": 91,
-    "license_safety": 92,
-    "maintenance": 94,
-    "pattern_clarity": 93,
-    "testability": 88,
-    "total": 92
+    "source_count": 12,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 91
   },
   "promotion_decision": "staging"
 }

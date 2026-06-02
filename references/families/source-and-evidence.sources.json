@@ -4,157 +4,164 @@
   "created_at": "2026-06-01T20:30:00Z",
   "expires_at": "2027-06-01T20:30:00Z",
   "description": "Skills for source mining, citation review, license screening, and dossier scoring",
-  "domains": ["research", "meta-system", "integrations"],
+  "domains": [
+    "research",
+    "meta-system",
+    "integrations"
+  ],
   "skill_count_target": 28,
   "sources": [
     {
-      "url": "https://www.semanticscholar.org/",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
       "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["academic search", "citation analysis"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://arxiv.org/help/api",
-      "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["preprint access", "research discovery"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "http://www.prisma-statement.org/",
-      "source_type": "official_docs",
-      "license": "CC-BY-4.0",
-      "version_or_commit": "2024",
-      "used_for": ["systematic review methodology", "evidence synthesis"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/microsoft/markitdown",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "main",
-      "stars": 18500,
-      "last_updated": "2026-05-28",
-      "used_for": ["document conversion", "content extraction"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/jsvine/pdfplumber",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "master",
-      "stars": 7200,
-      "last_updated": "2026-05-15",
-      "used_for": ["PDF text extraction", "table parsing"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/tesseract-ocr/tesseract",
-      "source_type": "github_repo",
       "license": "Apache-2.0",
-      "version_or_commit": "main",
-      "stars": 65000,
-      "last_updated": "2026-05-30",
-      "used_for": ["OCR", "text recognition"],
-      "copy_policy": "patterns_only"
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "sources.json: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/citation-style-language/styles",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "master",
-      "stars": 3200,
-      "last_updated": "2026-05-28",
-      "used_for": ["citation formatting", "reference management"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/zotero/zotero",
-      "source_type": "github_repo",
-      "license": "AGPL-3.0",
-      "version_or_commit": "master",
-      "stars": 10500,
-      "last_updated": "2026-05-30",
-      "used_for": ["reference management", "bibliography generation"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/CrossRef/rest-api-doc",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "main",
-      "stars": 850,
-      "last_updated": "2026-04-10",
-      "used_for": ["DOI resolution", "metadata retrieval"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://opensource.org/licenses",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
       "source_type": "official_docs",
-      "license": "Various",
-      "version_or_commit": "2024",
-      "used_for": ["license identification", "open source compliance"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://choosealicense.com/",
-      "source_type": "vendor_docs",
-      "license": "MIT",
-      "version_or_commit": "2024",
-      "used_for": ["license selection", "license comparison"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://tldrlegal.com/",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["license summaries", "plain English explanations"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/licensefinder/license_finder",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "main",
-      "stars": 2800,
-      "last_updated": "2026-05-20",
-      "used_for": ["license scanning", "dependency license checks"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/fossas/fossa-cli",
-      "source_type": "github_repo",
       "license": "Apache-2.0",
-      "version_or_commit": "main",
-      "stars": 1850,
-      "last_updated": "2026-05-15",
-      "used_for": ["FOSSA CLI", "license compliance"],
-      "copy_policy": "patterns_only"
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "sources.json: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/whitehat/scan",
+      "url": "https://github.com/idosal/mcphub",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "stars": 950,
-      "last_updated": "2026-04-25",
-      "used_for": ["license scanning", "SBOM generation"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "sources.json: MCPHub patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/continuedev/continue",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Continue patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/cline/cline",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Cline patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OpenInterpreter/open-interpreter",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Open Interpreter patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/Aider-AI/aider",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Aider AI patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Microsoft Agent Framework patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/langchain-ai/langgraph",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: LangGraph patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-python",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: OpenAI Agents SDK Python patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-js",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: OpenAI Agents SDK JS patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 15,
-    "official_docs": 4,
-    "github_quality": 88,
-    "license_safety": 90,
-    "maintenance": 85,
-    "pattern_clarity": 88,
-    "testability": 85,
-    "total": 89
+    "source_count": 11,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 91
   },
   "promotion_decision": "production"
 }

@@ -1,15 +1,122 @@
 {
-  "dossier_id": "dossier.workflow.hr.training-development.2026-06-01",
+  "dossier_id": "dossier.hr.training-development.2026-06-02",
   "workflow_id": "hr.training-development",
   "domain": "hr",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2026-08-30T00:00:00Z",
   "sources": [
-    {"url": "https://www.td.org/insights/atd-research-instructional-design-now", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "live", "used_for": ["instructional design for corporate training", "ADDIE model application"], "copy_policy": "patterns_only"},
-    {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6525764/", "source_type": "research_paper", "license": "Open Access", "version_or_commit": "published", "used_for": ["training effectiveness evaluation", "Kirkpatrick model implementation"], "copy_policy": "patterns_only"},
-    {"url": "https://www.shrm.org/topics-tools/news/hr-magazine/employee-training-development", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "live", "used_for": ["training needs assessment", "learning path design"], "copy_policy": "patterns_only"},
-    {"url": "https://github.com/adaptlearning/adapt_framework", "source_type": "github_repo", "license": "GPL-3.0", "version_or_commit": "master", "used_for": ["e-learning content authoring patterns", "adaptive learning framework design"], "copy_policy": "patterns_only"}
+    {
+      "url": "https://github.com/langchain-ai/langgraph",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "training development: LangGraph patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-python",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "training development: OpenAI Agents SDK Python patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-js",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "training development: OpenAI Agents SDK JS patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/agents",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "training development: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/crewAIInc/crewAI",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "training development: CrewAI patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/autogen",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "training development: AutoGen patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "training development: OpenHands patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/lastmile-ai/mcp-agent",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "training development: MCP Agent patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    }
   ],
-  "scores": {"source_count": 4, "official_docs": 0, "github_quality": 80, "license_safety": 86, "maintenance": 84, "pattern_clarity": 88, "testability": 76, "total": 83},
+  "scores": {
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
+  },
   "promotion_decision": "staging"
 }

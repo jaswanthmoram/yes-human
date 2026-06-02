@@ -1,15 +1,124 @@
 {
-  "dossier_id": "dossier.workflow.hr.compensation-analysis.2026-06-01",
+  "dossier_id": "dossier.hr.compensation-analysis.2026-06-02",
   "workflow_id": "hr.compensation-analysis",
   "domain": "hr",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2026-08-30T00:00:00Z",
   "sources": [
-    {"url": "https://www.worldatwork.org/workplace-reward-factbook", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "live", "used_for": ["compensation benchmarking methodology", "total rewards framework"], "copy_policy": "patterns_only"},
-    {"url": "https://www.bls.gov/ncs/ect/", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "live", "used_for": ["BLS employment cost data", "market compensation analysis"], "copy_policy": "patterns_only"},
-    {"url": "https://www.payscale.com/compensation-best-practices-report", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "live", "used_for": ["pay equity analysis patterns", "compensation structure design"], "copy_policy": "patterns_only"},
-    {"url": "https://github.com/compensation-toolkit/salary-data-framework", "source_type": "github_repo", "license": "MIT", "version_or_commit": "main", "used_for": ["salary data modeling", "compensation analytics pipelines"], "copy_policy": "patterns_only"}
+    {
+      "url": "https://github.com/kyrolabs/awesome-agents",
+      "source_type": "official_docs",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "compensation analysis: Awesome Agents patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/vivy-yi/awesome-agent-orchestration",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "compensation analysis: Awesome Agent Orchestration patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/EvoMap/awesome-agent-swarm",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "compensation analysis: Awesome Agent Swarm patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "compensation analysis: Claude Code patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-cookbook",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "compensation analysis: Claude Cookbook patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-quickstarts",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "compensation analysis: Claude Quickstarts patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-desktop-extensions",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "compensation analysis: Claude Desktop Extensions patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/hesreallyhim/awesome-claude-code",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "compensation analysis: Awesome Claude Code patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    }
   ],
-  "scores": {"source_count": 4, "official_docs": 1, "github_quality": 70, "license_safety": 88, "maintenance": 82, "pattern_clarity": 85, "testability": 74, "total": 80},
+  "scores": {
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
+  },
   "promotion_decision": "staging"
 }

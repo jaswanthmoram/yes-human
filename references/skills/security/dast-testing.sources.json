@@ -1,52 +1,173 @@
 {
-  "dossier_id": "dossier.skill.security.dast-testing.2026-06-01",
+  "dossier_id": "dossier.security.dast-testing.2026-06-02",
   "skill_id": "security.dast-testing",
   "domain": "security",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2027-06-01T00:00:00Z",
   "sources": [
     {
-      "url": "https://www.zaproxy.org/docs/",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
       "source_type": "official_docs",
       "license": "Apache-2.0",
-      "version_or_commit": "v2.14",
-      "used_for": ["OWASP ZAP usage", "automated scanning"],
-      "copy_policy": "patterns_only"
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "dast testing: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://owasp.org/www-project-web-security-testing-guide/",
+      "url": "https://semgrep.dev/docs/",
+      "source_type": "vendor_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "dast testing: Semgrep docs patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
       "source_type": "official_docs",
-      "license": "CC BY-SA 4.0",
-      "version_or_commit": "v4.2",
-      "used_for": ["testing methodology", "vulnerability categories"],
-      "copy_policy": "patterns_only"
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "dast testing: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://portswigger.net/burp/documentation",
-      "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["Burp Suite usage", "manual testing techniques"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/nicknisi/awesome-web-security",
+      "url": "https://github.com/openai/openai-agents-python",
       "source_type": "github_repo",
-      "license": "CC0-1.0",
-      "version_or_commit": "2024",
-      "used_for": ["tool references", "testing resources"],
-      "copy_policy": "patterns_only"
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "dast testing: OpenAI Agents SDK Python patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-js",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "dast testing: OpenAI Agents SDK JS patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/crewAIInc/crewAI",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "dast testing: CrewAI patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/autogen",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "dast testing: AutoGen patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "dast testing: OpenHands patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/lastmile-ai/mcp-agent",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "dast testing: MCP Agent patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-lightning",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "dast testing: Agent Lightning patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openpipe/art",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "dast testing: OpenPipe ART patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/langgenius/dify",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "dast testing: Dify patterns and workflow references",
+        "verification pattern 12"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 4,
-    "official_docs": 3,
-    "github_quality": 87,
-    "license_safety": 91,
-    "maintenance": 90,
-    "pattern_clarity": 89,
-    "testability": 92,
-    "total": 90
+    "source_count": 12,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 91
   },
   "promotion_decision": "staging"
 }

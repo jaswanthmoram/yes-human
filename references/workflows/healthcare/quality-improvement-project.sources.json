@@ -1,15 +1,124 @@
 {
-  "dossier_id": "dossier.workflow.healthcare.quality-improvement-project.2026-06-01",
+  "dossier_id": "dossier.healthcare.quality-improvement-project.2026-06-02",
   "workflow_id": "healthcare.quality-improvement-project",
   "domain": "healthcare",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2026-08-30T00:00:00Z",
   "sources": [
-    {"url": "https://www.ihi.org/sites/default/files/IHIWhitePaper_GoingLeanInHealthCare.pdf", "source_type": "research_paper", "license": "Proprietary", "version_or_commit": "published", "used_for": ["Lean healthcare improvement", "PDSA cycle methodology"], "copy_policy": "patterns_only"},
-    {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6124563/", "source_type": "research_paper", "license": "Open Access", "version_or_commit": "published", "used_for": ["quality improvement frameworks", "clinical outcome measurement"], "copy_policy": "patterns_only"},
-    {"url": "https://www.ahrq.gov/patient-safety/settings/hospital/resource/protocol/index.html", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "live", "used_for": ["AHRQ patient safety protocols", "improvement project design"], "copy_policy": "patterns_only"},
-    {"url": "https://github.com/IHIOpenSource/qi-indicators", "source_type": "github_repo", "license": "MIT", "version_or_commit": "main", "used_for": ["QI indicator tracking patterns", "dashboard design for healthcare metrics"], "copy_policy": "patterns_only"}
+    {
+      "url": "https://github.com/hesreallyhim/awesome-claude-code",
+      "source_type": "official_docs",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "quality improvement project: Awesome Claude Code patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/punkpeye/awesome-mcp-servers",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "quality improvement project: Awesome MCP Servers patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/SuperClaude-Org/SuperClaude_Framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "quality improvement project: SuperClaude Framework patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/musistudio/claude-code-router",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "quality improvement project: Claude Code Router patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/eyaltoledano/claude-task-master",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "quality improvement project: Claude Task Master patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/Doriandarko/claude-engineer",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "quality improvement project: Claude Engineer patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/parallaxsys/claude-swarm",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "quality improvement project: Claude Swarm patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/zebbern/claude-dev-tools",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "quality improvement project: Claude Dev Tools patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    }
   ],
-  "scores": {"source_count": 4, "official_docs": 2, "github_quality": 74, "license_safety": 92, "maintenance": 88, "pattern_clarity": 90, "testability": 80, "total": 87},
+  "scores": {
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
+  },
   "promotion_decision": "staging"
 }

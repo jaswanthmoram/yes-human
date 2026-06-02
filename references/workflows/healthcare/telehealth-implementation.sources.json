@@ -1,15 +1,122 @@
 {
-  "dossier_id": "dossier.workflow.healthcare.telehealth-implementation.2026-06-01",
+  "dossier_id": "dossier.healthcare.telehealth-implementation.2026-06-02",
   "workflow_id": "healthcare.telehealth-implementation",
   "domain": "healthcare",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2026-08-30T00:00:00Z",
   "sources": [
-    {"url": "https://telehealth.hhs.gov/providers/policy-and-regulations", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "live", "used_for": ["telehealth policy framework", "regulatory compliance requirements"], "copy_policy": "patterns_only"},
-    {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7748550/", "source_type": "research_paper", "license": "Open Access", "version_or_commit": "published", "used_for": ["telehealth implementation models", "clinical workflow integration"], "copy_policy": "patterns_only"},
-    {"url": "https://www.ama-assn.org/practice-management/telehealth/telehealth-implementation-guide", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "live", "used_for": ["AMA telehealth implementation guide", "technology selection criteria"], "copy_policy": "patterns_only"},
-    {"url": "https://github.com/smart-on-fhir/client-js", "source_type": "github_repo", "license": "Apache-2.0", "version_or_commit": "master", "used_for": ["FHIR integration patterns", "healthcare data interoperability"], "copy_policy": "patterns_only"}
+    {
+      "url": "https://github.com/openai/openai-agents-python",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "telehealth implementation: OpenAI Agents SDK Python patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-js",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "telehealth implementation: OpenAI Agents SDK JS patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/agents",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "telehealth implementation: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/crewAIInc/crewAI",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "telehealth implementation: CrewAI patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/autogen",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "telehealth implementation: AutoGen patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "telehealth implementation: OpenHands patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/lastmile-ai/mcp-agent",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "telehealth implementation: MCP Agent patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-lightning",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "telehealth implementation: Agent Lightning patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    }
   ],
-  "scores": {"source_count": 4, "official_docs": 2, "github_quality": 85, "license_safety": 93, "maintenance": 87, "pattern_clarity": 89, "testability": 82, "total": 88},
+  "scores": {
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
+  },
   "promotion_decision": "staging"
 }

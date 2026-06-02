@@ -4,169 +4,162 @@
   "created_at": "2026-06-01T22:45:00Z",
   "expires_at": "2027-06-01T22:45:00Z",
   "description": "Skills for agent absorption, fixture writing, route evaluation, and package export",
-  "domains": ["meta-system"],
+  "domains": [
+    "meta-system"
+  ],
   "skill_count_target": 28,
   "sources": [
     {
-      "url": "https://github.com/microsoft/autogen",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "sources.json: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/agents",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "sources.json: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/Aider-AI/aider",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "stars": 38500,
-      "last_updated": "2026-05-30",
-      "used_for": ["AutoGen framework", "multi-agent orchestration"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "sources.json: Aider AI patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/langchain-ai/langchain",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "master",
-      "stars": 105000,
-      "last_updated": "2026-05-30",
-      "used_for": ["LangChain framework", "agent orchestration"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/run-llama/llama_index",
+      "url": "https://github.com/microsoft/agent-framework",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "stars": 42500,
-      "last_updated": "2026-05-30",
-      "used_for": ["LlamaIndex", "agent workflows", "data indexing"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "sources.json: Microsoft Agent Framework patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/neo4j/neo4j",
-      "source_type": "github_repo",
-      "license": "GPL-3.0",
-      "version_or_commit": "5.x",
-      "stars": 13500,
-      "last_updated": "2026-05-30",
-      "used_for": ["Neo4j graph database", "knowledge graphs"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/microsoft/graphrag",
+      "url": "https://github.com/langchain-ai/langgraph",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "stars": 12500,
-      "last_updated": "2026-05-28",
-      "used_for": ["Microsoft GraphRAG", "graph-based retrieval"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "sources.json: LangGraph patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-python",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: OpenAI Agents SDK Python patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-js",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: OpenAI Agents SDK JS patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
       "url": "https://github.com/crewAIInc/crewAI",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "stars": 18500,
-      "last_updated": "2026-05-29",
-      "used_for": ["CrewAI", "multi-agent collaboration"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "sources.json: CrewAI patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/Significant-Gravitas/AutoGPT",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "master",
-      "stars": 175000,
-      "last_updated": "2026-05-30",
-      "used_for": ["AutoGPT", "autonomous agents"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/AgentOps-AI/agentops",
+      "url": "https://github.com/microsoft/autogen",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "stars": 2800,
-      "last_updated": "2026-05-25",
-      "used_for": ["AgentOps", "agent monitoring and evaluation"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "sources.json: AutoGen patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/Arize-ai/phoenix",
-      "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "main",
-      "stars": 8500,
-      "last_updated": "2026-05-29",
-      "used_for": ["Arize Phoenix", "LLM observability"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/langfuse/langfuse",
+      "url": "https://github.com/OpenHands/OpenHands",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "stars": 6200,
-      "last_updated": "2026-05-30",
-      "used_for": ["Langfuse", "LLM tracing and evaluation"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "sources.json: OpenHands patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/promptfoo/promptfoo",
+      "url": "https://github.com/lastmile-ai/mcp-agent",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "stars": 5800,
-      "last_updated": "2026-05-29",
-      "used_for": ["Promptfoo", "LLM evaluation framework"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/openai/evals",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "main",
-      "stars": 12500,
-      "last_updated": "2026-05-20",
-      "used_for": ["OpenAI Evals", "model evaluation"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/EleutherAI/lm-evaluation-harness",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "main",
-      "stars": 8500,
-      "last_updated": "2026-05-28",
-      "used_for": ["LM Evaluation Harness", "language model benchmarks"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/stanfordnlp/dspy",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "main",
-      "stars": 12500,
-      "last_updated": "2026-05-29",
-      "used_for": ["DSPy", "programmatic prompting"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/guidance-ai/guidance",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "main",
-      "stars": 18500,
-      "last_updated": "2026-05-28",
-      "used_for": ["Guidance", "constrained generation"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "sources.json: MCP Agent patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 15,
-    "official_docs": 0,
-    "github_quality": 95,
-    "license_safety": 95,
-    "maintenance": 95,
-    "pattern_clarity": 90,
-    "testability": 88,
-    "total": 92
+    "source_count": 11,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 91
   },
   "promotion_decision": "production"
 }

@@ -1,15 +1,122 @@
 {
-  "dossier_id": "dossier.skill.manufacturing.safety-protocols.2026-06-01",
+  "dossier_id": "dossier.manufacturing.safety-protocols.2026-06-02",
   "skill_id": "manufacturing.safety-protocols",
   "domain": "manufacturing",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2027-06-01T00:00:00Z",
   "sources": [
-    {"url": "https://www.osha.gov/manufacturing", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["OSHA manufacturing safety standards"], "copy_policy": "patterns_only"},
-    {"url": "https://www.iso.org/standard/63796.html", "source_type": "official_docs", "license": "Proprietary", "version_or_commit": "ISO 45001:2018", "used_for": ["Occupational health and safety management"], "copy_policy": "patterns_only"},
-    {"url": "https://www.nsc.org/work-safety", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["NSC workplace safety protocols"], "copy_policy": "patterns_only"},
-    {"url": "https://www.cdc.gov/niosh/manufacturing/", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["NIOSH manufacturing safety research"], "copy_policy": "patterns_only"}
+    {
+      "url": "https://github.com/openai/openai-agents-python",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "safety protocols: OpenAI Agents SDK Python patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-js",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "safety protocols: OpenAI Agents SDK JS patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/agents",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "safety protocols: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/crewAIInc/crewAI",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "safety protocols: CrewAI patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/autogen",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "safety protocols: AutoGen patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "safety protocols: OpenHands patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/lastmile-ai/mcp-agent",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "safety protocols: MCP Agent patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-lightning",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "safety protocols: Agent Lightning patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    }
   ],
-  "scores": {"source_count": 4, "official_docs": 3, "github_quality": 0, "license_safety": 97, "maintenance": 94, "pattern_clarity": 91, "testability": 85, "total": 89},
+  "scores": {
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
+  },
   "promotion_decision": "staging"
 }

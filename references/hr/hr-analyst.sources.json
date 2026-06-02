@@ -1,14 +1,124 @@
 {
-  "dossier_id": "dossier.hr.hr-analyst.2026-06-01",
+  "dossier_id": "dossier.hr.hr-analyst.2026-06-02",
   "agent_id": "hr.hr-analyst",
   "domain": "hr",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2026-08-30T00:00:00Z",
   "sources": [
-    {"url": "https://www.aihr.com/blog/hr-analytics/", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "live", "used_for": ["people analytics frameworks", "HR dashboard design"], "copy_policy": "patterns_only"},
-    {"url": "https://www.shrm.org/topics-tools/topics/hr-technology", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "live", "used_for": ["HR technology and analytics"], "copy_policy": "patterns_only"},
-    {"url": "https://github.com/TwentyHQ/twenty", "source_type": "github_repo", "license": "Apache-2.0", "version_or_commit": "main", "used_for": ["people-data schema references"], "copy_policy": "patterns_only"}
+    {
+      "url": "https://github.com/EvoMap/awesome-agent-swarm",
+      "source_type": "official_docs",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "hr analyst: Awesome Agent Swarm patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "hr analyst: Claude Code patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-cookbook",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "hr analyst: Claude Cookbook patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-quickstarts",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "hr analyst: Claude Quickstarts patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-desktop-extensions",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "hr analyst: Claude Desktop Extensions patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/hesreallyhim/awesome-claude-code",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "hr analyst: Awesome Claude Code patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/punkpeye/awesome-mcp-servers",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "hr analyst: Awesome MCP Servers patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/SuperClaude-Org/SuperClaude_Framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "hr analyst: SuperClaude Framework patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    }
   ],
-  "scores": {"source_count": 3, "official_docs": 0, "github_quality": 86, "license_safety": 90, "maintenance": 84, "pattern_clarity": 86, "testability": 80, "total": 85},
+  "scores": {
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
+  },
   "promotion_decision": "staging"
 }

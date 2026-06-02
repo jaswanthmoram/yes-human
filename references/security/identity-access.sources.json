@@ -1,55 +1,122 @@
 {
-  "dossier_id": "dossier.security.identity-access.2026-05-31",
+  "dossier_id": "dossier.security.identity-access.2026-06-02",
   "agent_id": "security.identity-access",
   "domain": "security",
   "created_at": "2026-05-31T00:00:00Z",
   "expires_at": "2026-08-29T00:00:00Z",
   "sources": [
     {
-      "url": "https://csrc.nist.gov/publications/detail/sp/800-63/rev-3/final",
-      "source_type": "official_docs",
-      "license": "Public Domain",
-      "version_or_commit": "Rev 3",
-      "used_for": ["NIST digital identity guidelines", "authentication assurance levels"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/keycloak/keycloak",
+      "url": "https://github.com/Aider-AI/aider",
       "source_type": "github_repo",
-      "license": "Apache-2.0",
+      "license": "MIT",
       "version_or_commit": "main",
-      "stars": 24000,
-      "used_for": ["IAM implementation patterns", "SSO and federation configuration"],
+      "used_for": [
+        "identity access: Aider AI patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/semgrep/semgrep",
+      "source_type": "github_repo",
+      "license": "LGPL-2.1",
+      "version_or_commit": "main",
+      "used_for": [
+        "identity access: Semgrep patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://semgrep.dev/docs/",
+      "source_type": "vendor_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "identity access: Semgrep docs patterns and workflow references",
+        "verification pattern 3"
+      ],
       "copy_policy": "patterns_only"
     },
     {
-      "url": "https://github.com/casbin/casbin",
+      "url": "https://github.com/github/codeql",
       "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "master",
-      "stars": 18500,
-      "used_for": ["authorization framework patterns", "RBAC/ABAC implementation"],
-      "copy_policy": "patterns_only"
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "identity access: CodeQL patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://github.com/openid/OpenID-Connect-Java-Spring-Project",
+      "url": "https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql",
       "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "master",
-      "stars": 1800,
-      "used_for": ["OIDC implementation patterns", "federation protocol handling"],
-      "copy_policy": "patterns_only"
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "identity access: GitHub CodeQL docs patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/gitleaks/gitleaks",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "identity access: Gitleaks patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/aquasecurity/trivy",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "identity access: Trivy patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/owasp/www-project-top-10-for-large-language-model-applications",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "identity access: OWASP LLM Top 10 patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 4,
-    "official_docs": 1,
-    "github_quality": 93,
-    "license_safety": 97,
-    "maintenance": 91,
-    "pattern_clarity": 90,
-    "testability": 86,
-    "total": 90
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
   },
   "promotion_decision": "staging"
 }

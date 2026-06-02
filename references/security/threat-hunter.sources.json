@@ -1,63 +1,172 @@
 {
-  "dossier_id": "dossier.security.threat-hunter.2026-05-31",
+  "dossier_id": "dossier.security.threat-hunter.2026-06-02",
   "agent_id": "security.threat-hunter",
   "domain": "security",
   "created_at": "2026-05-31T00:00:00Z",
   "expires_at": "2026-08-29T00:00:00Z",
   "sources": [
     {
-      "url": "https://attack.mitre.org/",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
       "source_type": "official_docs",
-      "license": "Public Domain",
-      "version_or_commit": "v14",
-      "used_for": ["MITRE ATT&CK framework", "technique and tactic taxonomy"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/SigmaHQ/sigma",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "master",
-      "stars": 7500,
-      "used_for": ["detection rule patterns", "Sigma rule format"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/redcanaryco/atomic-red-team",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "master",
-      "stars": 9500,
-      "used_for": ["adversary emulation tests", "ATT&CK technique validation"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/olafhartong/sysmon-modular",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "master",
-      "stars": 4800,
-      "used_for": ["Sysmon configuration patterns", "telemetry collection"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/mitre/cti",
-      "source_type": "github_repo",
       "license": "Apache-2.0",
-      "version_or_commit": "master",
-      "stars": 2800,
-      "used_for": ["cyber threat intelligence", "STIX/TAXII patterns"],
-      "copy_policy": "patterns_only"
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "threat hunter: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://semgrep.dev/docs/",
+      "source_type": "vendor_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "threat hunter: Semgrep docs patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "threat hunter: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/langgenius/dify",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "threat hunter: Dify patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/langflow-ai/langflow",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "threat hunter: Langflow patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/FlowiseAI/Flowise",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "threat hunter: Flowise patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/skills",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "threat hunter: Anthropic skills patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/VoltAgent/awesome-claude-skills",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "threat hunter: Awesome Agent Skills patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/kyrolabs/awesome-agents",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "threat hunter: Awesome Agents patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/vivy-yi/awesome-agent-orchestration",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "threat hunter: Awesome Agent Orchestration patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/EvoMap/awesome-agent-swarm",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "threat hunter: Awesome Agent Swarm patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "threat hunter: Claude Code patterns and workflow references",
+        "verification pattern 12"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 5,
-    "official_docs": 1,
-    "github_quality": 92,
-    "license_safety": 96,
-    "maintenance": 90,
-    "pattern_clarity": 93,
-    "testability": 88,
+    "source_count": 12,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
     "total": 91
   },
   "promotion_decision": "staging"

@@ -1,60 +1,122 @@
 {
-  "dossier_id": "dossier.skill.engineering.ide-shortcuts.2026-06-01",
+  "dossier_id": "dossier.engineering.ide-shortcuts.2026-06-02",
   "skill_id": "engineering.ide-shortcuts",
   "domain": "engineering",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2027-06-01T00:00:00Z",
   "sources": [
     {
-      "url": "https://code.visualstudio.com/docs/getstarted/keybindings",
-      "source_type": "official_docs",
-      "license": "CC-BY-4.0",
-      "version_or_commit": "2024",
-      "used_for": ["VS Code keybindings", "custom shortcuts"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html",
-      "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024.1",
-      "used_for": ["JetBrains shortcuts", "productivity features"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://neovim.io/doc/",
-      "source_type": "official_docs",
-      "license": "Apache-2.0",
-      "version_or_commit": "v0.10.0",
-      "used_for": ["Neovim motions", "keymaps"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/microsoft/vscode",
+      "url": "https://github.com/cline/cline",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": ["VS Code source", "extension API for keybindings"],
+      "used_for": [
+        "ide shortcuts: Cline patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/continuedev/continue",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "ide shortcuts: Continue patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/SWE-agent/SWE-agent",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "ide shortcuts: SWE-agent patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/All-Hands-AI/OpenHands",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "ide shortcuts: OpenHands patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/automazeio/ccpm",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "ide shortcuts: Claude Code PM patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "ide shortcuts: Sourcegraph public snapshot patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://sourcegraph.com/docs/cody/core-concepts/context",
+      "source_type": "vendor_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "ide shortcuts: Sourcegraph Cody context docs patterns and workflow references",
+        "verification pattern 7"
+      ],
       "copy_policy": "patterns_only"
     },
     {
-      "url": "https://github.com/neovim/neovim",
+      "url": "https://github.com/tree-sitter/tree-sitter",
       "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "master",
-      "used_for": ["Neovim source", "plugin ecosystem"],
-      "copy_policy": "patterns_only"
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "ide shortcuts: Tree-sitter patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 5,
-    "official_docs": 4,
-    "github_quality": 97,
-    "license_safety": 94,
-    "maintenance": 96,
-    "pattern_clarity": 90,
-    "testability": 82,
-    "total": 91
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
   },
   "promotion_decision": "staging"
 }

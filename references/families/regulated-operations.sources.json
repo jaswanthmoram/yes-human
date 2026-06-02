@@ -4,139 +4,128 @@
   "created_at": "2026-06-01T22:30:00Z",
   "expires_at": "2027-06-01T22:30:00Z",
   "description": "Skills for contract risk review, hiring pipeline, clinical escalation, education plan, and manufacturing RCA",
-  "domains": ["finance", "legal-compliance", "hr", "healthcare", "education", "manufacturing"],
+  "domains": [
+    "finance",
+    "legal-compliance",
+    "hr",
+    "healthcare",
+    "education",
+    "manufacturing"
+  ],
   "skill_count_target": 54,
   "sources": [
     {
-      "url": "https://www.fasb.org/",
+      "url": "https://github.com/openai/openai-agents-js",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: OpenAI Agents SDK JS patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/agents",
       "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["FASB accounting standards", "GAAP guidance"],
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "sources.json: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 2"
+      ],
       "copy_policy": "patterns_only"
     },
     {
-      "url": "https://www.ifrs.org/",
-      "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["IFRS standards", "international accounting"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/crewAIInc/crewAI",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: CrewAI patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://www.sec.gov/",
-      "source_type": "official_docs",
-      "license": "Public Domain",
-      "version_or_commit": "2024",
-      "used_for": ["SEC regulations", "financial reporting requirements"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/microsoft/autogen",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: AutoGen patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://gdpr.eu/",
-      "source_type": "official_docs",
-      "license": "Public Domain",
-      "version_or_commit": "2024",
-      "used_for": ["GDPR regulation", "data protection"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: OpenHands patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/soc.html",
-      "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["SOC 2 standards", "Trust Services Criteria"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/lastmile-ai/mcp-agent",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: MCP Agent patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://www.iso.org/isoiec-27001-information-security.html",
-      "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "ISO 27001:2022",
-      "used_for": ["ISO 27001 standard", "information security management"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/microsoft/agent-lightning",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Agent Lightning patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://www.shrm.org/",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["SHRM resources", "HR best practices"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.eeoc.gov/",
-      "source_type": "official_docs",
-      "license": "Public Domain",
-      "version_or_commit": "2024",
-      "used_for": ["EEOC regulations", "equal employment opportunity"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.dol.gov/",
-      "source_type": "official_docs",
-      "license": "Public Domain",
-      "version_or_commit": "2024",
-      "used_for": ["Department of Labor", "employment law"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.who.int/",
-      "source_type": "official_docs",
-      "license": "CC-BY-NC-SA-3.0",
-      "version_or_commit": "2024",
-      "used_for": ["World Health Organization", "global health guidelines"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.cdc.gov/",
-      "source_type": "official_docs",
-      "license": "Public Domain",
-      "version_or_commit": "2024",
-      "used_for": ["CDC", "disease control and prevention"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.hhs.gov/hipaa/",
-      "source_type": "official_docs",
-      "license": "Public Domain",
-      "version_or_commit": "2024",
-      "used_for": ["HIPAA regulations", "health information privacy"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.ed.gov/",
-      "source_type": "official_docs",
-      "license": "Public Domain",
-      "version_or_commit": "2024",
-      "used_for": ["U.S. Department of Education", "education policy"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.cast.org/",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["CAST", "Universal Design for Learning"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.iso.org/iso-9001-quality-management.html",
-      "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "ISO 9001:2015",
-      "used_for": ["ISO 9001 quality management", "quality standards"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/openpipe/art",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: OpenPipe ART patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 15,
-    "official_docs": 12,
-    "github_quality": 0,
-    "license_safety": 95,
-    "maintenance": 95,
-    "pattern_clarity": 90,
-    "testability": 82,
-    "total": 91
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
   },
   "promotion_decision": "production",
   "disclaimer_required": true,

@@ -1,15 +1,122 @@
 {
-  "dossier_id": "dossier.skill.healthcare.medical-device-reporting.2026-06-01",
+  "dossier_id": "dossier.healthcare.medical-device-reporting.2026-06-02",
   "skill_id": "healthcare.medical-device-reporting",
   "domain": "healthcare",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2027-06-01T00:00:00Z",
   "sources": [
-    {"url": "https://www.fda.gov/medical-devices/mandatory-reporting-requirements-manufacturers-importers-and-device-user-facilities", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["MDR requirements", "reporting workflows"], "copy_policy": "patterns_only"},
-    {"url": "https://www.fda.gov/medical-devices/medical-device-reporting-mdr-how-report-medical-device-problems", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["MDR submission procedures"], "copy_policy": "patterns_only"},
-    {"url": "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfmaude/search.cfm", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "live", "used_for": ["MAUDE database search patterns"], "copy_policy": "patterns_only"},
-    {"url": "https://www.fda.gov/medical-devices/postmarket-requirements-medical-devices/postmarket-surveillance", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["Post-market surveillance requirements"], "copy_policy": "patterns_only"}
+    {
+      "url": "https://github.com/mims-harvard/TxAgent",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "medical device reporting: TxAgent (Harvard MIMS) patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/thu-unicorn/Doctor-R1",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "medical device reporting: Doctor-R1 (Tsinghua) patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/stvsever/compass-engine",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "medical device reporting: COMPASS-Engine patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/Schuture/Meissa",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "medical device reporting: Meissa patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/shengliu66/Cerebra",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "medical device reporting: Cerebra patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "medical device reporting: Microsoft Agent Framework patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "medical device reporting: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/langchain-ai/langgraph",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "medical device reporting: LangGraph patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    }
   ],
-  "scores": {"source_count": 4, "official_docs": 4, "github_quality": 0, "license_safety": 97, "maintenance": 93, "pattern_clarity": 88, "testability": 83, "total": 87},
+  "scores": {
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
+  },
   "promotion_decision": "staging"
 }

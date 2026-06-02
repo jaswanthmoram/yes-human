@@ -1,60 +1,122 @@
 {
-  "dossier_id": "dossier.workflow.security.threat-hunting-campaign.2026-06-01",
+  "dossier_id": "dossier.security.threat-hunting-campaign.2026-06-02",
   "workflow_id": "security.threat-hunting-campaign",
   "domain": "security",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2026-08-30T00:00:00Z",
   "sources": [
     {
-      "url": "https://attack.mitre.org/",
-      "source_type": "official_docs",
-      "license": "MITRE public",
-      "version_or_commit": "v14",
-      "used_for": [
-        "threat hunting hypothesis development and TTP mapping"
-      ],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.sans.org/white-papers/threat-hunting/",
-      "source_type": "official_docs",
-      "license": "SANS educational use",
-      "version_or_commit": "live",
-      "used_for": [
-        "threat hunting methodology and maturity model"
-      ],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/ThreatHuntingProject/ThreatHunting",
+      "url": "https://github.com/openai/openai-agents-js",
       "source_type": "github_repo",
-      "license": "GPL-3.0",
-      "version_or_commit": "master",
-      "used_for": [
-        "threat hunting use cases and queries"
-      ],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/splunk/security_content",
-      "source_type": "github_repo",
-      "license": "Apache-2.0",
+      "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "detection rules and hunting queries"
+        "threat hunting campaign: OpenAI Agents SDK JS patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/agents",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "threat hunting campaign: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 2"
       ],
       "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/crewAIInc/crewAI",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "threat hunting campaign: CrewAI patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/autogen",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "threat hunting campaign: AutoGen patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "threat hunting campaign: OpenHands patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/lastmile-ai/mcp-agent",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "threat hunting campaign: MCP Agent patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-lightning",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "threat hunting campaign: Agent Lightning patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openpipe/art",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "threat hunting campaign: OpenPipe ART patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 4,
-    "official_docs": 2,
-    "github_quality": 89,
-    "license_safety": 92,
-    "maintenance": 86,
-    "pattern_clarity": 93,
-    "testability": 88,
-    "total": 90
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
   },
   "promotion_decision": "staging"
 }

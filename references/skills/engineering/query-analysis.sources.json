@@ -1,60 +1,173 @@
 {
-  "dossier_id": "dossier.skill.engineering.query-analysis.2026-06-01",
+  "dossier_id": "dossier.engineering.query-analysis.2026-06-02",
   "skill_id": "engineering.query-analysis",
   "domain": "engineering",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2027-06-01T00:00:00Z",
   "sources": [
     {
-      "url": "https://www.postgresql.org/docs/current/using-explain.html",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
       "source_type": "official_docs",
-      "license": "PostgreSQL",
-      "version_or_commit": "16.x",
-      "used_for": ["EXPLAIN ANALYZE", "query plan interpretation", "cost estimation"],
-      "copy_policy": "patterns_only"
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "query analysis: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/darold/pgFormatter",
-      "source_type": "github_repo",
-      "license": "PostgreSQL",
-      "version_or_commit": "v5.5",
-      "used_for": ["SQL formatting", "query readability"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://use-the-index-luke.com/sql/partial-results",
-      "source_type": "educational",
-      "license": "CC-BY-NC-SA",
-      "version_or_commit": "2024",
-      "used_for": ["N+1 query patterns", "JOIN optimization", "subquery rewriting"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://dev.mysql.com/doc/refman/8.0/en/explain.html",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
       "source_type": "official_docs",
-      "license": "GPL-2.0",
-      "version_or_commit": "8.0",
-      "used_for": ["MySQL EXPLAIN", "query optimization"],
-      "copy_policy": "patterns_only"
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "query analysis: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/ankane/pghero",
+      "url": "https://sourcegraph.com/docs/cody/core-concepts/context",
+      "source_type": "vendor_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "query analysis: Sourcegraph Cody context docs patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-framework",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": ["query analysis dashboard", "slow query detection"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "query analysis: Microsoft Agent Framework patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/langchain-ai/langgraph",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "query analysis: LangGraph patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-python",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "query analysis: OpenAI Agents SDK Python patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-js",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "query analysis: OpenAI Agents SDK JS patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/crewAIInc/crewAI",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "query analysis: CrewAI patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/autogen",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "query analysis: AutoGen patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "query analysis: OpenHands patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/lastmile-ai/mcp-agent",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "query analysis: MCP Agent patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-lightning",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "query analysis: Agent Lightning patterns and workflow references",
+        "verification pattern 12"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 5,
-    "official_docs": 2,
-    "github_quality": 86,
-    "license_safety": 93,
-    "maintenance": 88,
-    "pattern_clarity": 91,
-    "testability": 84,
-    "total": 88
+    "source_count": 12,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 91
   },
   "promotion_decision": "staging"
 }

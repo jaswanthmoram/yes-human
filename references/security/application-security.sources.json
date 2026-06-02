@@ -1,64 +1,173 @@
 {
-  "dossier_id": "dossier.security.application-security.2026-05-31",
+  "dossier_id": "dossier.security.application-security.2026-06-02",
   "agent_id": "security.application-security",
   "domain": "security",
   "created_at": "2026-05-31T00:00:00Z",
   "expires_at": "2026-08-29T00:00:00Z",
   "sources": [
     {
-      "url": "https://owasp.org/www-project-application-security-verification-standard/",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
       "source_type": "official_docs",
-      "license": "CC-BY-SA-4.0",
-      "version_or_commit": "v4.0",
-      "used_for": ["OWASP ASVS requirements", "application security verification levels"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/OWASP/API-Security",
-      "source_type": "github_repo",
-      "license": "CC-BY-SA-4.0",
-      "version_or_commit": "main",
-      "stars": 3800,
-      "used_for": ["OWASP API Security Top 10", "API attack vector taxonomy"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/OWASP/CheatSheetSeries",
-      "source_type": "github_repo",
-      "license": "CC0-1.0",
-      "version_or_commit": "master",
-      "stars": 28500,
-      "used_for": ["input validation patterns", "session management cheat sheets"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/zaproxy/zaproxy",
-      "source_type": "github_repo",
       "license": "Apache-2.0",
-      "version_or_commit": "main",
-      "stars": 13500,
-      "used_for": ["DAST scanning patterns", "application security testing automation"],
-      "copy_policy": "patterns_only"
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "application security: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/PortSwigger/burp-extensions-montoya-api",
-      "source_type": "github_repo",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
+      "source_type": "official_docs",
       "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "application security: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://semgrep.dev/docs/",
+      "source_type": "vendor_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "application security: Semgrep docs patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/eyaltoledano/claude-task-master",
+      "source_type": "github_repo",
+      "license": "MIT",
       "version_or_commit": "main",
-      "stars": 850,
-      "used_for": ["security testing extension patterns", "proxy-based analysis"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "application security: Claude Task Master patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/Doriandarko/claude-engineer",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "application security: Claude Engineer patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/parallaxsys/claude-swarm",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "application security: Claude Swarm patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/zebbern/claude-dev-tools",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "application security: Claude Dev Tools patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/liyoshio/mcp-compass",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "application security: MCP Compass patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anaisbetts/mcp-installer",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "application security: MCP Installer patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/idosal/mcphub",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "application security: MCPHub patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/continuedev/continue",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "application security: Continue patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/cline/cline",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "application security: Cline patterns and workflow references",
+        "verification pattern 12"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 5,
-    "official_docs": 1,
-    "github_quality": 93,
-    "license_safety": 95,
-    "maintenance": 91,
-    "pattern_clarity": 94,
-    "testability": 88,
-    "total": 92
+    "source_count": 12,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 91
   },
   "promotion_decision": "staging"
 }

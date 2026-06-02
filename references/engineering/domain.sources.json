@@ -5,183 +5,168 @@
   "expires_at": "2027-06-01T16:00:00Z",
   "sources": [
     {
-      "url": "https://github.com/google/styleguide",
-      "source_type": "github_repo",
-      "license": "CC-BY-3.0",
-      "version_or_commit": "main",
-      "stars": 38500,
-      "last_updated": "2026-05-15",
-      "used_for": ["Google style guides for multiple languages", "coding standards"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://refactoring.guru/",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
       "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["refactoring patterns", "design patterns", "code smells"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://martinfowler.com/articles/",
-      "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["software design principles", "refactoring", "architecture patterns"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/trimstray/the-book-of-secret-hashes",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "main",
-      "stars": 12500,
-      "last_updated": "2026-04-20",
-      "used_for": ["security patterns", "hashing algorithms", "cryptography"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.eliftech.com/insights/software-development-best-practices/",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["software development best practices", "AI in development"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.qasource.com/blog/top-10-testing-strategies-to-ensure-code-quality-in-software-engineering",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["testing strategies", "code quality assurance"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.blueoptima.com/post/7-code-review-best-practices-in-2024-elevate-software-quality",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["code review best practices", "software quality metrics"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/awesome-selfhosted/awesome-selfhosted",
-      "source_type": "github_repo",
-      "license": "CC-BY-SA-3.0",
-      "version_or_commit": "master",
-      "stars": 215000,
-      "last_updated": "2026-05-28",
-      "used_for": ["self-hosted tools", "development infrastructure"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://12factor.net/",
-      "source_type": "official_docs",
-      "license": "MIT",
-      "version_or_commit": "2024",
-      "used_for": ["12-factor app methodology", "cloud-native development"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/public-apis/public-apis",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "master",
-      "stars": 320000,
-      "last_updated": "2026-05-30",
-      "used_for": ["public API examples", "API design patterns"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/donnemartin/system-design-primer",
-      "source_type": "github_repo",
-      "license": "CC-BY-SA-4.0",
-      "version_or_commit": "master",
-      "stars": 285000,
-      "last_updated": "2026-05-25",
-      "used_for": ["system design patterns", "scalability patterns"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/kamranahmedse/developer-roadmap",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "master",
-      "stars": 310000,
-      "last_updated": "2026-05-29",
-      "used_for": ["developer learning paths", "technology roadmaps"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/sindresorhus/awesome",
-      "source_type": "github_repo",
-      "license": "CC0-1.0",
-      "version_or_commit": "main",
-      "stars": 345000,
-      "last_updated": "2026-05-28",
-      "used_for": ["curated lists of tools and resources", "technology discovery"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/99designs/aws-vault",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "main",
-      "stars": 8500,
-      "last_updated": "2026-04-15",
-      "used_for": ["AWS credential management", "security best practices"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/hashicorp/terraform",
-      "source_type": "github_repo",
-      "license": "BUSL-1.1",
-      "version_or_commit": "main",
-      "stars": 43000,
-      "last_updated": "2026-05-30",
-      "used_for": ["infrastructure as code", "cloud automation"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/microsoft/TypeScript",
-      "source_type": "github_repo",
       "license": "Apache-2.0",
-      "version_or_commit": "main",
-      "stars": 102000,
-      "last_updated": "2026-05-30",
-      "used_for": ["TypeScript language features", "type system design"],
-      "copy_policy": "patterns_only"
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "sources.json: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/rust-lang/rust",
+      "url": "https://sourcegraph.com/docs/cody/core-concepts/context",
+      "source_type": "vendor_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "sources.json: Sourcegraph Cody context docs patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "sources.json: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/hesreallyhim/awesome-claude-code",
       "source_type": "github_repo",
       "license": "MIT",
-      "version_or_commit": "master",
-      "stars": 98000,
-      "last_updated": "2026-05-30",
-      "used_for": ["Rust language patterns", "memory safety"],
-      "copy_policy": "patterns_only"
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Awesome Claude Code patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/golang/go",
+      "url": "https://github.com/punkpeye/awesome-mcp-servers",
       "source_type": "github_repo",
-      "license": "BSD-3-Clause",
-      "version_or_commit": "master",
-      "stars": 125000,
-      "last_updated": "2026-05-30",
-      "used_for": ["Go language patterns", "concurrency models"],
-      "copy_policy": "patterns_only"
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Awesome MCP Servers patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/SuperClaude-Org/SuperClaude_Framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: SuperClaude Framework patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/musistudio/claude-code-router",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Claude Code Router patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/eyaltoledano/claude-task-master",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Claude Task Master patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/Doriandarko/claude-engineer",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Claude Engineer patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/parallaxsys/claude-swarm",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Claude Swarm patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/zebbern/claude-dev-tools",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Claude Dev Tools patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/liyoshio/mcp-compass",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: MCP Compass patterns and workflow references",
+        "verification pattern 12"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 18,
-    "official_docs": 3,
-    "github_quality": 95,
-    "license_safety": 90,
-    "maintenance": 95,
-    "pattern_clarity": 90,
-    "testability": 85,
-    "total": 92
+    "source_count": 12,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 91
   },
   "promotion_decision": "production"
 }

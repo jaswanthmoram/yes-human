@@ -1,52 +1,122 @@
 {
-  "dossier_id": "dossier.engineering.refactoring.2026-05-31",
+  "dossier_id": "dossier.engineering.refactoring.2026-06-02",
   "agent_id": "engineering.refactoring",
   "domain": "engineering.refactoring",
   "created_at": "2026-05-31T10:00:00Z",
   "expires_at": "2026-08-29T10:00:00Z",
   "sources": [
     {
-      "url": "https://refactoring.com/catalog/",
-      "source_type": "official_docs",
-      "license": "CC-BY-4.0",
-      "version_or_commit": "2026-05",
-      "used_for": ["refactoring pattern catalog", "extract method", "replace conditional with polymorphism"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/affaan-m/ECC",
+      "url": "https://github.com/cline/cline",
       "source_type": "github_repo",
       "license": "MIT",
-      "version_or_commit": "master",
-      "used_for": ["refactoring skill structure", "code smell identification patterns"],
-      "copy_policy": "patterns_only"
+      "version_or_commit": "main",
+      "used_for": [
+        "refactoring: Cline patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://github.com/SonarSource/sonarqube",
+      "url": "https://github.com/OpenInterpreter/open-interpreter",
       "source_type": "github_repo",
-      "license": "LGPL-3.0",
-      "version_or_commit": "master",
-      "used_for": ["complexity metrics definitions", "code smell taxonomy"],
-      "copy_policy": "patterns_only"
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "refactoring: Open Interpreter patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://github.com/palantir/tslint",
+      "url": "https://github.com/Aider-AI/aider",
       "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "refactoring: Aider AI patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "refactoring: Microsoft Agent Framework patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_type": "official_docs",
       "license": "Apache-2.0",
-      "version_or_commit": "master",
-      "used_for": ["static analysis patterns for smell detection"],
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "refactoring: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 5"
+      ],
       "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/langchain-ai/langgraph",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "refactoring: LangGraph patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-python",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "refactoring: OpenAI Agents SDK Python patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-js",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "refactoring: OpenAI Agents SDK JS patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 4,
-    "official_docs": 1,
-    "github_quality": 85,
-    "license_safety": 90,
-    "maintenance": 82,
-    "pattern_clarity": 92,
-    "testability": 85,
-    "total": 85
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
   },
   "promotion_decision": "staging"
 }

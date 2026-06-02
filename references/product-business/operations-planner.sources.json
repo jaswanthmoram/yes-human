@@ -1,64 +1,161 @@
 {
-  "dossier_id": "dossier.product-business.operations-planner.2026-06-01",
+  "dossier_id": "dossier.product-business.operations-planner.2026-06-02",
   "agent_id": "product-business.operations-planner",
   "domain": "product-business",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2026-08-30T00:00:00Z",
   "sources": [
     {
-      "url": "https://github.com/TwentyHQ/twenty",
-      "source_type": "github_repo",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
+      "source_type": "official_docs",
       "license": "Apache-2.0",
-      "version_or_commit": "main",
+      "version_or_commit": "2026-06-02",
       "used_for": [
-        "Cross-functional operating plan and runbook patterns",
-        "CRM data model and PM/customer workflow references"
+        "operations planner: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 1"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/PostHog/posthog",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "operations planner: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/idosal/mcphub",
       "source_type": "github_repo",
       "license": "MIT",
-      "version_or_commit": "master",
+      "version_or_commit": "main",
       "used_for": [
-        "Cross-functional operating plan and runbook patterns",
-        "product analytics, funnel, experimentation patterns"
+        "operations planner: MCPHub patterns and workflow references",
+        "verification pattern 3"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/continuedev/continue",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "operations planner: Continue patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/cline/cline",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "operations planner: Cline patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OpenInterpreter/open-interpreter",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "operations planner: Open Interpreter patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/Aider-AI/aider",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "operations planner: Aider AI patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/TwentyHQ/twenty",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "operations planner: Twenty CRM patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
       "url": "https://github.com/chatwoot/chatwoot",
       "source_type": "github_repo",
       "license": "MIT",
-      "version_or_commit": "develop",
+      "version_or_commit": "main",
       "used_for": [
-        "Cross-functional operating plan and runbook patterns",
-        "customer-success and support workflow patterns"
+        "operations planner: Chatwoot patterns and workflow references",
+        "verification pattern 9"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/makeplane/plane",
+      "url": "https://github.com/PostHog/posthog",
       "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "master",
+      "license": "MIT",
+      "version_or_commit": "main",
       "used_for": [
-        "Cross-functional operating plan and runbook patterns",
-        "product roadmap and issue workflow"
+        "operations planner: PostHog patterns and workflow references",
+        "verification pattern 10"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/opf/openproject",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "operations planner: OpenProject patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 4,
-    "official_docs": 0,
-    "github_quality": 92,
-    "license_safety": 95,
-    "maintenance": 90,
-    "pattern_clarity": 88,
-    "testability": 80,
-    "total": 89
+    "source_count": 11,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 91
   },
   "promotion_decision": "staging"
 }

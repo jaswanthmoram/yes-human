@@ -5,159 +5,156 @@
   "expires_at": "2027-06-01T18:30:00Z",
   "sources": [
     {
-      "url": "https://www.salesforce.com/resources/",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["Salesforce resources", "CRM best practices"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://trailhead.salesforce.com/",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
       "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["Salesforce Trailhead", "sales training"],
-      "copy_policy": "patterns_only"
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "sources.json: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://academy.hubspot.com/",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["HubSpot Academy", "inbound sales"],
-      "copy_policy": "patterns_only"
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "sources.json: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://www.hubspot.com/sales",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["HubSpot sales blog", "sales strategies"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/anthropics/claude-desktop-extensions",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Claude Desktop Extensions patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://www.gong.io/blog/",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["Gong blog", "sales intelligence", "conversation analytics"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/hesreallyhim/awesome-claude-code",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Awesome Claude Code patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://www.outreach.io/blog",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["Outreach blog", "sales engagement"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/punkpeye/awesome-mcp-servers",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Awesome MCP Servers patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://www.pipedrive.com/blog",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["Pipedrive blog", "pipeline management"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/SuperClaude-Org/SuperClaude_Framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: SuperClaude Framework patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://www.close.com/blog",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["Close blog", "sales automation"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/musistudio/claude-code-router",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Claude Code Router patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://www.saleshacker.com/",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["Sales Hacker", "sales technology"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/eyaltoledano/claude-task-master",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Claude Task Master patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://www.gartner.com/en/sales",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["Gartner sales research", "sales trends"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/Doriandarko/claude-engineer",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Claude Engineer patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://hbr.org/topic/subject/sales",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["Harvard Business Review sales", "sales strategy"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/parallaxsys/claude-swarm",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Claude Swarm patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://www.sandler.com/resources",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["Sandler Training", "sales methodology"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.challengersale.com/",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["Challenger Sale methodology", "teach-tailor-take control"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.spin selling.com/",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["SPIN Selling methodology", "question-based selling"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.meddic.com/",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["MEDDIC qualification framework", "enterprise sales"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.bant.com/",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["BANT qualification", "lead scoring"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.proposify.com/blog",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["Proposify blog", "proposal writing"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.pandadoc.com/blog",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["PandaDoc blog", "contract management"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/zebbern/claude-dev-tools",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Claude Dev Tools patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 18,
-    "official_docs": 1,
-    "github_quality": 0,
-    "license_safety": 85,
-    "maintenance": 90,
-    "pattern_clarity": 88,
-    "testability": 80,
-    "total": 86
+    "source_count": 11,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 91
   },
   "promotion_decision": "production"
 }

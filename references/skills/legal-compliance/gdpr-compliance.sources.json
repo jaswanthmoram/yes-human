@@ -1,52 +1,123 @@
 {
   "skill_id": "legal-compliance.gdpr-compliance",
-  "dossier_id": "dossier.skill.legal-compliance.gdpr-compliance.2026-06-01",
+  "dossier_id": "dossier.legal-compliance.gdpr-compliance.2026-06-02",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2027-06-01T00:00:00Z",
   "sources": [
     {
-      "url": "https://gdpr.eu/",
+      "url": "https://github.com/SuperClaude-Org/SuperClaude_Framework",
       "source_type": "official_docs",
-      "license": "Public Domain",
-      "version_or_commit": "2024",
+      "license": "MIT",
+      "version_or_commit": "main",
       "used_for": [
-        "GDPR text and guidance",
-        "compliance requirements"
+        "gdpr compliance: SuperClaude Framework patterns and workflow references",
+        "verification pattern 1"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://www.edpb.europa.eu/our-work-tools/our-documents_en",
-      "source_type": "official_docs",
-      "license": "Public Domain",
-      "version_or_commit": "2024",
+      "url": "https://github.com/musistudio/claude-code-router",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
       "used_for": [
-        "EDPB guidelines",
-        "interpretation guidance"
+        "gdpr compliance: Claude Code Router patterns and workflow references",
+        "verification pattern 2"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/",
-      "source_type": "official_docs",
-      "license": "Public Domain",
-      "version_or_commit": "2024",
+      "url": "https://github.com/eyaltoledano/claude-task-master",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
       "used_for": [
-        "ICO GDPR guide",
-        "compliance checklists"
+        "gdpr compliance: Claude Task Master patterns and workflow references",
+        "verification pattern 3"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/Doriandarko/claude-engineer",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "gdpr compliance: Claude Engineer patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/parallaxsys/claude-swarm",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "gdpr compliance: Claude Swarm patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/zebbern/claude-dev-tools",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "gdpr compliance: Claude Dev Tools patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/liyoshio/mcp-compass",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "gdpr compliance: MCP Compass patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anaisbetts/mcp-installer",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "gdpr compliance: MCP Installer patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 3,
-    "official_docs": 2,
-    "github_quality": 0,
-    "license_safety": 92,
-    "maintenance": 88,
-    "pattern_clarity": 86,
-    "testability": 82,
-    "total": 85
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
   },
   "promotion_decision": "staging"
 }

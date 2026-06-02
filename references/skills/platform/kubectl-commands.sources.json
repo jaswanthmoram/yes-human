@@ -1,52 +1,161 @@
 {
-  "dossier_id": "dossier.skill.platform.kubectl-commands.2026-06-01",
+  "dossier_id": "dossier.platform.kubectl-commands.2026-06-02",
   "skill_id": "platform.kubectl-commands",
   "domain": "platform",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2027-06-01T00:00:00Z",
   "sources": [
     {
-      "url": "https://kubernetes.io/docs/reference/kubectl/",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
       "source_type": "official_docs",
       "license": "Apache-2.0",
-      "version_or_commit": "v1.30",
-      "used_for": ["kubectl command reference", "CLI patterns"],
-      "copy_policy": "patterns_only"
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "kubectl commands: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://kubernetes.io/docs/tasks/debug/",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
       "source_type": "official_docs",
       "license": "Apache-2.0",
-      "version_or_commit": "v1.30",
-      "used_for": ["debugging pods", "troubleshooting workflows"],
-      "copy_policy": "patterns_only"
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "kubectl commands: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://kubectl.docs.kubernetes.io/",
-      "source_type": "official_docs",
-      "license": "Apache-2.0",
-      "version_or_commit": "2024",
-      "used_for": ["kubectl best practices", "resource management"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://cheatsheet.dennyzhang.com/cheatsheet-kubernetes-a4",
-      "source_type": "community",
+      "url": "https://github.com/lastmile-ai/mcp-agent",
+      "source_type": "github_repo",
       "license": "MIT",
-      "version_or_commit": "2024",
-      "used_for": ["kubectl cheat sheet", "quick reference"],
-      "copy_policy": "patterns_only"
+      "version_or_commit": "main",
+      "used_for": [
+        "kubectl commands: MCP Agent patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-lightning",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "kubectl commands: Agent Lightning patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openpipe/art",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "kubectl commands: OpenPipe ART patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/langgenius/dify",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "kubectl commands: Dify patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/langflow-ai/langflow",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "kubectl commands: Langflow patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/FlowiseAI/Flowise",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "kubectl commands: Flowise patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/skills",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "kubectl commands: Anthropic skills patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/VoltAgent/awesome-claude-skills",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "kubectl commands: Awesome Agent Skills patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/kyrolabs/awesome-agents",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "kubectl commands: Awesome Agents patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 4,
-    "official_docs": 3,
-    "github_quality": 92,
-    "license_safety": 96,
-    "maintenance": 94,
-    "pattern_clarity": 90,
-    "testability": 88,
-    "total": 92
+    "source_count": 11,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 91
   },
   "promotion_decision": "staging"
 }

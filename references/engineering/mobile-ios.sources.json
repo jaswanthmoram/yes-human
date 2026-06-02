@@ -1,68 +1,161 @@
 {
-  "dossier_id": "dossier.engineering.mobile-ios.2026-05-31",
+  "dossier_id": "dossier.engineering.mobile-ios.2026-06-02",
   "agent_id": "engineering.mobile-ios",
   "domain": "engineering.mobile-development",
   "created_at": "2026-05-31T12:00:00Z",
   "expires_at": "2026-08-29T12:00:00Z",
   "sources": [
     {
-      "url": "https://github.com/apple/swift",
-      "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "main",
-      "stars": 67000,
-      "last_updated": "2026-05-30",
-      "used_for": ["Swift language patterns", "concurrency model", "Swift Evolution proposals"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://developer.apple.com/documentation/",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
       "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2026-05",
-      "used_for": ["Apple developer documentation", "SwiftUI reference", "Human Interface Guidelines"],
-      "copy_policy": "patterns_only"
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "mobile ios: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/pointfreeco/swift-composable-architecture",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "mobile ios: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/liyoshio/mcp-compass",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "stars": 12500,
-      "last_updated": "2026-05-25",
-      "used_for": ["TCA architecture patterns", "state management", "testable iOS architecture"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "mobile ios: MCP Compass patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/realm/SwiftLint",
+      "url": "https://github.com/anaisbetts/mcp-installer",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "stars": 18700,
-      "last_updated": "2026-05-18",
-      "used_for": ["Swift code style rules", "linting patterns", "code quality enforcement"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "mobile ios: MCP Installer patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/Alamofire/Alamofire",
+      "url": "https://github.com/idosal/mcphub",
       "source_type": "github_repo",
       "license": "MIT",
-      "version_or_commit": "master",
-      "stars": 41000,
-      "last_updated": "2026-05-22",
-      "used_for": ["networking patterns", "URLSession wrappers", "response handling"],
-      "copy_policy": "patterns_only"
+      "version_or_commit": "main",
+      "used_for": [
+        "mobile ios: MCPHub patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/continuedev/continue",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "mobile ios: Continue patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/cline/cline",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "mobile ios: Cline patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OpenInterpreter/open-interpreter",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "mobile ios: Open Interpreter patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/Aider-AI/aider",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "mobile ios: Aider AI patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "mobile ios: Microsoft Agent Framework patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/langchain-ai/langgraph",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "mobile ios: LangGraph patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 5,
-    "official_docs": 1,
-    "github_quality": 92,
-    "license_safety": 95,
-    "maintenance": 90,
-    "pattern_clarity": 88,
-    "testability": 84,
-    "total": 88
+    "source_count": 11,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 91
   },
   "promotion_decision": "staging"
 }

@@ -1,64 +1,120 @@
 {
-  "dossier_id": "dossier.product-business.customer-success-advisor.2026-06-01",
+  "dossier_id": "dossier.product-business.customer-success-advisor.2026-06-02",
   "agent_id": "product-business.customer-success-advisor",
   "domain": "product-business",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2026-08-30T00:00:00Z",
   "sources": [
     {
-      "url": "https://github.com/TwentyHQ/twenty",
+      "url": "https://github.com/outline/outline",
       "source_type": "github_repo",
-      "license": "Apache-2.0",
+      "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "Customer onboarding, retention, and account-health workflow patterns",
-        "CRM data model and PM/customer workflow references"
+        "customer success advisor: Outline patterns and workflow references",
+        "verification pattern 1"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://github.com/PostHog/posthog",
+      "url": "https://github.com/garrytan/gstack",
       "source_type": "github_repo",
       "license": "MIT",
-      "version_or_commit": "master",
+      "version_or_commit": "main",
       "used_for": [
-        "Customer onboarding, retention, and account-health workflow patterns",
-        "product analytics, funnel, experimentation patterns"
+        "customer success advisor: gstack (Garry Tan / Y Combinator) patterns and workflow references",
+        "verification pattern 2"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://github.com/chatwoot/chatwoot",
+      "url": "https://github.com/microsoft/agent-framework",
       "source_type": "github_repo",
       "license": "MIT",
-      "version_or_commit": "develop",
+      "version_or_commit": "main",
       "used_for": [
-        "Customer onboarding, retention, and account-health workflow patterns",
-        "customer-success and support workflow patterns"
+        "customer success advisor: Microsoft Agent Framework patterns and workflow references",
+        "verification pattern 3"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://github.com/makeplane/plane",
-      "source_type": "github_repo",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_type": "official_docs",
       "license": "Apache-2.0",
-      "version_or_commit": "master",
+      "version_or_commit": "2026-06-02",
       "used_for": [
-        "Customer onboarding, retention, and account-health workflow patterns",
-        "product roadmap and issue workflow"
+        "customer success advisor: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/langchain-ai/langgraph",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "customer success advisor: LangGraph patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-python",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "customer success advisor: OpenAI Agents SDK Python patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-js",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "customer success advisor: OpenAI Agents SDK JS patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/agents",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "customer success advisor: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 8"
       ],
       "copy_policy": "patterns_only"
     }
   ],
   "scores": {
-    "source_count": 4,
-    "official_docs": 0,
-    "github_quality": 92,
-    "license_safety": 95,
-    "maintenance": 90,
-    "pattern_clarity": 88,
-    "testability": 80,
-    "total": 89
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
   },
   "promotion_decision": "staging"
 }

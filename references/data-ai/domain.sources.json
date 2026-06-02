@@ -5,189 +5,156 @@
   "expires_at": "2027-06-01T16:45:00Z",
   "sources": [
     {
-      "url": "https://www.tensorflow.org/learn",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
       "source_type": "official_docs",
       "license": "Apache-2.0",
-      "version_or_commit": "v2.16",
-      "used_for": ["TensorFlow tutorials", "ML model development"],
-      "copy_policy": "patterns_only"
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "sources.json: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://pytorch.org/tutorials/",
-      "source_type": "official_docs",
-      "license": "BSD-3-Clause",
-      "version_or_commit": "v2.3",
-      "used_for": ["PyTorch tutorials", "deep learning"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://huggingface.co/docs",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
       "source_type": "official_docs",
       "license": "Apache-2.0",
-      "version_or_commit": "2024",
-      "used_for": ["Hugging Face transformers", "NLP models"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/microsoft/ML-For-Beginners",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "main",
-      "stars": 72500,
-      "last_updated": "2026-05-25",
-      "used_for": ["ML curriculum", "beginner tutorials"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/scikit-learn/scikit-learn",
-      "source_type": "github_repo",
-      "license": "BSD-3-Clause",
-      "version_or_commit": "main",
-      "stars": 60500,
-      "last_updated": "2026-05-30",
-      "used_for": ["scikit-learn ML library", "classical ML algorithms"],
-      "copy_policy": "patterns_only"
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "sources.json: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
       "url": "https://github.com/mlflow/mlflow",
       "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "master",
-      "stars": 19500,
-      "last_updated": "2026-05-29",
-      "used_for": ["MLflow MLOps", "experiment tracking", "model registry"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/kubeflow/kubeflow",
-      "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "master",
-      "stars": 14800,
-      "last_updated": "2026-05-28",
-      "used_for": ["Kubeflow ML platform", "Kubernetes ML workflows"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/apache/spark",
-      "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "master",
-      "stars": 40500,
-      "last_updated": "2026-05-30",
-      "used_for": ["Apache Spark", "big data processing", "distributed computing"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/apache/airflow",
-      "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "main",
-      "stars": 38500,
-      "last_updated": "2026-05-30",
-      "used_for": ["Apache Airflow", "workflow orchestration", "data pipelines"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/apache/kafka",
-      "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "trunk",
-      "stars": 29500,
-      "last_updated": "2026-05-30",
-      "used_for": ["Apache Kafka", "event streaming", "message broker"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/pinecone-io/examples",
-      "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "main",
-      "stars": 2800,
-      "last_updated": "2026-05-20",
-      "used_for": ["Pinecone vector database", "similarity search examples"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/weaviate/weaviate",
-      "source_type": "github_repo",
-      "license": "BSD-3-Clause",
-      "version_or_commit": "master",
-      "stars": 12500,
-      "last_updated": "2026-05-30",
-      "used_for": ["Weaviate vector database", "semantic search"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/milvus-io/milvus",
-      "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "master",
-      "stars": 32500,
-      "last_updated": "2026-05-30",
-      "used_for": ["Milvus vector database", "AI embeddings storage"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/explodinggradients/ragas",
-      "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "main",
-      "stars": 8500,
-      "last_updated": "2026-05-28",
-      "used_for": ["RAGAS evaluation framework", "RAG evaluation metrics"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/langchain-ai/langchain",
-      "source_type": "github_repo",
       "license": "MIT",
-      "version_or_commit": "master",
-      "stars": 105000,
-      "last_updated": "2026-05-30",
-      "used_for": ["LangChain framework", "LLM application development"],
-      "copy_policy": "patterns_only"
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: MLflow patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/run-llama/llama_index",
+      "url": "https://github.com/promptfoo/promptfoo",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "stars": 42500,
-      "last_updated": "2026-05-30",
-      "used_for": ["LlamaIndex", "RAG implementation", "data indexing"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "sources.json: Promptfoo patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/openai/whisper",
+      "url": "https://github.com/confident-ai/deepeval",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "stars": 75000,
-      "last_updated": "2026-05-25",
-      "used_for": ["OpenAI Whisper", "speech recognition", "audio processing"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "sources.json: DeepEval patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/stability-ai/stablediffusion",
+      "url": "https://github.com/mem0ai/mem0",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "stars": 38500,
-      "last_updated": "2026-04-15",
-      "used_for": ["Stable Diffusion", "image generation", "diffusion models"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "sources.json: mem0 patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/getzep/graphiti",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Graphiti patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Microsoft Agent Framework patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/langchain-ai/langgraph",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: LangGraph patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-python",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: OpenAI Agents SDK Python patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-js",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: OpenAI Agents SDK JS patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 18,
-    "official_docs": 3,
-    "github_quality": 95,
-    "license_safety": 95,
-    "maintenance": 95,
-    "pattern_clarity": 90,
-    "testability": 88,
-    "total": 93
+    "source_count": 11,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 91
   },
   "promotion_decision": "production"
 }

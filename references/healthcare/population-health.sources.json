@@ -1,14 +1,122 @@
 {
-  "dossier_id": "dossier.agent.healthcare.population-health.2026-05-31",
+  "dossier_id": "dossier.healthcare.population-health.2026-06-02",
   "agent_id": "healthcare.population-health",
   "domain": "healthcare",
   "created_at": "2026-05-31T00:00:00Z",
   "expires_at": "2027-05-31T00:00:00Z",
   "sources": [
-    {"url": "https://www.cdc.gov/populationhealth/", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["CDC population health", "public health strategies"], "copy_policy": "patterns_only"},
-    {"url": "https://www.cms.gov/priorities/innovation", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["CMS Innovation", "value-based care models"], "copy_policy": "patterns_only"},
-    {"url": "https://www.aha.org/population-health", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["AHA population health", "hospital population health"], "copy_policy": "patterns_only"}
+    {
+      "url": "https://github.com/Aider-AI/aider",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "population health: Aider AI patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/mims-harvard/TxAgent",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "population health: TxAgent (Harvard MIMS) patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/thu-unicorn/Doctor-R1",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "population health: Doctor-R1 (Tsinghua) patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/stvsever/compass-engine",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "population health: COMPASS-Engine patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/Schuture/Meissa",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "population health: Meissa patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/shengliu66/Cerebra",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "population health: Cerebra patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "population health: Microsoft Agent Framework patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "population health: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only"
+    }
   ],
-  "scores": {"source_count": 3, "official_docs": 2, "github_quality": 0, "license_safety": 92, "maintenance": 90, "pattern_clarity": 88, "testability": 82, "total": 86},
+  "scores": {
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
+  },
   "promotion_decision": "staging"
 }

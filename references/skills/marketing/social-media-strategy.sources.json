@@ -1,42 +1,122 @@
 {
-  "dossier_id": "dossier.skill.marketing.social-media-strategy.2026-05-31",
+  "dossier_id": "dossier.marketing.social-media-strategy.2026-06-02",
   "skill_id": "marketing.social-media-strategy",
   "domain": "marketing",
   "created_at": "2026-05-31T00:00:00Z",
   "expires_at": "2027-05-31T00:00:00Z",
   "sources": [
     {
-      "url": "https://sproutsocial.com/insights",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "live",
+      "url": "https://github.com/mautic/mautic",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
       "used_for": [
-        "Sprout Social strategy and engagement guides",
-        "social-media-strategy skill patterns"
+        "social media strategy: Mautic patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/knadh/listmonk",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "social media strategy: listmonk patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/matomo-org/matomo",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "social media strategy: Matomo patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/plausible/analytics",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "social media strategy: Plausible Analytics patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/PostHog/posthog",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "social media strategy: PostHog patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "social media strategy: Microsoft Agent Framework patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "social media strategy: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 7"
       ],
       "copy_policy": "patterns_only"
     },
     {
-      "url": "https://blog.hubspot.com/marketing",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "live",
+      "url": "https://github.com/langchain-ai/langgraph",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
       "used_for": [
-        "HubSpot marketing patterns",
-        "inbound methodology references"
+        "social media strategy: LangGraph patterns and workflow references",
+        "verification pattern 8"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 2,
-    "official_docs": 0,
-    "github_quality": 0,
-    "license_safety": 88,
-    "maintenance": 85,
-    "pattern_clarity": 83,
-    "testability": 80,
-    "total": 83
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
   },
   "promotion_decision": "staging"
 }

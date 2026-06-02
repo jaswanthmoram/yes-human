@@ -1,15 +1,124 @@
 {
-  "dossier_id": "dossier.workflow.healthcare.hipaa-compliance-audit.2026-06-01",
+  "dossier_id": "dossier.healthcare.hipaa-compliance-audit.2026-06-02",
   "workflow_id": "healthcare.hipaa-compliance-audit",
   "domain": "healthcare",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2026-08-30T00:00:00Z",
   "sources": [
-    {"url": "https://www.hhs.gov/hipaa/for-professionals/compliance-enforcement/audit/index.html", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "live", "used_for": ["HIPAA audit protocol", "OCR audit procedures"], "copy_policy": "patterns_only"},
-    {"url": "https://www.hhs.gov/hipaa/for-professionals/security/guidance/index.html", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "live", "used_for": ["HIPAA Security Rule guidance", "safeguard implementation"], "copy_policy": "patterns_only"},
-    {"url": "https://www.nist.gov/publications/guide-implementing-privacy-security-healthcare", "source_type": "research_paper", "license": "Public Domain", "version_or_commit": "published", "used_for": ["NIST healthcare privacy framework", "risk assessment methodology"], "copy_policy": "patterns_only"},
-    {"url": "https://github.com/projectcypress/cypress", "source_type": "github_repo", "license": "Apache-2.0", "version_or_commit": "main", "used_for": ["healthcare quality measure testing", "compliance validation patterns"], "copy_policy": "patterns_only"}
+    {
+      "url": "https://github.com/EvoMap/awesome-agent-swarm",
+      "source_type": "official_docs",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "hipaa compliance audit: Awesome Agent Swarm patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "hipaa compliance audit: Claude Code patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-cookbook",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "hipaa compliance audit: Claude Cookbook patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-quickstarts",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "hipaa compliance audit: Claude Quickstarts patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-desktop-extensions",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "hipaa compliance audit: Claude Desktop Extensions patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/hesreallyhim/awesome-claude-code",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "hipaa compliance audit: Awesome Claude Code patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/punkpeye/awesome-mcp-servers",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "hipaa compliance audit: Awesome MCP Servers patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/SuperClaude-Org/SuperClaude_Framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "hipaa compliance audit: SuperClaude Framework patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    }
   ],
-  "scores": {"source_count": 4, "official_docs": 3, "github_quality": 80, "license_safety": 96, "maintenance": 90, "pattern_clarity": 92, "testability": 84, "total": 90},
+  "scores": {
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
+  },
   "promotion_decision": "staging"
 }

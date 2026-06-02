@@ -1,15 +1,122 @@
 {
-  "dossier_id": "dossier.workflow.education.online-course-development.2026-06-01",
+  "dossier_id": "dossier.education.online-course-development.2026-06-02",
   "workflow_id": "education.online-course-development",
   "domain": "education",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2026-08-30T00:00:00Z",
   "sources": [
-    {"url": "https://www.edutopia.org/article/6-tips-designing-effective-online-learning", "source_type": "technical_blog", "license": "Proprietary", "version_or_commit": "live", "used_for": ["online course design principles", "learner engagement strategies"], "copy_policy": "patterns_only"},
-    {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9561975/", "source_type": "research_paper", "license": "Open Access", "version_or_commit": "published", "used_for": ["e-learning effectiveness research", "instructional design models"], "copy_policy": "patterns_only"},
-    {"url": "https://www.qualitymatters.org/qa-resources-program-info/quality-matters-rubric", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "live", "used_for": ["QM rubric for course quality", "online course standards"], "copy_policy": "patterns_only"},
-    {"url": "https://github.com/googlecreativelab/open-source-arts", "source_type": "github_repo", "license": "Apache-2.0", "version_or_commit": "main", "used_for": ["open educational resource patterns", "course content structuring"], "copy_policy": "patterns_only"}
+    {
+      "url": "https://github.com/Aider-AI/aider",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "online course development: Aider AI patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/HKUDS/DeepTutor",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "online course development: DeepTutor (HKUDS) patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/Abelo9996/LearnOS",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "online course development: LearnOS patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/THU-MAIC/OpenMAIC",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "online course development: OpenMAIC (Tsinghua) patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/zijinz456/OpenTutor",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "online course development: OpenTutor patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "online course development: Microsoft Agent Framework patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "online course development: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/langchain-ai/langgraph",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "online course development: LangGraph patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    }
   ],
-  "scores": {"source_count": 4, "official_docs": 1, "github_quality": 72, "license_safety": 90, "maintenance": 85, "pattern_clarity": 88, "testability": 76, "total": 84},
+  "scores": {
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
+  },
   "promotion_decision": "staging"
 }

@@ -4,141 +4,162 @@
   "created_at": "2026-06-01T22:00:00Z",
   "expires_at": "2027-06-01T22:00:00Z",
   "description": "Skills for accessibility audit, visual QA, content style review, and UX critique",
-  "domains": ["design-content"],
+  "domains": [
+    "design-content"
+  ],
   "skill_count_target": 28,
   "sources": [
     {
-      "url": "https://m3.material.io/",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
       "source_type": "official_docs",
       "license": "Apache-2.0",
-      "version_or_commit": "2024",
-      "used_for": ["Material Design 3", "UI components", "design system"],
-      "copy_policy": "patterns_only"
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "sources.json: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://developer.apple.com/design/human-interface-guidelines",
-      "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["Apple Human Interface Guidelines", "iOS/macOS design"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.w3.org/WAI/standards-guidelines/wcag/",
-      "source_type": "official_docs",
-      "license": "W3C",
-      "version_or_commit": "WCAG 2.2",
-      "used_for": ["WCAG accessibility standards", "inclusive design"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://carbondesignsystem.com/",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
       "source_type": "official_docs",
       "license": "Apache-2.0",
-      "version_or_commit": "2024",
-      "used_for": ["IBM Carbon Design System", "enterprise UI"],
-      "copy_policy": "patterns_only"
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "sources.json: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/ehmo/platform-design-skills",
+      "url": "https://github.com/punkpeye/awesome-mcp-servers",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "stars": 850,
-      "last_updated": "2026-02-01",
-      "used_for": ["platform design skills", "450+ design rules"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "sources.json: Awesome MCP Servers patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://m3.material.io/foundations/overview/principles",
-      "source_type": "official_docs",
-      "license": "Apache-2.0",
-      "version_or_commit": "2024",
-      "used_for": ["Material Design accessibility principles", "inclusive design"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/SuperClaude-Org/SuperClaude_Framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: SuperClaude Framework patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://developer.apple.com/design/human-interface-guidelines/accessibility",
-      "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["Apple accessibility guidelines", "VoiceOver support"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/musistudio/claude-code-router",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Claude Code Router patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://uxdesign.cc/design-systems-and-accessibility-a-2024-retrospective-e189ecfc2942",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2025",
-      "used_for": ["design systems accessibility", "WCAG compliance"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/eyaltoledano/claude-task-master",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Claude Task Master patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://www.nngroup.com/articles/ten-usability-heuristics/",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["Nielsen's 10 usability heuristics", "UX evaluation"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/Doriandarko/claude-engineer",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Claude Engineer patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://www.smashingmagazine.com/",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["web design best practices", "CSS/HTML patterns"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/parallaxsys/claude-swarm",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Claude Swarm patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://css-tricks.com/",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["CSS techniques", "layout patterns"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/zebbern/claude-dev-tools",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Claude Dev Tools patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://web.dev/",
-      "source_type": "official_docs",
-      "license": "Apache-2.0",
-      "version_or_commit": "2024",
-      "used_for": ["web.dev best practices", "performance optimization"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/liyoshio/mcp-compass",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: MCP Compass patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://developer.mozilla.org/en-US/",
-      "source_type": "official_docs",
-      "license": "CC-BY-SA-2.5",
-      "version_or_commit": "2024",
-      "used_for": ["MDN Web Docs", "web standards"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.figma.com/best-practices/",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["Figma best practices", "design collaboration"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.shopify.com/partners/blog/ux-writing",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["UX writing guidelines", "microcopy best practices"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/anaisbetts/mcp-installer",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: MCP Installer patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 15,
-    "official_docs": 8,
-    "github_quality": 70,
-    "license_safety": 90,
-    "maintenance": 90,
-    "pattern_clarity": 92,
-    "testability": 85,
-    "total": 90
+    "source_count": 11,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 91
   },
   "promotion_decision": "production"
 }

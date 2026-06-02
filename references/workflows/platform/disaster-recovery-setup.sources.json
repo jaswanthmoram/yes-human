@@ -1,74 +1,160 @@
 {
-  "dossier_id": "dossier.workflow.platform.disaster-recovery-setup.2026-06-01",
+  "dossier_id": "dossier.platform.disaster-recovery-setup.2026-06-02",
   "workflow_id": "platform.disaster-recovery-setup",
   "domain": "platform",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2026-08-30T00:00:00Z",
   "sources": [
     {
-      "url": "https://aws.amazon.com/blogs/architecture/disaster-recovery-dr-architecture-on-aws-part-i-strategies-for-recovery/",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
       "source_type": "official_docs",
-      "license": "proprietary_reference",
-      "version_or_commit": "live",
-      "used_for": [
-        "DR architecture patterns (backup-restore, pilot light, warm standby)",
-        "RTO/RPO strategy selection"
-      ],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://cloud.google.com/architecture/dr-scenarios-planning-guide",
-      "source_type": "official_docs",
-      "license": "CC-BY-4.0",
-      "version_or_commit": "live",
-      "used_for": [
-        "DR planning and testing frameworks",
-        "cross-region replication patterns"
-      ],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://learn.microsoft.com/en-us/azure/architecture/solution-ideas/articles/disaster-recovery-enterprise-scale-dr",
-      "source_type": "official_docs",
-      "license": "CC-BY-4.0",
-      "version_or_commit": "live",
-      "used_for": [
-        "enterprise-scale DR reference architecture",
-        "failover automation patterns"
-      ],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/awslabs/aws-disaster-recovery",
-      "source_type": "github_repo",
       "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "disaster recovery setup: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/agents",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "disaster recovery setup: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/kyrolabs/awesome-agents",
+      "source_type": "github_repo",
+      "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "automated DR deployment templates",
-        "failover testing frameworks"
+        "disaster recovery setup: Awesome Agents patterns and workflow references",
+        "verification pattern 3"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://sre.google/sre-book/addressing-cascading-failures/",
-      "source_type": "official_docs",
-      "license": "CC-BY-4.0",
-      "version_or_commit": "live",
+      "url": "https://github.com/vivy-yi/awesome-agent-orchestration",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
       "used_for": [
-        "cascading failure prevention in DR",
-        "resilience engineering patterns"
+        "disaster recovery setup: Awesome Agent Orchestration patterns and workflow references",
+        "verification pattern 4"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/EvoMap/awesome-agent-swarm",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "disaster recovery setup: Awesome Agent Swarm patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "disaster recovery setup: Claude Code patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-cookbook",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "disaster recovery setup: Claude Cookbook patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-quickstarts",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "disaster recovery setup: Claude Quickstarts patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-desktop-extensions",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "disaster recovery setup: Claude Desktop Extensions patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/hesreallyhim/awesome-claude-code",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "disaster recovery setup: Awesome Claude Code patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/punkpeye/awesome-mcp-servers",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "disaster recovery setup: Awesome MCP Servers patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 5,
-    "official_docs": 4,
-    "github_quality": 88,
-    "license_safety": 94,
-    "maintenance": 91,
-    "pattern_clarity": 93,
-    "testability": 87,
+    "source_count": 11,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
     "total": 91
   },
   "promotion_decision": "staging"

@@ -1,64 +1,161 @@
 {
-  "dossier_id": "dossier.marketing.marketing-strategist.2026-06-01",
+  "dossier_id": "dossier.marketing.marketing-strategist.2026-06-02",
   "agent_id": "marketing.marketing-strategist",
   "domain": "marketing",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2026-08-30T00:00:00Z",
   "sources": [
     {
-      "url": "https://github.com/PostHog/posthog",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "master",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
       "used_for": [
-        "Launch strategy, positioning, and campaign-architecture patterns",
-        "product analytics, funnel, experimentation patterns for campaign analysis"
+        "marketing strategist: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 1"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/withastro/astro",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "marketing strategist: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/SuperClaude-Org/SuperClaude_Framework",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "Launch strategy, positioning, and campaign-architecture patterns",
-        "content marketing site patterns, SEO-friendly publishing"
+        "marketing strategist: SuperClaude Framework patterns and workflow references",
+        "verification pattern 3"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/gohugoio/hugo",
-      "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "master",
-      "used_for": [
-        "Launch strategy, positioning, and campaign-architecture patterns",
-        "content publishing pipeline patterns at scale"
-      ],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/garmeeh/next-seo",
+      "url": "https://github.com/musistudio/claude-code-router",
       "source_type": "github_repo",
       "license": "MIT",
-      "version_or_commit": "master",
+      "version_or_commit": "main",
       "used_for": [
-        "Launch strategy, positioning, and campaign-architecture patterns",
-        "SEO metadata, OpenGraph, JSON-LD schema patterns"
+        "marketing strategist: Claude Code Router patterns and workflow references",
+        "verification pattern 4"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/eyaltoledano/claude-task-master",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "marketing strategist: Claude Task Master patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/Doriandarko/claude-engineer",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "marketing strategist: Claude Engineer patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/parallaxsys/claude-swarm",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "marketing strategist: Claude Swarm patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/zebbern/claude-dev-tools",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "marketing strategist: Claude Dev Tools patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/liyoshio/mcp-compass",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "marketing strategist: MCP Compass patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anaisbetts/mcp-installer",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "marketing strategist: MCP Installer patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/idosal/mcphub",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "marketing strategist: MCPHub patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 4,
-    "official_docs": 0,
-    "github_quality": 92,
-    "license_safety": 95,
-    "maintenance": 90,
-    "pattern_clarity": 86,
-    "testability": 80,
-    "total": 89
+    "source_count": 11,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 91
   },
   "promotion_decision": "staging"
 }

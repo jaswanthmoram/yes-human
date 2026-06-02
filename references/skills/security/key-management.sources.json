@@ -1,52 +1,122 @@
 {
-  "dossier_id": "dossier.skill.security.key-management.2026-06-01",
+  "dossier_id": "dossier.security.key-management.2026-06-02",
   "skill_id": "security.key-management",
   "domain": "security",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2027-06-01T00:00:00Z",
   "sources": [
     {
-      "url": "https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final",
-      "source_type": "official_docs",
-      "license": "Public Domain",
-      "version_or_commit": "SP 800-57 Rev 5",
-      "used_for": ["key management guidelines", "key lifecycle"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html",
-      "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["KMS concepts", "key policies"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://developer.hashicorp.com/vault/docs",
-      "source_type": "official_docs",
-      "license": "BSL-1.1",
-      "version_or_commit": "v1.16",
-      "used_for": ["secrets management", "transit engine"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Key_Management_Cheat_Sheet.html",
-      "source_type": "official_docs",
+      "url": "https://github.com/aquasecurity/trivy",
+      "source_type": "github_repo",
       "license": "MIT",
-      "version_or_commit": "2024",
-      "used_for": ["key management patterns", "rotation guidance"],
+      "version_or_commit": "main",
+      "used_for": [
+        "key management: Trivy patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/owasp/www-project-top-10-for-large-language-model-applications",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "key management: OWASP LLM Top 10 patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OWASP/wstg",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "key management: OWASP Web Security Testing Guide patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OWASP/CheatSheetSeries",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "key management: OWASP Cheat Sheet Series patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/joernio/joern",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "key management: Joern patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "key management: Claude BugHunter patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "key management: Microsoft Agent Framework patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "key management: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 8"
+      ],
       "copy_policy": "patterns_only"
     }
   ],
   "scores": {
-    "source_count": 4,
-    "official_docs": 4,
-    "github_quality": 87,
-    "license_safety": 92,
-    "maintenance": 93,
-    "pattern_clarity": 94,
-    "testability": 86,
-    "total": 90
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
   },
   "promotion_decision": "staging"
 }

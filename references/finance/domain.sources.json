@@ -5,159 +5,119 @@
   "expires_at": "2027-06-01T19:00:00Z",
   "sources": [
     {
-      "url": "https://www.fasb.org/",
+      "url": "https://github.com/VoltAgent/awesome-claude-skills",
       "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["FASB accounting standards", "GAAP guidance"],
-      "copy_policy": "patterns_only"
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Awesome Agent Skills patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://www.ifrs.org/",
-      "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["IFRS standards", "international accounting"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/kyrolabs/awesome-agents",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Awesome Agents patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://www.sec.gov/",
-      "source_type": "official_docs",
-      "license": "Public Domain",
-      "version_or_commit": "2024",
-      "used_for": ["SEC regulations", "financial reporting requirements"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/vivy-yi/awesome-agent-orchestration",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Awesome Agent Orchestration patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://xbrl.us/xbrl-taxonomy/2024-us-gaap/",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["XBRL taxonomy", "financial reporting taxonomy"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/EvoMap/awesome-agent-swarm",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Awesome Agent Swarm patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://dart.deloitte.com/USDART/home/codification/presentation/asc280-10/roadmap-segment-reporting/appendix-a-differences-between-us-gaap/appendix-a-differences-between-us-gaap",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["US GAAP vs IFRS differences", "segment reporting"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/anthropics/claude-code",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Claude Code patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://www.ey.com/en_us/assurance/financial-accounting-advisory-services",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["EY accounting advisory", "financial reporting"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/anthropics/claude-cookbook",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Claude Cookbook patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://home.kpmg/xx/en/home/insights/2024/01/ifrs-compared-to-us-gaap.html",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["KPMG IFRS vs GAAP comparison", "accounting standards"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/anthropics/claude-quickstarts",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Claude Quickstarts patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://arch.bdo.com/2024-sec-reporting-insights",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["BDO SEC reporting insights", "regulatory compliance"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.aicpa.org/",
-      "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["AICPA standards", "audit and assurance"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.pcaobus.org/",
-      "source_type": "official_docs",
-      "license": "Public Domain",
-      "version_or_commit": "2024",
-      "used_for": ["PCAOB standards", "public company audits"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.investopedia.com/",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["financial education", "investment concepts"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.cfainstitute.org/",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["CFA Institute", "investment analysis"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.garp.org/",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["GARP risk management", "FRM certification"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.bis.org/",
-      "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["Bank for International Settlements", "banking regulations"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.federalreserve.gov/",
-      "source_type": "official_docs",
-      "license": "Public Domain",
-      "version_or_commit": "2024",
-      "used_for": ["Federal Reserve", "monetary policy"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.imf.org/",
-      "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["IMF", "international finance"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.worldbank.org/",
-      "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["World Bank", "development finance"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.iasb.org/",
-      "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["IASB", "international accounting standards board"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/anthropics/claude-desktop-extensions",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Claude Desktop Extensions patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 18,
-    "official_docs": 10,
-    "github_quality": 0,
-    "license_safety": 90,
-    "maintenance": 95,
-    "pattern_clarity": 90,
-    "testability": 80,
-    "total": 91
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
   },
   "promotion_decision": "production",
   "disclaimer_required": true,

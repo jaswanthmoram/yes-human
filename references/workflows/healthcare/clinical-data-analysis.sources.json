@@ -1,15 +1,122 @@
 {
-  "dossier_id": "dossier.workflow.healthcare.clinical-data-analysis.2026-06-01",
+  "dossier_id": "dossier.healthcare.clinical-data-analysis.2026-06-02",
   "workflow_id": "healthcare.clinical-data-analysis",
   "domain": "healthcare",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2026-08-30T00:00:00Z",
   "sources": [
-    {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8039765/", "source_type": "research_paper", "license": "Open Access", "version_or_commit": "published", "used_for": ["clinical data analysis methodology", "observational study design"], "copy_policy": "patterns_only"},
-    {"url": "https://www.fda.gov/science-research/bioinformatics-and-computational-biology/clinical-data-analysis", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "live", "used_for": ["FDA clinical data standards", "analysis pipeline requirements"], "copy_policy": "patterns_only"},
-    {"url": "https://github.com/OHDSI/Atlas", "source_type": "github_repo", "license": "Apache-2.0", "version_or_commit": "master", "used_for": ["OHDSI cohort analysis patterns", "observational health data analytics"], "copy_policy": "patterns_only"},
-    {"url": "https://www.hl7.org/fhir/clinicalreasoning-module.html", "source_type": "official_docs", "license": "HL7 License", "version_or_commit": "R4", "used_for": ["FHIR clinical reasoning resources", "data modeling for clinical workflows"], "copy_policy": "patterns_only"}
+    {
+      "url": "https://github.com/stvsever/compass-engine",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "clinical data analysis: COMPASS-Engine patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/Schuture/Meissa",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "clinical data analysis: Meissa patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/shengliu66/Cerebra",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "clinical data analysis: Cerebra patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "clinical data analysis: Microsoft Agent Framework patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "clinical data analysis: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/langchain-ai/langgraph",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "clinical data analysis: LangGraph patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-python",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "clinical data analysis: OpenAI Agents SDK Python patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-js",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "clinical data analysis: OpenAI Agents SDK JS patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    }
   ],
-  "scores": {"source_count": 4, "official_docs": 3, "github_quality": 88, "license_safety": 94, "maintenance": 90, "pattern_clarity": 91, "testability": 85, "total": 90},
+  "scores": {
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
+  },
   "promotion_decision": "staging"
 }

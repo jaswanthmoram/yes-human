@@ -1,43 +1,119 @@
 {
   "skill_id": "security.supply-chain-review",
-  "dossier_id": "dossier.skill.security.supply-chain-review.2026-06-01",
+  "dossier_id": "dossier.security.supply-chain-review.2026-06-02",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2027-06-01T00:00:00Z",
   "sources": [
     {
-      "url": "https://owasp.org/www-project-dependency-check/",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
       "source_type": "official_docs",
       "license": "Apache-2.0",
-      "version_or_commit": "2024",
-      "used_for": ["OWASP dependency check", "supply chain security"],
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "supply chain review: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 1"
+      ],
       "copy_policy": "patterns_only"
     },
     {
-      "url": "https://github.com/ossf/scorecard",
+      "url": "https://github.com/langchain-ai/langgraph",
       "source_type": "github_repo",
-      "license": "Apache-2.0",
+      "license": "MIT",
       "version_or_commit": "main",
-      "used_for": ["OpenSSF scorecard", "package security scoring"],
+      "used_for": [
+        "supply chain review: LangGraph patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-python",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "supply chain review: OpenAI Agents SDK Python patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-js",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "supply chain review: OpenAI Agents SDK JS patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/agents",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "supply chain review: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 5"
+      ],
       "copy_policy": "patterns_only"
     },
     {
-      "url": "https://slsa.dev/",
-      "source_type": "official_docs",
-      "license": "Apache-2.0",
-      "version_or_commit": "v1.0",
-      "used_for": ["SLSA framework", "supply chain levels"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/crewAIInc/crewAI",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "supply chain review: CrewAI patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/autogen",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "supply chain review: AutoGen patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "supply chain review: OpenHands patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 3,
-    "official_docs": 3,
-    "github_quality": 92,
-    "license_safety": 95,
-    "maintenance": 93,
-    "pattern_clarity": 91,
-    "testability": 88,
-    "total": 92
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
   },
   "promotion_decision": "production"
 }

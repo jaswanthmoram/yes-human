@@ -1,0 +1,1928 @@
+{
+  "version": "2.0.0",
+  "generated_at": "2026-06-02T09:10:35.752Z",
+  "source_file": "YES-HUMAN_SOURCE_MAP.md",
+  "categories": {
+    "meta-system": [
+      {
+        "name": "Microsoft Agent Framework",
+        "url": "https://github.com/microsoft/agent-framework",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Microsoft Agent Framework patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Microsoft Agent Framework docs",
+        "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+        "source_type": "official_docs",
+        "license": "Apache-2.0",
+        "used_for_template": [
+          "Microsoft Agent Framework docs patterns and workflow references"
+        ]
+      },
+      {
+        "name": "LangGraph",
+        "url": "https://github.com/langchain-ai/langgraph",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "LangGraph patterns and workflow references"
+        ]
+      },
+      {
+        "name": "OpenAI Agents SDK Python",
+        "url": "https://github.com/openai/openai-agents-python",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "OpenAI Agents SDK Python patterns and workflow references"
+        ]
+      },
+      {
+        "name": "OpenAI Agents SDK JS",
+        "url": "https://github.com/openai/openai-agents-js",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "OpenAI Agents SDK JS patterns and workflow references"
+        ]
+      },
+      {
+        "name": "OpenAI Agents docs",
+        "url": "https://developers.openai.com/api/docs/guides/agents",
+        "source_type": "official_docs",
+        "license": "Apache-2.0",
+        "used_for_template": [
+          "OpenAI Agents docs patterns and workflow references"
+        ]
+      },
+      {
+        "name": "CrewAI",
+        "url": "https://github.com/crewAIInc/crewAI",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "CrewAI patterns and workflow references"
+        ]
+      },
+      {
+        "name": "AutoGen",
+        "url": "https://github.com/microsoft/autogen",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "AutoGen patterns and workflow references"
+        ]
+      },
+      {
+        "name": "OpenHands",
+        "url": "https://github.com/OpenHands/OpenHands",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "OpenHands patterns and workflow references"
+        ]
+      },
+      {
+        "name": "MCP Agent",
+        "url": "https://github.com/lastmile-ai/mcp-agent",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "MCP Agent patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Agent Lightning",
+        "url": "https://github.com/microsoft/agent-lightning",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Agent Lightning patterns and workflow references"
+        ]
+      },
+      {
+        "name": "OpenPipe ART",
+        "url": "https://github.com/openpipe/art",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "OpenPipe ART patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Dify",
+        "url": "https://github.com/langgenius/dify",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Dify patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Langflow",
+        "url": "https://github.com/langflow-ai/langflow",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Langflow patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Flowise",
+        "url": "https://github.com/FlowiseAI/Flowise",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Flowise patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Anthropic skills",
+        "url": "https://github.com/anthropics/skills",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Anthropic skills patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Awesome Agent Skills",
+        "url": "https://github.com/VoltAgent/awesome-claude-skills",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Awesome Agent Skills patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Awesome Agents",
+        "url": "https://github.com/kyrolabs/awesome-agents",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Awesome Agents patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Awesome Agent Orchestration",
+        "url": "https://github.com/vivy-yi/awesome-agent-orchestration",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Awesome Agent Orchestration patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Awesome Agent Swarm",
+        "url": "https://github.com/EvoMap/awesome-agent-swarm",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Awesome Agent Swarm patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Claude Code",
+        "url": "https://github.com/anthropics/claude-code",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Claude Code patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Claude Cookbook",
+        "url": "https://github.com/anthropics/claude-cookbook",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Claude Cookbook patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Claude Quickstarts",
+        "url": "https://github.com/anthropics/claude-quickstarts",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Claude Quickstarts patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Claude Desktop Extensions",
+        "url": "https://github.com/anthropics/claude-desktop-extensions",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Claude Desktop Extensions patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Awesome Claude Code",
+        "url": "https://github.com/hesreallyhim/awesome-claude-code",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Awesome Claude Code patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Awesome MCP Servers",
+        "url": "https://github.com/punkpeye/awesome-mcp-servers",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Awesome MCP Servers patterns and workflow references"
+        ]
+      },
+      {
+        "name": "SuperClaude Framework",
+        "url": "https://github.com/SuperClaude-Org/SuperClaude_Framework",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "SuperClaude Framework patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Claude Code Router",
+        "url": "https://github.com/musistudio/claude-code-router",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Claude Code Router patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Claude Task Master",
+        "url": "https://github.com/eyaltoledano/claude-task-master",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Claude Task Master patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Claude Engineer",
+        "url": "https://github.com/Doriandarko/claude-engineer",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Claude Engineer patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Claude Swarm",
+        "url": "https://github.com/parallaxsys/claude-swarm",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Claude Swarm patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Claude Dev Tools",
+        "url": "https://github.com/zebbern/claude-dev-tools",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Claude Dev Tools patterns and workflow references"
+        ]
+      },
+      {
+        "name": "MCP Compass",
+        "url": "https://github.com/liyoshio/mcp-compass",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "MCP Compass patterns and workflow references"
+        ]
+      },
+      {
+        "name": "MCP Installer",
+        "url": "https://github.com/anaisbetts/mcp-installer",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "MCP Installer patterns and workflow references"
+        ]
+      },
+      {
+        "name": "MCPHub",
+        "url": "https://github.com/idosal/mcphub",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "MCPHub patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Continue",
+        "url": "https://github.com/continuedev/continue",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Continue patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Cline",
+        "url": "https://github.com/cline/cline",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Cline patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Open Interpreter",
+        "url": "https://github.com/OpenInterpreter/open-interpreter",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Open Interpreter patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Aider AI",
+        "url": "https://github.com/Aider-AI/aider",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Aider AI patterns and workflow references"
+        ]
+      }
+    ],
+    "engineering": [
+      {
+        "name": "Aider",
+        "url": "https://github.com/aider-ai/aider",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Aider patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Cline",
+        "url": "https://github.com/cline/cline",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Cline patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Continue",
+        "url": "https://github.com/continuedev/continue",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Continue patterns and workflow references"
+        ]
+      },
+      {
+        "name": "SWE-agent",
+        "url": "https://github.com/SWE-agent/SWE-agent",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "SWE-agent patterns and workflow references"
+        ]
+      },
+      {
+        "name": "OpenHands",
+        "url": "https://github.com/All-Hands-AI/OpenHands",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "OpenHands patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Claude Code PM",
+        "url": "https://github.com/automazeio/ccpm",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Claude Code PM patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Sourcegraph public snapshot",
+        "url": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Sourcegraph public snapshot patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Sourcegraph Cody context docs",
+        "url": "https://sourcegraph.com/docs/cody/core-concepts/context",
+        "source_type": "vendor_docs",
+        "license": "Apache-2.0",
+        "used_for_template": [
+          "Sourcegraph Cody context docs patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Tree-sitter",
+        "url": "https://github.com/tree-sitter/tree-sitter",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Tree-sitter patterns and workflow references"
+        ]
+      }
+    ],
+    "security": [
+      {
+        "name": "Semgrep",
+        "url": "https://github.com/semgrep/semgrep",
+        "source_type": "github_repo",
+        "license": "LGPL-2.1",
+        "stars": 500,
+        "used_for_template": [
+          "Semgrep patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Semgrep docs",
+        "url": "https://semgrep.dev/docs/",
+        "source_type": "vendor_docs",
+        "license": "Apache-2.0",
+        "used_for_template": [
+          "Semgrep docs patterns and workflow references"
+        ]
+      },
+      {
+        "name": "CodeQL",
+        "url": "https://github.com/github/codeql",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "CodeQL patterns and workflow references"
+        ]
+      },
+      {
+        "name": "GitHub CodeQL docs",
+        "url": "https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "GitHub CodeQL docs patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Gitleaks",
+        "url": "https://github.com/gitleaks/gitleaks",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Gitleaks patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Trivy",
+        "url": "https://github.com/aquasecurity/trivy",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Trivy patterns and workflow references"
+        ]
+      },
+      {
+        "name": "OWASP LLM Top 10",
+        "url": "https://github.com/owasp/www-project-top-10-for-large-language-model-applications",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "OWASP LLM Top 10 patterns and workflow references"
+        ]
+      },
+      {
+        "name": "OWASP Web Security Testing Guide",
+        "url": "https://github.com/OWASP/wstg",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "OWASP Web Security Testing Guide patterns and workflow references"
+        ]
+      },
+      {
+        "name": "OWASP Cheat Sheet Series",
+        "url": "https://github.com/OWASP/CheatSheetSeries",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "OWASP Cheat Sheet Series patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Joern",
+        "url": "https://github.com/joernio/joern",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Joern patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Claude BugHunter",
+        "url": "https://github.com/elementalsouls/Claude-BugHunter",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Claude BugHunter patterns and workflow references"
+        ]
+      }
+    ],
+    "data-ai": [
+      {
+        "name": "Microsoft GraphRAG",
+        "url": "https://github.com/microsoft/graphrag",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Microsoft GraphRAG patterns and workflow references"
+        ]
+      },
+      {
+        "name": "LlamaIndex",
+        "url": "https://github.com/run-llama/llama_index",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "LlamaIndex patterns and workflow references"
+        ]
+      },
+      {
+        "name": "LangChain",
+        "url": "https://github.com/langchain-ai/langchain",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "LangChain patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Haystack",
+        "url": "https://github.com/deepset-ai/haystack",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Haystack patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Qdrant",
+        "url": "https://github.com/qdrant/qdrant",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Qdrant patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Weaviate",
+        "url": "https://github.com/weaviate/weaviate",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Weaviate patterns and workflow references"
+        ]
+      },
+      {
+        "name": "MLflow",
+        "url": "https://github.com/mlflow/mlflow",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "MLflow patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Promptfoo",
+        "url": "https://github.com/promptfoo/promptfoo",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Promptfoo patterns and workflow references"
+        ]
+      },
+      {
+        "name": "DeepEval",
+        "url": "https://github.com/confident-ai/deepeval",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "DeepEval patterns and workflow references"
+        ]
+      },
+      {
+        "name": "mem0",
+        "url": "https://github.com/mem0ai/mem0",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "mem0 patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Graphiti",
+        "url": "https://github.com/getzep/graphiti",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Graphiti patterns and workflow references"
+        ]
+      }
+    ],
+    "research": [
+      {
+        "name": "Microsoft GraphRAG",
+        "url": "https://github.com/microsoft/graphrag",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Microsoft GraphRAG patterns and workflow references"
+        ]
+      },
+      {
+        "name": "LlamaIndex",
+        "url": "https://github.com/run-llama/llama_index",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "LlamaIndex patterns and workflow references"
+        ]
+      },
+      {
+        "name": "LangChain",
+        "url": "https://github.com/langchain-ai/langchain",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "LangChain patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Haystack",
+        "url": "https://github.com/deepset-ai/haystack",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Haystack patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Qdrant",
+        "url": "https://github.com/qdrant/qdrant",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Qdrant patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Weaviate",
+        "url": "https://github.com/weaviate/weaviate",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Weaviate patterns and workflow references"
+        ]
+      },
+      {
+        "name": "MLflow",
+        "url": "https://github.com/mlflow/mlflow",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "MLflow patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Promptfoo",
+        "url": "https://github.com/promptfoo/promptfoo",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Promptfoo patterns and workflow references"
+        ]
+      },
+      {
+        "name": "DeepEval",
+        "url": "https://github.com/confident-ai/deepeval",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "DeepEval patterns and workflow references"
+        ]
+      },
+      {
+        "name": "mem0",
+        "url": "https://github.com/mem0ai/mem0",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "mem0 patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Graphiti",
+        "url": "https://github.com/getzep/graphiti",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Graphiti patterns and workflow references"
+        ]
+      }
+    ],
+    "integrations": [
+      {
+        "name": "MCP docs",
+        "url": "https://modelcontextprotocol.io/docs/getting-started/intro",
+        "source_type": "technical_blog",
+        "license": "MIT",
+        "used_for_template": [
+          "MCP docs patterns and workflow references"
+        ]
+      },
+      {
+        "name": "MCP servers",
+        "url": "https://github.com/modelcontextprotocol/servers",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "MCP servers patterns and workflow references"
+        ]
+      },
+      {
+        "name": "MCP registry",
+        "url": "https://github.com/modelcontextprotocol/registry",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "MCP registry patterns and workflow references"
+        ]
+      },
+      {
+        "name": "MCP inspector",
+        "url": "https://github.com/modelcontextprotocol/inspector",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "MCP inspector patterns and workflow references"
+        ]
+      },
+      {
+        "name": "GitHub MCP server",
+        "url": "https://github.com/github/github-mcp-server",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "GitHub MCP server patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Playwright MCP",
+        "url": "https://github.com/microsoft/playwright-mcp",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Playwright MCP patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Awesome MCP servers",
+        "url": "https://github.com/punkpeye/awesome-mcp-servers",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Awesome MCP servers patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Awesome MCP servers alternate",
+        "url": "https://github.com/appcypher/awesome-mcp-servers",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Awesome MCP servers alternate patterns and workflow references"
+        ]
+      },
+      {
+        "name": "vercel-labs/agent-browser",
+        "url": "https://github.com/vercel-labs/agent-browser",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "vercel-labs/agent-browser patterns and workflow references"
+        ]
+      }
+    ],
+    "design-content": [
+      {
+        "name": "Storybook",
+        "url": "https://github.com/storybookjs/storybook",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Storybook patterns and workflow references"
+        ]
+      },
+      {
+        "name": "shadcn/ui",
+        "url": "https://github.com/shadcn-ui/ui",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "shadcn/ui patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Radix UI Primitives",
+        "url": "https://github.com/radix-ui/primitives",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Radix UI Primitives patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Tailwind CSS",
+        "url": "https://github.com/tailwindlabs/tailwindcss",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Tailwind CSS patterns and workflow references"
+        ]
+      },
+      {
+        "name": "axe-core",
+        "url": "https://github.com/dequelabs/axe-core",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "axe-core patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Playwright",
+        "url": "https://github.com/microsoft/playwright",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Playwright patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Stop Slop",
+        "url": "https://github.com/hardikpandya/stop-slop",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Stop Slop patterns and workflow references"
+        ]
+      }
+    ],
+    "product-business": [
+      {
+        "name": "Twenty CRM",
+        "url": "https://github.com/TwentyHQ/twenty",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Twenty CRM patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Chatwoot",
+        "url": "https://github.com/chatwoot/chatwoot",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Chatwoot patterns and workflow references"
+        ]
+      },
+      {
+        "name": "PostHog",
+        "url": "https://github.com/PostHog/posthog",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "PostHog patterns and workflow references"
+        ]
+      },
+      {
+        "name": "OpenProject",
+        "url": "https://github.com/opf/openproject",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "OpenProject patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Plane",
+        "url": "https://github.com/makeplane/plane",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Plane patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Outline",
+        "url": "https://github.com/outline/outline",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Outline patterns and workflow references"
+        ]
+      },
+      {
+        "name": "gstack (Garry Tan / Y Combinator)",
+        "url": "https://github.com/garrytan/gstack",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "gstack (Garry Tan / Y Combinator) patterns and workflow references"
+        ]
+      }
+    ],
+    "sales": [
+      {
+        "name": "Twenty CRM",
+        "url": "https://github.com/TwentyHQ/twenty",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Twenty CRM patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Chatwoot",
+        "url": "https://github.com/chatwoot/chatwoot",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Chatwoot patterns and workflow references"
+        ]
+      },
+      {
+        "name": "PostHog",
+        "url": "https://github.com/PostHog/posthog",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "PostHog patterns and workflow references"
+        ]
+      },
+      {
+        "name": "OpenProject",
+        "url": "https://github.com/opf/openproject",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "OpenProject patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Plane",
+        "url": "https://github.com/makeplane/plane",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Plane patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Outline",
+        "url": "https://github.com/outline/outline",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Outline patterns and workflow references"
+        ]
+      }
+    ],
+    "startup-ops": [
+      {
+        "name": "Twenty CRM",
+        "url": "https://github.com/TwentyHQ/twenty",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Twenty CRM patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Chatwoot",
+        "url": "https://github.com/chatwoot/chatwoot",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Chatwoot patterns and workflow references"
+        ]
+      },
+      {
+        "name": "PostHog",
+        "url": "https://github.com/PostHog/posthog",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "PostHog patterns and workflow references"
+        ]
+      },
+      {
+        "name": "OpenProject",
+        "url": "https://github.com/opf/openproject",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "OpenProject patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Plane",
+        "url": "https://github.com/makeplane/plane",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Plane patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Outline",
+        "url": "https://github.com/outline/outline",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Outline patterns and workflow references"
+        ]
+      },
+      {
+        "name": "gstack (Garry Tan / Y Combinator)",
+        "url": "https://github.com/garrytan/gstack",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "gstack (Garry Tan / Y Combinator) patterns and workflow references"
+        ]
+      }
+    ],
+    "marketing": [
+      {
+        "name": "Mautic",
+        "url": "https://github.com/mautic/mautic",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Mautic patterns and workflow references"
+        ]
+      },
+      {
+        "name": "listmonk",
+        "url": "https://github.com/knadh/listmonk",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "listmonk patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Matomo",
+        "url": "https://github.com/matomo-org/matomo",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Matomo patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Plausible Analytics",
+        "url": "https://github.com/plausible/analytics",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Plausible Analytics patterns and workflow references"
+        ]
+      },
+      {
+        "name": "PostHog",
+        "url": "https://github.com/PostHog/posthog",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "PostHog patterns and workflow references"
+        ]
+      }
+    ],
+    "finance": [
+      {
+        "name": "ERPNext",
+        "url": "https://github.com/frappe/erpnext",
+        "source_type": "github_repo",
+        "license": "GPL-3.0",
+        "stars": 500,
+        "used_for_template": [
+          "ERPNext patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Odoo",
+        "url": "https://github.com/odoo/odoo",
+        "source_type": "github_repo",
+        "license": "GPL-3.0",
+        "stars": 500,
+        "used_for_template": [
+          "Odoo patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Invoice Ninja",
+        "url": "https://github.com/invoiceninja/invoiceninja",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Invoice Ninja patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Firefly III",
+        "url": "https://github.com/firefly-iii/firefly-iii",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Firefly III patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Akaunting",
+        "url": "https://github.com/akaunting/akaunting",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Akaunting patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Maybe Finance",
+        "url": "https://github.com/maybe-finance/maybe",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Maybe Finance patterns and workflow references"
+        ]
+      }
+    ],
+    "legal-compliance": [
+      {
+        "name": "Documenso",
+        "url": "https://github.com/documenso/documenso",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Documenso patterns and workflow references"
+        ]
+      },
+      {
+        "name": "DocuSeal",
+        "url": "https://github.com/docusealco/docuseal",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "DocuSeal patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Nextcloud",
+        "url": "https://github.com/nextcloud/server",
+        "source_type": "github_repo",
+        "license": "GPL-3.0",
+        "stars": 500,
+        "used_for_template": [
+          "Nextcloud patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Joplin",
+        "url": "https://github.com/laurent22/joplin",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Joplin patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Outline",
+        "url": "https://github.com/outline/outline",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Outline patterns and workflow references"
+        ]
+      },
+      {
+        "name": "OWASP Cheat Sheet Series",
+        "url": "https://github.com/OWASP/CheatSheetSeries",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "OWASP Cheat Sheet Series patterns and workflow references"
+        ]
+      }
+    ],
+    "hr": [
+      {
+        "name": "Frappe HRMS",
+        "url": "https://github.com/frappe/hrms",
+        "source_type": "github_repo",
+        "license": "GPL-3.0",
+        "stars": 500,
+        "used_for_template": [
+          "Frappe HRMS patterns and workflow references"
+        ]
+      },
+      {
+        "name": "OrangeHRM",
+        "url": "https://github.com/orangehrm/orangehrm",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "OrangeHRM patterns and workflow references"
+        ]
+      },
+      {
+        "name": "ERPNext HR modules",
+        "url": "https://github.com/frappe/erpnext",
+        "source_type": "github_repo",
+        "license": "GPL-3.0",
+        "stars": 500,
+        "used_for_template": [
+          "ERPNext HR modules patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Odoo HR modules",
+        "url": "https://github.com/odoo/odoo",
+        "source_type": "github_repo",
+        "license": "GPL-3.0",
+        "stars": 500,
+        "used_for_template": [
+          "Odoo HR modules patterns and workflow references"
+        ]
+      }
+    ],
+    "platform": [
+      {
+        "name": "OpenTelemetry Collector",
+        "url": "https://github.com/open-telemetry/opentelemetry-collector",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "OpenTelemetry Collector patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Prometheus",
+        "url": "https://github.com/prometheus/prometheus",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Prometheus patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Grafana",
+        "url": "https://github.com/grafana/grafana",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Grafana patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Argo CD",
+        "url": "https://github.com/argoproj/argo-cd",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Argo CD patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Kubernetes",
+        "url": "https://github.com/kubernetes/kubernetes",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 5000,
+        "used_for_template": [
+          "Kubernetes patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Terraform",
+        "url": "https://github.com/hashicorp/terraform",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 5000,
+        "used_for_template": [
+          "Terraform patterns and workflow references"
+        ]
+      },
+      {
+        "name": "GitHub Actions docs",
+        "url": "https://docs.github.com/en/actions",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "GitHub Actions docs patterns and workflow references"
+        ]
+      }
+    ],
+    "healthcare": [
+      {
+        "name": "TxAgent (Harvard MIMS)",
+        "url": "https://github.com/mims-harvard/TxAgent",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "TxAgent (Harvard MIMS) patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Doctor-R1 (Tsinghua)",
+        "url": "https://github.com/thu-unicorn/Doctor-R1",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Doctor-R1 (Tsinghua) patterns and workflow references"
+        ]
+      },
+      {
+        "name": "COMPASS-Engine",
+        "url": "https://github.com/stvsever/compass-engine",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "COMPASS-Engine patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Meissa",
+        "url": "https://github.com/Schuture/Meissa",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Meissa patterns and workflow references"
+        ]
+      },
+      {
+        "name": "Cerebra",
+        "url": "https://github.com/shengliu66/Cerebra",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Cerebra patterns and workflow references"
+        ]
+      }
+    ],
+    "education": [
+      {
+        "name": "DeepTutor (HKUDS)",
+        "url": "https://github.com/HKUDS/DeepTutor",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "DeepTutor (HKUDS) patterns and workflow references"
+        ]
+      },
+      {
+        "name": "LearnOS",
+        "url": "https://github.com/Abelo9996/LearnOS",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "LearnOS patterns and workflow references"
+        ]
+      },
+      {
+        "name": "OpenMAIC (Tsinghua)",
+        "url": "https://github.com/THU-MAIC/OpenMAIC",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "OpenMAIC (Tsinghua) patterns and workflow references"
+        ]
+      },
+      {
+        "name": "OpenTutor",
+        "url": "https://github.com/zijinz456/OpenTutor",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "OpenTutor patterns and workflow references"
+        ]
+      }
+    ],
+    "manufacturing": [
+      {
+        "name": "Carbon (crbnos)",
+        "url": "https://github.com/crbnos/carbon",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "Carbon (crbnos) patterns and workflow references"
+        ]
+      },
+      {
+        "name": "ERPNext",
+        "url": "https://github.com/frappe/erpnext",
+        "source_type": "github_repo",
+        "license": "GPL-3.0",
+        "stars": 500,
+        "used_for_template": [
+          "ERPNext patterns and workflow references"
+        ]
+      },
+      {
+        "name": "NexusAI-ERP",
+        "url": "https://github.com/mbilaljunaid/nexusai-erp",
+        "source_type": "github_repo",
+        "license": "MIT",
+        "stars": 500,
+        "used_for_template": [
+          "NexusAI-ERP patterns and workflow references"
+        ]
+      }
+    ]
+  },
+  "agent_domain_map": {
+    "data-ai.ai-ethics-specialist": "data-ai",
+    "data-ai.ai-product-manager": "data-ai",
+    "data-ai.ai-research-scientist": "data-ai",
+    "data-ai.analytics-engineer": "data-ai",
+    "data-ai.bi-developer": "data-ai",
+    "data-ai.computer-vision-engineer": "data-ai",
+    "data-ai.data-analyst": "data-ai",
+    "data-ai.data-engineer": "data-ai",
+    "data-ai.data-scientist": "data-ai",
+    "data-ai.eval-engineer": "data-ai",
+    "data-ai.graph-rag-engineer": "data-ai",
+    "data-ai.llm-fine-tuner": "data-ai",
+    "data-ai.master": "data-ai",
+    "data-ai.ml-engineer": "data-ai",
+    "data-ai.mlops-engineer": "data-ai",
+    "data-ai.nlp-engineer": "data-ai",
+    "data-ai.prompt-engineer": "data-ai",
+    "data-ai.rag-engineer": "data-ai",
+    "data-ai.recommendation-engineer": "data-ai",
+    "design-content.accessibility-auditor": "design-content",
+    "design-content.brand-designer": "design-content",
+    "design-content.brand-strategist": "design-content",
+    "design-content.content-editor": "design-content",
+    "design-content.content-strategist": "design-content",
+    "design-content.copywriter": "design-content",
+    "design-content.design-systems": "design-content",
+    "design-content.frontend-design-agent": "design-content",
+    "design-content.interaction-designer": "design-content",
+    "design-content.master": "design-content",
+    "design-content.motion-designer": "design-content",
+    "design-content.presentation-designer": "design-content",
+    "design-content.seo-writer": "design-content",
+    "design-content.technical-writer": "design-content",
+    "design-content.ui-designer": "design-content",
+    "design-content.ux-designer": "design-content",
+    "design-content.visual-designer": "design-content",
+    "education.academic-advisor": "education",
+    "education.assessment-designer": "education",
+    "education.assessment-specialist": "education",
+    "education.curriculum-designer": "education",
+    "education.education-policy": "education",
+    "education.education-researcher": "education",
+    "education.educational-technologist": "education",
+    "education.instructional-designer": "education",
+    "education.learning-analyst": "education",
+    "education.master": "education",
+    "education.online-educator": "education",
+    "education.special-education": "education",
+    "education.student-success": "education",
+    "education.tutor-agent": "education",
+    "engineering.architect": "engineering",
+    "engineering.backend-api": "engineering",
+    "engineering.build-resolver": "engineering",
+    "engineering.code-migration": "engineering",
+    "engineering.code-reviewer": "engineering",
+    "engineering.cpp-reviewer": "engineering",
+    "engineering.database-design": "engineering",
+    "engineering.database-optimization": "engineering",
+    "engineering.dev-workflow": "engineering",
+    "engineering.docs-updater": "engineering",
+    "engineering.frontend-react": "engineering",
+    "engineering.frontend-vue": "engineering",
+    "engineering.go-reviewer": "engineering",
+    "engineering.java-reviewer": "engineering",
+    "engineering.kotlin-reviewer": "engineering",
+    "engineering.master": "engineering",
+    "engineering.mobile-android": "engineering",
+    "engineering.mobile-ios": "engineering",
+    "engineering.performance-profiling": "engineering",
+    "engineering.planner": "engineering",
+    "engineering.python-reviewer": "engineering",
+    "engineering.refactoring": "engineering",
+    "engineering.rust-reviewer": "engineering",
+    "engineering.swift-reviewer": "engineering",
+    "engineering.tdd-guide": "engineering",
+    "engineering.testing-e2e": "engineering",
+    "engineering.testing-integration": "engineering",
+    "engineering.testing-unit": "engineering",
+    "engineering.typescript-reviewer": "engineering",
+    "finance.audit-specialist": "finance",
+    "finance.budget-planner": "finance",
+    "finance.cash-flow-manager": "finance",
+    "finance.cfo-advisor": "finance",
+    "finance.compliance-officer": "finance",
+    "finance.credit-analyst": "finance",
+    "finance.expense-auditor": "finance",
+    "finance.financial-analyst": "finance",
+    "finance.financial-modeler": "finance",
+    "finance.financial-planner": "finance",
+    "finance.forecasting-analyst": "finance",
+    "finance.investment-analyst": "finance",
+    "finance.m-and-a-specialist": "finance",
+    "finance.master": "finance",
+    "finance.payroll-analyst": "finance",
+    "finance.portfolio-manager": "finance",
+    "finance.risk-manager": "finance",
+    "finance.tax-specialist": "finance",
+    "finance.treasury-manager": "finance",
+    "finance.valuation-expert": "finance",
+    "healthcare.clinical-decision-support": "healthcare",
+    "healthcare.clinical-informatics": "healthcare",
+    "healthcare.clinical-research": "healthcare",
+    "healthcare.ehr-patterns": "healthcare",
+    "healthcare.health-data-analyst": "healthcare",
+    "healthcare.health-it": "healthcare",
+    "healthcare.healthcare-compliance": "healthcare",
+    "healthcare.healthcare-operations": "healthcare",
+    "healthcare.master": "healthcare",
+    "healthcare.medical-coder": "healthcare",
+    "healthcare.medical-device": "healthcare",
+    "healthcare.patient-safety": "healthcare",
+    "healthcare.phi-compliance": "healthcare",
+    "healthcare.population-health": "healthcare",
+    "healthcare.quality-improvement": "healthcare",
+    "healthcare.telehealth-specialist": "healthcare",
+    "hr.compensation-analyst": "hr",
+    "hr.diversity-specialist": "hr",
+    "hr.employee-relations": "hr",
+    "hr.hiring-manager": "hr",
+    "hr.hr-analyst": "hr",
+    "hr.hr-business-partner": "hr",
+    "hr.hr-compliance": "hr",
+    "hr.hr-operations": "hr",
+    "hr.learning-specialist": "hr",
+    "hr.master": "hr",
+    "hr.onboarding-coordinator": "hr",
+    "hr.organizational-development": "hr",
+    "hr.performance-reviewer": "hr",
+    "hr.policy-drafter": "hr",
+    "hr.talent-acquisition": "hr",
+    "hr.workforce-planner": "hr",
+    "integrations.api-gateway-architect": "integrations",
+    "integrations.api-integration-specialist": "integrations",
+    "integrations.browser-auto": "integrations",
+    "integrations.event-streaming-architect": "integrations",
+    "integrations.figma-agent": "integrations",
+    "integrations.github-operator": "integrations",
+    "integrations.graphql-integrator": "integrations",
+    "integrations.master": "integrations",
+    "integrations.mcp-connector-designer": "integrations",
+    "integrations.message-queue-engineer": "integrations",
+    "integrations.microservices-integrator": "integrations",
+    "integrations.middleware-developer": "integrations",
+    "integrations.notion-agent": "integrations",
+    "integrations.sourcegraph-context-agent": "integrations",
+    "integrations.stripe-agent": "integrations",
+    "integrations.third-party-integrator": "integrations",
+    "integrations.vercel-agent": "integrations",
+    "integrations.webhook-developer": "integrations",
+    "legal-compliance.compliance-checker": "legal-compliance",
+    "legal-compliance.contract-reviewer": "legal-compliance",
+    "legal-compliance.corporate-lawyer": "legal-compliance",
+    "legal-compliance.due-diligence": "legal-compliance",
+    "legal-compliance.employment-lawyer": "legal-compliance",
+    "legal-compliance.ip-lawyer": "legal-compliance",
+    "legal-compliance.legal-researcher": "legal-compliance",
+    "legal-compliance.legal-writer": "legal-compliance",
+    "legal-compliance.litigation-support": "legal-compliance",
+    "legal-compliance.master": "legal-compliance",
+    "legal-compliance.nda-reviewer": "legal-compliance",
+    "legal-compliance.policy-analyst": "legal-compliance",
+    "legal-compliance.privacy-advisor": "legal-compliance",
+    "legal-compliance.regulatory-affairs": "legal-compliance",
+    "legal-compliance.risk-manager": "legal-compliance",
+    "legal-compliance.terms-drafter": "legal-compliance",
+    "manufacturing.demand-planner": "manufacturing",
+    "manufacturing.industrial-engineer": "manufacturing",
+    "manufacturing.inventory-manager": "manufacturing",
+    "manufacturing.inventory-planner": "manufacturing",
+    "manufacturing.lean-manufacturing": "manufacturing",
+    "manufacturing.maintenance-engineer": "manufacturing",
+    "manufacturing.manufacturing-analyst": "manufacturing",
+    "manufacturing.manufacturing-operations": "manufacturing",
+    "manufacturing.master": "manufacturing",
+    "manufacturing.process-engineer": "manufacturing",
+    "manufacturing.production-engineer": "manufacturing",
+    "manufacturing.quality-engineer": "manufacturing",
+    "manufacturing.quality-nonconformance-analyst": "manufacturing",
+    "manufacturing.safety-engineer": "manufacturing",
+    "manufacturing.supply-chain-analyst": "manufacturing",
+    "marketing.brand-marketer": "marketing",
+    "marketing.campaign-analyst": "marketing",
+    "marketing.content-marketer": "marketing",
+    "marketing.conversion-optimizer": "marketing",
+    "marketing.digital-marketer": "marketing",
+    "marketing.email-marketer": "marketing",
+    "marketing.event-marketer": "marketing",
+    "marketing.growth-marketer": "marketing",
+    "marketing.influencer-marketer": "marketing",
+    "marketing.marketing-analyst": "marketing",
+    "marketing.marketing-automator": "marketing",
+    "marketing.marketing-strategist": "marketing",
+    "marketing.master": "marketing",
+    "marketing.product-marketer": "marketing",
+    "marketing.sem-specialist": "marketing",
+    "marketing.seo-analyst": "marketing",
+    "marketing.social-media-manager": "marketing",
+    "meta-system.adapter-generator": "meta-system",
+    "meta-system.agent-designer": "meta-system",
+    "meta-system.cost-controller": "meta-system",
+    "meta-system.deduplicator": "meta-system",
+    "meta-system.dossier-evaluator": "meta-system",
+    "meta-system.eval-runner": "meta-system",
+    "meta-system.fixture-engineer": "meta-system",
+    "meta-system.graph-builder": "meta-system",
+    "meta-system.master": "meta-system",
+    "meta-system.plugin-absorber": "meta-system",
+    "meta-system.quality-assurance": "meta-system",
+    "meta-system.skill-designer": "meta-system",
+    "meta-system.source-miner": "meta-system",
+    "meta-system.stub-detector": "meta-system",
+    "meta-system.system-architect": "meta-system",
+    "meta-system.system-optimizer": "meta-system",
+    "meta-system.workflow-architect": "meta-system",
+    "meta-system.workflow-miner": "meta-system",
+    "platform.ci-cd-engineer": "platform",
+    "platform.ci-cd-pipeline": "platform",
+    "platform.cloud-architect": "platform",
+    "platform.cloud-cost-optimization": "platform",
+    "platform.container-security": "platform",
+    "platform.devops-engineer": "platform",
+    "platform.gitops-workflow": "platform",
+    "platform.incident-responder": "platform",
+    "platform.infrastructure-testing": "platform",
+    "platform.kubernetes-admin": "platform",
+    "platform.master": "platform",
+    "platform.monitoring-setup": "platform",
+    "platform.observability-engineer": "platform",
+    "platform.release-manager": "platform",
+    "platform.service-mesh": "platform",
+    "platform.terraform-architect": "platform",
+    "product-business.ceo-advisor": "product-business",
+    "product-business.competitive-analyst": "product-business",
+    "product-business.cto-advisor": "product-business",
+    "product-business.customer-success-advisor": "product-business",
+    "product-business.feature-prioritizer": "product-business",
+    "product-business.growth-manager": "product-business",
+    "product-business.market-researcher": "product-business",
+    "product-business.master": "product-business",
+    "product-business.operations-planner": "product-business",
+    "product-business.partnerships-advisor": "product-business",
+    "product-business.pricing-strategist": "product-business",
+    "product-business.product-analyst": "product-business",
+    "product-business.product-designer": "product-business",
+    "product-business.product-launcher": "product-business",
+    "product-business.product-manager": "product-business",
+    "product-business.product-marketer": "product-business",
+    "product-business.product-ops": "product-business",
+    "product-business.product-strategist": "product-business",
+    "product-business.product-writer": "product-business",
+    "product-business.roadmap-planner": "product-business",
+    "product-business.sales-operator": "product-business",
+    "product-business.user-researcher": "product-business",
+    "research.academic-researcher": "research",
+    "research.data-researcher": "research",
+    "research.deep-researcher": "research",
+    "research.literature-reviewer": "research",
+    "research.market-intel-analyst": "research",
+    "research.market-researcher": "research",
+    "research.master": "research",
+    "research.research-analyst": "research",
+    "research.research-methodologist": "research",
+    "research.research-project-manager": "research",
+    "research.scientific-literature-analyst": "research",
+    "research.scientific-writer": "research",
+    "research.statistical-consultant": "research",
+    "sales.account-executive": "sales",
+    "sales.account-manager": "sales",
+    "sales.competitive-intel-analyst": "sales",
+    "sales.contract-negotiator": "sales",
+    "sales.crm-admin": "sales",
+    "sales.customer-success": "sales",
+    "sales.deal-desk": "sales",
+    "sales.master": "sales",
+    "sales.pipeline-analyst": "sales",
+    "sales.pricing-strategist": "sales",
+    "sales.proposal-generator": "sales",
+    "sales.proposal-writer": "sales",
+    "sales.sales-analyst": "sales",
+    "sales.sales-development": "sales",
+    "sales.sales-enablement": "sales",
+    "sales.sales-engineer": "sales",
+    "sales.sales-ops": "sales",
+    "sales.sales-strategist": "sales",
+    "sales.sales-trainer": "sales",
+    "sales.territory-manager": "sales",
+    "security.application-security": "security",
+    "security.cloud-security": "security",
+    "security.compliance-officer": "security",
+    "security.cryptography-expert": "security",
+    "security.dependency-risk-agent": "security",
+    "security.identity-access": "security",
+    "security.incident-responder": "security",
+    "security.master": "security",
+    "security.network-security": "security",
+    "security.penetration-tester": "security",
+    "security.secret-scan-agent": "security",
+    "security.security-auditor": "security",
+    "security.security-reviewer": "security",
+    "security.threat-hunter": "security",
+    "security.threat-modeler": "security",
+    "security.vulnerability-manager": "security",
+    "startup-ops.business-model-designer": "startup-ops",
+    "startup-ops.ceo-rethink": "startup-ops",
+    "startup-ops.customer-development": "startup-ops",
+    "startup-ops.financial-modeler": "startup-ops",
+    "startup-ops.fundraising-specialist": "startup-ops",
+    "startup-ops.growth-hacker": "startup-ops",
+    "startup-ops.hr-specialist": "startup-ops",
+    "startup-ops.legal-compliance": "startup-ops",
+    "startup-ops.master": "startup-ops",
+    "startup-ops.operations-manager": "startup-ops",
+    "startup-ops.pitch-deck-creator": "startup-ops",
+    "startup-ops.product-market-fit": "startup-ops",
+    "startup-ops.qa": "startup-ops",
+    "startup-ops.release": "startup-ops",
+    "startup-ops.startup-mentor": "startup-ops",
+    "startup-ops.startup-strategist": "startup-ops"
+  }
+}

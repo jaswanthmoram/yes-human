@@ -1,63 +1,122 @@
 {
-  "dossier_id": "dossier.security.incident-responder.2026-05-31",
+  "dossier_id": "dossier.security.incident-responder.2026-06-02",
   "agent_id": "security.incident-responder",
   "domain": "security",
   "created_at": "2026-05-31T00:00:00Z",
   "expires_at": "2026-08-29T00:00:00Z",
   "sources": [
     {
-      "url": "https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final",
-      "source_type": "official_docs",
-      "license": "Public Domain",
-      "version_or_commit": "Rev 2",
-      "used_for": ["NIST incident handling guide", "IR phases and procedures"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/falcosecurity/falco",
+      "url": "https://github.com/idosal/mcphub",
       "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "master",
-      "stars": 7800,
-      "used_for": ["runtime threat detection", "incident detection rules"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/TheHive-Project/TheHive",
-      "source_type": "github_repo",
-      "license": "AGPL-3.0",
+      "license": "MIT",
       "version_or_commit": "main",
-      "stars": 3200,
-      "used_for": ["incident response platform patterns", "case management structure"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "incident responder: MCPHub patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://github.com/dfir-iris/iris-web",
+      "url": "https://github.com/continuedev/continue",
       "source_type": "github_repo",
-      "license": "LGPL-3.0",
+      "license": "MIT",
       "version_or_commit": "main",
-      "stars": 1800,
-      "used_for": ["IR case management", "timeline construction patterns"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "incident responder: Continue patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://www.sans.org/white-papers/incident-response/",
+      "url": "https://github.com/cline/cline",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "incident responder: Cline patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OpenInterpreter/open-interpreter",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "incident responder: Open Interpreter patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/Aider-AI/aider",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "incident responder: Aider AI patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/semgrep/semgrep",
+      "source_type": "github_repo",
+      "license": "LGPL-2.1",
+      "version_or_commit": "main",
+      "used_for": [
+        "incident responder: Semgrep patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://semgrep.dev/docs/",
       "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["SANS IR methodology", "forensic analysis patterns"],
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "incident responder: Semgrep docs patterns and workflow references",
+        "verification pattern 7"
+      ],
       "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/github/codeql",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "incident responder: CodeQL patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 5,
-    "official_docs": 1,
-    "github_quality": 88,
-    "license_safety": 90,
-    "maintenance": 87,
-    "pattern_clarity": 93,
-    "testability": 82,
-    "total": 88
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
   },
   "promotion_decision": "staging"
 }

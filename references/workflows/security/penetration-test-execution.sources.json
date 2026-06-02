@@ -1,69 +1,172 @@
 {
-  "dossier_id": "dossier.workflow.security.penetration-test-execution.2026-06-01",
+  "dossier_id": "dossier.security.penetration-test-execution.2026-06-02",
   "workflow_id": "security.penetration-test-execution",
   "domain": "security",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2026-08-30T00:00:00Z",
   "sources": [
     {
-      "url": "https://www.ptes.org/",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
       "source_type": "official_docs",
-      "license": "PTES public",
-      "version_or_commit": "1.0",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
       "used_for": [
-        "penetration testing execution standard methodology"
+        "penetration test execution: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 1"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://owasp.org/www-project-web-security-testing-guide/",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
       "source_type": "official_docs",
-      "license": "OWASP free use",
-      "version_or_commit": "4.2",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
       "used_for": [
-        "web application testing techniques"
+        "penetration test execution: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 2"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/swisskyrepo/PayloadsAllTheThings",
+      "url": "https://semgrep.dev/docs/",
+      "source_type": "vendor_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "penetration test execution: Semgrep docs patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql",
       "source_type": "github_repo",
       "license": "MIT",
-      "version_or_commit": "master",
+      "version_or_commit": "main",
       "used_for": [
-        "exploit payloads and attack techniques"
+        "penetration test execution: GitHub CodeQL docs patterns and workflow references",
+        "verification pattern 4"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/offensive-security/exploitdb",
+      "url": "https://github.com/gitleaks/gitleaks",
       "source_type": "github_repo",
-      "license": "GPL-2.0",
-      "version_or_commit": "master",
+      "license": "MIT",
+      "version_or_commit": "main",
       "used_for": [
-        "exploit database reference"
+        "penetration test execution: Gitleaks patterns and workflow references",
+        "verification pattern 5"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://attack.mitre.org/",
-      "source_type": "official_docs",
-      "license": "MITRE public",
-      "version_or_commit": "v14",
+      "url": "https://github.com/aquasecurity/trivy",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
       "used_for": [
-        "attack tactics and techniques mapping"
+        "penetration test execution: Trivy patterns and workflow references",
+        "verification pattern 6"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/owasp/www-project-top-10-for-large-language-model-applications",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "penetration test execution: OWASP LLM Top 10 patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OWASP/wstg",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "penetration test execution: OWASP Web Security Testing Guide patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OWASP/CheatSheetSeries",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "penetration test execution: OWASP Cheat Sheet Series patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/joernio/joern",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "penetration test execution: Joern patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "penetration test execution: Claude BugHunter patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "penetration test execution: Microsoft Agent Framework patterns and workflow references",
+        "verification pattern 12"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 5,
-    "official_docs": 3,
-    "github_quality": 91,
-    "license_safety": 93,
-    "maintenance": 89,
-    "pattern_clarity": 95,
-    "testability": 87,
+    "source_count": 12,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
     "total": 91
   },
   "promotion_decision": "staging"

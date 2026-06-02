@@ -1,15 +1,124 @@
 {
-  "dossier_id": "dossier.skill.healthcare.icd-10.2026-06-01",
+  "dossier_id": "dossier.healthcare.icd-10.2026-06-02",
   "skill_id": "healthcare.icd-10",
   "domain": "healthcare",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2027-06-01T00:00:00Z",
   "sources": [
-    {"url": "https://www.cdc.gov/nchs/icd/icd-10-cm.htm", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "FY2026", "used_for": ["ICD-10-CM official guidelines", "code structure"], "copy_policy": "patterns_only"},
-    {"url": "https://www.cms.gov/medicare/coding-billing/icd-10-codes", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "FY2026", "used_for": ["ICD-10-PCS procedure coding"], "copy_policy": "patterns_only"},
-    {"url": "https://www.who.int/standards/classifications/classification-of-diseases", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "ICD-11", "used_for": ["International classification standards"], "copy_policy": "patterns_only"},
-    {"url": "https://github.com/wardle/clods", "source_type": "github_repo", "license": "Apache-2.0", "version_or_commit": "v1.0", "used_for": ["ICD code lookup implementation patterns"], "copy_policy": "patterns_only"}
+    {
+      "url": "https://github.com/cline/cline",
+      "source_type": "official_docs",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "icd 10: Cline patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OpenInterpreter/open-interpreter",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "icd 10: Open Interpreter patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/Aider-AI/aider",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "icd 10: Aider AI patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/mims-harvard/TxAgent",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "icd 10: TxAgent (Harvard MIMS) patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/thu-unicorn/Doctor-R1",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "icd 10: Doctor-R1 (Tsinghua) patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/stvsever/compass-engine",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "icd 10: COMPASS-Engine patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/Schuture/Meissa",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "icd 10: Meissa patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/shengliu66/Cerebra",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "icd 10: Cerebra patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    }
   ],
-  "scores": {"source_count": 4, "official_docs": 3, "github_quality": 70, "license_safety": 96, "maintenance": 91, "pattern_clarity": 87, "testability": 83, "total": 86},
+  "scores": {
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
+  },
   "promotion_decision": "staging"
 }

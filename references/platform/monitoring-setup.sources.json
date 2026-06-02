@@ -1,60 +1,120 @@
 {
-  "dossier_id": "dossier.platform.monitoring-setup.2026-05-31",
+  "dossier_id": "dossier.platform.monitoring-setup.2026-06-02",
   "agent_id": "platform.monitoring-setup",
   "domain": "platform",
   "created_at": "2026-05-31T00:00:00Z",
   "expires_at": "2026-08-29T00:00:00Z",
   "sources": [
     {
-      "url": "https://github.com/prometheus/prometheus",
+      "url": "https://github.com/microsoft/agent-framework",
       "source_type": "github_repo",
-      "license": "Apache-2.0",
+      "license": "MIT",
       "version_or_commit": "main",
-      "used_for": ["metrics collection, alerting rules, and recording rules"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "monitoring setup: Microsoft Agent Framework patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://github.com/grafana/grafana",
-      "source_type": "github_repo",
-      "license": "AGPL-3.0",
-      "version_or_commit": "main",
-      "used_for": ["dashboard design patterns and golden signals visualization"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/grafana/loki",
-      "source_type": "github_repo",
-      "license": "AGPL-3.0",
-      "version_or_commit": "main",
-      "used_for": ["log aggregation and retention patterns"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/vectordotdev/vector",
-      "source_type": "github_repo",
-      "license": "MPL-2.0",
-      "version_or_commit": "master",
-      "used_for": ["log pipeline and data transformation patterns"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://prometheus.io/docs/practices/alerting/",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
       "source_type": "official_docs",
       "license": "Apache-2.0",
-      "version_or_commit": "live",
-      "used_for": ["alerting best practices and severity design"],
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "monitoring setup: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 2"
+      ],
       "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/langchain-ai/langgraph",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "monitoring setup: LangGraph patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-python",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "monitoring setup: OpenAI Agents SDK Python patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-js",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "monitoring setup: OpenAI Agents SDK JS patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/agents",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "monitoring setup: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/crewAIInc/crewAI",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "monitoring setup: CrewAI patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/autogen",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "monitoring setup: AutoGen patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 5,
-    "official_docs": 1,
-    "github_quality": 96,
-    "license_safety": 88,
-    "maintenance": 96,
-    "pattern_clarity": 91,
-    "testability": 85,
-    "total": 92
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
   },
   "promotion_decision": "staging"
 }

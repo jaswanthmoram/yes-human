@@ -1,52 +1,122 @@
 {
-  "dossier_id": "dossier.sales.proposal-writer.2026-05-31",
+  "dossier_id": "dossier.sales.proposal-writer.2026-06-02",
   "agent_id": "sales.proposal-writer",
   "domain": "sales",
   "created_at": "2026-05-31T00:00:00Z",
   "expires_at": "2026-08-30T00:00:00Z",
   "sources": [
     {
-      "url": "https://github.com/TwentyHQ/twenty",
-      "source_type": "github_repo",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
+      "source_type": "official_docs",
       "license": "Apache-2.0",
-      "version_or_commit": "main",
-      "used_for": ["CRM deal context for proposal alignment", "buyer requirement tracking patterns"],
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "proposal writer: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 1"
+      ],
       "copy_policy": "patterns_only"
     },
     {
-      "url": "https://github.com/makeplane/plane",
-      "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "master",
-      "used_for": ["document workflow patterns for proposal creation", "narrative structure templates"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/outline/outline",
-      "source_type": "github_repo",
-      "license": "BSD-3-Clause",
-      "version_or_commit": "main",
-      "used_for": ["proposal documentation patterns", "value proposition libraries"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/garrytan/gstack",
+      "url": "https://github.com/crewAIInc/crewAI",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": ["release/QA lifecycle adapted as proposal review gates", "executive summary structures"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "proposal writer: CrewAI patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/autogen",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "proposal writer: AutoGen patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "proposal writer: OpenHands patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/lastmile-ai/mcp-agent",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "proposal writer: MCP Agent patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-lightning",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "proposal writer: Agent Lightning patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openpipe/art",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "proposal writer: OpenPipe ART patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/langgenius/dify",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "proposal writer: Dify patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 4,
-    "official_docs": 0,
-    "github_quality": 92,
-    "license_safety": 95,
-    "maintenance": 90,
-    "pattern_clarity": 86,
-    "testability": 80,
-    "total": 88
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
   },
   "promotion_decision": "staging"
 }

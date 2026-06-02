@@ -5,159 +5,117 @@
   "expires_at": "2027-06-01T19:15:00Z",
   "sources": [
     {
-      "url": "https://gdpr.eu/",
+      "url": "https://github.com/openai/openai-agents-js",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: OpenAI Agents SDK JS patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/agents",
       "source_type": "official_docs",
-      "license": "Public Domain",
-      "version_or_commit": "2024",
-      "used_for": ["GDPR regulation", "data protection"],
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "sources.json: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 2"
+      ],
       "copy_policy": "patterns_only"
     },
     {
-      "url": "https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/soc.html",
-      "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["SOC 2 standards", "Trust Services Criteria"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/crewAIInc/crewAI",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: CrewAI patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://www.iso.org/isoiec-27001-information-security.html",
-      "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "ISO 27001:2022",
-      "used_for": ["ISO 27001 standard", "information security management"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/microsoft/autogen",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: AutoGen patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://resources.rework.com/guides/saas-buying-framework/soc2-iso27001-gdpr-for-buyers",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2026",
-      "used_for": ["SOC 2, ISO 27001, GDPR comparison", "compliance coverage map"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: OpenHands patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://echelongraph.io/compare",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["compliance framework comparison", "13 global standards"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/lastmile-ai/mcp-agent",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: MCP Agent patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://wearebrain.com/blog/comparing-soc-2-iso-27001-and-gdpr-compliance/",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["compliance overlaps", "unified control framework"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/microsoft/agent-lightning",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Agent Lightning patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://www.edpb.europa.eu/system/files/2024-02/eucloudcoc.pdf",
-      "source_type": "official_docs",
-      "license": "Public Domain",
-      "version_or_commit": "2024",
-      "used_for": ["EU Cloud Code of Conduct", "cloud service compliance"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://cyberneticsplus.com/whitepapers/compliance-iso27001-soc2-gdpr-guide/",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2025",
-      "used_for": ["multi-framework compliance", "shared controls mapping"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://theartofservice.com/blog/how-to-develop-multi-framework-compliance-strategy-for-soc-2",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2026",
-      "used_for": ["multi-framework compliance strategy", "simultaneous implementation"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://grcsolutions.io/maintaining-gdpr-and-data-privacy-compliance-in-2024/",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["GDPR compliance maintenance", "data privacy obligations"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.nedigital.com/es/blog/multi-framework-compliance",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["multi-framework compliance alignment", "redundancy reduction"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.koop.ai/blog/soc-iso-gdpr-and-more---a-guide-on-compliance-frameworks",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["compliance frameworks guide", "SOC, ISO, GDPR, HIPAA, PCI DSS"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://ssojet.com/blog/sso-compliance-requirements-compared-soc-2-iso-27001-hipaa-pci-dss-and-gdpr",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2026",
-      "used_for": ["SSO compliance requirements", "11 security frameworks"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.hipaajournal.com/",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["HIPAA compliance", "healthcare data protection"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.pcisecuritystandards.org/",
-      "source_type": "official_docs",
-      "license": "Proprietary",
-      "version_or_commit": "PCI DSS 4.0",
-      "used_for": ["PCI DSS standard", "payment card security"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.nist.gov/cyberframework",
-      "source_type": "official_docs",
-      "license": "Public Domain",
-      "version_or_commit": "NIST CSF 2.0",
-      "used_for": ["NIST Cybersecurity Framework", "risk management"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://oag.ca.gov/privacy/ccpa",
-      "source_type": "official_docs",
-      "license": "Public Domain",
-      "version_or_commit": "2024",
-      "used_for": ["CCPA/CPRA", "California privacy rights"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.ftc.gov/",
-      "source_type": "official_docs",
-      "license": "Public Domain",
-      "version_or_commit": "2024",
-      "used_for": ["FTC regulations", "consumer protection"],
-      "copy_policy": "patterns_only"
+      "url": "https://github.com/openpipe/art",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: OpenPipe ART patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 18,
-    "official_docs": 8,
-    "github_quality": 0,
-    "license_safety": 95,
-    "maintenance": 95,
-    "pattern_clarity": 92,
-    "testability": 85,
-    "total": 93
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
   },
   "promotion_decision": "production",
   "disclaimer_required": true,

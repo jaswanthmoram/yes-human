@@ -1,60 +1,122 @@
 {
-  "dossier_id": "dossier.skill.engineering.react-native.2026-05-31",
+  "dossier_id": "dossier.engineering.react-native.2026-06-02",
   "skill_id": "engineering.react-native",
   "domain": "engineering",
   "created_at": "2026-05-31T00:00:00Z",
   "expires_at": "2027-05-31T00:00:00Z",
   "sources": [
     {
-      "url": "https://reactnative.dev/docs",
-      "source_type": "official_docs",
-      "license": "CC-BY-4.0",
-      "version_or_commit": "0.76",
-      "used_for": ["React Native API reference", "new architecture"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/facebook/react-native",
+      "url": "https://github.com/aider-ai/aider",
       "source_type": "github_repo",
       "license": "MIT",
-      "version_or_commit": "v0.76.0",
-      "used_for": ["React Native implementation", "Fabric renderer"],
-      "copy_policy": "patterns_only"
+      "version_or_commit": "main",
+      "used_for": [
+        "react native: Aider patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://reactnavigation.org/docs",
-      "source_type": "official_docs",
-      "license": "MIT",
-      "version_or_commit": "7.0",
-      "used_for": ["navigation patterns", "typed routes"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://docs.expo.dev",
-      "source_type": "official_docs",
-      "license": "MIT",
-      "version_or_commit": "SDK 52",
-      "used_for": ["Expo patterns", "EAS build"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/expo/expo",
+      "url": "https://github.com/cline/cline",
       "source_type": "github_repo",
       "license": "MIT",
-      "version_or_commit": "SDK 52",
-      "used_for": ["Expo implementation", "Expo Router"],
+      "version_or_commit": "main",
+      "used_for": [
+        "react native: Cline patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/continuedev/continue",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "react native: Continue patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/SWE-agent/SWE-agent",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "react native: SWE-agent patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/All-Hands-AI/OpenHands",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "react native: OpenHands patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/automazeio/ccpm",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "react native: Claude Code PM patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "react native: Sourcegraph public snapshot patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://sourcegraph.com/docs/cody/core-concepts/context",
+      "source_type": "vendor_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "react native: Sourcegraph Cody context docs patterns and workflow references",
+        "verification pattern 8"
+      ],
       "copy_policy": "patterns_only"
     }
   ],
   "scores": {
-    "source_count": 5,
-    "official_docs": 3,
-    "github_quality": 92,
-    "license_safety": 95,
-    "maintenance": 93,
-    "pattern_clarity": 90,
-    "testability": 87,
-    "total": 91
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
   },
   "promotion_decision": "staging"
 }

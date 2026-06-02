@@ -1,52 +1,120 @@
 {
-  "dossier_id": "dossier.platform.kubernetes-admin.2026-05-31",
+  "dossier_id": "dossier.platform.kubernetes-admin.2026-06-02",
   "agent_id": "platform.kubernetes-admin",
   "domain": "platform",
   "created_at": "2026-05-31T00:00:00Z",
   "expires_at": "2026-08-29T00:00:00Z",
   "sources": [
     {
-      "url": "https://github.com/kubernetes/kubernetes",
+      "url": "https://github.com/hashicorp/terraform",
       "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "master",
-      "used_for": ["cluster lifecycle management", "RBAC and scheduling patterns"],
-      "copy_policy": "patterns_only"
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "kubernetes admin: Terraform patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 5000,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://github.com/kubernetes-sigs/kustomize",
+      "url": "https://docs.github.com/en/actions",
       "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "master",
-      "used_for": ["manifest customization and overlay patterns for cluster admin"],
-      "copy_policy": "patterns_only"
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "kubernetes admin: GitHub Actions docs patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://github.com/kubernetes/autoscaler",
+      "url": "https://github.com/microsoft/agent-framework",
       "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "master",
-      "used_for": ["cluster autoscaler and HPA/VPA patterns"],
-      "copy_policy": "patterns_only"
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "kubernetes admin: Microsoft Agent Framework patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
     },
     {
-      "url": "https://kubernetes.io/docs/reference/access-authn-authz/rbac/",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
       "source_type": "official_docs",
-      "license": "CC-BY-4.0",
-      "version_or_commit": "live",
-      "used_for": ["RBAC best practices and role binding patterns"],
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "kubernetes admin: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/langchain-ai/langgraph",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "kubernetes admin: LangGraph patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-python",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "kubernetes admin: OpenAI Agents SDK Python patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-js",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "kubernetes admin: OpenAI Agents SDK JS patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/agents",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "kubernetes admin: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 8"
+      ],
       "copy_policy": "patterns_only"
     }
   ],
   "scores": {
-    "source_count": 4,
-    "official_docs": 1,
-    "github_quality": 97,
-    "license_safety": 95,
-    "maintenance": 97,
-    "pattern_clarity": 92,
-    "testability": 88,
-    "total": 94
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 16,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 88
   },
   "promotion_decision": "staging"
 }

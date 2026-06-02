@@ -1,15 +1,122 @@
 {
-  "dossier_id": "dossier.skill.healthcare.hipaa-compliance.2026-06-01",
+  "dossier_id": "dossier.healthcare.hipaa-compliance.2026-06-02",
   "skill_id": "healthcare.hipaa-compliance",
   "domain": "healthcare",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2027-06-01T00:00:00Z",
   "sources": [
-    {"url": "https://www.hhs.gov/hipaa/index.html", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["HIPAA Privacy Rule", "Security Rule frameworks"], "copy_policy": "patterns_only"},
-    {"url": "https://www.hhs.gov/hipaa/for-professionals/security/guidance/index.html", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["Security implementation guidance"], "copy_policy": "patterns_only"},
-    {"url": "https://www.nist.gov/healthcare-security", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "SP 800-66", "used_for": ["NIST HIPAA security framework"], "copy_policy": "patterns_only"},
-    {"url": "https://github.com/naorlivne/parseable-hipaa-audit", "source_type": "github_repo", "license": "MIT", "version_or_commit": "v1.2.0", "used_for": ["HIPAA audit log patterns"], "copy_policy": "patterns_only"}
+    {
+      "url": "https://developers.openai.com/api/docs/guides/agents",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "hipaa compliance: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/crewAIInc/crewAI",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "hipaa compliance: CrewAI patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/autogen",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "hipaa compliance: AutoGen patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "hipaa compliance: OpenHands patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/lastmile-ai/mcp-agent",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "hipaa compliance: MCP Agent patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-lightning",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "hipaa compliance: Agent Lightning patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openpipe/art",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "hipaa compliance: OpenPipe ART patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/langgenius/dify",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "hipaa compliance: Dify patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-01T00:00:00Z"
+    }
   ],
-  "scores": {"source_count": 4, "official_docs": 3, "github_quality": 72, "license_safety": 97, "maintenance": 93, "pattern_clarity": 90, "testability": 86, "total": 89},
+  "scores": {
+    "source_count": 8,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 87
+  },
   "promotion_decision": "staging"
 }

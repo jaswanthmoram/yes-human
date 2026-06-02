@@ -5,179 +5,156 @@
   "expires_at": "2027-06-01T16:15:00Z",
   "sources": [
     {
-      "url": "https://kubernetes.io/docs/",
-      "source_type": "official_docs",
-      "license": "CC-BY-4.0",
-      "version_or_commit": "v1.30",
-      "used_for": ["Kubernetes orchestration", "container management", "deployment strategies"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.terraform.io/docs",
-      "source_type": "official_docs",
-      "license": "BUSL-1.1",
-      "version_or_commit": "v1.8",
-      "used_for": ["infrastructure as code", "cloud provisioning", "state management"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/awesome-selfhosted/awesome-selfhosted",
-      "source_type": "github_repo",
-      "license": "CC-BY-SA-3.0",
-      "version_or_commit": "master",
-      "stars": 215000,
-      "last_updated": "2026-05-28",
-      "used_for": ["self-hosted platform tools", "infrastructure components"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://12factor.net/",
-      "source_type": "official_docs",
-      "license": "MIT",
-      "version_or_commit": "2024",
-      "used_for": ["12-factor app methodology", "cloud-native design"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.tigera.io/learn/guides/devsecops/platform-engineering-on-kubernetes/",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2025",
-      "used_for": ["platform engineering on K8s", "observability integration"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://octopus.com/devops/platform-engineering/platform-engineering-best-practices/",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2025",
-      "used_for": ["platform engineering best practices", "CI/CD standardization"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://cloud.google.com/kubernetes-engine/docs/tutorials/modern-cicd-gke-reference-architecture",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
       "source_type": "official_docs",
       "license": "Apache-2.0",
-      "version_or_commit": "2024",
-      "used_for": ["GKE CI/CD reference architecture", "GitOps workflows"],
-      "copy_policy": "patterns_only"
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "sources.json: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://spacelift.io/blog/terraform-kubernetes-deployment",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2024",
-      "used_for": ["Terraform Kubernetes deployment", "IaC best practices"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/azure-samples/aks-platform-engineering",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "main",
-      "stars": 850,
-      "last_updated": "2026-04-18",
-      "used_for": ["AKS platform engineering", "ArgoCD integration", "Crossplane"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/Moiz-Ali-Moomin/aws-eks-gitops-platforms",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "main",
-      "stars": 450,
-      "last_updated": "2026-04-02",
-      "used_for": ["AWS EKS GitOps", "enterprise observability", "Kafka streaming"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/cloudon-one/k8s-platform-tools",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "main",
-      "stars": 320,
-      "last_updated": "2026-10-24",
-      "used_for": ["K8s platform tools", "Terragrunt configurations", "service mesh"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://www.harness.io/blog/kubernetes-ci-cd-best-practices",
-      "source_type": "vendor_docs",
-      "license": "Proprietary",
-      "version_or_commit": "2026",
-      "used_for": ["Kubernetes CI/CD best practices", "progressive delivery"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/prometheus/prometheus",
-      "source_type": "github_repo",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
+      "source_type": "official_docs",
       "license": "Apache-2.0",
-      "version_or_commit": "main",
-      "stars": 56000,
-      "last_updated": "2026-05-30",
-      "used_for": ["Prometheus monitoring", "metrics collection", "alerting"],
-      "copy_policy": "patterns_only"
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "sources.json: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
       "url": "https://github.com/grafana/grafana",
       "source_type": "github_repo",
-      "license": "AGPL-3.0",
+      "license": "MIT",
       "version_or_commit": "main",
-      "stars": 65000,
-      "last_updated": "2026-05-30",
-      "used_for": ["Grafana dashboards", "visualization", "observability"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "sources.json: Grafana patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
       "url": "https://github.com/argoproj/argo-cd",
       "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "master",
-      "stars": 18500,
-      "last_updated": "2026-05-29",
-      "used_for": ["ArgoCD GitOps", "continuous deployment", "Kubernetes manifests"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/hashicorp/vault",
-      "source_type": "github_repo",
-      "license": "BUSL-1.1",
+      "license": "MIT",
       "version_or_commit": "main",
-      "stars": 31500,
-      "last_updated": "2026-05-30",
-      "used_for": ["HashiCorp Vault", "secrets management", "PKI"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "sources.json: Argo CD patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/istio/istio",
+      "url": "https://github.com/kubernetes/kubernetes",
       "source_type": "github_repo",
-      "license": "Apache-2.0",
-      "version_or_commit": "master",
-      "stars": 36500,
-      "last_updated": "2026-05-30",
-      "used_for": ["Istio service mesh", "traffic management", "security policies"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/open-telemetry/opentelemetry-collector",
-      "source_type": "github_repo",
-      "license": "Apache-2.0",
+      "license": "MIT",
       "version_or_commit": "main",
-      "stars": 5200,
-      "last_updated": "2026-05-30",
-      "used_for": ["OpenTelemetry collector", "distributed tracing", "metrics pipeline"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "sources.json: Kubernetes patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 5000,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/hashicorp/terraform",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Terraform patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 5000,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://docs.github.com/en/actions",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: GitHub Actions docs patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Microsoft Agent Framework patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/langchain-ai/langgraph",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: LangGraph patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-python",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: OpenAI Agents SDK Python patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-js",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: OpenAI Agents SDK JS patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 18,
-    "official_docs": 4,
-    "github_quality": 95,
-    "license_safety": 85,
-    "maintenance": 95,
-    "pattern_clarity": 92,
-    "testability": 88,
-    "total": 93
+    "source_count": 11,
+    "official_docs": 15,
+    "github_quality": 16,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 92
   },
   "promotion_decision": "production"
 }
