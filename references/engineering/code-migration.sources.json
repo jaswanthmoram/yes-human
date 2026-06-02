@@ -1,0 +1,60 @@
+{
+  "dossier_id": "dossier.engineering.code-migration.2026-05-31",
+  "agent_id": "engineering.code-migration",
+  "domain": "engineering.migration",
+  "created_at": "2026-05-31T10:00:00Z",
+  "expires_at": "2026-08-29T10:00:00Z",
+  "sources": [
+    {
+      "url": "https://react.dev/blog/2024/04/25/react-19-upgrade-guide",
+      "source_type": "official_docs",
+      "license": "CC-BY-4.0",
+      "version_or_commit": "2026-05",
+      "used_for": ["framework upgrade migration patterns", "breaking change categorization"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://update.angular.io/",
+      "source_type": "official_docs",
+      "license": "CC-BY-4.0",
+      "version_or_commit": "2026-05",
+      "used_for": ["phased migration approach", "breaking change checklist structure"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/codemods/codemod",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": ["automated codemod patterns", "AST-based migration techniques"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/affaan-m/ECC",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "master",
+      "used_for": ["migration skill structure", "phased validation checklist"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/jscodeshift/jscodeshift",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": ["codemod tooling patterns", "incremental migration strategy"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 5,
+    "official_docs": 2,
+    "github_quality": 88,
+    "license_safety": 95,
+    "maintenance": 85,
+    "pattern_clarity": 86,
+    "testability": 82,
+    "total": 87
+  },
+  "promotion_decision": "staging"
+}

@@ -1,0 +1,157 @@
+{
+  "id": "hr.hiring-pipeline",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Design or refine a hiring pipeline with role criteria, candidate stages, and human-review checkpoints.",
+  "task_family": "hiring_process",
+  "triggers": [
+    "hiring pipeline design",
+    "interview process refresh",
+    "candidate stage review",
+    "onboarding handoff planning"
+  ],
+  "aliases": [
+    "hiring pipeline",
+    "interview pipeline"
+  ],
+  "negative_keywords": [
+    "tax filing",
+    "contract interpretation",
+    "campaign launch"
+  ],
+  "inputs": [
+    {
+      "name": "role_scope",
+      "required": true,
+      "description": "Role definition, level, and hiring objective."
+    },
+    {
+      "name": "team_context",
+      "required": true,
+      "description": "Interview capacity, stakeholders, and process constraints."
+    },
+    {
+      "name": "policy_constraints",
+      "required": false,
+      "description": "Internal policy, onboarding needs, or region-specific cautions."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "pipeline_design",
+      "description": "Candidate stages, owners, and stage goals."
+    },
+    {
+      "name": "evaluation_framework",
+      "description": "Role criteria, scorecard, and debrief structure."
+    },
+    {
+      "name": "onboarding_handoff_notes",
+      "description": "Offer-to-onboarding transition checklist with human approval points."
+    }
+  ],
+  "primary_agent": "hr.hiring-manager",
+  "route": {
+    "domain_master": "hr.master",
+    "agents": [
+      "hr.hiring-manager",
+      "hr.onboarding-coordinator"
+    ],
+    "primary_agent": "hr.hiring-manager",
+    "participants": [
+      "hr.onboarding-coordinator"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 3200,
+    "max_tool_calls": 8,
+    "notes": "High-stakes workflow. Preserve fairness and human decision ownership."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the request is process design or coordination support, not legal advice or autonomous hiring approval."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require role criteria and team context before drafting interview stages."
+    },
+    {
+      "id": "pre-write",
+      "rule": "Mark outputs as decision-support artifacts and include a human manager or HR-owner checkpoint."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Return clear stage ownership and note where policy, compensation, or offer decisions need human approval."
+    }
+  ],
+  "steps": [
+    {
+      "id": "define-role-criteria",
+      "agent": "hr.hiring-manager",
+      "action": "Set role outcomes, interview goals, and stage-level evaluation criteria."
+    },
+    {
+      "id": "map-pipeline-stages",
+      "agent": "hr.hiring-manager",
+      "action": "Lay out candidate stages, owners, timing expectations, and debrief moments."
+    },
+    {
+      "id": "prepare-onboarding-handoff",
+      "agent": "hr.onboarding-coordinator",
+      "action": "Add offer-to-start coordination steps, documentation needs, and onboarding readiness checkpoints."
+    },
+    {
+      "id": "publish-process-pack",
+      "agent": "hr.hiring-manager",
+      "action": "Merge the pipeline design and onboarding handoff into one reviewer-ready process pack."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read job profiles, process notes, and policy references."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Write a hiring process pack when requested."
+    }
+  ],
+  "verification": [
+    {
+      "id": "role-criteria-defined",
+      "method": "Check the workflow names role criteria before interview stages."
+    },
+    {
+      "id": "stage-owners-named",
+      "method": "Check each pipeline stage has an owner or responsible team."
+    },
+    {
+      "id": "human-approval-points-marked",
+      "method": "Check policy, offer, and onboarding approvals are explicitly human-owned."
+    }
+  ],
+  "success_criteria": [
+    "The pipeline can be executed without guessing stage purpose or ownership.",
+    "Evaluation guidance is structured and consistent enough to reduce ad hoc decision making.",
+    "The output clearly states that hiring, policy, and offer decisions remain with human managers or HR leads."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If the pipeline omits role criteria or approval points, revert to the role definition and rebuild stage and onboarding steps."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/hr/hiring-pipeline.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

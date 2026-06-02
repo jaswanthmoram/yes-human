@@ -1,0 +1,66 @@
+{
+  "domain": "integrations-specialists",
+  "description": "Routing fixtures for Wave-4 Integrations specialists.",
+  "fixtures": [
+    {
+      "prompt": "github issue triage",
+      "expected_route": "route.integrations.github-operator"
+    },
+    {
+      "prompt": "open github pr",
+      "expected_route": "route.integrations.github-operator"
+    },
+    {
+      "prompt": "github workflow run",
+      "expected_route": "route.integrations.github-operator"
+    },
+    {
+      "prompt": "repo label cleanup",
+      "expected_route": "route.integrations.github-operator"
+    },
+    {
+      "prompt": "github release draft",
+      "expected_route": "route.integrations.github-operator"
+    },
+    {
+      "prompt": "browser screenshot run",
+      "expected_route": "route.integrations.browser-auto"
+    },
+    {
+      "prompt": "web flow automation",
+      "expected_route": "route.integrations.browser-auto"
+    },
+    {
+      "prompt": "playwright journey check",
+      "expected_route": "route.integrations.browser-auto"
+    },
+    {
+      "prompt": "browser click path",
+      "expected_route": "route.integrations.browser-auto"
+    },
+    {
+      "prompt": "visual regression browse",
+      "expected_route": "route.integrations.browser-auto"
+    },
+    {
+      "prompt": "vercel deploy inspect",
+      "expected_route": "route.integrations.vercel-agent"
+    },
+    {
+      "prompt": "vercel build logs",
+      "expected_route": "route.integrations.vercel-agent"
+    },
+    {
+      "prompt": "vercel project config",
+      "expected_route": "route.integrations.vercel-agent"
+    },
+    {
+      "prompt": "edge function rollout",
+      "expected_route": "route.integrations.vercel-agent"
+    },
+    {
+      "prompt": "preview deployment check",
+      "expected_route": "route.integrations.vercel-agent"
+    }
+  ]
+}

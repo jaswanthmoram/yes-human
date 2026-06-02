@@ -1,0 +1,14 @@
+{
+  "dossier_id": "dossier.skill.design-content.design-tokens.2026-05-31",
+  "skill_id": "design-content.design-tokens",
+  "domain": "design-content",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2027-05-31T00:00:00Z",
+  "sources": [
+    {"url": "https://design-tokens.github.io/community-group/format/", "source_type": "official_docs", "license": "W3C", "version_or_commit": "2024", "used_for": ["Design Tokens W3C format", "token specification"], "copy_policy": "patterns_only"},
+    {"url": "https://amzn.github.io/style-dictionary/", "source_type": "official_docs", "license": "Apache-2.0", "version_or_commit": "2024", "used_for": ["Style Dictionary", "multi-platform tokens"], "copy_policy": "patterns_only"},
+    {"url": "https://uxdesign.cc/design-tokens-cheatsheet-2024-8e9c44bba590", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["token naming conventions", "token architecture"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 3, "official_docs": 2, "github_quality": 85, "license_safety": 92, "maintenance": 90, "pattern_clarity": 92, "testability": 88, "total": 90},
+  "promotion_decision": "staging"
+}

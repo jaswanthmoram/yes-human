@@ -1,0 +1,43 @@
+{
+  "skill_id": "meta-system.route-evaluation",
+  "dossier_id": "dossier.skill.meta-system.route-evaluation.2026-06-01",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Evaluation_measures",
+      "source_type": "official_docs",
+      "license": "CC-BY-SA-3.0",
+      "version_or_commit": "2024",
+      "used_for": ["evaluation metrics", "precision and recall"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/scikit-learn/scikit-learn",
+      "source_type": "github_repo",
+      "license": "BSD-3-Clause",
+      "version_or_commit": "main",
+      "used_for": ["scikit-learn metrics", "classification evaluation"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics.html",
+      "source_type": "vendor_docs",
+      "license": "SSPL-1.0",
+      "version_or_commit": "v8.11",
+      "used_for": ["search evaluation", "ranking metrics"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 2,
+    "github_quality": 92,
+    "license_safety": 88,
+    "maintenance": 91,
+    "pattern_clarity": 93,
+    "testability": 89,
+    "total": 91
+  },
+  "promotion_decision": "production"
+}

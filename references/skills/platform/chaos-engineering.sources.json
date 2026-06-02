@@ -1,0 +1,60 @@
+{
+  "dossier_id": "dossier.skill.platform.chaos-engineering.2026-06-01",
+  "skill_id": "platform.chaos-engineering",
+  "domain": "platform",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://principlesofchaos.org/",
+      "source_type": "official_docs",
+      "license": "CC-BY-4.0",
+      "version_or_commit": "2024",
+      "used_for": ["chaos engineering principles", "experiment design"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://chaos-mesh.org/docs/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "v2.6",
+      "used_for": ["Chaos Mesh", "Kubernetes fault injection"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://litmusdocs.litmuschaos.io/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "v3.0",
+      "used_for": ["Litmus chaos experiments", "experiment hub"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/fis/latest/userguide/what-is.html",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["AWS FIS", "cloud fault injection"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://netflix.github.io/chaosmonkey/",
+      "source_type": "community",
+      "license": "Apache-2.0",
+      "version_or_commit": "2024",
+      "used_for": ["Chaos Monkey", "random termination patterns"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 5,
+    "official_docs": 4,
+    "github_quality": 90,
+    "license_safety": 94,
+    "maintenance": 91,
+    "pattern_clarity": 92,
+    "testability": 86,
+    "total": 91
+  },
+  "promotion_decision": "staging"
+}

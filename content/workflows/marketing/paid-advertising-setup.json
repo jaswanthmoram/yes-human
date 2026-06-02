@@ -1,0 +1,153 @@
+{
+  "id": "marketing.paid-advertising-setup",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Design and structure paid advertising campaigns across search and social platforms with budget allocation and optimization plan.",
+  "task_family": "paid_advertising",
+  "triggers": [
+    "paid advertising campaign",
+    "ppc campaign setup",
+    "multi-platform ad campaign",
+    "paid media strategy"
+  ],
+  "aliases": [
+    "paid ads",
+    "ppc campaign"
+  ],
+  "negative_keywords": [
+    "organic seo",
+    "content marketing",
+    "email marketing"
+  ],
+  "inputs": [
+    {
+      "name": "campaign_objective",
+      "required": true,
+      "description": "Primary conversion goal and target CPA or ROAS."
+    },
+    {
+      "name": "platform_selection",
+      "required": true,
+      "description": "Advertising platforms to activate (Google, Meta, LinkedIn, etc.)."
+    },
+    {
+      "name": "budget_allocation",
+      "required": true,
+      "description": "Total budget and allocation preferences."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "campaign_structure",
+      "description": "Campaign, ad group, and keyword/audience structure per platform."
+    },
+    {
+      "name": "creative_brief",
+      "description": "Ad copy, creative requirements, and landing page alignment."
+    },
+    {
+      "name": "optimization_plan",
+      "description": "Bid strategy, testing plan, and optimization schedule."
+    }
+  ],
+  "primary_agent": "marketing.digital-marketer",
+  "route": {
+    "domain_master": "marketing.master",
+    "agents": [
+      "marketing.digital-marketer",
+      "marketing.sem-specialist"
+    ],
+    "primary_agent": "marketing.digital-marketer",
+    "participants": [
+      "marketing.sem-specialist"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 3200,
+    "max_tool_calls": 8,
+    "notes": "Focus on structured campaign design with clear budget logic."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the request is paid advertising rather than organic or content marketing."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require campaign objective, platforms, and budget before structuring."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Deliver campaign structure with creative brief and optimization plan."
+    }
+  ],
+  "steps": [
+    {
+      "id": "platform-strategy",
+      "agent": "marketing.digital-marketer",
+      "action": "Define platform-specific approach with budget allocation rationale."
+    },
+    {
+      "id": "search-structure",
+      "agent": "marketing.sem-specialist",
+      "action": "Structure search campaigns with keyword themes and bid strategy."
+    },
+    {
+      "id": "creative-planning",
+      "agent": "marketing.digital-marketer",
+      "action": "Plan ad creative, copy variations, and landing page alignment."
+    },
+    {
+      "id": "optimization-setup",
+      "agent": "marketing.sem-specialist",
+      "action": "Define testing plan, bid adjustments, and optimization schedule."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read existing campaign data and competitive intelligence."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Produce campaign structure and creative brief."
+    }
+  ],
+  "verification": [
+    {
+      "id": "structure-logical",
+      "method": "Check campaign structure follows platform best practices."
+    },
+    {
+      "id": "budget-justified",
+      "method": "Check budget allocation has clear rationale."
+    },
+    {
+      "id": "tracking-configured",
+      "method": "Check conversion tracking and attribution are planned."
+    }
+  ],
+  "success_criteria": [
+    "Campaign structure is logical and platform-appropriate.",
+    "Budget allocation is justified by expected performance.",
+    "Optimization plan includes testing and iteration schedule."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If budget allocation lacks justification, revert to platform strategy."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/marketing/paid-advertising-setup.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

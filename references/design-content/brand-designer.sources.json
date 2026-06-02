@@ -1,0 +1,14 @@
+{
+  "dossier_id": "dossier.design-content.brand-designer.2026-05-31",
+  "agent_id": "design-content.brand-designer",
+  "domain": "design-content",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {"url": "https://www.pentagram.com/work", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["Pentagram brand case studies", "identity design"], "copy_policy": "patterns_only"},
+    {"url": "https://vivaldigroup.com/brand-architecture-types-models-strategic-frameworks/", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "live", "used_for": ["brand architecture frameworks", "strategic branding"], "copy_policy": "patterns_only"},
+    {"url": "https://www.underconsideration.com/brandnew/", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["brand identity reviews", "logo design analysis"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 3, "official_docs": 0, "github_quality": 60, "license_safety": 86, "maintenance": 85, "pattern_clarity": 88, "testability": 80, "total": 82},
+  "promotion_decision": "staging"
+}

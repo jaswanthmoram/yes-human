@@ -1,0 +1,174 @@
+{
+  "id": "meta-system.agent-creation",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "End-to-end workflow for creating new agents with proper design, validation, dossier, and fixture generation.",
+  "task_family": "agent_lifecycle",
+  "triggers": [
+    "create new agent",
+    "agent creation workflow",
+    "onboard new agent",
+    "agent lifecycle start"
+  ],
+  "aliases": [
+    "agent onboarding",
+    "new agent workflow"
+  ],
+  "negative_keywords": [
+    "modify existing agent",
+    "delete agent",
+    "workflow creation"
+  ],
+  "inputs": [
+    {
+      "name": "agent_requirement",
+      "required": true,
+      "description": "The requirement specification for the new agent."
+    },
+    {
+      "name": "domain_context",
+      "required": true,
+      "description": "Domain context and existing agents in the target domain."
+    },
+    {
+      "name": "dossier_sources",
+      "required": false,
+      "description": "Sources to build the agent dossier from."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "agent_specification",
+      "description": "Complete agent specification with frontmatter and content."
+    },
+    {
+      "name": "agent_dossier",
+      "description": "Dossier with source provenance and quality score."
+    },
+    {
+      "name": "agent_fixtures",
+      "description": "Routing test fixtures for the new agent."
+    }
+  ],
+  "primary_agent": "meta-system.agent-designer",
+  "route": {
+    "domain_master": "meta-system.master",
+    "agents": [
+      "meta-system.agent-designer",
+      "meta-system.system-architect",
+      "meta-system.fixture-engineer",
+      "meta-system.dossier-evaluator"
+    ],
+    "primary_agent": "meta-system.agent-designer",
+    "participants": [
+      "meta-system.system-architect",
+      "meta-system.fixture-engineer",
+      "meta-system.dossier-evaluator"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 4000,
+    "max_tool_calls": 12,
+    "notes": "Stay focused on agent creation lifecycle only."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is new agent creation, not modification or deletion."
+    },
+    {
+      "id": "pre-design",
+      "rule": "Require agent requirement and domain context before design begins."
+    },
+    {
+      "id": "post-design",
+      "rule": "Agent specification must pass format and content validation."
+    },
+    {
+      "id": "post-dossier",
+      "rule": "Dossier score must be >= 80 before promotion to staging."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Return agent spec, dossier, and fixtures with all gates passed."
+    }
+  ],
+  "steps": [
+    {
+      "id": "design-agent",
+      "agent": "meta-system.agent-designer",
+      "action": "Design the agent specification with triggers, inputs, outputs, and verification."
+    },
+    {
+      "id": "review-architecture",
+      "agent": "meta-system.system-architect",
+      "action": "Review the agent design for architectural fit and boot token impact."
+    },
+    {
+      "id": "build-dossier",
+      "agent": "meta-system.dossier-evaluator",
+      "action": "Evaluate or create the agent dossier with source provenance and quality score."
+    },
+    {
+      "id": "generate-fixtures",
+      "agent": "meta-system.fixture-engineer",
+      "action": "Generate routing test fixtures for the new agent (5 fixtures minimum)."
+    },
+    {
+      "id": "validate-agent",
+      "agent": "meta-system.agent-designer",
+      "action": "Run final validation on the complete agent package."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read existing agents, registry data, and source materials."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Write agent specification, dossier, and fixture files."
+    },
+    {
+      "name": "shell.readonly",
+      "purpose": "Run validation scripts during agent creation."
+    }
+  ],
+  "verification": [
+    {
+      "id": "spec-complete",
+      "method": "Check agent specification has all required frontmatter fields and content sections."
+    },
+    {
+      "id": "dossier-score",
+      "method": "Verify dossier score is >= 80."
+    },
+    {
+      "id": "fixtures-present",
+      "method": "Check routing fixtures exist for the new agent (minimum 5)."
+    }
+  ],
+  "success_criteria": [
+    "Agent specification passes format and content validation.",
+    "Dossier score is >= 80 with complete provenance.",
+    "Routing fixtures cover positive, edge, and negative cases."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If any gate fails, revert to the step before the failure and report the issue."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/meta-system/agent-creation.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

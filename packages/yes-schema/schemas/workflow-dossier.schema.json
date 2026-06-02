@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Yes-human Workflow Source Dossier Schema",
+  "type": "object",
+  "required": [
+    "dossier_id",
+    "workflow_id",
+    "domain",
+    "created_at",
+    "expires_at",
+    "sources",
+    "scores",
+    "promotion_decision"
+  ],
+  "properties": {
+    "dossier_id": { "type": "string" },
+    "workflow_id": { "type": "string" },
+    "domain": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "expires_at": { "type": "string", "format": "date-time" },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["url", "source_type", "license", "version_or_commit", "used_for", "copy_policy"],
+        "properties": {
+          "url": { "type": "string", "format": "uri" },
+          "source_type": { "type": "string", "enum": ["github_repo", "official_docs", "official_blog", "official_book", "official_course", "official_specs", "standards_doc", "research_paper", "vendor_docs", "technical_blog"] },
+          "license": { "type": "string" },
+          "version_or_commit": { "type": "string" },
+          "used_for": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "copy_policy": { "type": "string", "enum": ["patterns_only", "exact_copy", "restricted"] }
+        }
+      }
+    },
+    "scores": {
+      "type": "object",
+      "required": [
+        "source_count",
+        "official_docs",
+        "github_quality",
+        "license_safety",
+        "maintenance",
+        "pattern_clarity",
+        "testability",
+        "total"
+      ],
+      "properties": {
+        "source_count": { "type": "integer", "minimum": 0 },
+        "official_docs": { "type": "integer", "minimum": 0 },
+        "github_quality": { "type": "integer", "minimum": 0 },
+        "license_safety": { "type": "integer", "minimum": 0 },
+        "maintenance": { "type": "integer", "minimum": 0 },
+        "pattern_clarity": { "type": "integer", "minimum": 0 },
+        "testability": { "type": "integer", "minimum": 0 },
+        "total": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "promotion_decision": { "type": "string", "enum": ["draft", "staging", "production"] }
+  },
+  "additionalProperties": false
+}

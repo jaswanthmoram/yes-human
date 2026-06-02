@@ -1,0 +1,109 @@
+{
+  "id": "product-business.feature-prioritization",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Run a structured feature prioritization process using frameworks and data to rank the backlog.",
+  "task_family": "planning",
+  "triggers": [
+    "prioritize the backlog",
+    "feature prioritization session",
+    "rank features for next quarter"
+  ],
+  "aliases": [
+    "backlog prioritization",
+    "feature ranking",
+    "priority session"
+  ],
+  "negative_keywords": [
+    "implement code now",
+    "deploy to production",
+    "security audit"
+  ],
+  "inputs": [
+    {
+      "name": "feature_backlog",
+      "required": true
+    },
+    {
+      "name": "strategic_goals",
+      "required": true
+    },
+    {
+      "name": "data_sources",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "prioritized_backlog"
+    },
+    {
+      "name": "scoring_rationale"
+    },
+    {
+      "name": "tradeoff_documentation"
+    }
+  ],
+  "primary_agent": "product-business.feature-prioritizer",
+  "route": {
+    "domain_master": "product-business.master",
+    "primary": "product-business.feature-prioritizer",
+    "participants": [
+      "product-business.product-manager",
+      "product-business.product-analyst"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 4000,
+    "max_tool_calls": 10
+  },
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "on-task-complete"
+  ],
+  "steps": [
+    {
+      "id": "gather-inputs",
+      "summary": "Collect feature list, strategic goals, and available data."
+    },
+    {
+      "id": "apply-framework",
+      "summary": "Score features using RICE, ICE, or MoSCoW framework."
+    },
+    {
+      "id": "validate-and-rank",
+      "summary": "Validate scores with data, rank features, and document tradeoffs."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "prioritization_template",
+    "analytics_query"
+  ],
+  "verification": [
+    "framework_applied_consistently",
+    "scores_backed_by_data",
+    "tradeoffs_documented"
+  ],
+  "success_criteria": [
+    "Prioritization framework is applied consistently across all features.",
+    "Scores are backed by available data and user research.",
+    "Tradeoffs are explicitly documented for stakeholder review."
+  ],
+  "rollback": {
+    "mode": "no_write",
+    "summary": "Prioritization workflow produces rankings but does not commit to delivery."
+  },
+  "source_references": [
+    "ref.workflow.product-business.feature-prioritization.2026-05-31"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

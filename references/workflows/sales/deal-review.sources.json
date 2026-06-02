@@ -1,0 +1,53 @@
+{
+  "dossier_id": "dossier.workflow.sales.deal-review.2026-06-01",
+  "workflow_id": "sales.deal-review",
+  "domain": "sales",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://www.hubspot.com/sales/sales-process",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "live",
+      "used_for": [
+        "deal-stage review structure",
+        "sales process terminology"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.pipedrive.com/en/blog/sales-pipeline-stages",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "live",
+      "used_for": [
+        "pipeline health heuristics",
+        "opportunity-stage risk review patterns"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/TwentyHQ/twenty",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": [
+        "CRM data-shape references",
+        "deal review artifact structure"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 0,
+    "github_quality": 84,
+    "license_safety": 90,
+    "maintenance": 86,
+    "pattern_clarity": 84,
+    "testability": 72,
+    "total": 83
+  },
+  "promotion_decision": "staging"
+}

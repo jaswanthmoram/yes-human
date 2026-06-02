@@ -1,0 +1,153 @@
+{
+  "id": "marketing.seo-audit-process",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Conduct a comprehensive SEO audit covering technical health, content gaps, and competitive positioning with prioritized remediation.",
+  "task_family": "seo_audit",
+  "triggers": [
+    "comprehensive seo audit",
+    "site seo health check",
+    "organic search audit",
+    "seo competitive analysis"
+  ],
+  "aliases": [
+    "seo audit",
+    "site audit"
+  ],
+  "negative_keywords": [
+    "paid search audit",
+    "social media audit",
+    "content writing"
+  ],
+  "inputs": [
+    {
+      "name": "site_url",
+      "required": true,
+      "description": "Target website URL to audit."
+    },
+    {
+      "name": "target_keywords",
+      "required": true,
+      "description": "Primary keyword themes to evaluate ranking and gaps."
+    },
+    {
+      "name": "competitor_urls",
+      "required": false,
+      "description": "Competitor sites for comparative analysis."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "audit_report",
+      "description": "Comprehensive findings covering technical, on-page, and off-page SEO."
+    },
+    {
+      "name": "issue_prioritization",
+      "description": "Ranked list of issues by impact, effort, and urgency."
+    },
+    {
+      "name": "remediation_roadmap",
+      "description": "Phased action plan with expected outcomes."
+    }
+  ],
+  "primary_agent": "marketing.seo-specialist",
+  "route": {
+    "domain_master": "marketing.master",
+    "agents": [
+      "marketing.seo-specialist",
+      "marketing.content-marketer"
+    ],
+    "primary_agent": "marketing.seo-specialist",
+    "participants": [
+      "marketing.content-marketer"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 3200,
+    "max_tool_calls": 8,
+    "notes": "Focus on actionable findings with clear prioritization."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the request is an SEO audit rather than a paid search or social audit."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require site URL and target keywords before beginning analysis."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Deliver audit with technical, content, and competitive sections plus prioritized roadmap."
+    }
+  ],
+  "steps": [
+    {
+      "id": "technical-crawl",
+      "agent": "marketing.seo-specialist",
+      "action": "Analyze crawlability, indexation, Core Web Vitals, and site architecture."
+    },
+    {
+      "id": "content-gap-analysis",
+      "agent": "marketing.content-marketer",
+      "action": "Compare content coverage against target keywords and competitors."
+    },
+    {
+      "id": "competitive-benchmark",
+      "agent": "marketing.seo-specialist",
+      "action": "Benchmark domain authority, backlink profile, and keyword overlap."
+    },
+    {
+      "id": "prioritize-and-roadmap",
+      "agent": "marketing.seo-specialist",
+      "action": "Rank issues by impact and produce phased remediation roadmap."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read existing SEO reports, analytics exports, and site data."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Produce audit report and remediation roadmap."
+    }
+  ],
+  "verification": [
+    {
+      "id": "technical-section-complete",
+      "method": "Check audit covers crawl, index, speed, and architecture."
+    },
+    {
+      "id": "content-gaps-mapped",
+      "method": "Check keyword gaps are mapped to content opportunities."
+    },
+    {
+      "id": "roadmap-prioritized",
+      "method": "Check remediation plan has impact-effort ranking."
+    }
+  ],
+  "success_criteria": [
+    "Audit covers technical, on-page, and off-page SEO dimensions.",
+    "Issues are prioritized with clear impact and effort estimates.",
+    "Remediation roadmap provides actionable next steps."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If audit data is incomplete or site is inaccessible, revert to scope confirmation."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/marketing/seo-audit-process.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

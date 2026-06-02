@@ -1,0 +1,16 @@
+{
+  "dossier_id": "dossier.workflow.integrations.microservices-integration.2026-06-01",
+  "workflow_id": "integrations.microservices-integration",
+  "domain": "integrations",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {"url": "https://microservices.io/patterns/index.html", "source_type": "technical_blog", "license": "Proprietary", "version_or_commit": "live", "used_for": ["microservices architecture patterns", "service decomposition strategies"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/istio/istio", "source_type": "github_repo", "license": "Apache-2.0", "version_or_commit": "master", "used_for": ["service mesh implementation", "traffic management and observability"], "copy_policy": "patterns_only"},
+    {"url": "https://grpc.io/docs/", "source_type": "official_docs", "license": "Apache-2.0", "version_or_commit": "live", "used_for": ["gRPC service communication", "protocol buffer definitions"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/open-telemetry/opentelemetry-collector", "source_type": "github_repo", "license": "Apache-2.0", "version_or_commit": "main", "used_for": ["distributed tracing integration", "observability pipeline patterns"], "copy_policy": "patterns_only"},
+    {"url": "https://dapr.io/", "source_type": "official_docs", "license": "Apache-2.0", "version_or_commit": "live", "used_for": ["distributed application runtime", "sidecar integration patterns"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 5, "official_docs": 3, "github_quality": 96, "license_safety": 97, "maintenance": 94, "pattern_clarity": 95, "testability": 90, "total": 95},
+  "promotion_decision": "staging"
+}

@@ -1,0 +1,19 @@
+{
+  "fixtures": [
+    {
+      "prompt": "convert PDF file to markdown format",
+      "expected_skill": "research.document-to-markdown",
+      "category": "research"
+    },
+    {
+      "prompt": "parse pptx to markdown",
+      "expected_skill": "research.document-to-markdown",
+      "category": "research"
+    },
+    {
+      "prompt": "process ppt to markdown",
+      "expected_skill": "research.document-to-markdown",
+      "category": "research"
+    }
+  ]
+}

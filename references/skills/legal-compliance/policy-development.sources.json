@@ -1,0 +1,52 @@
+{
+  "skill_id": "legal-compliance.policy-development",
+  "dossier_id": "dossier.skill.legal-compliance.policy-development.2026-06-01",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://www.iso.org/isoiec-27001-information-security.html",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": [
+        "policy framework patterns",
+        "ISMS structure"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.nist.gov/cyberframework",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": [
+        "governance framework patterns",
+        "policy taxonomy"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.sans.org/information-security-policy/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": [
+        "security policy templates",
+        "policy writing patterns"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 1,
+    "github_quality": 0,
+    "license_safety": 92,
+    "maintenance": 88,
+    "pattern_clarity": 86,
+    "testability": 82,
+    "total": 85
+  },
+  "promotion_decision": "staging"
+}

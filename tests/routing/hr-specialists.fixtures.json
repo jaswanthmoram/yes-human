@@ -1,0 +1,66 @@
+{
+  "domain": "hr-specialists",
+  "description": "Routing fixtures for Wave-4 Hr specialists.",
+  "fixtures": [
+    {
+      "prompt": "hiring process design",
+      "expected_route": "route.hr.hiring-manager"
+    },
+    {
+      "prompt": "interview loop plan",
+      "expected_route": "route.hr.hiring-manager"
+    },
+    {
+      "prompt": "role scorecard draft",
+      "expected_route": "route.hr.hiring-manager"
+    },
+    {
+      "prompt": "recruiting kickoff packet",
+      "expected_route": "route.hr.hiring-manager"
+    },
+    {
+      "prompt": "candidate debrief rubric",
+      "expected_route": "route.hr.hiring-manager"
+    },
+    {
+      "prompt": "new hire onboarding plan",
+      "expected_route": "route.hr.onboarding-coordinator"
+    },
+    {
+      "prompt": "new hire ramp schedule",
+      "expected_route": "route.hr.onboarding-coordinator"
+    },
+    {
+      "prompt": "first 30 60 90 plan",
+      "expected_route": "route.hr.onboarding-coordinator"
+    },
+    {
+      "prompt": "onboarding checklist build",
+      "expected_route": "route.hr.onboarding-coordinator"
+    },
+    {
+      "prompt": "manager onboarding brief",
+      "expected_route": "route.hr.onboarding-coordinator"
+    },
+    {
+      "prompt": "performance review framework",
+      "expected_route": "route.hr.performance-reviewer"
+    },
+    {
+      "prompt": "feedback calibration pass",
+      "expected_route": "route.hr.performance-reviewer"
+    },
+    {
+      "prompt": "promotion rubric review",
+      "expected_route": "route.hr.performance-reviewer"
+    },
+    {
+      "prompt": "growth plan template",
+      "expected_route": "route.hr.performance-reviewer"
+    },
+    {
+      "prompt": "manager review guidance",
+      "expected_route": "route.hr.performance-reviewer"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "dossier_id": "dossier.workflow.platform.cloud-migration.2026-06-01",
+  "workflow_id": "platform.cloud-migration",
+  "domain": "platform",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://aws.amazon.com/migration-hub/",
+      "source_type": "official_docs",
+      "license": "proprietary_reference",
+      "version_or_commit": "live",
+      "used_for": [
+        "AWS migration strategies and tooling",
+        "lift-and-shift and re-platform patterns"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://cloud.google.com/architecture/migration",
+      "source_type": "official_docs",
+      "license": "CC-BY-4.0",
+      "version_or_commit": "live",
+      "used_for": [
+        "GCP migration framework and phases",
+        "data transfer and validation patterns"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/migrate/",
+      "source_type": "official_docs",
+      "license": "CC-BY-4.0",
+      "version_or_commit": "live",
+      "used_for": [
+        "Azure migration methodology",
+        "cutover and rollback procedures"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/aws/aws-migration-acceleration-program",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": [
+        "migration assessment and planning templates",
+        "workload discovery and dependency mapping"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 3,
+    "github_quality": 88,
+    "license_safety": 93,
+    "maintenance": 90,
+    "pattern_clarity": 92,
+    "testability": 86,
+    "total": 89
+  },
+  "promotion_decision": "staging"
+}

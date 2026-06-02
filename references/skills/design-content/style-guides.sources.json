@@ -1,0 +1,14 @@
+{
+  "dossier_id": "dossier.skill.design-content.style-guides.2026-05-31",
+  "skill_id": "design-content.style-guides",
+  "domain": "design-content",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2027-05-31T00:00:00Z",
+  "sources": [
+    {"url": "https://styleguide.mailchimp.com/", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["Mailchimp style guide", "voice and tone"], "copy_policy": "patterns_only"},
+    {"url": "https://developers.google.com/style", "source_type": "official_docs", "license": "CC-BY-4.0", "version_or_commit": "2024", "used_for": ["Google style guide", "technical writing"], "copy_policy": "patterns_only"},
+    {"url": "https://content-guide.18f.gov/", "source_type": "official_docs", "license": "CC0-1.0", "version_or_commit": "2024", "used_for": ["18F content guide", "plain language"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 3, "official_docs": 2, "github_quality": 78, "license_safety": 94, "maintenance": 92, "pattern_clarity": 94, "testability": 88, "total": 91},
+  "promotion_decision": "staging"
+}

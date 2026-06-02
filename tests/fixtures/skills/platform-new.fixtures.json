@@ -1,0 +1,244 @@
+{
+  "fixtures": [
+    {
+      "prompt": "kubectl command patterns for managing deployments",
+      "expected_skill": "platform.kubectl-commands",
+      "category": "platform"
+    },
+    {
+      "prompt": "debug CrashLoopBackOff on pod",
+      "expected_skill": "platform.kubectl-commands",
+      "category": "platform"
+    },
+    {
+      "prompt": "inspect cluster resources and pod status",
+      "expected_skill": "platform.kubectl-commands",
+      "category": "platform"
+    },
+    {
+      "prompt": "create Helm chart for Node.js application",
+      "expected_skill": "platform.helm-charts",
+      "category": "platform"
+    },
+    {
+      "prompt": "debug Helm template rendering error",
+      "expected_skill": "platform.helm-charts",
+      "category": "platform"
+    },
+    {
+      "prompt": "Helm chart best practices and values structure",
+      "expected_skill": "platform.helm-charts",
+      "category": "platform"
+    },
+    {
+      "prompt": "design Terraform module for VPC",
+      "expected_skill": "platform.terraform-modules",
+      "category": "platform"
+    },
+    {
+      "prompt": "infrastructure as code patterns with Terraform",
+      "expected_skill": "platform.terraform-modules",
+      "category": "platform"
+    },
+    {
+      "prompt": "refactor monolithic terraform into modules",
+      "expected_skill": "platform.terraform-modules",
+      "category": "platform"
+    },
+    {
+      "prompt": "write Ansible playbook for server hardening",
+      "expected_skill": "platform.ansible-playbooks",
+      "category": "platform"
+    },
+    {
+      "prompt": "Ansible role development and idempotency",
+      "expected_skill": "platform.ansible-playbooks",
+      "category": "platform"
+    },
+    {
+      "prompt": "configuration management with Ansible inventory",
+      "expected_skill": "platform.ansible-playbooks",
+      "category": "platform"
+    },
+    {
+      "prompt": "create Prometheus alerting rules for high error rate",
+      "expected_skill": "platform.prometheus-alerts",
+      "category": "platform"
+    },
+    {
+      "prompt": "configure Alertmanager routing to PagerDuty",
+      "expected_skill": "platform.prometheus-alerts",
+      "category": "platform"
+    },
+    {
+      "prompt": "PromQL alert expressions for monitoring",
+      "expected_skill": "platform.prometheus-alerts",
+      "category": "platform"
+    },
+    {
+      "prompt": "create Grafana dashboard for SRE metrics",
+      "expected_skill": "platform.grafana-dashboards",
+      "category": "platform"
+    },
+    {
+      "prompt": "design metrics visualization panels in Grafana",
+      "expected_skill": "platform.grafana-dashboards",
+      "category": "platform"
+    },
+    {
+      "prompt": "export Grafana dashboard as code",
+      "expected_skill": "platform.grafana-dashboards",
+      "category": "platform"
+    },
+    {
+      "prompt": "set up ELK stack for log aggregation",
+      "expected_skill": "platform.elk-stack",
+      "category": "platform"
+    },
+    {
+      "prompt": "Elasticsearch index management and ILM policies",
+      "expected_skill": "platform.elk-stack",
+      "category": "platform"
+    },
+    {
+      "prompt": "create Kibana dashboard for application logs",
+      "expected_skill": "platform.elk-stack",
+      "category": "platform"
+    },
+    {
+      "prompt": "Istio configuration for traffic management",
+      "expected_skill": "platform.istio-config",
+      "category": "platform"
+    },
+    {
+      "prompt": "enable mTLS between services with Istio",
+      "expected_skill": "platform.istio-config",
+      "category": "platform"
+    },
+    {
+      "prompt": "canary deployment with Istio virtual service",
+      "expected_skill": "platform.istio-config",
+      "category": "platform"
+    },
+    {
+      "prompt": "ArgoCD application management and sync",
+      "expected_skill": "platform.argocd-apps",
+      "category": "platform"
+    },
+    {
+      "prompt": "debug ArgoCD sync failure",
+      "expected_skill": "platform.argocd-apps",
+      "category": "platform"
+    },
+    {
+      "prompt": "GitOps deployment with ArgoCD ApplicationSet",
+      "expected_skill": "platform.argocd-apps",
+      "category": "platform"
+    },
+    {
+      "prompt": "create GitHub Actions workflow for CI/CD",
+      "expected_skill": "platform.github-actions",
+      "category": "platform"
+    },
+    {
+      "prompt": "optimize slow GitHub Actions pipeline",
+      "expected_skill": "platform.github-actions",
+      "category": "platform"
+    },
+    {
+      "prompt": "reusable workflow patterns in GitHub Actions",
+      "expected_skill": "platform.github-actions",
+      "category": "platform"
+    },
+    {
+      "prompt": "design Jenkins pipeline for Java application",
+      "expected_skill": "platform.jenkins-pipelines",
+      "category": "platform"
+    },
+    {
+      "prompt": "create Jenkinsfile with shared library",
+      "expected_skill": "platform.jenkins-pipelines",
+      "category": "platform"
+    },
+    {
+      "prompt": "Jenkins pipeline optimization and parallel stages",
+      "expected_skill": "platform.jenkins-pipelines",
+      "category": "platform"
+    },
+    {
+      "prompt": "create docker-compose.yml for local development",
+      "expected_skill": "platform.docker-compose",
+      "category": "platform"
+    },
+    {
+      "prompt": "multi-container setup with Docker Compose",
+      "expected_skill": "platform.docker-compose",
+      "category": "platform"
+    },
+    {
+      "prompt": "Docker Compose networking and volumes",
+      "expected_skill": "platform.docker-compose",
+      "category": "platform"
+    },
+    {
+      "prompt": "AWS CLI command patterns for EC2 management",
+      "expected_skill": "platform.aws-cli",
+      "category": "platform"
+    },
+    {
+      "prompt": "manage S3 buckets with AWS CLI",
+      "expected_skill": "platform.aws-cli",
+      "category": "platform"
+    },
+    {
+      "prompt": "AWS CLI automation scripting with JMESPath",
+      "expected_skill": "platform.aws-cli",
+      "category": "platform"
+    },
+    {
+      "prompt": "gcloud CLI command patterns for GKE",
+      "expected_skill": "platform.gcloud-cli",
+      "category": "platform"
+    },
+    {
+      "prompt": "manage Cloud Run services with gcloud",
+      "expected_skill": "platform.gcloud-cli",
+      "category": "platform"
+    },
+    {
+      "prompt": "GCP resource management with gcloud CLI",
+      "expected_skill": "platform.gcloud-cli",
+      "category": "platform"
+    },
+    {
+      "prompt": "Azure CLI command patterns for AKS",
+      "expected_skill": "platform.azure-cli",
+      "category": "platform"
+    },
+    {
+      "prompt": "manage Azure VMs with az CLI",
+      "expected_skill": "platform.azure-cli",
+      "category": "platform"
+    },
+    {
+      "prompt": "Azure resource automation with az CLI scripting",
+      "expected_skill": "platform.azure-cli",
+      "category": "platform"
+    },
+    {
+      "prompt": "chaos engineering experiment design for Kubernetes",
+      "expected_skill": "platform.chaos-engineering",
+      "category": "platform"
+    },
+    {
+      "prompt": "fault injection testing with Chaos Mesh",
+      "expected_skill": "platform.chaos-engineering",
+      "category": "platform"
+    },
+    {
+      "prompt": "resilience testing and gameday planning",
+      "expected_skill": "platform.chaos-engineering",
+      "category": "platform"
+    }
+  ]
+}

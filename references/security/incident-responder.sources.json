@@ -1,0 +1,63 @@
+{
+  "dossier_id": "dossier.security.incident-responder.2026-05-31",
+  "agent_id": "security.incident-responder",
+  "domain": "security",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2026-08-29T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "Rev 2",
+      "used_for": ["NIST incident handling guide", "IR phases and procedures"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/falcosecurity/falco",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "master",
+      "stars": 7800,
+      "used_for": ["runtime threat detection", "incident detection rules"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/TheHive-Project/TheHive",
+      "source_type": "github_repo",
+      "license": "AGPL-3.0",
+      "version_or_commit": "main",
+      "stars": 3200,
+      "used_for": ["incident response platform patterns", "case management structure"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/dfir-iris/iris-web",
+      "source_type": "github_repo",
+      "license": "LGPL-3.0",
+      "version_or_commit": "main",
+      "stars": 1800,
+      "used_for": ["IR case management", "timeline construction patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.sans.org/white-papers/incident-response/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["SANS IR methodology", "forensic analysis patterns"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 5,
+    "official_docs": 1,
+    "github_quality": 88,
+    "license_safety": 90,
+    "maintenance": 87,
+    "pattern_clarity": 93,
+    "testability": 82,
+    "total": 88
+  },
+  "promotion_decision": "staging"
+}

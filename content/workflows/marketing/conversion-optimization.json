@@ -1,0 +1,153 @@
+{
+  "id": "marketing.conversion-optimization",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Systematically improve conversion rates through heuristic analysis, A/B test design, and data-driven optimization.",
+  "task_family": "conversion_optimization",
+  "triggers": [
+    "conversion rate optimization",
+    "cro program setup",
+    "landing page optimization",
+    "funnel conversion improvement"
+  ],
+  "aliases": [
+    "cro",
+    "conversion optimization"
+  ],
+  "negative_keywords": [
+    "traffic generation",
+    "seo audit",
+    "brand campaign"
+  ],
+  "inputs": [
+    {
+      "name": "conversion_goal",
+      "required": true,
+      "description": "Primary conversion action to optimize."
+    },
+    {
+      "name": "current_performance",
+      "required": true,
+      "description": "Baseline conversion rate and funnel data."
+    },
+    {
+      "name": "page_or_funnel_url",
+      "required": true,
+      "description": "URL of the page or funnel to optimize."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "cro_audit",
+      "description": "Heuristic analysis of current page or funnel performance."
+    },
+    {
+      "name": "test_hypotheses",
+      "description": "Prioritized list of testable hypotheses with expected impact."
+    },
+    {
+      "name": "optimization_roadmap",
+      "description": "Phased testing plan with timeline and success criteria."
+    }
+  ],
+  "primary_agent": "marketing.conversion-optimizer",
+  "route": {
+    "domain_master": "marketing.master",
+    "agents": [
+      "marketing.conversion-optimizer",
+      "marketing.marketing-analyst"
+    ],
+    "primary_agent": "marketing.conversion-optimizer",
+    "participants": [
+      "marketing.marketing-analyst"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 3200,
+    "max_tool_calls": 6,
+    "notes": "Focus on data-driven hypotheses and measurable outcomes."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the request is conversion optimization rather than traffic generation or SEO."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require conversion goal and baseline performance data."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Deliver audit with prioritized hypotheses and testing roadmap."
+    }
+  ],
+  "steps": [
+    {
+      "id": "data-analysis",
+      "agent": "marketing.marketing-analyst",
+      "action": "Analyze funnel data, drop-off points, and user behavior patterns."
+    },
+    {
+      "id": "heuristic-review",
+      "agent": "marketing.conversion-optimizer",
+      "action": "Evaluate pages using clarity, relevance, urgency, and distraction frameworks."
+    },
+    {
+      "id": "hypothesis-generation",
+      "agent": "marketing.conversion-optimizer",
+      "action": "Generate testable hypotheses ranked by impact, ease, and confidence."
+    },
+    {
+      "id": "test-roadmap",
+      "agent": "marketing.conversion-optimizer",
+      "action": "Create phased testing plan with sample sizes and success criteria."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read analytics data, heatmaps, and user research."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Produce CRO audit and optimization roadmap."
+    }
+  ],
+  "verification": [
+    {
+      "id": "baseline-documented",
+      "method": "Check current conversion rate and funnel metrics are documented."
+    },
+    {
+      "id": "hypotheses-data-backed",
+      "method": "Check each hypothesis references specific data evidence."
+    },
+    {
+      "id": "test-plan-complete",
+      "method": "Check test plan includes sample size, duration, and success criteria."
+    }
+  ],
+  "success_criteria": [
+    "CRO audit identifies key conversion barriers.",
+    "Hypotheses are data-backed and prioritized.",
+    "Testing roadmap provides clear next steps with expected impact."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If baseline data is insufficient, revert to data collection step."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/marketing/conversion-optimization.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

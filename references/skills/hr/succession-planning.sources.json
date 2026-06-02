@@ -1,0 +1,14 @@
+{
+  "dossier_id": "dossier.skill.hr.succession-planning.2026-06-01",
+  "skill_id": "hr.succession-planning",
+  "domain": "hr",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {"url": "https://www.shrm.org/topics-tools/topics/succession-planning", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "live", "used_for": ["succession planning frameworks", "critical role identification"], "copy_policy": "patterns_only"},
+    {"url": "https://www.ccl.org/", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "live", "used_for": ["leadership pipeline development"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/clef/handbook", "source_type": "github_repo", "license": "CC0-1.0", "version_or_commit": "master", "used_for": ["succession documentation patterns"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 3, "official_docs": 0, "github_quality": 80, "license_safety": 90, "maintenance": 86, "pattern_clarity": 88, "testability": 80, "total": 85},
+  "promotion_decision": "staging"
+}

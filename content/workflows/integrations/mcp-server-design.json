@@ -1,0 +1,111 @@
+{
+  "id": "integrations.mcp-server-design",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Design an MCP server or connector shape by grounding requirements in source systems, tool contracts, and host architecture.",
+  "task_family": "integration_design",
+  "triggers": [
+    "design an MCP server for this API",
+    "plan the connector interface",
+    "work out the tool contract for an MCP integration"
+  ],
+  "aliases": [
+    "mcp connector design",
+    "tooling server architecture",
+    "integration contract design"
+  ],
+  "negative_keywords": [
+    "implement the server now",
+    "general product roadmap",
+    "security scan only"
+  ],
+  "inputs": [
+    {
+      "name": "target_system",
+      "required": true
+    },
+    {
+      "name": "user_jobs_to_be_done",
+      "required": true
+    },
+    {
+      "name": "existing_api_docs",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "proposed_tool_surface"
+    },
+    {
+      "name": "auth_and_rate_limit_plan"
+    },
+    {
+      "name": "implementation_risks"
+    }
+  ],
+  "primary_agent": "integrations.master",
+  "route": {
+    "domain_master": "integrations.master",
+    "primary": "integrations.master",
+    "participants": [
+      "meta-system.source-miner",
+      "engineering.architect"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 3
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 4200,
+    "max_tool_calls": 12
+  },
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "pre-write",
+    "on-task-complete"
+  ],
+  "steps": [
+    {
+      "id": "mine-source-system",
+      "summary": "Inspect official API docs, auth constraints, quotas, and object model for the target system."
+    },
+    {
+      "id": "shape-tool-contract",
+      "summary": "Define the minimum useful MCP tools, inputs, outputs, and failure semantics for the user jobs."
+    },
+    {
+      "id": "review-architecture",
+      "summary": "Check hosting, caching, pagination, and observability choices against the current control-plane architecture."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "web.fetch_official_docs",
+    "schema_drafting",
+    "architecture_review"
+  ],
+  "verification": [
+    "tool_surface_maps_to_real_user_jobs",
+    "auth_constraints_are_explicit",
+    "design_lists_non_happy_path_behavior"
+  ],
+  "success_criteria": [
+    "The proposed tool surface is small, coherent, and grounded in vendor capabilities.",
+    "Authentication, rate limits, and pagination behavior are specified.",
+    "Architecture notes fit the existing repo direction instead of assuming a new platform."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "summary": "Revert or rewrite the generated design note if the tool contract proves inconsistent with the source system."
+  },
+  "source_references": [
+    "ref.workflow.integrations.mcp-server-design.2026-06-01"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

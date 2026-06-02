@@ -1,0 +1,66 @@
+{
+  "domain": "meta-system-specialists",
+  "description": "Routing fixtures for Wave-4 Meta System specialists.",
+  "fixtures": [
+    {
+      "prompt": "source map expansion",
+      "expected_route": "route.meta-system.source-miner"
+    },
+    {
+      "prompt": "find canonical sources",
+      "expected_route": "route.meta-system.source-miner"
+    },
+    {
+      "prompt": "dossier source mining",
+      "expected_route": "route.meta-system.source-miner"
+    },
+    {
+      "prompt": "provenance source pack",
+      "expected_route": "route.meta-system.source-miner"
+    },
+    {
+      "prompt": "reference validation pass",
+      "expected_route": "route.meta-system.source-miner"
+    },
+    {
+      "prompt": "absorb plugin bundle",
+      "expected_route": "route.meta-system.plugin-absorber"
+    },
+    {
+      "prompt": "import external harness",
+      "expected_route": "route.meta-system.plugin-absorber"
+    },
+    {
+      "prompt": "stage connector bundle",
+      "expected_route": "route.meta-system.plugin-absorber"
+    },
+    {
+      "prompt": "plugin intake review",
+      "expected_route": "route.meta-system.plugin-absorber"
+    },
+    {
+      "prompt": "adapter pack ingest",
+      "expected_route": "route.meta-system.plugin-absorber"
+    },
+    {
+      "prompt": "route evaluation run",
+      "expected_route": "route.meta-system.eval-runner"
+    },
+    {
+      "prompt": "quality gate sweep",
+      "expected_route": "route.meta-system.eval-runner"
+    },
+    {
+      "prompt": "promotion gate check",
+      "expected_route": "route.meta-system.eval-runner"
+    },
+    {
+      "prompt": "fixture threshold audit",
+      "expected_route": "route.meta-system.eval-runner"
+    },
+    {
+      "prompt": "registry validation pass",
+      "expected_route": "route.meta-system.eval-runner"
+    }
+  ]
+}

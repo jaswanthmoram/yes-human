@@ -1,0 +1,64 @@
+{
+  "dossier_id": "dossier.hr.performance-reviewer.2026-06-01",
+  "agent_id": "hr.performance-reviewer",
+  "domain": "hr",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/clef/handbook",
+      "source_type": "github_repo",
+      "license": "CC0-1.0",
+      "version_or_commit": "master",
+      "used_for": [
+        "Performance framework, calibration, and growth-plan workflow patterns",
+        "open-source employee handbook structure and section taxonomy"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/OsioLabs/emphandbook",
+      "source_type": "github_repo",
+      "license": "CC0-1.0",
+      "version_or_commit": "main",
+      "used_for": [
+        "Performance framework, calibration, and growth-plan workflow patterns",
+        "additional employee handbook template patterns"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/garrytan/gstack",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "Performance framework, calibration, and growth-plan workflow patterns",
+        "eng-management role lifecycle and review patterns adapted for HR manager workflows"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/TwentyHQ/twenty",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": [
+        "Performance framework, calibration, and growth-plan workflow patterns",
+        "people-data schema and workflow references"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 0,
+    "github_quality": 84,
+    "license_safety": 95,
+    "maintenance": 86,
+    "pattern_clarity": 82,
+    "testability": 75,
+    "total": 85
+  },
+  "promotion_decision": "staging"
+}

@@ -1,0 +1,64 @@
+{
+  "dossier_id": "dossier.marketing.seo-analyst.2026-06-01",
+  "agent_id": "marketing.seo-analyst",
+  "domain": "marketing",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/PostHog/posthog",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "master",
+      "used_for": [
+        "SEO analysis, metadata, and intent-mapping workflow patterns",
+        "product analytics, funnel, experimentation patterns for campaign analysis"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/withastro/astro",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "SEO analysis, metadata, and intent-mapping workflow patterns",
+        "content marketing site patterns, SEO-friendly publishing"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/gohugoio/hugo",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "master",
+      "used_for": [
+        "SEO analysis, metadata, and intent-mapping workflow patterns",
+        "content publishing pipeline patterns at scale"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/garmeeh/next-seo",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "master",
+      "used_for": [
+        "SEO analysis, metadata, and intent-mapping workflow patterns",
+        "SEO metadata, OpenGraph, JSON-LD schema patterns"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 0,
+    "github_quality": 92,
+    "license_safety": 95,
+    "maintenance": 90,
+    "pattern_clarity": 86,
+    "testability": 80,
+    "total": 89
+  },
+  "promotion_decision": "staging"
+}

@@ -1,0 +1,83 @@
+{
+  "domain": "finance-new",
+  "description": "Routing fixtures for Finance domain expansion agents (5 per agent, 65 total).",
+  "fixtures": [
+    {"prompt": "financial statement review for Q3", "expected_route": "route.finance.financial-analyst"},
+    {"prompt": "P&L trend analysis report", "expected_route": "route.finance.financial-analyst"},
+    {"prompt": "balance sheet health assessment", "expected_route": "route.finance.financial-analyst"},
+    {"prompt": "financial performance summary year-over-year", "expected_route": "route.finance.financial-analyst"},
+    {"prompt": "income statement variance review", "expected_route": "route.finance.financial-analyst"},
+
+    {"prompt": "investment opportunity evaluation for startup", "expected_route": "route.finance.investment-analyst"},
+    {"prompt": "equity research analysis on tech sector", "expected_route": "route.finance.investment-analyst"},
+    {"prompt": "fixed income assessment for bond portfolio", "expected_route": "route.finance.investment-analyst"},
+    {"prompt": "investment thesis review for Series B", "expected_route": "route.finance.investment-analyst"},
+    {"prompt": "portfolio position analysis for holdings", "expected_route": "route.finance.investment-analyst"},
+
+    {"prompt": "financial risk assessment for expansion", "expected_route": "route.finance.risk-manager"},
+    {"prompt": "enterprise risk review for new market entry", "expected_route": "route.finance.risk-manager"},
+    {"prompt": "risk mitigation plan for currency exposure", "expected_route": "route.finance.risk-manager"},
+    {"prompt": "risk register update for Q4", "expected_route": "route.finance.risk-manager"},
+    {"prompt": "risk exposure analysis for lending portfolio", "expected_route": "route.finance.risk-manager"},
+
+    {"prompt": "portfolio rebalancing review for pension fund", "expected_route": "route.finance.portfolio-manager"},
+    {"prompt": "asset allocation strategy for endowment", "expected_route": "route.finance.portfolio-manager"},
+    {"prompt": "portfolio performance attribution analysis", "expected_route": "route.finance.portfolio-manager"},
+    {"prompt": "investment policy statement review", "expected_route": "route.finance.portfolio-manager"},
+    {"prompt": "portfolio risk review with stress testing", "expected_route": "route.finance.portfolio-manager"},
+
+    {"prompt": "financial plan creation for growth phase", "expected_route": "route.finance.financial-planner"},
+    {"prompt": "long-term financial strategy for five year horizon", "expected_route": "route.finance.financial-planner"},
+    {"prompt": "cash flow projection plan for next fiscal year", "expected_route": "route.finance.financial-planner"},
+    {"prompt": "financial goal setting for capital expansion", "expected_route": "route.finance.financial-planner"},
+    {"prompt": "resource allocation framework for departments", "expected_route": "route.finance.financial-planner"},
+
+    {"prompt": "tax planning analysis for restructuring", "expected_route": "route.finance.tax-specialist"},
+    {"prompt": "tax compliance review for multi-state operations", "expected_route": "route.finance.tax-specialist"},
+    {"prompt": "tax provision calculation for quarterly filing", "expected_route": "route.finance.tax-specialist"},
+    {"prompt": "effective tax rate analysis by jurisdiction", "expected_route": "route.finance.tax-specialist"},
+    {"prompt": "tax impact assessment for acquisition", "expected_route": "route.finance.tax-specialist"},
+
+    {"prompt": "audit planning process for annual review", "expected_route": "route.finance.audit-specialist"},
+    {"prompt": "audit testing procedures for revenue cycle", "expected_route": "route.finance.audit-specialist"},
+    {"prompt": "audit findings review and documentation", "expected_route": "route.finance.audit-specialist"},
+    {"prompt": "internal audit assessment for controls", "expected_route": "route.finance.audit-specialist"},
+    {"prompt": "audit workpaper preparation for SOX", "expected_route": "route.finance.audit-specialist"},
+
+    {"prompt": "cash positioning review for month end", "expected_route": "route.finance.treasury-manager"},
+    {"prompt": "liquidity planning analysis for next quarter", "expected_route": "route.finance.treasury-manager"},
+    {"prompt": "treasury operations assessment and optimization", "expected_route": "route.finance.treasury-manager"},
+    {"prompt": "banking relationship review and fee analysis", "expected_route": "route.finance.treasury-manager"},
+    {"prompt": "cash management strategy for working capital", "expected_route": "route.finance.treasury-manager"},
+
+    {"prompt": "financial model build for acquisition target", "expected_route": "route.finance.financial-modeler"},
+    {"prompt": "DCF model creation for valuation", "expected_route": "route.finance.financial-modeler"},
+    {"prompt": "three-statement model for planning", "expected_route": "route.finance.financial-modeler"},
+    {"prompt": "sensitivity analysis setup for projections", "expected_route": "route.finance.financial-modeler"},
+    {"prompt": "scenario modeling for strategic plan", "expected_route": "route.finance.financial-modeler"},
+
+    {"prompt": "business valuation analysis for sale", "expected_route": "route.finance.valuation-expert"},
+    {"prompt": "company valuation review for reporting", "expected_route": "route.finance.valuation-expert"},
+    {"prompt": "asset valuation assessment for impairment", "expected_route": "route.finance.valuation-expert"},
+    {"prompt": "fair value determination for equity interest", "expected_route": "route.finance.valuation-expert"},
+    {"prompt": "valuation methodology selection for engagement", "expected_route": "route.finance.valuation-expert"},
+
+    {"prompt": "M&A deal screening for acquisition targets", "expected_route": "route.finance.m-and-a-specialist"},
+    {"prompt": "acquisition target analysis for strategic fit", "expected_route": "route.finance.m-and-a-specialist"},
+    {"prompt": "merger integration planning for post-close", "expected_route": "route.finance.m-and-a-specialist"},
+    {"prompt": "deal due diligence coordination for buy-side", "expected_route": "route.finance.m-and-a-specialist"},
+    {"prompt": "transaction structuring review for tax efficiency", "expected_route": "route.finance.m-and-a-specialist"},
+
+    {"prompt": "credit analysis review for loan application", "expected_route": "route.finance.credit-analyst"},
+    {"prompt": "creditworthiness assessment for new customer", "expected_route": "route.finance.credit-analyst"},
+    {"prompt": "borrower evaluation for credit facility", "expected_route": "route.finance.credit-analyst"},
+    {"prompt": "credit risk scoring for counterparty", "expected_route": "route.finance.credit-analyst"},
+    {"prompt": "counterparty credit review for derivatives", "expected_route": "route.finance.credit-analyst"},
+
+    {"prompt": "financial compliance review for SOX", "expected_route": "route.finance.compliance-officer"},
+    {"prompt": "SOX compliance check for key controls", "expected_route": "route.finance.compliance-officer"},
+    {"prompt": "AML compliance assessment for banking", "expected_route": "route.finance.compliance-officer"},
+    {"prompt": "KYC process review for onboarding", "expected_route": "route.finance.compliance-officer"},
+    {"prompt": "regulatory compliance audit preparation", "expected_route": "route.finance.compliance-officer"}
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "dossier_id": "dossier.agent.healthcare.population-health.2026-05-31",
+  "agent_id": "healthcare.population-health",
+  "domain": "healthcare",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2027-05-31T00:00:00Z",
+  "sources": [
+    {"url": "https://www.cdc.gov/populationhealth/", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["CDC population health", "public health strategies"], "copy_policy": "patterns_only"},
+    {"url": "https://www.cms.gov/priorities/innovation", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["CMS Innovation", "value-based care models"], "copy_policy": "patterns_only"},
+    {"url": "https://www.aha.org/population-health", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["AHA population health", "hospital population health"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 3, "official_docs": 2, "github_quality": 0, "license_safety": 92, "maintenance": 90, "pattern_clarity": 88, "testability": 82, "total": 86},
+  "promotion_decision": "staging"
+}

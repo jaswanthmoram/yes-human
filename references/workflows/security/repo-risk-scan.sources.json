@@ -1,0 +1,50 @@
+{
+  "dossier_id": "dossier.workflow.security.repo-risk-scan.2026-06-01",
+  "workflow_id": "security.repo-risk-scan",
+  "domain": "security",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://owasp.org/www-project-top-ten/",
+      "source_type": "official_docs",
+      "license": "OWASP free use",
+      "version_or_commit": "2021",
+      "used_for": [
+        "repo risk categories"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://semgrep.dev/docs/",
+      "source_type": "official_docs",
+      "license": "Semgrep Docs",
+      "version_or_commit": "live",
+      "used_for": [
+        "deterministic scanning workflow"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/gitleaks/gitleaks",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "master",
+      "used_for": [
+        "secret scanning patterns"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 2,
+    "github_quality": 89,
+    "license_safety": 94,
+    "maintenance": 88,
+    "pattern_clarity": 91,
+    "testability": 90,
+    "total": 90
+  },
+  "promotion_decision": "staging"
+}

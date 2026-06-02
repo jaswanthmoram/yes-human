@@ -1,0 +1,60 @@
+{
+  "dossier_id": "dossier.skill.engineering.schema-migration.2026-06-01",
+  "skill_id": "engineering.schema-migration",
+  "domain": "engineering",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://www.prisma.io/docs/concepts/components/prisma-migrate",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026",
+      "used_for": ["migration workflow", "schema diffing", "rollback patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/golang-migrate/migrate",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "v4.18.0",
+      "used_for": ["migration file format", "versioned migrations", "up/down pattern"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://flywaydb.org/documentation/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "10.x",
+      "used_for": ["migration ordering", "baseline migrations", "team workflows"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/ankane/strong_migrations",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": ["safe migration checks", "lock prevention", "zero-downtime patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://martinfowler.com/articles/evodb.html",
+      "source_type": "article",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["expand-contract pattern", "continuous delivery for databases"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 5,
+    "official_docs": 2,
+    "github_quality": 88,
+    "license_safety": 95,
+    "maintenance": 90,
+    "pattern_clarity": 92,
+    "testability": 85,
+    "total": 90
+  },
+  "promotion_decision": "staging"
+}

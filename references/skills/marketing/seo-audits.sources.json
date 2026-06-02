@@ -1,0 +1,42 @@
+{
+  "dossier_id": "dossier.skill.marketing.seo-audits.2026-05-31",
+  "skill_id": "marketing.seo-audits",
+  "domain": "marketing",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2027-05-31T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://moz.com/learn/seo",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "live",
+      "used_for": [
+        "Moz SEO audit methodology and guides",
+        "seo-audits skill patterns"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://blog.hubspot.com/marketing",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "live",
+      "used_for": [
+        "HubSpot marketing patterns",
+        "inbound methodology references"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 2,
+    "official_docs": 0,
+    "github_quality": 0,
+    "license_safety": 88,
+    "maintenance": 85,
+    "pattern_clarity": 86,
+    "testability": 80,
+    "total": 86
+  },
+  "promotion_decision": "staging"
+}

@@ -106,7 +106,7 @@ function cmdDoctor() {
   // Registry counts
   let countsOk = true;
   const countDetail = [];
-  for (const name of ['agents', 'skills', 'categories']) {
+  for (const name of ['agents', 'skills', 'workflows', 'categories', 'category-packs']) {
     try {
       const reg = readJSON(`registry/${name}.json`);
       const match = reg.count === reg.items.length;
@@ -507,6 +507,8 @@ Usage:
   yes route <task> [--dry-run]   Resolve a task to a route (--dry-run prints a PlanCard)
   yes eval cost                  Check startup token budget
   yes eval route                 Score routing fixtures against eval thresholds
+  yes eval workflow              Score workflow fixtures against eval thresholds
+  yes eval skill                 Score skill fixtures against eval thresholds
   yes validate                   Validate schemas, registries, routes, hooks, rules, policies
   yes compile                    Recompile registries and route table from content
   yes promote --check <agent>    Check if an agent's dossier qualifies for promotion
@@ -541,7 +543,9 @@ async function main() {
     case 'eval':
       if (rest[0] === 'cost') return runScript('packages/yes-schema/eval-cost.js');
       if (rest[0] === 'route') return runScript('packages/yes-schema/eval-route.js');
-      console.error(`Unknown eval subcommand: ${rest[0] ?? ''}. Try: yes eval cost | yes eval route`);
+      if (rest[0] === 'workflow') return runScript('packages/yes-schema/eval-workflow.js');
+      if (rest[0] === 'skill') return runScript('packages/yes-schema/eval-skill.js');
+      console.error(`Unknown eval subcommand: ${rest[0] ?? ''}. Try: yes eval cost | yes eval route | yes eval workflow | yes eval skill`);
       return 1;
     case 'validate':
       return runScript('packages/yes-schema/validate.js');

@@ -1,0 +1,143 @@
+{
+  "id": "engineering.backend-api-implementation",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Implement a backend API endpoint with request validation, business logic, error handling, and integration tests following project architecture patterns.",
+  "task_family": "feature_dev",
+  "triggers": [
+    "implement this API endpoint",
+    "create a new REST endpoint",
+    "build the backend route for this feature",
+    "add a new API handler",
+    "implement the service layer for this endpoint",
+    "create the CRUD API for this resource"
+  ],
+  "aliases": [
+    "API endpoint creation",
+    "backend route implementation",
+    "REST API build"
+  ],
+  "negative_keywords": [
+    "frontend only",
+    "database schema only",
+    "docs only"
+  ],
+  "inputs": [
+    {
+      "name": "endpoint_spec",
+      "required": true
+    },
+    {
+      "name": "data_model",
+      "required": false
+    },
+    {
+      "name": "auth_requirements",
+      "required": false
+    },
+    {
+      "name": "framework",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "route_handler"
+    },
+    {
+      "name": "validation_schema"
+    },
+    {
+      "name": "service_layer"
+    },
+    {
+      "name": "integration_tests"
+    }
+  ],
+  "primary_agent": "engineering.backend-builder",
+  "route": {
+    "domain_master": "engineering.master",
+    "primary": "engineering.backend-builder",
+    "participants": [
+      "security.security-reviewer"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 1
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 3400,
+    "max_tool_calls": 14
+  },
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "pre-write",
+    "post-tool",
+    "on-task-complete"
+  ],
+  "steps": [
+    {
+      "id": "analyze-architecture",
+      "summary": "Inspect existing routes, controllers, and middleware to understand the project's layered architecture patterns."
+    },
+    {
+      "id": "define-schema",
+      "summary": "Create request and response validation schemas using the project's validation library (Zod, Joi, etc.)."
+    },
+    {
+      "id": "implement-handler",
+      "summary": "Write the route handler with input validation, authorization checks, and proper error responses."
+    },
+    {
+      "id": "implement-service",
+      "summary": "Build the service or business logic layer with database access and domain operations."
+    },
+    {
+      "id": "write-tests",
+      "summary": "Write integration tests covering happy path, validation errors, auth failures, and edge cases."
+    },
+    {
+      "id": "register-route",
+      "summary": "Wire the new endpoint into the router, apply middleware, and update any route documentation."
+    },
+    {
+      "id": "verify",
+      "summary": "Run tests, lint, and type checks to confirm the endpoint works end-to-end."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "filesystem.write",
+    "test_runner",
+    "lint_runner",
+    "shell.readonly",
+    "diff_inspection"
+  ],
+  "verification": [
+    "endpoint_responds_correctly",
+    "validation_rejects_bad_input",
+    "auth_enforced",
+    "tests_pass",
+    "lint_passes",
+    "type_check_passes"
+  ],
+  "success_criteria": [
+    "Endpoint returns correct status codes and response shapes for all documented cases.",
+    "Input validation rejects malformed requests with clear error messages.",
+    "Authorization is enforced per the spec.",
+    "Integration tests cover happy path and at least two error paths."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "summary": "Remove the new route, handler, service, and test files; revert router registration changes."
+  },
+  "source_references": [
+    "ref.workflow.engineering.backend-api-implementation.2026-06-01"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

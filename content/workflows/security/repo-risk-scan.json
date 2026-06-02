@@ -1,0 +1,110 @@
+{
+  "id": "security.repo-risk-scan",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Assess a repository for security risk by combining baseline code review with dedicated secret scanning.",
+  "task_family": "security_review",
+  "triggers": [
+    "scan this repo for security risks",
+    "perform a repo risk scan",
+    "audit this repository before release"
+  ],
+  "aliases": [
+    "repository security scan",
+    "appsec repo review",
+    "secret and vuln sweep"
+  ],
+  "negative_keywords": [
+    "threat model a new design",
+    "fix build error",
+    "write product plan"
+  ],
+  "inputs": [
+    {
+      "name": "repo_path",
+      "required": true
+    },
+    {
+      "name": "scope_or_paths",
+      "required": false
+    },
+    {
+      "name": "scanner_output",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "risk_findings"
+    },
+    {
+      "name": "secret_exposure_findings"
+    },
+    {
+      "name": "remediation_priorities"
+    }
+  ],
+  "primary_agent": "security.security-reviewer",
+  "route": {
+    "domain_master": "security.master",
+    "primary": "security.security-reviewer",
+    "participants": [
+      "security.secret-scan-agent"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 4200,
+    "max_tool_calls": 12
+  },
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "post-tool",
+    "on-task-complete"
+  ],
+  "steps": [
+    {
+      "id": "baseline-scan",
+      "summary": "Run deterministic security scanners first and capture their raw outputs."
+    },
+    {
+      "id": "secret-scan",
+      "summary": "Sweep the same scope for committed secrets, tokens, keys, and credential patterns."
+    },
+    {
+      "id": "triage-and-confirm",
+      "summary": "Read the flagged code paths, drop false positives, and rank confirmed issues by severity."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "shell.readonly",
+    "security_scanner",
+    "secret_scanner"
+  ],
+  "verification": [
+    "scanner_output_consulted_first",
+    "every_finding_has_evidence",
+    "secret_findings_include_rotation_guidance"
+  ],
+  "success_criteria": [
+    "Confirmed findings include severity, evidence, and remediation direction.",
+    "Secret exposure results are reported separately from general code risks.",
+    "False positives are explicitly filtered or explained."
+  ],
+  "rollback": {
+    "mode": "no_write",
+    "summary": "Read-only assessment workflow."
+  },
+  "source_references": [
+    "ref.workflow.security.repo-risk-scan.2026-06-01"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

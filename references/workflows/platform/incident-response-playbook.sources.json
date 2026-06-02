@@ -1,0 +1,64 @@
+{
+  "dossier_id": "dossier.workflow.platform.incident-response-playbook.2026-06-01",
+  "workflow_id": "platform.incident-response-playbook",
+  "domain": "platform",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://sre.google/sre-book/managing-critical-incidents/",
+      "source_type": "official_docs",
+      "license": "CC-BY-4.0",
+      "version_or_commit": "live",
+      "used_for": [
+        "incident command structure",
+        "severity classification and communication patterns"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.atlassian.com/incident-management",
+      "source_type": "official_docs",
+      "license": "proprietary_reference",
+      "version_or_commit": "live",
+      "used_for": [
+        "incident lifecycle and post-mortem practices",
+        "stakeholder communication templates"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/dastergon/awesome-sre",
+      "source_type": "github_repo",
+      "license": "CC0-1.0",
+      "version_or_commit": "master",
+      "used_for": [
+        "curated incident management resources",
+        "post-mortem templates and tooling references"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.pagerduty.com/resources/",
+      "source_type": "official_docs",
+      "license": "proprietary_reference",
+      "version_or_commit": "live",
+      "used_for": [
+        "on-call and escalation patterns",
+        "incident response automation workflows"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 3,
+    "github_quality": 90,
+    "license_safety": 93,
+    "maintenance": 88,
+    "pattern_clarity": 94,
+    "testability": 85,
+    "total": 88
+  },
+  "promotion_decision": "staging"
+}

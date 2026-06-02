@@ -1,0 +1,148 @@
+{
+  "id": "security.security-compliance-check",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Verify security controls against compliance frameworks and identify gaps requiring remediation.",
+  "task_family": "compliance",
+  "triggers": [
+    "check compliance status",
+    "verify security controls",
+    "run a compliance audit",
+    "assess compliance posture",
+    "validate against framework",
+    "prepare for compliance certification"
+  ],
+  "aliases": [
+    "compliance verification",
+    "security controls audit",
+    "framework compliance check",
+    "regulatory compliance assessment"
+  ],
+  "negative_keywords": [
+    "code review",
+    "bug fix",
+    "feature development",
+    "performance optimization"
+  ],
+  "inputs": [
+    {
+      "name": "compliance_framework",
+      "required": true
+    },
+    {
+      "name": "current_controls_inventory",
+      "required": true
+    },
+    {
+      "name": "previous_assessment",
+      "required": false
+    },
+    {
+      "name": "evidence_repository",
+      "required": false
+    },
+    {
+      "name": "audit_scope",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "compliance_matrix"
+    },
+    {
+      "name": "control_gaps"
+    },
+    {
+      "name": "evidence_gaps"
+    },
+    {
+      "name": "remediation_plan"
+    },
+    {
+      "name": "certification_readiness_score"
+    }
+  ],
+  "primary_agent": "security.compliance-checker",
+  "route": {
+    "domain_master": "security.master",
+    "primary": "security.compliance-checker",
+    "participants": [
+      "security.security-reviewer",
+      "security.policy-analyst"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 3
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 5000,
+    "max_tool_calls": 16
+  },
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "post-tool",
+    "on-task-complete"
+  ],
+  "steps": [
+    {
+      "id": "framework-mapping",
+      "summary": "Map compliance framework requirements to existing security controls and policies."
+    },
+    {
+      "id": "control-assessment",
+      "summary": "Evaluate each control for design effectiveness and operational implementation."
+    },
+    {
+      "id": "evidence-collection",
+      "summary": "Gather and validate evidence demonstrating control effectiveness and compliance."
+    },
+    {
+      "id": "gap-analysis",
+      "summary": "Identify missing controls, weak implementations, and insufficient evidence."
+    },
+    {
+      "id": "risk-prioritization",
+      "summary": "Prioritize gaps by compliance risk, business impact, and remediation effort."
+    },
+    {
+      "id": "remediation-roadmap",
+      "summary": "Create a phased plan to address gaps and achieve compliance certification readiness."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "shell.readonly",
+    "policy_scanner",
+    "control_validator",
+    "evidence_collector",
+    "compliance_tracker"
+  ],
+  "verification": [
+    "all_framework_requirements_are_mapped",
+    "controls_are_assessed_for_design_and_operation",
+    "evidence_is_current_and_sufficient",
+    "gaps_are_prioritized_by_risk",
+    "remediation_plan_includes_timelines"
+  ],
+  "success_criteria": [
+    "Every framework requirement is mapped to a control or identified as a gap.",
+    "Control assessments distinguish between design and operational effectiveness.",
+    "Evidence gaps are explicitly called out with collection guidance.",
+    "Remediation plan is prioritized and includes effort estimates.",
+    "Certification readiness score reflects current posture accurately."
+  ],
+  "rollback": {
+    "mode": "no_write",
+    "summary": "Read-only compliance assessment with no system modifications."
+  },
+  "source_references": [
+    "ref.workflow.security.security-compliance-check.2026-06-01"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

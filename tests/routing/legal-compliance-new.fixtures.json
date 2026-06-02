@@ -1,0 +1,266 @@
+{
+  "domain": "legal-compliance-new",
+  "description": "Routing fixtures for Legal Compliance domain expansion (5 per agent, 65 total).",
+  "fixtures": [
+    {
+      "prompt": "contract drafting review",
+      "expected_route": "route.legal-compliance.contract-lawyer"
+    },
+    {
+      "prompt": "agreement clause analysis",
+      "expected_route": "route.legal-compliance.contract-lawyer"
+    },
+    {
+      "prompt": "contract term negotiation",
+      "expected_route": "route.legal-compliance.contract-lawyer"
+    },
+    {
+      "prompt": "breach of contract assessment",
+      "expected_route": "route.legal-compliance.contract-lawyer"
+    },
+    {
+      "prompt": "contract template creation",
+      "expected_route": "route.legal-compliance.contract-lawyer"
+    },
+    {
+      "prompt": "corporate governance review",
+      "expected_route": "route.legal-compliance.corporate-lawyer"
+    },
+    {
+      "prompt": "entity formation analysis",
+      "expected_route": "route.legal-compliance.corporate-lawyer"
+    },
+    {
+      "prompt": "board resolution drafting",
+      "expected_route": "route.legal-compliance.corporate-lawyer"
+    },
+    {
+      "prompt": "shareholder agreement review",
+      "expected_route": "route.legal-compliance.corporate-lawyer"
+    },
+    {
+      "prompt": "merger compliance check",
+      "expected_route": "route.legal-compliance.corporate-lawyer"
+    },
+    {
+      "prompt": "ip portfolio review",
+      "expected_route": "route.legal-compliance.ip-lawyer"
+    },
+    {
+      "prompt": "patent landscape analysis",
+      "expected_route": "route.legal-compliance.ip-lawyer"
+    },
+    {
+      "prompt": "trademark clearance search",
+      "expected_route": "route.legal-compliance.ip-lawyer"
+    },
+    {
+      "prompt": "licensing agreement review",
+      "expected_route": "route.legal-compliance.ip-lawyer"
+    },
+    {
+      "prompt": "trade secret protection audit",
+      "expected_route": "route.legal-compliance.ip-lawyer"
+    },
+    {
+      "prompt": "employment agreement review",
+      "expected_route": "route.legal-compliance.employment-lawyer"
+    },
+    {
+      "prompt": "workplace policy audit",
+      "expected_route": "route.legal-compliance.employment-lawyer"
+    },
+    {
+      "prompt": "termination clause analysis",
+      "expected_route": "route.legal-compliance.employment-lawyer"
+    },
+    {
+      "prompt": "wage compliance check",
+      "expected_route": "route.legal-compliance.employment-lawyer"
+    },
+    {
+      "prompt": "discrimination policy review",
+      "expected_route": "route.legal-compliance.employment-lawyer"
+    },
+    {
+      "prompt": "compliance program review",
+      "expected_route": "route.legal-compliance.compliance-officer"
+    },
+    {
+      "prompt": "control framework mapping",
+      "expected_route": "route.legal-compliance.compliance-officer"
+    },
+    {
+      "prompt": "regulatory change assessment",
+      "expected_route": "route.legal-compliance.compliance-officer"
+    },
+    {
+      "prompt": "audit readiness check",
+      "expected_route": "route.legal-compliance.compliance-officer"
+    },
+    {
+      "prompt": "compliance training gap analysis",
+      "expected_route": "route.legal-compliance.compliance-officer"
+    },
+    {
+      "prompt": "privacy impact assessment",
+      "expected_route": "route.legal-compliance.privacy-officer"
+    },
+    {
+      "prompt": "data protection audit",
+      "expected_route": "route.legal-compliance.privacy-officer"
+    },
+    {
+      "prompt": "cross-border transfer review",
+      "expected_route": "route.legal-compliance.privacy-officer"
+    },
+    {
+      "prompt": "consent mechanism audit",
+      "expected_route": "route.legal-compliance.privacy-officer"
+    },
+    {
+      "prompt": "breach notification analysis",
+      "expected_route": "route.legal-compliance.privacy-officer"
+    },
+    {
+      "prompt": "regulatory change tracking",
+      "expected_route": "route.legal-compliance.regulatory-affairs"
+    },
+    {
+      "prompt": "obligation mapping analysis",
+      "expected_route": "route.legal-compliance.regulatory-affairs"
+    },
+    {
+      "prompt": "regulatory submission preparation",
+      "expected_route": "route.legal-compliance.regulatory-affairs"
+    },
+    {
+      "prompt": "industry regulation review",
+      "expected_route": "route.legal-compliance.regulatory-affairs"
+    },
+    {
+      "prompt": "cross-jurisdiction compliance mapping",
+      "expected_route": "route.legal-compliance.regulatory-affairs"
+    },
+    {
+      "prompt": "case law research",
+      "expected_route": "route.legal-compliance.legal-researcher"
+    },
+    {
+      "prompt": "statutory interpretation analysis",
+      "expected_route": "route.legal-compliance.legal-researcher"
+    },
+    {
+      "prompt": "legal precedent search",
+      "expected_route": "route.legal-compliance.legal-researcher"
+    },
+    {
+      "prompt": "jurisdictional comparison study",
+      "expected_route": "route.legal-compliance.legal-researcher"
+    },
+    {
+      "prompt": "regulatory history review",
+      "expected_route": "route.legal-compliance.legal-researcher"
+    },
+    {
+      "prompt": "e-discovery organization",
+      "expected_route": "route.legal-compliance.litigation-support"
+    },
+    {
+      "prompt": "litigation document review",
+      "expected_route": "route.legal-compliance.litigation-support"
+    },
+    {
+      "prompt": "case preparation support",
+      "expected_route": "route.legal-compliance.litigation-support"
+    },
+    {
+      "prompt": "deposition summary drafting",
+      "expected_route": "route.legal-compliance.litigation-support"
+    },
+    {
+      "prompt": "trial exhibit organization",
+      "expected_route": "route.legal-compliance.litigation-support"
+    },
+    {
+      "prompt": "legal memo drafting",
+      "expected_route": "route.legal-compliance.legal-writer"
+    },
+    {
+      "prompt": "brief writing assistance",
+      "expected_route": "route.legal-compliance.legal-writer"
+    },
+    {
+      "prompt": "policy document drafting",
+      "expected_route": "route.legal-compliance.legal-writer"
+    },
+    {
+      "prompt": "legal opinion template",
+      "expected_route": "route.legal-compliance.legal-writer"
+    },
+    {
+      "prompt": "statutory analysis writeup",
+      "expected_route": "route.legal-compliance.legal-writer"
+    },
+    {
+      "prompt": "legal due diligence review",
+      "expected_route": "route.legal-compliance.due-diligence"
+    },
+    {
+      "prompt": "transaction document audit",
+      "expected_route": "route.legal-compliance.due-diligence"
+    },
+    {
+      "prompt": "data room organization",
+      "expected_route": "route.legal-compliance.due-diligence"
+    },
+    {
+      "prompt": "risk flag assessment",
+      "expected_route": "route.legal-compliance.due-diligence"
+    },
+    {
+      "prompt": "acquisition target screening",
+      "expected_route": "route.legal-compliance.due-diligence"
+    },
+    {
+      "prompt": "legal risk assessment",
+      "expected_route": "route.legal-compliance.risk-manager"
+    },
+    {
+      "prompt": "operational risk mapping",
+      "expected_route": "route.legal-compliance.risk-manager"
+    },
+    {
+      "prompt": "liability exposure analysis",
+      "expected_route": "route.legal-compliance.risk-manager"
+    },
+    {
+      "prompt": "risk mitigation planning",
+      "expected_route": "route.legal-compliance.risk-manager"
+    },
+    {
+      "prompt": "insurance coverage review",
+      "expected_route": "route.legal-compliance.risk-manager"
+    },
+    {
+      "prompt": "policy impact analysis",
+      "expected_route": "route.legal-compliance.policy-analyst"
+    },
+    {
+      "prompt": "regulatory proposal review",
+      "expected_route": "route.legal-compliance.policy-analyst"
+    },
+    {
+      "prompt": "internal policy audit",
+      "expected_route": "route.legal-compliance.policy-analyst"
+    },
+    {
+      "prompt": "stakeholder impact assessment",
+      "expected_route": "route.legal-compliance.policy-analyst"
+    },
+    {
+      "prompt": "policy comparison study",
+      "expected_route": "route.legal-compliance.policy-analyst"
+    }
+  ]
+}

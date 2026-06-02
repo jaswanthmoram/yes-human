@@ -1,0 +1,16 @@
+{
+  "dossier_id": "dossier.skill.manufacturing.manufacturing-analytics.2026-06-01",
+  "skill_id": "manufacturing.manufacturing-analytics",
+  "domain": "manufacturing",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {"url": "https://www.nist.gov/manufacturing/manufacturing-analytics", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["NIST manufacturing analytics frameworks"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/apache/iotdb", "source_type": "github_repo", "license": "Apache-2.0", "version_or_commit": "v1.3.0", "used_for": ["Time-series data for manufacturing"], "copy_policy": "patterns_only"},
+    {"url": "https://www.mesa.org/en/modelsofmanufacturing", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "MESA 2024", "used_for": ["MESA manufacturing analytics models"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/grafana/grafana", "source_type": "github_repo", "license": "AGPL-3.0", "version_or_commit": "v11.0.0", "used_for": ["Dashboard visualization for manufacturing KPIs"], "copy_policy": "patterns_only"},
+    {"url": "https://www.iso.org/standard/75037.html", "source_type": "official_docs", "license": "Proprietary", "version_or_commit": "ISO 22400-2:2024", "used_for": ["KPIs for manufacturing operations"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 5, "official_docs": 2, "github_quality": 90, "license_safety": 94, "maintenance": 95, "pattern_clarity": 89, "testability": 87, "total": 90},
+  "promotion_decision": "staging"
+}

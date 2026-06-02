@@ -1,0 +1,209 @@
+{
+  "description": "Fixtures for new marketing workflows (2 per workflow, 12 total)",
+  "fixtures": [
+    {
+      "id": "fixture.seo-audit-process.saas-site",
+      "workflow_id": "marketing.seo-audit-process",
+      "input": {
+        "site_url": "https://example-saas.com",
+        "target_keywords": [
+          "project management software",
+          "team collaboration tool"
+        ],
+        "competitor_urls": [
+          "https://competitor-a.com",
+          "https://competitor-b.com"
+        ]
+      },
+      "expected_outputs": [
+        "audit_report",
+        "issue_prioritization",
+        "remediation_roadmap"
+      ],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.seo-audit-process.ecommerce",
+      "workflow_id": "marketing.seo-audit-process",
+      "input": {
+        "site_url": "https://example-shop.com",
+        "target_keywords": [
+          "organic skincare",
+          "natural beauty products"
+        ],
+        "competitor_urls": [
+          "https://beauty-competitor.com"
+        ]
+      },
+      "expected_outputs": [
+        "audit_report",
+        "issue_prioritization",
+        "remediation_roadmap"
+      ],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.content-marketing-strategy.b2b",
+      "workflow_id": "marketing.content-marketing-strategy",
+      "input": {
+        "business_goals": "Generate MQLs and establish thought leadership in DevOps space",
+        "target_audience": "Engineering managers and CTOs at mid-market companies",
+        "existing_content": "12 blog posts, 3 whitepapers, no topic cluster structure"
+      },
+      "expected_outputs": [
+        "strategy_document",
+        "editorial_calendar",
+        "distribution_plan"
+      ],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.content-marketing-strategy.d2c",
+      "workflow_id": "marketing.content-marketing-strategy",
+      "input": {
+        "business_goals": "Drive organic traffic and brand awareness for sustainable fashion brand",
+        "target_audience": "Eco-conscious consumers aged 25-40",
+        "existing_content": "Weekly blog with inconsistent publishing, strong Instagram presence"
+      },
+      "expected_outputs": [
+        "strategy_document",
+        "editorial_calendar",
+        "distribution_plan"
+      ],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.email-campaign-creation.product-launch",
+      "workflow_id": "marketing.email-campaign-creation",
+      "input": {
+        "campaign_goal": "Announce new feature launch and drive trial signups",
+        "audience_segments": "Active free users, trial users, and dormant subscribers",
+        "content_theme": "New AI-powered analytics dashboard"
+      },
+      "expected_outputs": [
+        "campaign_brief",
+        "email_copy",
+        "compliance_checklist"
+      ],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.email-campaign-creation.newsletter",
+      "workflow_id": "marketing.email-campaign-creation",
+      "input": {
+        "campaign_goal": "Monthly newsletter to nurture existing leads",
+        "audience_segments": "MQLs and SQLs in the sales pipeline",
+        "content_theme": "Industry insights and product updates"
+      },
+      "expected_outputs": [
+        "campaign_brief",
+        "email_copy",
+        "compliance_checklist"
+      ],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.social-media-campaign.launch",
+      "workflow_id": "marketing.social-media-campaign",
+      "input": {
+        "campaign_objective": "Drive awareness and signups for product launch",
+        "target_platforms": [
+          "LinkedIn",
+          "Twitter/X",
+          "Instagram"
+        ],
+        "brand_guidelines": "Professional yet approachable, blue and white palette"
+      },
+      "expected_outputs": [
+        "campaign_strategy",
+        "content_calendar",
+        "measurement_plan"
+      ],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.social-media-campaign.thought-leadership",
+      "workflow_id": "marketing.social-media-campaign",
+      "input": {
+        "campaign_objective": "Establish CEO as thought leader in industry",
+        "target_platforms": [
+          "LinkedIn",
+          "Twitter/X"
+        ],
+        "brand_guidelines": "Authoritative, data-driven, executive tone"
+      },
+      "expected_outputs": [
+        "campaign_strategy",
+        "content_calendar",
+        "measurement_plan"
+      ],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.paid-advertising-setup.saas-trial",
+      "workflow_id": "marketing.paid-advertising-setup",
+      "input": {
+        "campaign_objective": "Drive free trial signups with target CPA of $50",
+        "platform_selection": [
+          "Google Search",
+          "LinkedIn Ads"
+        ],
+        "budget_allocation": "$10,000/month, 60% search, 40% LinkedIn"
+      },
+      "expected_outputs": [
+        "campaign_structure",
+        "creative_brief",
+        "optimization_plan"
+      ],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.paid-advertising-setup.ecommerce",
+      "workflow_id": "marketing.paid-advertising-setup",
+      "input": {
+        "campaign_objective": "Drive product purchases with target ROAS of 4x",
+        "platform_selection": [
+          "Google Shopping",
+          "Meta Ads"
+        ],
+        "budget_allocation": "$25,000/month, 50% shopping, 50% social"
+      },
+      "expected_outputs": [
+        "campaign_structure",
+        "creative_brief",
+        "optimization_plan"
+      ],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.conversion-optimization.signup-flow",
+      "workflow_id": "marketing.conversion-optimization",
+      "input": {
+        "conversion_goal": "Increase free trial signup rate from 2.1% to 3.5%",
+        "current_performance": "2.1% conversion rate, 65% drop-off at pricing page",
+        "page_or_funnel_url": "https://example.com/signup"
+      },
+      "expected_outputs": [
+        "cro_audit",
+        "test_hypotheses",
+        "optimization_roadmap"
+      ],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.conversion-optimization.checkout",
+      "workflow_id": "marketing.conversion-optimization",
+      "input": {
+        "conversion_goal": "Reduce cart abandonment from 72% to 60%",
+        "current_performance": "72% cart abandonment, 3.2% checkout completion",
+        "page_or_funnel_url": "https://example.com/checkout"
+      },
+      "expected_outputs": [
+        "cro_audit",
+        "test_hypotheses",
+        "optimization_roadmap"
+      ],
+      "expected_step_count": 4
+    }
+  ]
+}

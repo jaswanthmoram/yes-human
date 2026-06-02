@@ -1,0 +1,124 @@
+{
+  "fixtures": [
+    {
+      "prompt": "create a custom useFetch hook with loading and error states",
+      "expected_skill": "engineering.react-hooks"
+    },
+    {
+      "prompt": "fix stale closure in useEffect with async function",
+      "expected_skill": "engineering.react-hooks"
+    },
+    {
+      "prompt": "when should I use useReducer instead of useState",
+      "expected_skill": "engineering.react-hooks"
+    },
+    {
+      "prompt": "create a useAuth composable in Vue 3",
+      "expected_skill": "engineering.vue-composition"
+    },
+    {
+      "prompt": "migrate this options API component to composition API",
+      "expected_skill": "engineering.vue-composition"
+    },
+    {
+      "prompt": "fix reactivity loss when destructuring reactive object",
+      "expected_skill": "engineering.vue-composition"
+    },
+    {
+      "prompt": "build a SwiftUI navigation stack with typed routes",
+      "expected_skill": "engineering.swift-ui"
+    },
+    {
+      "prompt": "create reusable SwiftUI card component with state",
+      "expected_skill": "engineering.swift-ui"
+    },
+    {
+      "prompt": "fix slow SwiftUI compilation from complex view body",
+      "expected_skill": "engineering.swift-ui"
+    },
+    {
+      "prompt": "implement a Flow pipeline with error handling in Kotlin",
+      "expected_skill": "engineering.kotlin-coroutines"
+    },
+    {
+      "prompt": "replace callbacks with suspend functions",
+      "expected_skill": "engineering.kotlin-coroutines"
+    },
+    {
+      "prompt": "fix coroutine cancellation in long running loop",
+      "expected_skill": "engineering.kotlin-coroutines"
+    },
+    {
+      "prompt": "create a Next.js app router layout with streaming",
+      "expected_skill": "engineering.nextjs-app-router"
+    },
+    {
+      "prompt": "implement server action with input validation",
+      "expected_skill": "engineering.nextjs-app-router"
+    },
+    {
+      "prompt": "migrate from pages router to app router",
+      "expected_skill": "engineering.nextjs-app-router"
+    },
+    {
+      "prompt": "convert RxJS observable to Angular signal",
+      "expected_skill": "engineering.angular-signals"
+    },
+    {
+      "prompt": "create computed signal from multiple signal inputs",
+      "expected_skill": "engineering.angular-signals"
+    },
+    {
+      "prompt": "fix circular dependency in Angular computed signals",
+      "expected_skill": "engineering.angular-signals"
+    },
+    {
+      "prompt": "create a custom Svelte store with async data",
+      "expected_skill": "engineering.svelte-stores"
+    },
+    {
+      "prompt": "migrate Svelte 4 stores to Svelte 5 runes",
+      "expected_skill": "engineering.svelte-stores"
+    },
+    {
+      "prompt": "fix memory leak from unsubscribed Svelte store",
+      "expected_skill": "engineering.svelte-stores"
+    },
+    {
+      "prompt": "create a Flutter responsive layout with LayoutBuilder",
+      "expected_skill": "engineering.flutter-widgets"
+    },
+    {
+      "prompt": "implement Riverpod state management for shopping cart",
+      "expected_skill": "engineering.flutter-widgets"
+    },
+    {
+      "prompt": "fix Flutter widget rebuild performance",
+      "expected_skill": "engineering.flutter-widgets"
+    },
+    {
+      "prompt": "create React Native component with platform specific behavior",
+      "expected_skill": "engineering.react-native"
+    },
+    {
+      "prompt": "set up React Navigation with deep linking",
+      "expected_skill": "engineering.react-native"
+    },
+    {
+      "prompt": "optimize FlatList performance in React Native",
+      "expected_skill": "engineering.react-native"
+    },
+    {
+      "prompt": "create responsive layout with Tailwind CSS breakpoints",
+      "expected_skill": "engineering.tailwind-css"
+    },
+    {
+      "prompt": "configure Tailwind dark mode with custom strategy",
+      "expected_skill": "engineering.tailwind-css"
+    },
+    {
+      "prompt": "extract Tailwind utility classes into reusable component",
+      "expected_skill": "engineering.tailwind-css"
+    }
+  ]
+}

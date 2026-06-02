@@ -1,0 +1,62 @@
+{
+  "id": "research.literature-review-process",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Execute a structured literature review with systematic search, screening, data extraction, and narrative synthesis following PRISMA-aligned methodology.",
+  "task_family": "literature_review",
+  "triggers": ["literature review process", "structured review execution", "evidence review workflow", "bibliography synthesis project", "research background review"],
+  "aliases": ["lit review workflow", "evidence review"],
+  "negative_keywords": ["code review", "financial audit", "security scan"],
+  "inputs": [
+    {"name": "review_question", "required": true, "description": "The research question or topic to review."},
+    {"name": "search_strategy", "required": true, "description": "Databases, search terms, and Boolean operators to use."},
+    {"name": "inclusion_criteria", "required": true, "description": "Criteria for including and excluding studies."}
+  ],
+  "outputs": [
+    {"name": "prisma_flow", "description": "PRISMA flow diagram showing record counts at each stage."},
+    {"name": "evidence_table", "description": "Structured table of included studies with key characteristics."},
+    {"name": "narrative_synthesis", "description": "Narrative summary of findings organized by theme."}
+  ],
+  "primary_agent": "research.literature-reviewer",
+  "route": {
+    "domain_master": "research.master",
+    "agents": ["research.literature-reviewer", "research.scientific-literature-analyst"],
+    "primary_agent": "research.literature-reviewer",
+    "participants": ["research.scientific-literature-analyst"],
+    "parallel": false,
+    "max_parallel_agents": 2
+  },
+  "budget": {"band": "expanded", "max_context_tokens": 5000, "max_tool_calls": 20},
+  "gates": [
+    {"id": "pre-route", "rule": "Confirm the task is a literature review, not a code review or financial analysis."},
+    {"id": "pre-tool", "rule": "Require a documented search strategy before executing searches."},
+    {"id": "post-tool", "rule": "Verify inclusion criteria were applied consistently across all records."},
+    {"id": "on-task-complete", "rule": "Synthesis must distinguish well-supported from weakly-supported findings."}
+  ],
+  "steps": [
+    {"id": "define-protocol", "agent": "research.literature-reviewer", "action": "Define review protocol with objectives, search strategy, and eligibility criteria."},
+    {"id": "execute-search", "agent": "research.literature-reviewer", "action": "Execute systematic search across specified databases."},
+    {"id": "screen-records", "agent": "research.literature-reviewer", "action": "Screen titles, abstracts, and full texts against inclusion criteria."},
+    {"id": "extract-data", "agent": "research.scientific-literature-analyst", "action": "Extract key data from included studies into a structured table."},
+    {"id": "synthesize", "agent": "research.scientific-literature-analyst", "action": "Produce a narrative synthesis organized by theme with evidence quality grading."}
+  ],
+  "tools": [
+    {"name": "filesystem.read", "purpose": "Read local review protocols and prior review data."},
+    {"name": "web.search", "purpose": "Search academic databases for relevant literature."},
+    {"name": "web.fetch", "purpose": "Fetch abstracts and full texts from sources."},
+    {"name": "filesystem.write", "purpose": "Save review outputs including evidence tables and synthesis."}
+  ],
+  "verification": [
+    {"id": "search-documented", "method": "Verify search strategy is fully documented with terms and databases."},
+    {"id": "screening-consistent", "method": "Verify inclusion criteria applied consistently across all records."},
+    {"id": "synthesis-grounded", "method": "Verify synthesis claims are supported by extracted data."}
+  ],
+  "success_criteria": [
+    "The review follows a documented and reproducible search strategy.",
+    "All included studies are described in a structured evidence table.",
+    "The synthesis distinguishes strong from weak evidence."
+  ],
+  "rollback": {"mode": "no_write", "when": "If inclusion criteria were applied inconsistently, restart screening from the protocol."},
+  "source_references": [{"dossier_path": "references/workflows/research/literature-review-process.sources.json", "relationship": "workflow_dossier"}],
+  "promotion": {"can_learn": true, "min_successes_before_update": 2, "quality_gate": "staging"}
+}

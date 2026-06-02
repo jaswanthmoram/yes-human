@@ -1,0 +1,52 @@
+{
+  "dossier_id": "dossier.skill.security.key-management.2026-06-01",
+  "skill_id": "security.key-management",
+  "domain": "security",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "SP 800-57 Rev 5",
+      "used_for": ["key management guidelines", "key lifecycle"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["KMS concepts", "key policies"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://developer.hashicorp.com/vault/docs",
+      "source_type": "official_docs",
+      "license": "BSL-1.1",
+      "version_or_commit": "v1.16",
+      "used_for": ["secrets management", "transit engine"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Key_Management_Cheat_Sheet.html",
+      "source_type": "official_docs",
+      "license": "MIT",
+      "version_or_commit": "2024",
+      "used_for": ["key management patterns", "rotation guidance"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 4,
+    "github_quality": 87,
+    "license_safety": 92,
+    "maintenance": 93,
+    "pattern_clarity": 94,
+    "testability": 86,
+    "total": 90
+  },
+  "promotion_decision": "staging"
+}

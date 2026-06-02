@@ -1,0 +1,64 @@
+{
+  "dossier_id": "dossier.research.deep-researcher.2026-06-01",
+  "agent_id": "research.deep-researcher",
+  "domain": "research",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/assafelovic/gpt-researcher",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "master",
+      "used_for": [
+        "Multi-source deep research planning and synthesis patterns",
+        "multi-source deep-research loop"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/langchain-ai/open_deep_research",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "Multi-source deep research planning and synthesis patterns",
+        "configurable deep-research architecture"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/huangjia2019/agent-design-patterns",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "Multi-source deep research planning and synthesis patterns",
+        "research-agent pattern taxonomy"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/TsinghuaC3I/MARTI",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": [
+        "Multi-source deep research planning and synthesis patterns",
+        "multi-agent research toolkit reference"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 0,
+    "github_quality": 90,
+    "license_safety": 95,
+    "maintenance": 88,
+    "pattern_clarity": 90,
+    "testability": 78,
+    "total": 88
+  },
+  "promotion_decision": "staging"
+}

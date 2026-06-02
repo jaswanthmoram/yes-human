@@ -1,0 +1,52 @@
+{
+  "dossier_id": "dossier.platform.service-mesh.2026-05-31",
+  "agent_id": "platform.service-mesh",
+  "domain": "platform",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2026-08-29T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/istio/istio",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "master",
+      "used_for": ["service mesh architecture, traffic management, and mTLS patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/linkerd/linkerd2",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": ["lightweight service mesh and zero-config mTLS patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/cilium/cilium",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": ["eBPF-based networking and service mesh integration"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://istio.io/latest/docs/concepts/traffic-management/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "live",
+      "used_for": ["traffic management concepts and routing patterns"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 1,
+    "github_quality": 97,
+    "license_safety": 96,
+    "maintenance": 96,
+    "pattern_clarity": 91,
+    "testability": 85,
+    "total": 93
+  },
+  "promotion_decision": "staging"
+}

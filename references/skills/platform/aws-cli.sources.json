@@ -1,0 +1,52 @@
+{
+  "dossier_id": "dossier.skill.platform.aws-cli.2026-06-01",
+  "skill_id": "platform.aws-cli",
+  "domain": "platform",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://docs.aws.amazon.com/cli/latest/userguide/",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "v2",
+      "used_for": ["AWS CLI user guide", "command patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "v2",
+      "used_for": ["CLI reference", "service commands"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-output.html",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "v2",
+      "used_for": ["output formatting", "JMESPath queries"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://jmespath.org/",
+      "source_type": "community",
+      "license": "MIT",
+      "version_or_commit": "2024",
+      "used_for": ["JMESPath specification", "query examples"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 3,
+    "github_quality": 89,
+    "license_safety": 90,
+    "maintenance": 93,
+    "pattern_clarity": 91,
+    "testability": 87,
+    "total": 90
+  },
+  "promotion_decision": "staging"
+}

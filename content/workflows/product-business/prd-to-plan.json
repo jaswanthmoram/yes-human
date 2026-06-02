@@ -1,0 +1,108 @@
+{
+  "id": "product-business.prd-to-plan",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Convert a PRD into an execution plan with scope, sequencing, dependencies, and operating constraints.",
+  "task_family": "planning",
+  "triggers": [
+    "turn this PRD into an execution plan",
+    "break this product doc into work",
+    "convert requirements into an operating plan"
+  ],
+  "aliases": [
+    "prd breakdown",
+    "requirements to plan",
+    "product execution plan"
+  ],
+  "negative_keywords": [
+    "implement code now",
+    "repo security scan",
+    "design accessibility audit"
+  ],
+  "inputs": [
+    {
+      "name": "prd",
+      "required": true
+    },
+    {
+      "name": "constraints",
+      "required": false
+    },
+    {
+      "name": "target_timeline",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "sequenced_work_plan"
+    },
+    {
+      "name": "dependencies_and_risks"
+    },
+    {
+      "name": "open_questions"
+    }
+  ],
+  "primary_agent": "product-business.product-manager",
+  "route": {
+    "domain_master": "product-business.master",
+    "primary": "product-business.product-manager",
+    "participants": [
+      "product-business.operations-planner"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 3000,
+    "max_tool_calls": 10
+  },
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "on-task-complete"
+  ],
+  "steps": [
+    {
+      "id": "extract-scope",
+      "summary": "Pull the goals, users, requirements, constraints, and non-goals out of the PRD."
+    },
+    {
+      "id": "sequence-work",
+      "summary": "Break the work into phases with dependencies, milestones, and decision points."
+    },
+    {
+      "id": "stress-plan",
+      "summary": "Check for resourcing, operational, launch, and feedback-loop gaps before finalizing the plan."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "doc_parser",
+    "planning_template"
+  ],
+  "verification": [
+    "every_major_requirement_has_plan_coverage",
+    "dependencies_and_open_questions_are_explicit",
+    "plan_reflects_stated_constraints"
+  ],
+  "success_criteria": [
+    "The plan is sequenced rather than a flat task list.",
+    "Dependencies, risks, and unresolved assumptions are visible.",
+    "The output is usable by product and operations without restating the PRD."
+  ],
+  "rollback": {
+    "mode": "no_write",
+    "summary": "Planning workflow does not modify product scope by itself."
+  },
+  "source_references": [
+    "ref.workflow.product-business.prd-to-plan.2026-06-01"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

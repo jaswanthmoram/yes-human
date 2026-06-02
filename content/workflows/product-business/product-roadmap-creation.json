@@ -1,0 +1,113 @@
+{
+  "id": "product-business.product-roadmap-creation",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Build a product roadmap aligned to strategy with themes, initiatives, dependencies, and success metrics.",
+  "task_family": "planning",
+  "triggers": [
+    "build the product roadmap",
+    "create roadmap for next quarter",
+    "roadmap creation process"
+  ],
+  "aliases": [
+    "roadmap build",
+    "quarterly roadmap",
+    "strategic roadmap"
+  ],
+  "negative_keywords": [
+    "implement code now",
+    "deploy to production",
+    "security audit"
+  ],
+  "inputs": [
+    {
+      "name": "strategic_goals",
+      "required": true
+    },
+    {
+      "name": "initiative_backlog",
+      "required": true
+    },
+    {
+      "name": "resource_constraints",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "product_roadmap"
+    },
+    {
+      "name": "dependency_matrix"
+    },
+    {
+      "name": "success_metrics_per_theme"
+    }
+  ],
+  "primary_agent": "product-business.roadmap-planner",
+  "route": {
+    "domain_master": "product-business.master",
+    "primary": "product-business.roadmap-planner",
+    "participants": [
+      "product-business.product-strategist",
+      "product-business.feature-prioritizer"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 5000,
+    "max_tool_calls": 12
+  },
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "on-task-complete"
+  ],
+  "steps": [
+    {
+      "id": "define-themes",
+      "summary": "Define strategic themes aligned to business goals."
+    },
+    {
+      "id": "map-initiatives",
+      "summary": "Map initiatives to themes, estimate effort, and identify dependencies."
+    },
+    {
+      "id": "sequence-and-commit",
+      "summary": "Sequence work into time horizons and define success metrics per theme."
+    },
+    {
+      "id": "communicate-roadmap",
+      "summary": "Create stakeholder-specific views and communication plan."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "roadmap_template",
+    "planning_tool"
+  ],
+  "verification": [
+    "themes_aligned_to_strategy",
+    "dependencies_mapped",
+    "success_metrics_defined"
+  ],
+  "success_criteria": [
+    "Roadmap themes are aligned to strategic goals.",
+    "Dependencies are mapped and visible.",
+    "Success metrics are defined for each theme."
+  ],
+  "rollback": {
+    "mode": "no_write",
+    "summary": "Roadmap creation does not commit to delivery; it is a planning artifact."
+  },
+  "source_references": [
+    "ref.workflow.product-business.product-roadmap-creation.2026-05-31"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

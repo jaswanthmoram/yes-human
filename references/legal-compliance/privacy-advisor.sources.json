@@ -1,0 +1,64 @@
+{
+  "dossier_id": "dossier.legal-compliance.privacy-advisor.2026-06-01",
+  "agent_id": "legal-compliance.privacy-advisor",
+  "domain": "legal-compliance",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/open-agreements/open-agreements",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "Privacy review, data-flow analysis, and DPIA-style workflow patterns",
+        "open-source contract template structure and clause taxonomy"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/DrBaher/nda-review-cli",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "Privacy review, data-flow analysis, and DPIA-style workflow patterns",
+        "NDA review CLI patterns and triage classification"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/outline/outline",
+      "source_type": "github_repo",
+      "license": "BSD-3-Clause",
+      "version_or_commit": "main",
+      "used_for": [
+        "Privacy review, data-flow analysis, and DPIA-style workflow patterns",
+        "document workflow and review-process patterns"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/OWASP/CheatSheetSeries",
+      "source_type": "github_repo",
+      "license": "CC0-1.0",
+      "version_or_commit": "master",
+      "used_for": [
+        "Privacy review, data-flow analysis, and DPIA-style workflow patterns",
+        "privacy and security cheat-sheet patterns for compliance reviews"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 0,
+    "github_quality": 88,
+    "license_safety": 95,
+    "maintenance": 85,
+    "pattern_clarity": 85,
+    "testability": 78,
+    "total": 86
+  },
+  "promotion_decision": "staging"
+}

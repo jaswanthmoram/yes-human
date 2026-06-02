@@ -1,0 +1,125 @@
+{
+  "description": "Fixtures for new startup-ops workflows (2 per workflow, 8 total)",
+  "fixtures": [
+    {
+      "id": "fixture.business-model-validation.saas",
+      "workflow_id": "startup-ops.business-model-validation",
+      "input": {
+        "business_hypothesis": "AI-powered writing assistant for content marketing teams can replace freelance writers at 1/3 the cost",
+        "target_customer": "Content marketing managers at Series A-C startups with 5-20 person marketing teams",
+        "market_data": "Content marketing market growing 15% YoY, 3 competitors in AI writing space"
+      },
+      "expected_outputs": [
+        "lean_canvas",
+        "validation_report",
+        "next_steps"
+      ],
+      "expected_step_count": 5
+    },
+    {
+      "id": "fixture.business-model-validation.marketplace",
+      "workflow_id": "startup-ops.business-model-validation",
+      "input": {
+        "business_hypothesis": "Two-sided marketplace connecting freelance designers with early-stage startups needing brand identity",
+        "target_customer": "Freelance designers seeking consistent work and seed-stage startups needing affordable design",
+        "market_data": "Freelance design market $12B, 5 existing platforms but none focused on startup branding"
+      },
+      "expected_outputs": [
+        "lean_canvas",
+        "validation_report",
+        "next_steps"
+      ],
+      "expected_step_count": 5
+    },
+    {
+      "id": "fixture.pitch-deck-creation.seed",
+      "workflow_id": "startup-ops.pitch-deck-creation",
+      "input": {
+        "company_narrative": "We help remote teams build culture through async-first team building activities",
+        "metrics": "500 active teams, $50K MRR, 40% MoM growth, 90% retention at 6 months",
+        "target_investors": "Seed-stage VCs focused on future-of-work and remote work tools"
+      },
+      "expected_outputs": [
+        "deck_outline",
+        "data_visualizations",
+        "talking_points"
+      ],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.pitch-deck-creation.series-a",
+      "workflow_id": "startup-ops.pitch-deck-creation",
+      "input": {
+        "company_narrative": "Developer tools platform that automates CI/CD pipeline optimization using ML",
+        "metrics": "$2M ARR, 150 enterprise customers, 3x net revenue retention, 18-month payback",
+        "target_investors": "Series A VCs with developer tools thesis and enterprise SaaS focus"
+      },
+      "expected_outputs": [
+        "deck_outline",
+        "data_visualizations",
+        "talking_points"
+      ],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.fundraising-preparation.seed",
+      "workflow_id": "startup-ops.fundraising-preparation",
+      "input": {
+        "company_stage": "Pre-seed with MVP launched, 50 beta users, 20% weekly active usage",
+        "funding_target": "$1.5M seed round for engineering hires and go-to-market",
+        "existing_materials": "Draft pitch deck and basic financial model"
+      },
+      "expected_outputs": [
+        "fundraising_strategy",
+        "investor_targets",
+        "materials_checklist"
+      ],
+      "expected_step_count": 5
+    },
+    {
+      "id": "fixture.fundraising-preparation.series-a",
+      "workflow_id": "startup-ops.fundraising-preparation",
+      "input": {
+        "company_stage": "Seed stage with $500K ARR, 25 paying customers, 120% net retention",
+        "funding_target": "$8M Series A for scaling sales team and product development",
+        "existing_materials": "Complete pitch deck, financial model, and data room with customer case studies"
+      },
+      "expected_outputs": [
+        "fundraising_strategy",
+        "investor_targets",
+        "materials_checklist"
+      ],
+      "expected_step_count": 5
+    },
+    {
+      "id": "fixture.customer-discovery.b2b",
+      "workflow_id": "startup-ops.customer-discovery",
+      "input": {
+        "problem_hypothesis": "Engineering managers at 50-200 person companies struggle to track developer productivity without micromanaging",
+        "target_segment": "VP Engineering and Engineering Managers at Series B-C companies with 50-200 engineers",
+        "interview_count_target": 15
+      },
+      "expected_outputs": [
+        "interview_guide",
+        "findings_report",
+        "hypothesis_validation"
+      ],
+      "expected_step_count": 5
+    },
+    {
+      "id": "fixture.customer-discovery.consumer",
+      "workflow_id": "startup-ops.customer-discovery",
+      "input": {
+        "problem_hypothesis": "Remote workers aged 25-35 feel isolated and struggle to build professional relationships outside their immediate team",
+        "target_segment": "Remote workers at tech companies, 2-5 years into career, living in major metro areas",
+        "interview_count_target": 20
+      },
+      "expected_outputs": [
+        "interview_guide",
+        "findings_report",
+        "hypothesis_validation"
+      ],
+      "expected_step_count": 5
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "dossier_id": "dossier.skill.sales.negotiation-tactics.2026-05-31",
+  "skill_id": "sales.negotiation-tactics",
+  "domain": "sales",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2027-05-31T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://www.pon.harvard.edu/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Principled Negotiation methodology", "concession planning frameworks"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.sandler.com/resources",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Sandler negotiation techniques", "commercial negotiation patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/TwentyHQ/twenty",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": ["CRM deal data for negotiation tracking", "concession documentation patterns"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 0,
+    "github_quality": 88,
+    "license_safety": 90,
+    "maintenance": 88,
+    "pattern_clarity": 90,
+    "testability": 82,
+    "total": 87
+  },
+  "promotion_decision": "staging"
+}

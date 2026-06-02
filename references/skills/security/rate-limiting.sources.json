@@ -1,0 +1,52 @@
+{
+  "dossier_id": "dossier.skill.security.rate-limiting.2026-06-01",
+  "skill_id": "security.rate-limiting",
+  "domain": "security",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Denial_of_Service_Cheat_Sheet.html",
+      "source_type": "official_docs",
+      "license": "MIT",
+      "version_or_commit": "2024",
+      "used_for": ["rate limiting patterns", "DoS prevention"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://datatracker.ietf.org/doc/html/rfc6585",
+      "source_type": "official_docs",
+      "license": "IETF Trust",
+      "version_or_commit": "RFC 6585",
+      "used_for": ["429 status code", "rate limit headers"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/upstash/ratelimit",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "v2.0",
+      "used_for": ["distributed rate limiting", "sliding window algorithms"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://redis.io/docs/latest/develop/use/patterns/rate-limiter/",
+      "source_type": "official_docs",
+      "license": "CC BY-SA 4.0",
+      "version_or_commit": "2024",
+      "used_for": ["Redis rate limiting", "token bucket implementation"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 3,
+    "github_quality": 88,
+    "license_safety": 94,
+    "maintenance": 90,
+    "pattern_clarity": 92,
+    "testability": 91,
+    "total": 91
+  },
+  "promotion_decision": "staging"
+}

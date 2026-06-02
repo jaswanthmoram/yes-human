@@ -1,0 +1,152 @@
+{
+  "id": "security.penetration-test-execution",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Execute a structured penetration test following reconnaissance, exploitation, post-exploitation, and reporting phases.",
+  "task_family": "offensive_security",
+  "triggers": [
+    "run a penetration test",
+    "execute a pentest",
+    "perform offensive security testing",
+    "conduct a red team exercise",
+    "test our defenses with a pentest",
+    "simulate an attack"
+  ],
+  "aliases": [
+    "pentest execution",
+    "offensive security assessment",
+    "red team simulation",
+    "ethical hacking engagement"
+  ],
+  "negative_keywords": [
+    "defensive security review",
+    "compliance audit",
+    "code review",
+    "documentation task"
+  ],
+  "inputs": [
+    {
+      "name": "test_scope",
+      "required": true
+    },
+    {
+      "name": "rules_of_engagement",
+      "required": true
+    },
+    {
+      "name": "target_systems",
+      "required": true
+    },
+    {
+      "name": "authorization_documentation",
+      "required": true
+    },
+    {
+      "name": "previous_pentest_reports",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "reconnaissance_findings"
+    },
+    {
+      "name": "exploitation_results"
+    },
+    {
+      "name": "vulnerability_report"
+    },
+    {
+      "name": "risk_assessment"
+    },
+    {
+      "name": "remediation_recommendations"
+    }
+  ],
+  "primary_agent": "security.penetration-tester",
+  "route": {
+    "domain_master": "security.master",
+    "primary": "security.penetration-tester",
+    "participants": [
+      "security.security-reviewer",
+      "security.network-analyst"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 6000,
+    "max_tool_calls": 22
+  },
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "post-tool",
+    "on-task-complete"
+  ],
+  "steps": [
+    {
+      "id": "scope-and-authorization",
+      "summary": "Validate scope, rules of engagement, and authorization before any testing begins."
+    },
+    {
+      "id": "reconnaissance",
+      "summary": "Gather information about targets through passive and active reconnaissance techniques."
+    },
+    {
+      "id": "vulnerability-identification",
+      "summary": "Identify potential vulnerabilities through scanning, fingerprinting, and manual testing."
+    },
+    {
+      "id": "exploitation",
+      "summary": "Attempt to exploit identified vulnerabilities to demonstrate real-world impact."
+    },
+    {
+      "id": "post-exploitation",
+      "summary": "Assess lateral movement, privilege escalation, and data access capabilities."
+    },
+    {
+      "id": "reporting",
+      "summary": "Document findings with evidence, risk ratings, and actionable remediation guidance."
+    },
+    {
+      "id": "debrief",
+      "summary": "Present findings to stakeholders and answer technical questions about the assessment."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "shell.readonly",
+    "network_scanner",
+    "vulnerability_scanner",
+    "exploitation_framework",
+    "report_generator"
+  ],
+  "verification": [
+    "authorization_is_valid_and_documented",
+    "scope_boundaries_are_respected",
+    "exploits_are_documented_with_evidence",
+    "findings_include_reproducible_steps",
+    "report_follows_industry_standards"
+  ],
+  "success_criteria": [
+    "All testing stays within authorized scope and rules of engagement.",
+    "Vulnerabilities are demonstrated with proof-of-concept evidence.",
+    "Risk ratings reflect real-world exploitability and business impact.",
+    "Remediation recommendations are specific and actionable.",
+    "Final report is suitable for both technical and executive audiences."
+  ],
+  "rollback": {
+    "mode": "manual",
+    "summary": "Test artifacts and access must be manually cleaned up post-engagement."
+  },
+  "source_references": [
+    "ref.workflow.security.penetration-test-execution.2026-06-01"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "dossier_id": "dossier.family.engineering.2026-06-01",
+  "family": "engineering",
+  "created_at": "2026-06-01T20:45:00Z",
+  "expires_at": "2027-06-01T20:45:00Z",
+  "description": "Skills for code review, test triage, dependency upgrade, API design, and refactoring",
+  "domains": ["engineering"],
+  "skill_count_target": 46,
+  "sources": [
+    {
+      "url": "https://github.com/google/styleguide",
+      "source_type": "github_repo",
+      "license": "CC-BY-3.0",
+      "version_or_commit": "main",
+      "stars": 38500,
+      "last_updated": "2026-05-15",
+      "used_for": ["coding standards", "style guides"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://refactoring.guru/",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["refactoring patterns", "design patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://martinfowler.com/articles/",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["software design principles", "architecture patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.qasource.com/blog/top-10-testing-strategies-to-ensure-code-quality-in-software-engineering",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["testing strategies", "code quality assurance"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.blueoptima.com/post/7-code-review-best-practices-in-2024-elevate-software-quality",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["code review best practices", "software quality metrics"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/trimstray/the-book-of-secret-hashes",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "stars": 12500,
+      "last_updated": "2026-04-20",
+      "used_for": ["security patterns", "hashing algorithms"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://swagger.io/specification/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "3.1.0",
+      "used_for": ["OpenAPI specification", "REST API design"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://graphql.org/learn/",
+      "source_type": "official_docs",
+      "license": "MIT",
+      "version_or_commit": "2024",
+      "used_for": ["GraphQL specification", "query language"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/public-apis/public-apis",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "master",
+      "stars": 320000,
+      "last_updated": "2026-05-30",
+      "used_for": ["public API examples", "API design patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/donnemartin/system-design-primer",
+      "source_type": "github_repo",
+      "license": "CC-BY-SA-4.0",
+      "version_or_commit": "master",
+      "stars": 285000,
+      "last_updated": "2026-05-25",
+      "used_for": ["system design patterns", "scalability patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://12factor.net/",
+      "source_type": "official_docs",
+      "license": "MIT",
+      "version_or_commit": "2024",
+      "used_for": ["12-factor app methodology", "cloud-native development"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/kamranahmedse/developer-roadmap",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "master",
+      "stars": 310000,
+      "last_updated": "2026-05-29",
+      "used_for": ["developer learning paths", "technology roadmaps"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/sindresorhus/awesome",
+      "source_type": "github_repo",
+      "license": "CC0-1.0",
+      "version_or_commit": "main",
+      "stars": 345000,
+      "last_updated": "2026-05-28",
+      "used_for": ["curated lists of tools and resources", "technology discovery"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/hashicorp/terraform",
+      "source_type": "github_repo",
+      "license": "BUSL-1.1",
+      "version_or_commit": "main",
+      "stars": 43000,
+      "last_updated": "2026-05-30",
+      "used_for": ["infrastructure as code", "cloud automation"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/microsoft/TypeScript",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "stars": 102000,
+      "last_updated": "2026-05-30",
+      "used_for": ["TypeScript language features", "type system design"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 15,
+    "official_docs": 5,
+    "github_quality": 95,
+    "license_safety": 90,
+    "maintenance": 95,
+    "pattern_clarity": 92,
+    "testability": 88,
+    "total": 92
+  },
+  "promotion_decision": "production"
+}

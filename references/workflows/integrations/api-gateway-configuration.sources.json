@@ -1,0 +1,15 @@
+{
+  "dossier_id": "dossier.workflow.integrations.api-gateway-configuration.2026-06-01",
+  "workflow_id": "integrations.api-gateway-configuration",
+  "domain": "integrations",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {"url": "https://docs.konghq.com/", "source_type": "official_docs", "license": "Apache-2.0", "version_or_commit": "live", "used_for": ["Kong gateway configuration", "plugin architecture and routing"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/Kong/kong", "source_type": "github_repo", "license": "Apache-2.0", "version_or_commit": "master", "used_for": ["gateway source code patterns", "custom plugin development"], "copy_policy": "patterns_only"},
+    {"url": "https://www.envoyproxy.io/docs/envoy/latest/", "source_type": "official_docs", "license": "Apache-2.0", "version_or_commit": "live", "used_for": ["Envoy proxy configuration", "service mesh gateway patterns"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/envoyproxy/go-control-plane", "source_type": "github_repo", "license": "Apache-2.0", "version_or_commit": "main", "used_for": ["xDS API control plane patterns", "dynamic gateway configuration"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 4, "official_docs": 2, "github_quality": 95, "license_safety": 96, "maintenance": 93, "pattern_clarity": 92, "testability": 88, "total": 93},
+  "promotion_decision": "staging"
+}

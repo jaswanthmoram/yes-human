@@ -1,0 +1,15 @@
+{
+  "dossier_id": "dossier.workflow.education.assessment-creation.2026-06-01",
+  "workflow_id": "education.assessment-creation",
+  "domain": "education",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {"url": "https://www.education.ne.gov/wp-content/uploads/2017/06/Assessment-Literacy-Framework.pdf", "source_type": "research_paper", "license": "Public Domain", "version_or_commit": "published", "used_for": ["assessment literacy framework", "balanced assessment systems"], "copy_policy": "patterns_only"},
+    {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8345886/", "source_type": "research_paper", "license": "Open Access", "version_or_commit": "published", "used_for": ["formative assessment design", "assessment validity and reliability"], "copy_policy": "patterns_only"},
+    {"url": "https://www.schoology.com/blog/assessment-strategies", "source_type": "technical_blog", "license": "Proprietary", "version_or_commit": "live", "used_for": ["digital assessment strategies", "rubric creation workflows"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/1EdTech/Assessment", "source_type": "github_repo", "license": "Apache-2.0", "version_or_commit": "main", "used_for": ["QTI assessment interchange standards", "assessment item modeling"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 4, "official_docs": 1, "github_quality": 75, "license_safety": 92, "maintenance": 84, "pattern_clarity": 87, "testability": 78, "total": 83},
+  "promotion_decision": "staging"
+}

@@ -1,0 +1,60 @@
+{
+  "dossier_id": "dossier.skill.platform.github-actions.2026-06-01",
+  "skill_id": "platform.github-actions",
+  "domain": "platform",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://docs.github.com/en/actions/learn-github-actions",
+      "source_type": "official_docs",
+      "license": "MIT",
+      "version_or_commit": "2024",
+      "used_for": ["workflow syntax", "actions guide"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://docs.github.com/en/actions/using-workflows/reusing-workflows",
+      "source_type": "official_docs",
+      "license": "MIT",
+      "version_or_commit": "2024",
+      "used_for": ["reusable workflows", "workflow_call"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions",
+      "source_type": "official_docs",
+      "license": "MIT",
+      "version_or_commit": "2024",
+      "used_for": ["security hardening", "permissions"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/actions/starter-workflows",
+      "source_type": "official_docs",
+      "license": "MIT",
+      "version_or_commit": "2024",
+      "used_for": ["starter workflows", "template patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows",
+      "source_type": "official_docs",
+      "license": "MIT",
+      "version_or_commit": "2024",
+      "used_for": ["caching strategies", "performance optimization"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 5,
+    "official_docs": 5,
+    "github_quality": 95,
+    "license_safety": 98,
+    "maintenance": 96,
+    "pattern_clarity": 94,
+    "testability": 90,
+    "total": 95
+  },
+  "promotion_decision": "staging"
+}

@@ -1,0 +1,144 @@
+{
+  "dossier_id": "dossier.family.design-and-content.2026-06-01",
+  "family": "design-and-content",
+  "created_at": "2026-06-01T22:00:00Z",
+  "expires_at": "2027-06-01T22:00:00Z",
+  "description": "Skills for accessibility audit, visual QA, content style review, and UX critique",
+  "domains": ["design-content"],
+  "skill_count_target": 28,
+  "sources": [
+    {
+      "url": "https://m3.material.io/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2024",
+      "used_for": ["Material Design 3", "UI components", "design system"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://developer.apple.com/design/human-interface-guidelines",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Apple Human Interface Guidelines", "iOS/macOS design"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.w3.org/WAI/standards-guidelines/wcag/",
+      "source_type": "official_docs",
+      "license": "W3C",
+      "version_or_commit": "WCAG 2.2",
+      "used_for": ["WCAG accessibility standards", "inclusive design"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://carbondesignsystem.com/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2024",
+      "used_for": ["IBM Carbon Design System", "enterprise UI"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/ehmo/platform-design-skills",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "stars": 850,
+      "last_updated": "2026-02-01",
+      "used_for": ["platform design skills", "450+ design rules"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://m3.material.io/foundations/overview/principles",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2024",
+      "used_for": ["Material Design accessibility principles", "inclusive design"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://developer.apple.com/design/human-interface-guidelines/accessibility",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Apple accessibility guidelines", "VoiceOver support"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://uxdesign.cc/design-systems-and-accessibility-a-2024-retrospective-e189ecfc2942",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2025",
+      "used_for": ["design systems accessibility", "WCAG compliance"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.nngroup.com/articles/ten-usability-heuristics/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Nielsen's 10 usability heuristics", "UX evaluation"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.smashingmagazine.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["web design best practices", "CSS/HTML patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://css-tricks.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["CSS techniques", "layout patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://web.dev/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2024",
+      "used_for": ["web.dev best practices", "performance optimization"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/",
+      "source_type": "official_docs",
+      "license": "CC-BY-SA-2.5",
+      "version_or_commit": "2024",
+      "used_for": ["MDN Web Docs", "web standards"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.figma.com/best-practices/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Figma best practices", "design collaboration"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.shopify.com/partners/blog/ux-writing",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["UX writing guidelines", "microcopy best practices"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 15,
+    "official_docs": 8,
+    "github_quality": 70,
+    "license_safety": 90,
+    "maintenance": 90,
+    "pattern_clarity": 92,
+    "testability": 85,
+    "total": 90
+  },
+  "promotion_decision": "production"
+}

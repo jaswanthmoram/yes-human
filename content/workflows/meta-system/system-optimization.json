@@ -1,0 +1,173 @@
+{
+  "id": "meta-system.system-optimization",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "End-to-end workflow for optimizing system performance through boot token reduction, route table compression, and registry pruning.",
+  "task_family": "optimization_lifecycle",
+  "triggers": [
+    "optimize system",
+    "system optimization workflow",
+    "performance optimization pass",
+    "boot token reduction"
+  ],
+  "aliases": [
+    "system tuning",
+    "performance optimization workflow"
+  ],
+  "negative_keywords": [
+    "code optimization",
+    "database optimization",
+    "agent creation"
+  ],
+  "inputs": [
+    {
+      "name": "system_metrics",
+      "required": true,
+      "description": "Current system performance metrics."
+    },
+    {
+      "name": "optimization_targets",
+      "required": true,
+      "description": "Specific areas targeted for optimization."
+    },
+    {
+      "name": "budget_constraints",
+      "required": false,
+      "description": "Token budget constraints to respect."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "optimization_plan",
+      "description": "Detailed optimization plan with prioritized actions."
+    },
+    {
+      "name": "performance_report",
+      "description": "Before and after performance comparison."
+    },
+    {
+      "name": "implementation_log",
+      "description": "Log of all optimizations applied."
+    }
+  ],
+  "primary_agent": "meta-system.system-optimizer",
+  "route": {
+    "domain_master": "meta-system.master",
+    "agents": [
+      "meta-system.system-optimizer",
+      "meta-system.system-architect",
+      "meta-system.quality-assurance"
+    ],
+    "primary_agent": "meta-system.system-optimizer",
+    "participants": [
+      "meta-system.system-architect",
+      "meta-system.quality-assurance"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 4000,
+    "max_tool_calls": 12,
+    "notes": "Stay focused on system optimization only."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is system optimization, not code or database optimization."
+    },
+    {
+      "id": "pre-optimization",
+      "rule": "Require baseline metrics before any optimization begins."
+    },
+    {
+      "id": "post-optimization",
+      "method": "Verify no functionality regression after optimization."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Return optimization plan, performance report, and implementation log."
+    }
+  ],
+  "steps": [
+    {
+      "id": "measure-baseline",
+      "agent": "meta-system.system-optimizer",
+      "action": "Measure current system performance baseline."
+    },
+    {
+      "id": "identify-opportunities",
+      "agent": "meta-system.system-optimizer",
+      "action": "Identify optimization opportunities and prioritize by impact."
+    },
+    {
+      "id": "review-architecture",
+      "agent": "meta-system.system-architect",
+      "action": "Review proposed optimizations for architectural fit."
+    },
+    {
+      "id": "implement-optimizations",
+      "agent": "meta-system.system-optimizer",
+      "action": "Apply optimizations one at a time with measurement."
+    },
+    {
+      "id": "verify-no-regression",
+      "agent": "meta-system.quality-assurance",
+      "action": "Verify no functionality regression after optimization."
+    },
+    {
+      "id": "report-results",
+      "agent": "meta-system.system-optimizer",
+      "action": "Generate performance comparison report."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read system metrics, registry data, and configuration."
+    },
+    {
+      "name": "shell.readonly",
+      "purpose": "Run performance measurement and validation scripts."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Write optimization reports and logs."
+    }
+  ],
+  "verification": [
+    {
+      "id": "baseline-measured",
+      "method": "Check baseline metrics were recorded before optimization."
+    },
+    {
+      "id": "no-regression",
+      "method": "Verify no functionality regression after optimization."
+    },
+    {
+      "id": "results-documented",
+      "method": "Check optimization results are documented with comparisons."
+    }
+  ],
+  "success_criteria": [
+    "Baseline measured before any changes.",
+    "Optimizations applied with measurable improvement.",
+    "No functionality regression introduced."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If regression detected, revert all optimizations and restore baseline state."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/meta-system/system-optimization.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

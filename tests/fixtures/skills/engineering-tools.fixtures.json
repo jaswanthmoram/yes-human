@@ -1,0 +1,76 @@
+{
+  "fixtures": [
+    {
+      "prompt": "find which commit introduced this bug",
+      "expected_skill": "engineering.git-bisect"
+    },
+    {
+      "prompt": "when did this regression happen",
+      "expected_skill": "engineering.git-bisect"
+    },
+    {
+      "prompt": "use git bisect to locate the breaking change",
+      "expected_skill": "engineering.git-bisect"
+    },
+    {
+      "prompt": "search for all usages of this function",
+      "expected_skill": "engineering.grep-patterns"
+    },
+    {
+      "prompt": "find deprecated API calls in the codebase",
+      "expected_skill": "engineering.grep-patterns"
+    },
+    {
+      "prompt": "grep for TODO comments across all files",
+      "expected_skill": "engineering.grep-patterns"
+    },
+    {
+      "prompt": "what are the best VS Code shortcuts for navigation",
+      "expected_skill": "engineering.ide-shortcuts"
+    },
+    {
+      "prompt": "how do I edit multiple lines at once",
+      "expected_skill": "engineering.ide-shortcuts"
+    },
+    {
+      "prompt": "set up keyboard shortcuts for my IDE",
+      "expected_skill": "engineering.ide-shortcuts"
+    },
+    {
+      "prompt": "set up a monorepo for our packages",
+      "expected_skill": "engineering.monorepo-management"
+    },
+    {
+      "prompt": "configure turborepo for our workspace",
+      "expected_skill": "engineering.monorepo-management"
+    },
+    {
+      "prompt": "how to manage multiple packages in one repo",
+      "expected_skill": "engineering.monorepo-management"
+    },
+    {
+      "prompt": "our CI pipeline is too slow",
+      "expected_skill": "engineering.ci-cd-optimization"
+    },
+    {
+      "prompt": "optimize the GitHub Actions workflow",
+      "expected_skill": "engineering.ci-cd-optimization"
+    },
+    {
+      "prompt": "reduce build times in our pipeline",
+      "expected_skill": "engineering.ci-cd-optimization"
+    },
+    {
+      "prompt": "scaffold a new API endpoint",
+      "expected_skill": "engineering.code-generation"
+    },
+    {
+      "prompt": "generate boilerplate for a React component",
+      "expected_skill": "engineering.code-generation"
+    },
+    {
+      "prompt": "create a project template with CRUD operations",
+      "expected_skill": "engineering.code-generation"
+    }
+  ]
+}

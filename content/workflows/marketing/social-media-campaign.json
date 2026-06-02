@@ -1,0 +1,153 @@
+{
+  "id": "marketing.social-media-campaign",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Plan and execute social media campaigns with platform-specific content, engagement tactics, and performance tracking.",
+  "task_family": "social_campaign",
+  "triggers": [
+    "social media campaign plan",
+    "social campaign setup",
+    "platform campaign brief",
+    "social launch campaign"
+  ],
+  "aliases": [
+    "social campaign",
+    "social media plan"
+  ],
+  "negative_keywords": [
+    "paid social ads",
+    "influencer campaign",
+    "email marketing"
+  ],
+  "inputs": [
+    {
+      "name": "campaign_objective",
+      "required": true,
+      "description": "Primary goal for the social media campaign."
+    },
+    {
+      "name": "target_platforms",
+      "required": true,
+      "description": "Social platforms to activate on."
+    },
+    {
+      "name": "brand_guidelines",
+      "required": false,
+      "description": "Brand voice, tone, and visual guidelines."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "campaign_strategy",
+      "description": "Platform-specific strategy with content themes and engagement plan."
+    },
+    {
+      "name": "content_calendar",
+      "description": "Publishing schedule with content formats per platform."
+    },
+    {
+      "name": "measurement_plan",
+      "description": "KPIs and tracking approach for campaign performance."
+    }
+  ],
+  "primary_agent": "marketing.social-media-manager",
+  "route": {
+    "domain_master": "marketing.master",
+    "agents": [
+      "marketing.social-media-manager",
+      "marketing.content-marketer"
+    ],
+    "primary_agent": "marketing.social-media-manager",
+    "participants": [
+      "marketing.content-marketer"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 3200,
+    "max_tool_calls": 6,
+    "notes": "Focus on platform-specific activation and engagement."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the request is organic social campaign rather than paid ads or influencer marketing."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require campaign objective and target platforms before planning."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Deliver strategy with platform-specific content and measurement plan."
+    }
+  ],
+  "steps": [
+    {
+      "id": "platform-strategy",
+      "agent": "marketing.social-media-manager",
+      "action": "Define platform-specific approach based on audience and objective."
+    },
+    {
+      "id": "content-planning",
+      "agent": "marketing.content-marketer",
+      "action": "Create content themes and formats tailored to each platform."
+    },
+    {
+      "id": "engagement-plan",
+      "agent": "marketing.social-media-manager",
+      "action": "Design community engagement protocols and response workflows."
+    },
+    {
+      "id": "measurement-setup",
+      "agent": "marketing.social-media-manager",
+      "action": "Define KPIs, tracking approach, and reporting cadence."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read existing social data and brand guidelines."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Produce campaign strategy and content calendar."
+    }
+  ],
+  "verification": [
+    {
+      "id": "platform-specific",
+      "method": "Check each platform has tailored content strategy."
+    },
+    {
+      "id": "engagement-included",
+      "method": "Check community management protocols are defined."
+    },
+    {
+      "id": "kpis-defined",
+      "method": "Check KPIs go beyond vanity metrics."
+    }
+  ],
+  "success_criteria": [
+    "Strategy covers each platform with specific content approach.",
+    "Content calendar is actionable with formats and timing.",
+    "Measurement plan connects to business outcomes."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If platform strategy lacks specificity, revert to audience analysis."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/marketing/social-media-campaign.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "skill_id": "engineering.build-failure",
+  "dossier_id": "dossier.skill.engineering.build-failure.2026-06-01",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://webpack.js.org/concepts/",
+      "source_type": "official_docs",
+      "license": "MIT",
+      "version_or_commit": "v5",
+      "used_for": ["build tool concepts", "configuration"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/webpack/webpack",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": ["build error troubleshooting", "issue resolution"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://stackoverflow.com/questions/tagged/build-error",
+      "source_type": "vendor_docs",
+      "license": "CC-BY-SA-4.0",
+      "version_or_commit": "2024",
+      "used_for": ["common build errors", "solutions"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 2,
+    "github_quality": 85,
+    "license_safety": 88,
+    "maintenance": 90,
+    "pattern_clarity": 87,
+    "testability": 85,
+    "total": 87
+  },
+  "promotion_decision": "production"
+}

@@ -5,6 +5,7 @@
   "required": ["route_id", "match", "target", "confidence", "budget_band", "fallback"],
   "properties": {
     "route_id": { "type": "string" },
+    "manual": { "type": "boolean" },
     "match": {
       "type": "object",
       "required": ["keywords"],

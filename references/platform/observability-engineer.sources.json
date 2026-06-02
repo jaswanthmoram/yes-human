@@ -1,0 +1,13 @@
+{
+  "dossier_id": "dossier.platform.observability-engineer.2026-06-01",
+  "agent_id": "platform.observability-engineer",
+  "domain": "platform",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {"url": "https://oneuptime.com/blog/post/2026-02-06-slo-monitoring-opentelemetry-metrics/view", "source_type": "technical_blog", "license": "Proprietary", "version_or_commit": "live", "used_for": ["SLO monitoring with OpenTelemetry", "best practices for SLOs"], "copy_policy": "patterns_only"},
+    {"url": "https://medium.com/@sajal.devops/the-sre-observability-playbook-from-monitoring-to-mastery-2ec22c32cf40", "source_type": "technical_blog", "license": "Proprietary", "version_or_commit": "live", "used_for": ["SRE observability playbook", "OpenTelemetry instrumentation"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 2, "official_docs": 0, "github_quality": 0, "license_safety": 88, "maintenance": 82, "pattern_clarity": 86, "testability": 78, "total": 83},
+  "promotion_decision": "staging"
+}

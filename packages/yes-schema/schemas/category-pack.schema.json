@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Yes-human Category Pack Schema",
+  "type": "object",
+  "required": [
+    "id",
+    "master_agent",
+    "specialists",
+    "workflows",
+    "connectors",
+    "route_fixture_files",
+    "workflow_fixture_files",
+    "status"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "master_agent": { "type": "string" },
+    "specialists": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "workflows": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "connectors": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "route_fixture_files": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "workflow_fixture_files": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "draft"]
+    }
+  },
+  "additionalProperties": false
+}

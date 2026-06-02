@@ -1,0 +1,15 @@
+{
+  "dossier_id": "dossier.manufacturing.production-engineer.2026-05-31",
+  "agent_id": "manufacturing.production-engineer",
+  "domain": "manufacturing.production",
+  "created_at": "2026-05-31T12:00:00Z",
+  "expires_at": "2026-08-29T12:00:00Z",
+  "sources": [
+    {"url": "https://www.sme.org/", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["production engineering best practices", "manufacturing processes"], "copy_policy": "patterns_only"},
+    {"url": "https://www.apics.org/", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["production planning", "operations management"], "copy_policy": "patterns_only"},
+    {"url": "https://www.iso.org/iso-9001-quality-management.html", "source_type": "official_docs", "license": "Proprietary", "version_or_commit": "ISO 9001:2015", "used_for": ["quality management in production", "process standards"], "copy_policy": "patterns_only"},
+    {"url": "https://www.nist.gov/", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["NIST manufacturing standards", "measurement standards"], "copy_policy": "patterns_only"},
+    {"url": "https://www.mesa.org/", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["manufacturing execution systems", "production tracking"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 5, "official_docs": 2, "github_quality": 0, "license_safety": 92, "maintenance": 88, "pattern_clarity": 88, "testability": 82, "total": 85}
+}

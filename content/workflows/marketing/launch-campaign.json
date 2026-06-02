@@ -1,0 +1,155 @@
+{
+  "id": "marketing.launch-campaign",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Plan a launch campaign with channel messaging, SEO support, and execution checkpoints before handoff.",
+  "task_family": "campaign_launch",
+  "triggers": [
+    "product launch campaign",
+    "go to market campaign brief",
+    "campaign messaging plan",
+    "launch content calendar"
+  ],
+  "aliases": [
+    "campaign launch",
+    "launch plan"
+  ],
+  "negative_keywords": [
+    "contract review",
+    "monthly forecast",
+    "incident response"
+  ],
+  "inputs": [
+    {
+      "name": "launch_goal",
+      "required": true,
+      "description": "Primary outcome, audience, and timeline."
+    },
+    {
+      "name": "offer_context",
+      "required": true,
+      "description": "Product, feature, or event details to promote."
+    },
+    {
+      "name": "channel_constraints",
+      "required": false,
+      "description": "Budget, channels, and brand guardrails."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "campaign_brief",
+      "description": "Core strategy, positioning, and audience segments."
+    },
+    {
+      "name": "content_plan",
+      "description": "Channel-specific content and distribution schedule."
+    },
+    {
+      "name": "seo_support_notes",
+      "description": "Search intent, landing-page keywords, and metadata suggestions."
+    }
+  ],
+  "primary_agent": "marketing.marketing-strategist",
+  "route": {
+    "domain_master": "marketing.master",
+    "agents": [
+      "marketing.marketing-strategist",
+      "marketing.content-marketer",
+      "marketing.seo-analyst"
+    ],
+    "primary_agent": "marketing.marketing-strategist",
+    "participants": [
+      "marketing.content-marketer",
+      "marketing.seo-analyst"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 3
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 3200,
+    "max_tool_calls": 9,
+    "notes": "Keep source intake narrow and focus on launch-ready outputs."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the request is campaign planning rather than sales enablement or product strategy."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require clear audience, offer, and timeline before generating channel tactics."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Return one brief with consistent message, channel, and measurement sections."
+    }
+  ],
+  "steps": [
+    {
+      "id": "scope-launch",
+      "agent": "marketing.marketing-strategist",
+      "action": "Define campaign objective, audience, success metric, and launch window."
+    },
+    {
+      "id": "draft-channel-plan",
+      "agent": "marketing.content-marketer",
+      "action": "Map content formats, publishing cadence, and CTA coverage across priority channels."
+    },
+    {
+      "id": "attach-search-layer",
+      "agent": "marketing.seo-analyst",
+      "action": "Add keyword targets, search-intent clusters, and landing-page metadata guidance."
+    },
+    {
+      "id": "merge-brief",
+      "agent": "marketing.marketing-strategist",
+      "action": "Resolve conflicts and produce the final campaign brief with execution checkpoints."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read launch notes, brand inputs, and existing collateral."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Draft campaign artifacts when the caller requests a file output."
+    }
+  ],
+  "verification": [
+    {
+      "id": "audience-and-goal-present",
+      "method": "Check the brief names audience, offer, and primary KPI."
+    },
+    {
+      "id": "channel-plan-complete",
+      "method": "Check each chosen channel has message, CTA, and publish timing."
+    },
+    {
+      "id": "seo-section-present",
+      "method": "Check the deliverable contains keyword and landing-page guidance."
+    }
+  ],
+  "success_criteria": [
+    "A single launch brief covers audience, narrative, channels, and measurement.",
+    "Content and SEO recommendations align with the same offer and timeline.",
+    "No unsupported claims or missing CTA paths remain in the final handoff."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If the brief mixes conflicting audiences, channels, or metrics, revert to the scoped launch summary and regenerate downstream steps."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/marketing/launch-campaign.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

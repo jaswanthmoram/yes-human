@@ -1,0 +1,306 @@
+{
+  "domain": "product-business-new",
+  "description": "Routing fixtures for Product-Business domain expansion agents (5 per agent, 75 total).",
+  "fixtures": [
+    {
+      "prompt": "build the prd",
+      "expected_route": "route.product-business.product-manager"
+    },
+    {
+      "prompt": "product requirement draft",
+      "expected_route": "route.product-business.product-manager"
+    },
+    {
+      "prompt": "roadmap tradeoff memo",
+      "expected_route": "route.product-business.product-manager"
+    },
+    {
+      "prompt": "acceptance criteria pack",
+      "expected_route": "route.product-business.product-manager"
+    },
+    {
+      "prompt": "feature scope decision",
+      "expected_route": "route.product-business.product-manager"
+    },
+    {
+      "prompt": "product vision statement",
+      "expected_route": "route.product-business.product-strategist"
+    },
+    {
+      "prompt": "strategic product direction",
+      "expected_route": "route.product-business.product-strategist"
+    },
+    {
+      "prompt": "product positioning strategy",
+      "expected_route": "route.product-business.product-strategist"
+    },
+    {
+      "prompt": "long term product plan",
+      "expected_route": "route.product-business.product-strategist"
+    },
+    {
+      "prompt": "product strategy memo",
+      "expected_route": "route.product-business.product-strategist"
+    },
+    {
+      "prompt": "product metrics analysis",
+      "expected_route": "route.product-business.product-analyst"
+    },
+    {
+      "prompt": "user behavior report",
+      "expected_route": "route.product-business.product-analyst"
+    },
+    {
+      "prompt": "experiment results review",
+      "expected_route": "route.product-business.product-analyst"
+    },
+    {
+      "prompt": "product data deep dive",
+      "expected_route": "route.product-business.product-analyst"
+    },
+    {
+      "prompt": "feature adoption analysis",
+      "expected_route": "route.product-business.product-analyst"
+    },
+    {
+      "prompt": "user research plan",
+      "expected_route": "route.product-business.user-researcher"
+    },
+    {
+      "prompt": "user interview guide",
+      "expected_route": "route.product-business.user-researcher"
+    },
+    {
+      "prompt": "research synthesis report",
+      "expected_route": "route.product-business.user-researcher"
+    },
+    {
+      "prompt": "persona development",
+      "expected_route": "route.product-business.user-researcher"
+    },
+    {
+      "prompt": "user journey mapping",
+      "expected_route": "route.product-business.user-researcher"
+    },
+    {
+      "prompt": "product design brief",
+      "expected_route": "route.product-business.product-designer"
+    },
+    {
+      "prompt": "information architecture plan",
+      "expected_route": "route.product-business.product-designer"
+    },
+    {
+      "prompt": "interaction design spec",
+      "expected_route": "route.product-business.product-designer"
+    },
+    {
+      "prompt": "wireframe requirements",
+      "expected_route": "route.product-business.product-designer"
+    },
+    {
+      "prompt": "design system guidance",
+      "expected_route": "route.product-business.product-designer"
+    },
+    {
+      "prompt": "growth experiment design",
+      "expected_route": "route.product-business.growth-manager"
+    },
+    {
+      "prompt": "retention strategy plan",
+      "expected_route": "route.product-business.growth-manager"
+    },
+    {
+      "prompt": "activation funnel optimization",
+      "expected_route": "route.product-business.growth-manager"
+    },
+    {
+      "prompt": "growth loop analysis",
+      "expected_route": "route.product-business.growth-manager"
+    },
+    {
+      "prompt": "churn reduction playbook",
+      "expected_route": "route.product-business.growth-manager"
+    },
+    {
+      "prompt": "product messaging framework",
+      "expected_route": "route.product-business.product-marketer"
+    },
+    {
+      "prompt": "go to market strategy",
+      "expected_route": "route.product-business.product-marketer"
+    },
+    {
+      "prompt": "product positioning doc",
+      "expected_route": "route.product-business.product-marketer"
+    },
+    {
+      "prompt": "launch messaging brief",
+      "expected_route": "route.product-business.product-marketer"
+    },
+    {
+      "prompt": "competitive positioning map",
+      "expected_route": "route.product-business.product-marketer"
+    },
+    {
+      "prompt": "product ops setup",
+      "expected_route": "route.product-business.product-ops"
+    },
+    {
+      "prompt": "feedback loop design",
+      "expected_route": "route.product-business.product-ops"
+    },
+    {
+      "prompt": "product tooling audit",
+      "expected_route": "route.product-business.product-ops"
+    },
+    {
+      "prompt": "cross functional coordination plan",
+      "expected_route": "route.product-business.product-ops"
+    },
+    {
+      "prompt": "product process optimization",
+      "expected_route": "route.product-business.product-ops"
+    },
+    {
+      "prompt": "product roadmap build",
+      "expected_route": "route.product-business.roadmap-planner"
+    },
+    {
+      "prompt": "roadmap alignment review",
+      "expected_route": "route.product-business.roadmap-planner"
+    },
+    {
+      "prompt": "quarterly roadmap plan",
+      "expected_route": "route.product-business.roadmap-planner"
+    },
+    {
+      "prompt": "roadmap dependency map",
+      "expected_route": "route.product-business.roadmap-planner"
+    },
+    {
+      "prompt": "initiative sequencing",
+      "expected_route": "route.product-business.roadmap-planner"
+    },
+    {
+      "prompt": "prioritize feature backlog",
+      "expected_route": "route.product-business.feature-prioritizer"
+    },
+    {
+      "prompt": "feature scoring exercise",
+      "expected_route": "route.product-business.feature-prioritizer"
+    },
+    {
+      "prompt": "priority ranking memo",
+      "expected_route": "route.product-business.feature-prioritizer"
+    },
+    {
+      "prompt": "impact effort analysis",
+      "expected_route": "route.product-business.feature-prioritizer"
+    },
+    {
+      "prompt": "feature tradeoff decision",
+      "expected_route": "route.product-business.feature-prioritizer"
+    },
+    {
+      "prompt": "product launch plan",
+      "expected_route": "route.product-business.product-launcher"
+    },
+    {
+      "prompt": "launch readiness check",
+      "expected_route": "route.product-business.product-launcher"
+    },
+    {
+      "prompt": "go live checklist",
+      "expected_route": "route.product-business.product-launcher"
+    },
+    {
+      "prompt": "launch coordination memo",
+      "expected_route": "route.product-business.product-launcher"
+    },
+    {
+      "prompt": "post launch review plan",
+      "expected_route": "route.product-business.product-launcher"
+    },
+    {
+      "prompt": "competitive analysis report",
+      "expected_route": "route.product-business.competitive-analyst"
+    },
+    {
+      "prompt": "competitor feature comparison",
+      "expected_route": "route.product-business.competitive-analyst"
+    },
+    {
+      "prompt": "market positioning analysis",
+      "expected_route": "route.product-business.competitive-analyst"
+    },
+    {
+      "prompt": "competitive landscape review",
+      "expected_route": "route.product-business.competitive-analyst"
+    },
+    {
+      "prompt": "win loss analysis",
+      "expected_route": "route.product-business.competitive-analyst"
+    },
+    {
+      "prompt": "market research report",
+      "expected_route": "route.product-business.market-researcher"
+    },
+    {
+      "prompt": "market size analysis",
+      "expected_route": "route.product-business.market-researcher"
+    },
+    {
+      "prompt": "trend identification brief",
+      "expected_route": "route.product-business.market-researcher"
+    },
+    {
+      "prompt": "market opportunity assessment",
+      "expected_route": "route.product-business.market-researcher"
+    },
+    {
+      "prompt": "industry landscape review",
+      "expected_route": "route.product-business.market-researcher"
+    },
+    {
+      "prompt": "pricing model design",
+      "expected_route": "route.product-business.pricing-strategist"
+    },
+    {
+      "prompt": "packaging strategy",
+      "expected_route": "route.product-business.pricing-strategist"
+    },
+    {
+      "prompt": "monetization framework",
+      "expected_route": "route.product-business.pricing-strategist"
+    },
+    {
+      "prompt": "pricing tier analysis",
+      "expected_route": "route.product-business.pricing-strategist"
+    },
+    {
+      "prompt": "value metric selection",
+      "expected_route": "route.product-business.pricing-strategist"
+    },
+    {
+      "prompt": "product documentation plan",
+      "expected_route": "route.product-business.product-writer"
+    },
+    {
+      "prompt": "release notes draft",
+      "expected_route": "route.product-business.product-writer"
+    },
+    {
+      "prompt": "help guide creation",
+      "expected_route": "route.product-business.product-writer"
+    },
+    {
+      "prompt": "knowledge base article",
+      "expected_route": "route.product-business.product-writer"
+    },
+    {
+      "prompt": "product spec documentation",
+      "expected_route": "route.product-business.product-writer"
+    }
+  ]
+}

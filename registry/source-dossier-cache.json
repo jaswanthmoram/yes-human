@@ -1,0 +1,42 @@
+{
+  "registry_type": "source-dossier-cache",
+  "version": "1.0.0",
+  "generated_at": "2026-06-01T15:30:00Z",
+  "description": "Index of all source dossiers for agents, skills, and workflows",
+  "total_dossiers": 134,
+  "average_score": 42,
+  "by_domain": {
+    "unknown": { "count": 25, "average_score": 51 },
+    "integrations": { "count": 6, "average_score": 46 },
+    "engineering.architecture": { "count": 1, "average_score": 43 },
+    "legal-compliance": { "count": 5, "average_score": 43 },
+    "research": { "count": 5, "average_score": 43 },
+    "startup-ops": { "count": 5, "average_score": 43 },
+    "finance": { "count": 6, "average_score": 42 },
+    "hr": { "count": 6, "average_score": 42 },
+    "marketing": { "count": 6, "average_score": 42 },
+    "sales": { "count": 6, "average_score": 42 },
+    "data-ai": { "count": 6, "average_score": 41 },
+    "design-content": { "count": 6, "average_score": 40 },
+    "healthcare": { "count": 5, "average_score": 40 },
+    "manufacturing": { "count": 5, "average_score": 40 },
+    "security": { "count": 7, "average_score": 40 },
+    "product-business": { "count": 6, "average_score": 39 },
+    "engineering": { "count": 6, "average_score": 37 },
+    "education": { "count": 5, "average_score": 35 },
+    "platform": { "count": 6, "average_score": 35 },
+    "meta-system": { "count": 7, "average_score": 32 }
+  },
+  "by_type": {
+    "agent": 86,
+    "skill": 25,
+    "workflow": 23
+  },
+  "score_distribution": {
+    "excellent": 0,
+    "good": 0,
+    "fair": 0,
+    "poor": 134
+  },
+  "dossiers": []
+}

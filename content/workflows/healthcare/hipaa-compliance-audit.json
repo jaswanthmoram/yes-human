@@ -1,0 +1,98 @@
+{
+  "id": "healthcare.hipaa-compliance-audit",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Conduct a comprehensive HIPAA compliance audit covering Privacy Rule, Security Rule, and Breach Notification requirements.",
+  "task_family": "compliance",
+  "triggers": [
+    "hipaa compliance audit",
+    "hipaa security assessment",
+    "phi handling audit",
+    "hipaa privacy review",
+    "healthcare compliance audit"
+  ],
+  "aliases": [
+    "hipaa audit",
+    "hipaa assessment",
+    "phi compliance audit"
+  ],
+  "negative_keywords": [
+    "gdpr audit",
+    "financial compliance",
+    "software security audit"
+  ],
+  "inputs": [
+    {"name": "systems_inventory", "required": true, "description": "List of systems that create, receive, maintain, or transmit PHI."},
+    {"name": "current_policies", "required": true, "description": "Current HIPAA policies and procedures documentation."},
+    {"name": "phi_data_flows", "required": true, "description": "Data flow diagrams showing PHI movement between systems."},
+    {"name": "previous_audit", "required": false, "description": "Results from previous HIPAA audits or assessments."},
+    {"name": "business_associates", "required": false, "description": "List of Business Associates and their BAA status."}
+  ],
+  "outputs": [
+    {"name": "compliance_matrix", "description": "Matrix mapping HIPAA requirements to current controls and compliance status."},
+    {"name": "gap_analysis", "description": "Detailed analysis of compliance gaps with risk ratings."},
+    {"name": "remediation_plan", "description": "Prioritized plan to address gaps with timelines and owners."},
+    {"name": "risk_assessment", "description": "Updated risk assessment per HIPAA Security Rule requirements."}
+  ],
+  "primary_agent": "healthcare.healthcare-compliance",
+  "route": {
+    "domain_master": "healthcare.master",
+    "primary": "healthcare.healthcare-compliance",
+    "participants": [
+      "healthcare.phi-compliance",
+      "healthcare.health-it"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 3
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 8000,
+    "max_tool_calls": 16
+  },
+  "gates": [
+    {"id": "pre-route", "rule": "Confirm the task is HIPAA compliance audit, not general security or GDPR."},
+    {"id": "pre-tool", "rule": "Require systems inventory and current policies before assessment."},
+    {"id": "pre-write", "rule": "Verify no PHI appears in audit outputs."},
+    {"id": "on-task-complete", "rule": "Output must include compliance matrix, gap analysis, and remediation plan."}
+  ],
+  "steps": [
+    {"id": "inventory-systems", "agent": "healthcare.health-it", "action": "Catalog all systems that handle PHI and map data flows."},
+    {"id": "assess-privacy-rule", "agent": "healthcare.healthcare-compliance", "action": "Evaluate Privacy Rule compliance including NPP, minimum necessary, and patient rights."},
+    {"id": "assess-security-rule", "agent": "healthcare.healthcare-compliance", "action": "Evaluate administrative, physical, and technical safeguards per Security Rule."},
+    {"id": "assess-breach-notification", "agent": "healthcare.healthcare-compliance", "action": "Review breach detection, reporting, and notification procedures."},
+    {"id": "review-baas", "agent": "healthcare.phi-compliance", "action": "Validate Business Associate Agreements and oversight procedures."},
+    {"id": "produce-remediation", "agent": "healthcare.healthcare-compliance", "action": "Compile findings into prioritized remediation plan with risk ratings."}
+  ],
+  "tools": [
+    "filesystem.read",
+    "filesystem.write",
+    "policy_scanner"
+  ],
+  "verification": [
+    "all_hipaa_requirements_mapped_to_controls_or_gaps",
+    "risk_assessment_updated_per_security_rule",
+    "remediation_prioritized_by_risk_level",
+    "no_phi_in_audit_outputs",
+    "baa_status_validated_for_all_bas"
+  ],
+  "success_criteria": [
+    "Every HIPAA requirement is mapped to a control or identified as a gap.",
+    "Risk assessment is current and covers all ePHI systems.",
+    "Remediation plan is prioritized by risk with timelines and owners.",
+    "No PHI appears in any audit output.",
+    "All Business Associate Agreements are validated."
+  ],
+  "rollback": {
+    "mode": "no_write",
+    "summary": "Read-only compliance audit with no system modifications."
+  },
+  "source_references": [
+    {"dossier_path": "references/workflows/healthcare/hipaa-compliance-audit.sources.json", "relationship": "workflow_dossier"}
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

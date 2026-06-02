@@ -1,0 +1,44 @@
+{
+  "dossier_id": "dossier.skill.sales.contract-review.2026-05-31",
+  "skill_id": "sales.contract-review",
+  "domain": "sales",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2027-05-31T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://www.pandadoc.com/blog",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "live",
+      "used_for": ["contract management best practices", "term review frameworks"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.iaccm.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["IACCM contract standards", "commercial term playbook patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/TwentyHQ/twenty",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": ["CRM deal data for contract tracking", "non-standard term flagging patterns"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 0,
+    "github_quality": 88,
+    "license_safety": 90,
+    "maintenance": 88,
+    "pattern_clarity": 90,
+    "testability": 82,
+    "total": 87
+  },
+  "promotion_decision": "staging"
+}

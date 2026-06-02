@@ -1,0 +1,75 @@
+{
+  "fixtures": [
+    { "prompt": "create figma component with auto layout", "expected_skill": "design-content.figma-design", "category": "design-content" },
+    { "prompt": "set up figma design system file", "expected_skill": "design-content.figma-design", "category": "design-content" },
+    { "prompt": "prepare figma design handoff documentation", "expected_skill": "design-content.figma-design", "category": "design-content" },
+
+    { "prompt": "create sketch symbol with smart layout", "expected_skill": "design-content.sketch-design", "category": "design-content" },
+    { "prompt": "set up sketch shared library", "expected_skill": "design-content.sketch-design", "category": "design-content" },
+    { "prompt": "prepare sketch design handoff", "expected_skill": "design-content.sketch-design", "category": "design-content" },
+
+    { "prompt": "create adobe xd component with responsive resize", "expected_skill": "design-content.adobe-xd", "category": "design-content" },
+    { "prompt": "set up xd auto animate prototype", "expected_skill": "design-content.adobe-xd", "category": "design-content" },
+    { "prompt": "prepare xd design handoff specs", "expected_skill": "design-content.adobe-xd", "category": "design-content" },
+
+    { "prompt": "define design tokens for color and spacing", "expected_skill": "design-content.design-tokens", "category": "design-content" },
+    { "prompt": "set up multi-platform token output", "expected_skill": "design-content.design-tokens", "category": "design-content" },
+    { "prompt": "audit design token naming conventions", "expected_skill": "design-content.design-tokens", "category": "design-content" },
+
+    { "prompt": "set up component library architecture", "expected_skill": "design-content.component-libraries", "category": "design-content" },
+    { "prompt": "design component api for the button", "expected_skill": "design-content.component-libraries", "category": "design-content" },
+    { "prompt": "audit component library documentation", "expected_skill": "design-content.component-libraries", "category": "design-content" },
+
+    { "prompt": "run wcag 2.2 compliance audit on the app", "expected_skill": "design-content.wcag-compliance", "category": "design-content" },
+    { "prompt": "assess wcag conformance for the dashboard", "expected_skill": "design-content.wcag-compliance", "category": "design-content" },
+    { "prompt": "wcag remediation plan for the navigation", "expected_skill": "design-content.wcag-compliance", "category": "design-content" },
+
+    { "prompt": "implement aria tab panel pattern", "expected_skill": "design-content.aria-patterns", "category": "design-content" },
+    { "prompt": "design accessible dialog with aria", "expected_skill": "design-content.aria-patterns", "category": "design-content" },
+    { "prompt": "set up aria live regions for notifications", "expected_skill": "design-content.aria-patterns", "category": "design-content" },
+
+    { "prompt": "audit color contrast for the brand palette", "expected_skill": "design-content.color-contrast", "category": "design-content" },
+    { "prompt": "check contrast ratios for text on backgrounds", "expected_skill": "design-content.color-contrast", "category": "design-content" },
+    { "prompt": "fix color contrast issues in the ui", "expected_skill": "design-content.color-contrast", "category": "design-content" },
+
+    { "prompt": "audit existing content for quality and relevance", "expected_skill": "design-content.content-audits", "category": "design-content" },
+    { "prompt": "content inventory review for the website", "expected_skill": "design-content.content-audits", "category": "design-content" },
+    { "prompt": "content gap analysis against competitors", "expected_skill": "design-content.content-audits", "category": "design-content" },
+
+    { "prompt": "create editorial calendar for q4", "expected_skill": "design-content.content-calendars", "category": "design-content" },
+    { "prompt": "content scheduling plan for the blog", "expected_skill": "design-content.content-calendars", "category": "design-content" },
+    { "prompt": "publishing timeline for the product launch", "expected_skill": "design-content.content-calendars", "category": "design-content" },
+
+    { "prompt": "seo optimization review for the landing page", "expected_skill": "design-content.seo-optimization", "category": "design-content" },
+    { "prompt": "on-page seo audit for the blog post", "expected_skill": "design-content.seo-optimization", "category": "design-content" },
+    { "prompt": "add schema markup to the product pages", "expected_skill": "design-content.seo-optimization", "category": "design-content" },
+
+    { "prompt": "keyword research for the devops topic area", "expected_skill": "design-content.keyword-research", "category": "design-content" },
+    { "prompt": "search volume analysis for cloud keywords", "expected_skill": "design-content.keyword-research", "category": "design-content" },
+    { "prompt": "keyword gap analysis against competitors", "expected_skill": "design-content.keyword-research", "category": "design-content" },
+
+    { "prompt": "create blog post content template", "expected_skill": "design-content.content-templates", "category": "design-content" },
+    { "prompt": "design landing page template structure", "expected_skill": "design-content.content-templates", "category": "design-content" },
+    { "prompt": "create email template for newsletters", "expected_skill": "design-content.content-templates", "category": "design-content" },
+
+    { "prompt": "create content style guide for the team", "expected_skill": "design-content.style-guides", "category": "design-content" },
+    { "prompt": "define writing standards and terminology", "expected_skill": "design-content.style-guides", "category": "design-content" },
+    { "prompt": "update style guide with new brand voice", "expected_skill": "design-content.style-guides", "category": "design-content" },
+
+    { "prompt": "create brand guidelines for the startup", "expected_skill": "design-content.brand-guidelines", "category": "design-content" },
+    { "prompt": "design brand book with visual identity specs", "expected_skill": "design-content.brand-guidelines", "category": "design-content" },
+    { "prompt": "document brand application rules for digital", "expected_skill": "design-content.brand-guidelines", "category": "design-content" },
+
+    { "prompt": "define motion principles for the product", "expected_skill": "design-content.motion-principles", "category": "design-content" },
+    { "prompt": "create animation language documentation", "expected_skill": "design-content.motion-principles", "category": "design-content" },
+    { "prompt": "set up motion behavior guidelines", "expected_skill": "design-content.motion-principles", "category": "design-content" },
+
+    { "prompt": "specify animation timing for transitions", "expected_skill": "design-content.animation-timing", "category": "design-content" },
+    { "prompt": "define easing curves for the design system", "expected_skill": "design-content.animation-timing", "category": "design-content" },
+    { "prompt": "create duration scale for animations", "expected_skill": "design-content.animation-timing", "category": "design-content" },
+
+    { "prompt": "design micro-interaction for the like button", "expected_skill": "design-content.micro-interactions", "category": "design-content" },
+    { "prompt": "create loading animation for the spinner", "expected_skill": "design-content.micro-interactions", "category": "design-content" },
+    { "prompt": "design notification animation for alerts", "expected_skill": "design-content.micro-interactions", "category": "design-content" }
+  ]
+}

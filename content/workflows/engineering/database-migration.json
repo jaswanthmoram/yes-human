@@ -1,0 +1,131 @@
+{
+  "id": "engineering.database-migration",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Create and validate a database migration with up/down scripts, data safety checks, and rollback verification following project migration conventions.",
+  "task_family": "schema_change",
+  "triggers": [
+    "create a database migration",
+    "add a new table via migration",
+    "alter this column with a migration",
+    "write the migration for this schema change",
+    "generate the up and down migration scripts",
+    "plan the data migration for this change"
+  ],
+  "aliases": [
+    "schema migration",
+    "database migration workflow",
+    "migration script creation"
+  ],
+  "negative_keywords": [
+    "frontend component",
+    "API endpoint only",
+    "docs only"
+  ],
+  "inputs": [
+    {
+      "name": "schema_change_spec",
+      "required": true
+    },
+    {
+      "name": "migration_tool",
+      "required": true
+    },
+    {
+      "name": "data_backfill_needed",
+      "required": false
+    },
+    {
+      "name": "existing_schema",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "up_migration"
+    },
+    {
+      "name": "down_migration"
+    },
+    {
+      "name": "data_safety_report"
+    },
+    {
+      "name": "rollback_verification"
+    }
+  ],
+  "primary_agent": "engineering.migration-builder",
+  "route": {
+    "domain_master": "engineering.master",
+    "primary": "engineering.migration-builder",
+    "participants": [],
+    "parallel": false,
+    "max_parallel_agents": 1
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 2600,
+    "max_tool_calls": 10
+  },
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "pre-write",
+    "post-tool",
+    "on-task-complete"
+  ],
+  "steps": [
+    {
+      "id": "analyze-schema",
+      "summary": "Read the current schema and migration history to understand dependencies and naming conventions."
+    },
+    {
+      "id": "write-up-migration",
+      "summary": "Create the up migration with proper DDL statements, constraints, and indexes."
+    },
+    {
+      "id": "write-down-migration",
+      "summary": "Create the reversible down migration that cleanly undoes the up migration."
+    },
+    {
+      "id": "data-safety-check",
+      "summary": "Evaluate the migration for destructive operations, lock risks, and data loss potential."
+    },
+    {
+      "id": "test-migration",
+      "summary": "Run the migration up and down against a test database to verify correctness and reversibility."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "filesystem.write",
+    "shell.migration_runner",
+    "schema_inspector",
+    "diff_inspection"
+  ],
+  "verification": [
+    "up_migration_applies_cleanly",
+    "down_migration_reverts_cleanly",
+    "no_destructive_operations_unflagged",
+    "schema_matches_expected_state",
+    "migration_is_idempotent"
+  ],
+  "success_criteria": [
+    "Up migration applies without errors on a clean test database.",
+    "Down migration fully reverts the up migration.",
+    "Destructive operations (DROP, TRUNCATE) are explicitly flagged in the safety report.",
+    "Migration follows project naming and ordering conventions."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "summary": "Run the down migration to revert; remove migration files if they have not been committed."
+  },
+  "source_references": [
+    "ref.workflow.engineering.database-migration.2026-06-01"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

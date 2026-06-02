@@ -1,0 +1,15 @@
+{
+  "dossier_id": "dossier.skill.healthcare.medical-device-reporting.2026-06-01",
+  "skill_id": "healthcare.medical-device-reporting",
+  "domain": "healthcare",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {"url": "https://www.fda.gov/medical-devices/mandatory-reporting-requirements-manufacturers-importers-and-device-user-facilities", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["MDR requirements", "reporting workflows"], "copy_policy": "patterns_only"},
+    {"url": "https://www.fda.gov/medical-devices/medical-device-reporting-mdr-how-report-medical-device-problems", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["MDR submission procedures"], "copy_policy": "patterns_only"},
+    {"url": "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfmaude/search.cfm", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "live", "used_for": ["MAUDE database search patterns"], "copy_policy": "patterns_only"},
+    {"url": "https://www.fda.gov/medical-devices/postmarket-requirements-medical-devices/postmarket-surveillance", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["Post-market surveillance requirements"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 4, "official_docs": 4, "github_quality": 0, "license_safety": 97, "maintenance": 93, "pattern_clarity": 88, "testability": 83, "total": 87},
+  "promotion_decision": "staging"
+}

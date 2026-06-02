@@ -1,0 +1,159 @@
+{
+  "id": "finance.monthly-forecast",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Prepare a monthly forecast package with assumptions, budget variance, and cash posture for finance-owner review.",
+  "task_family": "financial_forecasting",
+  "triggers": [
+    "monthly forecast update",
+    "runway review package",
+    "budget versus actual forecast",
+    "cash outlook refresh"
+  ],
+  "aliases": [
+    "monthly forecast",
+    "forecast refresh"
+  ],
+  "negative_keywords": [
+    "legal clause review",
+    "candidate interview loop",
+    "production deploy"
+  ],
+  "inputs": [
+    {
+      "name": "actuals_snapshot",
+      "required": true,
+      "description": "Latest monthly actuals with source references."
+    },
+    {
+      "name": "forecast_horizon",
+      "required": true,
+      "description": "Period to project, such as quarter or rolling twelve months."
+    },
+    {
+      "name": "planning_assumptions",
+      "required": true,
+      "description": "Revenue, spend, hiring, and scenario assumptions."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "forecast_summary",
+      "description": "Base, upside, and downside forecast with assumption notes."
+    },
+    {
+      "name": "budget_variance_notes",
+      "description": "Major variance drivers versus plan or prior forecast."
+    },
+    {
+      "name": "cash_posture_handoff",
+      "description": "Liquidity view and explicit finance-review handoff."
+    }
+  ],
+  "primary_agent": "finance.forecasting-analyst",
+  "route": {
+    "domain_master": "finance.master",
+    "agents": [
+      "finance.forecasting-analyst",
+      "finance.budget-planner",
+      "finance.cash-flow-manager"
+    ],
+    "primary_agent": "finance.forecasting-analyst",
+    "participants": [
+      "finance.budget-planner",
+      "finance.cash-flow-manager"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 3
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 4200,
+    "max_tool_calls": 10,
+    "notes": "High-stakes workflow. Preserve source labeling and reviewer handoff."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is forecast support and not tax, investment, or filing advice."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require actuals, horizon, and assumptions before any forecast narrative is generated."
+    },
+    {
+      "id": "pre-write",
+      "rule": "Mark all projections as decision support and attach a finance-review disclaimer before external sharing."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "End with a named human finance owner or reviewer handoff; do not claim approval."
+    }
+  ],
+  "steps": [
+    {
+      "id": "normalize-inputs",
+      "agent": "finance.forecasting-analyst",
+      "action": "Separate actuals from assumptions, confirm horizon, and define forecast scenarios."
+    },
+    {
+      "id": "analyze-budget-variance",
+      "agent": "finance.budget-planner",
+      "action": "Explain major budget variances and note where plan assumptions changed."
+    },
+    {
+      "id": "review-cash-posture",
+      "agent": "finance.cash-flow-manager",
+      "action": "Assess liquidity timing, cash pressure points, and dependency on collections or spend changes."
+    },
+    {
+      "id": "assemble-review-pack",
+      "agent": "finance.forecasting-analyst",
+      "action": "Merge the scenario summary, variance notes, and cash posture into a reviewer-ready monthly package."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read source actuals, prior forecasts, and planning notes."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Write the finance review pack when requested."
+    }
+  ],
+  "verification": [
+    {
+      "id": "actuals-labeled",
+      "method": "Check actuals, assumptions, and projections are clearly separated."
+    },
+    {
+      "id": "variance-explained",
+      "method": "Check material budget variances include drivers and not just numbers."
+    },
+    {
+      "id": "human-review-handoff-present",
+      "method": "Check the output includes disclaimer language and named reviewer handoff."
+    }
+  ],
+  "success_criteria": [
+    "The package labels actuals, forecast assumptions, and scenario ranges without ambiguity.",
+    "The forecast includes variance commentary and cash implications, not just projected totals.",
+    "The final output explicitly states it is not financial advice and requires human finance review before operational use."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If projections are unsupported or mixed with actuals, revert to the normalized input set and regenerate the variance and cash steps."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/finance/monthly-forecast.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

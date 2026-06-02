@@ -1,0 +1,114 @@
+{
+  "id": "data-ai.rag-eval",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Evaluate a RAG system across retrieval quality, answer quality, and failure modes before rollout changes.",
+  "task_family": "evaluation",
+  "triggers": [
+    "evaluate this RAG pipeline",
+    "run a retrieval quality review",
+    "check whether this RAG system is good enough"
+  ],
+  "aliases": [
+    "rag evaluation",
+    "retrieval and answer audit",
+    "rag quality check"
+  ],
+  "negative_keywords": [
+    "train a new model",
+    "general code review",
+    "write docs only"
+  ],
+  "inputs": [
+    {
+      "name": "rag_architecture",
+      "required": true
+    },
+    {
+      "name": "evaluation_dataset",
+      "required": true
+    },
+    {
+      "name": "baseline_metrics",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "retrieval_metrics"
+    },
+    {
+      "name": "answer_quality_report"
+    },
+    {
+      "name": "improvement_recommendations"
+    }
+  ],
+  "primary_agent": "data-ai.rag-engineer",
+  "route": {
+    "domain_master": "data-ai.master",
+    "primary": "data-ai.rag-engineer",
+    "participants": [
+      "data-ai.eval-engineer"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 4200,
+    "max_tool_calls": 12
+  },
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "post-tool",
+    "on-task-complete"
+  ],
+  "steps": [
+    {
+      "id": "define-eval-slice",
+      "summary": "Confirm the retrieval task, dataset quality, and success metrics before running any judgment."
+    },
+    {
+      "id": "measure-retrieval",
+      "summary": "Score recall, ranking quality, and context fit on representative queries."
+    },
+    {
+      "id": "score-answers",
+      "summary": "Review faithfulness, completeness, and refusal behavior using the retrieved context."
+    },
+    {
+      "id": "recommend-fixes",
+      "summary": "Tie weak metrics back to chunking, indexing, prompting, or evaluator design changes."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "eval_harness",
+    "dataset_reader",
+    "metrics_runner"
+  ],
+  "verification": [
+    "dataset_and_metrics_are_named",
+    "retrieval_and_answer_metrics_are_separated",
+    "recommendations_map_to_observed_failures"
+  ],
+  "success_criteria": [
+    "The report distinguishes retrieval failures from generation failures.",
+    "Metrics and qualitative errors are both included.",
+    "Recommended next steps are actionable on the current RAG stack."
+  ],
+  "rollback": {
+    "mode": "no_write",
+    "summary": "Evaluation workflow does not change runtime behavior."
+  },
+  "source_references": [
+    "ref.workflow.data-ai.rag-eval.2026-06-01"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

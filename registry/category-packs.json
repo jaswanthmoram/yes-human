@@ -1,0 +1,839 @@
+{
+  "version": "2.0.0",
+  "generated_at": "2026-06-02T04:23:37.726Z",
+  "count": 19,
+  "items": [
+    {
+      "id": "engineering",
+      "master_agent": "engineering.master",
+      "specialists": [
+        "engineering.architect",
+        "engineering.backend-api",
+        "engineering.build-resolver",
+        "engineering.code-migration",
+        "engineering.code-reviewer",
+        "engineering.database-design",
+        "engineering.database-optimization",
+        "engineering.dev-workflow",
+        "engineering.docs-updater",
+        "engineering.frontend-react",
+        "engineering.frontend-vue",
+        "engineering.mobile-android",
+        "engineering.mobile-ios",
+        "engineering.performance-profiling",
+        "engineering.refactoring",
+        "engineering.tdd-guide",
+        "engineering.testing-e2e",
+        "engineering.testing-integration",
+        "engineering.testing-unit"
+      ],
+      "workflows": [
+        "engineering.backend-api-implementation",
+        "engineering.code-migration-execution",
+        "engineering.code-review-with-security",
+        "engineering.database-migration",
+        "engineering.docs-update",
+        "engineering.fix-build-error",
+        "engineering.frontend-component-creation",
+        "engineering.performance-optimization",
+        "engineering.refactoring-campaign",
+        "engineering.repo-onboarding",
+        "engineering.tdd-feature",
+        "engineering.test-suite-expansion"
+      ],
+      "connectors": [
+        "github",
+        "context7",
+        "pm.plane",
+        "pm.openproject"
+      ],
+      "route_fixture_files": [
+        "engineering-batch1.fixtures.json",
+        "engineering-batch2.fixtures.json",
+        "engineering-batch3.fixtures.json",
+        "engineering.fixtures.json",
+        "seed.fixtures.json",
+        "workflow-routes.fixtures.json"
+      ],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "engineering.language-review",
+      "master_agent": "engineering.master",
+      "specialists": [
+        "engineering.architect",
+        "engineering.backend-api",
+        "engineering.build-resolver",
+        "engineering.code-migration",
+        "engineering.code-reviewer",
+        "engineering.database-design",
+        "engineering.database-optimization",
+        "engineering.dev-workflow",
+        "engineering.docs-updater",
+        "engineering.frontend-react",
+        "engineering.frontend-vue",
+        "engineering.mobile-android",
+        "engineering.mobile-ios",
+        "engineering.performance-profiling",
+        "engineering.refactoring",
+        "engineering.tdd-guide",
+        "engineering.testing-e2e",
+        "engineering.testing-integration",
+        "engineering.testing-unit"
+      ],
+      "workflows": [
+        "engineering.backend-api-implementation",
+        "engineering.code-migration-execution",
+        "engineering.code-review-with-security",
+        "engineering.database-migration",
+        "engineering.docs-update",
+        "engineering.fix-build-error",
+        "engineering.frontend-component-creation",
+        "engineering.performance-optimization",
+        "engineering.refactoring-campaign",
+        "engineering.repo-onboarding",
+        "engineering.tdd-feature",
+        "engineering.test-suite-expansion"
+      ],
+      "connectors": [
+        "github",
+        "context7",
+        "pm.plane",
+        "pm.openproject"
+      ],
+      "route_fixture_files": [
+        "engineering-batch1.fixtures.json",
+        "engineering-batch2.fixtures.json",
+        "engineering-batch3.fixtures.json",
+        "engineering.fixtures.json",
+        "seed.fixtures.json",
+        "workflow-routes.fixtures.json"
+      ],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "security",
+      "master_agent": "security.master",
+      "specialists": [
+        "security.application-security",
+        "security.cloud-security",
+        "security.compliance-officer",
+        "security.cryptography-expert",
+        "security.dependency-risk-agent",
+        "security.identity-access",
+        "security.incident-responder",
+        "security.network-security",
+        "security.penetration-tester",
+        "security.secret-scan-agent",
+        "security.security-auditor",
+        "security.security-reviewer",
+        "security.threat-hunter",
+        "security.threat-modeler",
+        "security.vulnerability-manager"
+      ],
+      "workflows": [
+        "security.incident-response-playbook",
+        "security.penetration-test-execution",
+        "security.prompt-injection-review",
+        "security.repo-risk-scan",
+        "security.security-audit-process",
+        "security.security-compliance-check",
+        "security.threat-hunting-campaign",
+        "security.vulnerability-remediation"
+      ],
+      "connectors": [
+        "github"
+      ],
+      "route_fixture_files": [
+        "phase8-new-agents.fixtures.json",
+        "security-new.fixtures.json",
+        "security-specialists.fixtures.json",
+        "seed.fixtures.json",
+        "workflow-routes.fixtures.json"
+      ],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "platform",
+      "master_agent": "platform.master",
+      "specialists": [
+        "platform.ci-cd-engineer",
+        "platform.ci-cd-pipeline",
+        "platform.cloud-cost-optimization",
+        "platform.container-security",
+        "platform.devops-engineer",
+        "platform.gitops-workflow",
+        "platform.incident-responder",
+        "platform.incident-response",
+        "platform.infrastructure-testing",
+        "platform.kubernetes-admin",
+        "platform.monitoring-setup",
+        "platform.observability-engineer",
+        "platform.service-mesh",
+        "platform.terraform-architect"
+      ],
+      "workflows": [
+        "platform.ci-failure-triage",
+        "platform.cloud-migration",
+        "platform.disaster-recovery-setup",
+        "platform.incident-response-playbook",
+        "platform.kubernetes-cluster-setup",
+        "platform.monitoring-stack-deployment",
+        "platform.terraform-infrastructure-deployment"
+      ],
+      "connectors": [
+        "github",
+        "playwright",
+        "pm.plane",
+        "pm.openproject"
+      ],
+      "route_fixture_files": [
+        "phase8-new-agents.fixtures.json",
+        "platform-new.fixtures.json",
+        "platform-specialists.fixtures.json",
+        "seed.fixtures.json",
+        "workflow-routes.fixtures.json"
+      ],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "meta-system",
+      "master_agent": "meta-system.master",
+      "specialists": [
+        "meta-system.agent-designer",
+        "meta-system.deduplicator",
+        "meta-system.dossier-evaluator",
+        "meta-system.eval-runner",
+        "meta-system.fixture-engineer",
+        "meta-system.plugin-absorber",
+        "meta-system.quality-assurance",
+        "meta-system.skill-designer",
+        "meta-system.source-miner",
+        "meta-system.stub-detector",
+        "meta-system.system-architect",
+        "meta-system.system-optimizer",
+        "meta-system.workflow-architect"
+      ],
+      "workflows": [
+        "meta-system.source-mine-and-dossier"
+      ],
+      "connectors": [
+        "firecrawl",
+        "exa",
+        "github",
+        "context7",
+        "memory",
+        "sequential-thinking"
+      ],
+      "route_fixture_files": [
+        "meta-system-specialists.fixtures.json",
+        "phase8-new-agents.fixtures.json",
+        "seed.fixtures.json",
+        "workflow-routes.fixtures.json"
+      ],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "data-ai",
+      "master_agent": "data-ai.master",
+      "specialists": [
+        "data-ai.ai-ethics-specialist",
+        "data-ai.ai-product-manager",
+        "data-ai.ai-research-scientist",
+        "data-ai.bi-developer",
+        "data-ai.computer-vision-engineer",
+        "data-ai.data-analyst",
+        "data-ai.data-engineer",
+        "data-ai.data-scientist",
+        "data-ai.eval-engineer",
+        "data-ai.graph-rag-engineer",
+        "data-ai.llm-fine-tuner",
+        "data-ai.ml-engineer",
+        "data-ai.mlops-engineer",
+        "data-ai.nlp-engineer",
+        "data-ai.prompt-engineer",
+        "data-ai.rag-engineer",
+        "data-ai.recommendation-engineer"
+      ],
+      "workflows": [
+        "data-ai.rag-eval"
+      ],
+      "connectors": [
+        "sequential-thinking",
+        "analytics.posthog"
+      ],
+      "route_fixture_files": [
+        "data-ai-specialists.fixtures.json",
+        "data-ai.fixtures.json",
+        "phase8-new-agents.fixtures.json",
+        "workflow-routes.fixtures.json"
+      ],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "integrations",
+      "master_agent": "integrations.master",
+      "specialists": [
+        "integrations.api-gateway-architect",
+        "integrations.api-integration-specialist",
+        "integrations.browser-auto",
+        "integrations.event-streaming-architect",
+        "integrations.github-operator",
+        "integrations.graphql-integrator",
+        "integrations.message-queue-engineer",
+        "integrations.microservices-integrator",
+        "integrations.middleware-developer",
+        "integrations.sourcegraph-context-agent",
+        "integrations.third-party-integrator",
+        "integrations.vercel-agent",
+        "integrations.webhook-developer"
+      ],
+      "workflows": [
+        "integrations.mcp-server-design"
+      ],
+      "connectors": [
+        "firecrawl",
+        "github",
+        "context7",
+        "playwright"
+      ],
+      "route_fixture_files": [
+        "integrations-specialists.fixtures.json",
+        "integrations.fixtures.json",
+        "phase8-new-agents.fixtures.json",
+        "workflow-routes.fixtures.json"
+      ],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "startup-ops",
+      "master_agent": "startup-ops.master",
+      "specialists": [
+        "startup-ops.business-model-designer",
+        "startup-ops.ceo-rethink",
+        "startup-ops.customer-development",
+        "startup-ops.financial-modeler",
+        "startup-ops.fundraising-specialist",
+        "startup-ops.growth-hacker",
+        "startup-ops.hr-specialist",
+        "startup-ops.legal-compliance",
+        "startup-ops.operations-manager",
+        "startup-ops.pitch-deck-creator",
+        "startup-ops.product-market-fit",
+        "startup-ops.qa",
+        "startup-ops.release",
+        "startup-ops.startup-mentor",
+        "startup-ops.startup-strategist"
+      ],
+      "workflows": [
+        "startup-ops.business-model-validation",
+        "startup-ops.ceo-review-pack",
+        "startup-ops.customer-discovery",
+        "startup-ops.fundraising-preparation",
+        "startup-ops.pitch-deck-creation"
+      ],
+      "connectors": [],
+      "route_fixture_files": [
+        "phase8-new-agents.fixtures.json",
+        "startup-ops-new.fixtures.json",
+        "startup-ops-specialists.fixtures.json",
+        "startup-ops.fixtures.json"
+      ],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "research",
+      "master_agent": "research.master",
+      "specialists": [
+        "research.academic-researcher",
+        "research.data-researcher",
+        "research.deep-researcher",
+        "research.literature-reviewer",
+        "research.market-intel-analyst",
+        "research.market-researcher",
+        "research.research-analyst",
+        "research.research-methodologist",
+        "research.research-project-manager",
+        "research.scientific-literature-analyst",
+        "research.scientific-writer",
+        "research.statistical-consultant"
+      ],
+      "workflows": [
+        "research.deep-research-synthesis"
+      ],
+      "connectors": [
+        "firecrawl",
+        "exa",
+        "sequential-thinking"
+      ],
+      "route_fixture_files": [
+        "phase8-new-agents.fixtures.json",
+        "research-specialists.fixtures.json",
+        "research.fixtures.json"
+      ],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "product-business",
+      "master_agent": "product-business.master",
+      "specialists": [
+        "product-business.competitive-analyst",
+        "product-business.customer-success-advisor",
+        "product-business.feature-prioritizer",
+        "product-business.growth-manager",
+        "product-business.market-researcher",
+        "product-business.operations-planner",
+        "product-business.partnerships-advisor",
+        "product-business.pricing-strategist",
+        "product-business.product-analyst",
+        "product-business.product-designer",
+        "product-business.product-launcher",
+        "product-business.product-manager",
+        "product-business.product-marketer",
+        "product-business.product-ops",
+        "product-business.product-strategist",
+        "product-business.product-writer",
+        "product-business.roadmap-planner",
+        "product-business.user-researcher"
+      ],
+      "workflows": [
+        "product-business.competitive-analysis",
+        "product-business.feature-prioritization",
+        "product-business.prd-to-plan",
+        "product-business.product-discovery",
+        "product-business.product-launch",
+        "product-business.product-roadmap-creation",
+        "product-business.user-research-process"
+      ],
+      "connectors": [
+        "firecrawl",
+        "exa",
+        "context7",
+        "memory",
+        "sequential-thinking",
+        "crm.twenty",
+        "support.chatwoot",
+        "analytics.posthog",
+        "pm.plane",
+        "pm.openproject"
+      ],
+      "route_fixture_files": [
+        "phase8-new-agents.fixtures.json",
+        "product-business-new.fixtures.json",
+        "product-business-specialists.fixtures.json",
+        "product-business.fixtures.json",
+        "workflow-routes.fixtures.json"
+      ],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "design-content",
+      "master_agent": "design-content.master",
+      "specialists": [
+        "design-content.accessibility-auditor",
+        "design-content.accessibility-expert",
+        "design-content.brand-designer",
+        "design-content.brand-strategist",
+        "design-content.content-editor",
+        "design-content.content-strategist",
+        "design-content.copywriter",
+        "design-content.design-systems",
+        "design-content.frontend-design-agent",
+        "design-content.interaction-designer",
+        "design-content.motion-designer",
+        "design-content.seo-writer",
+        "design-content.technical-writer",
+        "design-content.ui-designer",
+        "design-content.ux-designer",
+        "design-content.visual-designer"
+      ],
+      "workflows": [
+        "design-content.accessibility-audit",
+        "design-content.brand-identity-design",
+        "design-content.content-strategy-development",
+        "design-content.design-system-creation",
+        "design-content.seo-content-creation",
+        "design-content.visual-and-a11y-check"
+      ],
+      "connectors": [
+        "firecrawl",
+        "context7",
+        "playwright"
+      ],
+      "route_fixture_files": [
+        "design-content-new.fixtures.json",
+        "design-content-specialists.fixtures.json",
+        "design-content.fixtures.json",
+        "phase8-new-agents.fixtures.json",
+        "workflow-routes.fixtures.json"
+      ],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "marketing",
+      "master_agent": "marketing.master",
+      "specialists": [
+        "marketing.brand-marketer",
+        "marketing.content-marketer",
+        "marketing.conversion-optimizer",
+        "marketing.digital-marketer",
+        "marketing.email-marketer",
+        "marketing.event-marketer",
+        "marketing.growth-marketer",
+        "marketing.influencer-marketer",
+        "marketing.marketing-analyst",
+        "marketing.marketing-automator",
+        "marketing.marketing-strategist",
+        "marketing.product-marketer",
+        "marketing.sem-specialist",
+        "marketing.seo-analyst",
+        "marketing.seo-specialist",
+        "marketing.social-media-manager"
+      ],
+      "workflows": [
+        "marketing.content-marketing-strategy",
+        "marketing.conversion-optimization",
+        "marketing.email-campaign-creation",
+        "marketing.launch-campaign",
+        "marketing.paid-advertising-setup",
+        "marketing.seo-audit-process",
+        "marketing.social-media-campaign"
+      ],
+      "connectors": [
+        "firecrawl",
+        "exa",
+        "crm.twenty",
+        "support.chatwoot",
+        "analytics.posthog"
+      ],
+      "route_fixture_files": [
+        "marketing-new.fixtures.json",
+        "marketing-specialists.fixtures.json",
+        "marketing.fixtures.json",
+        "phase8-new-agents.fixtures.json",
+        "workflow-routes.fixtures.json"
+      ],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "sales",
+      "master_agent": "sales.master",
+      "specialists": [
+        "sales.account-executive",
+        "sales.competitive-intel-analyst",
+        "sales.contract-negotiator",
+        "sales.crm-admin",
+        "sales.customer-success",
+        "sales.deal-desk",
+        "sales.pipeline-analyst",
+        "sales.proposal-generator",
+        "sales.proposal-writer",
+        "sales.sales-analyst",
+        "sales.sales-development",
+        "sales.sales-enablement",
+        "sales.sales-engineer",
+        "sales.sales-ops",
+        "sales.sales-strategist",
+        "sales.sales-trainer",
+        "sales.territory-manager"
+      ],
+      "workflows": [
+        "sales.account-planning",
+        "sales.contract-negotiation",
+        "sales.deal-review",
+        "sales.proposal-development",
+        "sales.sales-forecast-creation",
+        "sales.sales-qualification-process"
+      ],
+      "connectors": [
+        "crm.twenty"
+      ],
+      "route_fixture_files": [
+        "phase8-new-agents.fixtures.json",
+        "sales-new.fixtures.json",
+        "sales-specialists.fixtures.json",
+        "sales.fixtures.json",
+        "workflow-routes.fixtures.json"
+      ],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "healthcare",
+      "master_agent": "healthcare.master",
+      "specialists": [
+        "healthcare.clinical-decision-support",
+        "healthcare.clinical-informatics",
+        "healthcare.clinical-research",
+        "healthcare.ehr-patterns",
+        "healthcare.health-data-analyst",
+        "healthcare.health-it",
+        "healthcare.healthcare-compliance",
+        "healthcare.healthcare-operations",
+        "healthcare.medical-coder",
+        "healthcare.medical-device",
+        "healthcare.patient-safety",
+        "healthcare.phi-compliance",
+        "healthcare.population-health",
+        "healthcare.quality-improvement",
+        "healthcare.telehealth-specialist"
+      ],
+      "workflows": [
+        "healthcare.clinical-data-analysis",
+        "healthcare.clinical-guideline-review",
+        "healthcare.hipaa-compliance-audit",
+        "healthcare.quality-improvement-project",
+        "healthcare.telehealth-implementation"
+      ],
+      "connectors": [],
+      "route_fixture_files": [
+        "healthcare-specialists.fixtures.json",
+        "healthcare.fixtures.json",
+        "phase8-new-agents.fixtures.json"
+      ],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "education",
+      "master_agent": "education.master",
+      "specialists": [
+        "education.academic-advisor",
+        "education.assessment-designer",
+        "education.assessment-specialist",
+        "education.curriculum-designer",
+        "education.education-policy",
+        "education.education-researcher",
+        "education.educational-technologist",
+        "education.instructional-designer",
+        "education.learning-analyst",
+        "education.online-educator",
+        "education.special-education",
+        "education.student-success",
+        "education.tutor-agent"
+      ],
+      "workflows": [
+        "education.assessment-creation",
+        "education.curriculum-assessment-alignment",
+        "education.curriculum-design-process",
+        "education.online-course-development"
+      ],
+      "connectors": [],
+      "route_fixture_files": [
+        "education-specialists.fixtures.json",
+        "education.fixtures.json",
+        "phase8-new-agents.fixtures.json"
+      ],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "manufacturing",
+      "master_agent": "manufacturing.master",
+      "specialists": [
+        "manufacturing.demand-planner",
+        "manufacturing.industrial-engineer",
+        "manufacturing.inventory-manager",
+        "manufacturing.inventory-planner",
+        "manufacturing.lean-manufacturing",
+        "manufacturing.maintenance-engineer",
+        "manufacturing.manufacturing-analyst",
+        "manufacturing.manufacturing-operations",
+        "manufacturing.process-engineer",
+        "manufacturing.production-engineer",
+        "manufacturing.quality-engineer",
+        "manufacturing.quality-nonconformance-analyst",
+        "manufacturing.safety-engineer",
+        "manufacturing.supply-chain-analyst"
+      ],
+      "workflows": [
+        "manufacturing.demand-inventory-balancing",
+        "manufacturing.production-optimization",
+        "manufacturing.quality-improvement",
+        "manufacturing.supply-chain-analysis"
+      ],
+      "connectors": [],
+      "route_fixture_files": [
+        "manufacturing-specialists.fixtures.json",
+        "manufacturing.fixtures.json",
+        "phase8-new-agents.fixtures.json"
+      ],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "hr",
+      "master_agent": "hr.master",
+      "specialists": [
+        "hr.compensation-analyst",
+        "hr.diversity-specialist",
+        "hr.employee-relations",
+        "hr.hiring-manager",
+        "hr.hr-analyst",
+        "hr.hr-business-partner",
+        "hr.hr-compliance",
+        "hr.hr-operations",
+        "hr.learning-specialist",
+        "hr.onboarding-coordinator",
+        "hr.organizational-development",
+        "hr.performance-manager",
+        "hr.performance-reviewer",
+        "hr.talent-acquisition",
+        "hr.workforce-planner"
+      ],
+      "workflows": [
+        "hr.compensation-analysis",
+        "hr.hiring-pipeline",
+        "hr.onboarding-process",
+        "hr.performance-review-cycle",
+        "hr.recruitment-process"
+      ],
+      "connectors": [
+        "hr.frappe-hrms",
+        "hr.orangehrm"
+      ],
+      "route_fixture_files": [
+        "hr-specialists.fixtures.json",
+        "hr.fixtures.json",
+        "phase8-new-agents.fixtures.json",
+        "workflow-routes.fixtures.json"
+      ],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "finance",
+      "master_agent": "finance.master",
+      "specialists": [
+        "finance.audit-specialist",
+        "finance.budget-planner",
+        "finance.cash-flow-manager",
+        "finance.cfo-advisor",
+        "finance.compliance-officer",
+        "finance.credit-analyst",
+        "finance.financial-analyst",
+        "finance.financial-modeler",
+        "finance.financial-planner",
+        "finance.forecasting-analyst",
+        "finance.investment-analyst",
+        "finance.m-and-a-specialist",
+        "finance.portfolio-manager",
+        "finance.risk-manager",
+        "finance.tax-specialist",
+        "finance.treasury-manager",
+        "finance.valuation-expert"
+      ],
+      "workflows": [
+        "finance.audit-preparation",
+        "finance.budget-development",
+        "finance.financial-analysis-process",
+        "finance.financial-model-creation",
+        "finance.investment-evaluation",
+        "finance.monthly-forecast",
+        "finance.risk-assessment"
+      ],
+      "connectors": [
+        "accounting.erpnext",
+        "accounting.odoo"
+      ],
+      "route_fixture_files": [
+        "finance-new.fixtures.json",
+        "finance-specialists.fixtures.json",
+        "finance.fixtures.json",
+        "phase8-new-agents.fixtures.json",
+        "workflow-routes.fixtures.json"
+      ],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "legal-compliance",
+      "master_agent": "legal-compliance.master",
+      "specialists": [
+        "legal-compliance.compliance-checker",
+        "legal-compliance.compliance-officer",
+        "legal-compliance.contract-lawyer",
+        "legal-compliance.contract-reviewer",
+        "legal-compliance.corporate-lawyer",
+        "legal-compliance.due-diligence",
+        "legal-compliance.employment-lawyer",
+        "legal-compliance.ip-lawyer",
+        "legal-compliance.legal-researcher",
+        "legal-compliance.legal-writer",
+        "legal-compliance.litigation-support",
+        "legal-compliance.policy-analyst",
+        "legal-compliance.privacy-advisor",
+        "legal-compliance.privacy-officer",
+        "legal-compliance.regulatory-affairs",
+        "legal-compliance.risk-manager"
+      ],
+      "workflows": [
+        "legal-compliance.compliance-audit",
+        "legal-compliance.contract-review-process",
+        "legal-compliance.contract-risk-review",
+        "legal-compliance.due-diligence-process",
+        "legal-compliance.legal-research-process",
+        "legal-compliance.policy-development"
+      ],
+      "connectors": [],
+      "route_fixture_files": [
+        "legal-compliance-new.fixtures.json",
+        "legal-compliance-specialists.fixtures.json",
+        "legal-compliance.fixtures.json",
+        "workflow-routes.fixtures.json"
+      ],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
+      "status": "active"
+    }
+  ]
+}

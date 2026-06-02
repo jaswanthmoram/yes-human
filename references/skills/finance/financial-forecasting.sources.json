@@ -1,0 +1,13 @@
+{
+  "dossier_id": "dossier.skill.finance.financial-forecasting.2026-05-31",
+  "skill_id": "finance.financial-forecasting",
+  "domain": "finance",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2027-05-31T00:00:00Z",
+  "sources": [
+    {"url": "https://www.cfainstitute.org/en/research", "source_type": "professional_body", "license": "Proprietary", "version_or_commit": "live", "used_for": ["Financial forecast building and scenario analysis", "finance skill frameworks"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/actualbudget/actual", "source_type": "github_repo", "license": "MIT", "version_or_commit": "master", "used_for": ["finance skill patterns", "analysis and planning structures"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 2, "official_docs": 0, "github_quality": 84, "license_safety": 86, "maintenance": 82, "pattern_clarity": 86, "testability": 74, "total": 84},
+  "promotion_decision": "staging"
+}

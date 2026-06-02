@@ -34,5 +34,14 @@
     "created_at": "2026-06-01T05:54:43.611Z",
     "confidence": 0.9,
     "author": "yes-absorber"
+  },
+  {
+    "id": "prov.absorb.local-good-source.2026-06-02",
+    "item_id": "local-good-source",
+    "kind": "absorbed_source",
+    "source": "/tmp/claude-501/yh-abs-JcuuR5/good-source",
+    "created_at": "2026-06-02T04:23:02.702Z",
+    "confidence": 0.9,
+    "author": "yes-absorber"
   }
 ]

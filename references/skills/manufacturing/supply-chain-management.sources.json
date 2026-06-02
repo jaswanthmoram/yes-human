@@ -1,0 +1,15 @@
+{
+  "dossier_id": "dossier.skill.manufacturing.supply-chain-management.2026-06-01",
+  "skill_id": "manufacturing.supply-chain-management",
+  "domain": "manufacturing",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {"url": "https://www.ascm.org/about-ascm/", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "CSCP 8.0", "used_for": ["Supply chain body of knowledge"], "copy_policy": "patterns_only"},
+    {"url": "https://www.nist.gov/manufacturing/supply-chain", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["NIST supply chain resilience frameworks"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/supply-chain/supply-chain-tools", "source_type": "github_repo", "license": "Apache-2.0", "version_or_commit": "v1.2.0", "used_for": ["Supply chain optimization tools"], "copy_policy": "patterns_only"},
+    {"url": "https://www.cscmp.org/CSCMP/Education/SCEDefinition.aspx", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["CSCM supply chain definitions"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 4, "official_docs": 1, "github_quality": 76, "license_safety": 94, "maintenance": 90, "pattern_clarity": 88, "testability": 84, "total": 86},
+  "promotion_decision": "staging"
+}

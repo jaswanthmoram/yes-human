@@ -1,0 +1,52 @@
+{
+  "skill_id": "legal-compliance.gdpr-compliance",
+  "dossier_id": "dossier.skill.legal-compliance.gdpr-compliance.2026-06-01",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://gdpr.eu/",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": [
+        "GDPR text and guidance",
+        "compliance requirements"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.edpb.europa.eu/our-work-tools/our-documents_en",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": [
+        "EDPB guidelines",
+        "interpretation guidance"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": [
+        "ICO GDPR guide",
+        "compliance checklists"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 2,
+    "github_quality": 0,
+    "license_safety": 92,
+    "maintenance": 88,
+    "pattern_clarity": 86,
+    "testability": 82,
+    "total": 85
+  },
+  "promotion_decision": "staging"
+}

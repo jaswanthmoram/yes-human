@@ -1,0 +1,157 @@
+{
+  "id": "hr.recruitment-process",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Design or refresh a recruitment process with sourcing strategy, candidate evaluation, and human-review checkpoints.",
+  "task_family": "recruitment",
+  "triggers": [
+    "recruitment process design",
+    "sourcing strategy creation",
+    "candidate evaluation framework",
+    "recruitment pipeline refresh"
+  ],
+  "aliases": [
+    "recruitment process",
+    "recruiting workflow"
+  ],
+  "negative_keywords": [
+    "tax filing",
+    "contract interpretation",
+    "campaign launch"
+  ],
+  "inputs": [
+    {
+      "name": "role_requirements",
+      "required": true,
+      "description": "Role definition, level, competencies, and hiring objective."
+    },
+    {
+      "name": "sourcing_context",
+      "required": true,
+      "description": "Available sourcing channels, budget, and diversity goals."
+    },
+    {
+      "name": "policy_constraints",
+      "required": false,
+      "description": "Internal policy, regional cautions, or compliance requirements."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "recruitment_plan",
+      "description": "Sourcing strategy, timeline, and channel plan."
+    },
+    {
+      "name": "evaluation_framework",
+      "description": "Candidate assessment criteria, interview structure, and scoring rubric."
+    },
+    {
+      "name": "pipeline_report",
+      "description": "Pipeline health metrics and recommendations."
+    }
+  ],
+  "primary_agent": "hr.talent-acquisition",
+  "route": {
+    "domain_master": "hr.master",
+    "agents": [
+      "hr.talent-acquisition",
+      "hr.hiring-manager"
+    ],
+    "primary_agent": "hr.talent-acquisition",
+    "participants": [
+      "hr.hiring-manager"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 3200,
+    "max_tool_calls": 8,
+    "notes": "High-stakes workflow. Preserve fairness and human decision ownership."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the request is recruitment process design, not legal advice or autonomous hiring approval."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require role requirements and sourcing context before drafting recruitment plan."
+    },
+    {
+      "id": "pre-write",
+      "rule": "Mark outputs as decision-support artifacts and include a human manager or HR-owner checkpoint."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Return clear sourcing strategy and note where policy or offer decisions need human approval."
+    }
+  ],
+  "steps": [
+    {
+      "id": "define-role-requirements",
+      "agent": "hr.hiring-manager",
+      "action": "Set role outcomes, competencies, and evaluation criteria."
+    },
+    {
+      "id": "design-sourcing-strategy",
+      "agent": "hr.talent-acquisition",
+      "action": "Create sourcing plan with channel selection, diversity goals, and outreach messaging."
+    },
+    {
+      "id": "build-evaluation-framework",
+      "agent": "hr.talent-acquisition",
+      "action": "Design interview structure, scoring rubric, and candidate assessment criteria."
+    },
+    {
+      "id": "publish-recruitment-plan",
+      "agent": "hr.talent-acquisition",
+      "action": "Merge sourcing strategy and evaluation framework into one reviewer-ready plan."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read role profiles, sourcing data, and policy references."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Write recruitment plan when requested."
+    }
+  ],
+  "verification": [
+    {
+      "id": "role-requirements-defined",
+      "method": "Check the plan names role requirements before sourcing strategy."
+    },
+    {
+      "id": "sourcing-channels-diverse",
+      "method": "Check sourcing channels include diverse pipeline sources."
+    },
+    {
+      "id": "human-approval-points-marked",
+      "method": "Check policy, offer, or hiring decisions are explicitly human-owned."
+    }
+  ],
+  "success_criteria": [
+    "The recruitment plan can be executed without guessing role criteria or sourcing strategy.",
+    "Evaluation guidance is structured and consistent enough to reduce ad hoc decision making.",
+    "The output clearly states that hiring and policy decisions remain with human managers."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If the plan omits role requirements or approval points, revert to role definition and rebuild."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/hr/recruitment-process.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

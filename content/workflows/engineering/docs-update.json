@@ -1,0 +1,104 @@
+{
+  "id": "engineering.docs-update",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Reconcile documentation with actual code behavior after a change and remove stale guidance.",
+  "task_family": "documentation",
+  "triggers": [
+    "update the docs for this change",
+    "sync docs with current code",
+    "fix stale documentation"
+  ],
+  "aliases": [
+    "docs sync",
+    "documentation refresh",
+    "code to docs update"
+  ],
+  "negative_keywords": [
+    "implement new feature",
+    "security threat model",
+    "design review"
+  ],
+  "inputs": [
+    {
+      "name": "changed_files",
+      "required": true
+    },
+    {
+      "name": "existing_docs",
+      "required": true
+    },
+    {
+      "name": "user_visible_changes",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "updated_docs"
+    },
+    {
+      "name": "behavior_change_notes"
+    }
+  ],
+  "primary_agent": "engineering.docs-updater",
+  "route": {
+    "domain_master": "engineering.master",
+    "primary": "engineering.docs-updater",
+    "participants": [],
+    "parallel": false,
+    "max_parallel_agents": 1
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 2200,
+    "max_tool_calls": 8
+  },
+  "gates": [
+    "pre-route",
+    "pre-write",
+    "post-tool"
+  ],
+  "steps": [
+    {
+      "id": "compare-docs-to-code",
+      "summary": "Check the current docs against the changed code paths and identify stale statements or missing examples."
+    },
+    {
+      "id": "edit-docs",
+      "summary": "Update only the affected documentation sections and preserve existing repo style."
+    },
+    {
+      "id": "verify-claims",
+      "summary": "Confirm that commands, APIs, and examples still match current code behavior."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "filesystem.write",
+    "search_index",
+    "example_runner_if_available"
+  ],
+  "verification": [
+    "doc_examples_match_current_api",
+    "changed_behavior_is_documented",
+    "removed_behavior_is_not_left_in_docs"
+  ],
+  "success_criteria": [
+    "Updated docs describe the current code accurately.",
+    "Examples or commands in edited sections remain valid.",
+    "Stale guidance introduced by the change is removed."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "summary": "Revert only documentation edits that are shown to be inaccurate."
+  },
+  "source_references": [
+    "ref.workflow.engineering.docs-update.2026-06-01"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

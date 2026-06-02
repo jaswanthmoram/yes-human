@@ -1,0 +1,159 @@
+{
+  "id": "finance.budget-development",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Develop an annual or periodic budget with department-level detail, strategic alignment, assumption documentation, and approval workflow.",
+  "task_family": "budget_planning",
+  "triggers": [
+    "budget development process",
+    "annual budget creation",
+    "budget planning workflow",
+    "budget cycle kickoff"
+  ],
+  "aliases": [
+    "budget development",
+    "budget planning"
+  ],
+  "negative_keywords": [
+    "legal review",
+    "code review",
+    "marketing campaign"
+  ],
+  "inputs": [
+    {
+      "name": "strategic_priorities",
+      "required": true,
+      "description": "Organization strategic priorities and goals for the budget period."
+    },
+    {
+      "name": "historical_spend",
+      "required": true,
+      "description": "Historical spending data by department and category."
+    },
+    {
+      "name": "revenue_targets",
+      "required": true,
+      "description": "Revenue targets and growth assumptions for the budget period."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "budget_document",
+      "description": "Complete budget with department-level allocations and capital plans."
+    },
+    {
+      "name": "assumption_tracker",
+      "description": "Documented assumptions for all major budget lines."
+    },
+    {
+      "name": "strategic_alignment_report",
+      "description": "Mapping of budget allocations to strategic priorities."
+    }
+  ],
+  "primary_agent": "finance.financial-planner",
+  "route": {
+    "domain_master": "finance.master",
+    "agents": [
+      "finance.financial-planner",
+      "finance.budget-planner",
+      "finance.cash-flow-manager"
+    ],
+    "primary_agent": "finance.financial-planner",
+    "participants": [
+      "finance.budget-planner",
+      "finance.cash-flow-manager"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 3
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 4800,
+    "max_tool_calls": 12,
+    "notes": "High-stakes workflow. Preserve assumption documentation and reviewer handoff."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is budget development and not tax planning or investment allocation."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require strategic priorities, historical spend, and revenue targets before budget construction."
+    },
+    {
+      "id": "pre-write",
+      "rule": "Mark all budget figures as planning estimates and attach disclaimer before external sharing."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "End with named human budget owner or reviewer handoff; do not claim budget approval."
+    }
+  ],
+  "steps": [
+    {
+      "id": "revenue-planning",
+      "agent": "finance.financial-planner",
+      "action": "Build revenue projections from targets, growth assumptions, and historical trends."
+    },
+    {
+      "id": "expense-budgeting",
+      "agent": "finance.budget-planner",
+      "action": "Develop department-level expense budgets from historical spend and strategic priorities."
+    },
+    {
+      "id": "cash-flow-integration",
+      "agent": "finance.cash-flow-manager",
+      "action": "Integrate budget with cash flow projections to assess liquidity and timing impacts."
+    },
+    {
+      "id": "assemble-budget-package",
+      "agent": "finance.financial-planner",
+      "action": "Compile revenue, expense, and cash flow budgets into a complete package with strategic alignment mapping."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read historical spend data, strategic priorities, and revenue targets."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Write the budget document and supporting schedules when requested."
+    }
+  ],
+  "verification": [
+    {
+      "id": "department-detail",
+      "method": "Check budget includes department-level allocations with assumptions."
+    },
+    {
+      "id": "strategic-alignment",
+      "method": "Check major allocations are mapped to strategic priorities."
+    },
+    {
+      "id": "disclaimer-present",
+      "method": "Check output includes disclaimer and named reviewer handoff."
+    }
+  ],
+  "success_criteria": [
+    "The budget includes department-level detail with documented assumptions.",
+    "Major allocations are mapped to strategic priorities.",
+    "The final output explicitly states it is a planning document and requires human budget owner approval."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If budget is incomplete or assumptions are undocumented, revert to the relevant step."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/finance/budget-development.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

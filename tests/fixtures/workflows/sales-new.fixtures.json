@@ -1,0 +1,115 @@
+{
+  "description": "Fixtures for new sales workflows (2 per workflow, 10 total)",
+  "fixtures": [
+    {
+      "id": "fixture.sales-qualification-process.enterprise",
+      "workflow_id": "sales.sales-qualification-process",
+      "input": {
+        "lead_data": "Enterprise SaaS opportunity, 500-seat deployment, $250K ACV, VP of Engineering champion",
+        "qualification_framework": "MEDDIC",
+        "icp_definition": "Mid-market to enterprise SaaS companies with 500+ employees, engineering-led culture"
+      },
+      "expected_outputs": ["qualification_score", "fit_assessment", "next_step_plan"],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.sales-qualification-process.smb",
+      "workflow_id": "sales.sales-qualification-process",
+      "input": {
+        "lead_data": "SMB inbound lead, 25-person startup, $12K ARR, founder as decision-maker",
+        "qualification_framework": "BANT",
+        "icp_definition": "SMB technology startups with 10-100 employees, product-led growth motion"
+      },
+      "expected_outputs": ["qualification_score", "fit_assessment", "next_step_plan"],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.proposal-development.enterprise-analytics",
+      "workflow_id": "sales.proposal-development",
+      "input": {
+        "buyer_requirements": "Enterprise analytics platform for 200 analysts, SSO integration, on-prem deployment option",
+        "solution_scope": "Enterprise tier with advanced analytics module, professional services for implementation",
+        "pricing_framework": "Per-seat licensing with annual commitment, 15% volume discount threshold"
+      },
+      "expected_outputs": ["proposal_draft", "value_proposition", "open_issues"],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.proposal-development.midmarket-crm",
+      "workflow_id": "sales.proposal-development",
+      "input": {
+        "buyer_requirements": "CRM replacement for 50-person sales team, Salesforce migration, mobile access required",
+        "solution_scope": "Professional tier with migration services, 12-month implementation support",
+        "pricing_framework": "Per-user monthly billing, standard discount policy up to 10%"
+      },
+      "expected_outputs": ["proposal_draft", "value_proposition", "open_issues"],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.contract-negotiation.enterprise-msa",
+      "workflow_id": "sales.contract-negotiation",
+      "input": {
+        "contract_terms": "3-year MSA with enterprise buyer, $500K total value, custom SLA requirements",
+        "negotiation_objectives": "Protect margin above 60%, limit liability to contract value, secure 3-year commitment",
+        "counterparty_position": "Buyer demands unlimited liability, 99.99% SLA, and annual price reduction of 5%"
+      },
+      "expected_outputs": ["negotiation_strategy", "concession_matrix", "legal_routing_plan"],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.contract-negotiation.renewal-expansion",
+      "workflow_id": "sales.contract-negotiation",
+      "input": {
+        "contract_terms": "Annual renewal with 20% expansion, existing customer, standard terms with minor modifications",
+        "negotiation_objectives": "Secure multi-year commitment, expand seat count, maintain pricing",
+        "counterparty_position": "Customer requests 10% discount on expansion seats and extended payment terms"
+      },
+      "expected_outputs": ["negotiation_strategy", "concession_matrix", "legal_routing_plan"],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.account-planning.strategic-enterprise",
+      "workflow_id": "sales.account-planning",
+      "input": {
+        "account_data": "Fortune 500 financial services, $1.2M ARR, 3-year customer, 85% NPS, 3 business units using platform",
+        "relationship_history": "CFO sponsor, VP Engineering champion, 2 detractors in IT, quarterly business reviews active",
+        "expansion_signals": "New business unit onboarding, increased usage in analytics module, RFP for adjacent product"
+      },
+      "expected_outputs": ["account_plan", "stakeholder_map", "expansion_roadmap"],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.account-planning.at-risk-account",
+      "workflow_id": "sales.account-planning",
+      "input": {
+        "account_data": "Mid-market tech company, $180K ARR, 18-month customer, declining usage, support ticket spike",
+        "relationship_history": "Original champion left company, new VP evaluating alternatives, limited executive engagement",
+        "expansion_signals": "No expansion signals, competitor POC detected, contract renewal in 4 months"
+      },
+      "expected_outputs": ["account_plan", "stakeholder_map", "expansion_roadmap"],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.sales-forecast-creation.q4-commit",
+      "workflow_id": "sales.sales-forecast-creation",
+      "input": {
+        "pipeline_data": "42 active opportunities totaling $4.8M, 8 in late-stage, 15 in proposal, 19 in discovery",
+        "historical_close_rates": "Late-stage: 68%, Proposal: 42%, Discovery: 18%, overall quarterly close rate: 31%",
+        "forecast_period": "Q4 2026"
+      },
+      "expected_outputs": ["forecast_model", "deal_level_assessment", "risk_upside_analysis"],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.sales-forecast-creation.annual-plan",
+      "workflow_id": "sales.sales-forecast-creation",
+      "input": {
+        "pipeline_data": "Full-year pipeline $18M across 4 quarters, 120 opportunities, 3 segments: enterprise, mid-market, SMB",
+        "historical_close_rates": "Enterprise: 25%, Mid-market: 35%, SMB: 45%, seasonal Q4 spike of 15%",
+        "forecast_period": "FY 2027"
+      },
+      "expected_outputs": ["forecast_model", "deal_level_assessment", "risk_upside_analysis"],
+      "expected_step_count": 4
+    }
+  ]
+}

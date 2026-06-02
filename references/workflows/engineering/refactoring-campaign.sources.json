@@ -1,0 +1,63 @@
+{
+  "dossier_id": "dossier.workflow.engineering.refactoring-campaign.2026-06-01",
+  "workflow_id": "engineering.refactoring-campaign",
+  "domain": "engineering",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://refactoring.guru/refactoring",
+      "source_type": "official_docs",
+      "license": "Refactoring.Guru terms",
+      "version_or_commit": "live",
+      "used_for": [
+        "refactoring catalog",
+        "code smell identification"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://martinfowler.com/books/refactoring.html",
+      "source_type": "official_docs",
+      "license": "Martin Fowler site terms",
+      "version_or_commit": "2nd edition",
+      "used_for": [
+        "refactoring principles",
+        "incremental refactoring approach"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/palantir/tslint-consistent-codestyle",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "master",
+      "used_for": [
+        "code style enforcement patterns"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.sonarsource.com/solutions/clean-code/",
+      "source_type": "official_docs",
+      "license": "SonarSource terms",
+      "version_or_commit": "live",
+      "used_for": [
+        "code quality metrics",
+        "technical debt measurement"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 3,
+    "github_quality": 82,
+    "license_safety": 92,
+    "maintenance": 86,
+    "pattern_clarity": 94,
+    "testability": 85,
+    "total": 88
+  },
+  "promotion_decision": "staging"
+}

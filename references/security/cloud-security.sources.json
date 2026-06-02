@@ -1,0 +1,64 @@
+{
+  "dossier_id": "dossier.security.cloud-security.2026-05-31",
+  "agent_id": "security.cloud-security",
+  "domain": "security",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2026-08-29T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/toniblyx/prowler",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "master",
+      "stars": 8500,
+      "used_for": ["AWS security assessment patterns", "cloud misconfiguration detection"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/aquasecurity/trivy",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "stars": 23500,
+      "used_for": ["cloud infrastructure scanning", "container security patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/bridgecrewio/checkov",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "stars": 7200,
+      "used_for": ["IaC security scanning", "cloud policy-as-code patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.cisecurity.org/benchmark/amazon_web_services",
+      "source_type": "official_docs",
+      "license": "CC-BY-NC-SA-4.0",
+      "version_or_commit": "v3.0",
+      "used_for": ["CIS AWS benchmark", "cloud hardening controls"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/cloud-custodian/cloud-custodian",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "stars": 5100,
+      "used_for": ["cloud governance patterns", "policy enforcement automation"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 5,
+    "official_docs": 1,
+    "github_quality": 92,
+    "license_safety": 95,
+    "maintenance": 90,
+    "pattern_clarity": 91,
+    "testability": 87,
+    "total": 90
+  },
+  "promotion_decision": "staging"
+}

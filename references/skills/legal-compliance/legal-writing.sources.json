@@ -1,0 +1,52 @@
+{
+  "skill_id": "legal-compliance.legal-writing",
+  "dossier_id": "dossier.skill.legal-compliance.legal-writing.2026-06-01",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://www.law.cornell.edu/wex/legal_writing",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": [
+        "legal writing standards",
+        "document structure"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://guides.loc.gov/legal-research/legal-writing",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": [
+        "legal writing guides",
+        "citation methodology"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.plainlanguage.gov/",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": [
+        "plain language patterns",
+        "readability standards"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 3,
+    "github_quality": 0,
+    "license_safety": 92,
+    "maintenance": 88,
+    "pattern_clarity": 86,
+    "testability": 82,
+    "total": 85
+  },
+  "promotion_decision": "staging"
+}

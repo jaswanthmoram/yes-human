@@ -1,0 +1,186 @@
+{
+  "id": "platform.monitoring-stack-deployment",
+  "version": "1.0.0",
+  "status": "active",
+  "name": "Monitoring Stack Deployment",
+  "description": "Deploy and configure a full observability stack with metrics, logs, traces, dashboards, and alerting rules.",
+  "task_family": "observability",
+  "triggers": [
+    "monitoring stack deployment",
+    "setup prometheus and grafana",
+    "deploy observability stack",
+    "configure metrics and alerting",
+    "install logging pipeline",
+    "setup distributed tracing"
+  ],
+  "aliases": [
+    "observability setup",
+    "monitoring deployment",
+    "metrics stack install"
+  ],
+  "negative_keywords": [
+    "application performance tuning",
+    "load testing",
+    "incident response",
+    "log analysis"
+  ],
+  "inputs": [
+    {
+      "name": "target_infrastructure",
+      "required": true,
+      "description": "Kubernetes cluster details or VM fleet specification for stack deployment."
+    },
+    {
+      "name": "observability_requirements",
+      "required": true,
+      "description": "Metrics, logging, tracing, and alerting scope with retention policies."
+    },
+    {
+      "name": "dashboard_specs",
+      "required": false,
+      "description": "Pre-defined dashboard layouts and key performance indicators to track."
+    },
+    {
+      "name": "alert_channels",
+      "required": false,
+      "description": "Notification targets (Slack, PagerDuty, email) and escalation policies."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "stack_manifests",
+      "description": "Helm charts or Kubernetes manifests for the deployed monitoring components."
+    },
+    {
+      "name": "dashboard_configs",
+      "description": "Provisioned dashboards with key metrics, SLO panels, and service maps."
+    },
+    {
+      "name": "alert_rules",
+      "description": "Alerting rules with severity levels, thresholds, and notification routing."
+    },
+    {
+      "name": "validation_report",
+      "description": "End-to-end verification that metrics flow, alerts fire, and dashboards render."
+    }
+  ],
+  "primary_agent": "platform.sre-engineer",
+  "participants": [
+    "platform.devops-engineer",
+    "platform.security-engineer"
+  ],
+  "skills": [
+    "prometheus",
+    "grafana",
+    "opentelemetry",
+    "alerting-systems",
+    "kubernetes-admin"
+  ],
+  "budget_band": "expanded",
+  "max_context_tokens": 3800,
+  "max_tool_calls": 12,
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is monitoring stack deployment, not incident investigation or performance debugging."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Verify target cluster or infrastructure is accessible before deploying monitoring components."
+    },
+    {
+      "id": "post-tool",
+      "rule": "Validate each deployed component emits metrics or logs before proceeding."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Return stack manifests, dashboards, alert rules, and validation report with access instructions."
+    }
+  ],
+  "steps": [
+    {
+      "id": "assess-observability-needs",
+      "agent": "platform.sre-engineer",
+      "description": "Analyze target infrastructure and define metrics, logs, and traces collection requirements."
+    },
+    {
+      "id": "deploy-metrics-pipeline",
+      "agent": "platform.devops-engineer",
+      "description": "Install Prometheus or equivalent metrics collector with service discovery and scrape configurations."
+    },
+    {
+      "id": "deploy-logging-pipeline",
+      "agent": "platform.devops-engineer",
+      "description": "Deploy log aggregation (Loki, Fluentd, or equivalent) with structured log parsing and retention."
+    },
+    {
+      "id": "deploy-tracing-pipeline",
+      "agent": "platform.sre-engineer",
+      "description": "Install distributed tracing backend (Tempo, Jaeger) with OpenTelemetry collector configuration."
+    },
+    {
+      "id": "configure-dashboards",
+      "agent": "platform.sre-engineer",
+      "description": "Provision Grafana or equivalent dashboards with SLO panels, service maps, and infrastructure overviews."
+    },
+    {
+      "id": "setup-alerting",
+      "agent": "platform.sre-engineer",
+      "description": "Define alerting rules, severity levels, notification channels, and escalation policies."
+    },
+    {
+      "id": "validate-end-to-end",
+      "agent": "platform.sre-engineer",
+      "description": "Verify metrics ingestion, log search, trace queries, dashboard rendering, and alert firing."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read Helm values, dashboard JSON templates, and alerting rule files."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Write stack manifests, dashboard configs, and validation reports."
+    },
+    {
+      "name": "shell.exec",
+      "purpose": "Execute helm, kubectl, and curl commands for deployment and verification."
+    }
+  ],
+  "verification": [
+    {
+      "id": "metrics-flowing",
+      "method": "Prometheus targets are up and scraping within 2 minutes of deployment."
+    },
+    {
+      "id": "logs-searchable",
+      "method": "Log aggregation returns results for a test query within 5 minutes."
+    },
+    {
+      "id": "dashboards-render",
+      "method": "All provisioned dashboards load without errors and display live data."
+    },
+    {
+      "id": "alerts-fire",
+      "method": "A synthetic alert fires and routes to the configured notification channel."
+    }
+  ],
+  "success_criteria": [
+    "Metrics, logs, and traces pipelines are operational end-to-end.",
+    "Dashboards render live data for all defined KPIs.",
+    "Alert rules are active and route to configured channels.",
+    "Validation report confirms all components pass health checks."
+  ],
+  "rollback": {
+    "mode": "helm_uninstall",
+    "when": "If end-to-end validation fails, uninstall monitoring components via Helm and restore prior state."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/platform/monitoring-stack-deployment.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "quality_gate": "staging"
+}

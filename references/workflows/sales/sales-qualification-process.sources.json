@@ -1,0 +1,44 @@
+{
+  "dossier_id": "dossier.workflow.sales.sales-qualification-process.2026-05-31",
+  "workflow_id": "sales.sales-qualification-process",
+  "domain": "sales",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://www.hubspot.com/sales/sales-qualification",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "live",
+      "used_for": ["qualification process structure", "MEDDIC/BANT/CHAMP framework application"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.meddic.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["MEDDIC qualification dimensions", "enterprise scoring patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/TwentyHQ/twenty",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": ["CRM lead data model", "qualification workflow patterns"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 0,
+    "github_quality": 84,
+    "license_safety": 90,
+    "maintenance": 86,
+    "pattern_clarity": 86,
+    "testability": 80,
+    "total": 85
+  },
+  "promotion_decision": "staging"
+}

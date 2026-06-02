@@ -205,6 +205,8 @@ Exit criteria for each agent:
 
 Create workflows before adding more agents.
 
+Status on 2026-06-01: complete on the current 74-agent baseline. Canonical workflows now live under `content/workflows/`, route to real workflow ids, and carry matching workflow dossiers under `references/workflows/`.
+
 First workflows:
 
 - `engineering.code-review-with-security`
@@ -214,15 +216,15 @@ First workflows:
 - `security.prompt-injection-review`
 - `data-ai.rag-eval`
 - `integrations.mcp-server-design`
-- `frontend.visual-and-a11y-check`
-- `product.prd-to-plan`
+- `design-content.visual-and-a11y-check`
+- `product-business.prd-to-plan`
 - `marketing.launch-campaign`
 - `sales.deal-review`
 - `finance.monthly-forecast`
-- `legal.contract-risk-review`
+- `legal-compliance.contract-risk-review`
 - `hr.hiring-pipeline`
 - `platform.ci-failure-triage`
-- `meta.source-mine-and-dossier`
+- `meta-system.source-mine-and-dossier`
 
 Exit criteria:
 
@@ -231,6 +233,8 @@ Exit criteria:
 ### Wave 6: Host Bundles
 
 Build bundles only after route kernel and validation work.
+
+Status on 2026-06-01: the core host bundles are already built for CLI, Codex, Claude, OpenCode, and MCP. Optional adapter packs remain separate and are not part of Phase 8 completion.
 
 Order:
 
@@ -319,4 +323,3 @@ See `YES-HUMAN_DEVELOPMENT_PLAN.md` for the complete phased roadmap with ECC int
 Each phase includes ECC source map integration points, folder skeletons, key contracts, and verification checkpoints.
 
 **First agent creation milestone:** After Phase 2 completion, create one engineering source dossier (`engineering.code-reviewer`) and verify it passes all validation gates before proceeding to Wave 3 category masters.
-

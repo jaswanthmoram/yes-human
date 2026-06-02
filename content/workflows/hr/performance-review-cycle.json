@@ -1,0 +1,157 @@
+{
+  "id": "hr.performance-review-cycle",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Design or refresh a performance review cycle with evaluation frameworks, calibration processes, and growth plan templates.",
+  "task_family": "performance_management",
+  "triggers": [
+    "performance review cycle design",
+    "review framework refresh",
+    "calibration process design",
+    "growth plan template creation"
+  ],
+  "aliases": [
+    "performance review cycle",
+    "review cycle workflow"
+  ],
+  "negative_keywords": [
+    "tax filing",
+    "contract interpretation",
+    "campaign launch"
+  ],
+  "inputs": [
+    {
+      "name": "role_family",
+      "required": true,
+      "description": "Role families, levels, and evaluation dimensions."
+    },
+    {
+      "name": "review_cycle",
+      "required": true,
+      "description": "Review frequency, timeline, and stakeholder roles."
+    },
+    {
+      "name": "framework_goal",
+      "required": false,
+      "description": "Framework objectives, calibration needs, or growth focus areas."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "review_framework",
+      "description": "Evaluation criteria, rating scales, and review templates."
+    },
+    {
+      "name": "calibration_process",
+      "description": "Calibration session design, facilitation guide, and consistency checks."
+    },
+    {
+      "name": "growth_plan_template",
+      "description": "Individual development plan template with goal-setting structure."
+    }
+  ],
+  "primary_agent": "hr.performance-manager",
+  "route": {
+    "domain_master": "hr.master",
+    "agents": [
+      "hr.performance-manager",
+      "hr.performance-reviewer"
+    ],
+    "primary_agent": "hr.performance-manager",
+    "participants": [
+      "hr.performance-reviewer"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 3200,
+    "max_tool_calls": 8,
+    "notes": "High-stakes workflow. Preserve fairness, consistency, and human decision ownership."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the request is review cycle design, not individual employee evaluation or legal advice."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require role family and review cycle context before drafting framework."
+    },
+    {
+      "id": "pre-write",
+      "rule": "Mark outputs as decision-support artifacts and include a human manager checkpoint."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Return clear review framework and note where individual outcomes need human approval."
+    }
+  ],
+  "steps": [
+    {
+      "id": "define-evaluation-criteria",
+      "agent": "hr.performance-manager",
+      "action": "Set evaluation dimensions, rating scales, and role-specific criteria."
+    },
+    {
+      "id": "design-calibration-process",
+      "agent": "hr.performance-reviewer",
+      "action": "Create calibration session structure, facilitation guide, and consistency checks."
+    },
+    {
+      "id": "build-growth-plan-template",
+      "agent": "hr.performance-manager",
+      "action": "Design individual development plan template with goal-setting and milestone structure."
+    },
+    {
+      "id": "publish-review-cycle-pack",
+      "agent": "hr.performance-manager",
+      "action": "Merge framework, calibration process, and growth plan into one reviewer-ready pack."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read role profiles, existing review frameworks, and calibration notes."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Write review cycle pack when requested."
+    }
+  ],
+  "verification": [
+    {
+      "id": "evaluation-criteria-defined",
+      "method": "Check the framework names evaluation dimensions and rating scales."
+    },
+    {
+      "id": "calibration-process-included",
+      "method": "Check calibration session design and consistency checks are present."
+    },
+    {
+      "id": "human-approval-points-marked",
+      "method": "Check individual outcomes are explicitly human-owned."
+    }
+  ],
+  "success_criteria": [
+    "The review cycle can be executed without guessing evaluation criteria or calibration steps.",
+    "Calibration guidance is structured enough to ensure consistency across managers.",
+    "The output clearly states that individual performance outcomes remain with human managers."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If the framework omits evaluation criteria or calibration, revert to role family and rebuild."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/hr/performance-review-cycle.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

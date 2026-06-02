@@ -1,0 +1,157 @@
+{
+  "id": "hr.onboarding-process",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Design or refresh an onboarding process with ramp plans, checklists, and manager handoff checkpoints.",
+  "task_family": "onboarding",
+  "triggers": [
+    "onboarding process design",
+    "new hire onboarding plan",
+    "onboarding checklist creation",
+    "ramp plan design"
+  ],
+  "aliases": [
+    "onboarding process",
+    "onboarding workflow"
+  ],
+  "negative_keywords": [
+    "tax filing",
+    "contract interpretation",
+    "campaign launch"
+  ],
+  "inputs": [
+    {
+      "name": "role_context",
+      "required": true,
+      "description": "Role definition, team structure, and reporting lines."
+    },
+    {
+      "name": "ramp_expectations",
+      "required": true,
+      "description": "Expected ramp timeline, milestones, and success criteria."
+    },
+    {
+      "name": "organizational_context",
+      "required": false,
+      "description": "Company culture, tools, and compliance requirements."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "onboarding_plan",
+      "description": "Structured onboarding sequence with timelines and owners."
+    },
+    {
+      "name": "ramp_plan",
+      "description": "30-60-90 day milestones and success criteria."
+    },
+    {
+      "name": "manager_handoff",
+      "description": "Manager checklist and check-in cadence."
+    }
+  ],
+  "primary_agent": "hr.onboarding-coordinator",
+  "route": {
+    "domain_master": "hr.master",
+    "agents": [
+      "hr.onboarding-coordinator",
+      "hr.hr-operations"
+    ],
+    "primary_agent": "hr.onboarding-coordinator",
+    "participants": [
+      "hr.hr-operations"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 3200,
+    "max_tool_calls": 8,
+    "notes": "High-stakes workflow. Preserve new hire experience and human decision ownership."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the request is onboarding process design, not legal advice or autonomous HR approval."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require role context and ramp expectations before drafting onboarding plan."
+    },
+    {
+      "id": "pre-write",
+      "rule": "Mark outputs as decision-support artifacts and include a human manager checkpoint."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Return clear onboarding sequence and note where policy or compliance decisions need human approval."
+    }
+  ],
+  "steps": [
+    {
+      "id": "define-onboarding-goals",
+      "agent": "hr.onboarding-coordinator",
+      "action": "Set onboarding objectives, cultural integration goals, and compliance requirements."
+    },
+    {
+      "id": "build-ramp-plan",
+      "agent": "hr.onboarding-coordinator",
+      "action": "Create 30-60-90 day milestones with success criteria and owners."
+    },
+    {
+      "id": "create-manager-handoff",
+      "agent": "hr.onboarding-coordinator",
+      "action": "Design manager checklist, check-in cadence, and feedback loops."
+    },
+    {
+      "id": "publish-onboarding-pack",
+      "agent": "hr.onboarding-coordinator",
+      "action": "Merge onboarding plan, ramp plan, and manager handoff into one reviewer-ready pack."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read role profiles, team structures, and existing onboarding materials."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Write onboarding pack when requested."
+    }
+  ],
+  "verification": [
+    {
+      "id": "ramp-goals-defined",
+      "method": "Check the plan names ramp goals with milestones before onboarding steps."
+    },
+    {
+      "id": "owners-listed",
+      "method": "Check each onboarding step has an owner or responsible team."
+    },
+    {
+      "id": "manager-handoff-present",
+      "method": "Check manager checklist and check-in cadence are included."
+    }
+  ],
+  "success_criteria": [
+    "The onboarding plan can be executed without guessing ramp goals or step ownership.",
+    "Manager handoff is clear enough for consistent new hire experience.",
+    "The output clearly states that policy and compliance decisions remain with human managers."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If the plan omits ramp goals or manager handoff, revert to role context and rebuild."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/hr/onboarding-process.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

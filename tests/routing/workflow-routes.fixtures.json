@@ -1,0 +1,22 @@
+{
+  "fixtures": [
+    { "prompt": "review this PR for bugs and security issues", "expected_route": "route.workflow.engineering.code-review-with-security" },
+    { "prompt": "fix this build error", "expected_route": "route.workflow.engineering.fix-build-error" },
+    { "prompt": "implement this with TDD", "expected_route": "route.workflow.engineering.tdd-feature" },
+    { "prompt": "get me oriented in this repo", "expected_route": "route.workflow.engineering.repo-onboarding" },
+    { "prompt": "update the docs for this change", "expected_route": "route.workflow.engineering.docs-update" },
+    { "prompt": "scan this repo for security risks", "expected_route": "route.workflow.security.repo-risk-scan" },
+    { "prompt": "review this agent for prompt injection", "expected_route": "route.workflow.security.prompt-injection-review" },
+    { "prompt": "evaluate this RAG pipeline", "expected_route": "route.workflow.data-ai.rag-eval" },
+    { "prompt": "design an MCP server for this API", "expected_route": "route.workflow.integrations.mcp-server-design" },
+    { "prompt": "check this UI for visual and accessibility issues", "expected_route": "route.workflow.design-content.visual-and-a11y-check" },
+    { "prompt": "turn this PRD into an execution plan", "expected_route": "route.workflow.product-business.prd-to-plan" },
+    { "prompt": "product launch campaign", "expected_route": "route.workflow.marketing.launch-campaign" },
+    { "prompt": "deal health review", "expected_route": "route.workflow.sales.deal-review" },
+    { "prompt": "monthly forecast update", "expected_route": "route.workflow.finance.monthly-forecast" },
+    { "prompt": "hiring pipeline design", "expected_route": "route.workflow.hr.hiring-pipeline" },
+    { "prompt": "contract risk review", "expected_route": "route.workflow.legal-compliance.contract-risk-review" },
+    { "prompt": "ci failure triage", "expected_route": "route.workflow.platform.ci-failure-triage" },
+    { "prompt": "source mining run", "expected_route": "route.workflow.meta-system.source-mine-and-dossier" }
+  ]
+}

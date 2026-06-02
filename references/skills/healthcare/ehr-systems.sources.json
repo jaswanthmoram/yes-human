@@ -1,0 +1,15 @@
+{
+  "dossier_id": "dossier.skill.healthcare.ehr-systems.2026-06-01",
+  "skill_id": "healthcare.ehr-systems",
+  "domain": "healthcare",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {"url": "https://www.healthit.gov/topic/health-it-and-health-information-exchange-basics/what-electronic-health-record-ehr", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["EHR system architecture", "interoperability standards"], "copy_policy": "patterns_only"},
+    {"url": "https://www.hl7.org/fhir/", "source_type": "official_docs", "license": "Creative Commons", "version_or_commit": "R4", "used_for": ["FHIR resource models for EHR"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/smart-on-fhir/client-js", "source_type": "github_repo", "license": "Apache-2.0", "version_or_commit": "v2.5.0", "used_for": ["SMART on FHIR integration patterns"], "copy_policy": "patterns_only"},
+    {"url": "https://www.cms.gov/medicare/quality/value-based-programs/ehr-incentive-programs", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["Meaningful use requirements"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 4, "official_docs": 3, "github_quality": 78, "license_safety": 95, "maintenance": 90, "pattern_clarity": 86, "testability": 84, "total": 87},
+  "promotion_decision": "staging"
+}

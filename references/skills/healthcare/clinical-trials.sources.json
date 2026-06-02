@@ -1,0 +1,15 @@
+{
+  "dossier_id": "dossier.skill.healthcare.clinical-trials.2026-06-01",
+  "skill_id": "healthcare.clinical-trials",
+  "domain": "healthcare",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {"url": "https://clinicaltrials.gov/", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "live", "used_for": ["ClinicalTrials.gov registry", "trial registration"], "copy_policy": "patterns_only"},
+    {"url": "https://www.fda.gov/science-research/clinical-trials-and-human-subjects-protection", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["FDA clinical trial regulations"], "copy_policy": "patterns_only"},
+    {"url": "https://www.ich.org/page/ich-guidelines", "source_type": "official_docs", "license": "Proprietary", "version_or_commit": "E6(R2)", "used_for": ["ICH GCP guidelines"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/CDISC-org/cdisc-rules-engine", "source_type": "github_repo", "license": "Apache-2.0", "version_or_commit": "v1.0", "used_for": ["CDISC data standards validation"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 4, "official_docs": 3, "github_quality": 76, "license_safety": 95, "maintenance": 92, "pattern_clarity": 88, "testability": 84, "total": 88},
+  "promotion_decision": "staging"
+}

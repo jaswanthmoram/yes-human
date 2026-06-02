@@ -1,0 +1,60 @@
+{
+  "dossier_id": "dossier.skill.security.zero-trust.2026-06-01",
+  "skill_id": "security.zero-trust",
+  "domain": "security",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://csrc.nist.gov/publications/detail/sp/800-207/final",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "SP 800-207",
+      "used_for": ["zero trust architecture", "tenets and pillars"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://cloud.google.com/beyondcorp",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["BeyondCorp model", "identity-aware proxy"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.cisa.gov/sites/default/files/2023-04/CISA_Zero_Trust_Maturity_Model_508C.pdf",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2023",
+      "used_for": ["ZT maturity model", "implementation phases"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/istio/istio",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "v1.21",
+      "used_for": ["service mesh mTLS", "workload identity"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Microservices_Security_Cheat_Sheet.html",
+      "source_type": "official_docs",
+      "license": "MIT",
+      "version_or_commit": "2024",
+      "used_for": ["microservice auth patterns", "service-to-service security"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 5,
+    "official_docs": 4,
+    "github_quality": 89,
+    "license_safety": 95,
+    "maintenance": 91,
+    "pattern_clarity": 92,
+    "testability": 83,
+    "total": 90
+  },
+  "promotion_decision": "staging"
+}

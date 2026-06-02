@@ -1,0 +1,165 @@
+{
+  "dossier_id": "dossier.domain.hr.2026-06-01",
+  "domain": "hr",
+  "created_at": "2026-06-01T19:30:00Z",
+  "expires_at": "2027-06-01T19:30:00Z",
+  "sources": [
+    {
+      "url": "https://www.shrm.org/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["SHRM resources", "HR best practices"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.eeoc.gov/",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": ["EEOC regulations", "equal employment opportunity"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.dol.gov/",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": ["Department of Labor", "employment law"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.shrm.org/topics-tools/employment-law-compliance/eeoc-and-dol-publicize-regulatory-agendas-for-2024",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["EEOC and DOL regulatory agendas", "2024 compliance"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.shrm.org/topics-tools/employment-law-compliance/top-employment-law-cases-of-2024--so-far---what-hr-needs-to-know",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["top employment law cases 2024", "Title VII claims"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.shrm.org/topics-tools/tools/toolkits/managing-eeo-equal-employment-opportunity",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["EEO best practices", "equal employment opportunity toolkit"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.eeoc.gov/initiatives/e-race/best-practices-employers-and-human-resourceseeo-professionals",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": ["EEOC best practices", "anti-harassment policies"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://hrp.net/compliance-overview/2024-midyear-employment-law-compliance-trends/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["2024 employment law trends", "compliance updates"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.hrunlimitedinc.com/11-employment-law-changes-in-2024/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["11 employment law changes 2024", "paid leave laws"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.shrm.org/enterprise-solutions/insights/2024-year-end-trends",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["HR year-end trends", "workforce disruption"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.eeoc.gov/strategic-enforcement-plan-fiscal-years-2024-2028",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": ["EEOC strategic enforcement plan", "unlawful employment practices"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.cipd.co.uk/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["CIPD", "Chartered Institute of Personnel and Development"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.nlrb.gov/",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": ["NLRB", "National Labor Relations Board"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.osha.gov/",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": ["OSHA", "workplace safety"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.irs.gov/",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": ["IRS", "employment tax"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.adp.com/resources",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["ADP resources", "payroll and HR"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.bambee.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Bambee", "HR compliance for small business"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.gusto.com/resources",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Gusto resources", "payroll and benefits"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 18,
+    "official_docs": 7,
+    "github_quality": 0,
+    "license_safety": 95,
+    "maintenance": 95,
+    "pattern_clarity": 90,
+    "testability": 85,
+    "total": 92
+  },
+  "promotion_decision": "production",
+  "disclaimer_required": true,
+  "disclaimer_text": "This content is for informational purposes only and does not constitute legal or HR advice. Consult qualified professionals for advice on your specific employment situation."
+}

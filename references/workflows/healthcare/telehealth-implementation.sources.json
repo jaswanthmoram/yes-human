@@ -1,0 +1,15 @@
+{
+  "dossier_id": "dossier.workflow.healthcare.telehealth-implementation.2026-06-01",
+  "workflow_id": "healthcare.telehealth-implementation",
+  "domain": "healthcare",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {"url": "https://telehealth.hhs.gov/providers/policy-and-regulations", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "live", "used_for": ["telehealth policy framework", "regulatory compliance requirements"], "copy_policy": "patterns_only"},
+    {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7748550/", "source_type": "research_paper", "license": "Open Access", "version_or_commit": "published", "used_for": ["telehealth implementation models", "clinical workflow integration"], "copy_policy": "patterns_only"},
+    {"url": "https://www.ama-assn.org/practice-management/telehealth/telehealth-implementation-guide", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "live", "used_for": ["AMA telehealth implementation guide", "technology selection criteria"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/smart-on-fhir/client-js", "source_type": "github_repo", "license": "Apache-2.0", "version_or_commit": "master", "used_for": ["FHIR integration patterns", "healthcare data interoperability"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 4, "official_docs": 2, "github_quality": 85, "license_safety": 93, "maintenance": 87, "pattern_clarity": 89, "testability": 82, "total": 88},
+  "promotion_decision": "staging"
+}

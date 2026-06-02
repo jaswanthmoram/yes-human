@@ -1,0 +1,51 @@
+{
+  "dossier_id": "dossier.workflow.data-ai.rag-eval.2026-06-01",
+  "workflow_id": "data-ai.rag-eval",
+  "domain": "data-ai",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://docs.ragas.io/en/stable/",
+      "source_type": "official_docs",
+      "license": "MIT docs",
+      "version_or_commit": "stable",
+      "used_for": [
+        "RAG evaluation dimensions"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.deeplearning.ai/short-courses/evaluating-and-debugging-generative-ai/",
+      "source_type": "official_course",
+      "license": "DeepLearning.AI terms",
+      "version_or_commit": "live",
+      "used_for": [
+        "evaluation framing",
+        "failure analysis"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/explodinggradients/ragas",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": [
+        "retrieval and faithfulness metrics"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 1,
+    "github_quality": 88,
+    "license_safety": 95,
+    "maintenance": 86,
+    "pattern_clarity": 91,
+    "testability": 93,
+    "total": 90
+  },
+  "promotion_decision": "staging"
+}

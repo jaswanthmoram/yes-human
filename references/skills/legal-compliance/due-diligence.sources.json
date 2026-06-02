@@ -1,0 +1,52 @@
+{
+  "skill_id": "legal-compliance.due-diligence",
+  "dossier_id": "dossier.skill.legal-compliance.due-diligence.2026-06-01",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/open-agreements/open-agreements",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "2024",
+      "used_for": [
+        "diligence document patterns",
+        "transaction templates"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.sec.gov/edgar",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": [
+        "SEC filing patterns",
+        "public company diligence"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.law.cornell.edu/wex/due_diligence",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": [
+        "due diligence definitions",
+        "review methodology"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 2,
+    "github_quality": 85,
+    "license_safety": 92,
+    "maintenance": 88,
+    "pattern_clarity": 86,
+    "testability": 82,
+    "total": 85
+  },
+  "promotion_decision": "staging"
+}

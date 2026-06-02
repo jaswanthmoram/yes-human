@@ -1,0 +1,55 @@
+{
+  "dossier_id": "dossier.security.identity-access.2026-05-31",
+  "agent_id": "security.identity-access",
+  "domain": "security",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2026-08-29T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://csrc.nist.gov/publications/detail/sp/800-63/rev-3/final",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "Rev 3",
+      "used_for": ["NIST digital identity guidelines", "authentication assurance levels"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/keycloak/keycloak",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "stars": 24000,
+      "used_for": ["IAM implementation patterns", "SSO and federation configuration"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/casbin/casbin",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "master",
+      "stars": 18500,
+      "used_for": ["authorization framework patterns", "RBAC/ABAC implementation"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/openid/OpenID-Connect-Java-Spring-Project",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "master",
+      "stars": 1800,
+      "used_for": ["OIDC implementation patterns", "federation protocol handling"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 1,
+    "github_quality": 93,
+    "license_safety": 97,
+    "maintenance": 91,
+    "pattern_clarity": 90,
+    "testability": 86,
+    "total": 90
+  },
+  "promotion_decision": "staging"
+}

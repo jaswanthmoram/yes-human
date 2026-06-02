@@ -1,0 +1,13 @@
+{
+  "dossier_id": "dossier.data-ai.graph-rag-engineer.2026-06-01",
+  "agent_id": "data-ai.graph-rag-engineer",
+  "domain": "data-ai",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {"url": "https://www.microsoft.com/en-us/research/project/graphrag/", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "live", "used_for": ["GraphRAG architecture", "community detection patterns"], "copy_policy": "patterns_only"},
+    {"url": "https://graphrag.com/concepts/intro-to-graphrag/", "source_type": "technical_blog", "license": "Proprietary", "version_or_commit": "live", "used_for": ["GraphRAG patterns overview", "retrieval augmentation with graphs"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 2, "official_docs": 1, "github_quality": 85, "license_safety": 90, "maintenance": 85, "pattern_clarity": 88, "testability": 78, "total": 85},
+  "promotion_decision": "staging"
+}

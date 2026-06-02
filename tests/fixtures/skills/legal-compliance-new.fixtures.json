@@ -1,0 +1,275 @@
+{
+  "description": "Fixtures for new legal-compliance skills (3 per skill, 54 total).",
+  "fixtures": [
+    {
+      "prompt": "draft contract clause",
+      "expected_skill": "legal-compliance.contract-drafting",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "create agreement template",
+      "expected_skill": "legal-compliance.contract-drafting",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "write commercial terms",
+      "expected_skill": "legal-compliance.contract-drafting",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "review contract for risks",
+      "expected_skill": "legal-compliance.contract-review",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "analyze contract clauses",
+      "expected_skill": "legal-compliance.contract-review",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "compare terms to playbook",
+      "expected_skill": "legal-compliance.contract-review",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "research case law",
+      "expected_skill": "legal-compliance.legal-research",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "find relevant statutes",
+      "expected_skill": "legal-compliance.legal-research",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "legal precedent search",
+      "expected_skill": "legal-compliance.legal-research",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "analyze legal case",
+      "expected_skill": "legal-compliance.case-analysis",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "evaluate precedent value",
+      "expected_skill": "legal-compliance.case-analysis",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "case pattern analysis",
+      "expected_skill": "legal-compliance.case-analysis",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "map regulatory requirements",
+      "expected_skill": "legal-compliance.regulatory-compliance",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "compliance gap analysis",
+      "expected_skill": "legal-compliance.regulatory-compliance",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "regulatory obligation review",
+      "expected_skill": "legal-compliance.regulatory-compliance",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "develop internal policy",
+      "expected_skill": "legal-compliance.policy-development",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "draft compliance procedure",
+      "expected_skill": "legal-compliance.policy-development",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "create governance framework",
+      "expected_skill": "legal-compliance.policy-development",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "conduct legal risk assessment",
+      "expected_skill": "legal-compliance.risk-assessment",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "identify risk exposure",
+      "expected_skill": "legal-compliance.risk-assessment",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "prioritize legal risks",
+      "expected_skill": "legal-compliance.risk-assessment",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "conduct due diligence",
+      "expected_skill": "legal-compliance.due-diligence",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "organize data room",
+      "expected_skill": "legal-compliance.due-diligence",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "transaction risk review",
+      "expected_skill": "legal-compliance.due-diligence",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "audit ip portfolio",
+      "expected_skill": "legal-compliance.ip-protection",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "develop ip strategy",
+      "expected_skill": "legal-compliance.ip-protection",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "identify protection gaps",
+      "expected_skill": "legal-compliance.ip-protection",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "trademark clearance search",
+      "expected_skill": "legal-compliance.trademark-search",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "search for conflicting marks",
+      "expected_skill": "legal-compliance.trademark-search",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "trademark conflict analysis",
+      "expected_skill": "legal-compliance.trademark-search",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "patent landscape analysis",
+      "expected_skill": "legal-compliance.patent-analysis",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "evaluate patentability",
+      "expected_skill": "legal-compliance.patent-analysis",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "freedom to operate search",
+      "expected_skill": "legal-compliance.patent-analysis",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "review employment agreement",
+      "expected_skill": "legal-compliance.employment-law",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "analyze workplace policy",
+      "expected_skill": "legal-compliance.employment-law",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "labor compliance check",
+      "expected_skill": "legal-compliance.employment-law",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "privacy compliance assessment",
+      "expected_skill": "legal-compliance.privacy-compliance",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "conduct dpia",
+      "expected_skill": "legal-compliance.privacy-compliance",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "review data processing",
+      "expected_skill": "legal-compliance.privacy-compliance",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "data protection assessment",
+      "expected_skill": "legal-compliance.data-protection",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "review processing agreement",
+      "expected_skill": "legal-compliance.data-protection",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "cross-border transfer evaluation",
+      "expected_skill": "legal-compliance.data-protection",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "gdpr compliance check",
+      "expected_skill": "legal-compliance.gdpr-compliance",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "review article 30 records",
+      "expected_skill": "legal-compliance.gdpr-compliance",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "lawful basis assessment",
+      "expected_skill": "legal-compliance.gdpr-compliance",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "draft legal document",
+      "expected_skill": "legal-compliance.legal-writing",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "format legal citations",
+      "expected_skill": "legal-compliance.legal-writing",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "write legal memo",
+      "expected_skill": "legal-compliance.legal-writing",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "draft legal brief",
+      "expected_skill": "legal-compliance.brief-writing",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "structure legal argument",
+      "expected_skill": "legal-compliance.brief-writing",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "write appellate brief",
+      "expected_skill": "legal-compliance.brief-writing",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "format legal citations",
+      "expected_skill": "legal-compliance.legal-citations",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "verify bluebook citations",
+      "expected_skill": "legal-compliance.legal-citations",
+      "category": "legal-compliance"
+    },
+    {
+      "prompt": "check citation authority",
+      "expected_skill": "legal-compliance.legal-citations",
+      "category": "legal-compliance"
+    }
+  ]
+}

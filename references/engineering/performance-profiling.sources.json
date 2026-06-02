@@ -1,0 +1,60 @@
+{
+  "dossier_id": "dossier.engineering.performance-profiling.2026-05-31",
+  "agent_id": "engineering.performance-profiling",
+  "domain": "engineering.quality",
+  "created_at": "2026-05-31T10:00:00Z",
+  "expires_at": "2026-08-29T10:00:00Z",
+  "sources": [
+    {
+      "url": "https://www.brendangregg.com/systems-performance.html",
+      "source_type": "official_docs",
+      "license": "CC-BY-NC-ND-4.0",
+      "version_or_commit": "2nd-ed",
+      "used_for": ["USE method", "flame graph interpretation", "profiling methodology"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://nodejs.org/en/docs/guides/diagnostics",
+      "source_type": "official_docs",
+      "license": "MIT",
+      "version_or_commit": "22.x",
+      "used_for": ["Node.js CPU profiling", "heap snapshot analysis", "async hooks diagnostics"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/google/pprof",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": ["Go profiling patterns", "flame graph generation", "profile data formats"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/brendangregg/FlameGraph",
+      "source_type": "github_repo",
+      "license": "CDDL-1.0",
+      "version_or_commit": "master",
+      "used_for": ["flame graph generation tooling", "visualization conventions"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/affaan-m/ECC",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "2.0.0-rc.1",
+      "used_for": ["performance profiling skill structure", "benchmark patterns"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 5,
+    "official_docs": 2,
+    "github_quality": 92,
+    "license_safety": 85,
+    "maintenance": 82,
+    "pattern_clarity": 90,
+    "testability": 75,
+    "total": 86
+  },
+  "promotion_decision": "staging"
+}

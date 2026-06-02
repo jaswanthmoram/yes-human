@@ -1,0 +1,60 @@
+{
+  "dossier_id": "dossier.skill.engineering.mutation-testing.2026-06-01",
+  "skill_id": "engineering.mutation-testing",
+  "domain": "engineering",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://stryker-mutator.io/docs/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2024",
+      "used_for": ["mutation operators", "configuration", "reporting"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/pytest-dev/mutmut",
+      "source_type": "github_repo",
+      "license": "BSD-3-Clause",
+      "version_or_commit": "main",
+      "used_for": ["Python mutation testing", "mutant generation"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/hcoles/pitest",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": ["Java mutation testing", "mutation operators", "incremental analysis"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/stryker-mutator/stryker-js",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": ["JavaScript/TypeScript mutation testing"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://mutationtesting.io/",
+      "source_type": "educational",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["mutation testing concepts", "equivalent mutants"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 5,
+    "official_docs": 1,
+    "github_quality": 89,
+    "license_safety": 94,
+    "maintenance": 90,
+    "pattern_clarity": 88,
+    "testability": 86,
+    "total": 89
+  },
+  "promotion_decision": "staging"
+}

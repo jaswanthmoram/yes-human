@@ -1,0 +1,159 @@
+{
+  "id": "platform.ci-failure-triage",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Triage a CI failure, isolate the likely cause, and recommend the smallest corrective action with rerun guidance.",
+  "task_family": "ci_triage",
+  "triggers": [
+    "ci failure triage",
+    "build pipeline broken",
+    "workflow run diagnosis",
+    "failing github actions job"
+  ],
+  "aliases": [
+    "ci triage",
+    "pipeline failure review"
+  ],
+  "negative_keywords": [
+    "campaign messaging",
+    "employment process",
+    "contract review"
+  ],
+  "inputs": [
+    {
+      "name": "failure_log",
+      "required": true,
+      "description": "Job logs, failing step, and environment details."
+    },
+    {
+      "name": "pipeline_config",
+      "required": true,
+      "description": "Current CI workflow or pipeline definition."
+    },
+    {
+      "name": "recent_change_context",
+      "required": false,
+      "description": "Recent code, dependency, or infrastructure changes around the failure."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "root_cause_hypothesis",
+      "description": "Most likely failure class with supporting evidence."
+    },
+    {
+      "name": "fix_plan",
+      "description": "Minimal remediation steps and owner guidance."
+    },
+    {
+      "name": "rerun_checklist",
+      "description": "Validation steps before rerunning the pipeline."
+    }
+  ],
+  "primary_agent": "platform.ci-cd-engineer",
+  "route": {
+    "domain_master": "platform.master",
+    "agents": [
+      "platform.ci-cd-engineer",
+      "platform.incident-responder",
+      "platform.devops-engineer"
+    ],
+    "primary_agent": "platform.ci-cd-engineer",
+    "participants": [
+      "platform.incident-responder",
+      "platform.devops-engineer"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 3
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 3600,
+    "max_tool_calls": 10,
+    "notes": "Favor evidence-backed root cause isolation over broad rebuilds."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is CI failure diagnosis, not generic app debugging or release approval."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require the failing step or log excerpt before proposing infrastructure changes."
+    },
+    {
+      "id": "pre-write",
+      "rule": "Avoid secret exposure and pin any recommended workflow changes to explicit versions."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Return a minimal fix plan and rerun checklist with rollback notes."
+    }
+  ],
+  "steps": [
+    {
+      "id": "classify-failure",
+      "agent": "platform.ci-cd-engineer",
+      "action": "Identify the failing stage, likely failure class, and reproducibility hints."
+    },
+    {
+      "id": "assess-incident-scope",
+      "agent": "platform.incident-responder",
+      "action": "Determine blast radius, urgency, and whether the failure blocks releases or critical checks."
+    },
+    {
+      "id": "inspect-runtime-surface",
+      "agent": "platform.devops-engineer",
+      "action": "Check environment, dependency, cache, and infrastructure assumptions implicated by the logs."
+    },
+    {
+      "id": "publish-triage",
+      "agent": "platform.ci-cd-engineer",
+      "action": "Merge the findings into one root-cause hypothesis, fix plan, and rerun checklist."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read workflow configs, logs, and supporting repo files."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Write a triage note or patch file when requested."
+    }
+  ],
+  "verification": [
+    {
+      "id": "failing-step-cited",
+      "method": "Check the analysis points to a concrete failing step or log section."
+    },
+    {
+      "id": "minimal-fix-proposed",
+      "method": "Check the plan avoids unrelated pipeline rewrites."
+    },
+    {
+      "id": "rerun-checklist-present",
+      "method": "Check the output includes validation and rerun guidance."
+    }
+  ],
+  "success_criteria": [
+    "The triage identifies a plausible root cause with evidence from the failing run.",
+    "The fix plan is scoped to the failure and includes a safe rerun path.",
+    "Secret handling and action-version hygiene are preserved in any recommended change."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If the proposed fix broadens scope without evidence, revert to the last known failing step and regenerate only the runtime and incident analysis."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/platform/ci-failure-triage.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

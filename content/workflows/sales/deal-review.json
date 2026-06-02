@@ -1,0 +1,155 @@
+{
+  "id": "sales.deal-review",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Review an active deal for stage health, win blockers, and proposal readiness before next action.",
+  "task_family": "deal_inspection",
+  "triggers": [
+    "deal health review",
+    "late stage opportunity review",
+    "proposal readiness check",
+    "pipeline risk assessment"
+  ],
+  "aliases": [
+    "deal review",
+    "opportunity review"
+  ],
+  "negative_keywords": [
+    "campaign launch",
+    "contract legal advice",
+    "ci failure triage"
+  ],
+  "inputs": [
+    {
+      "name": "deal_snapshot",
+      "required": true,
+      "description": "Stage, stakeholders, amount, and close target."
+    },
+    {
+      "name": "buyer_signals",
+      "required": true,
+      "description": "Known objections, timeline, and engagement status."
+    },
+    {
+      "name": "proposal_context",
+      "required": false,
+      "description": "Current proposal draft, pricing frame, or requested deliverables."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "deal_risk_summary",
+      "description": "Stage confidence, blockers, and missing evidence."
+    },
+    {
+      "name": "next_step_plan",
+      "description": "Recommended actions for seller and timeline owner."
+    },
+    {
+      "name": "proposal_adjustments",
+      "description": "Proposal refinements tied to the buyer context."
+    }
+  ],
+  "primary_agent": "sales.pipeline-analyst",
+  "route": {
+    "domain_master": "sales.master",
+    "agents": [
+      "sales.pipeline-analyst",
+      "sales.sales-strategist",
+      "sales.proposal-generator"
+    ],
+    "primary_agent": "sales.pipeline-analyst",
+    "participants": [
+      "sales.sales-strategist",
+      "sales.proposal-generator"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 3
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 3000,
+    "max_tool_calls": 8,
+    "notes": "Bias toward concrete blockers and near-term next steps."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is sales execution support, not contract interpretation or finance approval."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require stage, buyer status, and objective before proposing actions."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Return risk, next step, and proposal guidance in one consistent review."
+    }
+  ],
+  "steps": [
+    {
+      "id": "assess-pipeline-health",
+      "agent": "sales.pipeline-analyst",
+      "action": "Review stage evidence, deal hygiene, and forecast confidence."
+    },
+    {
+      "id": "shape-strategy",
+      "agent": "sales.sales-strategist",
+      "action": "Recommend stakeholder moves, objection handling, and mutual action planning."
+    },
+    {
+      "id": "tighten-proposal",
+      "agent": "sales.proposal-generator",
+      "action": "Align proposal scope, value framing, and deliverables to the buyer context."
+    },
+    {
+      "id": "publish-review",
+      "agent": "sales.pipeline-analyst",
+      "action": "Merge the findings into a single deal review with owner-specific next steps."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read CRM exports, notes, and proposal drafts."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Save the synthesized review when the task requests an artifact."
+    }
+  ],
+  "verification": [
+    {
+      "id": "deal-stage-grounded",
+      "method": "Check that the review cites the current stage and missing proof points."
+    },
+    {
+      "id": "next-steps-owned",
+      "method": "Check each action has an owner and short timeline."
+    },
+    {
+      "id": "proposal-guidance-linked",
+      "method": "Check proposal adjustments tie back to stated buyer needs."
+    }
+  ],
+  "success_criteria": [
+    "The review distinguishes deal evidence from assumptions.",
+    "The next-step plan is specific enough for immediate seller follow-up.",
+    "Proposal changes clearly reinforce the active deal strategy."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If the review invents buyer facts or mismatches the current stage, roll back to the raw deal snapshot and rerun strategy and proposal steps."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/sales/deal-review.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

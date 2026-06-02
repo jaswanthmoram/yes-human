@@ -1,0 +1,153 @@
+{
+  "id": "marketing.content-marketing-strategy",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Develop a content marketing strategy with topic clusters, editorial calendar, and distribution plan aligned to business goals.",
+  "task_family": "content_strategy",
+  "triggers": [
+    "content marketing strategy",
+    "editorial strategy plan",
+    "content program design",
+    "topic cluster strategy"
+  ],
+  "aliases": [
+    "content strategy",
+    "editorial strategy"
+  ],
+  "negative_keywords": [
+    "ad copy",
+    "email campaign",
+    "social media posting"
+  ],
+  "inputs": [
+    {
+      "name": "business_goals",
+      "required": true,
+      "description": "Primary business objectives the content should support."
+    },
+    {
+      "name": "target_audience",
+      "required": true,
+      "description": "Audience personas and their content needs."
+    },
+    {
+      "name": "existing_content",
+      "required": false,
+      "description": "Current content inventory and performance data."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "strategy_document",
+      "description": "Core strategy with pillars, audience mapping, and goals."
+    },
+    {
+      "name": "editorial_calendar",
+      "description": "Quarterly content plan with topics, formats, and cadence."
+    },
+    {
+      "name": "distribution_plan",
+      "description": "Channel-specific distribution and amplification strategy."
+    }
+  ],
+  "primary_agent": "marketing.content-marketer",
+  "route": {
+    "domain_master": "marketing.master",
+    "agents": [
+      "marketing.content-marketer",
+      "marketing.seo-specialist"
+    ],
+    "primary_agent": "marketing.content-marketer",
+    "participants": [
+      "marketing.seo-specialist"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 3200,
+    "max_tool_calls": 8,
+    "notes": "Focus on strategy alignment and actionable calendar."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the request is content strategy rather than ad copy or social posting."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require business goals and target audience before strategy development."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Deliver strategy with pillars, calendar, and distribution plan."
+    }
+  ],
+  "steps": [
+    {
+      "id": "define-pillars",
+      "agent": "marketing.content-marketer",
+      "action": "Define content pillars aligned with business goals and audience needs."
+    },
+    {
+      "id": "keyword-alignment",
+      "agent": "marketing.seo-specialist",
+      "action": "Map keyword clusters to content pillars and identify gaps."
+    },
+    {
+      "id": "build-calendar",
+      "agent": "marketing.content-marketer",
+      "action": "Create editorial calendar with topics, formats, and publishing cadence."
+    },
+    {
+      "id": "plan-distribution",
+      "agent": "marketing.content-marketer",
+      "action": "Design channel-specific distribution and amplification strategy."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read existing content inventory and performance data."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Produce strategy document and editorial calendar."
+    }
+  ],
+  "verification": [
+    {
+      "id": "pillars-aligned",
+      "method": "Check content pillars connect to business goals."
+    },
+    {
+      "id": "calendar-actionable",
+      "method": "Check calendar has specific topics, formats, and dates."
+    },
+    {
+      "id": "distribution-included",
+      "method": "Check distribution plan covers each content piece."
+    }
+  ],
+  "success_criteria": [
+    "Strategy document connects content to business outcomes.",
+    "Editorial calendar is realistic and sustainable.",
+    "Distribution plan ensures content reaches target audience."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If pillars don't align with goals, revert to audience and goal definition."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/marketing/content-marketing-strategy.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

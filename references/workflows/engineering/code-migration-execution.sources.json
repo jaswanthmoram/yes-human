@@ -1,0 +1,61 @@
+{
+  "dossier_id": "dossier.workflow.engineering.code-migration-execution.2026-06-01",
+  "workflow_id": "engineering.code-migration-execution",
+  "domain": "engineering",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://martinfowler.com/articles/strangler-fig-application.html",
+      "source_type": "official_docs",
+      "license": "Martin Fowler site terms",
+      "version_or_commit": "live",
+      "used_for": [
+        "strangler fig migration pattern",
+        "incremental migration strategy"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/codemods-community/codemods",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "automated codemod patterns"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://react.dev/blog/2023/03/16/introducing-react-dev",
+      "source_type": "official_blog",
+      "license": "CC BY 4.0",
+      "version_or_commit": "live",
+      "used_for": [
+        "framework migration approach"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/jscodeshift/jscodeshift",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "AST-based codemod tooling"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 2,
+    "github_quality": 90,
+    "license_safety": 94,
+    "maintenance": 86,
+    "pattern_clarity": 91,
+    "testability": 83,
+    "total": 87
+  },
+  "promotion_decision": "staging"
+}

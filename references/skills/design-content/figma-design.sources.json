@@ -1,0 +1,14 @@
+{
+  "dossier_id": "dossier.skill.design-content.figma-design.2026-05-31",
+  "skill_id": "design-content.figma-design",
+  "domain": "design-content",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2027-05-31T00:00:00Z",
+  "sources": [
+    {"url": "https://www.figma.com/best-practices/", "source_type": "official_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["Figma best practices", "component design"], "copy_policy": "patterns_only"},
+    {"url": "https://help.figma.com/hc/en-us", "source_type": "official_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["Figma help center", "auto-layout docs"], "copy_policy": "patterns_only"},
+    {"url": "https://www.figma.com/community", "source_type": "official_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["Figma community patterns", "design system examples"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 3, "official_docs": 3, "github_quality": 70, "license_safety": 88, "maintenance": 92, "pattern_clarity": 92, "testability": 85, "total": 88},
+  "promotion_decision": "staging"
+}

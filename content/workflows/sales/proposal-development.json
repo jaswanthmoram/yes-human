@@ -1,0 +1,155 @@
+{
+  "id": "sales.proposal-development",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Develop a persuasive proposal aligned to buyer requirements with clear value proposition, scope, and commercial terms.",
+  "task_family": "proposal_creation",
+  "triggers": [
+    "develop a sales proposal",
+    "proposal creation for deal",
+    "write proposal for opportunity",
+    "build proposal package"
+  ],
+  "aliases": [
+    "proposal development",
+    "proposal creation"
+  ],
+  "negative_keywords": [
+    "legal contract drafting",
+    "marketing brochure",
+    "technical specification"
+  ],
+  "inputs": [
+    {
+      "name": "buyer_requirements",
+      "required": true,
+      "description": "Buyer needs, success criteria, and evaluation criteria."
+    },
+    {
+      "name": "solution_scope",
+      "required": true,
+      "description": "Proposed solution scope, deliverables, and timeline."
+    },
+    {
+      "name": "pricing_framework",
+      "required": false,
+      "description": "Pricing model, discount policy, and commercial constraints."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "proposal_draft",
+      "description": "Complete proposal with executive summary, solution, value, and pricing sections."
+    },
+    {
+      "name": "value_proposition",
+      "description": "Quantified value proposition tied to buyer outcomes."
+    },
+    {
+      "name": "open_issues",
+      "description": "Unresolved questions and assumptions requiring buyer input."
+    }
+  ],
+  "primary_agent": "sales.proposal-writer",
+  "route": {
+    "domain_master": "sales.master",
+    "agents": [
+      "sales.proposal-writer",
+      "sales.proposal-generator",
+      "sales.deal-desk"
+    ],
+    "primary_agent": "sales.proposal-writer",
+    "participants": [
+      "sales.proposal-generator",
+      "sales.deal-desk"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 3
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 4000,
+    "max_tool_calls": 8,
+    "notes": "Bias toward buyer-aligned narrative and clear commercial terms."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is proposal development, not legal contract drafting."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require buyer requirements and solution scope before drafting."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Return proposal draft, value proposition, and open issues in one consistent output."
+    }
+  ],
+  "steps": [
+    {
+      "id": "map-requirements",
+      "agent": "sales.proposal-writer",
+      "action": "Map buyer requirements to proposal sections."
+    },
+    {
+      "id": "draft-narrative",
+      "agent": "sales.proposal-generator",
+      "action": "Draft proposal narrative with executive summary and solution sections."
+    },
+    {
+      "id": "validate-pricing",
+      "agent": "sales.deal-desk",
+      "action": "Validate pricing against policy and present commercial terms clearly."
+    },
+    {
+      "id": "compile-proposal",
+      "agent": "sales.proposal-writer",
+      "action": "Compile final proposal with all sections and identify open issues."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read buyer requirements, solution scope, and pricing data."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Save the proposal draft and supporting artifacts."
+    }
+  ],
+  "verification": [
+    {
+      "id": "buyer-requirements-addressed",
+      "method": "Check that all buyer requirements have corresponding proposal sections."
+    },
+    {
+      "id": "pricing-clear",
+      "method": "Check that pricing is presented clearly and transparently."
+    },
+    {
+      "id": "open-issues-listed",
+      "method": "Check that unresolved questions and assumptions are documented."
+    }
+  ],
+  "success_criteria": [
+    "The proposal addresses all buyer requirements with specific solutions.",
+    "Pricing is clear, transparent, and policy-compliant.",
+    "Open issues are documented for buyer discussion."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If the proposal invents buyer requirements or misrepresents capabilities, roll back to source data and rerun."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/sales/proposal-development.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

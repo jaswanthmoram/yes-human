@@ -1,0 +1,66 @@
+{
+  "domain": "healthcare-specialists",
+  "description": "Routing fixtures for Wave-4 Healthcare specialists.",
+  "fixtures": [
+    {
+      "prompt": "clinical decision support review",
+      "expected_route": "route.healthcare.clinical-decision-support"
+    },
+    {
+      "prompt": "contraindication checklist",
+      "expected_route": "route.healthcare.clinical-decision-support"
+    },
+    {
+      "prompt": "care pathway support",
+      "expected_route": "route.healthcare.clinical-decision-support"
+    },
+    {
+      "prompt": "clinical reasoning aid",
+      "expected_route": "route.healthcare.clinical-decision-support"
+    },
+    {
+      "prompt": "evidence backed differential",
+      "expected_route": "route.healthcare.clinical-decision-support"
+    },
+    {
+      "prompt": "ehr workflow design",
+      "expected_route": "route.healthcare.ehr-patterns"
+    },
+    {
+      "prompt": "medication reconciliation flow",
+      "expected_route": "route.healthcare.ehr-patterns"
+    },
+    {
+      "prompt": "charting handoff pattern",
+      "expected_route": "route.healthcare.ehr-patterns"
+    },
+    {
+      "prompt": "order entry workflow",
+      "expected_route": "route.healthcare.ehr-patterns"
+    },
+    {
+      "prompt": "ehr integration pattern",
+      "expected_route": "route.healthcare.ehr-patterns"
+    },
+    {
+      "prompt": "phi compliance review",
+      "expected_route": "route.healthcare.phi-compliance"
+    },
+    {
+      "prompt": "hipaa minimum necessary check",
+      "expected_route": "route.healthcare.phi-compliance"
+    },
+    {
+      "prompt": "de identification audit",
+      "expected_route": "route.healthcare.phi-compliance"
+    },
+    {
+      "prompt": "clinical data access policy",
+      "expected_route": "route.healthcare.phi-compliance"
+    },
+    {
+      "prompt": "protected health info gate",
+      "expected_route": "route.healthcare.phi-compliance"
+    }
+  ]
+}

@@ -1,0 +1,246 @@
+{
+  "domain": "startup-ops-new",
+  "description": "Routing fixtures for Wave-5 Startup Ops domain expansion agents.",
+  "fixtures": [
+    {
+      "prompt": "startup strategy",
+      "expected_route": "route.startup-ops.startup-strategist"
+    },
+    {
+      "prompt": "business hypothesis",
+      "expected_route": "route.startup-ops.startup-strategist"
+    },
+    {
+      "prompt": "founder decision framework",
+      "expected_route": "route.startup-ops.startup-strategist"
+    },
+    {
+      "prompt": "startup strategist task",
+      "expected_route": "route.startup-ops.startup-strategist"
+    },
+    {
+      "prompt": "startup strategy for early stage startup",
+      "expected_route": "route.startup-ops.startup-strategist"
+    },
+    {
+      "prompt": "business model design",
+      "expected_route": "route.startup-ops.business-model-designer"
+    },
+    {
+      "prompt": "lean canvas",
+      "expected_route": "route.startup-ops.business-model-designer"
+    },
+    {
+      "prompt": "revenue model",
+      "expected_route": "route.startup-ops.business-model-designer"
+    },
+    {
+      "prompt": "business model designer task",
+      "expected_route": "route.startup-ops.business-model-designer"
+    },
+    {
+      "prompt": "business model design for early stage startup",
+      "expected_route": "route.startup-ops.business-model-designer"
+    },
+    {
+      "prompt": "fundraising prep",
+      "expected_route": "route.startup-ops.fundraising-specialist"
+    },
+    {
+      "prompt": "investor targeting",
+      "expected_route": "route.startup-ops.fundraising-specialist"
+    },
+    {
+      "prompt": "round structure",
+      "expected_route": "route.startup-ops.fundraising-specialist"
+    },
+    {
+      "prompt": "fundraising specialist task",
+      "expected_route": "route.startup-ops.fundraising-specialist"
+    },
+    {
+      "prompt": "fundraising prep for early stage startup",
+      "expected_route": "route.startup-ops.fundraising-specialist"
+    },
+    {
+      "prompt": "pitch deck",
+      "expected_route": "route.startup-ops.pitch-deck-creator"
+    },
+    {
+      "prompt": "investor presentation",
+      "expected_route": "route.startup-ops.pitch-deck-creator"
+    },
+    {
+      "prompt": "deck creation",
+      "expected_route": "route.startup-ops.pitch-deck-creator"
+    },
+    {
+      "prompt": "pitch deck creator task",
+      "expected_route": "route.startup-ops.pitch-deck-creator"
+    },
+    {
+      "prompt": "pitch deck for early stage startup",
+      "expected_route": "route.startup-ops.pitch-deck-creator"
+    },
+    {
+      "prompt": "financial model",
+      "expected_route": "route.startup-ops.financial-modeler"
+    },
+    {
+      "prompt": "revenue projection",
+      "expected_route": "route.startup-ops.financial-modeler"
+    },
+    {
+      "prompt": "burn rate analysis",
+      "expected_route": "route.startup-ops.financial-modeler"
+    },
+    {
+      "prompt": "financial modeler task",
+      "expected_route": "route.startup-ops.financial-modeler"
+    },
+    {
+      "prompt": "financial model for early stage startup",
+      "expected_route": "route.startup-ops.financial-modeler"
+    },
+    {
+      "prompt": "operations plan",
+      "expected_route": "route.startup-ops.operations-manager"
+    },
+    {
+      "prompt": "process design",
+      "expected_route": "route.startup-ops.operations-manager"
+    },
+    {
+      "prompt": "scaling playbook",
+      "expected_route": "route.startup-ops.operations-manager"
+    },
+    {
+      "prompt": "operations manager task",
+      "expected_route": "route.startup-ops.operations-manager"
+    },
+    {
+      "prompt": "operations plan for early stage startup",
+      "expected_route": "route.startup-ops.operations-manager"
+    },
+    {
+      "prompt": "hiring plan",
+      "expected_route": "route.startup-ops.hr-specialist"
+    },
+    {
+      "prompt": "compensation design",
+      "expected_route": "route.startup-ops.hr-specialist"
+    },
+    {
+      "prompt": "people ops",
+      "expected_route": "route.startup-ops.hr-specialist"
+    },
+    {
+      "prompt": "hr and hiring specialist task",
+      "expected_route": "route.startup-ops.hr-specialist"
+    },
+    {
+      "prompt": "hiring plan for early stage startup",
+      "expected_route": "route.startup-ops.hr-specialist"
+    },
+    {
+      "prompt": "startup legal",
+      "expected_route": "route.startup-ops.legal-compliance"
+    },
+    {
+      "prompt": "incorporation",
+      "expected_route": "route.startup-ops.legal-compliance"
+    },
+    {
+      "prompt": "IP protection",
+      "expected_route": "route.startup-ops.legal-compliance"
+    },
+    {
+      "prompt": "legal and compliance specialist task",
+      "expected_route": "route.startup-ops.legal-compliance"
+    },
+    {
+      "prompt": "startup legal for early stage startup",
+      "expected_route": "route.startup-ops.legal-compliance"
+    },
+    {
+      "prompt": "customer discovery",
+      "expected_route": "route.startup-ops.customer-development"
+    },
+    {
+      "prompt": "customer interviews",
+      "expected_route": "route.startup-ops.customer-development"
+    },
+    {
+      "prompt": "problem validation",
+      "expected_route": "route.startup-ops.customer-development"
+    },
+    {
+      "prompt": "customer development specialist task",
+      "expected_route": "route.startup-ops.customer-development"
+    },
+    {
+      "prompt": "customer discovery for early stage startup",
+      "expected_route": "route.startup-ops.customer-development"
+    },
+    {
+      "prompt": "growth experiment",
+      "expected_route": "route.startup-ops.growth-hacker"
+    },
+    {
+      "prompt": "viral loop",
+      "expected_route": "route.startup-ops.growth-hacker"
+    },
+    {
+      "prompt": "acquisition funnel",
+      "expected_route": "route.startup-ops.growth-hacker"
+    },
+    {
+      "prompt": "growth hacking specialist task",
+      "expected_route": "route.startup-ops.growth-hacker"
+    },
+    {
+      "prompt": "growth experiment for early stage startup",
+      "expected_route": "route.startup-ops.growth-hacker"
+    },
+    {
+      "prompt": "product market fit",
+      "expected_route": "route.startup-ops.product-market-fit"
+    },
+    {
+      "prompt": "PMF assessment",
+      "expected_route": "route.startup-ops.product-market-fit"
+    },
+    {
+      "prompt": "retention analysis",
+      "expected_route": "route.startup-ops.product-market-fit"
+    },
+    {
+      "prompt": "product-market fit specialist task",
+      "expected_route": "route.startup-ops.product-market-fit"
+    },
+    {
+      "prompt": "product market fit for early stage startup",
+      "expected_route": "route.startup-ops.product-market-fit"
+    },
+    {
+      "prompt": "founder mentoring",
+      "expected_route": "route.startup-ops.startup-mentor"
+    },
+    {
+      "prompt": "startup advice",
+      "expected_route": "route.startup-ops.startup-mentor"
+    },
+    {
+      "prompt": "accountability check",
+      "expected_route": "route.startup-ops.startup-mentor"
+    },
+    {
+      "prompt": "startup mentor task",
+      "expected_route": "route.startup-ops.startup-mentor"
+    },
+    {
+      "prompt": "founder mentoring for early stage startup",
+      "expected_route": "route.startup-ops.startup-mentor"
+    }
+  ]
+}

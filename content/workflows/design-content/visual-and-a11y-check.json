@@ -1,0 +1,109 @@
+{
+  "id": "design-content.visual-and-a11y-check",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Review a UI for visual quality and accessibility together so usability issues are caught before polish work ships.",
+  "task_family": "design_review",
+  "triggers": [
+    "check this UI for visual and accessibility issues",
+    "run a design and a11y review",
+    "audit this frontend before release"
+  ],
+  "aliases": [
+    "visual accessibility review",
+    "frontend polish and a11y check",
+    "ui quality audit"
+  ],
+  "negative_keywords": [
+    "implement a backend feature",
+    "security threat model",
+    "product roadmap"
+  ],
+  "inputs": [
+    {
+      "name": "screens_or_pages",
+      "required": true
+    },
+    {
+      "name": "design_system_constraints",
+      "required": false
+    },
+    {
+      "name": "a11y_targets",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "visual_findings"
+    },
+    {
+      "name": "accessibility_findings"
+    },
+    {
+      "name": "prioritized_fix_list"
+    }
+  ],
+  "primary_agent": "design-content.frontend-design-agent",
+  "route": {
+    "domain_master": "design-content.master",
+    "primary": "design-content.frontend-design-agent",
+    "participants": [
+      "design-content.accessibility-auditor"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 2800,
+    "max_tool_calls": 10
+  },
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "on-task-complete"
+  ],
+  "steps": [
+    {
+      "id": "review-visual-hierarchy",
+      "summary": "Inspect layout, spacing, density, and clarity against the intended product surface."
+    },
+    {
+      "id": "audit-accessibility",
+      "summary": "Check color contrast, keyboard reachability, labeling, semantics, and motion issues."
+    },
+    {
+      "id": "merge-and-prioritize",
+      "summary": "Combine findings into a fix list ordered by user impact and implementation effort."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "screenshot_review",
+    "a11y_checker",
+    "browser_inspection"
+  ],
+  "verification": [
+    "every_accessibility_finding_names_standard_or_pattern",
+    "visual_findings_reference_specific_surface",
+    "priority_order_is_explicit"
+  ],
+  "success_criteria": [
+    "Visual and accessibility issues are both represented in the output.",
+    "Findings are tied to concrete screens, components, or interactions.",
+    "The final list is actionable for a frontend implementation pass."
+  ],
+  "rollback": {
+    "mode": "no_write",
+    "summary": "Review-only workflow."
+  },
+  "source_references": [
+    "ref.workflow.design-content.visual-and-a11y-check.2026-06-01"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

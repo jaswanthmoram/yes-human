@@ -1,0 +1,14 @@
+{
+  "dossier_id": "dossier.skill.design-content.color-contrast.2026-05-31",
+  "skill_id": "design-content.color-contrast",
+  "domain": "design-content",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2027-05-31T00:00:00Z",
+  "sources": [
+    {"url": "https://webaim.org/resources/contrastchecker/", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["WebAIM contrast checker", "ratio calculations"], "copy_policy": "patterns_only"},
+    {"url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum", "source_type": "official_docs", "license": "W3C Document License", "version_or_commit": "WCAG 2.2", "used_for": ["WCAG contrast requirements", "SC 1.4.3"], "copy_policy": "patterns_only"},
+    {"url": "https://readtech.com/ARC/", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["APCA contrast algorithm", "advanced contrast"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 3, "official_docs": 1, "github_quality": 75, "license_safety": 90, "maintenance": 90, "pattern_clarity": 92, "testability": 90, "total": 88},
+  "promotion_decision": "staging"
+}

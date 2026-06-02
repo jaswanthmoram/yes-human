@@ -1,0 +1,15 @@
+{
+  "dossier_id": "dossier.skill.manufacturing.kaizen.2026-06-01",
+  "skill_id": "manufacturing.kaizen",
+  "domain": "manufacturing",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {"url": "https://www.lean.org/LeanPost/Posting.cfm?LeanPostId=1434", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["Kaizen event planning", "continuous improvement"], "copy_policy": "patterns_only"},
+    {"url": "https://www.nist.gov/manufacturing/continuous-improvement", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["NIST continuous improvement frameworks"], "copy_policy": "patterns_only"},
+    {"url": "https://www.gembaacademy.com/kaizen", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["Kaizen implementation case studies"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/kaizen-board/kaizen-app", "source_type": "github_repo", "license": "MIT", "version_or_commit": "v2.0", "used_for": ["Kaizen tracking tool patterns"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 4, "official_docs": 1, "github_quality": 70, "license_safety": 93, "maintenance": 88, "pattern_clarity": 87, "testability": 83, "total": 84},
+  "promotion_decision": "staging"
+}

@@ -1,0 +1,66 @@
+{
+  "domain": "sales-specialists",
+  "description": "Routing fixtures for Wave-4 Sales specialists.",
+  "fixtures": [
+    {
+      "prompt": "sales strategy memo",
+      "expected_route": "route.sales.sales-strategist"
+    },
+    {
+      "prompt": "territory plan",
+      "expected_route": "route.sales.sales-strategist"
+    },
+    {
+      "prompt": "outbound angle design",
+      "expected_route": "route.sales.sales-strategist"
+    },
+    {
+      "prompt": "sales playbook draft",
+      "expected_route": "route.sales.sales-strategist"
+    },
+    {
+      "prompt": "discovery call structure",
+      "expected_route": "route.sales.sales-strategist"
+    },
+    {
+      "prompt": "pipeline review",
+      "expected_route": "route.sales.pipeline-analyst"
+    },
+    {
+      "prompt": "stage conversion analysis",
+      "expected_route": "route.sales.pipeline-analyst"
+    },
+    {
+      "prompt": "forecast hygiene check",
+      "expected_route": "route.sales.pipeline-analyst"
+    },
+    {
+      "prompt": "deal slippage scan",
+      "expected_route": "route.sales.pipeline-analyst"
+    },
+    {
+      "prompt": "crm pipeline cleanup",
+      "expected_route": "route.sales.pipeline-analyst"
+    },
+    {
+      "prompt": "deal proposal draft",
+      "expected_route": "route.sales.proposal-generator"
+    },
+    {
+      "prompt": "statement of work draft",
+      "expected_route": "route.sales.proposal-generator"
+    },
+    {
+      "prompt": "enterprise offer pack",
+      "expected_route": "route.sales.proposal-generator"
+    },
+    {
+      "prompt": "renewal proposal prep",
+      "expected_route": "route.sales.proposal-generator"
+    },
+    {
+      "prompt": "sales deck outline",
+      "expected_route": "route.sales.proposal-generator"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "dossier_id": "dossier.workflow.hr.compensation-analysis.2026-06-01",
+  "workflow_id": "hr.compensation-analysis",
+  "domain": "hr",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {"url": "https://www.worldatwork.org/workplace-reward-factbook", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "live", "used_for": ["compensation benchmarking methodology", "total rewards framework"], "copy_policy": "patterns_only"},
+    {"url": "https://www.bls.gov/ncs/ect/", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "live", "used_for": ["BLS employment cost data", "market compensation analysis"], "copy_policy": "patterns_only"},
+    {"url": "https://www.payscale.com/compensation-best-practices-report", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "live", "used_for": ["pay equity analysis patterns", "compensation structure design"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/compensation-toolkit/salary-data-framework", "source_type": "github_repo", "license": "MIT", "version_or_commit": "main", "used_for": ["salary data modeling", "compensation analytics pipelines"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 4, "official_docs": 1, "github_quality": 70, "license_safety": 88, "maintenance": 82, "pattern_clarity": 85, "testability": 74, "total": 80},
+  "promotion_decision": "staging"
+}

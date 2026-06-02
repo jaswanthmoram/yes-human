@@ -1,0 +1,60 @@
+{
+  "dossier_id": "dossier.skill.engineering.ide-shortcuts.2026-06-01",
+  "skill_id": "engineering.ide-shortcuts",
+  "domain": "engineering",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://code.visualstudio.com/docs/getstarted/keybindings",
+      "source_type": "official_docs",
+      "license": "CC-BY-4.0",
+      "version_or_commit": "2024",
+      "used_for": ["VS Code keybindings", "custom shortcuts"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024.1",
+      "used_for": ["JetBrains shortcuts", "productivity features"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://neovim.io/doc/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "v0.10.0",
+      "used_for": ["Neovim motions", "keymaps"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/microsoft/vscode",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": ["VS Code source", "extension API for keybindings"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/neovim/neovim",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "master",
+      "used_for": ["Neovim source", "plugin ecosystem"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 5,
+    "official_docs": 4,
+    "github_quality": 97,
+    "license_safety": 94,
+    "maintenance": 96,
+    "pattern_clarity": 90,
+    "testability": 82,
+    "total": 91
+  },
+  "promotion_decision": "staging"
+}

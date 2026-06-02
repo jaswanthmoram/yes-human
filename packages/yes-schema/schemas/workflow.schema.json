@@ -3,8 +3,10 @@
   "title": "Yes-human Workflow Schema",
   "type": "object",
   "required": [
-    "id", "version", "status", "summary", "task_family", "inputs", "outputs", 
-    "route", "budget", "gates", "verification", "rollback"
+    "id", "version", "status", "summary", "task_family", "triggers", "aliases",
+    "negative_keywords", "inputs", "outputs", "primary_agent", "route", "budget",
+    "gates", "steps", "tools", "verification", "success_criteria", "rollback",
+    "source_references"
   ],
   "properties": {
     "id": { "type": "string" },
@@ -12,6 +14,18 @@
     "status": { "type": "string", "enum": ["active", "draft", "retired", "experimental"] },
     "summary": { "type": "string" },
     "task_family": { "type": "string" },
+    "triggers": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "aliases": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "negative_keywords": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
     "inputs": {
       "type": "array",
       "items": { "type": "string" }
@@ -20,6 +34,7 @@
       "type": "array",
       "items": { "type": "string" }
     },
+    "primary_agent": { "type": "string" },
     "route": {
       "type": "object",
       "required": ["domain_master", "agents"],
@@ -46,11 +61,27 @@
       "type": "array",
       "items": { "type": "string", "enum": ["pre-route", "pre-tool", "pre-write", "post-tool", "on-error", "on-task-complete", "on-absorb"] }
     },
+    "steps": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "tools": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
     "verification": {
       "type": "array",
       "items": { "type": "string" }
     },
+    "success_criteria": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
     "rollback": { "type": "string" },
+    "source_references": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
     "promotion": {
       "type": "object",
       "properties": {

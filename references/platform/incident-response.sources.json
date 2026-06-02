@@ -1,0 +1,52 @@
+{
+  "dossier_id": "dossier.platform.incident-response.2026-05-31",
+  "agent_id": "platform.incident-response",
+  "domain": "platform",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2026-08-29T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/PagerDuty/incident-response-docs",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": ["incident management framework and severity definitions"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/dastergon/awesome-sre",
+      "source_type": "github_repo",
+      "license": "CC0-1.0",
+      "version_or_commit": "master",
+      "used_for": ["SRE incident response patterns and postmortem practices"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/upptime/upptime",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "master",
+      "used_for": ["status page and uptime monitoring patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://sre.google/workbook/postmortem-culture/",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "live",
+      "used_for": ["blameless postmortem culture and incident review processes"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 1,
+    "github_quality": 90,
+    "license_safety": 95,
+    "maintenance": 88,
+    "pattern_clarity": 92,
+    "testability": 82,
+    "total": 89
+  },
+  "promotion_decision": "staging"
+}

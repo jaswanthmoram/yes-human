@@ -8,6 +8,6 @@
     { "prompt": "lms patterns", "expected_route": "route.education.master" },
     { "prompt": "instructional design", "expected_route": "route.education.master" },
     { "prompt": "design a curriculum design plan for grade 9 python", "expected_route": "route.education.master" },
-    { "prompt": "build a personalized tutor strategy", "expected_route": "route.education.master" }
+    { "prompt": "build a personalized tutor strategy", "expected_route": "route.education.tutor-agent" }
   ]
 }

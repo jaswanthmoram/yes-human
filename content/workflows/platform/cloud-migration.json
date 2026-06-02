@@ -1,0 +1,189 @@
+{
+  "id": "platform.cloud-migration",
+  "version": "1.0.0",
+  "status": "active",
+  "name": "Cloud Migration",
+  "description": "Plan and execute workload migration between cloud providers or from on-premises to cloud with minimal downtime.",
+  "task_family": "infrastructure_migration",
+  "triggers": [
+    "cloud migration workflow",
+    "migrate workloads to cloud",
+    "on-premises to cloud migration",
+    "cross-cloud migration",
+    "lift and shift migration",
+    "cloud provider switch",
+    "datacenter exit migration"
+  ],
+  "aliases": [
+    "cloud migration",
+    "workload migration",
+    "lift and shift"
+  ],
+  "negative_keywords": [
+    "application refactoring",
+    "greenfield deployment",
+    "disaster recovery",
+    "backup restoration"
+  ],
+  "inputs": [
+    {
+      "name": "source_environment",
+      "required": true,
+      "description": "Current infrastructure specification including compute, storage, networking, and dependencies."
+    },
+    {
+      "name": "target_cloud",
+      "required": true,
+      "description": "Destination cloud provider, region, and target architecture."
+    },
+    {
+      "name": "migration_strategy",
+      "required": false,
+      "description": "Preferred approach: lift-and-shift, re-platform, or re-architect with phasing plan."
+    },
+    {
+      "name": "downtime_tolerance",
+      "required": false,
+      "description": "Maximum acceptable downtime window and data consistency requirements."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "migration_plan",
+      "description": "Phased migration roadmap with workload prioritization and dependency ordering."
+    },
+    {
+      "name": "target_infrastructure",
+      "description": "IaC definitions for the target environment matching source capabilities."
+    },
+    {
+      "name": "data_migration_report",
+      "description": "Data transfer logs, checksums, and consistency verification results."
+    },
+    {
+      "name": "cutover_runbook",
+      "description": "Step-by-step cutover procedure with DNS switch, traffic routing, and rollback steps."
+    }
+  ],
+  "primary_agent": "platform.devops-engineer",
+  "participants": [
+    "platform.security-engineer",
+    "platform.network-engineer",
+    "platform.sre-engineer",
+    "platform.cost-analyst"
+  ],
+  "skills": [
+    "cloud-migration",
+    "infrastructure-as-code",
+    "data-replication",
+    "dns-management",
+    "cost-optimization"
+  ],
+  "budget_band": "expanded",
+  "max_context_tokens": 4500,
+  "max_tool_calls": 16,
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is workload migration, not greenfield deployment or application refactoring."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require a validated migration plan and target infrastructure before initiating data transfer."
+    },
+    {
+      "id": "post-tool",
+      "rule": "Verify data integrity checksums match after each transfer batch before proceeding."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Return migration plan, target IaC, data migration report, and cutover runbook with rollback procedure."
+    }
+  ],
+  "steps": [
+    {
+      "id": "assess-source-environment",
+      "agent": "platform.devops-engineer",
+      "description": "Inventory source workloads, dependencies, data volumes, and performance baselines."
+    },
+    {
+      "id": "design-target-architecture",
+      "agent": "platform.devops-engineer",
+      "description": "Map source capabilities to target cloud services and design the target infrastructure."
+    },
+    {
+      "id": "provision-target-infrastructure",
+      "agent": "platform.devops-engineer",
+      "description": "Deploy target environment using IaC with networking, compute, storage, and security configurations."
+    },
+    {
+      "id": "replicate-data",
+      "agent": "platform.sre-engineer",
+      "description": "Set up data replication pipelines with consistency checks and incremental sync."
+    },
+    {
+      "id": "validate-target-environment",
+      "agent": "platform.sre-engineer",
+      "description": "Run functional tests, performance benchmarks, and security scans against the target."
+    },
+    {
+      "id": "execute-cutover",
+      "agent": "platform.devops-engineer",
+      "description": "Switch DNS, route traffic to target, and verify end-to-end functionality within downtime window."
+    },
+    {
+      "id": "decommission-source",
+      "agent": "platform.devops-engineer",
+      "description": "Decommission source resources after validation period and archive migration artifacts."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read source infrastructure inventory, IaC templates, and migration plans."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Write target IaC, migration reports, and cutover runbooks."
+    },
+    {
+      "name": "shell.exec",
+      "purpose": "Execute cloud CLI commands, data transfer tools, and validation scripts."
+    }
+  ],
+  "verification": [
+    {
+      "id": "inventory-complete",
+      "method": "Source environment inventory covers 100% of production workloads."
+    },
+    {
+      "id": "data-integrity-verified",
+      "method": "Checksums match for all transferred data sets."
+    },
+    {
+      "id": "target-functional",
+      "method": "All functional tests pass on the target environment."
+    },
+    {
+      "id": "cutover-successful",
+      "method": "Traffic routes to target with zero errors within the downtime window."
+    }
+  ],
+  "success_criteria": [
+    "All workloads are migrated with data integrity verified.",
+    "Target environment passes functional and performance tests.",
+    "Cutover completes within the defined downtime tolerance.",
+    "Source environment is safely decommissioned after validation."
+  ],
+  "rollback": {
+    "mode": "traffic_reversal",
+    "when": "If cutover validation fails, revert DNS and traffic routing to source environment within the downtime window."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/platform/cloud-migration.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "quality_gate": "staging"
+}

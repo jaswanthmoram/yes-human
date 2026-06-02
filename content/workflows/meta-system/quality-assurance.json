@@ -1,0 +1,170 @@
+{
+  "id": "meta-system.quality-assurance",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "End-to-end workflow for running quality assurance checks across agents, skills, and workflows.",
+  "task_family": "quality_lifecycle",
+  "triggers": [
+    "run quality assurance",
+    "QA workflow",
+    "system quality check",
+    "registry quality audit"
+  ],
+  "aliases": [
+    "QA sweep",
+    "quality audit workflow"
+  ],
+  "negative_keywords": [
+    "code testing",
+    "security audit",
+    "agent creation"
+  ],
+  "inputs": [
+    {
+      "name": "audit_scope",
+      "required": true,
+      "description": "Scope of the quality assurance audit (agents, skills, workflows, or all)."
+    },
+    {
+      "name": "quality_criteria",
+      "required": true,
+      "description": "Quality criteria to check against."
+    },
+    {
+      "name": "registry_snapshot",
+      "required": false,
+      "description": "Current registry snapshot for validation."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "qa_report",
+      "description": "Comprehensive quality assurance report."
+    },
+    {
+      "name": "compliance_matrix",
+      "description": "Matrix showing compliance status per artifact."
+    },
+    {
+      "name": "remediation_list",
+      "description": "Prioritized list of items needing remediation."
+    }
+  ],
+  "primary_agent": "meta-system.quality-assurance",
+  "route": {
+    "domain_master": "meta-system.master",
+    "agents": [
+      "meta-system.quality-assurance",
+      "meta-system.stub-detector",
+      "meta-system.dossier-evaluator",
+      "meta-system.eval-runner"
+    ],
+    "primary_agent": "meta-system.quality-assurance",
+    "participants": [
+      "meta-system.stub-detector",
+      "meta-system.dossier-evaluator",
+      "meta-system.eval-runner"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 4
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 4000,
+    "max_tool_calls": 15,
+    "notes": "Stay focused on quality assurance checks only."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is quality assurance, not code testing or security audit."
+    },
+    {
+      "id": "pre-audit",
+      "rule": "Require audit scope and quality criteria before checks begin."
+    },
+    {
+      "id": "post-audit",
+      "rule": "QA report must include compliance matrix and remediation list."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Return QA report, compliance matrix, and remediation list."
+    }
+  ],
+  "steps": [
+    {
+      "id": "detect-stubs",
+      "agent": "meta-system.stub-detector",
+      "action": "Scan for low-quality stubs and incomplete artifacts."
+    },
+    {
+      "id": "evaluate-dossiers",
+      "agent": "meta-system.dossier-evaluator",
+      "action": "Evaluate dossier quality scores and provenance."
+    },
+    {
+      "id": "run-evaluation",
+      "agent": "meta-system.eval-runner",
+      "action": "Run routing evaluation and gate passage checks."
+    },
+    {
+      "id": "compile-qa-report",
+      "agent": "meta-system.quality-assurance",
+      "action": "Compile comprehensive QA report with compliance matrix."
+    },
+    {
+      "id": "prioritize-remediation",
+      "agent": "meta-system.quality-assurance",
+      "action": "Create prioritized remediation list based on findings."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read registry artifacts, dossiers, and evaluation results."
+    },
+    {
+      "name": "shell.readonly",
+      "purpose": "Run validation and evaluation scripts."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Write QA report and remediation list."
+    }
+  ],
+  "verification": [
+    {
+      "id": "scope-covered",
+      "method": "Check all items in audit scope were evaluated."
+    },
+    {
+      "id": "compliance-matrix",
+      "method": "Verify compliance matrix is complete and accurate."
+    },
+    {
+      "id": "remediation-prioritized",
+      "method": "Check remediation list is prioritized by impact."
+    }
+  ],
+  "success_criteria": [
+    "All items in audit scope evaluated.",
+    "Compliance matrix complete with pass/fail per artifact.",
+    "Remediation list prioritized by impact."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If audit scope was incomplete, restart with corrected scope."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/meta-system/quality-assurance.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

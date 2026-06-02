@@ -1,0 +1,52 @@
+{
+  "dossier_id": "dossier.skill.security.security-headers.2026-06-01",
+  "skill_id": "security.security-headers",
+  "domain": "security",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://owasp.org/www-project-secure-headers/",
+      "source_type": "official_docs",
+      "license": "CC BY-SA 4.0",
+      "version_or_commit": "2024",
+      "used_for": ["header recommendations", "configuration guidance"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://content-security-policy.com/",
+      "source_type": "community_docs",
+      "license": "MIT",
+      "version_or_commit": "2024",
+      "used_for": ["CSP reference", "directive documentation"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers",
+      "source_type": "official_docs",
+      "license": "CC BY-SA 2.5",
+      "version_or_commit": "2024",
+      "used_for": ["HTTP header specs", "browser compatibility"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/helmetjs/helmet",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "v7.1",
+      "used_for": ["Express security middleware", "header configuration"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 3,
+    "github_quality": 91,
+    "license_safety": 96,
+    "maintenance": 93,
+    "pattern_clarity": 95,
+    "testability": 90,
+    "total": 93
+  },
+  "promotion_decision": "staging"
+}

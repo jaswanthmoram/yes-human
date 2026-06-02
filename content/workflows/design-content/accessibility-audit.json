@@ -1,0 +1,130 @@
+{
+  "id": "design-content.accessibility-audit",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Comprehensive accessibility audit of a digital product against WCAG 2.2 AA standards with remediation plan.",
+  "task_family": "accessibility_review",
+  "triggers": [
+    "run accessibility audit on product",
+    "wcag compliance audit",
+    "accessibility review for launch"
+  ],
+  "aliases": [
+    "a11y audit",
+    "accessibility check",
+    "wcag audit"
+  ],
+  "negative_keywords": [
+    "visual design only",
+    "performance optimization",
+    "security audit"
+  ],
+  "inputs": [
+    {
+      "name": "product_surface",
+      "required": true
+    },
+    {
+      "name": "wcag_target_level",
+      "required": true
+    },
+    {
+      "name": "assistive_tech_requirements",
+      "required": false
+    },
+    {
+      "name": "previous_audit_results",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "a11y_audit_report"
+    },
+    {
+      "name": "wcag_conformance_score"
+    },
+    {
+      "name": "remediation_plan"
+    },
+    {
+      "name": "assistive_tech_findings"
+    }
+  ],
+  "primary_agent": "design-content.accessibility-expert",
+  "route": {
+    "domain_master": "design-content.master",
+    "primary": "design-content.accessibility-expert",
+    "participants": [
+      "design-content.ui-designer"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 1
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 6000,
+    "max_tool_calls": 15
+  },
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "on-task-complete"
+  ],
+  "steps": [
+    {
+      "id": "map-product-surface",
+      "summary": "Identify all pages, components, and interactive elements to audit."
+    },
+    {
+      "id": "automated-scanning",
+      "summary": "Run automated accessibility tools (axe, Lighthouse) for initial findings."
+    },
+    {
+      "id": "manual-testing",
+      "summary": "Test keyboard navigation, screen reader compatibility, and focus management."
+    },
+    {
+      "id": "wcag-criterion-assessment",
+      "summary": "Assess each applicable WCAG 2.2 criterion with pass/fail/NA."
+    },
+    {
+      "id": "remediation-planning",
+      "summary": "Prioritize findings by user impact and create remediation roadmap."
+    },
+    {
+      "id": "report-generation",
+      "summary": "Produce audit report with conformance score and action items."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "a11y_checker",
+    "browser_inspection",
+    "screen_reader_testing"
+  ],
+  "verification": [
+    "every_finding_cites_wcag_criterion",
+    "keyboard_navigation_tested",
+    "screen_reader_compatibility_checked",
+    "remediation_prioritized_by_impact"
+  ],
+  "success_criteria": [
+    "All applicable WCAG criteria are assessed.",
+    "Findings cite specific WCAG criterion and severity.",
+    "Remediation plan is prioritized and actionable.",
+    "Assistive technology testing results are included."
+  ],
+  "rollback": {
+    "mode": "no_write",
+    "summary": "Review-only workflow."
+  },
+  "source_references": [
+    "ref.workflow.design-content.accessibility-audit.2026-05-31"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

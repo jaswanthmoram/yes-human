@@ -1,0 +1,153 @@
+{
+  "id": "marketing.email-campaign-creation",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Design and plan email marketing campaigns with segmentation, personalization, and compliance checks.",
+  "task_family": "email_campaign",
+  "triggers": [
+    "create email campaign",
+    "email marketing plan",
+    "newsletter campaign design",
+    "drip sequence setup"
+  ],
+  "aliases": [
+    "email campaign",
+    "email plan"
+  ],
+  "negative_keywords": [
+    "transactional email",
+    "sms campaign",
+    "push notification"
+  ],
+  "inputs": [
+    {
+      "name": "campaign_goal",
+      "required": true,
+      "description": "Primary objective for the email campaign."
+    },
+    {
+      "name": "audience_segments",
+      "required": true,
+      "description": "Target subscriber segments and their characteristics."
+    },
+    {
+      "name": "content_theme",
+      "required": false,
+      "description": "Theme or offer for the campaign."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "campaign_brief",
+      "description": "Campaign strategy with goal, segments, and send plan."
+    },
+    {
+      "name": "email_copy",
+      "description": "Subject lines, body copy, and CTA for each email."
+    },
+    {
+      "name": "compliance_checklist",
+      "description": "CAN-SPAM, GDPR, and deliverability compliance verification."
+    }
+  ],
+  "primary_agent": "marketing.email-marketer",
+  "route": {
+    "domain_master": "marketing.master",
+    "agents": [
+      "marketing.email-marketer",
+      "marketing.content-marketer"
+    ],
+    "primary_agent": "marketing.email-marketer",
+    "participants": [
+      "marketing.content-marketer"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 3200,
+    "max_tool_calls": 6,
+    "notes": "Focus on compliant, segmented campaign design."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the request is email campaign creation rather than transactional email or SMS."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require campaign goal and audience segments before drafting."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Deliver campaign brief with copy and compliance checklist."
+    }
+  ],
+  "steps": [
+    {
+      "id": "define-segments",
+      "agent": "marketing.email-marketer",
+      "action": "Define audience segments and personalization strategy."
+    },
+    {
+      "id": "draft-copy",
+      "agent": "marketing.content-marketer",
+      "action": "Draft subject lines, body copy, and CTAs for each email."
+    },
+    {
+      "id": "compliance-review",
+      "agent": "marketing.email-marketer",
+      "action": "Verify CAN-SPAM, GDPR compliance and deliverability best practices."
+    },
+    {
+      "id": "finalize-brief",
+      "agent": "marketing.email-marketer",
+      "action": "Produce final campaign brief with send schedule and A/B test plan."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read subscriber data and past campaign performance."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Produce campaign brief and email copy drafts."
+    }
+  ],
+  "verification": [
+    {
+      "id": "segments-defined",
+      "method": "Check audience segments are specific and actionable."
+    },
+    {
+      "id": "copy-drafted",
+      "method": "Check subject lines and body copy are complete."
+    },
+    {
+      "id": "compliance-verified",
+      "method": "Check CAN-SPAM and GDPR requirements are met."
+    }
+  ],
+  "success_criteria": [
+    "Campaign brief covers goal, segments, and send plan.",
+    "Email copy is personalized and includes clear CTAs.",
+    "Compliance checklist confirms legal and deliverability requirements."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If compliance check fails, revert to copy revision step."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/marketing/email-campaign-creation.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

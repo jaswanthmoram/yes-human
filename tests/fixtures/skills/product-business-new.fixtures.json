@@ -1,0 +1,304 @@
+{
+  "fixtures": [
+    {
+      "prompt": "write user stories for login feature",
+      "expected_skill": "product-business.user-story-writing",
+      "category": "product-business"
+    },
+    {
+      "prompt": "create user story with acceptance criteria",
+      "expected_skill": "product-business.user-story-writing",
+      "category": "product-business"
+    },
+    {
+      "prompt": "story writing session for payments epic",
+      "expected_skill": "product-business.user-story-writing",
+      "category": "product-business"
+    },
+    {
+      "prompt": "apply jtbd framework to onboarding",
+      "expected_skill": "product-business.jobs-to-be-done",
+      "category": "product-business"
+    },
+    {
+      "prompt": "what job are they hiring our product for",
+      "expected_skill": "product-business.jobs-to-be-done",
+      "category": "product-business"
+    },
+    {
+      "prompt": "customer motivation analysis using jobs",
+      "expected_skill": "product-business.jobs-to-be-done",
+      "category": "product-business"
+    },
+    {
+      "prompt": "plan the roadmap for next quarter",
+      "expected_skill": "product-business.product-roadmapping",
+      "category": "product-business"
+    },
+    {
+      "prompt": "roadmap for new product line",
+      "expected_skill": "product-business.product-roadmapping",
+      "category": "product-business"
+    },
+    {
+      "prompt": "strategic roadmap for enterprise expansion",
+      "expected_skill": "product-business.product-roadmapping",
+      "category": "product-business"
+    },
+    {
+      "prompt": "prioritize the backlog for q3",
+      "expected_skill": "product-business.feature-prioritization",
+      "category": "product-business"
+    },
+    {
+      "prompt": "what should we build first this sprint",
+      "expected_skill": "product-business.feature-prioritization",
+      "category": "product-business"
+    },
+    {
+      "prompt": "feature ranking using rice framework",
+      "expected_skill": "product-business.feature-prioritization",
+      "category": "product-business"
+    },
+    {
+      "prompt": "plan user interviews for dashboard feature",
+      "expected_skill": "product-business.user-interviews",
+      "category": "product-business"
+    },
+    {
+      "prompt": "interview script for onboarding research",
+      "expected_skill": "product-business.user-interviews",
+      "category": "product-business"
+    },
+    {
+      "prompt": "talk to users about search experience",
+      "expected_skill": "product-business.user-interviews",
+      "category": "product-business"
+    },
+    {
+      "prompt": "test usability of new checkout flow",
+      "expected_skill": "product-business.usability-testing",
+      "category": "product-business"
+    },
+    {
+      "prompt": "run a usability test on mobile app",
+      "expected_skill": "product-business.usability-testing",
+      "category": "product-business"
+    },
+    {
+      "prompt": "validate signup flow with users",
+      "expected_skill": "product-business.usability-testing",
+      "category": "product-business"
+    },
+    {
+      "prompt": "run an experiment on pricing page",
+      "expected_skill": "product-business.a-b-testing",
+      "category": "product-business"
+    },
+    {
+      "prompt": "test this change to the cta button",
+      "expected_skill": "product-business.a-b-testing",
+      "category": "product-business"
+    },
+    {
+      "prompt": "a b test design for email subject lines",
+      "expected_skill": "product-business.a-b-testing",
+      "category": "product-business"
+    },
+    {
+      "prompt": "analyze cohorts by signup month",
+      "expected_skill": "product-business.cohort-analysis",
+      "category": "product-business"
+    },
+    {
+      "prompt": "retention by cohort for mobile users",
+      "expected_skill": "product-business.cohort-analysis",
+      "category": "product-business"
+    },
+    {
+      "prompt": "cohort behavior comparison after redesign",
+      "expected_skill": "product-business.cohort-analysis",
+      "category": "product-business"
+    },
+    {
+      "prompt": "analyze the signup funnel drop off",
+      "expected_skill": "product-business.funnel-analysis",
+      "category": "product-business"
+    },
+    {
+      "prompt": "where are users dropping off in onboarding",
+      "expected_skill": "product-business.funnel-analysis",
+      "category": "product-business"
+    },
+    {
+      "prompt": "conversion analysis for purchase flow",
+      "expected_skill": "product-business.funnel-analysis",
+      "category": "product-business"
+    },
+    {
+      "prompt": "analyze retention for power users",
+      "expected_skill": "product-business.retention-analysis",
+      "category": "product-business"
+    },
+    {
+      "prompt": "why are users churning after trial",
+      "expected_skill": "product-business.retention-analysis",
+      "category": "product-business"
+    },
+    {
+      "prompt": "improve retention for free tier users",
+      "expected_skill": "product-business.retention-analysis",
+      "category": "product-business"
+    },
+    {
+      "prompt": "design a growth experiment for referrals",
+      "expected_skill": "product-business.growth-experiments",
+      "category": "product-business"
+    },
+    {
+      "prompt": "test growth idea for activation",
+      "expected_skill": "product-business.growth-experiments",
+      "category": "product-business"
+    },
+    {
+      "prompt": "growth experiment backlog prioritization",
+      "expected_skill": "product-business.growth-experiments",
+      "category": "product-business"
+    },
+    {
+      "prompt": "set up analytics for new feature",
+      "expected_skill": "product-business.product-analytics",
+      "category": "product-business"
+    },
+    {
+      "prompt": "measure product health metrics",
+      "expected_skill": "product-business.product-analytics",
+      "category": "product-business"
+    },
+    {
+      "prompt": "product metrics dashboard for stakeholders",
+      "expected_skill": "product-business.product-analytics",
+      "category": "product-business"
+    },
+    {
+      "prompt": "analyze competitors in project management",
+      "expected_skill": "product-business.competitive-analysis",
+      "category": "product-business"
+    },
+    {
+      "prompt": "who are our top competitors and how do they compare",
+      "expected_skill": "product-business.competitive-analysis",
+      "category": "product-business"
+    },
+    {
+      "prompt": "competitive positioning for mid-market",
+      "expected_skill": "product-business.competitive-analysis",
+      "category": "product-business"
+    },
+    {
+      "prompt": "size the market for hr tech saas",
+      "expected_skill": "product-business.market-sizing",
+      "category": "product-business"
+    },
+    {
+      "prompt": "how big is the addressable market for devtools",
+      "expected_skill": "product-business.market-sizing",
+      "category": "product-business"
+    },
+    {
+      "prompt": "market opportunity for vertical saas",
+      "expected_skill": "product-business.market-sizing",
+      "category": "product-business"
+    },
+    {
+      "prompt": "design pricing for new product tier",
+      "expected_skill": "product-business.pricing-models",
+      "category": "product-business"
+    },
+    {
+      "prompt": "set pricing tiers for enterprise plan",
+      "expected_skill": "product-business.pricing-models",
+      "category": "product-business"
+    },
+    {
+      "prompt": "pricing experimentation for usage based model",
+      "expected_skill": "product-business.pricing-models",
+      "category": "product-business"
+    },
+    {
+      "prompt": "plan the launch gtm for api product",
+      "expected_skill": "product-business.go-to-market",
+      "category": "product-business"
+    },
+    {
+      "prompt": "gtm for new feature targeting enterprise",
+      "expected_skill": "product-business.go-to-market",
+      "category": "product-business"
+    },
+    {
+      "prompt": "market entry strategy for europe",
+      "expected_skill": "product-business.go-to-market",
+      "category": "product-business"
+    },
+    {
+      "prompt": "define positioning for analytics product",
+      "expected_skill": "product-business.product-positioning",
+      "category": "product-business"
+    },
+    {
+      "prompt": "how should we position against notion",
+      "expected_skill": "product-business.product-positioning",
+      "category": "product-business"
+    },
+    {
+      "prompt": "positioning workshop for rebrand",
+      "expected_skill": "product-business.product-positioning",
+      "category": "product-business"
+    },
+    {
+      "prompt": "create messaging for product launch",
+      "expected_skill": "product-business.product-messaging",
+      "category": "product-business"
+    },
+    {
+      "prompt": "messaging for new feature announcement",
+      "expected_skill": "product-business.product-messaging",
+      "category": "product-business"
+    },
+    {
+      "prompt": "consistent product copy across channels",
+      "expected_skill": "product-business.product-messaging",
+      "category": "product-business"
+    },
+    {
+      "prompt": "create launch checklist for v2 release",
+      "expected_skill": "product-business.launch-checklists",
+      "category": "product-business"
+    },
+    {
+      "prompt": "are we ready to launch the new dashboard",
+      "expected_skill": "product-business.launch-checklists",
+      "category": "product-business"
+    },
+    {
+      "prompt": "launch preparation for mobile app",
+      "expected_skill": "product-business.launch-checklists",
+      "category": "product-business"
+    },
+    {
+      "prompt": "write documentation for api endpoints",
+      "expected_skill": "product-business.product-documentation",
+      "category": "product-business"
+    },
+    {
+      "prompt": "create help docs for billing feature",
+      "expected_skill": "product-business.product-documentation",
+      "category": "product-business"
+    },
+    {
+      "prompt": "documentation strategy for developer portal",
+      "expected_skill": "product-business.product-documentation",
+      "category": "product-business"
+    }
+  ]
+}

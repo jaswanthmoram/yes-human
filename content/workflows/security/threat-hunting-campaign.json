@@ -1,0 +1,148 @@
+{
+  "id": "security.threat-hunting-campaign",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Execute a hypothesis-driven threat hunting campaign to detect advanced threats that evade automated controls.",
+  "task_family": "threat_hunting",
+  "triggers": [
+    "start a threat hunt",
+    "run a threat hunting campaign",
+    "hunt for advanced threats",
+    "investigate suspicious activity",
+    "proactive threat detection",
+    "search for indicators of compromise"
+  ],
+  "aliases": [
+    "threat hunt",
+    "proactive threat detection",
+    "IOC hunting",
+    "advanced threat investigation"
+  ],
+  "negative_keywords": [
+    "routine log review",
+    "compliance reporting",
+    "vulnerability scanning",
+    "documentation update"
+  ],
+  "inputs": [
+    {
+      "name": "hunting_hypothesis",
+      "required": true
+    },
+    {
+      "name": "target_environment",
+      "required": true
+    },
+    {
+      "name": "threat_intelligence_feeds",
+      "required": false
+    },
+    {
+      "name": "historical_incidents",
+      "required": false
+    },
+    {
+      "name": "detection_gaps",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "hunting_findings"
+    },
+    {
+      "name": "ioc_list"
+    },
+    {
+      "name": "detection_rules"
+    },
+    {
+      "name": "threat_assessment"
+    },
+    {
+      "name": "hunting_report"
+    }
+  ],
+  "primary_agent": "security.threat-hunter",
+  "route": {
+    "domain_master": "security.master",
+    "primary": "security.threat-hunter",
+    "participants": [
+      "security.incident-responder",
+      "security.forensics-analyst"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 5500,
+    "max_tool_calls": 20
+  },
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "post-tool",
+    "on-task-complete"
+  ],
+  "steps": [
+    {
+      "id": "hypothesis-development",
+      "summary": "Develop a testable hypothesis based on threat intelligence, attack patterns, or environmental gaps."
+    },
+    {
+      "id": "data-collection",
+      "summary": "Gather relevant logs, network flows, endpoint data, and other telemetry for analysis."
+    },
+    {
+      "id": "hunting-execution",
+      "summary": "Apply analytical techniques to search for indicators of the hypothesized threat."
+    },
+    {
+      "id": "finding-validation",
+      "summary": "Validate suspicious findings to distinguish true positives from benign anomalies."
+    },
+    {
+      "id": "ioc-development",
+      "summary": "Extract indicators of compromise and develop detection rules for ongoing monitoring."
+    },
+    {
+      "id": "reporting-and-handoff",
+      "summary": "Document findings, create detection rules, and hand off confirmed threats to incident response."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "shell.readonly",
+    "log_analyzer",
+    "network_forensics",
+    "threat_intelligence_platform",
+    "siem_query"
+  ],
+  "verification": [
+    "hypothesis_is_testable_and_specific",
+    "data_sources_are_relevant_and_complete",
+    "findings_are_evidence_based",
+    "iocs_are_actionable_and_documented",
+    "detection_rules_are_deployed_or_ready"
+  ],
+  "success_criteria": [
+    "Hunting hypothesis is specific, testable, and tied to a threat model.",
+    "Data collection covers relevant sources without excessive noise.",
+    "Findings are validated with evidence before escalation.",
+    "IOCs are actionable and suitable for detection rule creation.",
+    "Hunting report includes methodology, findings, and recommendations."
+  ],
+  "rollback": {
+    "mode": "no_write",
+    "summary": "Read-only investigation workflow with no system modifications."
+  },
+  "source_references": [
+    "ref.workflow.security.threat-hunting-campaign.2026-06-01"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

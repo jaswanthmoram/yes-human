@@ -1,0 +1,160 @@
+{
+  "id": "legal-compliance.policy-development",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Develop internal policies from requirements gathering through drafting to stakeholder review.",
+  "task_family": "policy_development",
+  "triggers": [
+    "policy development process",
+    "internal policy creation",
+    "compliance procedure drafting",
+    "governance policy workflow"
+  ],
+  "aliases": [
+    "policy development",
+    "policy creation process"
+  ],
+  "negative_keywords": [
+    "cache policy",
+    "security policy code",
+    "CSP policy"
+  ],
+  "inputs": [
+    {
+      "name": "policy_domain",
+      "required": true,
+      "description": "The area of policy to develop (privacy, security, HR, etc.)."
+    },
+    {
+      "name": "regulatory_context",
+      "required": true,
+      "description": "Applicable regulations and standards."
+    },
+    {
+      "name": "stakeholder_requirements",
+      "required": false,
+      "description": "Specific stakeholder requirements and constraints."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "policy_draft",
+      "description": "Draft policy document with proper structure and language."
+    },
+    {
+      "name": "implementation_guide",
+      "description": "Guide for implementing the policy across the organization."
+    },
+    {
+      "name": "review_checklist",
+      "description": "Checklist for stakeholder and compliance-owner review."
+    }
+  ],
+  "primary_agent": "legal-compliance.policy-analyst",
+  "route": {
+    "domain_master": "legal-compliance.master",
+    "agents": [
+      "legal-compliance.policy-analyst",
+      "legal-compliance.compliance-officer",
+      "legal-compliance.regulatory-affairs"
+    ],
+    "primary_agent": "legal-compliance.policy-analyst",
+    "participants": [
+      "legal-compliance.compliance-officer",
+      "legal-compliance.regulatory-affairs"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 3
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 5000,
+    "max_tool_calls": 12,
+    "notes": "High-stakes workflow. Keep issue spotting and human review explicit."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is policy development and not legal advice on policy enforcement."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require policy domain and regulatory context."
+    },
+    {
+      "id": "pre-write",
+      "rule": "Draft in plain language with compliance framework references."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "End with stakeholder review checklist; do not claim policy is approved."
+    }
+  ],
+  "steps": [
+    {
+      "id": "gather-requirements",
+      "agent": "legal-compliance.policy-analyst",
+      "action": "Gather policy requirements from regulatory context and stakeholders."
+    },
+    {
+      "id": "regulatory-mapping",
+      "agent": "legal-compliance.regulatory-affairs",
+      "action": "Map applicable regulations to policy requirements."
+    },
+    {
+      "id": "draft-policy",
+      "agent": "legal-compliance.policy-analyst",
+      "action": "Draft policy document following organizational standards."
+    },
+    {
+      "id": "compliance-review",
+      "agent": "legal-compliance.compliance-officer",
+      "action": "Review draft for compliance framework alignment."
+    },
+    {
+      "id": "finalize-package",
+      "agent": "legal-compliance.policy-analyst",
+      "action": "Compile policy package with implementation guide and review checklist."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read documents, policies, and reference materials."
+    }
+  ],
+  "verification": [
+    {
+      "id": "domain-named",
+      "method": "Check the output names the policy domain and regulatory context."
+    },
+    {
+      "id": "policy-structure",
+      "method": "Check the policy follows standard structure with definitions, scope, and procedures."
+    },
+    {
+      "id": "review-checklist",
+      "method": "Check output includes stakeholder review checklist."
+    }
+  ],
+  "success_criteria": [
+    "Policy covers all required regulatory and stakeholder requirements.",
+    "Policy is written in plain language with proper structure.",
+    "Output ends with review checklist for stakeholder approval."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If scope, confidentiality, or review authority is unclear, revert the draft and regenerate a narrower output for counsel review."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/legal-compliance/policy-development.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

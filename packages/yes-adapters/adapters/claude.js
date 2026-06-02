@@ -18,6 +18,10 @@ import fs from 'fs';
 import path from 'path';
 import { repoRoot, readFile, readJSON, writeGenerated } from '../index.js';
 
+function getServerName(mcp) {
+  return String(mcp.id || mcp.provider || 'mcp').replace(/[^a-zA-Z0-9_-]/g, '-');
+}
+
 // ── CLAUDE.md ─────────────────────────────────────────────────────────────────
 
 function buildClaudeMd(ctx) {
@@ -171,15 +175,16 @@ function buildSettings(ctx) {
 function buildMcpConfig(ctx) {
   const servers = {};
   for (const mcp of ctx.mcps) {
-    if (!mcp.name) continue;
+    const serverName = getServerName(mcp);
+    if (!serverName) continue;
     const entry = {
       command: 'npx',
-      args: ['-y', mcp.package || mcp.name]
+      args: ['-y', mcp.package || mcp.provider || serverName]
     };
     if (mcp.env_var) {
       entry.env = { [mcp.env_var]: `{env:${mcp.env_var}}` };
     }
-    servers[mcp.name] = entry;
+    servers[serverName] = entry;
   }
   return { mcpServers: servers };
 }

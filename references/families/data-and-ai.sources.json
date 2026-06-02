@@ -1,0 +1,166 @@
+{
+  "dossier_id": "dossier.family.data-and-ai.2026-06-01",
+  "family": "data-and-ai",
+  "created_at": "2026-06-01T21:30:00Z",
+  "expires_at": "2027-06-01T21:30:00Z",
+  "description": "Skills for RAG evaluation, dataset profiling, model evaluation, and embedding review",
+  "domains": ["data-ai"],
+  "skill_count_target": 38,
+  "sources": [
+    {
+      "url": "https://www.tensorflow.org/learn",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "v2.16",
+      "used_for": ["TensorFlow tutorials", "ML model development"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://pytorch.org/tutorials/",
+      "source_type": "official_docs",
+      "license": "BSD-3-Clause",
+      "version_or_commit": "v2.3",
+      "used_for": ["PyTorch tutorials", "deep learning"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://huggingface.co/docs",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2024",
+      "used_for": ["Hugging Face transformers", "NLP models"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/microsoft/ML-For-Beginners",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "stars": 72500,
+      "last_updated": "2026-05-25",
+      "used_for": ["ML curriculum", "beginner tutorials"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/scikit-learn/scikit-learn",
+      "source_type": "github_repo",
+      "license": "BSD-3-Clause",
+      "version_or_commit": "main",
+      "stars": 60500,
+      "last_updated": "2026-05-30",
+      "used_for": ["scikit-learn ML library", "classical ML algorithms"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/mlflow/mlflow",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "master",
+      "stars": 19500,
+      "last_updated": "2026-05-29",
+      "used_for": ["MLflow MLOps", "experiment tracking"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/kubeflow/kubeflow",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "master",
+      "stars": 14800,
+      "last_updated": "2026-05-28",
+      "used_for": ["Kubeflow ML platform", "Kubernetes ML workflows"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/apache/spark",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "master",
+      "stars": 40500,
+      "last_updated": "2026-05-30",
+      "used_for": ["Apache Spark", "big data processing"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/apache/airflow",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "stars": 38500,
+      "last_updated": "2026-05-30",
+      "used_for": ["Apache Airflow", "workflow orchestration"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/apache/kafka",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "trunk",
+      "stars": 29500,
+      "last_updated": "2026-05-30",
+      "used_for": ["Apache Kafka", "event streaming"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/pinecone-io/examples",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "stars": 2800,
+      "last_updated": "2026-05-20",
+      "used_for": ["Pinecone vector database", "similarity search examples"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/weaviate/weaviate",
+      "source_type": "github_repo",
+      "license": "BSD-3-Clause",
+      "version_or_commit": "master",
+      "stars": 12500,
+      "last_updated": "2026-05-30",
+      "used_for": ["Weaviate vector database", "semantic search"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/milvus-io/milvus",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "master",
+      "stars": 32500,
+      "last_updated": "2026-05-30",
+      "used_for": ["Milvus vector database", "AI embeddings storage"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/explodinggradients/ragas",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "stars": 8500,
+      "last_updated": "2026-05-28",
+      "used_for": ["RAGAS evaluation framework", "RAG evaluation metrics"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/langchain-ai/langchain",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "master",
+      "stars": 105000,
+      "last_updated": "2026-05-30",
+      "used_for": ["LangChain framework", "LLM application development"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 15,
+    "official_docs": 3,
+    "github_quality": 95,
+    "license_safety": 95,
+    "maintenance": 95,
+    "pattern_clarity": 90,
+    "testability": 88,
+    "total": 93
+  },
+  "promotion_decision": "production"
+}

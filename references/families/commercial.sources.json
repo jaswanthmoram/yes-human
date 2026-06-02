@@ -1,0 +1,142 @@
+{
+  "dossier_id": "dossier.family.commercial.2026-06-01",
+  "family": "commercial",
+  "created_at": "2026-06-01T22:15:00Z",
+  "expires_at": "2027-06-01T22:15:00Z",
+  "description": "Skills for campaign plan, deal review, forecast, proposal review, and CRM hygiene",
+  "domains": ["marketing", "sales"],
+  "skill_count_target": 42,
+  "sources": [
+    {
+      "url": "https://digitalmarketinginstitute.com/blog/key-digital-marketing-trends-for-2024",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["digital marketing trends", "buyer's journey"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.smartinsights.com/digital-marketing-strategy/digital-strategy-development/digital-marketing-trends-2024/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["2024 marketing trends", "AI in marketing"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.forbes.com/advisor/business/digital-marketing-strategy/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["digital marketing strategy guide", "channel selection"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://moz.com/beginners-guide-to-seo",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["SEO beginner's guide", "search optimization"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://developers.google.com/search/docs",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2024",
+      "used_for": ["Google Search Central", "SEO best practices"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://contentmarketinginstitute.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["content marketing strategies", "content creation"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://blog.hubspot.com/marketing",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["HubSpot marketing blog", "inbound marketing"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.salesforce.com/resources/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Salesforce resources", "CRM best practices"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://trailhead.salesforce.com/",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Salesforce Trailhead", "sales training"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://academy.hubspot.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["HubSpot Academy", "inbound sales"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.gong.io/blog/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Gong blog", "sales intelligence", "conversation analytics"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.outreach.io/blog",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Outreach blog", "sales engagement"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.pipedrive.com/blog",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Pipedrive blog", "pipeline management"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.saleshacker.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Sales Hacker", "sales technology"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.gartner.com/en/sales",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Gartner sales research", "sales trends"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 15,
+    "official_docs": 2,
+    "github_quality": 0,
+    "license_safety": 85,
+    "maintenance": 90,
+    "pattern_clarity": 88,
+    "testability": 80,
+    "total": 86
+  },
+  "promotion_decision": "production"
+}

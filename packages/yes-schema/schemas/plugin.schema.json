@@ -35,13 +35,14 @@
     },
     "registries": {
       "type": "object",
-      "required": ["agents", "skills", "workflows", "tools", "mcps"],
+      "required": ["agents", "skills", "workflows", "tools", "mcps", "category_packs"],
       "properties": {
         "agents": { "type": "string" },
         "skills": { "type": "string" },
         "workflows": { "type": "string" },
         "tools": { "type": "string" },
-        "mcps": { "type": "string" }
+        "mcps": { "type": "string" },
+        "category_packs": { "type": "string" }
       }
     }
   },

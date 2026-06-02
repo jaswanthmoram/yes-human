@@ -1,0 +1,145 @@
+{
+  "id": "engineering.refactoring-campaign",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Plan and execute a multi-file refactoring campaign targeting code smells, architectural debt, or pattern modernization with incremental verification.",
+  "task_family": "refactoring",
+  "triggers": [
+    "refactor this module to reduce complexity",
+    "clean up the code smells in this area",
+    "modernize the patterns in this subsystem",
+    "extract shared logic into a utility",
+    "reduce duplication across these files",
+    "improve the architecture of this service",
+    "run a refactoring campaign on this domain"
+  ],
+  "aliases": [
+    "refactoring campaign",
+    "code cleanup campaign",
+    "debt reduction refactor"
+  ],
+  "negative_keywords": [
+    "new feature",
+    "bug fix only",
+    "docs only"
+  ],
+  "inputs": [
+    {
+      "name": "refactor_scope",
+      "required": true
+    },
+    {
+      "name": "code_smells_or_goals",
+      "required": true
+    },
+    {
+      "name": "affected_modules",
+      "required": false
+    },
+    {
+      "name": "test_command",
+      "required": false
+    },
+    {
+      "name": "constraints",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "refactor_plan"
+    },
+    {
+      "name": "refactored_files"
+    },
+    {
+      "name": "verification_report"
+    }
+  ],
+  "primary_agent": "engineering.refactor-planner",
+  "route": {
+    "domain_master": "engineering.master",
+    "primary": "engineering.refactor-planner",
+    "participants": [
+      "engineering.code-reviewer"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 1
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 3600,
+    "max_tool_calls": 16
+  },
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "pre-write",
+    "post-tool",
+    "on-task-complete"
+  ],
+  "steps": [
+    {
+      "id": "assess-debt",
+      "summary": "Analyze the target scope for code smells, duplication, complexity metrics, and architectural issues."
+    },
+    {
+      "id": "plan-refactor",
+      "summary": "Create a prioritized refactoring plan with small, independently verifiable changes ordered by impact and risk."
+    },
+    {
+      "id": "snapshot-tests",
+      "summary": "Confirm existing tests pass and capture a baseline before any changes are made."
+    },
+    {
+      "id": "execute-increments",
+      "summary": "Apply refactoring changes in small increments, running tests after each batch to catch regressions early."
+    },
+    {
+      "id": "review-changes",
+      "summary": "Run a code review pass on the refactored code to verify the improvements and catch any introduced issues."
+    },
+    {
+      "id": "full-validation",
+      "summary": "Run the complete test suite, lint, and type checks on the full refactored codebase."
+    },
+    {
+      "id": "report-outcomes",
+      "summary": "Document what was refactored, complexity deltas, remaining debt, and any deferred items."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "filesystem.write",
+    "test_runner",
+    "lint_runner",
+    "complexity_analyzer",
+    "diff_inspection",
+    "shell.readonly"
+  ],
+  "verification": [
+    "all_tests_pass_after_each_increment",
+    "lint_passes",
+    "type_check_passes",
+    "complexity_metrics_improved",
+    "no_behavior_changes"
+  ],
+  "success_criteria": [
+    "Refactoring produces measurable improvements in complexity, duplication, or coupling.",
+    "No behavioral changes are introduced (tests pass unchanged).",
+    "Changes are applied incrementally with validation between batches.",
+    "Remaining debt and deferred items are documented."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "summary": "Revert the most recent refactoring increment if tests fail; fall back to the last known-green snapshot."
+  },
+  "source_references": [
+    "ref.workflow.engineering.refactoring-campaign.2026-06-01"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

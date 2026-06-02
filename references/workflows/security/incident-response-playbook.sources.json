@@ -1,0 +1,60 @@
+{
+  "dossier_id": "dossier.workflow.security.incident-response-playbook.2026-06-01",
+  "workflow_id": "security.incident-response-playbook",
+  "domain": "security",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://nvlpubs.nist.gov/nistpubs/specialpublications/NIST.SP.800-61r2.pdf",
+      "source_type": "official_docs",
+      "license": "NIST public domain",
+      "version_or_commit": "rev2",
+      "used_for": [
+        "incident handling lifecycle and procedures"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.sans.org/white-papers/incident-response/",
+      "source_type": "official_docs",
+      "license": "SANS educational use",
+      "version_or_commit": "live",
+      "used_for": [
+        "incident response best practices and playbooks"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/PagerDuty/incident-response-docs",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": [
+        "operational incident response workflows"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.first.org/incident-management/",
+      "source_type": "official_docs",
+      "license": "FIRST public",
+      "version_or_commit": "live",
+      "used_for": [
+        "CSIRT incident management standards"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 3,
+    "github_quality": 88,
+    "license_safety": 95,
+    "maintenance": 87,
+    "pattern_clarity": 94,
+    "testability": 86,
+    "total": 90
+  },
+  "promotion_decision": "staging"
+}

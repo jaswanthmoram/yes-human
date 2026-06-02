@@ -1,0 +1,15 @@
+{
+  "dossier_id": "dossier.skill.healthcare.fhir-standards.2026-06-01",
+  "skill_id": "healthcare.fhir-standards",
+  "domain": "healthcare",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {"url": "https://www.hl7.org/fhir/", "source_type": "official_docs", "license": "Creative Commons", "version_or_commit": "R4/R5", "used_for": ["FHIR specification", "resource definitions"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/FHIR/sushi", "source_type": "github_repo", "license": "Apache-2.0", "version_or_commit": "v3.12.0", "used_for": ["FHIR IG authoring with SUSHI"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/medplum/medplum", "source_type": "github_repo", "license": "Apache-2.0", "version_or_commit": "v3.2.0", "used_for": ["FHIR server implementation patterns"], "copy_policy": "patterns_only"},
+    {"url": "https://build.fhir.org/ig/HL7/US-Core/", "source_type": "official_docs", "license": "Creative Commons", "version_or_commit": "v7.0.0", "used_for": ["US Core implementation guide"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 4, "official_docs": 2, "github_quality": 88, "license_safety": 96, "maintenance": 94, "pattern_clarity": 92, "testability": 90, "total": 92},
+  "promotion_decision": "staging"
+}

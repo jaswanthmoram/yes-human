@@ -1,0 +1,132 @@
+{
+  "id": "engineering.performance-optimization",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Profile a slow code path, identify bottlenecks, apply targeted optimizations, and verify measurable improvement with benchmarks.",
+  "task_family": "optimization",
+  "triggers": [
+    "optimize this slow code path",
+    "improve performance of this function",
+    "reduce latency on this endpoint",
+    "profile and fix the bottleneck",
+    "make this query faster",
+    "optimize the render performance"
+  ],
+  "aliases": [
+    "perf optimization",
+    "performance tuning",
+    "speed improvement workflow"
+  ],
+  "negative_keywords": [
+    "add new feature",
+    "refactor for readability only",
+    "docs only"
+  ],
+  "inputs": [
+    {
+      "name": "target_code_path",
+      "required": true
+    },
+    {
+      "name": "baseline_metrics",
+      "required": false
+    },
+    {
+      "name": "performance_target",
+      "required": false
+    },
+    {
+      "name": "profiling_tool",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "profile_report"
+    },
+    {
+      "name": "optimization_patch"
+    },
+    {
+      "name": "benchmark_comparison"
+    }
+  ],
+  "primary_agent": "engineering.perf-optimizer",
+  "route": {
+    "domain_master": "engineering.master",
+    "primary": "engineering.perf-optimizer",
+    "participants": [],
+    "parallel": false,
+    "max_parallel_agents": 1
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 3400,
+    "max_tool_calls": 14
+  },
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "pre-write",
+    "post-tool",
+    "on-task-complete"
+  ],
+  "steps": [
+    {
+      "id": "establish-baseline",
+      "summary": "Capture baseline metrics (latency, throughput, memory) for the target code path under realistic load."
+    },
+    {
+      "id": "profile",
+      "summary": "Run profiling tools to identify hot spots, allocations, and time distribution across the code path."
+    },
+    {
+      "id": "diagnose-bottleneck",
+      "summary": "Analyze profile data to pinpoint the root cause of slowness (N+1 queries, excessive allocations, blocking I/O, etc.)."
+    },
+    {
+      "id": "apply-optimization",
+      "summary": "Implement the smallest targeted fix addressing the confirmed bottleneck (caching, batching, indexing, memoization)."
+    },
+    {
+      "id": "benchmark",
+      "summary": "Rerun the same workload and compare metrics against the baseline to quantify improvement."
+    },
+    {
+      "id": "regression-check",
+      "summary": "Run the full test suite to confirm the optimization does not break correctness."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "filesystem.write",
+    "profiler",
+    "benchmark_runner",
+    "test_runner",
+    "shell.readonly"
+  ],
+  "verification": [
+    "benchmark_shows_measurable_improvement",
+    "no_regressions_in_test_suite",
+    "optimization_targets_confirmed_bottleneck",
+    "baseline_and_after_metrics_recorded"
+  ],
+  "success_criteria": [
+    "Baseline and post-optimization metrics are recorded and comparable.",
+    "The optimization targets the confirmed bottleneck, not speculative changes.",
+    "No test regressions are introduced.",
+    "Improvement meets or exceeds the stated performance target if one was provided."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "summary": "Revert the optimization patch if benchmarks show no improvement or tests regress."
+  },
+  "source_references": [
+    "ref.workflow.engineering.performance-optimization.2026-06-01"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

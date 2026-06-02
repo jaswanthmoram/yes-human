@@ -1,0 +1,113 @@
+{
+  "id": "product-business.competitive-analysis",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Run a competitive analysis process to produce actionable competitive intelligence for product decisions.",
+  "task_family": "strategy",
+  "triggers": [
+    "run competitive analysis",
+    "competitive intelligence report",
+    "analyze our competitors"
+  ],
+  "aliases": [
+    "competitor analysis",
+    "competitive landscape",
+    "competitive research"
+  ],
+  "negative_keywords": [
+    "implement code now",
+    "deploy to production",
+    "financial audit"
+  ],
+  "inputs": [
+    {
+      "name": "competitor_list",
+      "required": true
+    },
+    {
+      "name": "analysis_focus",
+      "required": true
+    },
+    {
+      "name": "market_context",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "competitive_report"
+    },
+    {
+      "name": "feature_comparison_matrix"
+    },
+    {
+      "name": "strategic_recommendations"
+    }
+  ],
+  "primary_agent": "product-business.competitive-analyst",
+  "route": {
+    "domain_master": "product-business.master",
+    "primary": "product-business.competitive-analyst",
+    "participants": [
+      "product-business.product-strategist",
+      "product-business.market-researcher"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 5000,
+    "max_tool_calls": 12
+  },
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "on-task-complete"
+  ],
+  "steps": [
+    {
+      "id": "identify-competitors",
+      "summary": "Map direct, indirect, and emerging competitors in the market."
+    },
+    {
+      "id": "gather-intelligence",
+      "summary": "Collect data on features, pricing, positioning, and market share."
+    },
+    {
+      "id": "analyze-and-compare",
+      "summary": "Build comparison matrix and conduct SWOT analysis."
+    },
+    {
+      "id": "recommend-actions",
+      "summary": "Produce strategic recommendations based on competitive position."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "research_template",
+    "comparison_matrix"
+  ],
+  "verification": [
+    "competitors_comprehensively_mapped",
+    "data_sources_cited",
+    "recommendations_actionable"
+  ],
+  "success_criteria": [
+    "Competitive landscape is comprehensively mapped.",
+    "Data sources are cited with recency indicators.",
+    "Strategic recommendations are specific and actionable."
+  ],
+  "rollback": {
+    "mode": "no_write",
+    "summary": "Analysis workflow produces intelligence but does not change product direction."
+  },
+  "source_references": [
+    "ref.workflow.product-business.competitive-analysis.2026-05-31"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "dossier_id": "dossier.workflow.sales.account-planning.2026-05-31",
+  "workflow_id": "sales.account-planning",
+  "domain": "sales",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://www.millerheiman.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["account planning process structure", "stakeholder mapping methodologies"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.hubspot.com/sales/account-planning",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "live",
+      "used_for": ["expansion opportunity identification", "account health assessment patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/TwentyHQ/twenty",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": ["CRM account data model", "relationship tracking patterns"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 0,
+    "github_quality": 84,
+    "license_safety": 90,
+    "maintenance": 86,
+    "pattern_clarity": 86,
+    "testability": 80,
+    "total": 85
+  },
+  "promotion_decision": "staging"
+}

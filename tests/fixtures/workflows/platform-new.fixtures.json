@@ -1,0 +1,207 @@
+{
+  "description": "Fixtures for new platform workflows (2 per workflow, 12 total)",
+  "fixtures": [
+    {
+      "id": "fixture.kubernetes-cluster-setup.eks-prod",
+      "workflow_id": "platform.kubernetes-cluster-setup",
+      "input": {
+        "cloud_provider": "AWS",
+        "cluster_spec": {
+          "version": "1.29",
+          "node_pools": [
+            { "name": "general", "instance_type": "m6i.xlarge", "count": 3 },
+            { "name": "compute", "instance_type": "c6i.2xlarge", "count": 2 }
+          ],
+          "networking_cidr": "10.0.0.0/16"
+        },
+        "security_requirements": { "pod_security_standard": "restricted", "enable_audit_logging": true }
+      },
+      "expected_outputs": ["cluster_manifest", "networking_config", "access_credentials", "validation_report"],
+      "expected_step_count": 7
+    },
+    {
+      "id": "fixture.kubernetes-cluster-setup.gke-staging",
+      "workflow_id": "platform.kubernetes-cluster-setup",
+      "input": {
+        "cloud_provider": "GCP",
+        "cluster_spec": {
+          "version": "1.29",
+          "node_pools": [
+            { "name": "default", "instance_type": "e2-standard-4", "count": 3 }
+          ],
+          "networking_cidr": "172.16.0.0/12"
+        },
+        "storage_requirements": { "storage_classes": ["standard-rwo", "premium-rwo"] }
+      },
+      "expected_outputs": ["cluster_manifest", "networking_config", "access_credentials", "validation_report"],
+      "expected_step_count": 7
+    },
+    {
+      "id": "fixture.terraform-infrastructure-deployment.aws-vpc",
+      "workflow_id": "platform.terraform-infrastructure-deployment",
+      "input": {
+        "terraform_config": {
+          "module_path": "infra/modules/vpc",
+          "provider": "aws",
+          "variables_file": "environments/staging/terraform.tfvars"
+        },
+        "target_environment": "staging",
+        "approval_policy": "manual_review_required"
+      },
+      "expected_outputs": ["plan_output", "apply_result", "drift_report", "state_backup"],
+      "expected_step_count": 7
+    },
+    {
+      "id": "fixture.terraform-infrastructure-deployment.azure-aks",
+      "workflow_id": "platform.terraform-infrastructure-deployment",
+      "input": {
+        "terraform_config": {
+          "module_path": "infra/modules/aks",
+          "provider": "azurerm",
+          "variables_file": "environments/production/terraform.tfvars"
+        },
+        "target_environment": "production",
+        "approval_policy": "dual_approval",
+        "drift_baseline": "state/production/terraform.tfstate.snapshot"
+      },
+      "expected_outputs": ["plan_output", "apply_result", "drift_report", "state_backup"],
+      "expected_step_count": 7
+    },
+    {
+      "id": "fixture.monitoring-stack-deployment.k8s-full-stack",
+      "workflow_id": "platform.monitoring-stack-deployment",
+      "input": {
+        "target_infrastructure": {
+          "type": "kubernetes",
+          "cluster": "prod-us-east-1",
+          "node_count": 12
+        },
+        "observability_requirements": {
+          "metrics": { "retention": "30d", "resolution": "15s" },
+          "logs": { "retention": "14d", "structured": true },
+          "traces": { "retention": "7d", "sampling_rate": "10%" }
+        },
+        "alert_channels": ["slack://incidents", "pagerduty://platform-team"]
+      },
+      "expected_outputs": ["stack_manifests", "dashboard_configs", "alert_rules", "validation_report"],
+      "expected_step_count": 7
+    },
+    {
+      "id": "fixture.monitoring-stack-deployment.metrics-only",
+      "workflow_id": "platform.monitoring-stack-deployment",
+      "input": {
+        "target_infrastructure": {
+          "type": "kubernetes",
+          "cluster": "staging-eu-west-1",
+          "node_count": 4
+        },
+        "observability_requirements": {
+          "metrics": { "retention": "15d", "resolution": "30s" }
+        },
+        "dashboard_specs": ["cluster-overview", "node-resources", "pod-health"]
+      },
+      "expected_outputs": ["stack_manifests", "dashboard_configs", "alert_rules", "validation_report"],
+      "expected_step_count": 7
+    },
+    {
+      "id": "fixture.incident-response-playbook.sev1-outage",
+      "workflow_id": "platform.incident-response-playbook",
+      "input": {
+        "incident_signal": {
+          "source": "pagerduty",
+          "alert": "API gateway returning 503 for all endpoints",
+          "started_at": "2026-06-01T14:30:00Z"
+        },
+        "affected_services": ["api-gateway", "auth-service", "payment-service"],
+        "severity_classification": "SEV1",
+        "communication_channels": ["slack://war-room", "status-page://public"]
+      },
+      "expected_outputs": ["triage_summary", "mitigation_actions", "communication_log", "post_mortem_draft"],
+      "expected_step_count": 6
+    },
+    {
+      "id": "fixture.incident-response-playbook.sev3-degradation",
+      "workflow_id": "platform.incident-response-playbook",
+      "input": {
+        "incident_signal": {
+          "source": "prometheus_alert",
+          "alert": "Database connection pool utilization above 85% for 10 minutes",
+          "started_at": "2026-06-01T09:15:00Z"
+        },
+        "affected_services": ["postgres-primary", "order-service"],
+        "severity_classification": "SEV3"
+      },
+      "expected_outputs": ["triage_summary", "mitigation_actions", "communication_log", "post_mortem_draft"],
+      "expected_step_count": 6
+    },
+    {
+      "id": "fixture.cloud-migration.onprem-to-aws",
+      "workflow_id": "platform.cloud-migration",
+      "input": {
+        "source_environment": {
+          "type": "on-premises",
+          "compute": "VMware vSphere cluster with 40 VMs",
+          "storage": "NetApp SAN 20TB",
+          "networking": "VLAN-segmented 10.0.0.0/8"
+        },
+        "target_cloud": { "provider": "AWS", "region": "us-east-1" },
+        "migration_strategy": "lift-and-shift",
+        "downtime_tolerance": "4 hours"
+      },
+      "expected_outputs": ["migration_plan", "target_infrastructure", "data_migration_report", "cutover_runbook"],
+      "expected_step_count": 7
+    },
+    {
+      "id": "fixture.cloud-migration.aws-to-gcp",
+      "workflow_id": "platform.cloud-migration",
+      "input": {
+        "source_environment": {
+          "type": "aws",
+          "compute": "EKS cluster with 8 nodes, 15 deployments",
+          "storage": "RDS PostgreSQL 500GB, S3 2TB",
+          "networking": "VPC with private subnets"
+        },
+        "target_cloud": { "provider": "GCP", "region": "us-central1" },
+        "migration_strategy": "re-platform",
+        "downtime_tolerance": "1 hour"
+      },
+      "expected_outputs": ["migration_plan", "target_infrastructure", "data_migration_report", "cutover_runbook"],
+      "expected_step_count": 7
+    },
+    {
+      "id": "fixture.disaster-recovery-setup.multi-region-dr",
+      "workflow_id": "platform.disaster-recovery-setup",
+      "input": {
+        "critical_services": ["api-gateway", "auth-service", "postgres-primary", "redis-cluster"],
+        "rto_rpo_targets": {
+          "api-gateway": { "rto": "5m", "rpo": "0" },
+          "postgres-primary": { "rto": "15m", "rpo": "1m" },
+          "redis-cluster": { "rto": "10m", "rpo": "5m" }
+        },
+        "infrastructure_topology": {
+          "primary_region": "us-east-1",
+          "secondary_region": "us-west-2"
+        }
+      },
+      "expected_outputs": ["dr_architecture", "backup_strategy", "failover_runbook", "recovery_test_report"],
+      "expected_step_count": 7
+    },
+    {
+      "id": "fixture.disaster-recovery-setup.single-region-backup",
+      "workflow_id": "platform.disaster-recovery-setup",
+      "input": {
+        "critical_services": ["postgres-primary", "s3-data-store"],
+        "rto_rpo_targets": {
+          "postgres-primary": { "rto": "1h", "rpo": "15m" },
+          "s3-data-store": { "rto": "30m", "rpo": "0" }
+        },
+        "compliance_requirements": {
+          "data_residency": "EU-only",
+          "encryption": "AES-256 at rest and in transit"
+        }
+      },
+      "expected_outputs": ["dr_architecture", "backup_strategy", "failover_runbook", "recovery_test_report"],
+      "expected_step_count": 7
+    }
+  ]
+}

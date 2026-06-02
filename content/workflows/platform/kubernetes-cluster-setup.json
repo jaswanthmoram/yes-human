@@ -1,0 +1,186 @@
+{
+  "id": "platform.kubernetes-cluster-setup",
+  "version": "1.0.0",
+  "status": "active",
+  "name": "Kubernetes Cluster Setup",
+  "description": "Provision and configure a production-ready Kubernetes cluster with networking, storage, security, and observability foundations.",
+  "task_family": "infrastructure_provisioning",
+  "triggers": [
+    "kubernetes cluster setup",
+    "k8s cluster provisioning",
+    "create production kubernetes cluster",
+    "setup k8s with networking and storage",
+    "provision managed kubernetes",
+    "bootstrap kubernetes cluster"
+  ],
+  "aliases": [
+    "k8s setup",
+    "cluster bootstrap",
+    "kubernetes provisioning"
+  ],
+  "negative_keywords": [
+    "application deployment",
+    "helm chart authoring",
+    "container image build",
+    "service mesh configuration"
+  ],
+  "inputs": [
+    {
+      "name": "cloud_provider",
+      "required": true,
+      "description": "Target cloud provider (AWS, GCP, Azure) and region."
+    },
+    {
+      "name": "cluster_spec",
+      "required": true,
+      "description": "Node count, instance types, Kubernetes version, and networking CIDR."
+    },
+    {
+      "name": "security_requirements",
+      "required": false,
+      "description": "RBAC policies, pod security standards, and network policy requirements."
+    },
+    {
+      "name": "storage_requirements",
+      "required": false,
+      "description": "Storage classes, persistent volume needs, and backup strategy."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "cluster_manifest",
+      "description": "Infrastructure-as-code definitions for the provisioned cluster."
+    },
+    {
+      "name": "networking_config",
+      "description": "CNI plugin configuration, ingress controller setup, and network policies."
+    },
+    {
+      "name": "access_credentials",
+      "description": "kubeconfig, RBAC roles, and service account definitions."
+    },
+    {
+      "name": "validation_report",
+      "description": "Cluster health checks, node readiness, and conformance test results."
+    }
+  ],
+  "primary_agent": "platform.devops-engineer",
+  "participants": [
+    "platform.security-engineer",
+    "platform.network-engineer",
+    "platform.sre-engineer"
+  ],
+  "skills": [
+    "kubernetes-admin",
+    "infrastructure-as-code",
+    "cloud-networking",
+    "container-security"
+  ],
+  "budget_band": "expanded",
+  "max_context_tokens": 4200,
+  "max_tool_calls": 14,
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is cluster provisioning, not application deployment or Helm chart authoring."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require cloud provider credentials and region selection before provisioning resources."
+    },
+    {
+      "id": "post-tool",
+      "rule": "Validate each provisioned component passes health checks before proceeding to the next step."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Return cluster manifest, networking config, access credentials, and validation report with rollback instructions."
+    }
+  ],
+  "steps": [
+    {
+      "id": "plan-cluster-topology",
+      "agent": "platform.devops-engineer",
+      "description": "Define node pools, instance types, Kubernetes version, and CIDR ranges based on cluster_spec and cloud_provider."
+    },
+    {
+      "id": "provision-control-plane",
+      "agent": "platform.devops-engineer",
+      "description": "Create the managed or self-managed control plane with API server, etcd, and scheduler configuration."
+    },
+    {
+      "id": "configure-networking",
+      "agent": "platform.network-engineer",
+      "description": "Install CNI plugin, configure ingress controller, set up DNS, and apply baseline network policies."
+    },
+    {
+      "id": "setup-storage-classes",
+      "agent": "platform.devops-engineer",
+      "description": "Provision storage classes, configure CSI drivers, and validate persistent volume provisioning."
+    },
+    {
+      "id": "harden-security",
+      "agent": "platform.security-engineer",
+      "description": "Apply RBAC policies, pod security standards, secrets management, and audit logging configuration."
+    },
+    {
+      "id": "validate-cluster",
+      "agent": "platform.sre-engineer",
+      "description": "Run conformance tests, node readiness checks, and end-to-end smoke tests against the cluster."
+    },
+    {
+      "id": "document-handoff",
+      "agent": "platform.devops-engineer",
+      "description": "Generate kubeconfig, runbook, and operational documentation for cluster consumers."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read existing IaC templates, cluster configs, and security policies."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Write cluster manifests, networking configs, and documentation."
+    },
+    {
+      "name": "shell.exec",
+      "purpose": "Execute kubectl, cloud CLI, and conformance test commands."
+    }
+  ],
+  "verification": [
+    {
+      "id": "node-readiness",
+      "method": "All nodes report Ready status via kubectl get nodes."
+    },
+    {
+      "id": "network-policy-applied",
+      "method": "Baseline network policies are in place and tested."
+    },
+    {
+      "id": "storage-functional",
+      "method": "Persistent volume claims bind successfully within 60 seconds."
+    },
+    {
+      "id": "conformance-passed",
+      "method": "Kubernetes conformance test suite passes with zero failures."
+    }
+  ],
+  "success_criteria": [
+    "Cluster is provisioned with all nodes in Ready state.",
+    "Networking, storage, and security are configured per specification.",
+    "Conformance tests pass and validation report is generated.",
+    "Rollback procedure is documented and tested."
+  ],
+  "rollback": {
+    "mode": "infrastructure_teardown",
+    "when": "If cluster validation fails critical checks, tear down provisioned resources and revert IaC state."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/platform/kubernetes-cluster-setup.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "quality_gate": "staging"
+}

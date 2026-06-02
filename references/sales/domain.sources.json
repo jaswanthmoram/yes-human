@@ -1,0 +1,163 @@
+{
+  "dossier_id": "dossier.domain.sales.2026-06-01",
+  "domain": "sales",
+  "created_at": "2026-06-01T18:30:00Z",
+  "expires_at": "2027-06-01T18:30:00Z",
+  "sources": [
+    {
+      "url": "https://www.salesforce.com/resources/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Salesforce resources", "CRM best practices"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://trailhead.salesforce.com/",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Salesforce Trailhead", "sales training"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://academy.hubspot.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["HubSpot Academy", "inbound sales"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.hubspot.com/sales",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["HubSpot sales blog", "sales strategies"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.gong.io/blog/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Gong blog", "sales intelligence", "conversation analytics"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.outreach.io/blog",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Outreach blog", "sales engagement"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.pipedrive.com/blog",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Pipedrive blog", "pipeline management"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.close.com/blog",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Close blog", "sales automation"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.saleshacker.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Sales Hacker", "sales technology"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.gartner.com/en/sales",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Gartner sales research", "sales trends"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://hbr.org/topic/subject/sales",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Harvard Business Review sales", "sales strategy"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.sandler.com/resources",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Sandler Training", "sales methodology"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.challengersale.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Challenger Sale methodology", "teach-tailor-take control"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.spin selling.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["SPIN Selling methodology", "question-based selling"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.meddic.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["MEDDIC qualification framework", "enterprise sales"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.bant.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["BANT qualification", "lead scoring"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.proposify.com/blog",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Proposify blog", "proposal writing"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.pandadoc.com/blog",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["PandaDoc blog", "contract management"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 18,
+    "official_docs": 1,
+    "github_quality": 0,
+    "license_safety": 85,
+    "maintenance": 90,
+    "pattern_clarity": 88,
+    "testability": 80,
+    "total": 86
+  },
+  "promotion_decision": "production"
+}

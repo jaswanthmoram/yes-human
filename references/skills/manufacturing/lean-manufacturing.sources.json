@@ -1,0 +1,15 @@
+{
+  "dossier_id": "dossier.skill.manufacturing.lean-manufacturing.2026-06-01",
+  "skill_id": "manufacturing.lean-manufacturing",
+  "domain": "manufacturing",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {"url": "https://www.lean.org/whatslean/", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["Lean principles", "value stream mapping"], "copy_policy": "patterns_only"},
+    {"url": "https://www.nist.gov/manufacturing/lean-manufacturing", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["NIST lean implementation guide"], "copy_policy": "patterns_only"},
+    {"url": "https://www.toyota-global.com/company/toyota_traditions/quality/marutas/marutas.html", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["Toyota Production System reference"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/lean-management/lean-tools", "source_type": "github_repo", "license": "MIT", "version_or_commit": "v1.5.0", "used_for": ["Lean tool implementations"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 4, "official_docs": 1, "github_quality": 72, "license_safety": 94, "maintenance": 90, "pattern_clarity": 92, "testability": 82, "total": 86},
+  "promotion_decision": "staging"
+}

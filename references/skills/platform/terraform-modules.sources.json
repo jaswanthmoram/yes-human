@@ -1,0 +1,52 @@
+{
+  "dossier_id": "dossier.skill.platform.terraform-modules.2026-06-01",
+  "skill_id": "platform.terraform-modules",
+  "domain": "platform",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://developer.hashicorp.com/terraform/language/modules",
+      "source_type": "official_docs",
+      "license": "MPL-2.0",
+      "version_or_commit": "v1.9",
+      "used_for": ["module design", "composition patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://registry.terraform.io/",
+      "source_type": "official_docs",
+      "license": "MPL-2.0",
+      "version_or_commit": "2024",
+      "used_for": ["module registry", "community modules"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://developer.hashicorp.com/terraform/tutorials/modules",
+      "source_type": "official_docs",
+      "license": "MPL-2.0",
+      "version_or_commit": "2024",
+      "used_for": ["module tutorials", "best practices"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/terraform-aws-modules",
+      "source_type": "community",
+      "license": "MIT",
+      "version_or_commit": "2024",
+      "used_for": ["AWS module examples", "production patterns"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 3,
+    "github_quality": 94,
+    "license_safety": 93,
+    "maintenance": 95,
+    "pattern_clarity": 91,
+    "testability": 87,
+    "total": 92
+  },
+  "promotion_decision": "staging"
+}

@@ -1,0 +1,159 @@
+{
+  "id": "finance.investment-evaluation",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Evaluate investment opportunities through fundamental analysis, risk assessment, and portfolio fit analysis with decision support output.",
+  "task_family": "investment_analysis",
+  "triggers": [
+    "investment evaluation process",
+    "investment opportunity review",
+    "investment analysis workflow",
+    "deal screening process"
+  ],
+  "aliases": [
+    "investment evaluation",
+    "investment review"
+  ],
+  "negative_keywords": [
+    "legal review",
+    "code review",
+    "marketing campaign"
+  ],
+  "inputs": [
+    {
+      "name": "investment_opportunity",
+      "required": true,
+      "description": "Description and data for the investment opportunity being evaluated."
+    },
+    {
+      "name": "evaluation_criteria",
+      "required": true,
+      "description": "Risk-return criteria, portfolio fit requirements, and hurdle rates."
+    },
+    {
+      "name": "market_context",
+      "required": false,
+      "description": "Market conditions and comparable investments for context."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "investment_analysis",
+      "description": "Comprehensive analysis with fundamental and quantitative assessment."
+    },
+    {
+      "name": "risk_return_profile",
+      "description": "Risk-return assessment with scenario analysis."
+    },
+    {
+      "name": "recommendation_memo",
+      "description": "Decision support recommendation with disclaimers."
+    }
+  ],
+  "primary_agent": "finance.investment-analyst",
+  "route": {
+    "domain_master": "finance.master",
+    "agents": [
+      "finance.investment-analyst",
+      "finance.risk-manager",
+      "finance.valuation-expert"
+    ],
+    "primary_agent": "finance.investment-analyst",
+    "participants": [
+      "finance.risk-manager",
+      "finance.valuation-expert"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 3
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 5000,
+    "max_tool_calls": 12,
+    "notes": "High-stakes workflow. Preserve disclaimers and reviewer handoff."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is investment analysis support and not personalized investment advice."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require investment data and evaluation criteria before any analysis is generated."
+    },
+    {
+      "id": "pre-write",
+      "rule": "Mark all analysis as decision support and attach disclaimer before external sharing."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "End with named human reviewer handoff; do not claim investment approval."
+    }
+  ],
+  "steps": [
+    {
+      "id": "fundamental-analysis",
+      "agent": "finance.investment-analyst",
+      "action": "Perform fundamental analysis of the investment opportunity including financial health and growth prospects."
+    },
+    {
+      "id": "valuation-assessment",
+      "agent": "finance.valuation-expert",
+      "action": "Estimate value using appropriate methodologies and compare to asking price or market value."
+    },
+    {
+      "id": "risk-assessment",
+      "agent": "finance.risk-manager",
+      "action": "Assess investment risks including market, credit, liquidity, and concentration risks."
+    },
+    {
+      "id": "assemble-recommendation",
+      "agent": "finance.investment-analyst",
+      "action": "Compile analysis, valuation, and risk assessment into a decision support recommendation memo."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read investment data, market data, and comparable information."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Write the recommendation memo when requested."
+    }
+  ],
+  "verification": [
+    {
+      "id": "analysis-complete",
+      "method": "Check fundamental, valuation, and risk analyses are all present."
+    },
+    {
+      "id": "scenarios-included",
+      "method": "Check scenario analysis covers base, upside, and downside cases."
+    },
+    {
+      "id": "disclaimer-present",
+      "method": "Check output includes not-investment-advice disclaimer and reviewer handoff."
+    }
+  ],
+  "success_criteria": [
+    "The evaluation covers fundamental analysis, valuation, and risk assessment.",
+    "Scenarios are included with explicit assumptions for each case.",
+    "The final output explicitly states it is not investment advice and requires human review before any investment decision."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If analysis is incomplete or unsupported, revert to the relevant step and regenerate."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/finance/investment-evaluation.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

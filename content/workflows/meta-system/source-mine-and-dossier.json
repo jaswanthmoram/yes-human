@@ -1,0 +1,163 @@
+{
+  "id": "meta-system.source-mine-and-dossier",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Mine candidate sources, evaluate quality and license fit, and assemble a dossier for workflow or agent promotion.",
+  "task_family": "source_intake",
+  "triggers": [
+    "source mining run",
+    "build workflow dossier",
+    "provenance intake batch",
+    "candidate source evaluation"
+  ],
+  "aliases": [
+    "source dossier build",
+    "source mining"
+  ],
+  "negative_keywords": [
+    "launch campaign",
+    "cash forecast",
+    "candidate onboarding"
+  ],
+  "inputs": [
+    {
+      "name": "target_domain",
+      "required": true,
+      "description": "Domain or workflow to enrich."
+    },
+    {
+      "name": "coverage_gap",
+      "required": true,
+      "description": "What is missing in current references or route coverage."
+    },
+    {
+      "name": "source_constraints",
+      "required": false,
+      "description": "License, provenance, or source-type limits."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "candidate_source_pack",
+      "description": "Curated source list with provenance and license notes."
+    },
+    {
+      "name": "evaluation_summary",
+      "description": "Quality, maintenance, and copy-policy assessment."
+    },
+    {
+      "name": "dossier_seed",
+      "description": "Ready-to-promote dossier draft for the target workflow or agent."
+    }
+  ],
+  "primary_agent": "meta-system.source-miner",
+  "route": {
+    "domain_master": "meta-system.master",
+    "agents": [
+      "meta-system.source-miner",
+      "meta-system.eval-runner",
+      "meta-system.plugin-absorber"
+    ],
+    "primary_agent": "meta-system.source-miner",
+    "participants": [
+      "meta-system.eval-runner",
+      "meta-system.plugin-absorber"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 3
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 3600,
+    "max_tool_calls": 10,
+    "notes": "Stay narrow: source quality, provenance, and promotion readiness only."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is reference intake or dossier building, not broad runtime implementation."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require a named target and coverage gap before source mining begins."
+    },
+    {
+      "id": "on-absorb",
+      "rule": "Do not recommend promotion when provenance or license metadata is incomplete."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Return sources, evaluation notes, and dossier seed with explicit promotion status."
+    }
+  ],
+  "steps": [
+    {
+      "id": "mine-sources",
+      "agent": "meta-system.source-miner",
+      "action": "Gather candidate official, vendor, and GitHub sources that fit the target coverage gap."
+    },
+    {
+      "id": "run-eval-pass",
+      "agent": "meta-system.eval-runner",
+      "action": "Score source quality, maintenance, and testability signals."
+    },
+    {
+      "id": "check-absorption-fit",
+      "agent": "meta-system.plugin-absorber",
+      "action": "Review license compatibility, duplication risk, and staging-readiness."
+    },
+    {
+      "id": "assemble-dossier",
+      "agent": "meta-system.source-miner",
+      "action": "Merge the source pack, evaluation notes, and promotion decision into a dossier seed."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read current references, source maps, and rule files."
+    },
+    {
+      "name": "shell.readonly",
+      "purpose": "Run lightweight local inspection commands during source triage."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Write dossier artifacts in approved reference paths."
+    }
+  ],
+  "verification": [
+    {
+      "id": "provenance-complete",
+      "method": "Check every source entry includes URL, type, license, and intended use."
+    },
+    {
+      "id": "license-risks-explicit",
+      "method": "Check incompatible or unclear licenses are surfaced before promotion."
+    },
+    {
+      "id": "promotion-status-grounded",
+      "method": "Check the dossier explains why the target remains draft, staging, or production."
+    }
+  ],
+  "success_criteria": [
+    "The source pack prioritizes primary and maintainable references over generic discovery links.",
+    "The evaluation summary makes license and duplication risk obvious.",
+    "The resulting dossier is promotion-ready for staging without bypassing provenance checks."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If provenance or license data is incomplete, revert to candidate-source notes and block promotion until the gaps are filled."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/meta-system/source-mine-and-dossier.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

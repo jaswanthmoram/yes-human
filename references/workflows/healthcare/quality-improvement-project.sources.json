@@ -1,0 +1,15 @@
+{
+  "dossier_id": "dossier.workflow.healthcare.quality-improvement-project.2026-06-01",
+  "workflow_id": "healthcare.quality-improvement-project",
+  "domain": "healthcare",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {"url": "https://www.ihi.org/sites/default/files/IHIWhitePaper_GoingLeanInHealthCare.pdf", "source_type": "research_paper", "license": "Proprietary", "version_or_commit": "published", "used_for": ["Lean healthcare improvement", "PDSA cycle methodology"], "copy_policy": "patterns_only"},
+    {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6124563/", "source_type": "research_paper", "license": "Open Access", "version_or_commit": "published", "used_for": ["quality improvement frameworks", "clinical outcome measurement"], "copy_policy": "patterns_only"},
+    {"url": "https://www.ahrq.gov/patient-safety/settings/hospital/resource/protocol/index.html", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "live", "used_for": ["AHRQ patient safety protocols", "improvement project design"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/IHIOpenSource/qi-indicators", "source_type": "github_repo", "license": "MIT", "version_or_commit": "main", "used_for": ["QI indicator tracking patterns", "dashboard design for healthcare metrics"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 4, "official_docs": 2, "github_quality": 74, "license_safety": 92, "maintenance": 88, "pattern_clarity": 90, "testability": 80, "total": 87},
+  "promotion_decision": "staging"
+}

@@ -1,0 +1,130 @@
+{
+  "id": "design-content.design-system-creation",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Build a design system from scratch with tokens, components, documentation, and governance.",
+  "task_family": "design_system",
+  "triggers": [
+    "create a new design system",
+    "build design system from scratch",
+    "set up design system for product"
+  ],
+  "aliases": [
+    "design system setup",
+    "ds creation",
+    "design system build"
+  ],
+  "negative_keywords": [
+    "one-off mockup",
+    "marketing campaign",
+    "security audit"
+  ],
+  "inputs": [
+    {
+      "name": "product_ecosystem",
+      "required": true
+    },
+    {
+      "name": "brand_guidelines",
+      "required": true
+    },
+    {
+      "name": "existing_assets",
+      "required": false
+    },
+    {
+      "name": "team_structure",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "token_architecture"
+    },
+    {
+      "name": "component_library"
+    },
+    {
+      "name": "documentation_site"
+    },
+    {
+      "name": "governance_model"
+    }
+  ],
+  "primary_agent": "design-content.design-systems",
+  "route": {
+    "domain_master": "design-content.master",
+    "primary": "design-content.design-systems",
+    "participants": [
+      "design-content.visual-designer",
+      "design-content.accessibility-expert"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 3
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 8000,
+    "max_tool_calls": 20
+  },
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "on-task-complete"
+  ],
+  "steps": [
+    {
+      "id": "audit-existing-assets",
+      "summary": "Review existing design assets, components, and patterns for reuse."
+    },
+    {
+      "id": "define-token-architecture",
+      "summary": "Create design token taxonomy with global and alias tokens."
+    },
+    {
+      "id": "build-component-library",
+      "summary": "Design core components with consistent APIs and variants."
+    },
+    {
+      "id": "create-documentation",
+      "summary": "Write component documentation with usage guidelines and examples."
+    },
+    {
+      "id": "establish-governance",
+      "summary": "Define contribution model, review process, and versioning strategy."
+    },
+    {
+      "id": "accessibility-review",
+      "summary": "Audit components for WCAG 2.2 AA compliance."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "filesystem.write",
+    "design_tool_integration"
+  ],
+  "verification": [
+    "token_architecture_has_naming_convention",
+    "all_components_have_documentation",
+    "accessibility_audit_passed",
+    "governance_model_defined"
+  ],
+  "success_criteria": [
+    "Design tokens are defined with consistent naming.",
+    "Core components have variants and documentation.",
+    "Accessibility audit results are attached.",
+    "Governance model is documented for contributors."
+  ],
+  "rollback": {
+    "mode": "file_revert",
+    "summary": "Revert design system files to previous state."
+  },
+  "source_references": [
+    "ref.workflow.design-content.design-system-creation.2026-05-31"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

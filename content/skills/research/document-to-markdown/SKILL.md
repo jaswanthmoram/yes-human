@@ -5,10 +5,11 @@ version: 1.0.0
 category: research.data-extraction
 summary: Converts PDF, PPTX, DOCX, and XLSX files to Markdown using Microsoft MarkItDown to optimize context tokens.
 triggers:
-  - parse pdf
-  - parse pptx
-  - convert document
-  - process ppt
+  - parse pdf to markdown
+  - parse pptx to markdown
+  - convert document to markdown
+  - process ppt to markdown
+  - convert PDF file to markdown format
 prerequisites:
   - markitdown_installed
 steps:

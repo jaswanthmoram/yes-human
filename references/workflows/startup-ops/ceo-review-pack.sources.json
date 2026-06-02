@@ -1,0 +1,14 @@
+{
+  "dossier_id": "dossier.workflow.startup-ops.ceo-review-pack.2026-06-01",
+  "workflow_id": "startup-ops.ceo-review-pack",
+  "domain": "startup-ops",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {"url": "https://travismay.medium.com/building-the-right-operating-cadence-6c608fd142e1", "source_type": "technical_blog", "license": "Proprietary", "version_or_commit": "live", "used_for": ["CEO operating cadence patterns", "meeting structure"], "copy_policy": "patterns_only"},
+    {"url": "https://buildtoscale.substack.com/p/setting-the-right-meeting-cadence", "source_type": "technical_blog", "license": "Proprietary", "version_or_commit": "live", "used_for": ["meeting cadence design", "decision-making rituals"], "copy_policy": "patterns_only"},
+    {"url": "https://proassisting.com/resources/articles/ceo-schedule/", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "live", "used_for": ["CEO schedule structure", "time allocation patterns"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 3, "official_docs": 0, "github_quality": 0, "license_safety": 90, "maintenance": 75, "pattern_clarity": 82, "testability": 70, "total": 80},
+  "promotion_decision": "staging"
+}

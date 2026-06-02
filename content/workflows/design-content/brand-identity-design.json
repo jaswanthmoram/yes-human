@@ -1,0 +1,130 @@
+{
+  "id": "design-content.brand-identity-design",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Design a complete brand identity system including logo, color palette, typography, and brand guidelines.",
+  "task_family": "brand_design",
+  "triggers": [
+    "design brand identity",
+    "create brand identity system",
+    "build visual identity"
+  ],
+  "aliases": [
+    "brand identity design",
+    "visual identity creation",
+    "brand system build"
+  ],
+  "negative_keywords": [
+    "code implementation",
+    "database design",
+    "security audit"
+  ],
+  "inputs": [
+    {
+      "name": "brand_strategy",
+      "required": true
+    },
+    {
+      "name": "market_positioning",
+      "required": true
+    },
+    {
+      "name": "application_contexts",
+      "required": true
+    },
+    {
+      "name": "competitive_analysis",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "identity_system"
+    },
+    {
+      "name": "brand_guidelines"
+    },
+    {
+      "name": "application_templates"
+    },
+    {
+      "name": "brand_assets"
+    }
+  ],
+  "primary_agent": "design-content.brand-designer",
+  "route": {
+    "domain_master": "design-content.master",
+    "primary": "design-content.brand-designer",
+    "participants": [
+      "design-content.visual-designer",
+      "design-content.copywriter"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 8000,
+    "max_tool_calls": 15
+  },
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "on-task-complete"
+  ],
+  "steps": [
+    {
+      "id": "brand-discovery",
+      "summary": "Research brand strategy, market positioning, and competitive landscape."
+    },
+    {
+      "id": "visual-exploration",
+      "summary": "Explore visual directions with mood boards and concept sketches."
+    },
+    {
+      "id": "identity-design",
+      "summary": "Design logo system, color palette, and typography selections."
+    },
+    {
+      "id": "application-design",
+      "summary": "Apply identity to key contexts (web, print, social, merchandise)."
+    },
+    {
+      "id": "guidelines-creation",
+      "summary": "Document brand guidelines with usage rules and examples."
+    },
+    {
+      "id": "asset-production",
+      "summary": "Produce final brand assets in required formats."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "filesystem.write",
+    "design_tool_integration"
+  ],
+  "verification": [
+    "identity_aligned_with_strategy",
+    "application_contexts_covered",
+    "guidelines_have_usage_rules",
+    "assets_in_required_formats"
+  ],
+  "success_criteria": [
+    "Brand identity aligns with strategy and positioning.",
+    "Identity is applied across all required contexts.",
+    "Guidelines include clear usage rules.",
+    "Assets are produced in all required formats."
+  ],
+  "rollback": {
+    "mode": "file_revert",
+    "summary": "Revert brand files to previous state."
+  },
+  "source_references": [
+    "ref.workflow.design-content.brand-identity-design.2026-05-31"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

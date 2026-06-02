@@ -1,0 +1,155 @@
+{
+  "description": "Fixtures for new legal-compliance workflows (2 per workflow, 10 total).",
+  "fixtures": [
+    {
+      "id": "fixture.contract-review-process.saas-msa",
+      "workflow_id": "legal-compliance.contract-review-process",
+      "input": {
+        "contract_document": "SaaS Master Services Agreement with 15 exhibits",
+        "review_scope": "Liability caps, indemnification, data processing, and termination clauses",
+        "standard_playbook": "Company standard SaaS MSA playbook v3.2"
+      },
+      "expected_outputs": [
+        "triage_summary",
+        "clause_analysis",
+        "attorney_handoff"
+      ],
+      "expected_step_count": 5
+    },
+    {
+      "id": "fixture.contract-review-process.vendor-nda",
+      "workflow_id": "legal-compliance.contract-review-process",
+      "input": {
+        "contract_document": "Mutual NDA with prospective vendor for cloud infrastructure evaluation",
+        "review_scope": "Confidentiality scope, term length, return/destruction obligations",
+        "standard_playbook": "Company standard NDA template v2.1"
+      },
+      "expected_outputs": [
+        "triage_summary",
+        "clause_analysis",
+        "attorney_handoff"
+      ],
+      "expected_step_count": 5
+    },
+    {
+      "id": "fixture.legal-research-process.data-residency",
+      "workflow_id": "legal-compliance.legal-research-process",
+      "input": {
+        "research_question": "What are the data residency requirements for SaaS providers serving EU customers?",
+        "jurisdiction_scope": "EU (GDPR), Germany (BDSG), France (CNIL guidelines)",
+        "source_constraints": "Focus on post-Schrems II case law and 2024-2026 guidance"
+      },
+      "expected_outputs": [
+        "research_findings",
+        "precedent_analysis",
+        "attorney_review_packet"
+      ],
+      "expected_step_count": 5
+    },
+    {
+      "id": "fixture.legal-research-process.ip-assignment",
+      "workflow_id": "legal-compliance.legal-research-process",
+      "input": {
+        "research_question": "How do IP assignment clauses in employment agreements vary across US states?",
+        "jurisdiction_scope": "California, Delaware, New York, Texas",
+        "source_constraints": "Focus on statutory limitations and recent case law"
+      },
+      "expected_outputs": [
+        "research_findings",
+        "precedent_analysis",
+        "attorney_review_packet"
+      ],
+      "expected_step_count": 5
+    },
+    {
+      "id": "fixture.compliance-audit.soc2-readiness",
+      "workflow_id": "legal-compliance.compliance-audit",
+      "input": {
+        "compliance_framework": "SOC 2 Type II",
+        "control_inventory": "72 controls documented across 5 trust service criteria",
+        "evidence_repository": "Confluence documentation and Jira compliance project"
+      },
+      "expected_outputs": [
+        "compliance_matrix",
+        "gap_analysis",
+        "remediation_plan"
+      ],
+      "expected_step_count": 5
+    },
+    {
+      "id": "fixture.compliance-audit.gdpr-article32",
+      "workflow_id": "legal-compliance.compliance-audit",
+      "input": {
+        "compliance_framework": "GDPR Article 32 - Security of Processing",
+        "control_inventory": "45 technical and organizational measures documented",
+        "evidence_repository": "ISO 27001 ISMS documentation and DPIA records"
+      },
+      "expected_outputs": [
+        "compliance_matrix",
+        "gap_analysis",
+        "remediation_plan"
+      ],
+      "expected_step_count": 5
+    },
+    {
+      "id": "fixture.due-diligence-process.saas-acquisition",
+      "workflow_id": "legal-compliance.due-diligence-process",
+      "input": {
+        "transaction_type": "M&A - SaaS company acquisition",
+        "diligence_scope": "Material contracts, IP portfolio, employment agreements, data processing",
+        "document_inventory": "Virtual data room with 200+ documents across 8 categories"
+      },
+      "expected_outputs": [
+        "diligence_report",
+        "risk_flags",
+        "attorney_review_packet"
+      ],
+      "expected_step_count": 5
+    },
+    {
+      "id": "fixture.due-diligence-process.partnership-review",
+      "workflow_id": "legal-compliance.due-diligence-process",
+      "input": {
+        "transaction_type": "Strategic partnership - technology integration",
+        "diligence_scope": "IP licensing, data sharing agreements, liability exposure",
+        "document_inventory": "Shared folder with 30 documents across 4 categories"
+      },
+      "expected_outputs": [
+        "diligence_report",
+        "risk_flags",
+        "attorney_review_packet"
+      ],
+      "expected_step_count": 5
+    },
+    {
+      "id": "fixture.policy-development.data-retention",
+      "workflow_id": "legal-compliance.policy-development",
+      "input": {
+        "policy_domain": "Data retention and disposal",
+        "regulatory_context": "GDPR, CCPA, state data retention requirements",
+        "stakeholder_requirements": "Legal, IT, and privacy team input on retention periods"
+      },
+      "expected_outputs": [
+        "policy_draft",
+        "implementation_guide",
+        "review_checklist"
+      ],
+      "expected_step_count": 5
+    },
+    {
+      "id": "fixture.policy-development.incident-response",
+      "workflow_id": "legal-compliance.policy-development",
+      "input": {
+        "policy_domain": "Incident response and breach notification",
+        "regulatory_context": "GDPR 72-hour notification, state breach notification laws",
+        "stakeholder_requirements": "Security, legal, and communications team requirements"
+      },
+      "expected_outputs": [
+        "policy_draft",
+        "implementation_guide",
+        "review_checklist"
+      ],
+      "expected_step_count": 5
+    }
+  ]
+}

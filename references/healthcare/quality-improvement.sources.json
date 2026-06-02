@@ -1,0 +1,14 @@
+{
+  "dossier_id": "dossier.agent.healthcare.quality-improvement.2026-05-31",
+  "agent_id": "healthcare.quality-improvement",
+  "domain": "healthcare",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2027-05-31T00:00:00Z",
+  "sources": [
+    {"url": "https://www.ihi.org/", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["IHI", "quality improvement methodology"], "copy_policy": "patterns_only"},
+    {"url": "https://www.ahrq.gov/quality/", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["AHRQ quality", "healthcare quality improvement tools"], "copy_policy": "patterns_only"},
+    {"url": "https://www.ncqa.org/", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["NCQA", "quality measurement and accreditation"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 3, "official_docs": 1, "github_quality": 0, "license_safety": 90, "maintenance": 90, "pattern_clarity": 90, "testability": 84, "total": 87},
+  "promotion_decision": "staging"
+}

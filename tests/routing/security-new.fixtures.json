@@ -1,0 +1,71 @@
+{
+  "domain": "security-new",
+  "description": "Routing fixtures for Wave-5 new security specialists (11 agents, 5 fixtures each).",
+  "fixtures": [
+    { "prompt": "penetration test on the payment API", "expected_route": "route.security.penetration-tester" },
+    { "prompt": "pentest engagement for the auth service", "expected_route": "route.security.penetration-tester" },
+    { "prompt": "exploit chain validation on CVE-2026-1234", "expected_route": "route.security.penetration-tester" },
+    { "prompt": "red team exercise for the admin panel", "expected_route": "route.security.penetration-tester" },
+    { "prompt": "attack path simulation on the public API", "expected_route": "route.security.penetration-tester" },
+
+    { "prompt": "security audit against ISO 27001", "expected_route": "route.security.security-auditor" },
+    { "prompt": "SOC 2 readiness assessment", "expected_route": "route.security.security-auditor" },
+    { "prompt": "NIST CSF gap analysis", "expected_route": "route.security.security-auditor" },
+    { "prompt": "control effectiveness review for access management", "expected_route": "route.security.security-auditor" },
+    { "prompt": "compliance audit for the data center", "expected_route": "route.security.security-auditor" },
+
+    { "prompt": "vulnerability triage from the latest scan", "expected_route": "route.security.vulnerability-manager" },
+    { "prompt": "CVE prioritization for production assets", "expected_route": "route.security.vulnerability-manager" },
+    { "prompt": "remediation tracking for Q2 backlog", "expected_route": "route.security.vulnerability-manager" },
+    { "prompt": "risk-based patching plan", "expected_route": "route.security.vulnerability-manager" },
+    { "prompt": "vulnerability lifecycle management", "expected_route": "route.security.vulnerability-manager" },
+
+    { "prompt": "security incident on the payment system", "expected_route": "route.security.incident-responder" },
+    { "prompt": "breach response for data exfiltration", "expected_route": "route.security.incident-responder" },
+    { "prompt": "forensic analysis of compromised server", "expected_route": "route.security.incident-responder" },
+    { "prompt": "post-incident review for last week's event", "expected_route": "route.security.incident-responder" },
+    { "prompt": "security event triage for alert spike", "expected_route": "route.security.incident-responder" },
+
+    { "prompt": "encryption design for PII at rest", "expected_route": "route.security.cryptography-expert" },
+    { "prompt": "key management plan for microservices", "expected_route": "route.security.cryptography-expert" },
+    { "prompt": "TLS configuration review", "expected_route": "route.security.cryptography-expert" },
+    { "prompt": "hashing strategy for password storage", "expected_route": "route.security.cryptography-expert" },
+    { "prompt": "digital signature design for document signing", "expected_route": "route.security.cryptography-expert" },
+
+    { "prompt": "network security review of the production VPC", "expected_route": "route.security.network-security" },
+    { "prompt": "firewall rule audit on the perimeter", "expected_route": "route.security.network-security" },
+    { "prompt": "zero trust design for remote access", "expected_route": "route.security.network-security" },
+    { "prompt": "network segmentation for PCI scope", "expected_route": "route.security.network-security" },
+    { "prompt": "IDS IPS tuning for the datacenter", "expected_route": "route.security.network-security" },
+
+    { "prompt": "application security review of the user portal", "expected_route": "route.security.application-security" },
+    { "prompt": "authentication flow review for SSO integration", "expected_route": "route.security.application-security" },
+    { "prompt": "API security review of the REST endpoints", "expected_route": "route.security.application-security" },
+    { "prompt": "OWASP ASVS assessment for the payment app", "expected_route": "route.security.application-security" },
+    { "prompt": "input validation audit on the signup form", "expected_route": "route.security.application-security" },
+
+    { "prompt": "cloud security review of our AWS environment", "expected_route": "route.security.cloud-security" },
+    { "prompt": "IAM policy audit on GCP", "expected_route": "route.security.cloud-security" },
+    { "prompt": "cloud misconfiguration scan for Azure", "expected_route": "route.security.cloud-security" },
+    { "prompt": "shared responsibility analysis for our SaaS stack", "expected_route": "route.security.cloud-security" },
+    { "prompt": "AWS security audit for the production account", "expected_route": "route.security.cloud-security" },
+
+    { "prompt": "IAM design for the microservices platform", "expected_route": "route.security.identity-access" },
+    { "prompt": "access control review for the admin portal", "expected_route": "route.security.identity-access" },
+    { "prompt": "SSO implementation for enterprise customers", "expected_route": "route.security.identity-access" },
+    { "prompt": "privileged access management for production", "expected_route": "route.security.identity-access" },
+    { "prompt": "RBAC design for the multi-tenant app", "expected_route": "route.security.identity-access" },
+
+    { "prompt": "GDPR compliance assessment for our EU users", "expected_route": "route.security.compliance-officer" },
+    { "prompt": "HIPAA security review for the patient portal", "expected_route": "route.security.compliance-officer" },
+    { "prompt": "PCI DSS compliance gap analysis", "expected_route": "route.security.compliance-officer" },
+    { "prompt": "regulatory mapping for our fintech platform", "expected_route": "route.security.compliance-officer" },
+    { "prompt": "data protection assessment for customer data", "expected_route": "route.security.compliance-officer" },
+
+    { "prompt": "threat hunting for lateral movement in production", "expected_route": "route.security.threat-hunter" },
+    { "prompt": "ATT&CK coverage assessment for our environment", "expected_route": "route.security.threat-hunter" },
+    { "prompt": "adversary emulation for APT29 techniques", "expected_route": "route.security.threat-hunter" },
+    { "prompt": "IOC analysis from the latest threat intel feed", "expected_route": "route.security.threat-hunter" },
+    { "prompt": "behavioral anomaly detection on endpoint telemetry", "expected_route": "route.security.threat-hunter" }
+  ]
+}

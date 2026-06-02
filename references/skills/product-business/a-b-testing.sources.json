@@ -1,0 +1,49 @@
+{
+  "skill_id": "product-business.a-b-testing",
+  "dossier_id": "dossier.skill.product-business.a-b-testing.2026-05-31",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2027-05-31T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/PostHog/posthog",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "master",
+      "used_for": [
+        "A/B test design and statistical analysis"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://posthog.com/docs/experiments",
+      "source_type": "technical_blog",
+      "license": "Proprietary",
+      "version_or_commit": "live",
+      "used_for": [
+        "A/B test design and statistical analysis"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.evanmiller.org/ab-testing/",
+      "source_type": "technical_blog",
+      "license": "Proprietary",
+      "version_or_commit": "live",
+      "used_for": [
+        "A/B test design and statistical analysis"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 0,
+    "github_quality": 90,
+    "license_safety": 88,
+    "maintenance": 86,
+    "pattern_clarity": 87,
+    "testability": 82,
+    "total": 85
+  },
+  "promotion_decision": "staging"
+}

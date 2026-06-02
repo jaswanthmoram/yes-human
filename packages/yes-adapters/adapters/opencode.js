@@ -9,6 +9,10 @@
 
 import { writeGenerated } from '../index.js';
 
+function getServerName(mcp) {
+  return String(mcp.id || mcp.provider || 'mcp').replace(/[^a-zA-Z0-9_-]/g, '-');
+}
+
 // ── AGENTS.md — shared with Codex ────────────────────────────────────────────
 
 function buildAgentsMd(ctx) {
@@ -31,16 +35,17 @@ function buildOpencodeJson(ctx) {
   const mcpServers = {};
 
   for (const mcp of ctx.mcps) {
-    if (!mcp.name) continue;
+    const serverName = getServerName(mcp);
+    if (!serverName) continue;
     const entry = {
       type: 'local',
-      command: ['npx', '-y', mcp.package || mcp.name],
+      command: ['npx', '-y', mcp.package || mcp.provider || serverName],
       enabled: mcp.enabled !== false
     };
     if (mcp.env_var) {
       entry.env = { [mcp.env_var]: `{env:${mcp.env_var}}` };
     }
-    mcpServers[mcp.name] = entry;
+    mcpServers[serverName] = entry;
   }
 
   return {

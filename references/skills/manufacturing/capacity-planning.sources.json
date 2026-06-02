@@ -1,0 +1,15 @@
+{
+  "dossier_id": "dossier.skill.manufacturing.capacity-planning.2026-06-01",
+  "skill_id": "manufacturing.capacity-planning",
+  "domain": "manufacturing",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {"url": "https://www.apics.org/apics-body-of-knowledge/capacity-management", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "CPIM 8.0", "used_for": ["Capacity planning frameworks", "RCCP/CRP"], "copy_policy": "patterns_only"},
+    {"url": "https://www.nist.gov/manufacturing/capacity-planning", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["NIST capacity management standards"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/simpy/simpy", "source_type": "github_repo", "license": "MIT", "version_or_commit": "v4.1.1", "used_for": ["Discrete event simulation for capacity"], "copy_policy": "patterns_only"},
+    {"url": "https://www.informs.org/Explore/Operations-Research/Capacity-Planning", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["OR capacity planning models"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 4, "official_docs": 1, "github_quality": 84, "license_safety": 95, "maintenance": 93, "pattern_clarity": 88, "testability": 85, "total": 87},
+  "promotion_decision": "staging"
+}

@@ -1,0 +1,108 @@
+{
+  "id": "engineering.fix-build-error",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Diagnose a failing build from logs, apply the smallest credible fix, and rerun the build path.",
+  "task_family": "build_repair",
+  "triggers": [
+    "fix this build error",
+    "the compile is failing",
+    "repair the broken CI build"
+  ],
+  "aliases": [
+    "build failure fix",
+    "compile error repair",
+    "ci build repair"
+  ],
+  "negative_keywords": [
+    "security audit",
+    "repo overview",
+    "docs only"
+  ],
+  "inputs": [
+    {
+      "name": "build_log",
+      "required": true
+    },
+    {
+      "name": "failing_command",
+      "required": true
+    },
+    {
+      "name": "changed_files",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "root_cause"
+    },
+    {
+      "name": "minimal_fix"
+    },
+    {
+      "name": "rerun_result"
+    }
+  ],
+  "primary_agent": "engineering.build-resolver",
+  "route": {
+    "domain_master": "engineering.master",
+    "primary": "engineering.build-resolver",
+    "participants": [],
+    "parallel": false,
+    "max_parallel_agents": 1
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 2200,
+    "max_tool_calls": 8
+  },
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "pre-write",
+    "post-tool"
+  ],
+  "steps": [
+    {
+      "id": "capture-failure",
+      "summary": "Identify the first actionable error and map it to the owning files or dependency edge."
+    },
+    {
+      "id": "apply-minimal-fix",
+      "summary": "Change only the code or config necessary to address the confirmed root cause."
+    },
+    {
+      "id": "rerun-build",
+      "summary": "Rerun the failing command and then the closest relevant follow-on validation."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "filesystem.write",
+    "shell.build_runner",
+    "log_parser"
+  ],
+  "verification": [
+    "original_build_command_passes",
+    "relevant_tests_if_available",
+    "fix_matches_reported_root_cause"
+  ],
+  "success_criteria": [
+    "The original failing build step passes or a new blocker is identified with evidence.",
+    "The fix is scoped to the root cause rather than broad cleanup.",
+    "Verification results are recorded."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "summary": "Revert only the minimal patch if the rerun shows regression or wrong diagnosis."
+  },
+  "source_references": [
+    "ref.workflow.engineering.fix-build-error.2026-06-01"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

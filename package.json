@@ -13,6 +13,7 @@
     "yes": "node packages/yes-cli/index.js",
     "validate": "node packages/yes-schema/validate.js",
     "eval:cost": "node packages/yes-schema/eval-cost.js",
+    "report:phase8": "node packages/yes-schema/generate-phase8-acceptance.js",
     "doctor": "node packages/yes-cli/index.js doctor",
     "test": "node --test 'tests/**/*.test.js'"
   }

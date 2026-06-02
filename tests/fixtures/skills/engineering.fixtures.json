@@ -1,0 +1,100 @@
+{
+  "fixtures": [
+    {
+      "prompt": "review this code",
+      "expected_skill": "engineering.code-review"
+    },
+    {
+      "prompt": "can you review my pull request",
+      "expected_skill": "engineering.code-review"
+    },
+    {
+      "prompt": "check code quality",
+      "expected_skill": "engineering.code-review"
+    },
+    {
+      "prompt": "tests are failing",
+      "expected_skill": "engineering.test-triage"
+    },
+    {
+      "prompt": "why is the test suite broken",
+      "expected_skill": "engineering.test-triage"
+    },
+    {
+      "prompt": "triage these test failures",
+      "expected_skill": "engineering.test-triage"
+    },
+    {
+      "prompt": "update dependencies",
+      "expected_skill": "engineering.dependency-upgrade"
+    },
+    {
+      "prompt": "fix security vulnerabilities in packages",
+      "expected_skill": "engineering.dependency-upgrade"
+    },
+    {
+      "prompt": "upgrade npm packages",
+      "expected_skill": "engineering.dependency-upgrade"
+    },
+    {
+      "prompt": "design a REST API",
+      "expected_skill": "engineering.api-design"
+    },
+    {
+      "prompt": "create API endpoints",
+      "expected_skill": "engineering.api-design"
+    },
+    {
+      "prompt": "design GraphQL schema",
+      "expected_skill": "engineering.api-design"
+    },
+    {
+      "prompt": "refactor this code",
+      "expected_skill": "engineering.refactor-planning"
+    },
+    {
+      "prompt": "clean up the code structure",
+      "expected_skill": "engineering.refactor-planning"
+    },
+    {
+      "prompt": "reduce technical debt",
+      "expected_skill": "engineering.refactor-planning"
+    },
+    {
+      "prompt": "build is failing",
+      "expected_skill": "engineering.build-failure"
+    },
+    {
+      "prompt": "fix compilation error",
+      "expected_skill": "engineering.build-failure"
+    },
+    {
+      "prompt": "diagnose build error",
+      "expected_skill": "engineering.build-failure"
+    },
+    {
+      "prompt": "update documentation",
+      "expected_skill": "engineering.documentation-update"
+    },
+    {
+      "prompt": "docs are outdated",
+      "expected_skill": "engineering.documentation-update"
+    },
+    {
+      "prompt": "sync docs with code",
+      "expected_skill": "engineering.documentation-update"
+    },
+    {
+      "prompt": "set up git workflow",
+      "expected_skill": "engineering.git-workflow"
+    },
+    {
+      "prompt": "what branching strategy should we use",
+      "expected_skill": "engineering.git-workflow"
+    },
+    {
+      "prompt": "commit message convention",
+      "expected_skill": "engineering.git-workflow"
+    }
+  ]
+}

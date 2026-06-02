@@ -1,0 +1,62 @@
+{
+  "dossier_id": "dossier.workflow.engineering.backend-api-implementation.2026-06-01",
+  "workflow_id": "engineering.backend-api-implementation",
+  "domain": "engineering",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://expressjs.com/en/guide/routing.html",
+      "source_type": "official_docs",
+      "license": "CC BY-SA 3.0",
+      "version_or_commit": "live",
+      "used_for": [
+        "route handler patterns",
+        "middleware composition"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://zod.dev/",
+      "source_type": "official_docs",
+      "license": "MIT",
+      "version_or_commit": "live",
+      "used_for": [
+        "request validation schema patterns"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/goldbergyoni/nodebestpractices",
+      "source_type": "github_repo",
+      "license": "CC BY 4.0",
+      "version_or_commit": "main",
+      "used_for": [
+        "Node.js API architecture patterns",
+        "error handling"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://owasp.org/www-project-api-security/",
+      "source_type": "official_docs",
+      "license": "OWASP free use",
+      "version_or_commit": "live",
+      "used_for": [
+        "API security checklist"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 3,
+    "github_quality": 94,
+    "license_safety": 93,
+    "maintenance": 87,
+    "pattern_clarity": 91,
+    "testability": 84,
+    "total": 88
+  },
+  "promotion_decision": "staging"
+}

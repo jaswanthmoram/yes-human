@@ -1,0 +1,177 @@
+{
+  "id": "meta-system.fixture-generation",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "End-to-end workflow for generating comprehensive test fixtures for routing, skill, and workflow validation.",
+  "task_family": "testing_lifecycle",
+  "triggers": [
+    "generate test fixtures",
+    "fixture generation workflow",
+    "create test fixtures batch",
+    "fixture lifecycle start"
+  ],
+  "aliases": [
+    "fixture batch generation",
+    "test fixture workflow"
+  ],
+  "negative_keywords": [
+    "run tests",
+    "evaluate routing",
+    "agent creation"
+  ],
+  "inputs": [
+    {
+      "name": "fixture_requirements",
+      "required": true,
+      "description": "Requirements for what fixtures need to be generated."
+    },
+    {
+      "name": "target_registry",
+      "required": true,
+      "description": "The registry snapshot to generate fixtures for."
+    },
+    {
+      "name": "coverage_gaps",
+      "required": false,
+      "description": "Known coverage gaps to prioritize."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "routing_fixtures",
+      "description": "Routing test fixtures (5 per agent)."
+    },
+    {
+      "name": "skill_fixtures",
+      "description": "Skill test fixtures (3 per skill)."
+    },
+    {
+      "name": "workflow_fixtures",
+      "description": "Workflow test fixtures (2 per workflow)."
+    },
+    {
+      "name": "coverage_report",
+      "description": "Report on fixture coverage."
+    }
+  ],
+  "primary_agent": "meta-system.fixture-engineer",
+  "route": {
+    "domain_master": "meta-system.master",
+    "agents": [
+      "meta-system.fixture-engineer",
+      "meta-system.eval-runner",
+      "meta-system.quality-assurance"
+    ],
+    "primary_agent": "meta-system.fixture-engineer",
+    "participants": [
+      "meta-system.eval-runner",
+      "meta-system.quality-assurance"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 3
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 4000,
+    "max_tool_calls": 15,
+    "notes": "Stay focused on fixture generation only."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is fixture generation, not test execution."
+    },
+    {
+      "id": "pre-generation",
+      "rule": "Require fixture requirements and target registry before generation begins."
+    },
+    {
+      "id": "post-generation",
+      "rule": "Fixtures must pass format validation and coverage thresholds."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Return all fixture files and coverage report with gates passed."
+    }
+  ],
+  "steps": [
+    {
+      "id": "analyze-coverage",
+      "agent": "meta-system.fixture-engineer",
+      "action": "Analyze coverage gaps and determine fixture requirements."
+    },
+    {
+      "id": "generate-routing-fixtures",
+      "agent": "meta-system.fixture-engineer",
+      "action": "Generate routing fixtures (5 per agent) with positive, edge, and negative cases."
+    },
+    {
+      "id": "generate-skill-fixtures",
+      "agent": "meta-system.fixture-engineer",
+      "action": "Generate skill fixtures (3 per skill) covering trigger scenarios."
+    },
+    {
+      "id": "generate-workflow-fixtures",
+      "agent": "meta-system.fixture-engineer",
+      "action": "Generate workflow fixtures (2 per workflow) covering primary scenarios."
+    },
+    {
+      "id": "validate-fixtures",
+      "agent": "meta-system.quality-assurance",
+      "action": "Validate all fixtures for format correctness and coverage."
+    },
+    {
+      "id": "report-coverage",
+      "agent": "meta-system.eval-runner",
+      "action": "Generate coverage report for all generated fixtures."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read registry data and existing fixtures."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Write new fixture files."
+    },
+    {
+      "name": "shell.readonly",
+      "purpose": "Run fixture validation scripts."
+    }
+  ],
+  "verification": [
+    {
+      "id": "format-valid",
+      "method": "Check all fixtures pass JSON format validation."
+    },
+    {
+      "id": "coverage-met",
+      "method": "Verify fixture counts meet requirements (5/agent, 3/skill, 2/workflow)."
+    },
+    {
+      "id": "edge-cases",
+      "method": "Check edge cases and negative scenarios are included."
+    }
+  ],
+  "success_criteria": [
+    "All fixtures pass format validation.",
+    "Coverage requirements met for routing, skill, and workflow fixtures.",
+    "Edge cases and negative scenarios included."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If validation fails, remove invalid fixtures and regenerate."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/meta-system/fixture-generation.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

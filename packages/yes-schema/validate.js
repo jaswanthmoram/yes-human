@@ -14,6 +14,8 @@ addFormats(ajv);
 
 const schemasDir = path.join(__dirname, 'schemas');
 const schemaFiles = fs.readdirSync(schemasDir).filter((f) => f.endsWith('.json'));
+const registryIndexNames = ['agents', 'skills', 'workflows', 'tools', 'mcps', 'categories', 'aliases', 'commands', 'bundles', 'category-packs'];
+const highStakesWorkflowDomains = new Set(['finance', 'legal-compliance', 'healthcare', 'hr']);
 
 for (const file of schemaFiles) {
   const schemaContent = JSON.parse(fs.readFileSync(path.join(schemasDir, file), 'utf8'));
@@ -161,7 +163,7 @@ function validateRouteTableConsistency() {
 
 function validateRegistryCounts() {
   let ok = true;
-  for (const name of ['agents', 'skills', 'workflows', 'tools', 'mcps', 'categories', 'aliases', 'commands', 'bundles']) {
+  for (const name of registryIndexNames) {
     const { content } = readJson(`registry/${name}.json`);
     if (content.count !== content.items.length) {
       console.error(`✗ registry/${name}.json count mismatch (${content.count} != ${content.items.length})`);
@@ -170,6 +172,90 @@ function validateRegistryCounts() {
   }
   if (ok) {
     console.log('✓ Registry index counts match item lengths');
+  }
+  return ok;
+}
+
+function validateWorkflowDossiersAndPolicies() {
+  const workflowsRegistryPath = 'registry/workflows.json';
+  if (!fileExists(workflowsRegistryPath)) {
+    return true;
+  }
+
+  const workflowDossierValidate = ajv.getSchema('workflow-dossier');
+  if (!workflowDossierValidate) {
+    console.error('✗ Workflow dossier schema not loaded.');
+    return false;
+  }
+
+  const { content: workflowRegistry } = readJson(workflowsRegistryPath);
+  const { content: agentRegistry } = readJson('registry/agents.json');
+  const agentById = new Map(agentRegistry.items.map((agent) => [agent.id, agent]));
+  let ok = true;
+
+  for (const workflow of workflowRegistry.items) {
+    const [domain, ...rest] = workflow.id.split('.');
+    const workflowSubId = rest.join('.');
+    const dossierPath = `references/workflows/${domain}/${workflowSubId}.sources.json`;
+
+    if (workflow.status !== 'draft') {
+      if (!fileExists(dossierPath)) {
+        console.error(`✗ Workflow '${workflow.id}' requires a source dossier but it is missing at: ${dossierPath}`);
+        ok = false;
+      } else {
+        const { content: dossier } = readJson(dossierPath);
+        if (!workflowDossierValidate(dossier)) {
+          console.error(`✗ Validation failed for workflow dossier ${dossierPath}:`, workflowDossierValidate.errors);
+          ok = false;
+        } else {
+          if (dossier.workflow_id !== workflow.id) {
+            console.error(`✗ Workflow dossier id mismatch in ${dossierPath}: expected '${workflow.id}', got '${dossier.workflow_id}'`);
+            ok = false;
+          }
+          if (dossier.promotion_decision === 'draft') {
+            console.error(`✗ Non-draft workflow '${workflow.id}' cannot use draft dossier promotion in ${dossierPath}`);
+            ok = false;
+          }
+        }
+      }
+    }
+
+    if (!workflow.steps?.length || !workflow.tools?.length || !workflow.success_criteria?.length) {
+      console.error(`✗ Workflow '${workflow.id}' must define non-empty steps, tools, and success_criteria`);
+      ok = false;
+    }
+
+    if ((workflow.gates || []).includes('pre-write') && workflow.rollback === 'no_write') {
+      console.error(`✗ Write-capable workflow '${workflow.id}' cannot use rollback "no_write"`);
+      ok = false;
+    }
+
+    if (workflow.primary_agent && !(workflow.route?.agents || []).includes(workflow.primary_agent)) {
+      console.error(`✗ Workflow '${workflow.id}' primary_agent must be present in route.agents`);
+      ok = false;
+    }
+
+    if (highStakesWorkflowDomains.has(domain)) {
+      const workflowGates = new Set(workflow.gates || []);
+      for (const requiredGate of ['pre-route', 'pre-tool', 'pre-write']) {
+        if (!workflowGates.has(requiredGate)) {
+          console.error(`✗ High-stakes workflow '${workflow.id}' must include gate '${requiredGate}'`);
+          ok = false;
+        }
+      }
+
+      const hasDisclaimerAgent = (workflow.route?.agents || [])
+        .map((agentId) => agentById.get(agentId))
+        .some((agent) => agent?.requires_disclaimer && agent?.human_review_gate);
+      if (!hasDisclaimerAgent) {
+        console.error(`✗ High-stakes workflow '${workflow.id}' must include an agent with requires_disclaimer and human_review_gate`);
+        ok = false;
+      }
+    }
+  }
+
+  if (ok) {
+    console.log('✓ Workflows have valid dossiers and pass policy checks');
   }
   return ok;
 }
@@ -183,7 +269,7 @@ if (!validateAgainst('registry/provenance.json', 'provenance', { isArray: true }
 if (!validateAgainst('graph/indexes/ROUTE_TABLE.min.json', 'route-table')) success = false;
 if (!validateAgainst('registry/routes.json', 'route', { isArray: true })) success = false;
 
-for (const name of ['agents', 'skills', 'workflows', 'tools', 'mcps', 'categories', 'aliases', 'commands', 'bundles']) {
+for (const name of registryIndexNames) {
   if (!validateAgainst(`registry/${name}.json`, 'registry-index')) success = false;
 }
 
@@ -193,7 +279,9 @@ const detailedSchemaMapping = {
   'agents': 'agent',
   'skills': 'skill',
   'workflows': 'workflow',
-  'categories': 'category'
+  'mcps': 'mcp',
+  'categories': 'category',
+  'category-packs': 'category-pack'
 };
 
 for (const [registryName, schemaName] of Object.entries(detailedSchemaMapping)) {
@@ -268,6 +356,9 @@ if (fileExists(agentsRegistryPath)) {
     console.log('✓ All staging/production agents have valid corresponding source dossiers');
   }
 }
+
+console.log('\n--- Workflow dossier verification ---');
+if (!validateWorkflowDossiersAndPolicies()) success = false;
 
 console.log('\n--- Manifest and path validation ---');
 if (!validateManifestPaths()) success = false;

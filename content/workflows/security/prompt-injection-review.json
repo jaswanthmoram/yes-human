@@ -1,0 +1,108 @@
+{
+  "id": "security.prompt-injection-review",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Review an LLM feature for prompt injection exposure across trust boundaries, retrieved content, and tool use.",
+  "task_family": "threat_model",
+  "triggers": [
+    "review this agent for prompt injection",
+    "audit the LLM flow for prompt attacks",
+    "check this RAG system for prompt injection risk"
+  ],
+  "aliases": [
+    "llm prompt injection review",
+    "agent prompt attack audit",
+    "prompt security review"
+  ],
+  "negative_keywords": [
+    "general code review",
+    "secret scan only",
+    "marketing content"
+  ],
+  "inputs": [
+    {
+      "name": "architecture_diagram",
+      "required": true
+    },
+    {
+      "name": "prompt_or_system_instructions",
+      "required": true
+    },
+    {
+      "name": "tool_and_data_flows",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "attack_paths"
+    },
+    {
+      "name": "mitigation_plan"
+    },
+    {
+      "name": "review_gaps"
+    }
+  ],
+  "primary_agent": "security.threat-modeler",
+  "route": {
+    "domain_master": "security.master",
+    "primary": "security.threat-modeler",
+    "participants": [
+      "security.security-reviewer"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 4000,
+    "max_tool_calls": 10
+  },
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "on-task-complete"
+  ],
+  "steps": [
+    {
+      "id": "map-trust-boundaries",
+      "summary": "Identify where user input, retrieved content, external tools, and system prompts cross trust boundaries."
+    },
+    {
+      "id": "enumerate-attack-paths",
+      "summary": "Model direct and indirect prompt injection paths including retrieval, tool output, and memory contamination."
+    },
+    {
+      "id": "validate-code-controls",
+      "summary": "Check whether the implementation actually enforces the proposed mitigations."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "architecture_review",
+    "policy_check"
+  ],
+  "verification": [
+    "trust_boundaries_are_explicit",
+    "mitigations_map_to_real_controls",
+    "review_notes_call_out_unverified_assumptions"
+  ],
+  "success_criteria": [
+    "The review names concrete prompt injection paths rather than generic LLM risk language.",
+    "Mitigations are tied to specific trust boundaries or code controls.",
+    "Any missing isolation or sanitization controls are clearly prioritized."
+  ],
+  "rollback": {
+    "mode": "no_write",
+    "summary": "Read-only review workflow."
+  },
+  "source_references": [
+    "ref.workflow.security.prompt-injection-review.2026-06-01"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

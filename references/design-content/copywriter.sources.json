@@ -1,0 +1,14 @@
+{
+  "dossier_id": "dossier.design-content.copywriter.2026-05-31",
+  "agent_id": "design-content.copywriter",
+  "domain": "design-content",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {"url": "https://www.shopify.com/partners/blog/ux-writing", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["UX writing guidelines", "microcopy patterns"], "copy_policy": "patterns_only"},
+    {"url": "https://styleguide.mailchimp.com/", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["Mailchimp voice and tone", "content style"], "copy_policy": "patterns_only"},
+    {"url": "https://www.everybodywrites.com/", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["content writing best practices", "copywriting"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 3, "official_docs": 0, "github_quality": 65, "license_safety": 88, "maintenance": 86, "pattern_clarity": 90, "testability": 82, "total": 83},
+  "promotion_decision": "staging"
+}

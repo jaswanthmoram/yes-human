@@ -1,0 +1,58 @@
+{
+  "id": "manufacturing.demand-inventory-balancing",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Reconcile demand forecasts with inventory posture to identify supply-demand gaps and recommend balancing actions.",
+  "task_family": "supply_chain_planning",
+  "triggers": ["demand inventory balancing", "supply demand reconciliation", "s&op review pack", "inventory demand gap analysis", "demand supply mismatch review"],
+  "aliases": ["demand balancing", "s&op reconciliation"],
+  "negative_keywords": ["code review", "financial forecast", "contract review"],
+  "inputs": [
+    {"name": "demand_forecast", "required": true, "description": "Demand projections by product family, period, and confidence level."},
+    {"name": "inventory_snapshot", "required": true, "description": "Current inventory levels, safety stock, and replenishment policies."},
+    {"name": "capacity_constraints", "required": false, "description": "Production capacity, lead times, and supplier constraints."}
+  ],
+  "outputs": [
+    {"name": "gap_analysis", "description": "Period-by-period supply-demand gaps with severity."},
+    {"name": "balancing_actions", "description": "Recommended actions: build-ahead, safety stock adjustment, capacity changes."},
+    {"name": "risk_summary", "description": "Key risks and assumptions that could shift the balance."}
+  ],
+  "primary_agent": "manufacturing.demand-planner",
+  "route": {
+    "domain_master": "manufacturing.master",
+    "agents": ["manufacturing.demand-planner", "manufacturing.inventory-planner"],
+    "primary_agent": "manufacturing.demand-planner",
+    "participants": ["manufacturing.inventory-planner"],
+    "parallel": false,
+    "max_parallel_agents": 2
+  },
+  "budget": {"band": "standard", "max_context_tokens": 3500, "max_tool_calls": 10},
+  "gates": [
+    {"id": "pre-route", "rule": "Confirm the task is supply-demand balancing, not financial forecasting or code deployment."},
+    {"id": "pre-tool", "rule": "Require both demand forecast and inventory snapshot before gap analysis."},
+    {"id": "on-task-complete", "rule": "Output must include gap analysis, recommended actions, and risk summary."}
+  ],
+  "steps": [
+    {"id": "validate-inputs", "agent": "manufacturing.demand-planner", "action": "Check demand forecast and inventory data for completeness and consistency."},
+    {"id": "analyze-demand", "agent": "manufacturing.demand-planner", "action": "Project demand by period and identify peaks, trends, and uncertainty."},
+    {"id": "assess-supply", "agent": "manufacturing.inventory-planner", "action": "Compare inventory posture and replenishment capacity against projected demand."},
+    {"id": "reconcile-gaps", "agent": "manufacturing.demand-planner", "action": "Identify period-by-period gaps and recommend balancing actions with risk notes."}
+  ],
+  "tools": [
+    {"name": "filesystem.read", "purpose": "Read demand forecasts, inventory reports, and capacity data."},
+    {"name": "filesystem.write", "purpose": "Save the gap analysis and balancing recommendations."}
+  ],
+  "verification": [
+    {"id": "gaps-periodized", "method": "Check that gaps are shown by time period with severity."},
+    {"id": "actions-specific", "method": "Check that recommended actions name the product family and timing."},
+    {"id": "risks-stated", "method": "Check that key assumptions and risks are listed."}
+  ],
+  "success_criteria": [
+    "The gap analysis shows supply-demand mismatches by period.",
+    "Recommended actions are specific to product family and timing.",
+    "Key risks and assumptions are explicitly stated."
+  ],
+  "rollback": {"mode": "trace_based", "when": "If the analysis uses stale demand data or invents inventory levels, roll back to verified inputs."},
+  "source_references": [{"dossier_path": "references/workflows/manufacturing/demand-inventory-balancing.sources.json", "relationship": "workflow_dossier"}],
+  "promotion": {"can_learn": true, "min_successes_before_update": 2, "quality_gate": "staging"}
+}

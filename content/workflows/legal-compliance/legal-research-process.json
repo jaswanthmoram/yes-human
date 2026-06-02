@@ -1,0 +1,160 @@
+{
+  "id": "legal-compliance.legal-research-process",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Structured legal research from question formulation through precedent analysis to attorney review packet.",
+  "task_family": "legal_research",
+  "triggers": [
+    "legal research process",
+    "case law research workflow",
+    "statutory analysis workflow",
+    "precedent research cycle"
+  ],
+  "aliases": [
+    "legal research",
+    "law research process"
+  ],
+  "negative_keywords": [
+    "market research",
+    "user research",
+    "data analysis"
+  ],
+  "inputs": [
+    {
+      "name": "research_question",
+      "required": true,
+      "description": "The legal question or issue to research."
+    },
+    {
+      "name": "jurisdiction_scope",
+      "required": true,
+      "description": "Relevant jurisdictions and legal systems."
+    },
+    {
+      "name": "source_constraints",
+      "required": false,
+      "description": "Preferred sources, time limits, or budget constraints."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "research_findings",
+      "description": "Structured findings organized by legal issue."
+    },
+    {
+      "name": "precedent_analysis",
+      "description": "Analysis of relevant precedents and their applicability."
+    },
+    {
+      "name": "attorney_review_packet",
+      "description": "Summary with citations for attorney verification."
+    }
+  ],
+  "primary_agent": "legal-compliance.legal-researcher",
+  "route": {
+    "domain_master": "legal-compliance.master",
+    "agents": [
+      "legal-compliance.legal-researcher",
+      "legal-compliance.legal-writer",
+      "legal-compliance.case-analysis"
+    ],
+    "primary_agent": "legal-compliance.legal-researcher",
+    "participants": [
+      "legal-compliance.legal-writer",
+      "legal-compliance.case-analysis"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 3
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 5000,
+    "max_tool_calls": 12,
+    "notes": "High-stakes workflow. Keep issue spotting and human review explicit."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is legal research and not legal advice."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require defined research question and jurisdiction scope."
+    },
+    {
+      "id": "pre-write",
+      "rule": "Cite all sources and verify jurisdiction applicability."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "End with attorney review packet; do not present conclusions as legal advice."
+    }
+  ],
+  "steps": [
+    {
+      "id": "formulate-question",
+      "agent": "legal-compliance.legal-researcher",
+      "action": "Refine the research question and identify search parameters."
+    },
+    {
+      "id": "search-precedents",
+      "agent": "legal-compliance.legal-researcher",
+      "action": "Search case law, statutes, and regulations for relevant authorities."
+    },
+    {
+      "id": "analyze-cases",
+      "agent": "legal-compliance.legal-researcher",
+      "action": "Analyze found precedents for applicability and weight."
+    },
+    {
+      "id": "draft-summary",
+      "agent": "legal-compliance.legal-writer",
+      "action": "Draft structured research summary with proper citations."
+    },
+    {
+      "id": "prepare-packet",
+      "agent": "legal-compliance.legal-researcher",
+      "action": "Compile attorney review packet with findings and open questions."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read documents, policies, and reference materials."
+    }
+  ],
+  "verification": [
+    {
+      "id": "question-defined",
+      "method": "Check the output states the research question and scope."
+    },
+    {
+      "id": "sources-cited",
+      "method": "Check all findings include proper citations."
+    },
+    {
+      "id": "attorney-packet",
+      "method": "Check output includes attorney review packet with open questions."
+    }
+  ],
+  "success_criteria": [
+    "Research question is clearly defined and scoped.",
+    "All findings include proper citations with jurisdiction notes.",
+    "Output ends with attorney review packet, not legal conclusions."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If scope, confidentiality, or review authority is unclear, revert the draft and regenerate a narrower output for counsel review."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/legal-compliance/legal-research-process.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "description": "Fixtures for new product-business workflows (2 per workflow, 12 total)",
+  "fixtures": [
+    {
+      "id": "fixture.product-discovery.new-user-segment",
+      "workflow_id": "product-business.product-discovery",
+      "input": {
+        "problem_space": "New users struggle to find value in first session of project management tool",
+        "user_segment": "Freelancers and small agency owners (2-10 person teams)",
+        "business_context": "D1 activation rate is 25%, target is 40%"
+      },
+      "expected_outputs": [
+        "validated_problem_statement",
+        "solution_concepts",
+        "discovery_report"
+      ],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.product-discovery.enterprise-expansion",
+      "workflow_id": "product-business.product-discovery",
+      "input": {
+        "problem_space": "Enterprise customers need advanced permissions and audit capabilities",
+        "user_segment": "IT administrators at companies with 500+ employees",
+        "business_context": "Enterprise deals stalling due to security compliance gaps"
+      },
+      "expected_outputs": [
+        "validated_problem_statement",
+        "solution_concepts",
+        "discovery_report"
+      ],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.user-research-process.onboarding-study",
+      "workflow_id": "product-business.user-research-process",
+      "input": {
+        "research_objectives": "Understand why 60% of trial users don't complete onboarding",
+        "target_users": "Trial users who signed up in last 30 days but didn't activate",
+        "research_constraints": "Budget for 15 participants, 3-week timeline"
+      },
+      "expected_outputs": [
+        "research_plan",
+        "findings_report",
+        "actionable_insights"
+      ],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.user-research-process.feature-validation",
+      "workflow_id": "product-business.user-research-process",
+      "input": {
+        "research_objectives": "Validate demand for real-time collaboration features before building",
+        "target_users": "Active users who use the product daily (power users)",
+        "research_constraints": "Remote only, 2-week timeline"
+      },
+      "expected_outputs": [
+        "research_plan",
+        "findings_report",
+        "actionable_insights"
+      ],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.feature-prioritization.q3-planning",
+      "workflow_id": "product-business.feature-prioritization",
+      "input": {
+        "feature_backlog": "15 features across onboarding, collaboration, and integrations themes",
+        "strategic_goals": "Increase activation by 15% and expand to enterprise segment",
+        "data_sources": "PostHog analytics, 20 user interviews, sales feedback"
+      },
+      "expected_outputs": [
+        "prioritized_backlog",
+        "scoring_rationale",
+        "tradeoff_documentation"
+      ],
+      "expected_step_count": 3
+    },
+    {
+      "id": "fixture.feature-prioritization.post-launch-reprior",
+      "workflow_id": "product-business.feature-prioritization",
+      "input": {
+        "feature_backlog": "8 features remaining after major launch plus 5 new requests from enterprise pilot",
+        "strategic_goals": "Convert enterprise pilots to paid contracts",
+        "data_sources": "Enterprise pilot feedback, usage analytics"
+      },
+      "expected_outputs": [
+        "prioritized_backlog",
+        "scoring_rationale",
+        "tradeoff_documentation"
+      ],
+      "expected_step_count": 3
+    },
+    {
+      "id": "fixture.product-launch.v2-release",
+      "workflow_id": "product-business.product-launch",
+      "input": {
+        "launch_scope": "Major v2 release with redesigned dashboard, new API, and pricing changes",
+        "target_audience": "Existing customers (migration) and new mid-market prospects",
+        "launch_timeline": "6-week preparation, launch on June 15"
+      },
+      "expected_outputs": [
+        "launch_plan",
+        "readiness_report",
+        "post_launch_review"
+      ],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.product-launch.feature-launch",
+      "workflow_id": "product-business.product-launch",
+      "input": {
+        "launch_scope": "New real-time collaboration feature for existing product",
+        "target_audience": "Active users on Pro and Enterprise plans",
+        "launch_timeline": "3-week preparation, soft launch then GA"
+      },
+      "expected_outputs": [
+        "launch_plan",
+        "readiness_report",
+        "post_launch_review"
+      ],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.competitive-analysis.project-management",
+      "workflow_id": "product-business.competitive-analysis",
+      "input": {
+        "competitor_list": "Asana, Monday, ClickUp, Notion, Linear",
+        "analysis_focus": "Feature parity and differentiation in mid-market segment",
+        "market_context": "Growing mid-market with increasing competition from Notion and Linear"
+      },
+      "expected_outputs": [
+        "competitive_report",
+        "feature_comparison_matrix",
+        "strategic_recommendations"
+      ],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.competitive-analysis.new-vertical",
+      "workflow_id": "product-business.competitive-analysis",
+      "input": {
+        "competitor_list": "3 niche vertical-specific tools and 2 horizontal platforms",
+        "analysis_focus": "Market entry feasibility and positioning for healthcare vertical",
+        "market_context": "Healthcare IT spending growing 12% YoY, compliance requirements increasing"
+      },
+      "expected_outputs": [
+        "competitive_report",
+        "feature_comparison_matrix",
+        "strategic_recommendations"
+      ],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.product-roadmap-creation.annual-planning",
+      "workflow_id": "product-business.product-roadmap-creation",
+      "input": {
+        "strategic_goals": "Grow ARR from $5M to $12M, expand to enterprise, improve retention to 95%",
+        "initiative_backlog": "25 initiatives across product, platform, and growth themes",
+        "resource_constraints": "12 engineers, 3 designers, 2 PMs for next 2 quarters"
+      },
+      "expected_outputs": [
+        "product_roadmap",
+        "dependency_matrix",
+        "success_metrics_per_theme"
+      ],
+      "expected_step_count": 4
+    },
+    {
+      "id": "fixture.product-roadmap-creation.quarterly-refresh",
+      "workflow_id": "product-business.product-roadmap-creation",
+      "input": {
+        "strategic_goals": "Maintain growth trajectory, address enterprise blockers, improve NPS",
+        "initiative_backlog": "12 carry-over initiatives plus 8 new requests from QBR",
+        "resource_constraints": "Same team, 2 engineers on loan to platform team"
+      },
+      "expected_outputs": [
+        "product_roadmap",
+        "dependency_matrix",
+        "success_metrics_per_theme"
+      ],
+      "expected_step_count": 4
+    }
+  ]
+}

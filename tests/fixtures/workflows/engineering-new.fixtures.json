@@ -1,0 +1,162 @@
+{
+  "description": "Fixtures for new engineering workflows (2 per workflow, 14 total)",
+  "fixtures": [
+    {
+      "id": "fixture.frontend-component-creation.basic-button",
+      "workflow_id": "engineering.frontend-component-creation",
+      "input": {
+        "component_spec": "A Button component with primary, secondary, and ghost variants, supporting disabled state and loading spinner",
+        "framework": "react",
+        "styling_approach": "CSS modules"
+      },
+      "expected_outputs": ["component_source", "component_tests", "story_or_docs"],
+      "expected_step_count": 6
+    },
+    {
+      "id": "fixture.frontend-component-creation.data-table",
+      "workflow_id": "engineering.frontend-component-creation",
+      "input": {
+        "component_spec": "A DataTable component with sortable columns, pagination, row selection, and keyboard navigation",
+        "framework": "react",
+        "styling_approach": "tailwind",
+        "design_reference": "figma://design-system/data-table"
+      },
+      "expected_outputs": ["component_source", "component_tests", "story_or_docs"],
+      "expected_step_count": 6
+    },
+    {
+      "id": "fixture.backend-api-implementation.crud-users",
+      "workflow_id": "engineering.backend-api-implementation",
+      "input": {
+        "endpoint_spec": "POST /api/users - Create a new user with email, name, and role fields",
+        "framework": "express",
+        "data_model": "User table with id, email, name, role, created_at",
+        "auth_requirements": "bearer token with admin role"
+      },
+      "expected_outputs": ["route_handler", "validation_schema", "service_layer", "integration_tests"],
+      "expected_step_count": 7
+    },
+    {
+      "id": "fixture.backend-api-implementation.health-check",
+      "workflow_id": "engineering.backend-api-implementation",
+      "input": {
+        "endpoint_spec": "GET /api/health - Returns service health including database connectivity and uptime",
+        "framework": "express"
+      },
+      "expected_outputs": ["route_handler", "validation_schema", "service_layer", "integration_tests"],
+      "expected_step_count": 7
+    },
+    {
+      "id": "fixture.database-migration.add-index",
+      "workflow_id": "engineering.database-migration",
+      "input": {
+        "schema_change_spec": "Add a composite index on orders table for (user_id, created_at) to speed up user order history queries",
+        "migration_tool": "prisma-migrate"
+      },
+      "expected_outputs": ["up_migration", "down_migration", "data_safety_report", "rollback_verification"],
+      "expected_step_count": 5
+    },
+    {
+      "id": "fixture.database-migration.rename-column",
+      "workflow_id": "engineering.database-migration",
+      "input": {
+        "schema_change_spec": "Rename users.user_name column to users.username across all references",
+        "migration_tool": "knex",
+        "data_backfill_needed": false,
+        "existing_schema": "users table with user_name varchar(255)"
+      },
+      "expected_outputs": ["up_migration", "down_migration", "data_safety_report", "rollback_verification"],
+      "expected_step_count": 5
+    },
+    {
+      "id": "fixture.test-suite-expansion.auth-service",
+      "workflow_id": "engineering.test-suite-expansion",
+      "input": {
+        "target_module": "src/services/auth",
+        "test_framework": "jest",
+        "priority_areas": ["token refresh flow", "expired token handling", "rate limiting"]
+      },
+      "expected_outputs": ["new_test_files", "coverage_delta", "gap_analysis"],
+      "expected_step_count": 6
+    },
+    {
+      "id": "fixture.test-suite-expansion.payment-processor",
+      "workflow_id": "engineering.test-suite-expansion",
+      "input": {
+        "target_module": "src/services/payment",
+        "test_framework": "vitest",
+        "coverage_report": "Current coverage: 42%, missing branches in retry logic and error mapping"
+      },
+      "expected_outputs": ["new_test_files", "coverage_delta", "gap_analysis"],
+      "expected_step_count": 6
+    },
+    {
+      "id": "fixture.performance-optimization.slow-query",
+      "workflow_id": "engineering.performance-optimization",
+      "input": {
+        "target_code_path": "GET /api/reports/monthly - takes 4.2s average",
+        "baseline_metrics": { "p50": "3.8s", "p95": "6.1s", "p99": "9.4s" },
+        "performance_target": "p95 under 2s"
+      },
+      "expected_outputs": ["profile_report", "optimization_patch", "benchmark_comparison"],
+      "expected_step_count": 6
+    },
+    {
+      "id": "fixture.performance-optimization.render-bottleneck",
+      "workflow_id": "engineering.performance-optimization",
+      "input": {
+        "target_code_path": "Dashboard component re-renders on every state change",
+        "profiling_tool": "React DevTools Profiler"
+      },
+      "expected_outputs": ["profile_report", "optimization_patch", "benchmark_comparison"],
+      "expected_step_count": 6
+    },
+    {
+      "id": "fixture.code-migration-execution.class-to-hooks",
+      "workflow_id": "engineering.code-migration-execution",
+      "input": {
+        "migration_plan": "Convert all class components in src/components/forms to functional components with hooks",
+        "source_pattern": "React.Component class with lifecycle methods",
+        "target_pattern": "Functional component with useState, useEffect",
+        "affected_files": ["src/components/forms/LoginForm.tsx", "src/components/forms/SignupForm.tsx", "src/components/forms/ProfileForm.tsx"]
+      },
+      "expected_outputs": ["migrated_files", "migration_report", "validation_results"],
+      "expected_step_count": 7
+    },
+    {
+      "id": "fixture.code-migration-execution.cjs-to-esm",
+      "workflow_id": "engineering.code-migration-execution",
+      "input": {
+        "migration_plan": "Convert CommonJS require/module.exports to ES module import/export in src/utils",
+        "source_pattern": "const x = require('x'); module.exports = {}",
+        "target_pattern": "import x from 'x'; export {}",
+        "test_command": "npm test"
+      },
+      "expected_outputs": ["migrated_files", "migration_report", "validation_results"],
+      "expected_step_count": 7
+    },
+    {
+      "id": "fixture.refactoring-campaign.extract-service",
+      "workflow_id": "engineering.refactoring-campaign",
+      "input": {
+        "refactor_scope": "src/controllers/orderController.ts - 800 lines with mixed business logic",
+        "code_smells_or_goals": ["god object", "mixed concerns", "duplicated validation logic"],
+        "test_command": "npm test -- --grep order"
+      },
+      "expected_outputs": ["refactor_plan", "refactored_files", "verification_report"],
+      "expected_step_count": 7
+    },
+    {
+      "id": "fixture.refactoring-campaign.deduplicate-utils",
+      "workflow_id": "engineering.refactoring-campaign",
+      "input": {
+        "refactor_scope": "src/utils/ - 12 files with overlapping date formatting and string helpers",
+        "code_smells_or_goals": ["code duplication", "inconsistent naming", "missing types"],
+        "affected_modules": ["src/utils/dates.ts", "src/utils/strings.ts", "src/utils/format.ts"],
+        "constraints": "No public API changes allowed"
+      },
+      "expected_outputs": ["refactor_plan", "refactored_files", "verification_report"],
+      "expected_step_count": 7
+    }
+  ]
+}

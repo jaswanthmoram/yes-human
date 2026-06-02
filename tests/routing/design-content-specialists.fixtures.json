@@ -1,0 +1,66 @@
+{
+  "domain": "design-content-specialists",
+  "description": "Routing fixtures for Wave-4 Design Content specialists.",
+  "fixtures": [
+    {
+      "prompt": "frontend design critique",
+      "expected_route": "route.design-content.frontend-design-agent"
+    },
+    {
+      "prompt": "ui polish review",
+      "expected_route": "route.design-content.frontend-design-agent"
+    },
+    {
+      "prompt": "anti slop ui pass",
+      "expected_route": "route.design-content.frontend-design-agent"
+    },
+    {
+      "prompt": "layout refinement plan",
+      "expected_route": "route.design-content.frontend-design-agent"
+    },
+    {
+      "prompt": "visual hierarchy fix",
+      "expected_route": "route.design-content.frontend-design-agent"
+    },
+    {
+      "prompt": "accessibility audit",
+      "expected_route": "route.design-content.accessibility-auditor"
+    },
+    {
+      "prompt": "wcag check pass",
+      "expected_route": "route.design-content.accessibility-auditor"
+    },
+    {
+      "prompt": "keyboard nav review",
+      "expected_route": "route.design-content.accessibility-auditor"
+    },
+    {
+      "prompt": "screen reader audit",
+      "expected_route": "route.design-content.accessibility-auditor"
+    },
+    {
+      "prompt": "color contrast review",
+      "expected_route": "route.design-content.accessibility-auditor"
+    },
+    {
+      "prompt": "technical writing pass",
+      "expected_route": "route.design-content.technical-writer"
+    },
+    {
+      "prompt": "api docs rewrite",
+      "expected_route": "route.design-content.technical-writer"
+    },
+    {
+      "prompt": "readme authoring",
+      "expected_route": "route.design-content.technical-writer"
+    },
+    {
+      "prompt": "setup guide cleanup",
+      "expected_route": "route.design-content.technical-writer"
+    },
+    {
+      "prompt": "changelog narrative draft",
+      "expected_route": "route.design-content.technical-writer"
+    }
+  ]
+}

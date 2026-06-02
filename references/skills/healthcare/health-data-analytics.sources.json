@@ -1,0 +1,15 @@
+{
+  "dossier_id": "dossier.skill.healthcare.health-data-analytics.2026-06-01",
+  "skill_id": "healthcare.health-data-analytics",
+  "domain": "healthcare",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {"url": "https://www.healthit.gov/topic/health-it-basics/health-data-and-information", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["Health data standards overview"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/OHDSI", "source_type": "github_repo", "license": "Apache-2.0", "version_or_commit": "OMOP CDM v5.4", "used_for": ["OMOP common data model", "analytics pipelines"], "copy_policy": "patterns_only"},
+    {"url": "https://www.cdc.gov/nchs/data_access/index.htm", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["NCHS data access and analysis"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/smart-on-fhir/bulk-data", "source_type": "github_repo", "license": "Apache-2.0", "version_or_commit": "v2.0", "used_for": ["FHIR bulk data export patterns"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 4, "official_docs": 2, "github_quality": 82, "license_safety": 95, "maintenance": 90, "pattern_clarity": 87, "testability": 85, "total": 88},
+  "promotion_decision": "staging"
+}

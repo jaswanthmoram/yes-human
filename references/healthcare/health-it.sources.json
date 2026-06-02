@@ -1,0 +1,14 @@
+{
+  "dossier_id": "dossier.agent.healthcare.health-it.2026-05-31",
+  "agent_id": "healthcare.health-it",
+  "domain": "healthcare",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2027-05-31T00:00:00Z",
+  "sources": [
+    {"url": "https://www.healthit.gov/", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["HealthIT.gov", "health IT standards and certification"], "copy_policy": "patterns_only"},
+    {"url": "https://www.hl7.org/", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["HL7", "healthcare interoperability standards"], "copy_policy": "patterns_only"},
+    {"url": "https://www.himss.org/", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["HIMSS", "health IT best practices"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 3, "official_docs": 1, "github_quality": 0, "license_safety": 90, "maintenance": 90, "pattern_clarity": 88, "testability": 82, "total": 86},
+  "promotion_decision": "staging"
+}

@@ -1,0 +1,66 @@
+{
+  "domain": "legal-compliance-specialists",
+  "description": "Routing fixtures for Wave-4 Legal Compliance specialists.",
+  "fixtures": [
+    {
+      "prompt": "contract review triage",
+      "expected_route": "route.legal-compliance.contract-reviewer"
+    },
+    {
+      "prompt": "msa clause scan",
+      "expected_route": "route.legal-compliance.contract-reviewer"
+    },
+    {
+      "prompt": "nda red flag review",
+      "expected_route": "route.legal-compliance.contract-reviewer"
+    },
+    {
+      "prompt": "vendor paper checklist",
+      "expected_route": "route.legal-compliance.contract-reviewer"
+    },
+    {
+      "prompt": "redline issue summary",
+      "expected_route": "route.legal-compliance.contract-reviewer"
+    },
+    {
+      "prompt": "data privacy review",
+      "expected_route": "route.legal-compliance.privacy-advisor"
+    },
+    {
+      "prompt": "data flow privacy check",
+      "expected_route": "route.legal-compliance.privacy-advisor"
+    },
+    {
+      "prompt": "retention policy review",
+      "expected_route": "route.legal-compliance.privacy-advisor"
+    },
+    {
+      "prompt": "dpia checklist draft",
+      "expected_route": "route.legal-compliance.privacy-advisor"
+    },
+    {
+      "prompt": "consent language audit",
+      "expected_route": "route.legal-compliance.privacy-advisor"
+    },
+    {
+      "prompt": "compliance check run",
+      "expected_route": "route.legal-compliance.compliance-checker"
+    },
+    {
+      "prompt": "soc2 control mapping",
+      "expected_route": "route.legal-compliance.compliance-checker"
+    },
+    {
+      "prompt": "policy control gap scan",
+      "expected_route": "route.legal-compliance.compliance-checker"
+    },
+    {
+      "prompt": "audit evidence checklist",
+      "expected_route": "route.legal-compliance.compliance-checker"
+    },
+    {
+      "prompt": "control remediation memo",
+      "expected_route": "route.legal-compliance.compliance-checker"
+    }
+  ]
+}

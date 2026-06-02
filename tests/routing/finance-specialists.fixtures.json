@@ -1,0 +1,66 @@
+{
+  "domain": "finance-specialists",
+  "description": "Routing fixtures for Wave-4 Finance specialists.",
+  "fixtures": [
+    {
+      "prompt": "financial forecast build",
+      "expected_route": "route.finance.forecasting-analyst"
+    },
+    {
+      "prompt": "revenue projection model",
+      "expected_route": "route.finance.forecasting-analyst"
+    },
+    {
+      "prompt": "runway scenario plan",
+      "expected_route": "route.finance.forecasting-analyst"
+    },
+    {
+      "prompt": "forecast variance memo",
+      "expected_route": "route.finance.forecasting-analyst"
+    },
+    {
+      "prompt": "quarterly forecast review",
+      "expected_route": "route.finance.forecasting-analyst"
+    },
+    {
+      "prompt": "budget planning model",
+      "expected_route": "route.finance.budget-planner"
+    },
+    {
+      "prompt": "spend allocation plan",
+      "expected_route": "route.finance.budget-planner"
+    },
+    {
+      "prompt": "department budget draft",
+      "expected_route": "route.finance.budget-planner"
+    },
+    {
+      "prompt": "headcount budget review",
+      "expected_route": "route.finance.budget-planner"
+    },
+    {
+      "prompt": "budget variance check",
+      "expected_route": "route.finance.budget-planner"
+    },
+    {
+      "prompt": "cash flow analysis",
+      "expected_route": "route.finance.cash-flow-manager"
+    },
+    {
+      "prompt": "treasury runway check",
+      "expected_route": "route.finance.cash-flow-manager"
+    },
+    {
+      "prompt": "receivables timing review",
+      "expected_route": "route.finance.cash-flow-manager"
+    },
+    {
+      "prompt": "payment timing scenario",
+      "expected_route": "route.finance.cash-flow-manager"
+    },
+    {
+      "prompt": "burn multiple review",
+      "expected_route": "route.finance.cash-flow-manager"
+    }
+  ]
+}

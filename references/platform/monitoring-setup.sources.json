@@ -1,0 +1,60 @@
+{
+  "dossier_id": "dossier.platform.monitoring-setup.2026-05-31",
+  "agent_id": "platform.monitoring-setup",
+  "domain": "platform",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2026-08-29T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/prometheus/prometheus",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": ["metrics collection, alerting rules, and recording rules"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/grafana/grafana",
+      "source_type": "github_repo",
+      "license": "AGPL-3.0",
+      "version_or_commit": "main",
+      "used_for": ["dashboard design patterns and golden signals visualization"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/grafana/loki",
+      "source_type": "github_repo",
+      "license": "AGPL-3.0",
+      "version_or_commit": "main",
+      "used_for": ["log aggregation and retention patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/vectordotdev/vector",
+      "source_type": "github_repo",
+      "license": "MPL-2.0",
+      "version_or_commit": "master",
+      "used_for": ["log pipeline and data transformation patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://prometheus.io/docs/practices/alerting/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "live",
+      "used_for": ["alerting best practices and severity design"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 5,
+    "official_docs": 1,
+    "github_quality": 96,
+    "license_safety": 88,
+    "maintenance": 96,
+    "pattern_clarity": 91,
+    "testability": 85,
+    "total": 92
+  },
+  "promotion_decision": "staging"
+}

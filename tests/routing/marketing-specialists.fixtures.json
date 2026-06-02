@@ -1,0 +1,66 @@
+{
+  "domain": "marketing-specialists",
+  "description": "Routing fixtures for Wave-4 Marketing specialists.",
+  "fixtures": [
+    {
+      "prompt": "launch marketing strategy",
+      "expected_route": "route.marketing.marketing-strategist"
+    },
+    {
+      "prompt": "positioning brief",
+      "expected_route": "route.marketing.marketing-strategist"
+    },
+    {
+      "prompt": "go to market messaging",
+      "expected_route": "route.marketing.marketing-strategist"
+    },
+    {
+      "prompt": "audience segment plan",
+      "expected_route": "route.marketing.marketing-strategist"
+    },
+    {
+      "prompt": "campaign architecture",
+      "expected_route": "route.marketing.marketing-strategist"
+    },
+    {
+      "prompt": "content marketing draft",
+      "expected_route": "route.marketing.content-marketer"
+    },
+    {
+      "prompt": "blog topic cluster",
+      "expected_route": "route.marketing.content-marketer"
+    },
+    {
+      "prompt": "landing page narrative",
+      "expected_route": "route.marketing.content-marketer"
+    },
+    {
+      "prompt": "editorial calendar seed",
+      "expected_route": "route.marketing.content-marketer"
+    },
+    {
+      "prompt": "organic acquisition brief",
+      "expected_route": "route.marketing.content-marketer"
+    },
+    {
+      "prompt": "seo strategy review",
+      "expected_route": "route.marketing.seo-analyst"
+    },
+    {
+      "prompt": "keyword cluster plan",
+      "expected_route": "route.marketing.seo-analyst"
+    },
+    {
+      "prompt": "metadata seo pass",
+      "expected_route": "route.marketing.seo-analyst"
+    },
+    {
+      "prompt": "search intent analysis",
+      "expected_route": "route.marketing.seo-analyst"
+    },
+    {
+      "prompt": "internal linking audit",
+      "expected_route": "route.marketing.seo-analyst"
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "id": "legal-compliance.contract-review-process",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Systematic contract review from initial triage through clause analysis to attorney handoff.",
+  "task_family": "contract_review",
+  "triggers": [
+    "contract review process",
+    "agreement review workflow",
+    "contract triage and analysis",
+    "msa review cycle"
+  ],
+  "aliases": [
+    "contract review",
+    "agreement review process"
+  ],
+  "negative_keywords": [
+    "code review",
+    "performance review",
+    "design review"
+  ],
+  "inputs": [
+    {
+      "name": "contract_document",
+      "required": true,
+      "description": "The contract or agreement to review."
+    },
+    {
+      "name": "review_scope",
+      "required": true,
+      "description": "Specific clauses, risks, or business concerns to focus on."
+    },
+    {
+      "name": "standard_playbook",
+      "required": false,
+      "description": "Standard terms playbook for comparison."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "triage_summary",
+      "description": "Initial contract classification and priority assessment."
+    },
+    {
+      "name": "clause_analysis",
+      "description": "Clause-by-clause risk analysis with severity ratings."
+    },
+    {
+      "name": "attorney_handoff",
+      "description": "Structured handoff packet with open questions for counsel."
+    }
+  ],
+  "primary_agent": "legal-compliance.contract-lawyer",
+  "route": {
+    "domain_master": "legal-compliance.master",
+    "agents": [
+      "legal-compliance.contract-lawyer",
+      "legal-compliance.compliance-officer",
+      "legal-compliance.privacy-officer"
+    ],
+    "primary_agent": "legal-compliance.contract-lawyer",
+    "participants": [
+      "legal-compliance.compliance-officer",
+      "legal-compliance.privacy-officer"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 3
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 5000,
+    "max_tool_calls": 12,
+    "notes": "High-stakes workflow. Keep issue spotting and human review explicit."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is contract review and not legal advice or final approval."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require contract document and review scope before analysis."
+    },
+    {
+      "id": "pre-write",
+      "rule": "Attach not-legal-advice disclaimer and preserve confidentiality."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "End with attorney review handoff; never claim autonomous approval."
+    }
+  ],
+  "steps": [
+    {
+      "id": "triage-contract",
+      "agent": "legal-compliance.contract-lawyer",
+      "action": "Classify contract type, identify parties, and set review priority."
+    },
+    {
+      "id": "clause-analysis",
+      "agent": "legal-compliance.contract-lawyer",
+      "action": "Perform clause-by-clause risk analysis against standard playbook."
+    },
+    {
+      "id": "compliance-check",
+      "agent": "legal-compliance.compliance-officer",
+      "action": "Map contract obligations to applicable compliance frameworks."
+    },
+    {
+      "id": "privacy-review",
+      "agent": "legal-compliance.privacy-officer",
+      "action": "Flag data handling, retention, and transfer provisions."
+    },
+    {
+      "id": "prepare-handoff",
+      "agent": "legal-compliance.contract-lawyer",
+      "action": "Merge findings into attorney handoff packet with open questions."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read documents, policies, and reference materials."
+    }
+  ],
+  "verification": [
+    {
+      "id": "contract-type-named",
+      "method": "Check the output names contract type and review scope."
+    },
+    {
+      "id": "clause-risk-severity",
+      "method": "Check each flagged clause has a severity rating and rationale."
+    },
+    {
+      "id": "attorney-handoff",
+      "method": "Check output includes attorney handoff with unresolved questions."
+    }
+  ],
+  "success_criteria": [
+    "Contract is classified and prioritized correctly.",
+    "Each flagged clause includes severity, rationale, and suggested action.",
+    "Output ends with attorney handoff, not approval language."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If scope, confidentiality, or review authority is unclear, revert the draft and regenerate a narrower output for counsel review."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/legal-compliance/contract-review-process.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

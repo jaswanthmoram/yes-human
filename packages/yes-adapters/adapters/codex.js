@@ -12,6 +12,10 @@ import fs from 'fs';
 import path from 'path';
 import { repoRoot, writeGenerated } from '../index.js';
 
+function getServerName(mcp) {
+  return String(mcp.id || mcp.provider || 'mcp').replace(/[^a-zA-Z0-9_-]/g, '-');
+}
+
 // ── AGENTS.md ─────────────────────────────────────────────────────────────────
 
 function buildAgentsMd(ctx) {
@@ -35,16 +39,17 @@ function buildConfigToml(ctx) {
   const lines = ['# Yes-human Codex MCP configuration', '# Generated — do not hand-edit; run: yes build codex', ''];
 
   for (const mcp of ctx.mcps) {
-    if (!mcp.name) continue;
-    lines.push(`[mcp_servers.${mcp.name}]`);
+    const serverName = getServerName(mcp);
+    if (!serverName) continue;
+    lines.push(`[mcp_servers.${serverName}]`);
     lines.push(`command = "npx"`);
-    const pkg = mcp.package || mcp.name;
+    const pkg = mcp.package || mcp.provider || serverName;
     lines.push(`args = ["-y", "${pkg}"]`);
     if (mcp.env_var) {
       lines.push(`# Set ${mcp.env_var} in your environment (not here)`);
     }
-    if (mcp.description) {
-      lines.push(`# ${mcp.description}`);
+    if (mcp.purpose) {
+      lines.push(`# ${mcp.purpose}`);
     }
     lines.push('');
   }

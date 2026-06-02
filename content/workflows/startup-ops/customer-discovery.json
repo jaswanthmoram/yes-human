@@ -1,0 +1,157 @@
+{
+  "id": "startup-ops.customer-discovery",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Conduct structured customer discovery to validate problem-solution fit through interviews, synthesis, and hypothesis testing.",
+  "task_family": "startup_ops",
+  "triggers": [
+    "customer discovery",
+    "discover customers",
+    "validate problem fit",
+    "customer research startup"
+  ],
+  "aliases": [
+    "cust discovery",
+    "customer research"
+  ],
+  "negative_keywords": [
+    "market research report",
+    "focus group facilitation",
+    "survey analytics"
+  ],
+  "inputs": [
+    {
+      "name": "problem_hypothesis",
+      "required": true,
+      "description": "The problem hypothesis to validate with customers."
+    },
+    {
+      "name": "target_segment",
+      "required": true,
+      "description": "Description of the target customer segment to interview."
+    },
+    {
+      "name": "interview_count_target",
+      "required": false,
+      "description": "Target number of interviews to conduct."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "interview_guide",
+      "description": "Structured interview guide following Mom Test methodology."
+    },
+    {
+      "name": "findings_report",
+      "description": "Synthesized findings across all interviews with patterns."
+    },
+    {
+      "name": "hypothesis_validation",
+      "description": "Clear validation or invalidation of the problem hypothesis."
+    }
+  ],
+  "primary_agent": "startup-ops.customer-development",
+  "route": {
+    "domain_master": "startup-ops.master",
+    "agents": [
+      "startup-ops.customer-development",
+      "startup-ops.product-market-fit"
+    ],
+    "primary_agent": "startup-ops.customer-development",
+    "participants": [
+      "startup-ops.startup-strategist"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 3
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 5000,
+    "max_tool_calls": 12
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is customer discovery, not market research or survey design."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require problem hypothesis and target segment before designing interviews."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Findings must clearly validate or invalidate the hypothesis with evidence."
+    }
+  ],
+  "steps": [
+    {
+      "id": "hypothesis-framing",
+      "agent": "startup-ops.customer-development",
+      "action": "Frame testable hypotheses from the problem statement."
+    },
+    {
+      "id": "guide-design",
+      "agent": "startup-ops.customer-development",
+      "action": "Create structured interview guide following Mom Test principles."
+    },
+    {
+      "id": "recruitment-plan",
+      "agent": "startup-ops.customer-development",
+      "action": "Plan participant recruitment from target segment."
+    },
+    {
+      "id": "synthesis",
+      "agent": "startup-ops.product-market-fit",
+      "action": "Synthesize interview findings and identify patterns."
+    },
+    {
+      "id": "validation-report",
+      "agent": "startup-ops.customer-development",
+      "action": "Produce validation report with evidence-based conclusions."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read existing business documents, metrics, and prior analysis."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Save output documents and reports."
+    }
+  ],
+  "verification": [
+    {
+      "id": "guide-structured",
+      "method": "Check interview guide has open-ended, non-leading questions."
+    },
+    {
+      "id": "findings-synthesized",
+      "method": "Check findings are synthesized across interviews, not individual summaries."
+    },
+    {
+      "id": "hypothesis-verdict",
+      "method": "Check clear validate/invalidate verdict with supporting evidence."
+    }
+  ],
+  "success_criteria": [
+    "Interview guide follows Mom Test methodology.",
+    "Findings are synthesized across interviews with clear patterns.",
+    "Hypothesis validation verdict is evidence-based and actionable."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If outputs invent metrics or misrepresent findings, roll back to raw inputs."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/startup-ops/customer-discovery.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

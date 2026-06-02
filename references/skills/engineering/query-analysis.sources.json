@@ -1,0 +1,60 @@
+{
+  "dossier_id": "dossier.skill.engineering.query-analysis.2026-06-01",
+  "skill_id": "engineering.query-analysis",
+  "domain": "engineering",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://www.postgresql.org/docs/current/using-explain.html",
+      "source_type": "official_docs",
+      "license": "PostgreSQL",
+      "version_or_commit": "16.x",
+      "used_for": ["EXPLAIN ANALYZE", "query plan interpretation", "cost estimation"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/darold/pgFormatter",
+      "source_type": "github_repo",
+      "license": "PostgreSQL",
+      "version_or_commit": "v5.5",
+      "used_for": ["SQL formatting", "query readability"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://use-the-index-luke.com/sql/partial-results",
+      "source_type": "educational",
+      "license": "CC-BY-NC-SA",
+      "version_or_commit": "2024",
+      "used_for": ["N+1 query patterns", "JOIN optimization", "subquery rewriting"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://dev.mysql.com/doc/refman/8.0/en/explain.html",
+      "source_type": "official_docs",
+      "license": "GPL-2.0",
+      "version_or_commit": "8.0",
+      "used_for": ["MySQL EXPLAIN", "query optimization"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/ankane/pghero",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": ["query analysis dashboard", "slow query detection"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 5,
+    "official_docs": 2,
+    "github_quality": 86,
+    "license_safety": 93,
+    "maintenance": 88,
+    "pattern_clarity": 91,
+    "testability": 84,
+    "total": 88
+  },
+  "promotion_decision": "staging"
+}

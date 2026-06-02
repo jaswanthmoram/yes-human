@@ -1,0 +1,63 @@
+{
+  "dossier_id": "dossier.workflow.engineering.database-migration.2026-06-01",
+  "workflow_id": "engineering.database-migration",
+  "domain": "engineering",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://www.prisma.io/docs/concepts/components/prisma-migrate",
+      "source_type": "official_docs",
+      "license": "Apache 2.0",
+      "version_or_commit": "live",
+      "used_for": [
+        "migration workflow patterns",
+        "up/down migration structure"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://flywaydb.org/documentation/concepts/migrations",
+      "source_type": "official_docs",
+      "license": "Apache 2.0",
+      "version_or_commit": "live",
+      "used_for": [
+        "versioned migration conventions"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/ankane/strong_migrations",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "master",
+      "used_for": [
+        "unsafe migration detection",
+        "data safety patterns"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.postgresql.org/docs/current/sql-altertable.html",
+      "source_type": "official_docs",
+      "license": "PostgreSQL License",
+      "version_or_commit": "live",
+      "used_for": [
+        "DDL reference",
+        "lock behavior"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 3,
+    "github_quality": 88,
+    "license_safety": 96,
+    "maintenance": 85,
+    "pattern_clarity": 89,
+    "testability": 82,
+    "total": 86
+  },
+  "promotion_decision": "staging"
+}

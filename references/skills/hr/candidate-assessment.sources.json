@@ -1,0 +1,14 @@
+{
+  "dossier_id": "dossier.skill.hr.candidate-assessment.2026-06-01",
+  "skill_id": "hr.candidate-assessment",
+  "domain": "hr",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {"url": "https://www.shrm.org/topics-tools/topics/talent-acquisition", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "live", "used_for": ["candidate assessment design", "work sample creation"], "copy_policy": "patterns_only"},
+    {"url": "https://www.eeoc.gov/", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["uniform guidelines on employee selection procedures"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/clef/handbook", "source_type": "github_repo", "license": "CC0-1.0", "version_or_commit": "master", "used_for": ["assessment documentation patterns"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 3, "official_docs": 1, "github_quality": 80, "license_safety": 94, "maintenance": 88, "pattern_clarity": 86, "testability": 80, "total": 86},
+  "promotion_decision": "staging"
+}

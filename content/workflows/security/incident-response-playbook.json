@@ -1,0 +1,153 @@
+{
+  "id": "security.incident-response-playbook",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Execute a structured incident response playbook from detection through containment, eradication, recovery, and post-incident review.",
+  "task_family": "incident_response",
+  "triggers": [
+    "we have a security incident",
+    "activate incident response",
+    "run the incident response playbook",
+    "we detected a breach",
+    "security incident detected",
+    "start incident triage",
+    "handle this security event"
+  ],
+  "aliases": [
+    "IR playbook",
+    "incident response process",
+    "security incident handling",
+    "breach response workflow"
+  ],
+  "negative_keywords": [
+    "routine code review",
+    "feature development",
+    "performance optimization",
+    "documentation update"
+  ],
+  "inputs": [
+    {
+      "name": "incident_description",
+      "required": true
+    },
+    {
+      "name": "severity_level",
+      "required": true
+    },
+    {
+      "name": "affected_systems",
+      "required": true
+    },
+    {
+      "name": "detection_source",
+      "required": false
+    },
+    {
+      "name": "timeline_of_events",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "incident_timeline"
+    },
+    {
+      "name": "containment_actions"
+    },
+    {
+      "name": "eradication_plan"
+    },
+    {
+      "name": "recovery_steps"
+    },
+    {
+      "name": "post_incident_report"
+    }
+  ],
+  "primary_agent": "security.incident-responder",
+  "route": {
+    "domain_master": "security.master",
+    "primary": "security.incident-responder",
+    "participants": [
+      "security.security-reviewer",
+      "security.forensics-analyst"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 5500,
+    "max_tool_calls": 20
+  },
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "post-tool",
+    "on-task-complete"
+  ],
+  "steps": [
+    {
+      "id": "detection-and-triage",
+      "summary": "Validate the incident, classify severity, and assemble the response team with clear roles."
+    },
+    {
+      "id": "containment",
+      "summary": "Apply short-term containment to limit blast radius while preserving forensic evidence."
+    },
+    {
+      "id": "investigation",
+      "summary": "Analyze logs, artifacts, and attack vectors to determine root cause and scope of compromise."
+    },
+    {
+      "id": "eradication",
+      "summary": "Remove attacker access, patch exploited vulnerabilities, and clean compromised systems."
+    },
+    {
+      "id": "recovery",
+      "summary": "Restore systems from known-good state, validate integrity, and monitor for re-compromise."
+    },
+    {
+      "id": "post-incident-review",
+      "summary": "Document lessons learned, update detection rules, and produce a final incident report."
+    },
+    {
+      "id": "playbook-improvement",
+      "summary": "Update response playbooks and runbooks based on gaps identified during the incident."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "shell.readonly",
+    "log_analyzer",
+    "network_forensics",
+    "incident_tracker",
+    "communication_channel"
+  ],
+  "verification": [
+    "timeline_is_chronological_and_complete",
+    "containment_actions_are_documented",
+    "root_cause_is_evidence_based",
+    "recovery_validates_system_integrity",
+    "post_incident_report_includes_lessons_learned"
+  ],
+  "success_criteria": [
+    "Incident is classified and triaged within defined SLA.",
+    "Containment actions are applied and documented before eradication begins.",
+    "Root cause analysis is supported by evidence, not speculation.",
+    "Recovery includes validation that systems are clean and functional.",
+    "Post-incident report includes actionable improvements."
+  ],
+  "rollback": {
+    "mode": "manual",
+    "summary": "Containment and recovery actions may require manual rollback of system changes."
+  },
+  "source_references": [
+    "ref.workflow.security.incident-response-playbook.2026-06-01"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

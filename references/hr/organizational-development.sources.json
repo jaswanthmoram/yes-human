@@ -1,0 +1,14 @@
+{
+  "dossier_id": "dossier.hr.organizational-development.2026-06-01",
+  "agent_id": "hr.organizational-development",
+  "domain": "hr",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {"url": "https://www.prosci.com/", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "live", "used_for": ["change management methodology", "ADKAR model"], "copy_policy": "patterns_only"},
+    {"url": "https://www.shrm.org/topics-tools/topics/organizational-development", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "live", "used_for": ["OD frameworks and culture transformation"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/clef/handbook", "source_type": "github_repo", "license": "CC0-1.0", "version_or_commit": "master", "used_for": ["organizational documentation patterns"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 3, "official_docs": 0, "github_quality": 80, "license_safety": 90, "maintenance": 86, "pattern_clarity": 88, "testability": 78, "total": 84},
+  "promotion_decision": "staging"
+}

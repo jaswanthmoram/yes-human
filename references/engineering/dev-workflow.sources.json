@@ -1,0 +1,60 @@
+{
+  "dossier_id": "dossier.engineering.dev-workflow.2026-05-31",
+  "agent_id": "engineering.dev-workflow",
+  "domain": "engineering.dev-workflow",
+  "created_at": "2026-05-31T10:00:00Z",
+  "expires_at": "2026-08-29T10:00:00Z",
+  "sources": [
+    {
+      "url": "https://docs.github.com/en/actions",
+      "source_type": "official_docs",
+      "license": "CC-BY-4.0",
+      "version_or_commit": "2026-05",
+      "used_for": ["CI/CD pipeline patterns", "workflow configuration", "caching strategies"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://trunkbaseddevelopment.com/",
+      "source_type": "official_docs",
+      "license": "CC-BY-4.0",
+      "version_or_commit": "2026-05",
+      "used_for": ["branching strategy comparison", "trunk-based vs feature-branch trade-offs"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/affaan-m/ECC",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "master",
+      "used_for": ["dev-workflow skill structure", "automation checklist patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/devops-sre/using-the-four-keys-to-measure-your-devops-performance",
+      "source_type": "article",
+      "license": "CC-BY-4.0",
+      "version_or_commit": "2026-05",
+      "used_for": ["DORA metrics definitions", "cycle time measurement patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/husky/husky",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": ["git hooks automation patterns", "pre-commit workflow enforcement"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 5,
+    "official_docs": 2,
+    "github_quality": 88,
+    "license_safety": 95,
+    "maintenance": 88,
+    "pattern_clarity": 86,
+    "testability": 80,
+    "total": 87
+  },
+  "promotion_decision": "staging"
+}

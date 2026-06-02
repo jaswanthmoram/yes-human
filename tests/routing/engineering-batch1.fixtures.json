@@ -1,0 +1,35 @@
+{
+  "domain": "engineering",
+  "description": "Routing fixtures for engineering batch 1: backend-api, frontend-react, frontend-vue, mobile-ios, mobile-android (5 agents x 5 fixtures = 25 total).",
+  "fixtures": [
+    { "prompt": "build api for user management", "expected_route": "route.engineering.backend-api" },
+    { "prompt": "design rest endpoints for orders", "expected_route": "route.engineering.backend-api" },
+    { "prompt": "add graphql resolvers for products", "expected_route": "route.engineering.backend-api" },
+    { "prompt": "implement api versioning strategy", "expected_route": "route.engineering.backend-api" },
+    { "prompt": "create paginated list endpoint", "expected_route": "route.engineering.backend-api" },
+
+    { "prompt": "build react component for user profile card", "expected_route": "route.engineering.frontend-react" },
+    { "prompt": "create custom hook for form validation", "expected_route": "route.engineering.frontend-react" },
+    { "prompt": "implement react page with data fetching", "expected_route": "route.engineering.frontend-react" },
+    { "prompt": "write tests for react modal component", "expected_route": "route.engineering.frontend-react" },
+    { "prompt": "add accessibility to react dropdown", "expected_route": "route.engineering.frontend-react" },
+
+    { "prompt": "build vue component for data table", "expected_route": "route.engineering.frontend-vue" },
+    { "prompt": "create composable for infinite scroll", "expected_route": "route.engineering.frontend-vue" },
+    { "prompt": "implement nuxt page with async data", "expected_route": "route.engineering.frontend-vue" },
+    { "prompt": "write tests for vue form component", "expected_route": "route.engineering.frontend-vue" },
+    { "prompt": "migrate options api to composition api", "expected_route": "route.engineering.frontend-vue" },
+
+    { "prompt": "build swiftui login screen", "expected_route": "route.engineering.mobile-ios" },
+    { "prompt": "implement ios push notification handler", "expected_route": "route.engineering.mobile-ios" },
+    { "prompt": "create swift networking layer with async await", "expected_route": "route.engineering.mobile-ios" },
+    { "prompt": "write xctest for viewmodel", "expected_route": "route.engineering.mobile-ios" },
+    { "prompt": "fix ios memory leak in closure", "expected_route": "route.engineering.mobile-ios" },
+
+    { "prompt": "build jetpack compose login screen", "expected_route": "route.engineering.mobile-android" },
+    { "prompt": "implement android room database", "expected_route": "route.engineering.mobile-android" },
+    { "prompt": "create kotlin repository with flow", "expected_route": "route.engineering.mobile-android" },
+    { "prompt": "write espresso test for checkout flow", "expected_route": "route.engineering.mobile-android" },
+    { "prompt": "fix android coroutine leak in viewmodel", "expected_route": "route.engineering.mobile-android" }
+  ]
+}

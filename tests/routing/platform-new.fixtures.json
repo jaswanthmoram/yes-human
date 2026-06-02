@@ -1,0 +1,65 @@
+{
+  "domain": "platform-new",
+  "description": "Routing fixtures for Wave-5 platform specialists (10 new agents, 5 fixtures each).",
+  "fixtures": [
+    { "prompt": "kubernetes cluster management", "expected_route": "route.platform.kubernetes-admin" },
+    { "prompt": "k8s rbac policy", "expected_route": "route.platform.kubernetes-admin" },
+    { "prompt": "kubernetes node management", "expected_route": "route.platform.kubernetes-admin" },
+    { "prompt": "k8s resource quotas", "expected_route": "route.platform.kubernetes-admin" },
+    { "prompt": "cluster upgrade planning", "expected_route": "route.platform.kubernetes-admin" },
+
+    { "prompt": "terraform module design", "expected_route": "route.platform.terraform-architect" },
+    { "prompt": "terraform state management", "expected_route": "route.platform.terraform-architect" },
+    { "prompt": "iac architecture pattern", "expected_route": "route.platform.terraform-architect" },
+    { "prompt": "terraform provider configuration", "expected_route": "route.platform.terraform-architect" },
+    { "prompt": "multi-cloud terraform strategy", "expected_route": "route.platform.terraform-architect" },
+
+    { "prompt": "pipeline architecture design", "expected_route": "route.platform.ci-cd-pipeline" },
+    { "prompt": "deployment strategy planning", "expected_route": "route.platform.ci-cd-pipeline" },
+    { "prompt": "artifact management setup", "expected_route": "route.platform.ci-cd-pipeline" },
+    { "prompt": "release gating configuration", "expected_route": "route.platform.ci-cd-pipeline" },
+    { "prompt": "ci cd optimization", "expected_route": "route.platform.ci-cd-pipeline" },
+
+    { "prompt": "prometheus setup", "expected_route": "route.platform.monitoring-setup" },
+    { "prompt": "grafana dashboard design", "expected_route": "route.platform.monitoring-setup" },
+    { "prompt": "alerting rules configuration", "expected_route": "route.platform.monitoring-setup" },
+    { "prompt": "log aggregation setup", "expected_route": "route.platform.monitoring-setup" },
+    { "prompt": "monitoring stack deployment", "expected_route": "route.platform.monitoring-setup" },
+
+    { "prompt": "incident management framework", "expected_route": "route.platform.incident-response" },
+    { "prompt": "severity classification system", "expected_route": "route.platform.incident-response" },
+    { "prompt": "incident communication template", "expected_route": "route.platform.incident-response" },
+    { "prompt": "on-call rotation design", "expected_route": "route.platform.incident-response" },
+    { "prompt": "escalation policy design", "expected_route": "route.platform.incident-response" },
+
+    { "prompt": "cloud cost reduction", "expected_route": "route.platform.cloud-cost-optimization" },
+    { "prompt": "right sizing instances", "expected_route": "route.platform.cloud-cost-optimization" },
+    { "prompt": "reserved instance planning", "expected_route": "route.platform.cloud-cost-optimization" },
+    { "prompt": "spot instance strategy", "expected_route": "route.platform.cloud-cost-optimization" },
+    { "prompt": "cost allocation tagging", "expected_route": "route.platform.cloud-cost-optimization" },
+
+    { "prompt": "container image scanning", "expected_route": "route.platform.container-security" },
+    { "prompt": "runtime security policy", "expected_route": "route.platform.container-security" },
+    { "prompt": "supply chain security", "expected_route": "route.platform.container-security" },
+    { "prompt": "container hardening", "expected_route": "route.platform.container-security" },
+    { "prompt": "pod security standards", "expected_route": "route.platform.container-security" },
+
+    { "prompt": "service mesh implementation", "expected_route": "route.platform.service-mesh" },
+    { "prompt": "istio configuration", "expected_route": "route.platform.service-mesh" },
+    { "prompt": "linkerd setup", "expected_route": "route.platform.service-mesh" },
+    { "prompt": "mtls policy", "expected_route": "route.platform.service-mesh" },
+    { "prompt": "traffic management mesh", "expected_route": "route.platform.service-mesh" },
+
+    { "prompt": "gitops workflow design", "expected_route": "route.platform.gitops-workflow" },
+    { "prompt": "argo cd setup", "expected_route": "route.platform.gitops-workflow" },
+    { "prompt": "flux configuration", "expected_route": "route.platform.gitops-workflow" },
+    { "prompt": "declarative infrastructure", "expected_route": "route.platform.gitops-workflow" },
+    { "prompt": "drift detection setup", "expected_route": "route.platform.gitops-workflow" },
+
+    { "prompt": "infrastructure testing", "expected_route": "route.platform.infrastructure-testing" },
+    { "prompt": "terratest setup", "expected_route": "route.platform.infrastructure-testing" },
+    { "prompt": "compliance as code", "expected_route": "route.platform.infrastructure-testing" },
+    { "prompt": "chaos engineering", "expected_route": "route.platform.infrastructure-testing" },
+    { "prompt": "infrastructure validation", "expected_route": "route.platform.infrastructure-testing" }
+  ]
+}

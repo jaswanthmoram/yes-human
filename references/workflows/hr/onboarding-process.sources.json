@@ -1,0 +1,15 @@
+{
+  "dossier_id": "dossier.workflow.hr.onboarding-process.2026-06-01",
+  "workflow_id": "hr.onboarding-process",
+  "domain": "hr",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {"url": "https://www.shrm.org/topics-tools/news/hr-magazine/effective-onboarding-new-employees", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "live", "used_for": ["onboarding best practices", "new hire integration timelines"], "copy_policy": "patterns_only"},
+    {"url": "https://www.gallup.com/workplace/236927/employee-onboarding-guide.aspx", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "live", "used_for": ["structured onboarding framework", "engagement during onboarding"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/clef/handbook", "source_type": "github_repo", "license": "CC0-1.0", "version_or_commit": "master", "used_for": ["onboarding checklist patterns", "people operations documentation"], "copy_policy": "patterns_only"},
+    {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6374573/", "source_type": "research_paper", "license": "Open Access", "version_or_commit": "published", "used_for": ["organizational socialization research", "onboarding effectiveness metrics"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 4, "official_docs": 0, "github_quality": 78, "license_safety": 90, "maintenance": 82, "pattern_clarity": 86, "testability": 72, "total": 81},
+  "promotion_decision": "staging"
+}

@@ -1,0 +1,83 @@
+{
+  "fixtures": [
+    {
+      "prompt": "perform threat modeling",
+      "expected_skill": "security.threat-model"
+    },
+    {
+      "prompt": "identify security threats using STRIDE",
+      "expected_skill": "security.threat-model"
+    },
+    {
+      "prompt": "analyze attack vectors",
+      "expected_skill": "security.threat-model"
+    },
+    {
+      "prompt": "scan for hardcoded secrets",
+      "expected_skill": "security.secret-scan-triage"
+    },
+    {
+      "prompt": "find API keys in code",
+      "expected_skill": "security.secret-scan-triage"
+    },
+    {
+      "prompt": "check for credential leaks",
+      "expected_skill": "security.secret-scan-triage"
+    },
+    {
+      "prompt": "check for prompt injection",
+      "expected_skill": "security.prompt-injection-review"
+    },
+    {
+      "prompt": "review LLM security",
+      "expected_skill": "security.prompt-injection-review"
+    },
+    {
+      "prompt": "secure AI integration",
+      "expected_skill": "security.prompt-injection-review"
+    },
+    {
+      "prompt": "assess supply chain risk",
+      "expected_skill": "security.supply-chain-review"
+    },
+    {
+      "prompt": "audit dependencies for security",
+      "expected_skill": "security.supply-chain-review"
+    },
+    {
+      "prompt": "check dependencies for supply chain attacks",
+      "expected_skill": "security.supply-chain-review",
+      "category": "security"
+    },
+    {
+      "prompt": "authentication security review and audit",
+      "expected_skill": "security.auth-review",
+      "category": "security"
+    },
+    {
+      "prompt": "check login security measures and implementation",
+      "expected_skill": "security.auth-review",
+      "category": "security"
+    },
+    {
+      "prompt": "check login implementation",
+      "expected_skill": "security.auth-review"
+    },
+    {
+      "prompt": "audit session management",
+      "expected_skill": "security.auth-review"
+    },
+    {
+      "prompt": "analyze CVE vulnerabilities",
+      "expected_skill": "security.vulnerability-assessment"
+    },
+    {
+      "prompt": "prioritize security vulnerabilities",
+      "expected_skill": "security.vulnerability-assessment"
+    },
+    {
+      "prompt": "assess vulnerability risk",
+      "expected_skill": "security.vulnerability-assessment"
+    }
+  ]
+}

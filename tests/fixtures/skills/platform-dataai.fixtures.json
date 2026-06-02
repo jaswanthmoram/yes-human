@@ -1,0 +1,124 @@
+{
+  "fixtures": [
+    {
+      "prompt": "CI/CD pipeline failure diagnosis",
+      "expected_skill": "platform.ci-triage",
+      "category": "platform"
+    },
+    {
+      "prompt": "CI pipeline failed in build system",
+      "expected_skill": "platform.ci-triage",
+      "category": "platform"
+    },
+    {
+      "prompt": "GitHub Actions workflow failed",
+      "expected_skill": "platform.ci-triage",
+      "category": "platform"
+    },
+    {
+      "prompt": "rollback failed deployment",
+      "expected_skill": "platform.deploy-rollback",
+      "category": "platform"
+    },
+    {
+      "prompt": "undo production release",
+      "expected_skill": "platform.deploy-rollback",
+      "category": "platform"
+    },
+    {
+      "prompt": "revert Kubernetes deployment",
+      "expected_skill": "platform.deploy-rollback",
+      "category": "platform"
+    },
+    {
+      "prompt": "set up monitoring and alerts",
+      "expected_skill": "platform.observability-setup",
+      "category": "platform"
+    },
+    {
+      "prompt": "configure logging and metrics",
+      "expected_skill": "platform.observability-setup",
+      "category": "platform"
+    },
+    {
+      "prompt": "implement distributed tracing",
+      "expected_skill": "platform.observability-setup",
+      "category": "platform"
+    },
+    {
+      "prompt": "write incident postmortem",
+      "expected_skill": "platform.incident-analysis",
+      "category": "platform"
+    },
+    {
+      "prompt": "analyze production outage",
+      "expected_skill": "platform.incident-analysis",
+      "category": "platform"
+    },
+    {
+      "prompt": "root cause analysis for incident",
+      "expected_skill": "platform.incident-analysis",
+      "category": "platform"
+    },
+    {
+      "prompt": "evaluate RAG system performance",
+      "expected_skill": "data-ai.rag-eval",
+      "category": "data-ai"
+    },
+    {
+      "prompt": "assess retrieval augmented generation quality",
+      "expected_skill": "data-ai.rag-eval",
+      "category": "data-ai"
+    },
+    {
+      "prompt": "measure RAG faithfulness",
+      "expected_skill": "data-ai.rag-eval",
+      "category": "data-ai"
+    },
+    {
+      "prompt": "profile dataset quality",
+      "expected_skill": "data-ai.dataset-profiling",
+      "category": "data-ai"
+    },
+    {
+      "prompt": "analyze data distribution",
+      "expected_skill": "data-ai.dataset-profiling",
+      "category": "data-ai"
+    },
+    {
+      "prompt": "check for data quality issues",
+      "expected_skill": "data-ai.dataset-profiling",
+      "category": "data-ai"
+    },
+    {
+      "prompt": "evaluate ML model performance",
+      "expected_skill": "data-ai.model-eval",
+      "category": "data-ai"
+    },
+    {
+      "prompt": "machine learning model evaluation metrics",
+      "expected_skill": "data-ai.model-eval",
+      "category": "data-ai"
+    },
+    {
+      "prompt": "model evaluation with cross-validation",
+      "expected_skill": "data-ai.model-eval",
+      "category": "data-ai"
+    },
+    {
+      "prompt": "review vector embeddings quality",
+      "expected_skill": "data-ai.embedding-index-review",
+      "category": "data-ai"
+    },
+    {
+      "prompt": "check vector index performance",
+      "expected_skill": "data-ai.embedding-index-review",
+      "category": "data-ai"
+    },
+    {
+      "prompt": "similarity search quality review",
+      "expected_skill": "data-ai.embedding-index-review",
+      "category": "data-ai"
+    }
+  ]
+}

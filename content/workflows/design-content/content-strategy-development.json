@@ -1,0 +1,130 @@
+{
+  "id": "design-content.content-strategy-development",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Develop a comprehensive content strategy with audience analysis, content audit, editorial calendar, and governance.",
+  "task_family": "content_strategy",
+  "triggers": [
+    "develop content strategy",
+    "create content plan",
+    "build content strategy from scratch"
+  ],
+  "aliases": [
+    "content strategy plan",
+    "content planning",
+    "content strategy build"
+  ],
+  "negative_keywords": [
+    "code implementation",
+    "security audit",
+    "financial forecasting"
+  ],
+  "inputs": [
+    {
+      "name": "business_objectives",
+      "required": true
+    },
+    {
+      "name": "audience_segments",
+      "required": true
+    },
+    {
+      "name": "existing_content_inventory",
+      "required": false
+    },
+    {
+      "name": "competitive_landscape",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "content_strategy_document"
+    },
+    {
+      "name": "audience_analysis"
+    },
+    {
+      "name": "editorial_calendar"
+    },
+    {
+      "name": "governance_framework"
+    }
+  ],
+  "primary_agent": "design-content.content-strategist",
+  "route": {
+    "domain_master": "design-content.master",
+    "primary": "design-content.content-strategist",
+    "participants": [
+      "design-content.seo-writer",
+      "design-content.content-editor"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 8000,
+    "max_tool_calls": 15
+  },
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "on-task-complete"
+  ],
+  "steps": [
+    {
+      "id": "audience-analysis",
+      "summary": "Research and define audience segments, needs, and content preferences."
+    },
+    {
+      "id": "content-audit",
+      "summary": "Inventory and assess existing content for quality, relevance, and gaps."
+    },
+    {
+      "id": "competitive-analysis",
+      "summary": "Analyze competitor content strategies and identify opportunities."
+    },
+    {
+      "id": "strategy-definition",
+      "summary": "Define content pillars, messaging framework, and channel strategy."
+    },
+    {
+      "id": "editorial-calendar",
+      "summary": "Create publishing schedule with content types, owners, and timelines."
+    },
+    {
+      "id": "governance-setup",
+      "summary": "Establish content standards, review process, and measurement plan."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "filesystem.write",
+    "web.search"
+  ],
+  "verification": [
+    "audience_analysis_present",
+    "content_gaps_identified",
+    "editorial_calendar_has_owners",
+    "governance_framework_defined"
+  ],
+  "success_criteria": [
+    "Audience segments are researched and defined.",
+    "Content gaps and opportunities are identified.",
+    "Editorial calendar has clear owners and timelines.",
+    "Governance framework covers standards and review."
+  ],
+  "rollback": {
+    "mode": "file_revert",
+    "summary": "Revert strategy documents to previous state."
+  },
+  "source_references": [
+    "ref.workflow.design-content.content-strategy-development.2026-05-31"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

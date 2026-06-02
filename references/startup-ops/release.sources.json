@@ -1,0 +1,64 @@
+{
+  "dossier_id": "dossier.startup-ops.release.2026-06-01",
+  "agent_id": "startup-ops.release",
+  "domain": "startup-ops",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/garrytan/gstack",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "Release checklist, rollout, and rollback decision patterns",
+        "founder-grade slash-command role taxonomy"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/automazeio/ccpm",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "Release checklist, rollout, and rollback decision patterns",
+        "spec-driven GitHub Issues workflow"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/hardikpandya/stop-slop",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "Release checklist, rollout, and rollback decision patterns",
+        "AI-slop detection heuristics for customer-facing content"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/eyaltoledano/claude-task-master",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "Release checklist, rollout, and rollback decision patterns",
+        "task flow coordination and execution-loop patterns"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 0,
+    "github_quality": 96,
+    "license_safety": 95,
+    "maintenance": 92,
+    "pattern_clarity": 93,
+    "testability": 78,
+    "total": 91
+  },
+  "promotion_decision": "staging"
+}

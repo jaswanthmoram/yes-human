@@ -1,0 +1,152 @@
+{
+  "id": "startup-ops.pitch-deck-creation",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Create an investor-ready pitch deck with compelling narrative, data visualization, and structured storytelling.",
+  "task_family": "startup_ops",
+  "triggers": [
+    "create pitch deck",
+    "pitch deck creation",
+    "build investor deck",
+    "startup presentation"
+  ],
+  "aliases": [
+    "deck creation",
+    "pitch build"
+  ],
+  "negative_keywords": [
+    "sales collateral",
+    "product documentation",
+    "training material"
+  ],
+  "inputs": [
+    {
+      "name": "company_narrative",
+      "required": true,
+      "description": "The core company story, problem being solved, and vision."
+    },
+    {
+      "name": "metrics",
+      "required": true,
+      "description": "Key business metrics, traction data, and milestones."
+    },
+    {
+      "name": "target_investors",
+      "required": false,
+      "description": "Target investor profile or specific fund thesis."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "deck_outline",
+      "description": "Complete slide-by-slide deck outline with narrative flow."
+    },
+    {
+      "name": "data_visualizations",
+      "description": "Recommended charts and data presentations for key slides."
+    },
+    {
+      "name": "talking_points",
+      "description": "Speaker notes and talking points for each slide."
+    }
+  ],
+  "primary_agent": "startup-ops.pitch-deck-creator",
+  "route": {
+    "domain_master": "startup-ops.master",
+    "agents": [
+      "startup-ops.pitch-deck-creator",
+      "startup-ops.financial-modeler"
+    ],
+    "primary_agent": "startup-ops.pitch-deck-creator",
+    "participants": [
+      "startup-ops.startup-strategist"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 3
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 5000,
+    "max_tool_calls": 12
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is pitch deck creation, not sales collateral."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require company narrative and metrics before building deck."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Deck must follow problem-solution-traction-ask narrative structure."
+    }
+  ],
+  "steps": [
+    {
+      "id": "narrative-design",
+      "agent": "startup-ops.pitch-deck-creator",
+      "action": "Design narrative arc from problem through solution to ask."
+    },
+    {
+      "id": "data-preparation",
+      "agent": "startup-ops.financial-modeler",
+      "action": "Prepare financial metrics and projections for data slides."
+    },
+    {
+      "id": "slide-creation",
+      "agent": "startup-ops.pitch-deck-creator",
+      "action": "Create slide-by-slide outline with content and visual recommendations."
+    },
+    {
+      "id": "review-and-refine",
+      "agent": "startup-ops.startup-strategist",
+      "action": "Review deck for strategic coherence and investor-readiness."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read existing business documents, metrics, and prior analysis."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Save output documents and reports."
+    }
+  ],
+  "verification": [
+    {
+      "id": "narrative-flow",
+      "method": "Check deck follows problem-solution-traction-team-ask structure."
+    },
+    {
+      "id": "data-backed",
+      "method": "Check key claims are supported by metrics."
+    },
+    {
+      "id": "ask-clear",
+      "method": "Check the ask slide clearly states amount and use of funds."
+    }
+  ],
+  "success_criteria": [
+    "Deck follows proven pitch narrative structure.",
+    "All key claims are backed by data or evidence.",
+    "The ask is clear with specific amount and use of funds."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If outputs invent metrics or misrepresent findings, roll back to raw inputs."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/startup-ops/pitch-deck-creation.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "skill_id": "engineering.api-design",
+  "dossier_id": "dossier.skill.engineering.api-design.2026-06-01",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://restfulapi.net/",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["REST API design", "HTTP methods", "status codes"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/OAI/OpenAPI-Specification",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "3.1.0",
+      "used_for": ["OpenAPI specification", "API documentation"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://graphql.org/learn/",
+      "source_type": "official_docs",
+      "license": "MIT",
+      "version_or_commit": "2024",
+      "used_for": ["GraphQL schema design", "queries and mutations"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 3,
+    "github_quality": 90,
+    "license_safety": 95,
+    "maintenance": 92,
+    "pattern_clarity": 94,
+    "testability": 88,
+    "total": 92
+  },
+  "promotion_decision": "production"
+}

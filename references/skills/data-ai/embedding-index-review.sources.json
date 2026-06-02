@@ -1,0 +1,43 @@
+{
+  "skill_id": "data-ai.embedding-index-review",
+  "dossier_id": "dossier.skill.data-ai.embedding-index-review.2026-06-01",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://www.pinecone.io/learn/vector-similarity/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["vector similarity search", "index types"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/facebookresearch/faiss",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": ["FAISS vector index", "similarity search optimization"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://weaviate.io/developers/weaviate/concepts/vector-index",
+      "source_type": "vendor_docs",
+      "license": "BSD-3-Clause",
+      "version_or_commit": "2024",
+      "used_for": ["Weaviate vector index", "HNSW algorithm"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 1,
+    "github_quality": 92,
+    "license_safety": 90,
+    "maintenance": 91,
+    "pattern_clarity": 93,
+    "testability": 87,
+    "total": 90
+  },
+  "promotion_decision": "production"
+}

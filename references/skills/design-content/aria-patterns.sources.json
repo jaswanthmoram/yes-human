@@ -1,0 +1,14 @@
+{
+  "dossier_id": "dossier.skill.design-content.aria-patterns.2026-05-31",
+  "skill_id": "design-content.aria-patterns",
+  "domain": "design-content",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2027-05-31T00:00:00Z",
+  "sources": [
+    {"url": "https://www.w3.org/WAI/ARIA/apg/", "source_type": "official_docs", "license": "W3C Document License", "version_or_commit": "1.2", "used_for": ["ARIA authoring practices", "widget patterns"], "copy_policy": "patterns_only"},
+    {"url": "https://www.w3.org/TR/wai-aria-1.2/", "source_type": "official_docs", "license": "W3C Document License", "version_or_commit": "1.2", "used_for": ["ARIA specification", "roles and states"], "copy_policy": "patterns_only"},
+    {"url": "https://www.a11yproject.com/", "source_type": "vendor_docs", "license": "MIT", "version_or_commit": "2024", "used_for": ["a11y project patterns", "accessible widgets"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 3, "official_docs": 2, "github_quality": 80, "license_safety": 94, "maintenance": 92, "pattern_clarity": 94, "testability": 90, "total": 91},
+  "promotion_decision": "staging"
+}

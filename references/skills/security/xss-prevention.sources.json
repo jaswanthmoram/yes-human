@@ -1,0 +1,52 @@
+{
+  "dossier_id": "dossier.skill.security.xss-prevention.2026-06-01",
+  "skill_id": "security.xss-prevention",
+  "domain": "security",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html",
+      "source_type": "official_docs",
+      "license": "MIT",
+      "version_or_commit": "2024",
+      "used_for": ["XSS prevention patterns", "output encoding"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.w3.org/TR/CSP3/",
+      "source_type": "official_docs",
+      "license": "W3C",
+      "version_or_commit": "Level 3",
+      "used_for": ["Content Security Policy specification", "directives"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/cure53/DOMPurify",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "v3.0",
+      "used_for": ["DOM sanitization", "XSS prevention library"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://owasp.org/www-community/attacks/xss/",
+      "source_type": "official_docs",
+      "license": "CC BY-SA 4.0",
+      "version_or_commit": "2024",
+      "used_for": ["XSS attack types", "exploitation techniques"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 3,
+    "github_quality": 92,
+    "license_safety": 95,
+    "maintenance": 93,
+    "pattern_clarity": 94,
+    "testability": 91,
+    "total": 93
+  },
+  "promotion_decision": "staging"
+}

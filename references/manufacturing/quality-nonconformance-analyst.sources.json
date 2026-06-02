@@ -1,0 +1,53 @@
+{
+  "dossier_id": "dossier.manufacturing.quality-nonconformance-analyst.2026-06-01",
+  "agent_id": "manufacturing.quality-nonconformance-analyst",
+  "domain": "manufacturing",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/Inventoros/Inventoros",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "Quality failure, containment, and corrective-action workflow patterns",
+        "inventory management workflow reference"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/bryanadamg/terras-erp",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "Quality failure, containment, and corrective-action workflow patterns",
+        "ERP workflow patterns for inventory and production"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/Um9i/ERPv",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "Quality failure, containment, and corrective-action workflow patterns",
+        "ERP data-model patterns for BoM and production scheduling"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 0,
+    "github_quality": 82,
+    "license_safety": 95,
+    "maintenance": 78,
+    "pattern_clarity": 82,
+    "testability": 76,
+    "total": 82
+  },
+  "promotion_decision": "staging"
+}

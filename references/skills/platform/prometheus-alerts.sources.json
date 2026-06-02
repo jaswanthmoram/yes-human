@@ -1,0 +1,52 @@
+{
+  "dossier_id": "dossier.skill.platform.prometheus-alerts.2026-06-01",
+  "skill_id": "platform.prometheus-alerts",
+  "domain": "platform",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "v2.52",
+      "used_for": ["alerting rules", "PromQL expressions"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://prometheus.io/docs/alerting/latest/alertmanager/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "v0.27",
+      "used_for": ["alertmanager config", "routing"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://sre.google/sre-book/monitoring-distributed-systems/",
+      "source_type": "official_docs",
+      "license": "CC-BY-4.0",
+      "version_or_commit": "2024",
+      "used_for": ["SRE alerting practices", "alert philosophy"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://awesome-prometheus-alerts.grep.to/",
+      "source_type": "community",
+      "license": "MIT",
+      "version_or_commit": "2024",
+      "used_for": ["ready-made alerts", "alert examples"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 3,
+    "github_quality": 91,
+    "license_safety": 96,
+    "maintenance": 93,
+    "pattern_clarity": 94,
+    "testability": 89,
+    "total": 93
+  },
+  "promotion_decision": "staging"
+}

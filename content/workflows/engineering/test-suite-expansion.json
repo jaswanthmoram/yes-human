@@ -1,0 +1,132 @@
+{
+  "id": "engineering.test-suite-expansion",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Identify coverage gaps and add targeted tests to expand the test suite with meaningful assertions and edge case coverage.",
+  "task_family": "testing",
+  "triggers": [
+    "expand the test suite",
+    "add tests for this module",
+    "improve test coverage",
+    "fill in the test gaps",
+    "write missing tests for this area",
+    "increase coverage for this service"
+  ],
+  "aliases": [
+    "test coverage expansion",
+    "test suite growth",
+    "coverage improvement"
+  ],
+  "negative_keywords": [
+    "remove tests",
+    "skip tests",
+    "docs only"
+  ],
+  "inputs": [
+    {
+      "name": "target_module",
+      "required": true
+    },
+    {
+      "name": "coverage_report",
+      "required": false
+    },
+    {
+      "name": "test_framework",
+      "required": true
+    },
+    {
+      "name": "priority_areas",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "new_test_files"
+    },
+    {
+      "name": "coverage_delta"
+    },
+    {
+      "name": "gap_analysis"
+    }
+  ],
+  "primary_agent": "engineering.test-expander",
+  "route": {
+    "domain_master": "engineering.master",
+    "primary": "engineering.test-expander",
+    "participants": [],
+    "parallel": false,
+    "max_parallel_agents": 1
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 3200,
+    "max_tool_calls": 14
+  },
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "post-tool",
+    "on-task-complete"
+  ],
+  "steps": [
+    {
+      "id": "analyze-coverage",
+      "summary": "Run or ingest the coverage report and identify untested branches, functions, and edge cases."
+    },
+    {
+      "id": "prioritize-gaps",
+      "summary": "Rank gaps by risk and business impact to determine which tests to add first."
+    },
+    {
+      "id": "study-conventions",
+      "summary": "Inspect existing tests for patterns, helpers, mocking approach, and assertion style."
+    },
+    {
+      "id": "write-tests",
+      "summary": "Add tests for the prioritized gaps following project conventions and meaningful assertion patterns."
+    },
+    {
+      "id": "verify-coverage",
+      "summary": "Rerun the test suite and coverage tool to confirm the delta and that all new tests pass."
+    },
+    {
+      "id": "report-results",
+      "summary": "Summarize coverage improvement, remaining gaps, and any tests that were intentionally deferred."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "filesystem.write",
+    "test_runner",
+    "coverage_tool",
+    "lint_runner",
+    "diff_inspection"
+  ],
+  "verification": [
+    "all_new_tests_pass",
+    "coverage_increased",
+    "no_flaky_tests_introduced",
+    "lint_passes",
+    "assertions_are_meaningful"
+  ],
+  "success_criteria": [
+    "Coverage increases measurably for the target module.",
+    "New tests follow existing project conventions and patterns.",
+    "No flaky or always-passing tests are introduced.",
+    "Remaining gaps are documented with rationale for deferral."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "summary": "Remove newly added test files if they introduce failures or flakiness."
+  },
+  "source_references": [
+    "ref.workflow.engineering.test-suite-expansion.2026-06-01"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

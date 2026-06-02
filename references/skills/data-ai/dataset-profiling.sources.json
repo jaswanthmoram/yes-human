@@ -1,0 +1,43 @@
+{
+  "skill_id": "data-ai.dataset-profiling",
+  "dossier_id": "dossier.skill.data-ai.dataset-profiling.2026-06-01",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://pandas.pydata.org/docs/user_guide/10min.html",
+      "source_type": "official_docs",
+      "license": "BSD-3-Clause",
+      "version_or_commit": "v2.1",
+      "used_for": ["pandas data analysis", "profiling techniques"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/ydataai/ydata-profiling",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": ["automated data profiling", "quality reports"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://greatexpectations.io/",
+      "source_type": "vendor_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2024",
+      "used_for": ["data quality validation", "expectations framework"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 2,
+    "github_quality": 89,
+    "license_safety": 93,
+    "maintenance": 90,
+    "pattern_clarity": 92,
+    "testability": 88,
+    "total": 90
+  },
+  "promotion_decision": "production"
+}

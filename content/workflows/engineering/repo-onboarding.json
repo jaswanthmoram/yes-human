@@ -1,0 +1,104 @@
+{
+  "id": "engineering.repo-onboarding",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Build a practical mental model of an unfamiliar repository before making changes.",
+  "task_family": "onboarding",
+  "triggers": [
+    "get me oriented in this repo",
+    "understand this codebase before changes",
+    "map the architecture quickly"
+  ],
+  "aliases": [
+    "repo walkthrough",
+    "codebase onboarding",
+    "architecture orientation"
+  ],
+  "negative_keywords": [
+    "fix the failing build",
+    "write a PRD",
+    "security review"
+  ],
+  "inputs": [
+    {
+      "name": "repo_path",
+      "required": true
+    },
+    {
+      "name": "goal",
+      "required": true
+    },
+    {
+      "name": "known_entrypoints",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "architecture_overview"
+    },
+    {
+      "name": "key_modules"
+    },
+    {
+      "name": "risk_notes"
+    }
+  ],
+  "primary_agent": "engineering.architect",
+  "route": {
+    "domain_master": "engineering.master",
+    "primary": "engineering.architect",
+    "participants": [],
+    "parallel": false,
+    "max_parallel_agents": 1
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 4000,
+    "max_tool_calls": 10
+  },
+  "gates": [
+    "pre-route",
+    "pre-tool"
+  ],
+  "steps": [
+    {
+      "id": "scan-entrypoints",
+      "summary": "Read the repo root, build scripts, and main runtime entrypoints to locate the control flow."
+    },
+    {
+      "id": "map-structure",
+      "summary": "Group the main packages or directories by responsibility and note the important interfaces."
+    },
+    {
+      "id": "summarize-risks",
+      "summary": "Call out unclear ownership, validation gaps, and likely hotspots tied to the user goal."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "repo_tree_scan",
+    "search_index"
+  ],
+  "verification": [
+    "overview_cites_real_files",
+    "identified_modules_match_repo_layout"
+  ],
+  "success_criteria": [
+    "The overview names the real entrypoints and major modules.",
+    "The output helps choose a next change path.",
+    "Risk notes are grounded in observed files rather than guesses."
+  ],
+  "rollback": {
+    "mode": "no_write",
+    "summary": "Read-only workflow."
+  },
+  "source_references": [
+    "ref.workflow.engineering.repo-onboarding.2026-06-01"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

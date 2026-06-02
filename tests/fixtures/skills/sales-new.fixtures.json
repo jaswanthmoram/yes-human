@@ -1,0 +1,75 @@
+{
+  "fixtures": [
+    {"prompt": "qualify this inbound lead using MEDDIC", "expected_skill": "sales.sales-qualification", "category": "sales"},
+    {"prompt": "score this opportunity with BANT framework", "expected_skill": "sales.sales-qualification", "category": "sales"},
+    {"prompt": "design qualification criteria for SMB segment", "expected_skill": "sales.sales-qualification", "category": "sales"},
+
+    {"prompt": "design a discovery call for CFO persona", "expected_skill": "sales.discovery-calls", "category": "sales"},
+    {"prompt": "create discovery questions for enterprise IT buyer", "expected_skill": "sales.discovery-calls", "category": "sales"},
+    {"prompt": "build a discovery framework for SMB segment", "expected_skill": "sales.discovery-calls", "category": "sales"},
+
+    {"prompt": "design a demo for the enterprise security buyer", "expected_skill": "sales.product-demos", "category": "sales"},
+    {"prompt": "create a demo script for our analytics platform", "expected_skill": "sales.product-demos", "category": "sales"},
+    {"prompt": "plan a POC demo for this specific opportunity", "expected_skill": "sales.product-demos", "category": "sales"},
+
+    {"prompt": "create objection responses for pricing pushback", "expected_skill": "sales.objection-handling", "category": "sales"},
+    {"prompt": "build an objection playbook for competitor comparisons", "expected_skill": "sales.objection-handling", "category": "sales"},
+    {"prompt": "design objection handling for enterprise procurement", "expected_skill": "sales.objection-handling", "category": "sales"},
+
+    {"prompt": "design negotiation strategy for enterprise deal", "expected_skill": "sales.negotiation-tactics", "category": "sales"},
+    {"prompt": "create concession matrix for annual contracts", "expected_skill": "sales.negotiation-tactics", "category": "sales"},
+    {"prompt": "plan negotiation tactics for price-sensitive buyer", "expected_skill": "sales.negotiation-tactics", "category": "sales"},
+
+    {"prompt": "design a close plan for this enterprise deal", "expected_skill": "sales.closing-techniques", "category": "sales"},
+    {"prompt": "select closing technique for hesitant buyer", "expected_skill": "sales.closing-techniques", "category": "sales"},
+    {"prompt": "create urgency framework for Q4 pipeline", "expected_skill": "sales.closing-techniques", "category": "sales"},
+
+    {"prompt": "write a proposal for enterprise analytics deal", "expected_skill": "sales.proposal-writing", "category": "sales"},
+    {"prompt": "design proposal template for mid-market segment", "expected_skill": "sales.proposal-writing", "category": "sales"},
+    {"prompt": "structure an RFP response for government buyer", "expected_skill": "sales.proposal-writing", "category": "sales"},
+
+    {"prompt": "review this contract draft for commercial risks", "expected_skill": "sales.contract-review", "category": "sales"},
+    {"prompt": "check these terms against our standard playbook", "expected_skill": "sales.contract-review", "category": "sales"},
+    {"prompt": "flag non-standard terms in this enterprise agreement", "expected_skill": "sales.contract-review", "category": "sales"},
+
+    {"prompt": "design CRM workflow for enterprise sales process", "expected_skill": "sales.crm-management", "category": "sales"},
+    {"prompt": "audit CRM configuration for data quality issues", "expected_skill": "sales.crm-management", "category": "sales"},
+    {"prompt": "create CRM reporting structure for VP of Sales", "expected_skill": "sales.crm-management", "category": "sales"},
+
+    {"prompt": "design pipeline stages for enterprise sales motion", "expected_skill": "sales.pipeline-management", "category": "sales"},
+    {"prompt": "set up pipeline hygiene rules for weekly review", "expected_skill": "sales.pipeline-management", "category": "sales"},
+    {"prompt": "align pipeline data with commit best-case forecast", "expected_skill": "sales.pipeline-management", "category": "sales"},
+
+    {"prompt": "build Q3 sales forecast from current pipeline", "expected_skill": "sales.sales-forecasting", "category": "sales"},
+    {"prompt": "design forecast methodology for new sales team", "expected_skill": "sales.sales-forecasting", "category": "sales"},
+    {"prompt": "analyze forecast accuracy for last quarter", "expected_skill": "sales.sales-forecasting", "category": "sales"},
+
+    {"prompt": "design territory plan for West Coast enterprise team", "expected_skill": "sales.territory-planning", "category": "sales"},
+    {"prompt": "review territory assignments for balance issues", "expected_skill": "sales.territory-planning", "category": "sales"},
+    {"prompt": "create coverage model for SMB segment", "expected_skill": "sales.territory-planning", "category": "sales"},
+
+    {"prompt": "create account plan for top enterprise customer", "expected_skill": "sales.account-planning", "category": "sales"},
+    {"prompt": "map stakeholder relationships for strategic account", "expected_skill": "sales.account-planning", "category": "sales"},
+    {"prompt": "identify expansion opportunities in key accounts", "expected_skill": "sales.account-planning", "category": "sales"},
+
+    {"prompt": "create battle card for Competitor X", "expected_skill": "sales.competitive-selling", "category": "sales"},
+    {"prompt": "develop competitive positioning for enterprise deals", "expected_skill": "sales.competitive-selling", "category": "sales"},
+    {"prompt": "analyze win loss data against Competitor Y", "expected_skill": "sales.competitive-selling", "category": "sales"},
+
+    {"prompt": "build business case for enterprise analytics deal", "expected_skill": "sales.value-selling", "category": "sales"},
+    {"prompt": "create ROI model for cost savings proposition", "expected_skill": "sales.value-selling", "category": "sales"},
+    {"prompt": "quantify value for productivity improvement pitch", "expected_skill": "sales.value-selling", "category": "sales"},
+
+    {"prompt": "design solution selling approach for manufacturing buyer", "expected_skill": "sales.solution-selling", "category": "sales"},
+    {"prompt": "create needs analysis framework for enterprise deals", "expected_skill": "sales.solution-selling", "category": "sales"},
+    {"prompt": "map our platform capabilities to healthcare pain points", "expected_skill": "sales.solution-selling", "category": "sales"},
+
+    {"prompt": "analyze Q2 sales performance by segment", "expected_skill": "sales.sales-analytics", "category": "sales"},
+    {"prompt": "build sales metrics dashboard for leadership", "expected_skill": "sales.sales-analytics", "category": "sales"},
+    {"prompt": "review rep productivity against team benchmarks", "expected_skill": "sales.sales-analytics", "category": "sales"},
+
+    {"prompt": "design weekly sales report for VP of Sales", "expected_skill": "sales.sales-reporting", "category": "sales"},
+    {"prompt": "create pipeline dashboard for sales managers", "expected_skill": "sales.sales-reporting", "category": "sales"},
+    {"prompt": "define KPIs for quarterly business review", "expected_skill": "sales.sales-reporting", "category": "sales"}
+  ]
+}

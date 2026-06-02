@@ -1,0 +1,66 @@
+{
+  "domain": "product-business-specialists",
+  "description": "Routing fixtures for Wave-4 Product Business specialists.",
+  "fixtures": [
+    {
+      "prompt": "build the prd",
+      "expected_route": "route.product-business.product-manager"
+    },
+    {
+      "prompt": "product requirement draft",
+      "expected_route": "route.product-business.product-manager"
+    },
+    {
+      "prompt": "roadmap tradeoff memo",
+      "expected_route": "route.product-business.product-manager"
+    },
+    {
+      "prompt": "acceptance criteria pack",
+      "expected_route": "route.product-business.product-manager"
+    },
+    {
+      "prompt": "feature scope decision",
+      "expected_route": "route.product-business.product-manager"
+    },
+    {
+      "prompt": "operating plan build",
+      "expected_route": "route.product-business.operations-planner"
+    },
+    {
+      "prompt": "runbook design",
+      "expected_route": "route.product-business.operations-planner"
+    },
+    {
+      "prompt": "rollout dependency map",
+      "expected_route": "route.product-business.operations-planner"
+    },
+    {
+      "prompt": "handoff checklist plan",
+      "expected_route": "route.product-business.operations-planner"
+    },
+    {
+      "prompt": "operating cadence memo",
+      "expected_route": "route.product-business.operations-planner"
+    },
+    {
+      "prompt": "customer success motion",
+      "expected_route": "route.product-business.customer-success-advisor"
+    },
+    {
+      "prompt": "onboarding success plan",
+      "expected_route": "route.product-business.customer-success-advisor"
+    },
+    {
+      "prompt": "churn risk review",
+      "expected_route": "route.product-business.customer-success-advisor"
+    },
+    {
+      "prompt": "account health playbook",
+      "expected_route": "route.product-business.customer-success-advisor"
+    },
+    {
+      "prompt": "support escalation map",
+      "expected_route": "route.product-business.customer-success-advisor"
+    }
+  ]
+}

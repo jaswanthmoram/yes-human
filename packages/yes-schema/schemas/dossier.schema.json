@@ -19,7 +19,7 @@
         "required": ["url", "source_type", "license", "version_or_commit", "used_for", "copy_policy"],
         "properties": {
           "url": { "type": "string", "format": "uri" },
-          "source_type": { "type": "string", "enum": ["github_repo", "official_docs", "standards_doc", "research_paper", "vendor_docs", "technical_blog"] },
+          "source_type": { "type": "string", "enum": ["github_repo", "official_docs", "official_blog", "official_book", "official_course", "official_specs", "standards_doc", "research_paper", "vendor_docs", "technical_blog"] },
           "license": { "type": "string" },
           "version_or_commit": { "type": "string" },
           "used_for": {

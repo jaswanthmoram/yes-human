@@ -1,0 +1,181 @@
+{
+  "id": "platform.incident-response-playbook",
+  "version": "1.0.0",
+  "status": "active",
+  "name": "Incident Response Playbook",
+  "description": "Execute a structured incident response workflow from detection through triage, mitigation, communication, and post-mortem.",
+  "task_family": "incident_management",
+  "triggers": [
+    "incident response playbook",
+    "production incident workflow",
+    "execute incident response",
+    "service outage response",
+    "incident triage and mitigation",
+    "run incident playbook"
+  ],
+  "aliases": [
+    "incident response",
+    "outage playbook",
+    "incident workflow"
+  ],
+  "negative_keywords": [
+    "feature development",
+    "capacity planning",
+    "monitoring setup",
+    "deployment pipeline"
+  ],
+  "inputs": [
+    {
+      "name": "incident_signal",
+      "required": true,
+      "description": "Alert payload, error logs, or user report describing the incident."
+    },
+    {
+      "name": "affected_services",
+      "required": true,
+      "description": "List of services, endpoints, or infrastructure components impacted."
+    },
+    {
+      "name": "severity_classification",
+      "required": false,
+      "description": "Pre-assessed severity level (SEV1-SEV4) or criteria for classification."
+    },
+    {
+      "name": "communication_channels",
+      "required": false,
+      "description": "Stakeholder notification targets and status page integration."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "triage_summary",
+      "description": "Incident classification, blast radius, and initial severity assessment."
+    },
+    {
+      "name": "mitigation_actions",
+      "description": "Immediate containment steps taken to reduce impact."
+    },
+    {
+      "name": "communication_log",
+      "description": "Timestamped stakeholder updates and status page entries."
+    },
+    {
+      "name": "post_mortem_draft",
+      "description": "Timeline, root cause hypothesis, impact assessment, and action items."
+    }
+  ],
+  "primary_agent": "platform.incident-responder",
+  "participants": [
+    "platform.sre-engineer",
+    "platform.devops-engineer",
+    "platform.security-engineer"
+  ],
+  "skills": [
+    "incident-management",
+    "log-analysis",
+    "runbook-execution",
+    "stakeholder-communication"
+  ],
+  "budget_band": "standard",
+  "max_context_tokens": 3200,
+  "max_tool_calls": 10,
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is active incident response, not proactive monitoring setup or capacity planning."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Classify severity and confirm affected services before executing any mitigation action."
+    },
+    {
+      "id": "post-tool",
+      "rule": "Verify each mitigation action reduced impact metrics before proceeding."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Return triage summary, mitigation log, communication record, and post-mortem draft."
+    }
+  ],
+  "steps": [
+    {
+      "id": "detect-and-classify",
+      "agent": "platform.incident-responder",
+      "description": "Analyze incident signal, classify severity, and determine blast radius across affected services."
+    },
+    {
+      "id": "assemble-response-team",
+      "agent": "platform.incident-responder",
+      "description": "Page on-call engineers, assign incident commander, and open a war room or bridge."
+    },
+    {
+      "id": "execute-mitigation",
+      "agent": "platform.sre-engineer",
+      "description": "Apply immediate containment actions such as rollbacks, traffic shifts, or circuit breakers."
+    },
+    {
+      "id": "communicate-status",
+      "agent": "platform.incident-responder",
+      "description": "Send stakeholder updates via configured channels and update the status page."
+    },
+    {
+      "id": "investigate-root-cause",
+      "agent": "platform.devops-engineer",
+      "description": "Analyze logs, metrics, and recent changes to identify the root cause hypothesis."
+    },
+    {
+      "id": "draft-post-mortem",
+      "agent": "platform.incident-responder",
+      "description": "Compile incident timeline, impact assessment, root cause, and corrective action items."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read runbooks, incident templates, and service dependency maps."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Write triage notes, communication logs, and post-mortem documents."
+    },
+    {
+      "name": "shell.exec",
+      "purpose": "Execute rollback commands, health checks, and diagnostic queries."
+    }
+  ],
+  "verification": [
+    {
+      "id": "severity-classified",
+      "method": "Incident has a documented severity level and blast radius within 10 minutes of detection."
+    },
+    {
+      "id": "mitigation-effective",
+      "method": "Key impact metrics show improvement within 30 minutes of mitigation."
+    },
+    {
+      "id": "stakeholders-notified",
+      "method": "Communication log shows updates sent at defined intervals."
+    },
+    {
+      "id": "post-mortem-complete",
+      "method": "Post-mortem draft includes timeline, root cause, impact, and at least 3 action items."
+    }
+  ],
+  "success_criteria": [
+    "Incident is classified and response team assembled within SLA.",
+    "Mitigation actions reduce measurable impact.",
+    "Stakeholders receive timely updates throughout the incident.",
+    "Post-mortem is drafted within 24 hours with actionable items."
+  ],
+  "rollback": {
+    "mode": "mitigation_reversal",
+    "when": "If a mitigation action worsens the incident, reverse it and escalate to the next containment strategy."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/platform/incident-response-playbook.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "quality_gate": "staging"
+}

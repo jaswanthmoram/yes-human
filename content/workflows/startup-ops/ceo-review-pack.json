@@ -1,0 +1,58 @@
+{
+  "id": "startup-ops.ceo-review-pack",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Assemble a structured CEO review or office-hours decision pack with priorities, blockers, and recommended decisions.",
+  "task_family": "executive_review",
+  "triggers": ["ceo review pack", "office hours prep", "founder decision brief", "executive review summary", "startup ops review"],
+  "aliases": ["ceo review", "office hours pack"],
+  "negative_keywords": ["code review", "financial forecast", "contract review"],
+  "inputs": [
+    {"name": "review_scope", "required": true, "description": "Topics, decisions, or updates to cover in the review."},
+    {"name": "blockers_and_risks", "required": true, "description": "Known blockers, risks, or open questions requiring executive input."},
+    {"name": "metrics_snapshot", "required": false, "description": "Key metrics, KPIs, or progress indicators for the review period."}
+  ],
+  "outputs": [
+    {"name": "decision_pack", "description": "Prioritized list of decisions needed with recommended actions."},
+    {"name": "blocker_summary", "description": "Blockers with owners, severity, and proposed unblocking steps."},
+    {"name": "review_notes", "description": "Contextual notes and metrics for the review session."}
+  ],
+  "primary_agent": "startup-ops.ceo-rethink",
+  "route": {
+    "domain_master": "startup-ops.master",
+    "agents": ["startup-ops.ceo-rethink", "startup-ops.qa"],
+    "primary_agent": "startup-ops.ceo-rethink",
+    "participants": ["startup-ops.qa"],
+    "parallel": false,
+    "max_parallel_agents": 2
+  },
+  "budget": {"band": "standard", "max_context_tokens": 3000, "max_tool_calls": 8},
+  "gates": [
+    {"id": "pre-route", "rule": "Confirm the task is executive review support, not financial forecasting or legal review."},
+    {"id": "pre-tool", "rule": "Require scope and blockers before assembling the pack."},
+    {"id": "on-task-complete", "rule": "Output must be concise enough for a 30-minute review session."}
+  ],
+  "steps": [
+    {"id": "scope-review", "agent": "startup-ops.ceo-rethink", "action": "Organize topics into decisions-needed, updates, and discussion items."},
+    {"id": "assess-blockers", "agent": "startup-ops.ceo-rethink", "action": "Rank blockers by severity and assign proposed owners and unblocking actions."},
+    {"id": "quality-check", "agent": "startup-ops.qa", "action": "Verify the pack is complete, concise, and free of stale or duplicated items."},
+    {"id": "assemble-pack", "agent": "startup-ops.ceo-rethink", "action": "Merge decisions, blockers, and metrics into a single review document."}
+  ],
+  "tools": [
+    {"name": "filesystem.read", "purpose": "Read status updates, metrics exports, and prior review notes."},
+    {"name": "filesystem.write", "purpose": "Save the assembled review pack."}
+  ],
+  "verification": [
+    {"id": "decisions-prioritized", "method": "Check that decisions are ranked by urgency with recommended actions."},
+    {"id": "blockers-have-owners", "method": "Check each blocker has a named owner and proposed next step."},
+    {"id": "pack-is-concise", "method": "Check the pack fits a 30-minute review window."}
+  ],
+  "success_criteria": [
+    "The pack separates decisions-needed from status updates.",
+    "Every blocker has an owner and a proposed unblocking step.",
+    "The output is concise enough for executive consumption without further editing."
+  ],
+  "rollback": {"mode": "trace_based", "when": "If the pack invents metrics or misrepresents blocker status, roll back to raw inputs."},
+  "source_references": [{"dossier_path": "references/workflows/startup-ops/ceo-review-pack.sources.json", "relationship": "workflow_dossier"}],
+  "promotion": {"can_learn": true, "min_successes_before_update": 2, "quality_gate": "staging"}
+}

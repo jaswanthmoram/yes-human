@@ -1,0 +1,15 @@
+{
+  "dossier_id": "dossier.skill.healthcare.fda-regulations.2026-06-01",
+  "skill_id": "healthcare.fda-regulations",
+  "domain": "healthcare",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {"url": "https://www.fda.gov/medical-devices/device-advice-comprehensive-regulatory-assistance", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["FDA device regulatory pathways"], "copy_policy": "patterns_only"},
+    {"url": "https://www.fda.gov/drugs/guidance-compliance-regulatory-information", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["Drug approval processes"], "copy_policy": "patterns_only"},
+    {"url": "https://www.ecfr.gov/current/title-21", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["21 CFR full regulatory text"], "copy_policy": "patterns_only"},
+    {"url": "https://www.fda.gov/medical-devices/software-medical-device-samd", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["Software as Medical Device guidance"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 4, "official_docs": 4, "github_quality": 0, "license_safety": 98, "maintenance": 95, "pattern_clarity": 89, "testability": 82, "total": 88},
+  "promotion_decision": "staging"
+}

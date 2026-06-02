@@ -1,0 +1,157 @@
+{
+  "id": "startup-ops.business-model-validation",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Validate a startup business model through Lean Canvas creation, customer discovery, market sizing, and financial viability assessment.",
+  "task_family": "startup_ops",
+  "triggers": [
+    "validate business model",
+    "business model validation",
+    "test business hypothesis",
+    "validate startup idea"
+  ],
+  "aliases": [
+    "biz model validation",
+    "model validation"
+  ],
+  "negative_keywords": [
+    "enterprise business case",
+    "government procurement"
+  ],
+  "inputs": [
+    {
+      "name": "business_hypothesis",
+      "required": true,
+      "description": "The core business hypothesis to validate."
+    },
+    {
+      "name": "target_customer",
+      "required": true,
+      "description": "Description of the target customer segment."
+    },
+    {
+      "name": "market_data",
+      "required": false,
+      "description": "Available market data, competitive info, or early traction metrics."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "lean_canvas",
+      "description": "Completed Lean Canvas with validated hypotheses."
+    },
+    {
+      "name": "validation_report",
+      "description": "Summary of validation findings with go/no-go recommendation."
+    },
+    {
+      "name": "next_steps",
+      "description": "Prioritized list of next validation activities."
+    }
+  ],
+  "primary_agent": "startup-ops.business-model-designer",
+  "route": {
+    "domain_master": "startup-ops.master",
+    "agents": [
+      "startup-ops.business-model-designer",
+      "startup-ops.customer-development",
+      "startup-ops.market-validation"
+    ],
+    "primary_agent": "startup-ops.business-model-designer",
+    "participants": [
+      "startup-ops.financial-modeler"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 3
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 5000,
+    "max_tool_calls": 12
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is business model validation, not product feature design."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require business hypothesis and target customer before proceeding."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Output must include a clear go/no-go recommendation with evidence."
+    }
+  ],
+  "steps": [
+    {
+      "id": "canvas-creation",
+      "agent": "startup-ops.business-model-designer",
+      "action": "Create Lean Canvas from business hypothesis and initial assumptions."
+    },
+    {
+      "id": "customer-discovery",
+      "agent": "startup-ops.customer-development",
+      "action": "Design customer interview plan to test problem-solution fit."
+    },
+    {
+      "id": "market-sizing",
+      "agent": "startup-ops.market-validation",
+      "action": "Calculate TAM/SAM/SOM and map competitive landscape."
+    },
+    {
+      "id": "financial-viability",
+      "agent": "startup-ops.financial-modeler",
+      "action": "Assess unit economics and financial viability of the model."
+    },
+    {
+      "id": "synthesis",
+      "agent": "startup-ops.business-model-designer",
+      "action": "Synthesize findings into validation report with recommendation."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read existing business documents, metrics, and prior analysis."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Save output documents and reports."
+    }
+  ],
+  "verification": [
+    {
+      "id": "canvas-complete",
+      "method": "Check Lean Canvas has all sections filled with evidence."
+    },
+    {
+      "id": "customer-evidence",
+      "method": "Check that customer discovery findings are cited."
+    },
+    {
+      "id": "recommendation-clear",
+      "method": "Check go/no-go recommendation is evidence-based."
+    }
+  ],
+  "success_criteria": [
+    "Lean Canvas is complete with evidence-backed entries.",
+    "Customer discovery findings support or refute key hypotheses.",
+    "Market sizing provides realistic opportunity assessment."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If outputs invent metrics or misrepresent findings, roll back to raw inputs."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/startup-ops/business-model-validation.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

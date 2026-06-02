@@ -1,0 +1,14 @@
+{
+  "dossier_id": "dossier.skill.design-content.animation-timing.2026-05-31",
+  "skill_id": "design-content.animation-timing",
+  "domain": "design-content",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2027-05-31T00:00:00Z",
+  "sources": [
+    {"url": "https://m3.material.io/styles/motion/easing-and-duration/tokens-and-values", "source_type": "official_docs", "license": "Apache-2.0", "version_or_commit": "2024", "used_for": ["Material Design timing tokens", "easing curves"], "copy_policy": "patterns_only"},
+    {"url": "https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function", "source_type": "official_docs", "license": "CC-BY-SA-2.5", "version_or_commit": "2024", "used_for": ["CSS easing functions", "timing specifications"], "copy_policy": "patterns_only"},
+    {"url": "https://www.joshwcomeau.com/animation/css-transitions/", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["CSS animation timing", "practical examples"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 3, "official_docs": 2, "github_quality": 80, "license_safety": 92, "maintenance": 90, "pattern_clarity": 93, "testability": 88, "total": 90},
+  "promotion_decision": "staging"
+}

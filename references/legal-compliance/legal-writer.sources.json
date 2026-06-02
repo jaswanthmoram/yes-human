@@ -1,0 +1,64 @@
+{
+  "dossier_id": "dossier.legal-compliance.legal-writer.2026-06-01",
+  "agent_id": "legal-compliance.legal-writer",
+  "domain": "legal-compliance",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/open-agreements/open-agreements",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "Legal Writer workflow patterns",
+        "clause taxonomy and templates"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/DrBaher/nda-review-cli",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "Legal Writer workflow patterns",
+        "document classification"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/outline/outline",
+      "source_type": "github_repo",
+      "license": "BSD-3-Clause",
+      "version_or_commit": "main",
+      "used_for": [
+        "Legal Writer workflow patterns",
+        "review process structures"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/OWASP/CheatSheetSeries",
+      "source_type": "github_repo",
+      "license": "CC0-1.0",
+      "version_or_commit": "master",
+      "used_for": [
+        "Legal Writer workflow patterns",
+        "review checklists"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 0,
+    "github_quality": 88,
+    "license_safety": 95,
+    "maintenance": 85,
+    "pattern_clarity": 85,
+    "testability": 80,
+    "total": 86
+  },
+  "promotion_decision": "staging"
+}

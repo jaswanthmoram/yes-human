@@ -3107,6 +3107,12 @@ That combination is the product.
 - create category packs
 - run routing tests
 
+Implementation status on 2026-06-01:
+
+- Wave 4 specialist coverage is complete on the 74-agent baseline.
+- Wave 5 workflow expansion is complete with canonical workflows, workflow dossiers, workflow eval fixtures, and generated category packs.
+- Core adapters (CLI, Codex, Claude, OpenCode, MCP) were completed earlier; optional adapter packs remain out of scope for this phase.
+
 ---
 
 ## 24. Acceptance criteria

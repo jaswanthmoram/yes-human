@@ -1,0 +1,174 @@
+{
+  "id": "meta-system.skill-development",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "End-to-end workflow for developing new skills with proper authoring, validation, dossier creation, and fixture generation.",
+  "task_family": "skill_lifecycle",
+  "triggers": [
+    "develop new skill",
+    "skill development workflow",
+    "create skill definition",
+    "skill lifecycle start"
+  ],
+  "aliases": [
+    "skill creation",
+    "new skill development"
+  ],
+  "negative_keywords": [
+    "modify existing skill",
+    "delete skill",
+    "agent creation"
+  ],
+  "inputs": [
+    {
+      "name": "skill_requirement",
+      "required": true,
+      "description": "The requirement specification for the new skill."
+    },
+    {
+      "name": "domain_context",
+      "required": true,
+      "description": "Domain context and existing skills in the target domain."
+    },
+    {
+      "name": "dossier_sources",
+      "required": false,
+      "description": "Sources to build the skill dossier from."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "skill_specification",
+      "description": "Complete skill specification in SKILL.md format."
+    },
+    {
+      "name": "skill_dossier",
+      "description": "Dossier with source provenance and quality score."
+    },
+    {
+      "name": "skill_fixtures",
+      "description": "Test fixtures for the new skill."
+    }
+  ],
+  "primary_agent": "meta-system.skill-designer",
+  "route": {
+    "domain_master": "meta-system.master",
+    "agents": [
+      "meta-system.skill-designer",
+      "meta-system.system-architect",
+      "meta-system.fixture-engineer",
+      "meta-system.dossier-evaluator"
+    ],
+    "primary_agent": "meta-system.skill-designer",
+    "participants": [
+      "meta-system.system-architect",
+      "meta-system.fixture-engineer",
+      "meta-system.dossier-evaluator"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 4000,
+    "max_tool_calls": 12,
+    "notes": "Stay focused on skill development lifecycle only."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is new skill development, not modification or deletion."
+    },
+    {
+      "id": "pre-design",
+      "rule": "Require skill requirement and domain context before authoring begins."
+    },
+    {
+      "id": "post-design",
+      "rule": "Skill specification must pass format and content validation."
+    },
+    {
+      "id": "post-dossier",
+      "rule": "Dossier score must be >= 80 before promotion to staging."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Return skill spec, dossier, and fixtures with all gates passed."
+    }
+  ],
+  "steps": [
+    {
+      "id": "author-skill",
+      "agent": "meta-system.skill-designer",
+      "action": "Author the skill specification with triggers, steps, quality gates, and handoffs."
+    },
+    {
+      "id": "review-architecture",
+      "agent": "meta-system.system-architect",
+      "action": "Review the skill design for architectural fit and system impact."
+    },
+    {
+      "id": "build-dossier",
+      "agent": "meta-system.dossier-evaluator",
+      "action": "Evaluate or create the skill dossier with source provenance."
+    },
+    {
+      "id": "generate-fixtures",
+      "agent": "meta-system.fixture-engineer",
+      "action": "Generate test fixtures for the new skill (3 fixtures minimum)."
+    },
+    {
+      "id": "validate-skill",
+      "agent": "meta-system.skill-designer",
+      "action": "Run final validation on the complete skill package."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read existing skills, registry data, and source materials."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Write skill specification, dossier, and fixture files."
+    },
+    {
+      "name": "shell.readonly",
+      "purpose": "Run validation scripts during skill development."
+    }
+  ],
+  "verification": [
+    {
+      "id": "spec-complete",
+      "method": "Check skill specification has all required frontmatter fields and content sections."
+    },
+    {
+      "id": "dossier-score",
+      "method": "Verify dossier score is >= 80."
+    },
+    {
+      "id": "fixtures-present",
+      "method": "Check test fixtures exist for the new skill (minimum 3)."
+    }
+  ],
+  "success_criteria": [
+    "Skill specification passes format and content validation.",
+    "Dossier score is >= 80 with complete provenance.",
+    "Test fixtures cover trigger scenarios and edge cases."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If any gate fails, revert to the step before the failure and report the issue."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/meta-system/skill-development.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

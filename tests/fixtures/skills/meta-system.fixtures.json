@@ -1,0 +1,49 @@
+{
+  "fixtures": [
+    {
+      "prompt": "write test fixtures for skill evaluation",
+      "expected_skill": "meta-system.fixture-writing",
+      "category": "meta-system"
+    },
+    {
+      "prompt": "create routing test fixtures for eval",
+      "expected_skill": "meta-system.fixture-writing",
+      "category": "meta-system"
+    },
+    {
+      "prompt": "add workflow test fixtures for testing",
+      "expected_skill": "meta-system.fixture-writing",
+      "category": "meta-system"
+    },
+    {
+      "prompt": "evaluate routing accuracy with fixtures",
+      "expected_skill": "meta-system.route-evaluation",
+      "category": "meta-system"
+    },
+    {
+      "prompt": "test routing accuracy with test cases",
+      "expected_skill": "meta-system.route-evaluation",
+      "category": "meta-system"
+    },
+    {
+      "prompt": "run route evaluation script",
+      "expected_skill": "meta-system.route-evaluation",
+      "category": "meta-system"
+    },
+    {
+      "prompt": "absorb this agent from GitHub",
+      "expected_skill": "meta-system.agent-absorption",
+      "category": "meta-system"
+    },
+    {
+      "prompt": "import agent from repository",
+      "expected_skill": "meta-system.agent-absorption",
+      "category": "meta-system"
+    },
+    {
+      "prompt": "integrate external plugin",
+      "expected_skill": "meta-system.agent-absorption",
+      "category": "meta-system"
+    }
+  ]
+}

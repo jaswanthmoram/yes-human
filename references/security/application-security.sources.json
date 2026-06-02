@@ -1,0 +1,64 @@
+{
+  "dossier_id": "dossier.security.application-security.2026-05-31",
+  "agent_id": "security.application-security",
+  "domain": "security",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2026-08-29T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://owasp.org/www-project-application-security-verification-standard/",
+      "source_type": "official_docs",
+      "license": "CC-BY-SA-4.0",
+      "version_or_commit": "v4.0",
+      "used_for": ["OWASP ASVS requirements", "application security verification levels"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/OWASP/API-Security",
+      "source_type": "github_repo",
+      "license": "CC-BY-SA-4.0",
+      "version_or_commit": "main",
+      "stars": 3800,
+      "used_for": ["OWASP API Security Top 10", "API attack vector taxonomy"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/OWASP/CheatSheetSeries",
+      "source_type": "github_repo",
+      "license": "CC0-1.0",
+      "version_or_commit": "master",
+      "stars": 28500,
+      "used_for": ["input validation patterns", "session management cheat sheets"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/zaproxy/zaproxy",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "stars": 13500,
+      "used_for": ["DAST scanning patterns", "application security testing automation"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/PortSwigger/burp-extensions-montoya-api",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "stars": 850,
+      "used_for": ["security testing extension patterns", "proxy-based analysis"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 5,
+    "official_docs": 1,
+    "github_quality": 93,
+    "license_safety": 95,
+    "maintenance": 91,
+    "pattern_clarity": 94,
+    "testability": 88,
+    "total": 92
+  },
+  "promotion_decision": "staging"
+}

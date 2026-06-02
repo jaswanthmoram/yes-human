@@ -1,0 +1,13 @@
+{
+  "dossier_id": "dossier.skill.finance.tax-planning.2026-05-31",
+  "skill_id": "finance.tax-planning",
+  "domain": "finance",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2027-05-31T00:00:00Z",
+  "sources": [
+    {"url": "https://www.cfainstitute.org/en/research", "source_type": "professional_body", "license": "Proprietary", "version_or_commit": "live", "used_for": ["Tax planning analysis and strategy", "finance skill frameworks"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/actualbudget/actual", "source_type": "github_repo", "license": "MIT", "version_or_commit": "master", "used_for": ["finance skill patterns", "analysis and planning structures"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 2, "official_docs": 0, "github_quality": 86, "license_safety": 88, "maintenance": 82, "pattern_clarity": 84, "testability": 76, "total": 86},
+  "promotion_decision": "staging"
+}

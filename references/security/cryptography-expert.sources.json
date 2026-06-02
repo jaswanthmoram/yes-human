@@ -1,0 +1,54 @@
+{
+  "dossier_id": "dossier.security.cryptography-expert.2026-05-31",
+  "agent_id": "security.cryptography-expert",
+  "domain": "security",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2026-08-29T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "Rev 5",
+      "used_for": ["NIST key management recommendations", "algorithm lifecycle guidance"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/openssl/openssl",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "master",
+      "stars": 26500,
+      "used_for": ["TLS implementation patterns", "cryptographic library usage"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/pyca/cryptography",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "stars": 6200,
+      "used_for": ["cryptography library patterns", "secure implementation examples"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://csrc.nist.gov/publications/detail/sp/800-131a/rev-2/final",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "Rev 2",
+      "used_for": ["transitioning cryptographic algorithms", "deprecation timelines"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 2,
+    "github_quality": 93,
+    "license_safety": 97,
+    "maintenance": 92,
+    "pattern_clarity": 91,
+    "testability": 84,
+    "total": 91
+  },
+  "promotion_decision": "staging"
+}

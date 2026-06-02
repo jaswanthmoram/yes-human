@@ -1,0 +1,14 @@
+{
+  "dossier_id": "dossier.design-content.seo-writer.2026-05-31",
+  "agent_id": "design-content.seo-writer",
+  "domain": "design-content",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {"url": "https://developers.google.com/search/docs", "source_type": "official_docs", "license": "Apache-2.0", "version_or_commit": "2024", "used_for": ["Google Search Central", "SEO documentation"], "copy_policy": "patterns_only"},
+    {"url": "https://moz.com/learn/seo", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["Moz SEO learning center", "SEO best practices"], "copy_policy": "patterns_only"},
+    {"url": "https://ahrefs.com/academy", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["Ahrefs SEO academy", "content optimization"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 3, "official_docs": 1, "github_quality": 70, "license_safety": 88, "maintenance": 90, "pattern_clarity": 92, "testability": 85, "total": 86},
+  "promotion_decision": "staging"
+}

@@ -1,0 +1,15 @@
+{
+  "dossier_id": "dossier.skill.design-content.component-libraries.2026-05-31",
+  "skill_id": "design-content.component-libraries",
+  "domain": "design-content",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2027-05-31T00:00:00Z",
+  "sources": [
+    {"url": "https://storybook.js.org/docs", "source_type": "official_docs", "license": "MIT", "version_or_commit": "2024", "used_for": ["Storybook documentation", "component development"], "copy_policy": "patterns_only"},
+    {"url": "https://www.radix-ui.com/primitives", "source_type": "official_docs", "license": "MIT", "version_or_commit": "2024", "used_for": ["Radix UI primitives", "accessible components"], "copy_policy": "patterns_only"},
+    {"url": "https://ui.shadcn.com/", "source_type": "official_docs", "license": "MIT", "version_or_commit": "2024", "used_for": ["shadcn/ui patterns", "component composition"], "copy_policy": "patterns_only"},
+    {"url": "https://react-spectrum.adobe.com/react-aria/", "source_type": "official_docs", "license": "Apache-2.0", "version_or_commit": "2024", "used_for": ["React Aria", "accessible interaction patterns"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 4, "official_docs": 4, "github_quality": 92, "license_safety": 95, "maintenance": 94, "pattern_clarity": 95, "testability": 90, "total": 93},
+  "promotion_decision": "staging"
+}

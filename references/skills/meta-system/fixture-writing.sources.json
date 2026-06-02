@@ -1,0 +1,43 @@
+{
+  "skill_id": "meta-system.fixture-writing",
+  "dossier_id": "dossier.skill.meta-system.fixture-writing.2026-06-01",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://martinfowler.com/articles/practical-test-pyramid.html",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["test pyramid", "fixture design patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/testdouble/contributing-tests",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": ["test organization", "fixture best practices"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://docs.pytest.org/en/stable/explanation/fixtures.html",
+      "source_type": "official_docs",
+      "license": "MIT",
+      "version_or_commit": "v7.4",
+      "used_for": ["pytest fixtures", "test data management"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 3,
+    "github_quality": 87,
+    "license_safety": 93,
+    "maintenance": 89,
+    "pattern_clarity": 92,
+    "testability": 90,
+    "total": 90
+  },
+  "promotion_decision": "production"
+}

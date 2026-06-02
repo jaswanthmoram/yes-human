@@ -2,7 +2,7 @@
   {
     "type": "skill",
     "pattern": "Successful route.engineering.master tasks",
-    "count": 57,
+    "count": 69,
     "avg_duration": 5500,
     "examples": [
       {
@@ -37,7 +37,7 @@
   {
     "type": "skill",
     "pattern": "Successful undefined tasks",
-    "count": 18,
+    "count": 23,
     "avg_duration": 0,
     "examples": [
       {
@@ -67,8 +67,8 @@
   {
     "type": "skill",
     "pattern": "Successful route.engineering.code-reviewer tasks",
-    "count": 113,
-    "avg_duration": 3319,
+    "count": 137,
+    "avg_duration": 3321,
     "examples": [
       {
         "task": "review code 0",
@@ -102,7 +102,7 @@
   {
     "type": "skill",
     "pattern": "Successful route.test tasks",
-    "count": 57,
+    "count": 69,
     "avg_duration": 1000,
     "examples": [
       {
@@ -137,7 +137,7 @@
   {
     "type": "lesson",
     "pattern": "Failed route.test tasks",
-    "count": 57,
+    "count": 69,
     "examples": [
       {
         "task": "failing task 0",
@@ -171,8 +171,8 @@
   {
     "type": "mistake",
     "pattern": "timeout errors",
-    "count": 57,
-    "common_tools": "webfetch(57)",
+    "count": 69,
+    "common_tools": "webfetch(69)",
     "examples": [
       {
         "error_message": "Request timeout",
@@ -199,7 +199,7 @@
   {
     "type": "mistake",
     "pattern": "unknown errors",
-    "count": 18,
+    "count": 22,
     "common_tools": "",
     "examples": [
       {

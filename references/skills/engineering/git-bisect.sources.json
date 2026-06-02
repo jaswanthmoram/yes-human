@@ -1,0 +1,52 @@
+{
+  "dossier_id": "dossier.skill.engineering.git-bisect.2026-06-01",
+  "skill_id": "engineering.git-bisect",
+  "domain": "engineering",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://git-scm.com/docs/git-bisect",
+      "source_type": "official_docs",
+      "license": "GPL-2.0",
+      "version_or_commit": "v2.45.0",
+      "used_for": ["git bisect command reference", "bisect run automation"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/git/git",
+      "source_type": "github_repo",
+      "license": "GPL-2.0",
+      "version_or_commit": "main",
+      "used_for": ["git source code", "bisect implementation details"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.atlassian.com/git/tutorials/advanced-overview",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["advanced git workflows", "debugging with bisect"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://thoughtbot.com/blog/git-bisect",
+      "source_type": "blog",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["bisect best practices", "real-world examples"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 3,
+    "github_quality": 95,
+    "license_safety": 88,
+    "maintenance": 95,
+    "pattern_clarity": 92,
+    "testability": 90,
+    "total": 93
+  },
+  "promotion_decision": "staging"
+}

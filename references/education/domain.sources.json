@@ -1,0 +1,165 @@
+{
+  "dossier_id": "dossier.domain.education.2026-06-01",
+  "domain": "education",
+  "created_at": "2026-06-01T20:00:00Z",
+  "expires_at": "2027-06-01T20:00:00Z",
+  "sources": [
+    {
+      "url": "https://www.ed.gov/",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": ["U.S. Department of Education", "education policy"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.cast.org/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["CAST", "Universal Design for Learning"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.iste.org/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["ISTE", "International Society for Technology in Education"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://moodle.org/",
+      "source_type": "vendor_docs",
+      "license": "GPL-3.0",
+      "version_or_commit": "2024",
+      "used_for": ["Moodle LMS", "learning management system"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.instructure.com/canvas",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Canvas LMS", "online learning platform"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.blackboard.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Blackboard", "educational technology"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.commoncore.org/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Common Core State Standards", "K-12 education standards"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.ngssleadstates.org/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Next Generation Science Standards", "science education"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.nctm.org/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["NCTM", "National Council of Teachers of Mathematics"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.ncte.org/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["NCTE", "National Council of Teachers of English"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.aera.net/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["AERA", "American Educational Research Association"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.edutopia.org/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Edutopia", "education best practices"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.khanacademy.org/",
+      "source_type": "vendor_docs",
+      "license": "CC-BY-NC-SA-3.0",
+      "version_or_commit": "2024",
+      "used_for": ["Khan Academy", "online learning resources"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.coursera.org/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Coursera", "MOOC platform"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.edx.org/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["edX", "online courses"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.udemy.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Udemy", "online learning marketplace"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.tes.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["TES", "Times Educational Supplement"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.scholastic.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Scholastic", "educational publishing"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 18,
+    "official_docs": 1,
+    "github_quality": 0,
+    "license_safety": 85,
+    "maintenance": 90,
+    "pattern_clarity": 88,
+    "testability": 82,
+    "total": 87
+  },
+  "promotion_decision": "production",
+  "disclaimer_required": true,
+  "disclaimer_text": "This content is for informational purposes only and does not constitute professional educational advice. Consult qualified educators for guidance on specific learning situations."
+}

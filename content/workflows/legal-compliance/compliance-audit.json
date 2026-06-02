@@ -1,0 +1,160 @@
+{
+  "id": "legal-compliance.compliance-audit",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Conduct a compliance audit from framework mapping through gap identification to remediation planning.",
+  "task_family": "compliance_audit",
+  "triggers": [
+    "compliance audit process",
+    "regulatory audit workflow",
+    "control framework audit",
+    "audit readiness assessment"
+  ],
+  "aliases": [
+    "compliance audit",
+    "regulatory audit"
+  ],
+  "negative_keywords": [
+    "code audit",
+    "security audit code",
+    "financial audit"
+  ],
+  "inputs": [
+    {
+      "name": "compliance_framework",
+      "required": true,
+      "description": "The regulatory or standards framework to audit against."
+    },
+    {
+      "name": "control_inventory",
+      "required": true,
+      "description": "Current inventory of implemented controls."
+    },
+    {
+      "name": "evidence_repository",
+      "required": false,
+      "description": "Location of audit evidence and documentation."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "compliance_matrix",
+      "description": "Framework requirements mapped to current controls."
+    },
+    {
+      "name": "gap_analysis",
+      "description": "Identified gaps between requirements and implementation."
+    },
+    {
+      "name": "remediation_plan",
+      "description": "Prioritized plan for addressing identified gaps."
+    }
+  ],
+  "primary_agent": "legal-compliance.compliance-officer",
+  "route": {
+    "domain_master": "legal-compliance.master",
+    "agents": [
+      "legal-compliance.compliance-officer",
+      "legal-compliance.regulatory-affairs",
+      "legal-compliance.risk-manager"
+    ],
+    "primary_agent": "legal-compliance.compliance-officer",
+    "participants": [
+      "legal-compliance.regulatory-affairs",
+      "legal-compliance.risk-manager"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 3
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 5000,
+    "max_tool_calls": 12,
+    "notes": "High-stakes workflow. Keep issue spotting and human review explicit."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is compliance auditing and not certification or legal opinion."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require framework identification and control inventory."
+    },
+    {
+      "id": "pre-write",
+      "rule": "Distinguish between observed gaps and recommended remediation."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "End with remediation plan for compliance-owner review; do not claim certification."
+    }
+  ],
+  "steps": [
+    {
+      "id": "map-framework",
+      "agent": "legal-compliance.compliance-officer",
+      "action": "Map framework requirements to control inventory."
+    },
+    {
+      "id": "identify-gaps",
+      "agent": "legal-compliance.compliance-officer",
+      "action": "Identify gaps between requirements and current implementation."
+    },
+    {
+      "id": "regulatory-context",
+      "agent": "legal-compliance.regulatory-affairs",
+      "action": "Provide regulatory context and upcoming changes affecting gaps."
+    },
+    {
+      "id": "risk-prioritize",
+      "agent": "legal-compliance.risk-manager",
+      "action": "Prioritize gaps by risk exposure and remediation effort."
+    },
+    {
+      "id": "build-plan",
+      "agent": "legal-compliance.compliance-officer",
+      "action": "Compile remediation plan with timelines and ownership."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read documents, policies, and reference materials."
+    }
+  ],
+  "verification": [
+    {
+      "id": "framework-named",
+      "method": "Check the output names the audited framework and scope."
+    },
+    {
+      "id": "gaps-identified",
+      "method": "Check each gap includes requirement, current state, and severity."
+    },
+    {
+      "id": "remediation-plan",
+      "method": "Check output includes prioritized remediation with ownership."
+    }
+  ],
+  "success_criteria": [
+    "Framework requirements are fully mapped to controls.",
+    "Each gap includes severity, rationale, and suggested remediation.",
+    "Output ends with remediation plan for compliance-owner review."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If scope, confidentiality, or review authority is unclear, revert the draft and regenerate a narrower output for counsel review."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/legal-compliance/compliance-audit.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

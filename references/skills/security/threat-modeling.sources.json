@@ -1,0 +1,52 @@
+{
+  "dossier_id": "dossier.skill.security.threat-modeling.2026-06-01",
+  "skill_id": "security.threat-modeling",
+  "domain": "security",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["STRIDE methodology", "threat modeling tool"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://owasp.org/www-community/Threat_Modeling",
+      "source_type": "official_docs",
+      "license": "CC BY-SA 4.0",
+      "version_or_commit": "2024",
+      "used_for": ["threat modeling process", "OWASP methodology"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.threatmodelingbook.com/",
+      "source_type": "book",
+      "license": "Proprietary",
+      "version_or_commit": "2020",
+      "used_for": ["PASTA methodology", "attack trees"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/OWASP/threat-dragon",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "v2.2",
+      "used_for": ["threat modeling tool", "DFD generation"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 3,
+    "github_quality": 86,
+    "license_safety": 93,
+    "maintenance": 90,
+    "pattern_clarity": 92,
+    "testability": 84,
+    "total": 89
+  },
+  "promotion_decision": "staging"
+}

@@ -1,0 +1,163 @@
+{
+  "dossier_id": "dossier.domain.startup-ops.2026-06-01",
+  "domain": "startup-ops",
+  "created_at": "2026-06-01T18:45:00Z",
+  "expires_at": "2027-06-01T18:45:00Z",
+  "sources": [
+    {
+      "url": "https://www.ycombinator.com/library",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Y Combinator library", "startup resources"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.ycombinator.com/blog",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Y Combinator blog", "startup advice"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://startupclass.samaltman.com/",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Startup Class", "Sam Altman lectures"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://leanstartup.co/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Lean Startup methodology", "build-measure-learn"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.sequoiacap.com/articles/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Sequoia Capital articles", "venture capital insights"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://stripe.com/atlas/guides",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Stripe Atlas guides", "startup formation"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.a16z.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Andreessen Horowitz", "tech trends"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://techcrunch.com/startups/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["TechCrunch startups", "funding news"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.crunchbase.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Crunchbase", "startup database"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.producthunt.com/stories",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Product Hunt stories", "launch strategies"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.indiehackers.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Indie Hackers", "bootstrapping"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.failory.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Failory", "startup failure analysis"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.growthmentor.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Growth Mentor", "startup mentoring"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.score.org/",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["SCORE mentoring", "small business resources"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.sba.gov/",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": ["SBA resources", "small business administration"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.kauffman.org/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Kauffman Foundation", "entrepreneurship research"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.gust.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Gust platform", "startup fundraising"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.angel.co/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["AngelList", "startup jobs and funding"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 18,
+    "official_docs": 3,
+    "github_quality": 0,
+    "license_safety": 90,
+    "maintenance": 90,
+    "pattern_clarity": 88,
+    "testability": 80,
+    "total": 88
+  },
+  "promotion_decision": "production"
+}

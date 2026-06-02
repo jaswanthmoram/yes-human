@@ -1,0 +1,158 @@
+{
+  "id": "startup-ops.fundraising-preparation",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Prepare for a fundraising round with strategy, materials, investor targeting, and outreach planning.",
+  "task_family": "startup_ops",
+  "triggers": [
+    "prepare fundraising",
+    "fundraising preparation",
+    "round preparation",
+    "get ready to raise"
+  ],
+  "aliases": [
+    "fundraise prep",
+    "raise prep"
+  ],
+  "negative_keywords": [
+    "loan application",
+    "grant writing",
+    "crowdfunding campaign"
+  ],
+  "inputs": [
+    {
+      "name": "company_stage",
+      "required": true,
+      "description": "Current company stage, traction, and key milestones achieved."
+    },
+    {
+      "name": "funding_target",
+      "required": true,
+      "description": "Target raise amount and planned use of funds."
+    },
+    {
+      "name": "existing_materials",
+      "required": false,
+      "description": "Existing pitch deck, financial model, or data room contents."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "fundraising_strategy",
+      "description": "Complete fundraising strategy with timeline and approach."
+    },
+    {
+      "name": "investor_targets",
+      "description": "Prioritized investor list with thesis alignment notes."
+    },
+    {
+      "name": "materials_checklist",
+      "description": "Complete list of required materials with status."
+    }
+  ],
+  "primary_agent": "startup-ops.fundraising-specialist",
+  "route": {
+    "domain_master": "startup-ops.master",
+    "agents": [
+      "startup-ops.fundraising-specialist",
+      "startup-ops.pitch-deck-creator",
+      "startup-ops.financial-modeler"
+    ],
+    "primary_agent": "startup-ops.fundraising-specialist",
+    "participants": [
+      "startup-ops.startup-strategist"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 3
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 5000,
+    "max_tool_calls": 12
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is fundraising preparation, not investor outreach execution."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require company stage and funding target before planning."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Strategy must include investor targets matched to thesis and stage."
+    }
+  ],
+  "steps": [
+    {
+      "id": "readiness-assessment",
+      "agent": "startup-ops.fundraising-specialist",
+      "action": "Assess fundraising readiness based on stage, traction, and metrics."
+    },
+    {
+      "id": "strategy-design",
+      "agent": "startup-ops.fundraising-specialist",
+      "action": "Design round structure, sizing, and timeline."
+    },
+    {
+      "id": "materials-prep",
+      "agent": "startup-ops.pitch-deck-creator",
+      "action": "Prepare or review pitch deck and supporting materials."
+    },
+    {
+      "id": "financial-prep",
+      "agent": "startup-ops.financial-modeler",
+      "action": "Prepare financial projections and data room contents."
+    },
+    {
+      "id": "investor-targeting",
+      "agent": "startup-ops.fundraising-specialist",
+      "action": "Build prioritized investor list with thesis alignment."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read existing business documents, metrics, and prior analysis."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Save output documents and reports."
+    }
+  ],
+  "verification": [
+    {
+      "id": "readiness-assessed",
+      "method": "Check readiness assessment covers stage, metrics, and team."
+    },
+    {
+      "id": "investors-targeted",
+      "method": "Check investor list has thesis-matched targets."
+    },
+    {
+      "id": "materials-listed",
+      "method": "Check materials checklist covers all required documents."
+    }
+  ],
+  "success_criteria": [
+    "Fundraising readiness is assessed with clear gaps identified.",
+    "Investor targets are matched to thesis, stage, and check size.",
+    "All required materials are listed with ownership and status."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If outputs invent metrics or misrepresent findings, roll back to raw inputs."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/startup-ops/fundraising-preparation.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

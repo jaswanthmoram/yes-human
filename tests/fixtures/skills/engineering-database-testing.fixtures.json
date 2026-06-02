@@ -1,0 +1,124 @@
+{
+  "fixtures": [
+    {
+      "prompt": "migrate the users table schema",
+      "expected_skill": "engineering.schema-migration"
+    },
+    {
+      "prompt": "add a new column to the orders table",
+      "expected_skill": "engineering.schema-migration"
+    },
+    {
+      "prompt": "create a rollback script for the last migration",
+      "expected_skill": "engineering.schema-migration"
+    },
+    {
+      "prompt": "this query is slow, should I add an index",
+      "expected_skill": "engineering.index-optimization"
+    },
+    {
+      "prompt": "optimize database indexes for the products table",
+      "expected_skill": "engineering.index-optimization"
+    },
+    {
+      "prompt": "which columns should be indexed for this query pattern",
+      "expected_skill": "engineering.index-optimization"
+    },
+    {
+      "prompt": "analyze why this SQL query is slow",
+      "expected_skill": "engineering.query-analysis"
+    },
+    {
+      "prompt": "find N+1 queries in the repository layer",
+      "expected_skill": "engineering.query-analysis"
+    },
+    {
+      "prompt": "optimize the reporting dashboard query",
+      "expected_skill": "engineering.query-analysis"
+    },
+    {
+      "prompt": "analyze our test coverage report",
+      "expected_skill": "engineering.test-coverage"
+    },
+    {
+      "prompt": "what code paths are not tested",
+      "expected_skill": "engineering.test-coverage"
+    },
+    {
+      "prompt": "improve coverage for the payment module",
+      "expected_skill": "engineering.test-coverage"
+    },
+    {
+      "prompt": "this test fails intermittently in CI",
+      "expected_skill": "engineering.flaky-test-detection"
+    },
+    {
+      "prompt": "find all flaky tests in the test suite",
+      "expected_skill": "engineering.flaky-test-detection"
+    },
+    {
+      "prompt": "fix the non-deterministic test failure",
+      "expected_skill": "engineering.flaky-test-detection"
+    },
+    {
+      "prompt": "generate test data for the user model",
+      "expected_skill": "engineering.test-data-generation"
+    },
+    {
+      "prompt": "set up factory bot for our test suite",
+      "expected_skill": "engineering.test-data-generation"
+    },
+    {
+      "prompt": "add property based tests for the pricing engine",
+      "expected_skill": "engineering.test-data-generation"
+    },
+    {
+      "prompt": "run mutation testing on the auth module",
+      "expected_skill": "engineering.mutation-testing"
+    },
+    {
+      "prompt": "how effective are our tests really",
+      "expected_skill": "engineering.mutation-testing"
+    },
+    {
+      "prompt": "find surviving mutants in the billing service",
+      "expected_skill": "engineering.mutation-testing"
+    },
+    {
+      "prompt": "set up contract testing between user and order service",
+      "expected_skill": "engineering.contract-testing"
+    },
+    {
+      "prompt": "verify API compatibility with pact",
+      "expected_skill": "engineering.contract-testing"
+    },
+    {
+      "prompt": "add consumer driven contracts for the payment API",
+      "expected_skill": "engineering.contract-testing"
+    },
+    {
+      "prompt": "add snapshot tests for the dashboard components",
+      "expected_skill": "engineering.snapshot-testing"
+    },
+    {
+      "prompt": "the snapshot test failed after my refactor",
+      "expected_skill": "engineering.snapshot-testing"
+    },
+    {
+      "prompt": "set up snapshot testing for API responses",
+      "expected_skill": "engineering.snapshot-testing"
+    },
+    {
+      "prompt": "how should we organize our test suite",
+      "expected_skill": "engineering.test-architecture"
+    },
+    {
+      "prompt": "design a testing strategy for our microservices",
+      "expected_skill": "engineering.test-architecture"
+    },
+    {
+      "prompt": "restructure the test directory to follow the testing pyramid",
+      "expected_skill": "engineering.test-architecture"
+    }
+  ]
+}

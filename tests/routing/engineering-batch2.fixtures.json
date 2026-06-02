@@ -1,0 +1,35 @@
+{
+  "domain": "engineering",
+  "description": "Routing fixtures for engineering batch-2 agents: database-design, database-optimization, performance-profiling, testing-unit, testing-integration.",
+  "fixtures": [
+    { "prompt": "database schema design", "expected_route": "route.engineering.database-design" },
+    { "prompt": "design the database for orders", "expected_route": "route.engineering.database-design" },
+    { "prompt": "create database schema", "expected_route": "route.engineering.database-design" },
+    { "prompt": "entity relationship diagram for users and teams", "expected_route": "route.engineering.database-design" },
+    { "prompt": "plan the migration from v2 to v3 schema", "expected_route": "route.engineering.database-design" },
+
+    { "prompt": "slow query on user search", "expected_route": "route.engineering.database-optimization" },
+    { "prompt": "optimize this query", "expected_route": "route.engineering.database-optimization" },
+    { "prompt": "explain plan analysis", "expected_route": "route.engineering.database-optimization" },
+    { "prompt": "n plus one problem in orders", "expected_route": "route.engineering.database-optimization" },
+    { "prompt": "database performance is degraded", "expected_route": "route.engineering.database-optimization" },
+
+    { "prompt": "profile the API handler", "expected_route": "route.engineering.performance-profiling" },
+    { "prompt": "flame graph analysis", "expected_route": "route.engineering.performance-profiling" },
+    { "prompt": "memory leak in worker process", "expected_route": "route.engineering.performance-profiling" },
+    { "prompt": "benchmark this function", "expected_route": "route.engineering.performance-profiling" },
+    { "prompt": "latency is too high on the search endpoint", "expected_route": "route.engineering.performance-profiling" },
+
+    { "prompt": "write unit tests for the auth module", "expected_route": "route.engineering.testing-unit" },
+    { "prompt": "unit test strategy for the payment service", "expected_route": "route.engineering.testing-unit" },
+    { "prompt": "increase test coverage for utils", "expected_route": "route.engineering.testing-unit" },
+    { "prompt": "mocking strategy for database calls", "expected_route": "route.engineering.testing-unit" },
+    { "prompt": "test this function", "expected_route": "route.engineering.testing-unit" },
+
+    { "prompt": "integration test for the order service", "expected_route": "route.engineering.testing-integration" },
+    { "prompt": "api contract test between frontend and backend", "expected_route": "route.engineering.testing-integration" },
+    { "prompt": "test the payment flow end to end", "expected_route": "route.engineering.testing-integration" },
+    { "prompt": "contract testing for microservices", "expected_route": "route.engineering.testing-integration" },
+    { "prompt": "integration test strategy for the auth pipeline", "expected_route": "route.engineering.testing-integration" }
+  ]
+}

@@ -1,0 +1,304 @@
+{
+  "fixtures": [
+    {
+      "prompt": "review code for OWASP Top 10 vulnerabilities",
+      "expected_skill": "security.owasp-top-10",
+      "category": "security"
+    },
+    {
+      "prompt": "perform OWASP compliance audit on web app",
+      "expected_skill": "security.owasp-top-10",
+      "category": "security"
+    },
+    {
+      "prompt": "check application against OWASP risk categories",
+      "expected_skill": "security.owasp-top-10",
+      "category": "security"
+    },
+    {
+      "prompt": "perform STRIDE threat modeling on new service",
+      "expected_skill": "security.threat-modeling",
+      "category": "security"
+    },
+    {
+      "prompt": "create attack tree for payment system",
+      "expected_skill": "security.threat-modeling",
+      "category": "security"
+    },
+    {
+      "prompt": "run PASTA threat analysis on architecture",
+      "expected_skill": "security.threat-modeling",
+      "category": "security"
+    },
+    {
+      "prompt": "scan codebase for hardcoded API keys and secrets",
+      "expected_skill": "security.secret-scanning",
+      "category": "security"
+    },
+    {
+      "prompt": "detect credentials leaked in git history",
+      "expected_skill": "security.secret-scanning",
+      "category": "security"
+    },
+    {
+      "prompt": "find exposed tokens in configuration files",
+      "expected_skill": "security.secret-scanning",
+      "category": "security"
+    },
+    {
+      "prompt": "audit npm dependencies for known CVEs",
+      "expected_skill": "security.dependency-audit",
+      "category": "security"
+    },
+    {
+      "prompt": "check project dependencies for license compliance",
+      "expected_skill": "security.dependency-audit",
+      "category": "security"
+    },
+    {
+      "prompt": "find vulnerable and outdated packages",
+      "expected_skill": "security.dependency-audit",
+      "category": "security"
+    },
+    {
+      "prompt": "run static security analysis on source code",
+      "expected_skill": "security.sast-analysis",
+      "category": "security"
+    },
+    {
+      "prompt": "perform SAST scan for injection vulnerabilities",
+      "expected_skill": "security.sast-analysis",
+      "category": "security"
+    },
+    {
+      "prompt": "taint analysis on user input data flows",
+      "expected_skill": "security.sast-analysis",
+      "category": "security"
+    },
+    {
+      "prompt": "run dynamic security test on staging application",
+      "expected_skill": "security.dast-testing",
+      "category": "security"
+    },
+    {
+      "prompt": "DAST scan live web app for runtime vulnerabilities",
+      "expected_skill": "security.dast-testing",
+      "category": "security"
+    },
+    {
+      "prompt": "automated black-box pentest on web application",
+      "expected_skill": "security.dast-testing",
+      "category": "security"
+    },
+    {
+      "prompt": "scan Docker image for known vulnerabilities",
+      "expected_skill": "security.container-scanning",
+      "category": "security"
+    },
+    {
+      "prompt": "check container base image for CVEs",
+      "expected_skill": "security.container-scanning",
+      "category": "security"
+    },
+    {
+      "prompt": "audit container image layers for security issues",
+      "expected_skill": "security.container-scanning",
+      "category": "security"
+    },
+    {
+      "prompt": "scan network for open ports and vulnerabilities",
+      "expected_skill": "security.network-scanning",
+      "category": "security"
+    },
+    {
+      "prompt": "run nmap scan on production network",
+      "expected_skill": "security.network-scanning",
+      "category": "security"
+    },
+    {
+      "prompt": "identify network misconfigurations and exposed services",
+      "expected_skill": "security.network-scanning",
+      "category": "security"
+    },
+    {
+      "prompt": "review SSL/TLS configuration for web server",
+      "expected_skill": "security.ssl-tls-config",
+      "category": "security"
+    },
+    {
+      "prompt": "check cipher suite configuration and certificate chain",
+      "expected_skill": "security.ssl-tls-config",
+      "category": "security"
+    },
+    {
+      "prompt": "harden TLS settings and enable HSTS preload",
+      "expected_skill": "security.ssl-tls-config",
+      "category": "security"
+    },
+    {
+      "prompt": "validate JWT token signature and claims",
+      "expected_skill": "security.jwt-validation",
+      "category": "security"
+    },
+    {
+      "prompt": "check JWT implementation for algorithm confusion",
+      "expected_skill": "security.jwt-validation",
+      "category": "security"
+    },
+    {
+      "prompt": "review JWT expiration and refresh token handling",
+      "expected_skill": "security.jwt-validation",
+      "category": "security"
+    },
+    {
+      "prompt": "review OAuth 2.0 authorization code flow implementation",
+      "expected_skill": "security.oauth2-flows",
+      "category": "security"
+    },
+    {
+      "prompt": "check OAuth2 token endpoint for security issues",
+      "expected_skill": "security.oauth2-flows",
+      "category": "security"
+    },
+    {
+      "prompt": "audit OAuth2 PKCE and redirect URI validation",
+      "expected_skill": "security.oauth2-flows",
+      "category": "security"
+    },
+    {
+      "prompt": "implement CSRF token protection on forms",
+      "expected_skill": "security.csrf-protection",
+      "category": "security"
+    },
+    {
+      "prompt": "review CSRF mitigation patterns in web app",
+      "expected_skill": "security.csrf-protection",
+      "category": "security"
+    },
+    {
+      "prompt": "check SameSite cookie attribute for CSRF defense",
+      "expected_skill": "security.csrf-protection",
+      "category": "security"
+    },
+    {
+      "prompt": "prevent XSS attacks with output encoding",
+      "expected_skill": "security.xss-prevention",
+      "category": "security"
+    },
+    {
+      "prompt": "review stored and reflected XSS vulnerabilities",
+      "expected_skill": "security.xss-prevention",
+      "category": "security"
+    },
+    {
+      "prompt": "implement DOM-based XSS protections",
+      "expected_skill": "security.xss-prevention",
+      "category": "security"
+    },
+    {
+      "prompt": "prevent SQL injection with parameterized queries",
+      "expected_skill": "security.sql-injection",
+      "category": "security"
+    },
+    {
+      "prompt": "review raw SQL queries for injection vulnerabilities",
+      "expected_skill": "security.sql-injection",
+      "category": "security"
+    },
+    {
+      "prompt": "check ORM usage for SQL injection bypass",
+      "expected_skill": "security.sql-injection",
+      "category": "security"
+    },
+    {
+      "prompt": "review encryption at rest for database and storage",
+      "expected_skill": "security.encryption-at-rest",
+      "category": "security"
+    },
+    {
+      "prompt": "implement AES-256 encryption for sensitive data at rest",
+      "expected_skill": "security.encryption-at-rest",
+      "category": "security"
+    },
+    {
+      "prompt": "check cloud storage encryption configuration",
+      "expected_skill": "security.encryption-at-rest",
+      "category": "security"
+    },
+    {
+      "prompt": "review cryptographic key management and rotation",
+      "expected_skill": "security.key-management",
+      "category": "security"
+    },
+    {
+      "prompt": "implement KMS key rotation policy",
+      "expected_skill": "security.key-management",
+      "category": "security"
+    },
+    {
+      "prompt": "audit key storage and access controls in HSM",
+      "expected_skill": "security.key-management",
+      "category": "security"
+    },
+    {
+      "prompt": "review zero trust architecture implementation",
+      "expected_skill": "security.zero-trust",
+      "category": "security"
+    },
+    {
+      "prompt": "implement identity-based access with microsegmentation",
+      "expected_skill": "security.zero-trust",
+      "category": "security"
+    },
+    {
+      "prompt": "verify never trust always verify across services",
+      "expected_skill": "security.zero-trust",
+      "category": "security"
+    },
+    {
+      "prompt": "configure HTTP security headers including CSP and HSTS",
+      "expected_skill": "security.security-headers",
+      "category": "security"
+    },
+    {
+      "prompt": "review Content-Security-Policy implementation",
+      "expected_skill": "security.security-headers",
+      "category": "security"
+    },
+    {
+      "prompt": "audit response headers with securityheaders.com",
+      "expected_skill": "security.security-headers",
+      "category": "security"
+    },
+    {
+      "prompt": "implement rate limiting on API endpoints",
+      "expected_skill": "security.rate-limiting",
+      "category": "security"
+    },
+    {
+      "prompt": "configure brute force protection on login endpoint",
+      "expected_skill": "security.rate-limiting",
+      "category": "security"
+    },
+    {
+      "prompt": "review distributed rate limiting with Redis",
+      "expected_skill": "security.rate-limiting",
+      "category": "security"
+    },
+    {
+      "prompt": "review input validation on all API endpoints",
+      "expected_skill": "security.input-validation",
+      "category": "security"
+    },
+    {
+      "prompt": "implement allowlist validation for user input",
+      "expected_skill": "security.input-validation",
+      "category": "security"
+    },
+    {
+      "prompt": "validate file upload type size and content",
+      "expected_skill": "security.input-validation",
+      "category": "security"
+    }
+  ]
+}

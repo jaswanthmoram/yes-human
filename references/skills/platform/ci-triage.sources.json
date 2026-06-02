@@ -1,0 +1,43 @@
+{
+  "skill_id": "platform.ci-triage",
+  "dossier_id": "dossier.skill.platform.ci-triage.2026-06-01",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows",
+      "source_type": "official_docs",
+      "license": "MIT",
+      "version_or_commit": "2024",
+      "used_for": ["GitHub Actions troubleshooting", "CI debugging"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.jenkins.io/doc/book/pipeline/pipeline-best-practices/",
+      "source_type": "official_docs",
+      "license": "MIT",
+      "version_or_commit": "2024",
+      "used_for": ["Jenkins pipeline best practices", "CI optimization"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://circleci.com/docs/troubleshooting/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["CircleCI troubleshooting", "common CI issues"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 3,
+    "github_quality": 88,
+    "license_safety": 95,
+    "maintenance": 90,
+    "pattern_clarity": 92,
+    "testability": 87,
+    "total": 90
+  },
+  "promotion_decision": "production"
+}

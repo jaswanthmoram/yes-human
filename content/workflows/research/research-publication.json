@@ -1,0 +1,63 @@
+{
+  "id": "research.research-publication",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Manage the research publication process from manuscript drafting through journal selection, submission preparation, peer review response, and dissemination.",
+  "task_family": "publication",
+  "triggers": ["research publication workflow", "manuscript preparation process", "journal submission pipeline", "paper publication planning", "research dissemination workflow"],
+  "aliases": ["publication workflow", "manuscript pipeline"],
+  "negative_keywords": ["blog post", "marketing content", "sales collateral"],
+  "inputs": [
+    {"name": "research_findings", "required": true, "description": "Finalized research findings, data, and analysis results."},
+    {"name": "target_venue", "required": false, "description": "Target journal, conference, or publication venue."},
+    {"name": "authorship_list", "required": true, "description": "Author list with contributions and affiliations."}
+  ],
+  "outputs": [
+    {"name": "manuscript_draft", "description": "Publication-ready manuscript following target venue guidelines."},
+    {"name": "submission_package", "description": "Complete submission package with cover letter, figures, and supplementary materials."},
+    {"name": "dissemination_plan", "description": "Post-publication dissemination strategy including preprints and social media."}
+  ],
+  "primary_agent": "research.scientific-writer",
+  "route": {
+    "domain_master": "research.master",
+    "agents": ["research.scientific-writer", "research.research-analyst", "research.literature-reviewer"],
+    "primary_agent": "research.scientific-writer",
+    "participants": ["research.research-analyst", "research.literature-reviewer"],
+    "parallel": false,
+    "max_parallel_agents": 3
+  },
+  "budget": {"band": "expanded", "max_context_tokens": 6000, "max_tool_calls": 20},
+  "gates": [
+    {"id": "pre-route", "rule": "Confirm research findings are finalized and approved by all authors."},
+    {"id": "pre-tool", "rule": "Verify authorship list and contributions are agreed upon."},
+    {"id": "post-tool", "rule": "Manuscript must follow target venue formatting and style guidelines."},
+    {"id": "on-task-complete", "rule": "All citations verified and submission package complete."}
+  ],
+  "steps": [
+    {"id": "select-journal", "agent": "research.scientific-writer", "action": "Evaluate and select target journal based on scope, impact, and open access requirements."},
+    {"id": "draft-manuscript", "agent": "research.scientific-writer", "action": "Draft manuscript following IMRaD structure and target journal guidelines."},
+    {"id": "format-references", "agent": "research.literature-reviewer", "action": "Format all citations and references in the required journal style."},
+    {"id": "prepare-figures", "agent": "research.research-analyst", "action": "Prepare publication-quality figures, tables, and supplementary materials."},
+    {"id": "compile-submission", "agent": "research.scientific-writer", "action": "Compile submission package with cover letter, manuscript, and supplementary files."},
+    {"id": "plan-dissemination", "agent": "research.scientific-writer", "action": "Create post-publication dissemination plan including preprints and outreach."}
+  ],
+  "tools": [
+    {"name": "filesystem.read", "purpose": "Read research findings, data, and prior drafts."},
+    {"name": "filesystem.write", "purpose": "Save manuscript, figures, and submission package."},
+    {"name": "web.search", "purpose": "Search journal guidelines and publication policies."}
+  ],
+  "verification": [
+    {"id": "formatting-compliant", "method": "Verify manuscript follows target journal formatting guidelines."},
+    {"id": "citations-verified", "method": "Verify all citations reference real, verifiable publications."},
+    {"id": "authorship-agreed", "method": "Verify all authors have approved the final manuscript."},
+    {"id": "package-complete", "method": "Verify submission package includes all required components."}
+  ],
+  "success_criteria": [
+    "Manuscript is formatted for the target journal and passes initial editorial screening.",
+    "All citations are verified and correctly formatted.",
+    "Submission package is complete with all required documents."
+  ],
+  "rollback": {"mode": "no_write", "when": "If citations are fabricated or authorship is disputed, halt and resolve before submission."},
+  "source_references": [{"dossier_path": "references/workflows/research/research-publication.sources.json", "relationship": "workflow_dossier"}],
+  "promotion": {"can_learn": true, "min_successes_before_update": 2, "quality_gate": "staging"}
+}

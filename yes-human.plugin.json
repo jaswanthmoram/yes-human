@@ -23,6 +23,7 @@
     "skills": "registry/skills.json",
     "workflows": "registry/workflows.json",
     "tools": "registry/tools.json",
-    "mcps": "registry/mcps.json"
+    "mcps": "registry/mcps.json",
+    "category_packs": "registry/category-packs.json"
   }
 }

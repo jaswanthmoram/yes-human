@@ -1,0 +1,165 @@
+{
+  "dossier_id": "dossier.domain.manufacturing.2026-06-01",
+  "domain": "manufacturing",
+  "created_at": "2026-06-01T20:15:00Z",
+  "expires_at": "2027-06-01T20:15:00Z",
+  "sources": [
+    {
+      "url": "https://www.iso.org/iso-9001-quality-management.html",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "ISO 9001:2015",
+      "used_for": ["ISO 9001 quality management", "quality standards"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.asq.org/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["American Society for Quality", "quality management"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.osha.gov/",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": ["OSHA", "workplace safety standards"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.isa.org/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["International Society of Automation", "industrial automation"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.apics.org/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["APICS", "supply chain management"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.sme.org/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Society of Manufacturing Engineers", "manufacturing best practices"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.nist.gov/",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": ["NIST", "National Institute of Standards and Technology"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.ansi.org/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["ANSI", "American National Standards Institute"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.epa.gov/",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": ["EPA", "environmental protection"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.lean.org/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Lean Enterprise Institute", "lean manufacturing"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.sixsigma.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Six Sigma", "process improvement"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.industryweek.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Industry Week", "manufacturing news and trends"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.manufacturing.net/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Manufacturing.net", "industry resources"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.thomasnet.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["ThomasNet", "industrial supplier discovery"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.mesa.org/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["MESA International", "manufacturing execution systems"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.opcfoundation.org/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["OPC Foundation", "industrial interoperability standards"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.iotwf.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["IoT World Forum", "Industrial IoT"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.industry4.0.gov/",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": ["Industry 4.0", "smart manufacturing"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 18,
+    "official_docs": 5,
+    "github_quality": 0,
+    "license_safety": 90,
+    "maintenance": 90,
+    "pattern_clarity": 88,
+    "testability": 82,
+    "total": 88
+  },
+  "promotion_decision": "production",
+  "disclaimer_required": true,
+  "disclaimer_text": "This content is for informational purposes only and does not constitute professional engineering or manufacturing advice. Consult qualified professionals for guidance on specific manufacturing situations."
+}

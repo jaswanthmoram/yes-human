@@ -1,0 +1,59 @@
+{
+  "id": "education.assessment-creation",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Create valid, reliable assessments aligned to learning objectives with rubrics, scoring guides, and fairness reviews.",
+  "task_family": "assessment_design",
+  "triggers": ["assessment creation workflow", "build an assessment", "create test and rubric", "assessment development process", "design assessment with rubric"],
+  "aliases": ["assessment build", "test creation"],
+  "negative_keywords": ["code review", "financial forecast", "survey design"],
+  "inputs": [
+    {"name": "learning_objectives", "required": true, "description": "The learning objectives the assessment should measure."},
+    {"name": "assessment_type", "required": true, "description": "Type of assessment: formative, summative, performance-based, or standardized."},
+    {"name": "target_population", "required": false, "description": "Learner demographics, grade level, and accommodations needed."}
+  ],
+  "outputs": [
+    {"name": "assessment_items", "description": "Assessment items or tasks aligned to each learning objective."},
+    {"name": "scoring_rubric", "description": "Rubric or scoring guide with clear performance level descriptors."},
+    {"name": "fairness_review", "description": "Documentation of bias, accessibility, and fairness review."}
+  ],
+  "primary_agent": "education.assessment-specialist",
+  "route": {
+    "domain_master": "education.master",
+    "agents": ["education.assessment-specialist", "education.curriculum-designer"],
+    "primary_agent": "education.assessment-specialist",
+    "participants": ["education.curriculum-designer"],
+    "parallel": false,
+    "max_parallel_agents": 2
+  },
+  "budget": {"band": "standard", "max_context_tokens": 3600, "max_tool_calls": 10},
+  "gates": [
+    {"id": "pre-route", "rule": "Confirm the task is assessment creation, not curriculum design or grading."},
+    {"id": "pre-tool", "rule": "Require learning objectives and assessment type before item development."},
+    {"id": "on-task-complete", "rule": "Output must include assessment items, scoring rubric, and fairness review."}
+  ],
+  "steps": [
+    {"id": "blueprint-design", "agent": "education.assessment-specialist", "action": "Create assessment blueprint mapping objectives to item types and cognitive levels."},
+    {"id": "item-development", "agent": "education.assessment-specialist", "action": "Write assessment items aligned to blueprint specifications."},
+    {"id": "rubric-creation", "agent": "education.assessment-specialist", "action": "Develop scoring rubric with clear performance level descriptors."},
+    {"id": "alignment-check", "agent": "education.curriculum-designer", "action": "Verify alignment between items, objectives, and curriculum coverage."},
+    {"id": "fairness-review", "agent": "education.assessment-specialist", "action": "Review items for bias, accessibility, and fairness considerations."}
+  ],
+  "tools": [
+    {"name": "filesystem.read", "purpose": "Read learning objectives, standards, and curriculum materials."},
+    {"name": "filesystem.write", "purpose": "Save assessment items, rubrics, and fairness review documentation."}
+  ],
+  "verification": [
+    {"id": "items-aligned", "method": "Check that every objective has at least one aligned assessment item."},
+    {"id": "rubric-complete", "method": "Check that rubric has descriptors for all criteria at all performance levels."},
+    {"id": "fairness-documented", "method": "Check that bias and accessibility review is documented."}
+  ],
+  "success_criteria": [
+    "Every learning objective has at least one aligned assessment item.",
+    "Scoring rubric has clear, distinguishable descriptors at each level.",
+    "Fairness review documents bias, accessibility, and accommodation considerations."
+  ],
+  "rollback": {"mode": "no_write", "when": "If assessment items test untaught content or rubric lacks clear descriptors, discard and restart."},
+  "source_references": [{"dossier_path": "references/workflows/education/assessment-creation.sources.json", "relationship": "workflow_dossier"}],
+  "promotion": {"can_learn": true, "min_successes_before_update": 2, "quality_gate": "staging"}
+}

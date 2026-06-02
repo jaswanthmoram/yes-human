@@ -1,0 +1,13 @@
+{
+  "dossier_id": "dossier.meta-system.deduplicator.2026-06-01",
+  "agent_id": "meta-system.deduplicator",
+  "domain": "meta-system",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {"url": "https://arxiv.org/html/2410.01141v3", "source_type": "research_paper", "license": "Open Access", "version_or_commit": "published", "used_for": ["deduplication techniques for NLP datasets", "semantic similarity detection"], "copy_policy": "patterns_only"},
+    {"url": "https://galileo.ai/blog/semantic-textual-similarity-metric", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "live", "used_for": ["semantic textual similarity metrics", "NLP comparison methods"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 2, "official_docs": 1, "github_quality": 0, "license_safety": 92, "maintenance": 85, "pattern_clarity": 84, "testability": 80, "total": 85},
+  "promotion_decision": "staging"
+}

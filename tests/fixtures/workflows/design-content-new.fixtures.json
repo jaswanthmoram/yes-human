@@ -1,0 +1,122 @@
+{
+  "description": "Fixtures for new design-content workflows (2 per workflow, 10 total)",
+  "fixtures": [
+    {
+      "id": "fixture.design-system-creation.saas-platform",
+      "workflow_id": "design-content.design-system-creation",
+      "input": {
+        "product_ecosystem": "Multi-tenant SaaS platform with web app, mobile app, and admin dashboard",
+        "brand_guidelines": "Established brand with primary blue, neutral grays, and Inter typeface",
+        "existing_assets": "Scattered Figma files with inconsistent components",
+        "team_structure": "3 designers, 8 frontend engineers, 1 design systems lead"
+      },
+      "expected_outputs": ["token_architecture", "component_library", "documentation_site", "governance_model"],
+      "expected_step_count": 6
+    },
+    {
+      "id": "fixture.design-system-creation.startup-mvp",
+      "workflow_id": "design-content.design-system-creation",
+      "input": {
+        "product_ecosystem": "Early-stage startup with single web application",
+        "brand_guidelines": "Minimal brand with logo and two colors, no formal guidelines",
+        "existing_assets": "No existing design system, ad-hoc Figma mockups",
+        "team_structure": "1 designer, 3 engineers"
+      },
+      "expected_outputs": ["token_architecture", "component_library", "documentation_site", "governance_model"],
+      "expected_step_count": 6
+    },
+    {
+      "id": "fixture.accessibility-audit.ecommerce",
+      "workflow_id": "design-content.accessibility-audit",
+      "input": {
+        "product_surface": "E-commerce website with 50+ pages including product listings, cart, and checkout",
+        "wcag_target_level": "AA",
+        "assistive_tech_requirements": "Must support VoiceOver, NVDA, and JAWS",
+        "previous_audit_results": "Last audit 18 months ago with 23 violations"
+      },
+      "expected_outputs": ["a11y_audit_report", "wcag_conformance_score", "remediation_plan", "assistive_tech_findings"],
+      "expected_step_count": 6
+    },
+    {
+      "id": "fixture.accessibility-audit.gov-portal",
+      "workflow_id": "design-content.accessibility-audit",
+      "input": {
+        "product_surface": "Government services portal with citizen-facing forms and document upload",
+        "wcag_target_level": "AA",
+        "assistive_tech_requirements": "Must support all major screen readers and switch devices"
+      },
+      "expected_outputs": ["a11y_audit_report", "wcag_conformance_score", "remediation_plan", "assistive_tech_findings"],
+      "expected_step_count": 6
+    },
+    {
+      "id": "fixture.content-strategy-development.saas-blog",
+      "workflow_id": "design-content.content-strategy-development",
+      "input": {
+        "business_objectives": "Increase organic traffic by 40% and establish thought leadership in DevOps",
+        "audience_segments": "Engineering managers, DevOps engineers, and CTOs at mid-market companies",
+        "existing_content_inventory": "120 blog posts, 15 guides, 8 case studies",
+        "competitive_landscape": "5 direct competitors with active content programs"
+      },
+      "expected_outputs": ["content_strategy_document", "audience_analysis", "editorial_calendar", "governance_framework"],
+      "expected_step_count": 6
+    },
+    {
+      "id": "fixture.content-strategy-development.product-docs",
+      "workflow_id": "design-content.content-strategy-development",
+      "input": {
+        "business_objectives": "Reduce support tickets by 30% through better self-service documentation",
+        "audience_segments": "End users (technical and non-technical), API developers",
+        "existing_content_inventory": "200 help articles, 50 API docs, 30 tutorials"
+      },
+      "expected_outputs": ["content_strategy_document", "audience_analysis", "editorial_calendar", "governance_framework"],
+      "expected_step_count": 6
+    },
+    {
+      "id": "fixture.seo-content-creation.product-launch",
+      "workflow_id": "design-content.seo-content-creation",
+      "input": {
+        "target_keywords": "cloud monitoring tools, infrastructure monitoring, application performance monitoring",
+        "search_intent": "Commercial investigation - comparing solutions",
+        "content_brief": "2000-word comparison guide positioning our product against competitors",
+        "brand_voice": "Technical but approachable, data-driven, confident"
+      },
+      "expected_outputs": ["seo_content", "keyword_mapping", "meta_elements", "optimization_report"],
+      "expected_step_count": 5
+    },
+    {
+      "id": "fixture.seo-content-creation.thought-leadership",
+      "workflow_id": "design-content.seo-content-creation",
+      "input": {
+        "target_keywords": "site reliability engineering best practices, SRE principles, platform engineering",
+        "search_intent": "Informational - learning about concepts",
+        "content_brief": "3000-word definitive guide on SRE best practices for 2026",
+        "brand_voice": "Authoritative, educational, practitioner-focused"
+      },
+      "expected_outputs": ["seo_content", "keyword_mapping", "meta_elements", "optimization_report"],
+      "expected_step_count": 5
+    },
+    {
+      "id": "fixture.brand-identity-design.fintech-startup",
+      "workflow_id": "design-content.brand-identity-design",
+      "input": {
+        "brand_strategy": "Disrupt traditional banking with transparent, accessible financial tools for millennials",
+        "market_positioning": "Premium but approachable fintech, positioned between traditional banks and crypto",
+        "application_contexts": "Mobile app, web dashboard, marketing site, social media, physical cards",
+        "competitive_analysis": "3 direct competitors with modern brands, 5 traditional banks with dated identities"
+      },
+      "expected_outputs": ["identity_system", "brand_guidelines", "application_templates", "brand_assets"],
+      "expected_step_count": 6
+    },
+    {
+      "id": "fixture.brand-identity-design.open-source-project",
+      "workflow_id": "design-content.brand-identity-design",
+      "input": {
+        "brand_strategy": "Developer-first open source tool that values simplicity, reliability, and community",
+        "market_positioning": "Technical and trustworthy, positioned between enterprise tools and hobbyist projects",
+        "application_contexts": "Documentation site, GitHub presence, conference materials, swag"
+      },
+      "expected_outputs": ["identity_system", "brand_guidelines", "application_templates", "brand_assets"],
+      "expected_step_count": 6
+    }
+  ]
+}

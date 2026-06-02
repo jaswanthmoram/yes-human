@@ -1,0 +1,155 @@
+{
+  "id": "legal-compliance.contract-risk-review",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Screen a contract for clause risks, privacy concerns, and compliance gaps before attorney or policy-owner review.",
+  "task_family": "contract_risk_screening",
+  "triggers": [
+    "contract risk review",
+    "nda red flag triage",
+    "vendor agreement issue spotting",
+    "privacy clause screening"
+  ],
+  "aliases": [
+    "contract risk review",
+    "agreement triage"
+  ],
+  "negative_keywords": [
+    "forecast model",
+    "campaign brief",
+    "deployment rollback"
+  ],
+  "inputs": [
+    {
+      "name": "document_type",
+      "required": true,
+      "description": "Type of contract or agreement under review."
+    },
+    {
+      "name": "review_scope",
+      "required": true,
+      "description": "Clauses, jurisdictions, or business concerns to focus on."
+    },
+    {
+      "name": "known_constraints",
+      "required": false,
+      "description": "Fallback positions, policy requirements, or non-negotiables."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "risk_summary",
+      "description": "Observed legal and business risks grouped by severity."
+    },
+    {
+      "name": "privacy_and_compliance_flags",
+      "description": "Privacy, data handling, and compliance-oriented clause flags."
+    },
+    {
+      "name": "attorney_review_handoff",
+      "description": "Explicit human-review handoff with unresolved questions."
+    }
+  ],
+  "primary_agent": "legal-compliance.contract-reviewer",
+  "route": {
+    "domain_master": "legal-compliance.master",
+    "agents": [
+      "legal-compliance.contract-reviewer",
+      "legal-compliance.privacy-advisor",
+      "legal-compliance.compliance-checker"
+    ],
+    "primary_agent": "legal-compliance.contract-reviewer",
+    "participants": [
+      "legal-compliance.privacy-advisor",
+      "legal-compliance.compliance-checker"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 3
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 4300,
+    "max_tool_calls": 10,
+    "notes": "High-stakes workflow. Keep issue spotting and human review explicit."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is risk screening and not legal advice, contract approval, or final redlining authority."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require document type and scope before identifying clause risks."
+    },
+    {
+      "id": "pre-write",
+      "rule": "Attach non-legal-advice language and preserve confidentiality expectations for contract material."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "End with attorney or compliance-owner review; never claim autonomous approval."
+    }
+  ],
+  "steps": [
+    {
+      "id": "scope-contract-review",
+      "agent": "legal-compliance.contract-reviewer",
+      "action": "Set the review frame, identify the contract type, and organize the clause scan."
+    },
+    {
+      "id": "check-privacy-obligations",
+      "agent": "legal-compliance.privacy-advisor",
+      "action": "Flag data handling, retention, transfer, and security commitments that need owner review."
+    },
+    {
+      "id": "map-compliance-gaps",
+      "agent": "legal-compliance.compliance-checker",
+      "action": "Highlight policy or control mismatches based on the provided scope and constraints."
+    },
+    {
+      "id": "prepare-handoff",
+      "agent": "legal-compliance.contract-reviewer",
+      "action": "Merge findings into a severity-ordered risk summary with open questions for counsel or compliance owners."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read the contract, policy notes, and comparison materials."
+    }
+  ],
+  "verification": [
+    {
+      "id": "scope-and-document-type-present",
+      "method": "Check the review names document type, scope, and any stated constraints."
+    },
+    {
+      "id": "privacy-and-compliance-flags-separated",
+      "method": "Check the output distinguishes general contract risk from privacy or compliance findings."
+    },
+    {
+      "id": "attorney-review-required",
+      "method": "Check the output states it is not legal advice and requires attorney or owner review."
+    }
+  ],
+  "success_criteria": [
+    "The deliverable lists observed risks by clause area without presenting final legal conclusions.",
+    "Privacy and compliance findings are explicit enough for a specialist reviewer to follow up.",
+    "The output ends with unresolved questions and a human-review handoff rather than approval language."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If scope, confidentiality, or review authority is unclear, revert the draft handoff and regenerate a narrower issue summary for counsel review."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/legal-compliance/contract-risk-review.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

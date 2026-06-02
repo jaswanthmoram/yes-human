@@ -1,0 +1,52 @@
+{
+  "dossier_id": "dossier.skill.security.container-scanning.2026-06-01",
+  "skill_id": "security.container-scanning",
+  "domain": "security",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/aquasecurity/trivy",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "v0.50",
+      "used_for": ["container scanning", "vulnerability detection"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/anchore/grype",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "v0.74",
+      "used_for": ["image vulnerability scanning", "SBOM analysis"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.cisecurity.org/benchmark/docker",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "v1.6",
+      "used_for": ["Docker benchmark", "container hardening"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://docs.docker.com/develop/security-best-practices/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2024",
+      "used_for": ["Dockerfile best practices", "image security"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 2,
+    "github_quality": 93,
+    "license_safety": 95,
+    "maintenance": 94,
+    "pattern_clarity": 90,
+    "testability": 88,
+    "total": 92
+  },
+  "promotion_decision": "staging"
+}

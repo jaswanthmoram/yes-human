@@ -1,0 +1,52 @@
+{
+  "skill_id": "legal-compliance.ip-protection",
+  "dossier_id": "dossier.skill.legal-compliance.ip-protection.2026-06-01",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://www.uspto.gov/",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": [
+        "patent and trademark patterns",
+        "IP filing requirements"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.wipo.int/",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": [
+        "international IP patterns",
+        "treaty frameworks"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.copyright.gov/",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": [
+        "copyright registration patterns",
+        "protection requirements"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 3,
+    "github_quality": 0,
+    "license_safety": 92,
+    "maintenance": 88,
+    "pattern_clarity": 86,
+    "testability": 82,
+    "total": 85
+  },
+  "promotion_decision": "staging"
+}

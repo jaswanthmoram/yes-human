@@ -4,17 +4,17 @@ Portable, low-token agentic control plane (v2.0.0). Routes tasks through a tiny 
 
 ## Status
 
-**Phase 0 Complete**: All planning artifacts, source maps, and validation infrastructure are in place. Ready for Phase 1 (yes-core) implementation.
+**Phase 8 Complete**: Wave 4 specialist coverage and Wave 5 workflow/acceptance surfaces are implemented on the current 74-agent baseline.
 
 **Key Achievements:**
-- Architecture document (5,600+ lines) defines complete system design
-- ECC deep research mapped 180+ repositories across 8 skill categories
-- 14 critical architecture patterns identified for selective absorption
-- Registry structure (17 JSON files) and folder layout aligned with architecture
-- Validation scripts (`validate.js`, `eval-cost.js`) operational
-- OpenCode MCP configuration complete (7 servers: firecrawl, exa, github, context7, memory, playwright, sequential-thinking)
+- 74 production-gated agents across engineering, research, product, design, marketing, sales, platform, security, data/AI, and regulated domains
+- 18 canonical workflows under `content/workflows/` with matching workflow dossiers under `references/workflows/`
+- Generated workflow routing, workflow cache, and category packs (`registry/category-packs.json`)
+- Schema-backed connector registry with 16 declared connectors and explicit agent/workflow allowlists
+- Validation, route eval, workflow eval, and Phase 8 acceptance report generation operational
+- Core host bundles complete for Claude, Codex, OpenCode, and MCP
 
-**Next:** Phase 1 — Build `yes-core` (policy evaluation, validation, trust scoring)
+**Next:** Phase 9 — learning loop, mistake graph promotion, team/offline concerns, and optional adapter packs.
 
 ## Quick start
 
@@ -23,6 +23,8 @@ npm install
 npm run validate     # schemas, registries, routes, dossiers
 npm test             # unit tests (router, promotion gate, markitdown)
 npm run eval:cost    # startup token budget
+node packages/yes-cli/index.js eval workflow   # workflow routing accuracy
+npm run report:phase8                          # regenerate reports/phase8-acceptance.md
 node packages/yes-cli/index.js doctor   # environment + project health
 ```
 
@@ -50,10 +52,10 @@ get `{ markdown, images, hasImages }` instead of a string.
 | `YES_BOOT.md` | Startup boot text (~60–180 tokens) |
 | `graph/indexes/ROUTE_TABLE.min.json` | Hot keyword → route_id map |
 | `registry/routes.json` | Full route definitions (lazy-loaded) |
-| `registry/*.json` | Agent, skill, workflow, and policy indexes (17 files) |
+| `registry/*.json` | Agent, skill, workflow, connector, and category-pack indexes |
 | `packages/yes-schema/` | JSON schemas and validator |
 | `yes-human.plugin.json` | Plugin manifest |
-| `opencode.json` | OpenCode MCP configuration (7 servers) |
+| `reports/phase8-acceptance.md` | Generated Phase 8 acceptance summary |
 
 ## Documentation
 
@@ -80,7 +82,7 @@ get `{ markdown, images, hasImages }` instead of a string.
 2. `yes-runtime` — Execution, spawner, traces
 3. `yes-graph` — Multi-tiered routing (Trie, SQLite, semantic fallback)
 4. `yes-workflows` — Composable orchestration patterns
-5. `yes-adapters` — Host bundles (Claude, Codex, CLI, MCP, Cursor, Windsurf, Generic)
+5. `yes-adapters` — Host bundles (Claude, Codex, CLI, MCP) plus optional adapter packs later
 
 **ECC Integration:** Selectively absorbing patterns from 180+ repositories:
 - PlanCard pattern (`forgent`) for structured route output

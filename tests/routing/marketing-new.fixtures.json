@@ -1,0 +1,286 @@
+{
+  "domain": "marketing-new",
+  "description": "Routing fixtures for Marketing domain expansion (14 agents, 5 fixtures each = 70 total).",
+  "fixtures": [
+    {
+      "prompt": "digital marketing plan for Q3",
+      "expected_route": "route.marketing.digital-marketer"
+    },
+    {
+      "prompt": "multi-channel campaign brief",
+      "expected_route": "route.marketing.digital-marketer"
+    },
+    {
+      "prompt": "digital ad strategy review",
+      "expected_route": "route.marketing.digital-marketer"
+    },
+    {
+      "prompt": "online marketing roadmap",
+      "expected_route": "route.marketing.digital-marketer"
+    },
+    {
+      "prompt": "digital channel mix analysis",
+      "expected_route": "route.marketing.digital-marketer"
+    },
+    {
+      "prompt": "comprehensive seo audit for main site",
+      "expected_route": "route.marketing.seo-specialist"
+    },
+    {
+      "prompt": "keyword gap analysis vs competitors",
+      "expected_route": "route.marketing.seo-specialist"
+    },
+    {
+      "prompt": "search visibility review",
+      "expected_route": "route.marketing.seo-specialist"
+    },
+    {
+      "prompt": "organic traffic growth strategy",
+      "expected_route": "route.marketing.seo-specialist"
+    },
+    {
+      "prompt": "seo competitive benchmarking",
+      "expected_route": "route.marketing.seo-specialist"
+    },
+    {
+      "prompt": "paid search campaign setup",
+      "expected_route": "route.marketing.sem-specialist"
+    },
+    {
+      "prompt": "google ads optimization review",
+      "expected_route": "route.marketing.sem-specialist"
+    },
+    {
+      "prompt": "sem bid strategy planning",
+      "expected_route": "route.marketing.sem-specialist"
+    },
+    {
+      "prompt": "ppc campaign audit",
+      "expected_route": "route.marketing.sem-specialist"
+    },
+    {
+      "prompt": "search ads structure review",
+      "expected_route": "route.marketing.sem-specialist"
+    },
+    {
+      "prompt": "content marketing draft for blog",
+      "expected_route": "route.marketing.content-marketer"
+    },
+    {
+      "prompt": "blog topic cluster planning",
+      "expected_route": "route.marketing.content-marketer"
+    },
+    {
+      "prompt": "landing page narrative design",
+      "expected_route": "route.marketing.content-marketer"
+    },
+    {
+      "prompt": "editorial calendar seed",
+      "expected_route": "route.marketing.content-marketer"
+    },
+    {
+      "prompt": "organic acquisition brief",
+      "expected_route": "route.marketing.content-marketer"
+    },
+    {
+      "prompt": "social media strategy for launch",
+      "expected_route": "route.marketing.social-media-manager"
+    },
+    {
+      "prompt": "social content calendar plan",
+      "expected_route": "route.marketing.social-media-manager"
+    },
+    {
+      "prompt": "community engagement playbook",
+      "expected_route": "route.marketing.social-media-manager"
+    },
+    {
+      "prompt": "social platform audit",
+      "expected_route": "route.marketing.social-media-manager"
+    },
+    {
+      "prompt": "social media content plan",
+      "expected_route": "route.marketing.social-media-manager"
+    },
+    {
+      "prompt": "email marketing strategy review",
+      "expected_route": "route.marketing.email-marketer"
+    },
+    {
+      "prompt": "lifecycle email sequence design",
+      "expected_route": "route.marketing.email-marketer"
+    },
+    {
+      "prompt": "email deliverability audit",
+      "expected_route": "route.marketing.email-marketer"
+    },
+    {
+      "prompt": "drip campaign planning",
+      "expected_route": "route.marketing.email-marketer"
+    },
+    {
+      "prompt": "email segmentation strategy",
+      "expected_route": "route.marketing.email-marketer"
+    },
+    {
+      "prompt": "marketing performance analysis",
+      "expected_route": "route.marketing.marketing-analyst"
+    },
+    {
+      "prompt": "attribution model review",
+      "expected_route": "route.marketing.marketing-analyst"
+    },
+    {
+      "prompt": "marketing roi calculation",
+      "expected_route": "route.marketing.marketing-analyst"
+    },
+    {
+      "prompt": "campaign metrics report",
+      "expected_route": "route.marketing.marketing-analyst"
+    },
+    {
+      "prompt": "channel effectiveness analysis",
+      "expected_route": "route.marketing.marketing-analyst"
+    },
+    {
+      "prompt": "growth experiment design",
+      "expected_route": "route.marketing.growth-marketer"
+    },
+    {
+      "prompt": "acquisition loop planning",
+      "expected_route": "route.marketing.growth-marketer"
+    },
+    {
+      "prompt": "retention strategy review",
+      "expected_route": "route.marketing.growth-marketer"
+    },
+    {
+      "prompt": "growth hacking brief",
+      "expected_route": "route.marketing.growth-marketer"
+    },
+    {
+      "prompt": "funnel optimization sprint",
+      "expected_route": "route.marketing.growth-marketer"
+    },
+    {
+      "prompt": "brand positioning review",
+      "expected_route": "route.marketing.brand-marketer"
+    },
+    {
+      "prompt": "brand messaging framework",
+      "expected_route": "route.marketing.brand-marketer"
+    },
+    {
+      "prompt": "brand awareness campaign plan",
+      "expected_route": "route.marketing.brand-marketer"
+    },
+    {
+      "prompt": "brand voice development",
+      "expected_route": "route.marketing.brand-marketer"
+    },
+    {
+      "prompt": "brand equity assessment",
+      "expected_route": "route.marketing.brand-marketer"
+    },
+    {
+      "prompt": "product positioning brief",
+      "expected_route": "route.marketing.product-marketer"
+    },
+    {
+      "prompt": "go to market plan",
+      "expected_route": "route.marketing.product-marketer"
+    },
+    {
+      "prompt": "competitive battlecard creation",
+      "expected_route": "route.marketing.product-marketer"
+    },
+    {
+      "prompt": "product launch messaging",
+      "expected_route": "route.marketing.product-marketer"
+    },
+    {
+      "prompt": "feature value proposition review",
+      "expected_route": "route.marketing.product-marketer"
+    },
+    {
+      "prompt": "event marketing plan",
+      "expected_route": "route.marketing.event-marketer"
+    },
+    {
+      "prompt": "webinar promotion strategy",
+      "expected_route": "route.marketing.event-marketer"
+    },
+    {
+      "prompt": "trade show marketing brief",
+      "expected_route": "route.marketing.event-marketer"
+    },
+    {
+      "prompt": "event follow-up campaign",
+      "expected_route": "route.marketing.event-marketer"
+    },
+    {
+      "prompt": "sponsorship activation plan",
+      "expected_route": "route.marketing.event-marketer"
+    },
+    {
+      "prompt": "influencer strategy plan",
+      "expected_route": "route.marketing.influencer-marketer"
+    },
+    {
+      "prompt": "creator partnership brief",
+      "expected_route": "route.marketing.influencer-marketer"
+    },
+    {
+      "prompt": "influencer campaign design",
+      "expected_route": "route.marketing.influencer-marketer"
+    },
+    {
+      "prompt": "influencer vetting criteria",
+      "expected_route": "route.marketing.influencer-marketer"
+    },
+    {
+      "prompt": "ugc campaign planning",
+      "expected_route": "route.marketing.influencer-marketer"
+    },
+    {
+      "prompt": "marketing automation setup",
+      "expected_route": "route.marketing.marketing-automator"
+    },
+    {
+      "prompt": "lead nurturing workflow design",
+      "expected_route": "route.marketing.marketing-automator"
+    },
+    {
+      "prompt": "triggered email sequence",
+      "expected_route": "route.marketing.marketing-automator"
+    },
+    {
+      "prompt": "automation audit and optimization",
+      "expected_route": "route.marketing.marketing-automator"
+    },
+    {
+      "prompt": "scoring and routing rules",
+      "expected_route": "route.marketing.marketing-automator"
+    },
+    {
+      "prompt": "conversion rate optimization audit",
+      "expected_route": "route.marketing.conversion-optimizer"
+    },
+    {
+      "prompt": "landing page optimization review",
+      "expected_route": "route.marketing.conversion-optimizer"
+    },
+    {
+      "prompt": "funnel drop-off analysis",
+      "expected_route": "route.marketing.conversion-optimizer"
+    },
+    {
+      "prompt": "a b test design for signup",
+      "expected_route": "route.marketing.conversion-optimizer"
+    },
+    {
+      "prompt": "user flow improvement plan",
+      "expected_route": "route.marketing.conversion-optimizer"
+    }
+  ]
+}

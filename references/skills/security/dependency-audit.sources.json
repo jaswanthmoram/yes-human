@@ -1,0 +1,52 @@
+{
+  "dossier_id": "dossier.skill.security.dependency-audit.2026-06-01",
+  "skill_id": "security.dependency-audit",
+  "domain": "security",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://osv.dev/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2024",
+      "used_for": ["vulnerability database", "OSV format"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/advisories",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["GitHub advisory database", "GHSA identifiers"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://docs.npmjs.com/cli/v10/commands/npm-audit",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "npm v10",
+      "used_for": ["npm audit command", "vulnerability reporting"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/pypa/pip-audit",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "v2.7",
+      "used_for": ["Python dependency auditing", "PyPI advisories"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 3,
+    "github_quality": 90,
+    "license_safety": 94,
+    "maintenance": 93,
+    "pattern_clarity": 88,
+    "testability": 90,
+    "total": 91
+  },
+  "promotion_decision": "staging"
+}

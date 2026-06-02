@@ -1,0 +1,3494 @@
+{
+  "report": {
+    "total_dossiers": 162,
+    "average_score": 49,
+    "score_distribution": {
+      "excellent": 11,
+      "good": 4,
+      "fair": 13,
+      "poor": 134
+    },
+    "by_domain": {
+      "data-ai": {
+        "count": 7,
+        "total_score": 346,
+        "average": 49
+      },
+      "design-content": {
+        "count": 7,
+        "total_score": 323,
+        "average": 46
+      },
+      "education": {
+        "count": 6,
+        "total_score": 244,
+        "average": 41
+      },
+      "engineering.architecture": {
+        "count": 1,
+        "total_score": 43,
+        "average": 43
+      },
+      "engineering.language-review": {
+        "count": 2,
+        "total_score": 48,
+        "average": 24
+      },
+      "engineering.docs": {
+        "count": 1,
+        "total_score": 24,
+        "average": 24
+      },
+      "engineering": {
+        "count": 7,
+        "total_score": 323,
+        "average": 46
+      },
+      "engineering.dev-workflow": {
+        "count": 1,
+        "total_score": 29,
+        "average": 29
+      },
+      "unknown": {
+        "count": 35,
+        "total_score": 2147,
+        "average": 61
+      },
+      "finance": {
+        "count": 7,
+        "total_score": 322,
+        "average": 46
+      },
+      "healthcare": {
+        "count": 6,
+        "total_score": 272,
+        "average": 45
+      },
+      "hr": {
+        "count": 7,
+        "total_score": 322,
+        "average": 46
+      },
+      "integrations": {
+        "count": 7,
+        "total_score": 375,
+        "average": 54
+      },
+      "legal-compliance": {
+        "count": 6,
+        "total_score": 285,
+        "average": 48
+      },
+      "manufacturing": {
+        "count": 6,
+        "total_score": 272,
+        "average": 45
+      },
+      "marketing": {
+        "count": 7,
+        "total_score": 322,
+        "average": 46
+      },
+      "meta-system": {
+        "count": 8,
+        "total_score": 306,
+        "average": 38
+      },
+      "platform": {
+        "count": 7,
+        "total_score": 309,
+        "average": 44
+      },
+      "product-business": {
+        "count": 7,
+        "total_score": 306,
+        "average": 44
+      },
+      "research": {
+        "count": 6,
+        "total_score": 312,
+        "average": 52
+      },
+      "sales": {
+        "count": 7,
+        "total_score": 322,
+        "average": 46
+      },
+      "security": {
+        "count": 8,
+        "total_score": 383,
+        "average": 48
+      },
+      "startup-ops": {
+        "count": 6,
+        "total_score": 284,
+        "average": 47
+      }
+    },
+    "low_scoring": [
+      {
+        "path": "references/data-ai/eval-engineer.sources.json",
+        "agent_id": "data-ai.eval-engineer",
+        "score": 38
+      },
+      {
+        "path": "references/data-ai/graph-rag-engineer.sources.json",
+        "agent_id": "data-ai.graph-rag-engineer",
+        "score": 37
+      },
+      {
+        "path": "references/data-ai/master.sources.json",
+        "agent_id": "data-ai.master",
+        "score": 41
+      },
+      {
+        "path": "references/data-ai/ml-engineer.sources.json",
+        "agent_id": "data-ai.ml-engineer",
+        "score": 38
+      },
+      {
+        "path": "references/data-ai/rag-engineer.sources.json",
+        "agent_id": "data-ai.rag-engineer",
+        "score": 41
+      },
+      {
+        "path": "references/design-content/accessibility-auditor.sources.json",
+        "agent_id": "design-content.accessibility-auditor",
+        "score": 41
+      },
+      {
+        "path": "references/design-content/brand-strategist.sources.json",
+        "agent_id": "design-content.brand-strategist",
+        "score": 37
+      },
+      {
+        "path": "references/design-content/frontend-design-agent.sources.json",
+        "agent_id": "design-content.frontend-design-agent",
+        "score": 41
+      },
+      {
+        "path": "references/design-content/master.sources.json",
+        "agent_id": "design-content.master",
+        "score": 41
+      },
+      {
+        "path": "references/design-content/technical-writer.sources.json",
+        "agent_id": "design-content.technical-writer",
+        "score": 41
+      },
+      {
+        "path": "references/education/assessment-designer.sources.json",
+        "agent_id": "education.assessment-designer",
+        "score": 38
+      },
+      {
+        "path": "references/education/curriculum-designer.sources.json",
+        "agent_id": "education.curriculum-designer",
+        "score": 38
+      },
+      {
+        "path": "references/education/master.sources.json",
+        "agent_id": "education.master",
+        "score": 38
+      },
+      {
+        "path": "references/education/tutor-agent.sources.json",
+        "agent_id": "education.tutor-agent",
+        "score": 38
+      },
+      {
+        "path": "references/engineering/architect.sources.json",
+        "agent_id": "engineering.architect",
+        "score": 43
+      },
+      {
+        "path": "references/engineering/build-resolver.sources.json",
+        "agent_id": "engineering.build-resolver",
+        "score": 24
+      },
+      {
+        "path": "references/engineering/code-reviewer.sources.json",
+        "agent_id": "engineering.code-reviewer",
+        "score": 24
+      },
+      {
+        "path": "references/engineering/docs-updater.sources.json",
+        "agent_id": "engineering.docs-updater",
+        "score": 24
+      },
+      {
+        "path": "references/engineering/master.sources.json",
+        "agent_id": "engineering.master",
+        "score": 24
+      },
+      {
+        "path": "references/engineering/tdd-guide.sources.json",
+        "agent_id": "engineering.tdd-guide",
+        "score": 29
+      },
+      {
+        "path": "references/finance/budget-planner.sources.json",
+        "agent_id": "finance.budget-planner",
+        "score": 41
+      },
+      {
+        "path": "references/finance/cash-flow-manager.sources.json",
+        "agent_id": "finance.cash-flow-manager",
+        "score": 41
+      },
+      {
+        "path": "references/finance/cfo-advisor.sources.json",
+        "agent_id": "finance.cfo-advisor",
+        "score": 37
+      },
+      {
+        "path": "references/finance/forecasting-analyst.sources.json",
+        "agent_id": "finance.forecasting-analyst",
+        "score": 41
+      },
+      {
+        "path": "references/finance/master.sources.json",
+        "agent_id": "finance.master",
+        "score": 41
+      },
+      {
+        "path": "references/healthcare/clinical-decision-support.sources.json",
+        "agent_id": "healthcare.clinical-decision-support",
+        "score": 38
+      },
+      {
+        "path": "references/healthcare/ehr-patterns.sources.json",
+        "agent_id": "healthcare.ehr-patterns",
+        "score": 38
+      },
+      {
+        "path": "references/healthcare/master.sources.json",
+        "agent_id": "healthcare.master",
+        "score": 38
+      },
+      {
+        "path": "references/healthcare/phi-compliance.sources.json",
+        "agent_id": "healthcare.phi-compliance",
+        "score": 38
+      },
+      {
+        "path": "references/hr/compensation-analyst.sources.json",
+        "agent_id": "hr.compensation-analyst",
+        "score": 37
+      },
+      {
+        "path": "references/hr/hiring-manager.sources.json",
+        "agent_id": "hr.hiring-manager",
+        "score": 41
+      },
+      {
+        "path": "references/hr/master.sources.json",
+        "agent_id": "hr.master",
+        "score": 41
+      },
+      {
+        "path": "references/hr/onboarding-coordinator.sources.json",
+        "agent_id": "hr.onboarding-coordinator",
+        "score": 41
+      },
+      {
+        "path": "references/hr/performance-reviewer.sources.json",
+        "agent_id": "hr.performance-reviewer",
+        "score": 41
+      },
+      {
+        "path": "references/integrations/browser-auto.sources.json",
+        "agent_id": "integrations.browser-auto",
+        "score": 47
+      },
+      {
+        "path": "references/integrations/github-operator.sources.json",
+        "agent_id": "integrations.github-operator",
+        "score": 47
+      },
+      {
+        "path": "references/integrations/master.sources.json",
+        "agent_id": "integrations.master",
+        "score": 47
+      },
+      {
+        "path": "references/integrations/sourcegraph-context-agent.sources.json",
+        "agent_id": "integrations.sourcegraph-context-agent",
+        "score": 37
+      },
+      {
+        "path": "references/integrations/vercel-agent.sources.json",
+        "agent_id": "integrations.vercel-agent",
+        "score": 47
+      },
+      {
+        "path": "references/legal-compliance/compliance-checker.sources.json",
+        "agent_id": "legal-compliance.compliance-checker",
+        "score": 41
+      },
+      {
+        "path": "references/legal-compliance/contract-reviewer.sources.json",
+        "agent_id": "legal-compliance.contract-reviewer",
+        "score": 41
+      },
+      {
+        "path": "references/legal-compliance/master.sources.json",
+        "agent_id": "legal-compliance.master",
+        "score": 41
+      },
+      {
+        "path": "references/legal-compliance/privacy-advisor.sources.json",
+        "agent_id": "legal-compliance.privacy-advisor",
+        "score": 41
+      },
+      {
+        "path": "references/manufacturing/demand-planner.sources.json",
+        "agent_id": "manufacturing.demand-planner",
+        "score": 38
+      },
+      {
+        "path": "references/manufacturing/inventory-planner.sources.json",
+        "agent_id": "manufacturing.inventory-planner",
+        "score": 38
+      },
+      {
+        "path": "references/manufacturing/master.sources.json",
+        "agent_id": "manufacturing.master",
+        "score": 38
+      },
+      {
+        "path": "references/manufacturing/quality-nonconformance-analyst.sources.json",
+        "agent_id": "manufacturing.quality-nonconformance-analyst",
+        "score": 38
+      },
+      {
+        "path": "references/marketing/content-marketer.sources.json",
+        "agent_id": "marketing.content-marketer",
+        "score": 41
+      },
+      {
+        "path": "references/marketing/email-marketer.sources.json",
+        "agent_id": "marketing.email-marketer",
+        "score": 37
+      },
+      {
+        "path": "references/marketing/marketing-strategist.sources.json",
+        "agent_id": "marketing.marketing-strategist",
+        "score": 41
+      },
+      {
+        "path": "references/marketing/master.sources.json",
+        "agent_id": "marketing.master",
+        "score": 41
+      },
+      {
+        "path": "references/marketing/seo-analyst.sources.json",
+        "agent_id": "marketing.seo-analyst",
+        "score": 41
+      },
+      {
+        "path": "references/meta-system/deduplicator.sources.json",
+        "agent_id": "meta-system.deduplicator",
+        "score": 37
+      },
+      {
+        "path": "references/meta-system/eval-runner.sources.json",
+        "agent_id": "meta-system.eval-runner",
+        "score": 24
+      },
+      {
+        "path": "references/meta-system/master.sources.json",
+        "agent_id": "meta-system.master",
+        "score": 24
+      },
+      {
+        "path": "references/meta-system/plugin-absorber.sources.json",
+        "agent_id": "meta-system.plugin-absorber",
+        "score": 24
+      },
+      {
+        "path": "references/meta-system/source-miner.sources.json",
+        "agent_id": "meta-system.source-miner",
+        "score": 24
+      },
+      {
+        "path": "references/meta-system/stub-detector.sources.json",
+        "agent_id": "meta-system.stub-detector",
+        "score": 37
+      },
+      {
+        "path": "references/platform/ci-cd-engineer.sources.json",
+        "agent_id": "platform.ci-cd-engineer",
+        "score": 38
+      },
+      {
+        "path": "references/platform/devops-engineer.sources.json",
+        "agent_id": "platform.devops-engineer",
+        "score": 38
+      },
+      {
+        "path": "references/platform/incident-responder.sources.json",
+        "agent_id": "platform.incident-responder",
+        "score": 38
+      },
+      {
+        "path": "references/platform/master.sources.json",
+        "agent_id": "platform.master",
+        "score": 24
+      },
+      {
+        "path": "references/platform/observability-engineer.sources.json",
+        "agent_id": "platform.observability-engineer",
+        "score": 22
+      },
+      {
+        "path": "references/product-business/customer-success-advisor.sources.json",
+        "agent_id": "product-business.customer-success-advisor",
+        "score": 41
+      },
+      {
+        "path": "references/product-business/master.sources.json",
+        "agent_id": "product-business.master",
+        "score": 41
+      },
+      {
+        "path": "references/product-business/operations-planner.sources.json",
+        "agent_id": "product-business.operations-planner",
+        "score": 41
+      },
+      {
+        "path": "references/product-business/partnerships-advisor.sources.json",
+        "agent_id": "product-business.partnerships-advisor",
+        "score": 22
+      },
+      {
+        "path": "references/product-business/product-manager.sources.json",
+        "agent_id": "product-business.product-manager",
+        "score": 41
+      },
+      {
+        "path": "references/research/deep-researcher.sources.json",
+        "agent_id": "research.deep-researcher",
+        "score": 41
+      },
+      {
+        "path": "references/research/market-intel-analyst.sources.json",
+        "agent_id": "research.market-intel-analyst",
+        "score": 41
+      },
+      {
+        "path": "references/research/master.sources.json",
+        "agent_id": "research.master",
+        "score": 41
+      },
+      {
+        "path": "references/research/scientific-literature-analyst.sources.json",
+        "agent_id": "research.scientific-literature-analyst",
+        "score": 41
+      },
+      {
+        "path": "references/sales/competitive-intel-analyst.sources.json",
+        "agent_id": "sales.competitive-intel-analyst",
+        "score": 37
+      },
+      {
+        "path": "references/sales/master.sources.json",
+        "agent_id": "sales.master",
+        "score": 41
+      },
+      {
+        "path": "references/sales/pipeline-analyst.sources.json",
+        "agent_id": "sales.pipeline-analyst",
+        "score": 41
+      },
+      {
+        "path": "references/sales/proposal-generator.sources.json",
+        "agent_id": "sales.proposal-generator",
+        "score": 41
+      },
+      {
+        "path": "references/sales/sales-strategist.sources.json",
+        "agent_id": "sales.sales-strategist",
+        "score": 41
+      },
+      {
+        "path": "references/security/dependency-risk-agent.sources.json",
+        "agent_id": "security.dependency-risk-agent",
+        "score": 43
+      },
+      {
+        "path": "references/security/master.sources.json",
+        "agent_id": "security.master",
+        "score": 24
+      },
+      {
+        "path": "references/security/secret-scan-agent.sources.json",
+        "agent_id": "security.secret-scan-agent",
+        "score": 38
+      },
+      {
+        "path": "references/security/security-reviewer.sources.json",
+        "agent_id": "security.security-reviewer",
+        "score": 38
+      },
+      {
+        "path": "references/security/threat-modeler.sources.json",
+        "agent_id": "security.threat-modeler",
+        "score": 38
+      },
+      {
+        "path": "references/skills/data-ai/dataset-profiling.sources.json",
+        "agent_id": "data-ai.dataset-profiling",
+        "score": 51
+      },
+      {
+        "path": "references/skills/data-ai/embedding-index-review.sources.json",
+        "agent_id": "data-ai.embedding-index-review",
+        "score": 51
+      },
+      {
+        "path": "references/skills/data-ai/model-eval.sources.json",
+        "agent_id": "data-ai.model-eval",
+        "score": 50
+      },
+      {
+        "path": "references/skills/data-ai/rag-eval.sources.json",
+        "agent_id": "data-ai.rag-eval",
+        "score": 51
+      },
+      {
+        "path": "references/skills/engineering/api-design.sources.json",
+        "agent_id": "engineering.api-design",
+        "score": 51
+      },
+      {
+        "path": "references/skills/engineering/build-failure.sources.json",
+        "agent_id": "engineering.build-failure",
+        "score": 51
+      },
+      {
+        "path": "references/skills/engineering/code-review.sources.json",
+        "agent_id": "engineering.code-review",
+        "score": 51
+      },
+      {
+        "path": "references/skills/engineering/dependency-upgrade.sources.json",
+        "agent_id": "engineering.dependency-upgrade",
+        "score": 51
+      },
+      {
+        "path": "references/skills/engineering/documentation-update.sources.json",
+        "agent_id": "engineering.documentation-update",
+        "score": 51
+      },
+      {
+        "path": "references/skills/engineering/git-workflow.sources.json",
+        "agent_id": "engineering.git-workflow",
+        "score": 51
+      },
+      {
+        "path": "references/skills/engineering/refactor-planning.sources.json",
+        "agent_id": "engineering.refactor-planning",
+        "score": 51
+      },
+      {
+        "path": "references/skills/engineering/test-triage.sources.json",
+        "agent_id": "engineering.test-triage",
+        "score": 51
+      },
+      {
+        "path": "references/skills/meta-system/agent-absorption.sources.json",
+        "agent_id": "meta-system.agent-absorption",
+        "score": 51
+      },
+      {
+        "path": "references/skills/meta-system/fixture-writing.sources.json",
+        "agent_id": "meta-system.fixture-writing",
+        "score": 51
+      },
+      {
+        "path": "references/skills/meta-system/route-evaluation.sources.json",
+        "agent_id": "meta-system.route-evaluation",
+        "score": 51
+      },
+      {
+        "path": "references/skills/platform/ci-triage.sources.json",
+        "agent_id": "platform.ci-triage",
+        "score": 50
+      },
+      {
+        "path": "references/skills/platform/deploy-rollback.sources.json",
+        "agent_id": "platform.deploy-rollback",
+        "score": 50
+      },
+      {
+        "path": "references/skills/platform/incident-analysis.sources.json",
+        "agent_id": "platform.incident-analysis",
+        "score": 51
+      },
+      {
+        "path": "references/skills/platform/observability-setup.sources.json",
+        "agent_id": "platform.observability-setup",
+        "score": 50
+      },
+      {
+        "path": "references/skills/security/auth-review.sources.json",
+        "agent_id": "security.auth-review",
+        "score": 50
+      },
+      {
+        "path": "references/skills/security/prompt-injection-review.sources.json",
+        "agent_id": "security.prompt-injection-review",
+        "score": 51
+      },
+      {
+        "path": "references/skills/security/secret-scan-triage.sources.json",
+        "agent_id": "security.secret-scan-triage",
+        "score": 52
+      },
+      {
+        "path": "references/skills/security/supply-chain-review.sources.json",
+        "agent_id": "security.supply-chain-review",
+        "score": 51
+      },
+      {
+        "path": "references/skills/security/threat-model.sources.json",
+        "agent_id": "security.threat-model",
+        "score": 51
+      },
+      {
+        "path": "references/skills/security/vulnerability-assessment.sources.json",
+        "agent_id": "security.vulnerability-assessment",
+        "score": 50
+      },
+      {
+        "path": "references/startup-ops/ceo-rethink.sources.json",
+        "agent_id": "startup-ops.ceo-rethink",
+        "score": 41
+      },
+      {
+        "path": "references/startup-ops/master.sources.json",
+        "agent_id": "startup-ops.master",
+        "score": 41
+      },
+      {
+        "path": "references/startup-ops/qa.sources.json",
+        "agent_id": "startup-ops.qa",
+        "score": 41
+      },
+      {
+        "path": "references/startup-ops/release.sources.json",
+        "agent_id": "startup-ops.release",
+        "score": 41
+      },
+      {
+        "path": "references/workflows/data-ai/rag-eval.sources.json",
+        "agent_id": "data-ai.rag-eval",
+        "score": 51
+      },
+      {
+        "path": "references/workflows/design-content/visual-and-a11y-check.sources.json",
+        "agent_id": "design-content.visual-and-a11y-check",
+        "score": 37
+      },
+      {
+        "path": "references/workflows/education/curriculum-assessment-alignment.sources.json",
+        "agent_id": "education.curriculum-assessment-alignment",
+        "score": 22
+      },
+      {
+        "path": "references/workflows/engineering/code-review-with-security.sources.json",
+        "agent_id": "engineering.code-review-with-security",
+        "score": 51
+      },
+      {
+        "path": "references/workflows/engineering/docs-update.sources.json",
+        "agent_id": "engineering.docs-update",
+        "score": 37
+      },
+      {
+        "path": "references/workflows/engineering/fix-build-error.sources.json",
+        "agent_id": "engineering.fix-build-error",
+        "score": 37
+      },
+      {
+        "path": "references/workflows/engineering/repo-onboarding.sources.json",
+        "agent_id": "engineering.repo-onboarding",
+        "score": 37
+      },
+      {
+        "path": "references/workflows/engineering/tdd-feature.sources.json",
+        "agent_id": "engineering.tdd-feature",
+        "score": 37
+      },
+      {
+        "path": "references/workflows/finance/monthly-forecast.sources.json",
+        "agent_id": "finance.monthly-forecast",
+        "score": 51
+      },
+      {
+        "path": "references/workflows/healthcare/clinical-guideline-review.sources.json",
+        "agent_id": "healthcare.clinical-guideline-review",
+        "score": 50
+      },
+      {
+        "path": "references/workflows/hr/hiring-pipeline.sources.json",
+        "agent_id": "hr.hiring-pipeline",
+        "score": 51
+      },
+      {
+        "path": "references/workflows/integrations/mcp-server-design.sources.json",
+        "agent_id": "integrations.mcp-server-design",
+        "score": 51
+      },
+      {
+        "path": "references/workflows/legal-compliance/contract-risk-review.sources.json",
+        "agent_id": "legal-compliance.contract-risk-review",
+        "score": 51
+      },
+      {
+        "path": "references/workflows/manufacturing/demand-inventory-balancing.sources.json",
+        "agent_id": "manufacturing.demand-inventory-balancing",
+        "score": 50
+      },
+      {
+        "path": "references/workflows/marketing/launch-campaign.sources.json",
+        "agent_id": "marketing.launch-campaign",
+        "score": 51
+      },
+      {
+        "path": "references/workflows/meta-system/source-mine-and-dossier.sources.json",
+        "agent_id": "meta-system.source-mine-and-dossier",
+        "score": 51
+      },
+      {
+        "path": "references/workflows/platform/ci-failure-triage.sources.json",
+        "agent_id": "platform.ci-failure-triage",
+        "score": 51
+      },
+      {
+        "path": "references/workflows/product-business/prd-to-plan.sources.json",
+        "agent_id": "product-business.prd-to-plan",
+        "score": 50
+      },
+      {
+        "path": "references/workflows/research/deep-research-synthesis.sources.json",
+        "agent_id": "research.deep-research-synthesis",
+        "score": 51
+      },
+      {
+        "path": "references/workflows/sales/deal-review.sources.json",
+        "agent_id": "sales.deal-review",
+        "score": 51
+      },
+      {
+        "path": "references/workflows/security/prompt-injection-review.sources.json",
+        "agent_id": "security.prompt-injection-review",
+        "score": 51
+      },
+      {
+        "path": "references/workflows/security/repo-risk-scan.sources.json",
+        "agent_id": "security.repo-risk-scan",
+        "score": 51
+      },
+      {
+        "path": "references/workflows/startup-ops/ceo-review-pack.sources.json",
+        "agent_id": "startup-ops.ceo-review-pack",
+        "score": 50
+      }
+    ]
+  },
+  "results": [
+    {
+      "path": "references/data-ai/domain.sources.json",
+      "dossier_id": "dossier.domain.data-ai.2026-06-01",
+      "domain": "data-ai",
+      "scores": {
+        "source_count": 20,
+        "official_docs": 15,
+        "github_quality": 20,
+        "license_safety": 15,
+        "maintenance": 10,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 100
+      },
+      "source_count": 18
+    },
+    {
+      "path": "references/data-ai/eval-engineer.sources.json",
+      "dossier_id": "dossier.data-ai.eval-engineer.2026-05-31",
+      "agent_id": "data-ai.eval-engineer",
+      "domain": "data-ai",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 9,
+        "total": 38
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/data-ai/graph-rag-engineer.sources.json",
+      "dossier_id": "dossier.data-ai.graph-rag-engineer.2026-06-01",
+      "agent_id": "data-ai.graph-rag-engineer",
+      "domain": "data-ai",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 10,
+        "maintenance": 0,
+        "pattern_clarity": 4,
+        "testability": 4,
+        "total": 37
+      },
+      "source_count": 2
+    },
+    {
+      "path": "references/data-ai/master.sources.json",
+      "dossier_id": "dossier.data-ai.master.2026-05-31",
+      "agent_id": "data-ai.master",
+      "domain": "data-ai",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/data-ai/ml-engineer.sources.json",
+      "dossier_id": "dossier.data-ai.ml-engineer.2026-05-31",
+      "agent_id": "data-ai.ml-engineer",
+      "domain": "data-ai",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 9,
+        "total": 38
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/data-ai/rag-engineer.sources.json",
+      "dossier_id": "dossier.data-ai.rag-engineer.2026-05-31",
+      "agent_id": "data-ai.rag-engineer",
+      "domain": "data-ai",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/design-content/accessibility-auditor.sources.json",
+      "dossier_id": "dossier.design-content.accessibility-auditor.2026-06-01",
+      "agent_id": "design-content.accessibility-auditor",
+      "domain": "design-content",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/design-content/brand-strategist.sources.json",
+      "dossier_id": "dossier.design-content.brand-strategist.2026-06-01",
+      "agent_id": "design-content.brand-strategist",
+      "domain": "design-content",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 10,
+        "maintenance": 0,
+        "pattern_clarity": 4,
+        "testability": 4,
+        "total": 37
+      },
+      "source_count": 2
+    },
+    {
+      "path": "references/design-content/domain.sources.json",
+      "dossier_id": "dossier.domain.design-content.2026-06-01",
+      "domain": "design-content",
+      "scores": {
+        "source_count": 20,
+        "official_docs": 15,
+        "github_quality": 15,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 85
+      },
+      "source_count": 18
+    },
+    {
+      "path": "references/design-content/frontend-design-agent.sources.json",
+      "dossier_id": "dossier.design-content.frontend-design-agent.2026-06-01",
+      "agent_id": "design-content.frontend-design-agent",
+      "domain": "design-content",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/design-content/master.sources.json",
+      "dossier_id": "dossier.design-content.master.2026-05-31",
+      "agent_id": "design-content.master",
+      "domain": "design-content",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/design-content/technical-writer.sources.json",
+      "dossier_id": "dossier.design-content.technical-writer.2026-06-01",
+      "agent_id": "design-content.technical-writer",
+      "domain": "design-content",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/education/assessment-designer.sources.json",
+      "dossier_id": "dossier.education.assessment-designer.2026-06-01",
+      "agent_id": "education.assessment-designer",
+      "domain": "education",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 9,
+        "total": 38
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/education/curriculum-designer.sources.json",
+      "dossier_id": "dossier.education.curriculum-designer.2026-06-01",
+      "agent_id": "education.curriculum-designer",
+      "domain": "education",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 9,
+        "total": 38
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/education/domain.sources.json",
+      "dossier_id": "dossier.domain.education.2026-06-01",
+      "domain": "education",
+      "scores": {
+        "source_count": 20,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 70
+      },
+      "source_count": 18
+    },
+    {
+      "path": "references/education/master.sources.json",
+      "dossier_id": "dossier.education.master.2026-05-31",
+      "agent_id": "education.master",
+      "domain": "education",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 9,
+        "total": 38
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/education/tutor-agent.sources.json",
+      "dossier_id": "dossier.education.tutor-agent.2026-06-01",
+      "agent_id": "education.tutor-agent",
+      "domain": "education",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 9,
+        "total": 38
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/engineering/architect.sources.json",
+      "dossier_id": "dossier.engineering.architect.2026-05-29",
+      "agent_id": "engineering.architect",
+      "domain": "engineering.architecture",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 4,
+        "testability": 5,
+        "total": 43
+      },
+      "source_count": 2
+    },
+    {
+      "path": "references/engineering/build-resolver.sources.json",
+      "dossier_id": "dossier.engineering.build-resolver.2026-05-29",
+      "agent_id": "engineering.build-resolver",
+      "domain": "engineering.language-review",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 2,
+        "testability": 3,
+        "total": 24
+      },
+      "source_count": 1
+    },
+    {
+      "path": "references/engineering/code-reviewer.sources.json",
+      "dossier_id": "dossier.engineering.code-reviewer.2026-05-29",
+      "agent_id": "engineering.code-reviewer",
+      "domain": "engineering.language-review",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 2,
+        "testability": 3,
+        "total": 24
+      },
+      "source_count": 1
+    },
+    {
+      "path": "references/engineering/docs-updater.sources.json",
+      "dossier_id": "dossier.engineering.docs-updater.2026-05-29",
+      "agent_id": "engineering.docs-updater",
+      "domain": "engineering.docs",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 2,
+        "testability": 3,
+        "total": 24
+      },
+      "source_count": 1
+    },
+    {
+      "path": "references/engineering/domain.sources.json",
+      "dossier_id": "dossier.domain.engineering.2026-06-01",
+      "domain": "engineering",
+      "scores": {
+        "source_count": 20,
+        "official_docs": 15,
+        "github_quality": 20,
+        "license_safety": 15,
+        "maintenance": 10,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 100
+      },
+      "source_count": 18
+    },
+    {
+      "path": "references/engineering/master.sources.json",
+      "dossier_id": "dossier.engineering.master.2026-05-29",
+      "agent_id": "engineering.master",
+      "domain": "engineering",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 2,
+        "testability": 3,
+        "total": 24
+      },
+      "source_count": 1
+    },
+    {
+      "path": "references/engineering/tdd-guide.sources.json",
+      "dossier_id": "dossier.engineering.tdd-guide.2026-05-29",
+      "agent_id": "engineering.tdd-guide",
+      "domain": "engineering.dev-workflow",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 4,
+        "testability": 6,
+        "total": 29
+      },
+      "source_count": 2
+    },
+    {
+      "path": "references/families/commercial.sources.json",
+      "dossier_id": "dossier.family.commercial.2026-06-01",
+      "scores": {
+        "source_count": 20,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 70
+      },
+      "source_count": 15
+    },
+    {
+      "path": "references/families/data-and-ai.sources.json",
+      "dossier_id": "dossier.family.data-and-ai.2026-06-01",
+      "scores": {
+        "source_count": 20,
+        "official_docs": 15,
+        "github_quality": 20,
+        "license_safety": 15,
+        "maintenance": 10,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 100
+      },
+      "source_count": 15
+    },
+    {
+      "path": "references/families/design-and-content.sources.json",
+      "dossier_id": "dossier.family.design-and-content.2026-06-01",
+      "scores": {
+        "source_count": 20,
+        "official_docs": 15,
+        "github_quality": 15,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 85
+      },
+      "source_count": 15
+    },
+    {
+      "path": "references/families/engineering.sources.json",
+      "dossier_id": "dossier.family.engineering.2026-06-01",
+      "scores": {
+        "source_count": 20,
+        "official_docs": 15,
+        "github_quality": 20,
+        "license_safety": 15,
+        "maintenance": 10,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 100
+      },
+      "source_count": 15
+    },
+    {
+      "path": "references/families/meta-system.sources.json",
+      "dossier_id": "dossier.family.meta-system.2026-06-01",
+      "scores": {
+        "source_count": 20,
+        "official_docs": 0,
+        "github_quality": 20,
+        "license_safety": 15,
+        "maintenance": 10,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 85
+      },
+      "source_count": 15
+    },
+    {
+      "path": "references/families/platform.sources.json",
+      "dossier_id": "dossier.family.platform.2026-06-01",
+      "scores": {
+        "source_count": 20,
+        "official_docs": 15,
+        "github_quality": 18,
+        "license_safety": 15,
+        "maintenance": 10,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 98
+      },
+      "source_count": 15
+    },
+    {
+      "path": "references/families/product-and-startup.sources.json",
+      "dossier_id": "dossier.family.product-and-startup.2026-06-01",
+      "scores": {
+        "source_count": 20,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 70
+      },
+      "source_count": 15
+    },
+    {
+      "path": "references/families/regulated-operations.sources.json",
+      "dossier_id": "dossier.family.regulated-operations.2026-06-01",
+      "scores": {
+        "source_count": 20,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 70
+      },
+      "source_count": 15
+    },
+    {
+      "path": "references/families/security.sources.json",
+      "dossier_id": "dossier.family.security.2026-06-01",
+      "scores": {
+        "source_count": 20,
+        "official_docs": 15,
+        "github_quality": 20,
+        "license_safety": 15,
+        "maintenance": 10,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 100
+      },
+      "source_count": 15
+    },
+    {
+      "path": "references/families/source-and-evidence.sources.json",
+      "dossier_id": "dossier.family.source-and-evidence.2026-06-01",
+      "scores": {
+        "source_count": 20,
+        "official_docs": 15,
+        "github_quality": 19,
+        "license_safety": 15,
+        "maintenance": 10,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 99
+      },
+      "source_count": 15
+    },
+    {
+      "path": "references/finance/budget-planner.sources.json",
+      "dossier_id": "dossier.finance.budget-planner.2026-06-01",
+      "agent_id": "finance.budget-planner",
+      "domain": "finance",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/finance/cash-flow-manager.sources.json",
+      "dossier_id": "dossier.finance.cash-flow-manager.2026-06-01",
+      "agent_id": "finance.cash-flow-manager",
+      "domain": "finance",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/finance/cfo-advisor.sources.json",
+      "dossier_id": "dossier.finance.cfo-advisor.2026-06-01",
+      "agent_id": "finance.cfo-advisor",
+      "domain": "finance",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 10,
+        "maintenance": 0,
+        "pattern_clarity": 4,
+        "testability": 4,
+        "total": 37
+      },
+      "source_count": 2
+    },
+    {
+      "path": "references/finance/domain.sources.json",
+      "dossier_id": "dossier.domain.finance.2026-06-01",
+      "domain": "finance",
+      "scores": {
+        "source_count": 20,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 70
+      },
+      "source_count": 18
+    },
+    {
+      "path": "references/finance/forecasting-analyst.sources.json",
+      "dossier_id": "dossier.finance.forecasting-analyst.2026-06-01",
+      "agent_id": "finance.forecasting-analyst",
+      "domain": "finance",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/finance/master.sources.json",
+      "dossier_id": "dossier.finance.master.2026-05-31",
+      "agent_id": "finance.master",
+      "domain": "finance",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/healthcare/clinical-decision-support.sources.json",
+      "dossier_id": "dossier.healthcare.clinical-decision-support.2026-06-01",
+      "agent_id": "healthcare.clinical-decision-support",
+      "domain": "healthcare",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 9,
+        "total": 38
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/healthcare/domain.sources.json",
+      "dossier_id": "dossier.domain.healthcare.2026-06-01",
+      "domain": "healthcare",
+      "scores": {
+        "source_count": 20,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 70
+      },
+      "source_count": 18
+    },
+    {
+      "path": "references/healthcare/ehr-patterns.sources.json",
+      "dossier_id": "dossier.healthcare.ehr-patterns.2026-06-01",
+      "agent_id": "healthcare.ehr-patterns",
+      "domain": "healthcare",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 9,
+        "total": 38
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/healthcare/master.sources.json",
+      "dossier_id": "dossier.healthcare.master.2026-05-31",
+      "agent_id": "healthcare.master",
+      "domain": "healthcare",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 9,
+        "total": 38
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/healthcare/phi-compliance.sources.json",
+      "dossier_id": "dossier.healthcare.phi-compliance.2026-06-01",
+      "agent_id": "healthcare.phi-compliance",
+      "domain": "healthcare",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 9,
+        "total": 38
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/hr/compensation-analyst.sources.json",
+      "dossier_id": "dossier.hr.compensation-analyst.2026-06-01",
+      "agent_id": "hr.compensation-analyst",
+      "domain": "hr",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 10,
+        "maintenance": 0,
+        "pattern_clarity": 4,
+        "testability": 4,
+        "total": 37
+      },
+      "source_count": 2
+    },
+    {
+      "path": "references/hr/domain.sources.json",
+      "dossier_id": "dossier.domain.hr.2026-06-01",
+      "domain": "hr",
+      "scores": {
+        "source_count": 20,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 70
+      },
+      "source_count": 18
+    },
+    {
+      "path": "references/hr/hiring-manager.sources.json",
+      "dossier_id": "dossier.hr.hiring-manager.2026-06-01",
+      "agent_id": "hr.hiring-manager",
+      "domain": "hr",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/hr/master.sources.json",
+      "dossier_id": "dossier.hr.master.2026-05-31",
+      "agent_id": "hr.master",
+      "domain": "hr",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/hr/onboarding-coordinator.sources.json",
+      "dossier_id": "dossier.hr.onboarding-coordinator.2026-06-01",
+      "agent_id": "hr.onboarding-coordinator",
+      "domain": "hr",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/hr/performance-reviewer.sources.json",
+      "dossier_id": "dossier.hr.performance-reviewer.2026-06-01",
+      "agent_id": "hr.performance-reviewer",
+      "domain": "hr",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/integrations/browser-auto.sources.json",
+      "dossier_id": "dossier.integrations.browser-auto.2026-06-01",
+      "agent_id": "integrations.browser-auto",
+      "domain": "integrations",
+      "scores": {
+        "source_count": 12,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 47
+      },
+      "source_count": 5
+    },
+    {
+      "path": "references/integrations/domain.sources.json",
+      "dossier_id": "dossier.domain.integrations.2026-06-01",
+      "domain": "integrations",
+      "scores": {
+        "source_count": 20,
+        "official_docs": 15,
+        "github_quality": 19,
+        "license_safety": 15,
+        "maintenance": 10,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 99
+      },
+      "source_count": 18
+    },
+    {
+      "path": "references/integrations/github-operator.sources.json",
+      "dossier_id": "dossier.integrations.github-operator.2026-06-01",
+      "agent_id": "integrations.github-operator",
+      "domain": "integrations",
+      "scores": {
+        "source_count": 12,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 47
+      },
+      "source_count": 5
+    },
+    {
+      "path": "references/integrations/master.sources.json",
+      "dossier_id": "dossier.integrations.master.2026-05-31",
+      "agent_id": "integrations.master",
+      "domain": "integrations",
+      "scores": {
+        "source_count": 12,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 47
+      },
+      "source_count": 5
+    },
+    {
+      "path": "references/integrations/sourcegraph-context-agent.sources.json",
+      "dossier_id": "dossier.integrations.sourcegraph-context-agent.2026-06-01",
+      "agent_id": "integrations.sourcegraph-context-agent",
+      "domain": "integrations",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 10,
+        "maintenance": 0,
+        "pattern_clarity": 4,
+        "testability": 4,
+        "total": 37
+      },
+      "source_count": 2
+    },
+    {
+      "path": "references/integrations/vercel-agent.sources.json",
+      "dossier_id": "dossier.integrations.vercel-agent.2026-06-01",
+      "agent_id": "integrations.vercel-agent",
+      "domain": "integrations",
+      "scores": {
+        "source_count": 12,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 47
+      },
+      "source_count": 5
+    },
+    {
+      "path": "references/legal-compliance/compliance-checker.sources.json",
+      "dossier_id": "dossier.legal-compliance.compliance-checker.2026-06-01",
+      "agent_id": "legal-compliance.compliance-checker",
+      "domain": "legal-compliance",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/legal-compliance/contract-reviewer.sources.json",
+      "dossier_id": "dossier.legal-compliance.contract-reviewer.2026-06-01",
+      "agent_id": "legal-compliance.contract-reviewer",
+      "domain": "legal-compliance",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/legal-compliance/domain.sources.json",
+      "dossier_id": "dossier.domain.legal-compliance.2026-06-01",
+      "domain": "legal-compliance",
+      "scores": {
+        "source_count": 20,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 70
+      },
+      "source_count": 18
+    },
+    {
+      "path": "references/legal-compliance/master.sources.json",
+      "dossier_id": "dossier.legal-compliance.master.2026-05-31",
+      "agent_id": "legal-compliance.master",
+      "domain": "legal-compliance",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/legal-compliance/privacy-advisor.sources.json",
+      "dossier_id": "dossier.legal-compliance.privacy-advisor.2026-06-01",
+      "agent_id": "legal-compliance.privacy-advisor",
+      "domain": "legal-compliance",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/manufacturing/demand-planner.sources.json",
+      "dossier_id": "dossier.manufacturing.demand-planner.2026-06-01",
+      "agent_id": "manufacturing.demand-planner",
+      "domain": "manufacturing",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 9,
+        "total": 38
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/manufacturing/domain.sources.json",
+      "dossier_id": "dossier.domain.manufacturing.2026-06-01",
+      "domain": "manufacturing",
+      "scores": {
+        "source_count": 20,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 70
+      },
+      "source_count": 18
+    },
+    {
+      "path": "references/manufacturing/inventory-planner.sources.json",
+      "dossier_id": "dossier.manufacturing.inventory-planner.2026-06-01",
+      "agent_id": "manufacturing.inventory-planner",
+      "domain": "manufacturing",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 9,
+        "total": 38
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/manufacturing/master.sources.json",
+      "dossier_id": "dossier.manufacturing.master.2026-05-31",
+      "agent_id": "manufacturing.master",
+      "domain": "manufacturing",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 9,
+        "total": 38
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/manufacturing/quality-nonconformance-analyst.sources.json",
+      "dossier_id": "dossier.manufacturing.quality-nonconformance-analyst.2026-06-01",
+      "agent_id": "manufacturing.quality-nonconformance-analyst",
+      "domain": "manufacturing",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 9,
+        "total": 38
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/marketing/content-marketer.sources.json",
+      "dossier_id": "dossier.marketing.content-marketer.2026-06-01",
+      "agent_id": "marketing.content-marketer",
+      "domain": "marketing",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/marketing/domain.sources.json",
+      "dossier_id": "dossier.domain.marketing.2026-06-01",
+      "domain": "marketing",
+      "scores": {
+        "source_count": 20,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 70
+      },
+      "source_count": 18
+    },
+    {
+      "path": "references/marketing/email-marketer.sources.json",
+      "dossier_id": "dossier.marketing.email-marketer.2026-06-01",
+      "agent_id": "marketing.email-marketer",
+      "domain": "marketing",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 10,
+        "maintenance": 0,
+        "pattern_clarity": 4,
+        "testability": 4,
+        "total": 37
+      },
+      "source_count": 2
+    },
+    {
+      "path": "references/marketing/marketing-strategist.sources.json",
+      "dossier_id": "dossier.marketing.marketing-strategist.2026-06-01",
+      "agent_id": "marketing.marketing-strategist",
+      "domain": "marketing",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/marketing/master.sources.json",
+      "dossier_id": "dossier.marketing.master.2026-05-31",
+      "agent_id": "marketing.master",
+      "domain": "marketing",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/marketing/seo-analyst.sources.json",
+      "dossier_id": "dossier.marketing.seo-analyst.2026-06-01",
+      "agent_id": "marketing.seo-analyst",
+      "domain": "marketing",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/meta-system/deduplicator.sources.json",
+      "dossier_id": "dossier.meta-system.deduplicator.2026-06-01",
+      "agent_id": "meta-system.deduplicator",
+      "domain": "meta-system",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 10,
+        "maintenance": 0,
+        "pattern_clarity": 4,
+        "testability": 4,
+        "total": 37
+      },
+      "source_count": 2
+    },
+    {
+      "path": "references/meta-system/domain.sources.json",
+      "dossier_id": "dossier.domain.meta-system.2026-06-01",
+      "domain": "meta-system",
+      "scores": {
+        "source_count": 20,
+        "official_docs": 0,
+        "github_quality": 20,
+        "license_safety": 15,
+        "maintenance": 10,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 85
+      },
+      "source_count": 18
+    },
+    {
+      "path": "references/meta-system/eval-runner.sources.json",
+      "dossier_id": "dossier.meta-system.eval-runner.2026-06-01",
+      "agent_id": "meta-system.eval-runner",
+      "domain": "meta-system",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 2,
+        "testability": 3,
+        "total": 24
+      },
+      "source_count": 1
+    },
+    {
+      "path": "references/meta-system/master.sources.json",
+      "dossier_id": "dossier.meta-system.master.2026-05-29",
+      "agent_id": "meta-system.master",
+      "domain": "meta-system",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 2,
+        "testability": 3,
+        "total": 24
+      },
+      "source_count": 1
+    },
+    {
+      "path": "references/meta-system/plugin-absorber.sources.json",
+      "dossier_id": "dossier.meta-system.plugin-absorber.2026-06-01",
+      "agent_id": "meta-system.plugin-absorber",
+      "domain": "meta-system",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 2,
+        "testability": 3,
+        "total": 24
+      },
+      "source_count": 1
+    },
+    {
+      "path": "references/meta-system/source-miner.sources.json",
+      "dossier_id": "dossier.meta-system.source-miner.2026-06-01",
+      "agent_id": "meta-system.source-miner",
+      "domain": "meta-system",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 2,
+        "testability": 3,
+        "total": 24
+      },
+      "source_count": 1
+    },
+    {
+      "path": "references/meta-system/stub-detector.sources.json",
+      "dossier_id": "dossier.meta-system.stub-detector.2026-06-01",
+      "agent_id": "meta-system.stub-detector",
+      "domain": "meta-system",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 10,
+        "maintenance": 0,
+        "pattern_clarity": 4,
+        "testability": 4,
+        "total": 37
+      },
+      "source_count": 2
+    },
+    {
+      "path": "references/platform/ci-cd-engineer.sources.json",
+      "dossier_id": "dossier.platform.ci-cd-engineer.2026-05-31",
+      "agent_id": "platform.ci-cd-engineer",
+      "domain": "platform",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 9,
+        "total": 38
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/platform/devops-engineer.sources.json",
+      "dossier_id": "dossier.platform.devops-engineer.2026-05-31",
+      "agent_id": "platform.devops-engineer",
+      "domain": "platform",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 9,
+        "total": 38
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/platform/domain.sources.json",
+      "dossier_id": "dossier.domain.platform.2026-06-01",
+      "domain": "platform",
+      "scores": {
+        "source_count": 20,
+        "official_docs": 15,
+        "github_quality": 18,
+        "license_safety": 15,
+        "maintenance": 10,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 98
+      },
+      "source_count": 18
+    },
+    {
+      "path": "references/platform/incident-responder.sources.json",
+      "dossier_id": "dossier.platform.incident-responder.2026-05-31",
+      "agent_id": "platform.incident-responder",
+      "domain": "platform",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 9,
+        "total": 38
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/platform/master.sources.json",
+      "dossier_id": "dossier.platform.master.2026-05-29",
+      "agent_id": "platform.master",
+      "domain": "platform",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 2,
+        "testability": 3,
+        "total": 24
+      },
+      "source_count": 1
+    },
+    {
+      "path": "references/platform/observability-engineer.sources.json",
+      "dossier_id": "dossier.platform.observability-engineer.2026-06-01",
+      "agent_id": "platform.observability-engineer",
+      "domain": "platform",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 10,
+        "maintenance": 0,
+        "pattern_clarity": 4,
+        "testability": 4,
+        "total": 22
+      },
+      "source_count": 2
+    },
+    {
+      "path": "references/product-business/customer-success-advisor.sources.json",
+      "dossier_id": "dossier.product-business.customer-success-advisor.2026-06-01",
+      "agent_id": "product-business.customer-success-advisor",
+      "domain": "product-business",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/product-business/domain.sources.json",
+      "dossier_id": "dossier.domain.product-business.2026-06-01",
+      "domain": "product-business",
+      "scores": {
+        "source_count": 20,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 70
+      },
+      "source_count": 18
+    },
+    {
+      "path": "references/product-business/master.sources.json",
+      "dossier_id": "dossier.product-business.master.2026-05-31",
+      "agent_id": "product-business.master",
+      "domain": "product-business",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/product-business/operations-planner.sources.json",
+      "dossier_id": "dossier.product-business.operations-planner.2026-06-01",
+      "agent_id": "product-business.operations-planner",
+      "domain": "product-business",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/product-business/partnerships-advisor.sources.json",
+      "dossier_id": "dossier.product-business.partnerships-advisor.2026-06-01",
+      "agent_id": "product-business.partnerships-advisor",
+      "domain": "product-business",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 10,
+        "maintenance": 0,
+        "pattern_clarity": 4,
+        "testability": 4,
+        "total": 22
+      },
+      "source_count": 2
+    },
+    {
+      "path": "references/product-business/product-manager.sources.json",
+      "dossier_id": "dossier.product-business.product-manager.2026-06-01",
+      "agent_id": "product-business.product-manager",
+      "domain": "product-business",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/research/deep-researcher.sources.json",
+      "dossier_id": "dossier.research.deep-researcher.2026-06-01",
+      "agent_id": "research.deep-researcher",
+      "domain": "research",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/research/domain.sources.json",
+      "dossier_id": "dossier.domain.research.2026-06-01",
+      "domain": "research",
+      "scores": {
+        "source_count": 20,
+        "official_docs": 15,
+        "github_quality": 17,
+        "license_safety": 15,
+        "maintenance": 10,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 97
+      },
+      "source_count": 18
+    },
+    {
+      "path": "references/research/market-intel-analyst.sources.json",
+      "dossier_id": "dossier.research.market-intel-analyst.2026-06-01",
+      "agent_id": "research.market-intel-analyst",
+      "domain": "research",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/research/master.sources.json",
+      "dossier_id": "dossier.research.master.2026-05-31",
+      "agent_id": "research.master",
+      "domain": "research",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/research/scientific-literature-analyst.sources.json",
+      "dossier_id": "dossier.research.scientific-literature-analyst.2026-06-01",
+      "agent_id": "research.scientific-literature-analyst",
+      "domain": "research",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/sales/competitive-intel-analyst.sources.json",
+      "dossier_id": "dossier.sales.competitive-intel-analyst.2026-06-01",
+      "agent_id": "sales.competitive-intel-analyst",
+      "domain": "sales",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 10,
+        "maintenance": 0,
+        "pattern_clarity": 4,
+        "testability": 4,
+        "total": 37
+      },
+      "source_count": 2
+    },
+    {
+      "path": "references/sales/domain.sources.json",
+      "dossier_id": "dossier.domain.sales.2026-06-01",
+      "domain": "sales",
+      "scores": {
+        "source_count": 20,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 70
+      },
+      "source_count": 18
+    },
+    {
+      "path": "references/sales/master.sources.json",
+      "dossier_id": "dossier.sales.master.2026-05-31",
+      "agent_id": "sales.master",
+      "domain": "sales",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/sales/pipeline-analyst.sources.json",
+      "dossier_id": "dossier.sales.pipeline-analyst.2026-06-01",
+      "agent_id": "sales.pipeline-analyst",
+      "domain": "sales",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/sales/proposal-generator.sources.json",
+      "dossier_id": "dossier.sales.proposal-generator.2026-06-01",
+      "agent_id": "sales.proposal-generator",
+      "domain": "sales",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/sales/sales-strategist.sources.json",
+      "dossier_id": "dossier.sales.sales-strategist.2026-06-01",
+      "agent_id": "sales.sales-strategist",
+      "domain": "sales",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/security/dependency-risk-agent.sources.json",
+      "dossier_id": "dossier.security.dependency-risk-agent.2026-06-01",
+      "agent_id": "security.dependency-risk-agent",
+      "domain": "security",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 4,
+        "testability": 5,
+        "total": 43
+      },
+      "source_count": 2
+    },
+    {
+      "path": "references/security/domain.sources.json",
+      "dossier_id": "dossier.domain.security.2026-06-01",
+      "domain": "security",
+      "scores": {
+        "source_count": 20,
+        "official_docs": 15,
+        "github_quality": 20,
+        "license_safety": 15,
+        "maintenance": 10,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 100
+      },
+      "source_count": 18
+    },
+    {
+      "path": "references/security/master.sources.json",
+      "dossier_id": "dossier.security.master.2026-05-29",
+      "agent_id": "security.master",
+      "domain": "security",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 2,
+        "testability": 3,
+        "total": 24
+      },
+      "source_count": 1
+    },
+    {
+      "path": "references/security/secret-scan-agent.sources.json",
+      "dossier_id": "dossier.security.secret-scan-agent.2026-05-31",
+      "agent_id": "security.secret-scan-agent",
+      "domain": "security",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 9,
+        "total": 38
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/security/security-reviewer.sources.json",
+      "dossier_id": "dossier.security.security-reviewer.2026-05-31",
+      "agent_id": "security.security-reviewer",
+      "domain": "security",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 9,
+        "total": 38
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/security/threat-modeler.sources.json",
+      "dossier_id": "dossier.security.threat-modeler.2026-05-31",
+      "agent_id": "security.threat-modeler",
+      "domain": "security",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 9,
+        "total": 38
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/skills/data-ai/dataset-profiling.sources.json",
+      "dossier_id": "dossier.skill.data-ai.dataset-profiling.2026-06-01",
+      "agent_id": "data-ai.dataset-profiling",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/skills/data-ai/embedding-index-review.sources.json",
+      "dossier_id": "dossier.skill.data-ai.embedding-index-review.2026-06-01",
+      "agent_id": "data-ai.embedding-index-review",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/skills/data-ai/model-eval.sources.json",
+      "dossier_id": "dossier.skill.data-ai.model-eval.2026-06-01",
+      "agent_id": "data-ai.model-eval",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 6,
+        "total": 50
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/skills/data-ai/rag-eval.sources.json",
+      "dossier_id": "dossier.skill.data-ai.rag-eval.2026-06-01",
+      "agent_id": "data-ai.rag-eval",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/skills/engineering/api-design.sources.json",
+      "dossier_id": "dossier.skill.engineering.api-design.2026-06-01",
+      "agent_id": "engineering.api-design",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/skills/engineering/build-failure.sources.json",
+      "dossier_id": "dossier.skill.engineering.build-failure.2026-06-01",
+      "agent_id": "engineering.build-failure",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/skills/engineering/code-review.sources.json",
+      "dossier_id": "dossier.skill.engineering.code-review.2026-06-01",
+      "agent_id": "engineering.code-review",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/skills/engineering/dependency-upgrade.sources.json",
+      "dossier_id": "dossier.skill.engineering.dependency-upgrade.2026-06-01",
+      "agent_id": "engineering.dependency-upgrade",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/skills/engineering/documentation-update.sources.json",
+      "dossier_id": "dossier.skill.engineering.documentation-update.2026-06-01",
+      "agent_id": "engineering.documentation-update",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/skills/engineering/git-workflow.sources.json",
+      "dossier_id": "dossier.skill.engineering.git-workflow.2026-06-01",
+      "agent_id": "engineering.git-workflow",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/skills/engineering/refactor-planning.sources.json",
+      "dossier_id": "dossier.skill.engineering.refactor-planning.2026-06-01",
+      "agent_id": "engineering.refactor-planning",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/skills/engineering/test-triage.sources.json",
+      "dossier_id": "dossier.skill.engineering.test-triage.2026-06-01",
+      "agent_id": "engineering.test-triage",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/skills/meta-system/agent-absorption.sources.json",
+      "dossier_id": "dossier.skill.meta-system.agent-absorption.2026-06-01",
+      "agent_id": "meta-system.agent-absorption",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/skills/meta-system/fixture-writing.sources.json",
+      "dossier_id": "dossier.skill.meta-system.fixture-writing.2026-06-01",
+      "agent_id": "meta-system.fixture-writing",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/skills/meta-system/route-evaluation.sources.json",
+      "dossier_id": "dossier.skill.meta-system.route-evaluation.2026-06-01",
+      "agent_id": "meta-system.route-evaluation",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/skills/platform/ci-triage.sources.json",
+      "dossier_id": "dossier.skill.platform.ci-triage.2026-06-01",
+      "agent_id": "platform.ci-triage",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 6,
+        "total": 50
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/skills/platform/deploy-rollback.sources.json",
+      "dossier_id": "dossier.skill.platform.deploy-rollback.2026-06-01",
+      "agent_id": "platform.deploy-rollback",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 6,
+        "total": 50
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/skills/platform/incident-analysis.sources.json",
+      "dossier_id": "dossier.skill.platform.incident-analysis.2026-06-01",
+      "agent_id": "platform.incident-analysis",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/skills/platform/observability-setup.sources.json",
+      "dossier_id": "dossier.skill.platform.observability-setup.2026-06-01",
+      "agent_id": "platform.observability-setup",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 6,
+        "total": 50
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/skills/security/auth-review.sources.json",
+      "dossier_id": "dossier.skill.security.auth-review.2026-06-01",
+      "agent_id": "security.auth-review",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 6,
+        "total": 50
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/skills/security/prompt-injection-review.sources.json",
+      "dossier_id": "dossier.skill.security.prompt-injection-review.2026-06-01",
+      "agent_id": "security.prompt-injection-review",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/skills/security/secret-scan-triage.sources.json",
+      "dossier_id": "dossier.skill.security.secret-scan-triage.2026-06-01",
+      "agent_id": "security.secret-scan-triage",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 8,
+        "total": 52
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/skills/security/supply-chain-review.sources.json",
+      "dossier_id": "dossier.skill.security.supply-chain-review.2026-06-01",
+      "agent_id": "security.supply-chain-review",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/skills/security/threat-model.sources.json",
+      "dossier_id": "dossier.skill.security.threat-model.2026-06-01",
+      "agent_id": "security.threat-model",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/skills/security/vulnerability-assessment.sources.json",
+      "dossier_id": "dossier.skill.security.vulnerability-assessment.2026-06-01",
+      "agent_id": "security.vulnerability-assessment",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 6,
+        "total": 50
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/startup-ops/ceo-rethink.sources.json",
+      "dossier_id": "dossier.startup-ops.ceo-rethink.2026-06-01",
+      "agent_id": "startup-ops.ceo-rethink",
+      "domain": "startup-ops",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/startup-ops/domain.sources.json",
+      "dossier_id": "dossier.domain.startup-ops.2026-06-01",
+      "domain": "startup-ops",
+      "scores": {
+        "source_count": 20,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 10,
+        "testability": 10,
+        "total": 70
+      },
+      "source_count": 18
+    },
+    {
+      "path": "references/startup-ops/master.sources.json",
+      "dossier_id": "dossier.startup-ops.master.2026-05-31",
+      "agent_id": "startup-ops.master",
+      "domain": "startup-ops",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/startup-ops/qa.sources.json",
+      "dossier_id": "dossier.startup-ops.qa.2026-06-01",
+      "agent_id": "startup-ops.qa",
+      "domain": "startup-ops",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/startup-ops/release.sources.json",
+      "dossier_id": "dossier.startup-ops.release.2026-06-01",
+      "agent_id": "startup-ops.release",
+      "domain": "startup-ops",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 8,
+        "testability": 10,
+        "total": 41
+      },
+      "source_count": 4
+    },
+    {
+      "path": "references/workflows/data-ai/rag-eval.sources.json",
+      "dossier_id": "dossier.workflow.data-ai.rag-eval.2026-06-01",
+      "agent_id": "data-ai.rag-eval",
+      "domain": "data-ai",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/workflows/design-content/visual-and-a11y-check.sources.json",
+      "dossier_id": "dossier.workflow.design-content.visual-and-a11y-check.2026-06-01",
+      "agent_id": "design-content.visual-and-a11y-check",
+      "domain": "design-content",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 10,
+        "maintenance": 0,
+        "pattern_clarity": 4,
+        "testability": 4,
+        "total": 37
+      },
+      "source_count": 2
+    },
+    {
+      "path": "references/workflows/education/curriculum-assessment-alignment.sources.json",
+      "dossier_id": "dossier.workflow.education.curriculum-assessment-alignment.2026-06-01",
+      "agent_id": "education.curriculum-assessment-alignment",
+      "domain": "education",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 0,
+        "github_quality": 0,
+        "license_safety": 10,
+        "maintenance": 0,
+        "pattern_clarity": 4,
+        "testability": 4,
+        "total": 22
+      },
+      "source_count": 2
+    },
+    {
+      "path": "references/workflows/engineering/code-review-with-security.sources.json",
+      "dossier_id": "dossier.workflow.engineering.code-review-with-security.2026-06-01",
+      "agent_id": "engineering.code-review-with-security",
+      "domain": "engineering",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/workflows/engineering/docs-update.sources.json",
+      "dossier_id": "dossier.workflow.engineering.docs-update.2026-06-01",
+      "agent_id": "engineering.docs-update",
+      "domain": "engineering",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 10,
+        "maintenance": 0,
+        "pattern_clarity": 4,
+        "testability": 4,
+        "total": 37
+      },
+      "source_count": 2
+    },
+    {
+      "path": "references/workflows/engineering/fix-build-error.sources.json",
+      "dossier_id": "dossier.workflow.engineering.fix-build-error.2026-06-01",
+      "agent_id": "engineering.fix-build-error",
+      "domain": "engineering",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 10,
+        "maintenance": 0,
+        "pattern_clarity": 4,
+        "testability": 4,
+        "total": 37
+      },
+      "source_count": 2
+    },
+    {
+      "path": "references/workflows/engineering/repo-onboarding.sources.json",
+      "dossier_id": "dossier.workflow.engineering.repo-onboarding.2026-06-01",
+      "agent_id": "engineering.repo-onboarding",
+      "domain": "engineering",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 10,
+        "maintenance": 0,
+        "pattern_clarity": 4,
+        "testability": 4,
+        "total": 37
+      },
+      "source_count": 2
+    },
+    {
+      "path": "references/workflows/engineering/tdd-feature.sources.json",
+      "dossier_id": "dossier.workflow.engineering.tdd-feature.2026-06-01",
+      "agent_id": "engineering.tdd-feature",
+      "domain": "engineering",
+      "scores": {
+        "source_count": 4,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 10,
+        "maintenance": 0,
+        "pattern_clarity": 4,
+        "testability": 4,
+        "total": 37
+      },
+      "source_count": 2
+    },
+    {
+      "path": "references/workflows/finance/monthly-forecast.sources.json",
+      "dossier_id": "dossier.workflow.finance.monthly-forecast.2026-06-01",
+      "agent_id": "finance.monthly-forecast",
+      "domain": "finance",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/workflows/healthcare/clinical-guideline-review.sources.json",
+      "dossier_id": "dossier.workflow.healthcare.clinical-guideline-review.2026-06-01",
+      "agent_id": "healthcare.clinical-guideline-review",
+      "domain": "healthcare",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 6,
+        "total": 50
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/workflows/hr/hiring-pipeline.sources.json",
+      "dossier_id": "dossier.workflow.hr.hiring-pipeline.2026-06-01",
+      "agent_id": "hr.hiring-pipeline",
+      "domain": "hr",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/workflows/integrations/mcp-server-design.sources.json",
+      "dossier_id": "dossier.workflow.integrations.mcp-server-design.2026-06-01",
+      "agent_id": "integrations.mcp-server-design",
+      "domain": "integrations",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/workflows/legal-compliance/contract-risk-review.sources.json",
+      "dossier_id": "dossier.workflow.legal-compliance.contract-risk-review.2026-06-01",
+      "agent_id": "legal-compliance.contract-risk-review",
+      "domain": "legal-compliance",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/workflows/manufacturing/demand-inventory-balancing.sources.json",
+      "dossier_id": "dossier.workflow.manufacturing.demand-inventory-balancing.2026-06-01",
+      "agent_id": "manufacturing.demand-inventory-balancing",
+      "domain": "manufacturing",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 6,
+        "total": 50
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/workflows/marketing/launch-campaign.sources.json",
+      "dossier_id": "dossier.workflow.marketing.launch-campaign.2026-06-01",
+      "agent_id": "marketing.launch-campaign",
+      "domain": "marketing",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/workflows/meta-system/source-mine-and-dossier.sources.json",
+      "dossier_id": "dossier.workflow.meta-system.source-mine-and-dossier.2026-06-01",
+      "agent_id": "meta-system.source-mine-and-dossier",
+      "domain": "meta-system",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/workflows/platform/ci-failure-triage.sources.json",
+      "dossier_id": "dossier.workflow.platform.ci-failure-triage.2026-06-01",
+      "agent_id": "platform.ci-failure-triage",
+      "domain": "platform",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/workflows/product-business/prd-to-plan.sources.json",
+      "dossier_id": "dossier.workflow.product-business.prd-to-plan.2026-06-01",
+      "agent_id": "product-business.prd-to-plan",
+      "domain": "product-business",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 6,
+        "total": 50
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/workflows/research/deep-research-synthesis.sources.json",
+      "dossier_id": "dossier.workflow.research.deep-research-synthesis.2026-06-01",
+      "agent_id": "research.deep-research-synthesis",
+      "domain": "research",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/workflows/sales/deal-review.sources.json",
+      "dossier_id": "dossier.workflow.sales.deal-review.2026-06-01",
+      "agent_id": "sales.deal-review",
+      "domain": "sales",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/workflows/security/prompt-injection-review.sources.json",
+      "dossier_id": "dossier.workflow.security.prompt-injection-review.2026-06-01",
+      "agent_id": "security.prompt-injection-review",
+      "domain": "security",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/workflows/security/repo-risk-scan.sources.json",
+      "dossier_id": "dossier.workflow.security.repo-risk-scan.2026-06-01",
+      "agent_id": "security.repo-risk-scan",
+      "domain": "security",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 7,
+        "total": 51
+      },
+      "source_count": 3
+    },
+    {
+      "path": "references/workflows/startup-ops/ceo-review-pack.sources.json",
+      "dossier_id": "dossier.workflow.startup-ops.ceo-review-pack.2026-06-01",
+      "agent_id": "startup-ops.ceo-review-pack",
+      "domain": "startup-ops",
+      "scores": {
+        "source_count": 8,
+        "official_docs": 15,
+        "github_quality": 0,
+        "license_safety": 15,
+        "maintenance": 0,
+        "pattern_clarity": 6,
+        "testability": 6,
+        "total": 50
+      },
+      "source_count": 3
+    }
+  ]
+}

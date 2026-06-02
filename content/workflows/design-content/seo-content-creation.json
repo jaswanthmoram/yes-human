@@ -1,0 +1,125 @@
+{
+  "id": "design-content.seo-content-creation",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Create SEO-optimized content with keyword research, search intent mapping, and on-page optimization.",
+  "task_family": "content_creation",
+  "triggers": [
+    "create seo optimized content",
+    "write seo blog post",
+    "produce search optimized article"
+  ],
+  "aliases": [
+    "seo content writing",
+    "search content creation",
+    "seo article writing"
+  ],
+  "negative_keywords": [
+    "paid advertising copy",
+    "code implementation",
+    "database design"
+  ],
+  "inputs": [
+    {
+      "name": "target_keywords",
+      "required": true
+    },
+    {
+      "name": "search_intent",
+      "required": true
+    },
+    {
+      "name": "content_brief",
+      "required": true
+    },
+    {
+      "name": "brand_voice",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "seo_content"
+    },
+    {
+      "name": "keyword_mapping"
+    },
+    {
+      "name": "meta_elements"
+    },
+    {
+      "name": "optimization_report"
+    }
+  ],
+  "primary_agent": "design-content.seo-writer",
+  "route": {
+    "domain_master": "design-content.master",
+    "primary": "design-content.seo-writer",
+    "participants": [
+      "design-content.content-editor"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 1
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 6000,
+    "max_tool_calls": 10
+  },
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "on-task-complete"
+  ],
+  "steps": [
+    {
+      "id": "keyword-research",
+      "summary": "Research target keywords with volume, difficulty, and intent data."
+    },
+    {
+      "id": "content-outline",
+      "summary": "Create content outline with heading structure and keyword placement."
+    },
+    {
+      "id": "content-drafting",
+      "summary": "Write content with natural keyword integration and brand voice."
+    },
+    {
+      "id": "on-page-optimization",
+      "summary": "Optimize meta tags, headings, alt text, and internal links."
+    },
+    {
+      "id": "editorial-review",
+      "summary": "Review for clarity, accuracy, and brand voice alignment."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "filesystem.write",
+    "web.search"
+  ],
+  "verification": [
+    "keywords_naturally_integrated",
+    "search_intent_addressed",
+    "meta_elements_optimized",
+    "anti_slop_check_passed"
+  ],
+  "success_criteria": [
+    "Target keywords are naturally integrated.",
+    "Search intent is addressed throughout.",
+    "Meta elements are optimized.",
+    "Content passes anti-slop check."
+  ],
+  "rollback": {
+    "mode": "file_revert",
+    "summary": "Revert content files to previous draft."
+  },
+  "source_references": [
+    "ref.workflow.design-content.seo-content-creation.2026-05-31"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

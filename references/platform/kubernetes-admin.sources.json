@@ -1,0 +1,52 @@
+{
+  "dossier_id": "dossier.platform.kubernetes-admin.2026-05-31",
+  "agent_id": "platform.kubernetes-admin",
+  "domain": "platform",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2026-08-29T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/kubernetes/kubernetes",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "master",
+      "used_for": ["cluster lifecycle management", "RBAC and scheduling patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/kubernetes-sigs/kustomize",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "master",
+      "used_for": ["manifest customization and overlay patterns for cluster admin"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/kubernetes/autoscaler",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "master",
+      "used_for": ["cluster autoscaler and HPA/VPA patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://kubernetes.io/docs/reference/access-authn-authz/rbac/",
+      "source_type": "official_docs",
+      "license": "CC-BY-4.0",
+      "version_or_commit": "live",
+      "used_for": ["RBAC best practices and role binding patterns"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 1,
+    "github_quality": 97,
+    "license_safety": 95,
+    "maintenance": 97,
+    "pattern_clarity": 92,
+    "testability": 88,
+    "total": 94
+  },
+  "promotion_decision": "staging"
+}

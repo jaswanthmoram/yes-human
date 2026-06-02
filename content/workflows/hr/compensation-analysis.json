@@ -1,0 +1,157 @@
+{
+  "id": "hr.compensation-analysis",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Design or refresh a compensation analysis with benchmarking, pay equity review, and total rewards recommendations.",
+  "task_family": "compensation",
+  "triggers": [
+    "compensation analysis design",
+    "salary benchmarking",
+    "pay equity review",
+    "total rewards analysis"
+  ],
+  "aliases": [
+    "compensation analysis",
+    "comp analysis workflow"
+  ],
+  "negative_keywords": [
+    "tax filing",
+    "contract interpretation",
+    "campaign launch"
+  ],
+  "inputs": [
+    {
+      "name": "role_data",
+      "required": true,
+      "description": "Role definitions, levels, and current compensation data."
+    },
+    {
+      "name": "market_benchmarks",
+      "required": true,
+      "description": "Market data sources, benchmark percentiles, and geographic factors."
+    },
+    {
+      "name": "equity_constraints",
+      "required": false,
+      "description": "Pay equity goals, budget constraints, or regulatory requirements."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "benchmarking_report",
+      "description": "Market comparison analysis with role-level positioning."
+    },
+    {
+      "name": "pay_equity_findings",
+      "description": "Pay equity analysis across demographic groups."
+    },
+    {
+      "name": "total_rewards_recommendations",
+      "description": "Compensation structure and total rewards recommendations."
+    }
+  ],
+  "primary_agent": "hr.compensation-analyst",
+  "route": {
+    "domain_master": "hr.master",
+    "agents": [
+      "hr.compensation-analyst",
+      "hr.hr-analyst"
+    ],
+    "primary_agent": "hr.compensation-analyst",
+    "participants": [
+      "hr.hr-analyst"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 3200,
+    "max_tool_calls": 8,
+    "notes": "High-stakes workflow. Preserve pay equity and human decision ownership."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the request is compensation analysis design, not individual pay decisions or legal advice."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require role data and market benchmarks before drafting analysis."
+    },
+    {
+      "id": "pre-write",
+      "rule": "Mark outputs as decision-support artifacts and include a human manager or HR-owner checkpoint."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Return clear benchmarking and note where individual pay decisions need human approval."
+    }
+  ],
+  "steps": [
+    {
+      "id": "gather-market-data",
+      "agent": "hr.compensation-analyst",
+      "action": "Collect and validate market benchmark data for target roles."
+    },
+    {
+      "id": "run-pay-equity-analysis",
+      "agent": "hr.hr-analyst",
+      "action": "Analyze pay equity across demographic groups and role levels."
+    },
+    {
+      "id": "design-compensation-structure",
+      "agent": "hr.compensation-analyst",
+      "action": "Create salary bands and total rewards recommendations."
+    },
+    {
+      "id": "publish-analysis-report",
+      "agent": "hr.compensation-analyst",
+      "action": "Merge benchmarking, equity findings, and recommendations into one reviewer-ready report."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read compensation data, market benchmarks, and policy references."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Write compensation analysis report when requested."
+    }
+  ],
+  "verification": [
+    {
+      "id": "market-data-cited",
+      "method": "Check the report cites market data sources for benchmarking."
+    },
+    {
+      "id": "pay-equity-analyzed",
+      "method": "Check pay equity analysis is included across demographic groups."
+    },
+    {
+      "id": "human-approval-points-marked",
+      "method": "Check individual pay decisions are explicitly human-owned."
+    }
+  ],
+  "success_criteria": [
+    "The analysis can be reviewed without guessing market data sources or methodology.",
+    "Pay equity findings are clear enough to inform compensation decisions.",
+    "The output clearly states that individual pay decisions remain with human managers."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If the report omits market data or equity analysis, revert to data gathering and rebuild."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/hr/compensation-analysis.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

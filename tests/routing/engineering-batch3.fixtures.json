@@ -1,0 +1,29 @@
+{
+  "domain": "engineering",
+  "description": "Routing fixtures for engineering batch 3 agents: testing-e2e, code-migration, refactoring, dev-workflow (20 fixtures).",
+  "fixtures": [
+    { "prompt": "write e2e tests for login flow", "expected_route": "route.engineering.testing-e2e" },
+    { "prompt": "set up playwright for this project", "expected_route": "route.engineering.testing-e2e" },
+    { "prompt": "fix flaky cypress tests", "expected_route": "route.engineering.testing-e2e" },
+    { "prompt": "add browser tests for checkout", "expected_route": "route.engineering.testing-e2e" },
+    { "prompt": "e2e test the signup journey", "expected_route": "route.engineering.testing-e2e" },
+
+    { "prompt": "migrate from react 17 to 19", "expected_route": "route.engineering.code-migration" },
+    { "prompt": "upgrade angular to latest", "expected_route": "route.engineering.code-migration" },
+    { "prompt": "migrate python 2 codebase to python 3", "expected_route": "route.engineering.code-migration" },
+    { "prompt": "handle breaking changes in api v3", "expected_route": "route.engineering.code-migration" },
+    { "prompt": "plan the next.js pages to app router migration", "expected_route": "route.engineering.code-migration" },
+
+    { "prompt": "refactor this long method", "expected_route": "route.engineering.refactoring" },
+    { "prompt": "clean up the auth module", "expected_route": "route.engineering.refactoring" },
+    { "prompt": "reduce complexity in the payment service", "expected_route": "route.engineering.refactoring" },
+    { "prompt": "extract reusable logic from the controller", "expected_route": "route.engineering.refactoring" },
+    { "prompt": "simplify the nested conditionals", "expected_route": "route.engineering.refactoring" },
+
+    { "prompt": "optimize our ci cd pipeline", "expected_route": "route.engineering.dev-workflow" },
+    { "prompt": "set up a git branching strategy", "expected_route": "route.engineering.dev-workflow" },
+    { "prompt": "improve our pr review process", "expected_route": "route.engineering.dev-workflow" },
+    { "prompt": "automate the release workflow", "expected_route": "route.engineering.dev-workflow" },
+    { "prompt": "reduce developer onboarding time", "expected_route": "route.engineering.dev-workflow" }
+  ]
+}

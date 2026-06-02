@@ -1,0 +1,162 @@
+{
+  "id": "legal-compliance.due-diligence-process",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Conduct legal due diligence from document collection through risk flagging to attorney review.",
+  "task_family": "due_diligence",
+  "triggers": [
+    "due diligence process",
+    "transaction diligence workflow",
+    "acquisition screening process",
+    "legal diligence cycle"
+  ],
+  "aliases": [
+    "due diligence",
+    "legal diligence process"
+  ],
+  "negative_keywords": [
+    "code diligence",
+    "technical review",
+    "financial audit"
+  ],
+  "inputs": [
+    {
+      "name": "transaction_type",
+      "required": true,
+      "description": "Type of transaction (M&A, investment, partnership)."
+    },
+    {
+      "name": "diligence_scope",
+      "required": true,
+      "description": "Areas of legal diligence to conduct."
+    },
+    {
+      "name": "document_inventory",
+      "required": false,
+      "description": "Available documents and data room contents."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "diligence_report",
+      "description": "Structured findings organized by diligence category."
+    },
+    {
+      "name": "risk_flags",
+      "description": "Identified risks with severity and recommended actions."
+    },
+    {
+      "name": "attorney_review_packet",
+      "description": "Summary with key findings for attorney decision-making."
+    }
+  ],
+  "primary_agent": "legal-compliance.due-diligence",
+  "route": {
+    "domain_master": "legal-compliance.master",
+    "agents": [
+      "legal-compliance.due-diligence",
+      "legal-compliance.contract-lawyer",
+      "legal-compliance.ip-lawyer",
+      "legal-compliance.employment-lawyer"
+    ],
+    "primary_agent": "legal-compliance.due-diligence",
+    "participants": [
+      "legal-compliance.contract-lawyer",
+      "legal-compliance.ip-lawyer",
+      "legal-compliance.employment-lawyer"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 4
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 5000,
+    "max_tool_calls": 12,
+    "notes": "High-stakes workflow. Keep issue spotting and human review explicit."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is due diligence and not legal opinion on transaction viability."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require transaction type and diligence scope."
+    },
+    {
+      "id": "pre-write",
+      "rule": "Flag risks without asserting definitive conclusions on deal viability."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "End with attorney review packet; do not recommend for or against the transaction."
+    }
+  ],
+  "steps": [
+    {
+      "id": "scope-diligence",
+      "agent": "legal-compliance.due-diligence",
+      "action": "Define diligence scope and organize document inventory."
+    },
+    {
+      "id": "contract-review",
+      "agent": "legal-compliance.contract-lawyer",
+      "action": "Review material contracts for risks and obligations."
+    },
+    {
+      "id": "ip-review",
+      "agent": "legal-compliance.ip-lawyer",
+      "action": "Assess IP portfolio completeness and protection gaps."
+    },
+    {
+      "id": "employment-review",
+      "agent": "legal-compliance.employment-lawyer",
+      "action": "Review employment agreements and workplace compliance."
+    },
+    {
+      "id": "compile-report",
+      "agent": "legal-compliance.due-diligence",
+      "action": "Merge findings into diligence report with attorney handoff."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read documents, policies, and reference materials."
+    }
+  ],
+  "verification": [
+    {
+      "id": "scope-defined",
+      "method": "Check the output defines transaction type and diligence scope."
+    },
+    {
+      "id": "risk-flags",
+      "method": "Check each risk includes category, severity, and recommended action."
+    },
+    {
+      "id": "attorney-packet",
+      "method": "Check output includes attorney review packet with key findings."
+    }
+  ],
+  "success_criteria": [
+    "Diligence scope covers all required categories.",
+    "Each risk flag includes severity, rationale, and next steps.",
+    "Output ends with attorney review packet, not deal recommendations."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If scope, confidentiality, or review authority is unclear, revert the draft and regenerate a narrower output for counsel review."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/legal-compliance/due-diligence-process.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

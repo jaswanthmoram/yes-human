@@ -1,0 +1,43 @@
+{
+  "skill_id": "engineering.test-triage",
+  "dossier_id": "dossier.skill.engineering.test-triage.2026-06-01",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://martinfowler.com/articles/continuousIntegration.html",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["test failure analysis", "CI best practices"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/testdouble/contributing-tests",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": ["test organization", "failure categorization"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.ministryoftesting.com/articles/how-to-triage-test-failures",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["test triage process", "prioritization"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 2,
+    "github_quality": 82,
+    "license_safety": 90,
+    "maintenance": 88,
+    "pattern_clarity": 90,
+    "testability": 85,
+    "total": 88
+  },
+  "promotion_decision": "production"
+}

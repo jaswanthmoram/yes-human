@@ -1,0 +1,52 @@
+{
+  "dossier_id": "dossier.skill.security.sast-analysis.2026-06-01",
+  "skill_id": "security.sast-analysis",
+  "domain": "security",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://semgrep.dev/docs/",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["SAST rules", "custom rule writing"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://codeql.github.com/docs/",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["CodeQL queries", "data flow analysis"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://owasp.org/www-project-web-security-testing-guide/",
+      "source_type": "official_docs",
+      "license": "CC BY-SA 4.0",
+      "version_or_commit": "v4.2",
+      "used_for": ["source code review patterns", "vulnerability detection"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/returntocorp/semgrep-rules",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "2024",
+      "used_for": ["community rules", "security rule sets"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 3,
+    "github_quality": 91,
+    "license_safety": 92,
+    "maintenance": 94,
+    "pattern_clarity": 93,
+    "testability": 88,
+    "total": 92
+  },
+  "promotion_decision": "staging"
+}

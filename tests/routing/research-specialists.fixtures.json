@@ -1,0 +1,66 @@
+{
+  "domain": "research-specialists",
+  "description": "Routing fixtures for Wave-4 Research specialists.",
+  "fixtures": [
+    {
+      "prompt": "deep research brief",
+      "expected_route": "route.research.deep-researcher"
+    },
+    {
+      "prompt": "multi source research",
+      "expected_route": "route.research.deep-researcher"
+    },
+    {
+      "prompt": "broad web synthesis",
+      "expected_route": "route.research.deep-researcher"
+    },
+    {
+      "prompt": "topic landscape scan",
+      "expected_route": "route.research.deep-researcher"
+    },
+    {
+      "prompt": "research question breakdown",
+      "expected_route": "route.research.deep-researcher"
+    },
+    {
+      "prompt": "market intel report",
+      "expected_route": "route.research.market-intel-analyst"
+    },
+    {
+      "prompt": "competitor market scan",
+      "expected_route": "route.research.market-intel-analyst"
+    },
+    {
+      "prompt": "tam sam som framing",
+      "expected_route": "route.research.market-intel-analyst"
+    },
+    {
+      "prompt": "pricing landscape review",
+      "expected_route": "route.research.market-intel-analyst"
+    },
+    {
+      "prompt": "category trend memo",
+      "expected_route": "route.research.market-intel-analyst"
+    },
+    {
+      "prompt": "scientific literature review",
+      "expected_route": "route.research.scientific-literature-analyst"
+    },
+    {
+      "prompt": "paper evidence scan",
+      "expected_route": "route.research.scientific-literature-analyst"
+    },
+    {
+      "prompt": "peer reviewed source check",
+      "expected_route": "route.research.scientific-literature-analyst"
+    },
+    {
+      "prompt": "bibliography synthesis",
+      "expected_route": "route.research.scientific-literature-analyst"
+    },
+    {
+      "prompt": "citation grounded summary",
+      "expected_route": "route.research.scientific-literature-analyst"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "dossier_id": "dossier.workflow.platform.terraform-infrastructure-deployment.2026-06-01",
+  "workflow_id": "platform.terraform-infrastructure-deployment",
+  "domain": "platform",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://developer.hashicorp.com/terraform/docs",
+      "source_type": "official_docs",
+      "license": "MPL-2.0",
+      "version_or_commit": "live",
+      "used_for": [
+        "terraform workflow and state management",
+        "plan and apply best practices"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://developer.hashicorp.com/terraform/language/state",
+      "source_type": "official_docs",
+      "license": "MPL-2.0",
+      "version_or_commit": "live",
+      "used_for": [
+        "state backend configuration",
+        "state locking and remote state patterns"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/hashicorp/terraform",
+      "source_type": "github_repo",
+      "license": "MPL-2.0",
+      "version_or_commit": "main",
+      "used_for": [
+        "core terraform engine behavior",
+        "provider plugin architecture"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/terraform-aws-modules",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": [
+        "module composition patterns",
+        "AWS infrastructure module conventions"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://developer.hashicorp.com/terraform/tutorials/configuration-language",
+      "source_type": "official_docs",
+      "license": "MPL-2.0",
+      "version_or_commit": "live",
+      "used_for": [
+        "configuration language patterns",
+        "drift detection workflows"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 5,
+    "official_docs": 3,
+    "github_quality": 96,
+    "license_safety": 94,
+    "maintenance": 95,
+    "pattern_clarity": 93,
+    "testability": 90,
+    "total": 93
+  },
+  "promotion_decision": "staging"
+}

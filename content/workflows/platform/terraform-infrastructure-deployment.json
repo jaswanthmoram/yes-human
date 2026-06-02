@@ -1,0 +1,186 @@
+{
+  "id": "platform.terraform-infrastructure-deployment",
+  "version": "1.0.0",
+  "status": "active",
+  "name": "Terraform Infrastructure Deployment",
+  "description": "Plan, validate, and apply Terraform configurations with state management, drift detection, and approval gates.",
+  "task_family": "infrastructure_provisioning",
+  "triggers": [
+    "terraform infrastructure deployment",
+    "terraform plan and apply",
+    "deploy infrastructure with terraform",
+    "terraform state management",
+    "iac deployment pipeline",
+    "terraform drift detection"
+  ],
+  "aliases": [
+    "terraform deploy",
+    "iac deployment",
+    "terraform apply"
+  ],
+  "negative_keywords": [
+    "application code deployment",
+    "container orchestration",
+    "database migration",
+    "dns management"
+  ],
+  "inputs": [
+    {
+      "name": "terraform_config",
+      "required": true,
+      "description": "Terraform module paths, provider configurations, and variable definitions."
+    },
+    {
+      "name": "target_environment",
+      "required": true,
+      "description": "Deployment environment (dev, staging, production) and associated backend configuration."
+    },
+    {
+      "name": "approval_policy",
+      "required": false,
+      "description": "Approval requirements for plan review and apply authorization."
+    },
+    {
+      "name": "drift_baseline",
+      "required": false,
+      "description": "Known-good state snapshot for drift comparison."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "plan_output",
+      "description": "Terraform plan with resource changes, additions, and destructions."
+    },
+    {
+      "name": "apply_result",
+      "description": "Applied infrastructure state with resource IDs and outputs."
+    },
+    {
+      "name": "drift_report",
+      "description": "Comparison of actual state versus expected configuration."
+    },
+    {
+      "name": "state_backup",
+      "description": "Pre-apply state snapshot for rollback capability."
+    }
+  ],
+  "primary_agent": "platform.devops-engineer",
+  "participants": [
+    "platform.security-engineer",
+    "platform.cost-analyst",
+    "platform.sre-engineer"
+  ],
+  "skills": [
+    "terraform",
+    "infrastructure-as-code",
+    "cloud-provider-apis",
+    "state-management"
+  ],
+  "budget_band": "expanded",
+  "max_context_tokens": 4000,
+  "max_tool_calls": 12,
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is Terraform-based infrastructure deployment, not application release or config management."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require a successful terraform validate and plan review before any apply operation."
+    },
+    {
+      "id": "post-tool",
+      "rule": "Verify applied resources match the approved plan and no unexpected destructions occurred."
+    },
+    {
+      "id": "on-task-complete",
+      "description": "Return plan output, apply results, drift report, and state backup reference."
+    }
+  ],
+  "steps": [
+    {
+      "id": "validate-configuration",
+      "agent": "platform.devops-engineer",
+      "description": "Run terraform validate and terraform fmt to ensure configuration correctness and style compliance."
+    },
+    {
+      "id": "detect-drift",
+      "agent": "platform.sre-engineer",
+      "description": "Compare current infrastructure state against the drift baseline to identify out-of-band changes."
+    },
+    {
+      "id": "generate-plan",
+      "agent": "platform.devops-engineer",
+      "description": "Execute terraform plan with detailed output, capturing additions, changes, and destructions."
+    },
+    {
+      "id": "review-and-approve",
+      "agent": "platform.security-engineer",
+      "description": "Review plan for security implications, cost impact, and compliance with approval policy."
+    },
+    {
+      "id": "backup-state",
+      "agent": "platform.devops-engineer",
+      "description": "Snapshot the current Terraform state before applying changes for rollback capability."
+    },
+    {
+      "id": "apply-changes",
+      "agent": "platform.devops-engineer",
+      "description": "Execute terraform apply with the approved plan, monitoring for errors and unexpected changes."
+    },
+    {
+      "id": "verify-deployment",
+      "agent": "platform.sre-engineer",
+      "description": "Validate deployed resources are healthy, accessible, and match expected outputs."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read Terraform modules, variable files, and state configurations."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Write plan outputs, state backups, and deployment reports."
+    },
+    {
+      "name": "shell.exec",
+      "purpose": "Execute terraform init, validate, plan, apply, and output commands."
+    }
+  ],
+  "verification": [
+    {
+      "id": "plan-reviewed",
+      "method": "Plan output reviewed and approved per approval_policy."
+    },
+    {
+      "id": "no-unexpected-destructions",
+      "method": "Apply output contains zero resource destructions unless explicitly approved."
+    },
+    {
+      "id": "resources-healthy",
+      "method": "All deployed resources pass health checks within 5 minutes of apply."
+    },
+    {
+      "id": "state-consistent",
+      "method": "Post-apply terraform plan shows zero changes (clean state)."
+    }
+  ],
+  "success_criteria": [
+    "Terraform configuration validates and plans successfully.",
+    "Plan is reviewed and approved per policy before apply.",
+    "All resources are deployed and healthy with clean state.",
+    "State backup exists and rollback procedure is documented."
+  ],
+  "rollback": {
+    "mode": "state_restore",
+    "when": "If apply fails or produces unexpected changes, restore from state backup and re-plan."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/platform/terraform-infrastructure-deployment.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "quality_gate": "staging"
+}

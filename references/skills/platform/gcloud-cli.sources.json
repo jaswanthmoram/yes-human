@@ -1,0 +1,52 @@
+{
+  "dossier_id": "dossier.skill.platform.gcloud-cli.2026-06-01",
+  "skill_id": "platform.gcloud-cli",
+  "domain": "platform",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://cloud.google.com/sdk/docs",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["gcloud SDK docs", "CLI setup"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://cloud.google.com/sdk/gcloud/reference",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["gcloud reference", "command groups"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://cloud.google.com/sdk/docs/filters",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["filter expressions", "output formatting"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/devops-sre",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["GCP operations patterns", "best practices"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 4,
+    "github_quality": 87,
+    "license_safety": 88,
+    "maintenance": 92,
+    "pattern_clarity": 89,
+    "testability": 85,
+    "total": 88
+  },
+  "promotion_decision": "staging"
+}

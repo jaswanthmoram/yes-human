@@ -51,6 +51,7 @@ export function loadBuildContext() {
   const routeTable = readJSON('graph/indexes/ROUTE_TABLE.min.json');
   const workflows  = readJSON('registry/workflows.json');
   const mcps       = readJSON('registry/mcps.json');
+  const categoryPacks = readJSON('registry/category-packs.json');
   const categories = readJSON('registry/categories.json');
   const costPolicy = readJSON('registry/cost-policy.json');
   const bootText   = readFile('YES_BOOT.md');
@@ -62,6 +63,7 @@ export function loadBuildContext() {
     routeTable,
     workflows: workflows.items,
     mcps: mcps.items,
+    categoryPacks: categoryPacks.items,
     categories: categories.items,
     costPolicy,
     bootText,

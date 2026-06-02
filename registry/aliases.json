@@ -1,27 +1,51 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-06-01T06:21:27.057Z",
-  "count": 42,
+  "generated_at": "2026-06-02T04:23:37.726Z",
+  "count": 664,
   "items": [
     {
-      "id": "cr",
-      "route_id": "route.engineering.code-reviewer"
+      "id": "ai-ethics",
+      "route_id": "route.data-ai.ai-ethics-specialist"
     },
     {
-      "id": "pr review",
-      "route_id": "route.engineering.code-reviewer"
+      "id": "ai-pm",
+      "route_id": "route.data-ai.ai-product-manager"
     },
     {
-      "id": "architect",
-      "route_id": "route.engineering.architect"
+      "id": "ai-research",
+      "route_id": "route.data-ai.ai-research-scientist"
     },
     {
-      "id": "docs",
-      "route_id": "route.engineering.docs-updater"
+      "id": "bi",
+      "route_id": "route.data-ai.bi-developer"
     },
     {
-      "id": "tdd guide",
-      "route_id": "route.engineering.tdd-guide"
+      "id": "cv",
+      "route_id": "route.data-ai.computer-vision-engineer"
+    },
+    {
+      "id": "analyst",
+      "route_id": "route.data-ai.data-analyst"
+    },
+    {
+      "id": "de",
+      "route_id": "route.data-ai.data-engineer"
+    },
+    {
+      "id": "ds",
+      "route_id": "route.data-ai.data-scientist"
+    },
+    {
+      "id": "evals",
+      "route_id": "route.data-ai.eval-engineer"
+    },
+    {
+      "id": "graphrag",
+      "route_id": "route.data-ai.graph-rag-engineer"
+    },
+    {
+      "id": "fine-tuner",
+      "route_id": "route.data-ai.llm-fine-tuner"
     },
     {
       "id": "data ai",
@@ -32,20 +56,96 @@
       "route_id": "route.data-ai.master"
     },
     {
-      "id": "integrations",
-      "route_id": "route.integrations.master"
+      "id": "ml",
+      "route_id": "route.data-ai.ml-engineer"
     },
     {
-      "id": "external service",
-      "route_id": "route.integrations.master"
+      "id": "mlops",
+      "route_id": "route.data-ai.mlops-engineer"
     },
     {
-      "id": "startup ops",
-      "route_id": "route.startup-ops.master"
+      "id": "nlp",
+      "route_id": "route.data-ai.nlp-engineer"
     },
     {
-      "id": "solo founder",
-      "route_id": "route.startup-ops.master"
+      "id": "prompt-eng",
+      "route_id": "route.data-ai.prompt-engineer"
+    },
+    {
+      "id": "rag",
+      "route_id": "route.data-ai.rag-engineer"
+    },
+    {
+      "id": "recsys",
+      "route_id": "route.data-ai.recommendation-engineer"
+    },
+    {
+      "id": "a11y audit",
+      "route_id": "route.design-content.accessibility-auditor"
+    },
+    {
+      "id": "a11y expert",
+      "route_id": "route.design-content.accessibility-expert"
+    },
+    {
+      "id": "accessibility specialist",
+      "route_id": "route.design-content.accessibility-expert"
+    },
+    {
+      "id": "brand designer",
+      "route_id": "route.design-content.brand-designer"
+    },
+    {
+      "id": "identity designer",
+      "route_id": "route.design-content.brand-designer"
+    },
+    {
+      "id": "brand strategy",
+      "route_id": "route.design-content.brand-strategist"
+    },
+    {
+      "id": "content editor",
+      "route_id": "route.design-content.content-editor"
+    },
+    {
+      "id": "copy editor",
+      "route_id": "route.design-content.content-editor"
+    },
+    {
+      "id": "content strategy",
+      "route_id": "route.design-content.content-strategist"
+    },
+    {
+      "id": "content planner",
+      "route_id": "route.design-content.content-strategist"
+    },
+    {
+      "id": "copy writing",
+      "route_id": "route.design-content.copywriter"
+    },
+    {
+      "id": "content writer",
+      "route_id": "route.design-content.copywriter"
+    },
+    {
+      "id": "design systems",
+      "route_id": "route.design-content.design-systems"
+    },
+    {
+      "id": "ds specialist",
+      "route_id": "route.design-content.design-systems"
+    },
+    {
+      "id": "frontend design",
+      "route_id": "route.design-content.frontend-design-agent"
+    },
+    {
+      "id": "ix design",
+      "route_id": "route.design-content.interaction-designer"
+    },
+    {
+      "id": "interaction design",
+      "route_id": "route.design-content.interaction-designer"
     },
     {
       "id": "design content",
@@ -56,44 +156,376 @@
       "route_id": "route.design-content.master"
     },
     {
-      "id": "marketing task",
-      "route_id": "route.marketing.master"
+      "id": "motion design",
+      "route_id": "route.design-content.motion-designer"
     },
     {
-      "id": "growth marketing",
-      "route_id": "route.marketing.master"
+      "id": "animation designer",
+      "route_id": "route.design-content.motion-designer"
     },
     {
-      "id": "product business",
-      "route_id": "route.product-business.master"
+      "id": "seo writer",
+      "route_id": "route.design-content.seo-writer"
     },
     {
-      "id": "pm task",
-      "route_id": "route.product-business.master"
+      "id": "search content writer",
+      "route_id": "route.design-content.seo-writer"
     },
     {
-      "id": "research task",
-      "route_id": "route.research.master"
+      "id": "tech writer",
+      "route_id": "route.design-content.technical-writer"
     },
     {
-      "id": "deep dive",
-      "route_id": "route.research.master"
+      "id": "documentation specialist",
+      "route_id": "route.design-content.technical-writer"
     },
     {
-      "id": "sales task",
-      "route_id": "route.sales.master"
+      "id": "ui design",
+      "route_id": "route.design-content.ui-designer"
     },
     {
-      "id": "deal review",
-      "route_id": "route.sales.master"
+      "id": "interface designer",
+      "route_id": "route.design-content.ui-designer"
+    },
+    {
+      "id": "ux design",
+      "route_id": "route.design-content.ux-designer"
+    },
+    {
+      "id": "experience designer",
+      "route_id": "route.design-content.ux-designer"
+    },
+    {
+      "id": "visual design",
+      "route_id": "route.design-content.visual-designer"
+    },
+    {
+      "id": "graphic designer",
+      "route_id": "route.design-content.visual-designer"
+    },
+    {
+      "id": "academic advising",
+      "route_id": "route.education.academic-advisor"
+    },
+    {
+      "id": "student advisor",
+      "route_id": "route.education.academic-advisor"
+    },
+    {
+      "id": "assessment",
+      "route_id": "route.education.assessment-designer"
+    },
+    {
+      "id": "evaluation specialist",
+      "route_id": "route.education.assessment-specialist"
+    },
+    {
+      "id": "curriculum",
+      "route_id": "route.education.curriculum-designer"
+    },
+    {
+      "id": "education policy",
+      "route_id": "route.education.education-policy"
+    },
+    {
+      "id": "policy analyst",
+      "route_id": "route.education.education-policy"
+    },
+    {
+      "id": "education research",
+      "route_id": "route.education.education-researcher"
+    },
+    {
+      "id": "ed researcher",
+      "route_id": "route.education.education-researcher"
+    },
+    {
+      "id": "edtech",
+      "route_id": "route.education.educational-technologist"
+    },
+    {
+      "id": "educational technology",
+      "route_id": "route.education.educational-technologist"
+    },
+    {
+      "id": "instructional design",
+      "route_id": "route.education.instructional-designer"
+    },
+    {
+      "id": "learning design",
+      "route_id": "route.education.instructional-designer"
+    },
+    {
+      "id": "learning analytics",
+      "route_id": "route.education.learning-analyst"
+    },
+    {
+      "id": "education data analyst",
+      "route_id": "route.education.learning-analyst"
     },
     {
       "id": "education task",
       "route_id": "route.education.master"
     },
     {
-      "id": "learning design",
-      "route_id": "route.education.master"
+      "id": "online teaching",
+      "route_id": "route.education.online-educator"
+    },
+    {
+      "id": "virtual educator",
+      "route_id": "route.education.online-educator"
+    },
+    {
+      "id": "special ed",
+      "route_id": "route.education.special-education"
+    },
+    {
+      "id": "inclusion specialist",
+      "route_id": "route.education.special-education"
+    },
+    {
+      "id": "student success",
+      "route_id": "route.education.student-success"
+    },
+    {
+      "id": "retention specialist",
+      "route_id": "route.education.student-success"
+    },
+    {
+      "id": "tutor",
+      "route_id": "route.education.tutor-agent"
+    },
+    {
+      "id": "architect",
+      "route_id": "route.engineering.architect"
+    },
+    {
+      "id": "api dev",
+      "route_id": "route.engineering.backend-api"
+    },
+    {
+      "id": "backend api",
+      "route_id": "route.engineering.backend-api"
+    },
+    {
+      "id": "rest dev",
+      "route_id": "route.engineering.backend-api"
+    },
+    {
+      "id": "migration",
+      "route_id": "route.engineering.code-migration"
+    },
+    {
+      "id": "code migrator",
+      "route_id": "route.engineering.code-migration"
+    },
+    {
+      "id": "upgrade specialist",
+      "route_id": "route.engineering.code-migration"
+    },
+    {
+      "id": "cr",
+      "route_id": "route.engineering.code-reviewer"
+    },
+    {
+      "id": "pr review",
+      "route_id": "route.engineering.code-reviewer"
+    },
+    {
+      "id": "database-design",
+      "route_id": "route.engineering.database-design"
+    },
+    {
+      "id": "schema-design",
+      "route_id": "route.engineering.database-design"
+    },
+    {
+      "id": "database-optimization",
+      "route_id": "route.engineering.database-optimization"
+    },
+    {
+      "id": "query-optimization",
+      "route_id": "route.engineering.database-optimization"
+    },
+    {
+      "id": "dev workflow",
+      "route_id": "route.engineering.dev-workflow"
+    },
+    {
+      "id": "workflow optimizer",
+      "route_id": "route.engineering.dev-workflow"
+    },
+    {
+      "id": "dx specialist",
+      "route_id": "route.engineering.dev-workflow"
+    },
+    {
+      "id": "docs",
+      "route_id": "route.engineering.docs-updater"
+    },
+    {
+      "id": "react dev",
+      "route_id": "route.engineering.frontend-react"
+    },
+    {
+      "id": "frontend react",
+      "route_id": "route.engineering.frontend-react"
+    },
+    {
+      "id": "jsx dev",
+      "route_id": "route.engineering.frontend-react"
+    },
+    {
+      "id": "vue dev",
+      "route_id": "route.engineering.frontend-vue"
+    },
+    {
+      "id": "frontend vue",
+      "route_id": "route.engineering.frontend-vue"
+    },
+    {
+      "id": "sfc dev",
+      "route_id": "route.engineering.frontend-vue"
+    },
+    {
+      "id": "android dev",
+      "route_id": "route.engineering.mobile-android"
+    },
+    {
+      "id": "kotlin dev",
+      "route_id": "route.engineering.mobile-android"
+    },
+    {
+      "id": "mobile android",
+      "route_id": "route.engineering.mobile-android"
+    },
+    {
+      "id": "ios dev",
+      "route_id": "route.engineering.mobile-ios"
+    },
+    {
+      "id": "swift dev",
+      "route_id": "route.engineering.mobile-ios"
+    },
+    {
+      "id": "apple dev",
+      "route_id": "route.engineering.mobile-ios"
+    },
+    {
+      "id": "performance-profiling",
+      "route_id": "route.engineering.performance-profiling"
+    },
+    {
+      "id": "profiler",
+      "route_id": "route.engineering.performance-profiling"
+    },
+    {
+      "id": "refactor",
+      "route_id": "route.engineering.refactoring"
+    },
+    {
+      "id": "code cleanup",
+      "route_id": "route.engineering.refactoring"
+    },
+    {
+      "id": "cleanup",
+      "route_id": "route.engineering.refactoring"
+    },
+    {
+      "id": "tdd guide",
+      "route_id": "route.engineering.tdd-guide"
+    },
+    {
+      "id": "e2e",
+      "route_id": "route.engineering.testing-e2e"
+    },
+    {
+      "id": "e2e testing",
+      "route_id": "route.engineering.testing-e2e"
+    },
+    {
+      "id": "browser testing",
+      "route_id": "route.engineering.testing-e2e"
+    },
+    {
+      "id": "testing-integration",
+      "route_id": "route.engineering.testing-integration"
+    },
+    {
+      "id": "integration-testing",
+      "route_id": "route.engineering.testing-integration"
+    },
+    {
+      "id": "testing-unit",
+      "route_id": "route.engineering.testing-unit"
+    },
+    {
+      "id": "unit-testing",
+      "route_id": "route.engineering.testing-unit"
+    },
+    {
+      "id": "audit specialist",
+      "route_id": "route.finance.audit-specialist"
+    },
+    {
+      "id": "auditor",
+      "route_id": "route.finance.audit-specialist"
+    },
+    {
+      "id": "budget planner",
+      "route_id": "route.finance.budget-planner"
+    },
+    {
+      "id": "cash flow",
+      "route_id": "route.finance.cash-flow-manager"
+    },
+    {
+      "id": "cfo advisor",
+      "route_id": "route.finance.cfo-advisor"
+    },
+    {
+      "id": "compliance officer",
+      "route_id": "route.finance.compliance-officer"
+    },
+    {
+      "id": "financial compliance",
+      "route_id": "route.finance.compliance-officer"
+    },
+    {
+      "id": "credit analyst",
+      "route_id": "route.finance.credit-analyst"
+    },
+    {
+      "id": "financial analyst",
+      "route_id": "route.finance.financial-analyst"
+    },
+    {
+      "id": "financial modeler",
+      "route_id": "route.finance.financial-modeler"
+    },
+    {
+      "id": "model builder",
+      "route_id": "route.finance.financial-modeler"
+    },
+    {
+      "id": "financial planner",
+      "route_id": "route.finance.financial-planner"
+    },
+    {
+      "id": "forecasting",
+      "route_id": "route.finance.forecasting-analyst"
+    },
+    {
+      "id": "investment analyst",
+      "route_id": "route.finance.investment-analyst"
+    },
+    {
+      "id": "m&a specialist",
+      "route_id": "route.finance.m-and-a-specialist"
+    },
+    {
+      "id": "m&a analyst",
+      "route_id": "route.finance.m-and-a-specialist"
     },
     {
       "id": "finance task",
@@ -104,12 +536,212 @@
       "route_id": "route.finance.master"
     },
     {
+      "id": "portfolio manager",
+      "route_id": "route.finance.portfolio-manager"
+    },
+    {
+      "id": "risk manager",
+      "route_id": "route.finance.risk-manager"
+    },
+    {
+      "id": "tax specialist",
+      "route_id": "route.finance.tax-specialist"
+    },
+    {
+      "id": "tax analyst",
+      "route_id": "route.finance.tax-specialist"
+    },
+    {
+      "id": "treasury manager",
+      "route_id": "route.finance.treasury-manager"
+    },
+    {
+      "id": "treasury analyst",
+      "route_id": "route.finance.treasury-manager"
+    },
+    {
+      "id": "valuation expert",
+      "route_id": "route.finance.valuation-expert"
+    },
+    {
+      "id": "valuation analyst",
+      "route_id": "route.finance.valuation-expert"
+    },
+    {
+      "id": "clinical support",
+      "route_id": "route.healthcare.clinical-decision-support"
+    },
+    {
+      "id": "clinical informatics",
+      "route_id": "route.healthcare.clinical-informatics"
+    },
+    {
+      "id": "health informatics",
+      "route_id": "route.healthcare.clinical-informatics"
+    },
+    {
+      "id": "clinical research",
+      "route_id": "route.healthcare.clinical-research"
+    },
+    {
+      "id": "research coordinator",
+      "route_id": "route.healthcare.clinical-research"
+    },
+    {
+      "id": "ehr patterns",
+      "route_id": "route.healthcare.ehr-patterns"
+    },
+    {
+      "id": "health data analyst",
+      "route_id": "route.healthcare.health-data-analyst"
+    },
+    {
+      "id": "health it",
+      "route_id": "route.healthcare.health-it"
+    },
+    {
+      "id": "hit specialist",
+      "route_id": "route.healthcare.health-it"
+    },
+    {
+      "id": "healthcare compliance",
+      "route_id": "route.healthcare.healthcare-compliance"
+    },
+    {
+      "id": "regulatory compliance",
+      "route_id": "route.healthcare.healthcare-compliance"
+    },
+    {
+      "id": "healthcare operations",
+      "route_id": "route.healthcare.healthcare-operations"
+    },
+    {
+      "id": "hospital operations",
+      "route_id": "route.healthcare.healthcare-operations"
+    },
+    {
       "id": "healthcare task",
       "route_id": "route.healthcare.master"
     },
     {
       "id": "clinical task",
       "route_id": "route.healthcare.master"
+    },
+    {
+      "id": "medical coder",
+      "route_id": "route.healthcare.medical-coder"
+    },
+    {
+      "id": "coding specialist",
+      "route_id": "route.healthcare.medical-coder"
+    },
+    {
+      "id": "medical device",
+      "route_id": "route.healthcare.medical-device"
+    },
+    {
+      "id": "device regulatory",
+      "route_id": "route.healthcare.medical-device"
+    },
+    {
+      "id": "patient safety",
+      "route_id": "route.healthcare.patient-safety"
+    },
+    {
+      "id": "safety officer",
+      "route_id": "route.healthcare.patient-safety"
+    },
+    {
+      "id": "phi gate",
+      "route_id": "route.healthcare.phi-compliance"
+    },
+    {
+      "id": "population health",
+      "route_id": "route.healthcare.population-health"
+    },
+    {
+      "id": "pop health",
+      "route_id": "route.healthcare.population-health"
+    },
+    {
+      "id": "quality improvement",
+      "route_id": "route.healthcare.quality-improvement"
+    },
+    {
+      "id": "qi specialist",
+      "route_id": "route.healthcare.quality-improvement"
+    },
+    {
+      "id": "telehealth",
+      "route_id": "route.healthcare.telehealth-specialist"
+    },
+    {
+      "id": "virtual care",
+      "route_id": "route.healthcare.telehealth-specialist"
+    },
+    {
+      "id": "compensation",
+      "route_id": "route.hr.compensation-analyst"
+    },
+    {
+      "id": "diversity specialist",
+      "route_id": "route.hr.diversity-specialist"
+    },
+    {
+      "id": "dei",
+      "route_id": "route.hr.diversity-specialist"
+    },
+    {
+      "id": "employee relations",
+      "route_id": "route.hr.employee-relations"
+    },
+    {
+      "id": "er specialist",
+      "route_id": "route.hr.employee-relations"
+    },
+    {
+      "id": "hiring",
+      "route_id": "route.hr.hiring-manager"
+    },
+    {
+      "id": "hr analyst",
+      "route_id": "route.hr.hr-analyst"
+    },
+    {
+      "id": "people analytics",
+      "route_id": "route.hr.hr-analyst"
+    },
+    {
+      "id": "hrbp",
+      "route_id": "route.hr.hr-business-partner"
+    },
+    {
+      "id": "business partner",
+      "route_id": "route.hr.hr-business-partner"
+    },
+    {
+      "id": "hr compliance",
+      "route_id": "route.hr.hr-compliance"
+    },
+    {
+      "id": "compliance specialist",
+      "route_id": "route.hr.hr-compliance"
+    },
+    {
+      "id": "hr ops",
+      "route_id": "route.hr.hr-operations"
+    },
+    {
+      "id": "hr operations",
+      "route_id": "route.hr.hr-operations"
+    },
+    {
+      "id": "learning specialist",
+      "route_id": "route.hr.learning-specialist"
+    },
+    {
+      "id": "l&d",
+      "route_id": "route.hr.learning-specialist"
     },
     {
       "id": "hr task",
@@ -120,12 +752,280 @@
       "route_id": "route.hr.master"
     },
     {
+      "id": "onboarding",
+      "route_id": "route.hr.onboarding-coordinator"
+    },
+    {
+      "id": "od specialist",
+      "route_id": "route.hr.organizational-development"
+    },
+    {
+      "id": "organizational development",
+      "route_id": "route.hr.organizational-development"
+    },
+    {
+      "id": "performance manager",
+      "route_id": "route.hr.performance-manager"
+    },
+    {
+      "id": "performance management",
+      "route_id": "route.hr.performance-manager"
+    },
+    {
+      "id": "performance review",
+      "route_id": "route.hr.performance-reviewer"
+    },
+    {
+      "id": "talent acquisition",
+      "route_id": "route.hr.talent-acquisition"
+    },
+    {
+      "id": "recruiter",
+      "route_id": "route.hr.talent-acquisition"
+    },
+    {
+      "id": "workforce planner",
+      "route_id": "route.hr.workforce-planner"
+    },
+    {
+      "id": "workforce planning",
+      "route_id": "route.hr.workforce-planner"
+    },
+    {
+      "id": "gateway architect",
+      "route_id": "route.integrations.api-gateway-architect"
+    },
+    {
+      "id": "api gateway",
+      "route_id": "route.integrations.api-gateway-architect"
+    },
+    {
+      "id": "api integration",
+      "route_id": "route.integrations.api-integration-specialist"
+    },
+    {
+      "id": "api client",
+      "route_id": "route.integrations.api-integration-specialist"
+    },
+    {
+      "id": "browser auto",
+      "route_id": "route.integrations.browser-auto"
+    },
+    {
+      "id": "streaming architect",
+      "route_id": "route.integrations.event-streaming-architect"
+    },
+    {
+      "id": "event pipeline",
+      "route_id": "route.integrations.event-streaming-architect"
+    },
+    {
+      "id": "github ops",
+      "route_id": "route.integrations.github-operator"
+    },
+    {
+      "id": "graphql integration",
+      "route_id": "route.integrations.graphql-integrator"
+    },
+    {
+      "id": "federation specialist",
+      "route_id": "route.integrations.graphql-integrator"
+    },
+    {
+      "id": "integrations",
+      "route_id": "route.integrations.master"
+    },
+    {
+      "id": "external service",
+      "route_id": "route.integrations.master"
+    },
+    {
+      "id": "queue engineer",
+      "route_id": "route.integrations.message-queue-engineer"
+    },
+    {
+      "id": "broker specialist",
+      "route_id": "route.integrations.message-queue-engineer"
+    },
+    {
+      "id": "microservices integration",
+      "route_id": "route.integrations.microservices-integrator"
+    },
+    {
+      "id": "service integration",
+      "route_id": "route.integrations.microservices-integrator"
+    },
+    {
+      "id": "middleware dev",
+      "route_id": "route.integrations.middleware-developer"
+    },
+    {
+      "id": "pipeline middleware",
+      "route_id": "route.integrations.middleware-developer"
+    },
+    {
+      "id": "code context",
+      "route_id": "route.integrations.sourcegraph-context-agent"
+    },
+    {
+      "id": "third party integration",
+      "route_id": "route.integrations.third-party-integrator"
+    },
+    {
+      "id": "saas integration",
+      "route_id": "route.integrations.third-party-integrator"
+    },
+    {
+      "id": "vercel ops",
+      "route_id": "route.integrations.vercel-agent"
+    },
+    {
+      "id": "webhook dev",
+      "route_id": "route.integrations.webhook-developer"
+    },
+    {
+      "id": "webhook handler",
+      "route_id": "route.integrations.webhook-developer"
+    },
+    {
+      "id": "compliance check",
+      "route_id": "route.legal-compliance.compliance-checker"
+    },
+    {
+      "id": "compliance management",
+      "route_id": "route.legal-compliance.compliance-officer"
+    },
+    {
+      "id": "contract law",
+      "route_id": "route.legal-compliance.contract-lawyer"
+    },
+    {
+      "id": "contract review",
+      "route_id": "route.legal-compliance.contract-reviewer"
+    },
+    {
+      "id": "corporate law",
+      "route_id": "route.legal-compliance.corporate-lawyer"
+    },
+    {
+      "id": "due diligence",
+      "route_id": "route.legal-compliance.due-diligence"
+    },
+    {
+      "id": "employment law",
+      "route_id": "route.legal-compliance.employment-lawyer"
+    },
+    {
+      "id": "labor law",
+      "route_id": "route.legal-compliance.employment-lawyer"
+    },
+    {
+      "id": "ip law",
+      "route_id": "route.legal-compliance.ip-lawyer"
+    },
+    {
+      "id": "intellectual property",
+      "route_id": "route.legal-compliance.ip-lawyer"
+    },
+    {
+      "id": "legal research",
+      "route_id": "route.legal-compliance.legal-researcher"
+    },
+    {
+      "id": "legal writing",
+      "route_id": "route.legal-compliance.legal-writer"
+    },
+    {
+      "id": "litigation support",
+      "route_id": "route.legal-compliance.litigation-support"
+    },
+    {
       "id": "legal task",
       "route_id": "route.legal-compliance.master"
     },
     {
       "id": "compliance task",
       "route_id": "route.legal-compliance.master"
+    },
+    {
+      "id": "policy analysis",
+      "route_id": "route.legal-compliance.policy-analyst"
+    },
+    {
+      "id": "privacy check",
+      "route_id": "route.legal-compliance.privacy-advisor"
+    },
+    {
+      "id": "privacy management",
+      "route_id": "route.legal-compliance.privacy-officer"
+    },
+    {
+      "id": "data protection officer",
+      "route_id": "route.legal-compliance.privacy-officer"
+    },
+    {
+      "id": "regulatory affairs",
+      "route_id": "route.legal-compliance.regulatory-affairs"
+    },
+    {
+      "id": "legal risk management",
+      "route_id": "route.legal-compliance.risk-manager"
+    },
+    {
+      "id": "demand plan",
+      "route_id": "route.manufacturing.demand-planner"
+    },
+    {
+      "id": "industrial engineering",
+      "route_id": "route.manufacturing.industrial-engineer"
+    },
+    {
+      "id": "ie analysis",
+      "route_id": "route.manufacturing.industrial-engineer"
+    },
+    {
+      "id": "inventory management",
+      "route_id": "route.manufacturing.inventory-manager"
+    },
+    {
+      "id": "stock management",
+      "route_id": "route.manufacturing.inventory-manager"
+    },
+    {
+      "id": "inventory plan",
+      "route_id": "route.manufacturing.inventory-planner"
+    },
+    {
+      "id": "lean manufacturing",
+      "route_id": "route.manufacturing.lean-manufacturing"
+    },
+    {
+      "id": "lean production",
+      "route_id": "route.manufacturing.lean-manufacturing"
+    },
+    {
+      "id": "maintenance engineering",
+      "route_id": "route.manufacturing.maintenance-engineer"
+    },
+    {
+      "id": "reliability engineering",
+      "route_id": "route.manufacturing.maintenance-engineer"
+    },
+    {
+      "id": "manufacturing analytics",
+      "route_id": "route.manufacturing.manufacturing-analyst"
+    },
+    {
+      "id": "production analytics",
+      "route_id": "route.manufacturing.manufacturing-analyst"
+    },
+    {
+      "id": "manufacturing operations",
+      "route_id": "route.manufacturing.manufacturing-operations"
+    },
+    {
+      "id": "production operations",
+      "route_id": "route.manufacturing.manufacturing-operations"
     },
     {
       "id": "manufacturing task",
@@ -136,40 +1036,1628 @@
       "route_id": "route.manufacturing.master"
     },
     {
-      "id": "evals",
-      "route_id": "route.data-ai.eval-engineer"
+      "id": "process engineering",
+      "route_id": "route.manufacturing.process-engineer"
     },
     {
-      "id": "ml",
-      "route_id": "route.data-ai.ml-engineer"
+      "id": "process improvement",
+      "route_id": "route.manufacturing.process-engineer"
     },
     {
-      "id": "rag",
-      "route_id": "route.data-ai.rag-engineer"
+      "id": "production engineering",
+      "route_id": "route.manufacturing.production-engineer"
+    },
+    {
+      "id": "production optimization",
+      "route_id": "route.manufacturing.production-engineer"
+    },
+    {
+      "id": "quality engineering",
+      "route_id": "route.manufacturing.quality-engineer"
+    },
+    {
+      "id": "quality assurance",
+      "route_id": "route.manufacturing.quality-engineer"
+    },
+    {
+      "id": "quality nc",
+      "route_id": "route.manufacturing.quality-nonconformance-analyst"
+    },
+    {
+      "id": "safety engineering",
+      "route_id": "route.manufacturing.safety-engineer"
+    },
+    {
+      "id": "ehs specialist",
+      "route_id": "route.manufacturing.safety-engineer"
+    },
+    {
+      "id": "supply chain analysis",
+      "route_id": "route.manufacturing.supply-chain-analyst"
+    },
+    {
+      "id": "supply chain analytics",
+      "route_id": "route.manufacturing.supply-chain-analyst"
+    },
+    {
+      "id": "brand marketing",
+      "route_id": "route.marketing.brand-marketer"
+    },
+    {
+      "id": "content market",
+      "route_id": "route.marketing.content-marketer"
+    },
+    {
+      "id": "cro specialist",
+      "route_id": "route.marketing.conversion-optimizer"
+    },
+    {
+      "id": "conversion optimization",
+      "route_id": "route.marketing.conversion-optimizer"
+    },
+    {
+      "id": "digital marketing",
+      "route_id": "route.marketing.digital-marketer"
+    },
+    {
+      "id": "email marketing",
+      "route_id": "route.marketing.email-marketer"
+    },
+    {
+      "id": "event marketing",
+      "route_id": "route.marketing.event-marketer"
+    },
+    {
+      "id": "growth marketing",
+      "route_id": "route.marketing.growth-marketer"
+    },
+    {
+      "id": "influencer marketing",
+      "route_id": "route.marketing.influencer-marketer"
+    },
+    {
+      "id": "marketing analytics",
+      "route_id": "route.marketing.marketing-analyst"
+    },
+    {
+      "id": "marketing automation",
+      "route_id": "route.marketing.marketing-automator"
+    },
+    {
+      "id": "marketing strategy",
+      "route_id": "route.marketing.marketing-strategist"
+    },
+    {
+      "id": "marketing task",
+      "route_id": "route.marketing.master"
+    },
+    {
+      "id": "product marketing",
+      "route_id": "route.marketing.product-marketer"
+    },
+    {
+      "id": "sem specialist",
+      "route_id": "route.marketing.sem-specialist"
+    },
+    {
+      "id": "ppc specialist",
+      "route_id": "route.marketing.sem-specialist"
+    },
+    {
+      "id": "seo audit",
+      "route_id": "route.marketing.seo-analyst"
+    },
+    {
+      "id": "seo specialist",
+      "route_id": "route.marketing.seo-specialist"
+    },
+    {
+      "id": "social media",
+      "route_id": "route.marketing.social-media-manager"
+    },
+    {
+      "id": "agent designer",
+      "route_id": "route.meta-system.agent-designer"
+    },
+    {
+      "id": "agent spec writer",
+      "route_id": "route.meta-system.agent-designer"
+    },
+    {
+      "id": "deduplicator",
+      "route_id": "route.meta-system.deduplicator"
+    },
+    {
+      "id": "dossier evaluator",
+      "route_id": "route.meta-system.dossier-evaluator"
+    },
+    {
+      "id": "dossier quality reviewer",
+      "route_id": "route.meta-system.dossier-evaluator"
+    },
+    {
+      "id": "eval runner",
+      "route_id": "route.meta-system.eval-runner"
+    },
+    {
+      "id": "fixture engineer",
+      "route_id": "route.meta-system.fixture-engineer"
+    },
+    {
+      "id": "test fixture writer",
+      "route_id": "route.meta-system.fixture-engineer"
+    },
+    {
+      "id": "bundle absorber",
+      "route_id": "route.meta-system.plugin-absorber"
+    },
+    {
+      "id": "qa specialist",
+      "route_id": "route.meta-system.quality-assurance"
+    },
+    {
+      "id": "skill designer",
+      "route_id": "route.meta-system.skill-designer"
+    },
+    {
+      "id": "skill spec writer",
+      "route_id": "route.meta-system.skill-designer"
+    },
+    {
+      "id": "source miner",
+      "route_id": "route.meta-system.source-miner"
+    },
+    {
+      "id": "stub detector",
+      "route_id": "route.meta-system.stub-detector"
+    },
+    {
+      "id": "system architect",
+      "route_id": "route.meta-system.system-architect"
+    },
+    {
+      "id": "architecture reviewer",
+      "route_id": "route.meta-system.system-architect"
+    },
+    {
+      "id": "system optimizer",
+      "route_id": "route.meta-system.system-optimizer"
+    },
+    {
+      "id": "performance optimizer",
+      "route_id": "route.meta-system.system-optimizer"
+    },
+    {
+      "id": "workflow architect",
+      "route_id": "route.meta-system.workflow-architect"
+    },
+    {
+      "id": "workflow designer",
+      "route_id": "route.meta-system.workflow-architect"
     },
     {
       "id": "cicd",
       "route_id": "route.platform.ci-cd-engineer"
     },
     {
+      "id": "pipeline-designer",
+      "route_id": "route.platform.ci-cd-pipeline"
+    },
+    {
+      "id": "cicd-design",
+      "route_id": "route.platform.ci-cd-pipeline"
+    },
+    {
+      "id": "cloud-cost",
+      "route_id": "route.platform.cloud-cost-optimization"
+    },
+    {
+      "id": "finops",
+      "route_id": "route.platform.cloud-cost-optimization"
+    },
+    {
+      "id": "container-sec",
+      "route_id": "route.platform.container-security"
+    },
+    {
+      "id": "k8s-security",
+      "route_id": "route.platform.container-security"
+    },
+    {
       "id": "devops",
       "route_id": "route.platform.devops-engineer"
+    },
+    {
+      "id": "gitops",
+      "route_id": "route.platform.gitops-workflow"
+    },
+    {
+      "id": "argocd-expert",
+      "route_id": "route.platform.gitops-workflow"
     },
     {
       "id": "oncall",
       "route_id": "route.platform.incident-responder"
     },
     {
+      "id": "incident-mgmt",
+      "route_id": "route.platform.incident-response"
+    },
+    {
+      "id": "ir-manager",
+      "route_id": "route.platform.incident-response"
+    },
+    {
+      "id": "infra-test",
+      "route_id": "route.platform.infrastructure-testing"
+    },
+    {
+      "id": "iac-testing",
+      "route_id": "route.platform.infrastructure-testing"
+    },
+    {
+      "id": "k8s-admin",
+      "route_id": "route.platform.kubernetes-admin"
+    },
+    {
+      "id": "kubernetes-admin",
+      "route_id": "route.platform.kubernetes-admin"
+    },
+    {
+      "id": "monitoring",
+      "route_id": "route.platform.monitoring-setup"
+    },
+    {
+      "id": "mon-setup",
+      "route_id": "route.platform.monitoring-setup"
+    },
+    {
+      "id": "observability",
+      "route_id": "route.platform.observability-engineer"
+    },
+    {
+      "id": "mesh",
+      "route_id": "route.platform.service-mesh"
+    },
+    {
+      "id": "istio-expert",
+      "route_id": "route.platform.service-mesh"
+    },
+    {
+      "id": "tf-architect",
+      "route_id": "route.platform.terraform-architect"
+    },
+    {
+      "id": "terraform",
+      "route_id": "route.platform.terraform-architect"
+    },
+    {
+      "id": "competitive intel",
+      "route_id": "route.product-business.competitive-analyst"
+    },
+    {
+      "id": "customer success",
+      "route_id": "route.product-business.customer-success-advisor"
+    },
+    {
+      "id": "feature priority",
+      "route_id": "route.product-business.feature-prioritizer"
+    },
+    {
+      "id": "growth",
+      "route_id": "route.product-business.growth-manager"
+    },
+    {
+      "id": "market research",
+      "route_id": "route.product-business.market-researcher"
+    },
+    {
+      "id": "product business",
+      "route_id": "route.product-business.master"
+    },
+    {
+      "id": "pm task",
+      "route_id": "route.product-business.master"
+    },
+    {
+      "id": "ops planner",
+      "route_id": "route.product-business.operations-planner"
+    },
+    {
+      "id": "partnerships",
+      "route_id": "route.product-business.partnerships-advisor"
+    },
+    {
+      "id": "pricing strategy",
+      "route_id": "route.product-business.pricing-strategist"
+    },
+    {
+      "id": "product analytics",
+      "route_id": "route.product-business.product-analyst"
+    },
+    {
+      "id": "launch manager",
+      "route_id": "route.product-business.product-launcher"
+    },
+    {
+      "id": "pm spec",
+      "route_id": "route.product-business.product-manager"
+    },
+    {
+      "id": "pmm",
+      "route_id": "route.product-business.product-marketer"
+    },
+    {
+      "id": "product ops",
+      "route_id": "route.product-business.product-ops"
+    },
+    {
+      "id": "product strategy",
+      "route_id": "route.product-business.product-strategist"
+    },
+    {
+      "id": "product docs",
+      "route_id": "route.product-business.product-writer"
+    },
+    {
+      "id": "roadmap planning",
+      "route_id": "route.product-business.roadmap-planner"
+    },
+    {
+      "id": "ux research",
+      "route_id": "route.product-business.user-researcher"
+    },
+    {
+      "id": "academic study",
+      "route_id": "route.research.academic-researcher"
+    },
+    {
+      "id": "data sourcing",
+      "route_id": "route.research.data-researcher"
+    },
+    {
+      "id": "research brief",
+      "route_id": "route.research.deep-researcher"
+    },
+    {
+      "id": "lit review",
+      "route_id": "route.research.literature-reviewer"
+    },
+    {
+      "id": "market intel",
+      "route_id": "route.research.market-intel-analyst"
+    },
+    {
+      "id": "market study",
+      "route_id": "route.research.market-researcher"
+    },
+    {
+      "id": "research task",
+      "route_id": "route.research.master"
+    },
+    {
+      "id": "deep dive",
+      "route_id": "route.research.master"
+    },
+    {
+      "id": "research analysis",
+      "route_id": "route.research.research-analyst"
+    },
+    {
+      "id": "methodology design",
+      "route_id": "route.research.research-methodologist"
+    },
+    {
+      "id": "research pm",
+      "route_id": "route.research.research-project-manager"
+    },
+    {
+      "id": "science writing",
+      "route_id": "route.research.scientific-writer"
+    },
+    {
+      "id": "stats consult",
+      "route_id": "route.research.statistical-consultant"
+    },
+    {
+      "id": "ae",
+      "route_id": "route.sales.account-executive"
+    },
+    {
+      "id": "account exec",
+      "route_id": "route.sales.account-executive"
+    },
+    {
+      "id": "contract negotiator",
+      "route_id": "route.sales.contract-negotiator"
+    },
+    {
+      "id": "deal negotiator",
+      "route_id": "route.sales.contract-negotiator"
+    },
+    {
+      "id": "crm admin",
+      "route_id": "route.sales.crm-admin"
+    },
+    {
+      "id": "salesforce admin",
+      "route_id": "route.sales.crm-admin"
+    },
+    {
+      "id": "cs specialist",
+      "route_id": "route.sales.customer-success"
+    },
+    {
+      "id": "customer success mgr",
+      "route_id": "route.sales.customer-success"
+    },
+    {
+      "id": "deal desk",
+      "route_id": "route.sales.deal-desk"
+    },
+    {
+      "id": "pricing desk",
+      "route_id": "route.sales.deal-desk"
+    },
+    {
+      "id": "sales task",
+      "route_id": "route.sales.master"
+    },
+    {
+      "id": "deal review",
+      "route_id": "route.sales.master"
+    },
+    {
+      "id": "pipeline check",
+      "route_id": "route.sales.pipeline-analyst"
+    },
+    {
+      "id": "proposal gen",
+      "route_id": "route.sales.proposal-generator"
+    },
+    {
+      "id": "proposal writer",
+      "route_id": "route.sales.proposal-writer"
+    },
+    {
+      "id": "bid writer",
+      "route_id": "route.sales.proposal-writer"
+    },
+    {
+      "id": "sales analytics",
+      "route_id": "route.sales.sales-analyst"
+    },
+    {
+      "id": "revenue analyst",
+      "route_id": "route.sales.sales-analyst"
+    },
+    {
+      "id": "sdr",
+      "route_id": "route.sales.sales-development"
+    },
+    {
+      "id": "bdr",
+      "route_id": "route.sales.sales-development"
+    },
+    {
+      "id": "sales dev",
+      "route_id": "route.sales.sales-development"
+    },
+    {
+      "id": "sales enablement",
+      "route_id": "route.sales.sales-enablement"
+    },
+    {
+      "id": "enablement specialist",
+      "route_id": "route.sales.sales-enablement"
+    },
+    {
+      "id": "sales eng",
+      "route_id": "route.sales.sales-engineer"
+    },
+    {
+      "id": "solutions engineer",
+      "route_id": "route.sales.sales-engineer"
+    },
+    {
+      "id": "sales ops",
+      "route_id": "route.sales.sales-ops"
+    },
+    {
+      "id": "rev ops",
+      "route_id": "route.sales.sales-ops"
+    },
+    {
+      "id": "sales strat",
+      "route_id": "route.sales.sales-strategist"
+    },
+    {
+      "id": "sales trainer",
+      "route_id": "route.sales.sales-trainer"
+    },
+    {
+      "id": "sales enablement trainer",
+      "route_id": "route.sales.sales-trainer"
+    },
+    {
+      "id": "territory mgr",
+      "route_id": "route.sales.territory-manager"
+    },
+    {
+      "id": "territory planner",
+      "route_id": "route.sales.territory-manager"
+    },
+    {
+      "id": "appsec",
+      "route_id": "route.security.application-security"
+    },
+    {
+      "id": "cloudsec",
+      "route_id": "route.security.cloud-security"
+    },
+    {
+      "id": "seccomply",
+      "route_id": "route.security.compliance-officer"
+    },
+    {
+      "id": "crypto",
+      "route_id": "route.security.cryptography-expert"
+    },
+    {
+      "id": "dependency risk",
+      "route_id": "route.security.dependency-risk-agent"
+    },
+    {
+      "id": "iam",
+      "route_id": "route.security.identity-access"
+    },
+    {
+      "id": "ir",
+      "route_id": "route.security.incident-responder"
+    },
+    {
+      "id": "netsec",
+      "route_id": "route.security.network-security"
+    },
+    {
+      "id": "pentest",
+      "route_id": "route.security.penetration-tester"
+    },
+    {
       "id": "secrets",
       "route_id": "route.security.secret-scan-agent"
+    },
+    {
+      "id": "secaudit",
+      "route_id": "route.security.security-auditor"
     },
     {
       "id": "secrev",
       "route_id": "route.security.security-reviewer"
     },
     {
+      "id": "hunter",
+      "route_id": "route.security.threat-hunter"
+    },
+    {
       "id": "threatmod",
       "route_id": "route.security.threat-modeler"
+    },
+    {
+      "id": "vulnmgmt",
+      "route_id": "route.security.vulnerability-manager"
+    },
+    {
+      "id": "biz model",
+      "route_id": "route.startup-ops.business-model-designer"
+    },
+    {
+      "id": "model designer",
+      "route_id": "route.startup-ops.business-model-designer"
+    },
+    {
+      "id": "ceo rethink",
+      "route_id": "route.startup-ops.ceo-rethink"
+    },
+    {
+      "id": "cust dev",
+      "route_id": "route.startup-ops.customer-development"
+    },
+    {
+      "id": "customer dev",
+      "route_id": "route.startup-ops.customer-development"
+    },
+    {
+      "id": "fin modeler",
+      "route_id": "route.startup-ops.financial-modeler"
+    },
+    {
+      "id": "projections",
+      "route_id": "route.startup-ops.financial-modeler"
+    },
+    {
+      "id": "fundraising",
+      "route_id": "route.startup-ops.fundraising-specialist"
+    },
+    {
+      "id": "raise prep",
+      "route_id": "route.startup-ops.fundraising-specialist"
+    },
+    {
+      "id": "growth hacker",
+      "route_id": "route.startup-ops.growth-hacker"
+    },
+    {
+      "id": "growth spec",
+      "route_id": "route.startup-ops.growth-hacker"
+    },
+    {
+      "id": "hr spec",
+      "route_id": "route.startup-ops.hr-specialist"
+    },
+    {
+      "id": "hiring specialist",
+      "route_id": "route.startup-ops.hr-specialist"
+    },
+    {
+      "id": "legal spec",
+      "route_id": "route.startup-ops.legal-compliance"
+    },
+    {
+      "id": "compliance startup",
+      "route_id": "route.startup-ops.legal-compliance"
+    },
+    {
+      "id": "startup ops",
+      "route_id": "route.startup-ops.master"
+    },
+    {
+      "id": "solo founder",
+      "route_id": "route.startup-ops.master"
+    },
+    {
+      "id": "ops manager",
+      "route_id": "route.startup-ops.operations-manager"
+    },
+    {
+      "id": "deck creator",
+      "route_id": "route.startup-ops.pitch-deck-creator"
+    },
+    {
+      "id": "pitch builder",
+      "route_id": "route.startup-ops.pitch-deck-creator"
+    },
+    {
+      "id": "pmf spec",
+      "route_id": "route.startup-ops.product-market-fit"
+    },
+    {
+      "id": "market fit",
+      "route_id": "route.startup-ops.product-market-fit"
+    },
+    {
+      "id": "startup qa",
+      "route_id": "route.startup-ops.qa"
+    },
+    {
+      "id": "release ship",
+      "route_id": "route.startup-ops.release"
+    },
+    {
+      "id": "mentor",
+      "route_id": "route.startup-ops.startup-mentor"
+    },
+    {
+      "id": "startup coach",
+      "route_id": "route.startup-ops.startup-mentor"
+    },
+    {
+      "id": "startup strat",
+      "route_id": "route.startup-ops.startup-strategist"
+    },
+    {
+      "id": "biz strategist",
+      "route_id": "route.startup-ops.startup-strategist"
+    },
+    {
+      "id": "rag evaluation",
+      "route_id": "route.workflow.data-ai.rag-eval"
+    },
+    {
+      "id": "retrieval and answer audit",
+      "route_id": "route.workflow.data-ai.rag-eval"
+    },
+    {
+      "id": "rag quality check",
+      "route_id": "route.workflow.data-ai.rag-eval"
+    },
+    {
+      "id": "accessibility check",
+      "route_id": "route.workflow.design-content.accessibility-audit"
+    },
+    {
+      "id": "wcag audit",
+      "route_id": "route.workflow.design-content.accessibility-audit"
+    },
+    {
+      "id": "brand identity design",
+      "route_id": "route.workflow.design-content.brand-identity-design"
+    },
+    {
+      "id": "visual identity creation",
+      "route_id": "route.workflow.design-content.brand-identity-design"
+    },
+    {
+      "id": "brand system build",
+      "route_id": "route.workflow.design-content.brand-identity-design"
+    },
+    {
+      "id": "content strategy plan",
+      "route_id": "route.workflow.design-content.content-strategy-development"
+    },
+    {
+      "id": "content planning",
+      "route_id": "route.workflow.design-content.content-strategy-development"
+    },
+    {
+      "id": "content strategy build",
+      "route_id": "route.workflow.design-content.content-strategy-development"
+    },
+    {
+      "id": "design system setup",
+      "route_id": "route.workflow.design-content.design-system-creation"
+    },
+    {
+      "id": "ds creation",
+      "route_id": "route.workflow.design-content.design-system-creation"
+    },
+    {
+      "id": "design system build",
+      "route_id": "route.workflow.design-content.design-system-creation"
+    },
+    {
+      "id": "seo content writing",
+      "route_id": "route.workflow.design-content.seo-content-creation"
+    },
+    {
+      "id": "search content creation",
+      "route_id": "route.workflow.design-content.seo-content-creation"
+    },
+    {
+      "id": "seo article writing",
+      "route_id": "route.workflow.design-content.seo-content-creation"
+    },
+    {
+      "id": "visual accessibility review",
+      "route_id": "route.workflow.design-content.visual-and-a11y-check"
+    },
+    {
+      "id": "frontend polish and a11y check",
+      "route_id": "route.workflow.design-content.visual-and-a11y-check"
+    },
+    {
+      "id": "ui quality audit",
+      "route_id": "route.workflow.design-content.visual-and-a11y-check"
+    },
+    {
+      "id": "assessment build",
+      "route_id": "route.workflow.education.assessment-creation"
+    },
+    {
+      "id": "test creation",
+      "route_id": "route.workflow.education.assessment-creation"
+    },
+    {
+      "id": "curriculum alignment",
+      "route_id": "route.workflow.education.curriculum-assessment-alignment"
+    },
+    {
+      "id": "assessment alignment",
+      "route_id": "route.workflow.education.curriculum-assessment-alignment"
+    },
+    {
+      "id": "curriculum design",
+      "route_id": "route.workflow.education.curriculum-design-process"
+    },
+    {
+      "id": "curriculum development",
+      "route_id": "route.workflow.education.curriculum-design-process"
+    },
+    {
+      "id": "online course build",
+      "route_id": "route.workflow.education.online-course-development"
+    },
+    {
+      "id": "e-learning development",
+      "route_id": "route.workflow.education.online-course-development"
+    },
+    {
+      "id": "api endpoint creation",
+      "route_id": "route.workflow.engineering.backend-api-implementation"
+    },
+    {
+      "id": "backend route implementation",
+      "route_id": "route.workflow.engineering.backend-api-implementation"
+    },
+    {
+      "id": "rest api build",
+      "route_id": "route.workflow.engineering.backend-api-implementation"
+    },
+    {
+      "id": "code migration",
+      "route_id": "route.workflow.engineering.code-migration-execution"
+    },
+    {
+      "id": "framework migration",
+      "route_id": "route.workflow.engineering.code-migration-execution"
+    },
+    {
+      "id": "api version upgrade",
+      "route_id": "route.workflow.engineering.code-migration-execution"
+    },
+    {
+      "id": "secure code review",
+      "route_id": "route.workflow.engineering.code-review-with-security"
+    },
+    {
+      "id": "pr review with security",
+      "route_id": "route.workflow.engineering.code-review-with-security"
+    },
+    {
+      "id": "engineering security review",
+      "route_id": "route.workflow.engineering.code-review-with-security"
+    },
+    {
+      "id": "schema migration",
+      "route_id": "route.workflow.engineering.database-migration"
+    },
+    {
+      "id": "database migration workflow",
+      "route_id": "route.workflow.engineering.database-migration"
+    },
+    {
+      "id": "migration script creation",
+      "route_id": "route.workflow.engineering.database-migration"
+    },
+    {
+      "id": "docs sync",
+      "route_id": "route.workflow.engineering.docs-update"
+    },
+    {
+      "id": "documentation refresh",
+      "route_id": "route.workflow.engineering.docs-update"
+    },
+    {
+      "id": "code to docs update",
+      "route_id": "route.workflow.engineering.docs-update"
+    },
+    {
+      "id": "build failure fix",
+      "route_id": "route.workflow.engineering.fix-build-error"
+    },
+    {
+      "id": "compile error repair",
+      "route_id": "route.workflow.engineering.fix-build-error"
+    },
+    {
+      "id": "ci build repair",
+      "route_id": "route.workflow.engineering.fix-build-error"
+    },
+    {
+      "id": "component scaffolding",
+      "route_id": "route.workflow.engineering.frontend-component-creation"
+    },
+    {
+      "id": "frontend component workflow",
+      "route_id": "route.workflow.engineering.frontend-component-creation"
+    },
+    {
+      "id": "ui component creation",
+      "route_id": "route.workflow.engineering.frontend-component-creation"
+    },
+    {
+      "id": "perf optimization",
+      "route_id": "route.workflow.engineering.performance-optimization"
+    },
+    {
+      "id": "performance tuning",
+      "route_id": "route.workflow.engineering.performance-optimization"
+    },
+    {
+      "id": "speed improvement workflow",
+      "route_id": "route.workflow.engineering.performance-optimization"
+    },
+    {
+      "id": "refactoring campaign",
+      "route_id": "route.workflow.engineering.refactoring-campaign"
+    },
+    {
+      "id": "code cleanup campaign",
+      "route_id": "route.workflow.engineering.refactoring-campaign"
+    },
+    {
+      "id": "debt reduction refactor",
+      "route_id": "route.workflow.engineering.refactoring-campaign"
+    },
+    {
+      "id": "repo walkthrough",
+      "route_id": "route.workflow.engineering.repo-onboarding"
+    },
+    {
+      "id": "codebase onboarding",
+      "route_id": "route.workflow.engineering.repo-onboarding"
+    },
+    {
+      "id": "architecture orientation",
+      "route_id": "route.workflow.engineering.repo-onboarding"
+    },
+    {
+      "id": "tdd implementation",
+      "route_id": "route.workflow.engineering.tdd-feature"
+    },
+    {
+      "id": "red green refactor workflow",
+      "route_id": "route.workflow.engineering.tdd-feature"
+    },
+    {
+      "id": "test first feature",
+      "route_id": "route.workflow.engineering.tdd-feature"
+    },
+    {
+      "id": "test coverage expansion",
+      "route_id": "route.workflow.engineering.test-suite-expansion"
+    },
+    {
+      "id": "test suite growth",
+      "route_id": "route.workflow.engineering.test-suite-expansion"
+    },
+    {
+      "id": "coverage improvement",
+      "route_id": "route.workflow.engineering.test-suite-expansion"
+    },
+    {
+      "id": "audit preparation",
+      "route_id": "route.workflow.finance.audit-preparation"
+    },
+    {
+      "id": "pre-audit prep",
+      "route_id": "route.workflow.finance.audit-preparation"
+    },
+    {
+      "id": "budget development",
+      "route_id": "route.workflow.finance.budget-development"
+    },
+    {
+      "id": "budget planning",
+      "route_id": "route.workflow.finance.budget-development"
+    },
+    {
+      "id": "financial analysis",
+      "route_id": "route.workflow.finance.financial-analysis-process"
+    },
+    {
+      "id": "financial review process",
+      "route_id": "route.workflow.finance.financial-analysis-process"
+    },
+    {
+      "id": "financial model build",
+      "route_id": "route.workflow.finance.financial-model-creation"
+    },
+    {
+      "id": "model creation",
+      "route_id": "route.workflow.finance.financial-model-creation"
+    },
+    {
+      "id": "investment evaluation",
+      "route_id": "route.workflow.finance.investment-evaluation"
+    },
+    {
+      "id": "investment review",
+      "route_id": "route.workflow.finance.investment-evaluation"
+    },
+    {
+      "id": "monthly forecast",
+      "route_id": "route.workflow.finance.monthly-forecast"
+    },
+    {
+      "id": "forecast refresh",
+      "route_id": "route.workflow.finance.monthly-forecast"
+    },
+    {
+      "id": "risk assessment workflow",
+      "route_id": "route.workflow.finance.risk-assessment"
+    },
+    {
+      "id": "risk review process",
+      "route_id": "route.workflow.finance.risk-assessment"
+    },
+    {
+      "id": "clinical analytics",
+      "route_id": "route.workflow.healthcare.clinical-data-analysis"
+    },
+    {
+      "id": "health data review",
+      "route_id": "route.workflow.healthcare.clinical-data-analysis"
+    },
+    {
+      "id": "outcomes analysis",
+      "route_id": "route.workflow.healthcare.clinical-data-analysis"
+    },
+    {
+      "id": "guideline review",
+      "route_id": "route.workflow.healthcare.clinical-guideline-review"
+    },
+    {
+      "id": "clinical protocol check",
+      "route_id": "route.workflow.healthcare.clinical-guideline-review"
+    },
+    {
+      "id": "hipaa audit",
+      "route_id": "route.workflow.healthcare.hipaa-compliance-audit"
+    },
+    {
+      "id": "hipaa assessment",
+      "route_id": "route.workflow.healthcare.hipaa-compliance-audit"
+    },
+    {
+      "id": "phi compliance audit",
+      "route_id": "route.workflow.healthcare.hipaa-compliance-audit"
+    },
+    {
+      "id": "qi project",
+      "route_id": "route.workflow.healthcare.quality-improvement-project"
+    },
+    {
+      "id": "quality initiative",
+      "route_id": "route.workflow.healthcare.quality-improvement-project"
+    },
+    {
+      "id": "pdsa project",
+      "route_id": "route.workflow.healthcare.quality-improvement-project"
+    },
+    {
+      "id": "telehealth rollout",
+      "route_id": "route.workflow.healthcare.telehealth-implementation"
+    },
+    {
+      "id": "virtual care implementation",
+      "route_id": "route.workflow.healthcare.telehealth-implementation"
+    },
+    {
+      "id": "telemedicine deployment",
+      "route_id": "route.workflow.healthcare.telehealth-implementation"
+    },
+    {
+      "id": "compensation analysis",
+      "route_id": "route.workflow.hr.compensation-analysis"
+    },
+    {
+      "id": "comp analysis workflow",
+      "route_id": "route.workflow.hr.compensation-analysis"
+    },
+    {
+      "id": "hiring pipeline",
+      "route_id": "route.workflow.hr.hiring-pipeline"
+    },
+    {
+      "id": "interview pipeline",
+      "route_id": "route.workflow.hr.hiring-pipeline"
+    },
+    {
+      "id": "onboarding process",
+      "route_id": "route.workflow.hr.onboarding-process"
+    },
+    {
+      "id": "onboarding workflow",
+      "route_id": "route.workflow.hr.onboarding-process"
+    },
+    {
+      "id": "performance review cycle",
+      "route_id": "route.workflow.hr.performance-review-cycle"
+    },
+    {
+      "id": "review cycle workflow",
+      "route_id": "route.workflow.hr.performance-review-cycle"
+    },
+    {
+      "id": "recruitment process",
+      "route_id": "route.workflow.hr.recruitment-process"
+    },
+    {
+      "id": "recruiting workflow",
+      "route_id": "route.workflow.hr.recruitment-process"
+    },
+    {
+      "id": "mcp connector design",
+      "route_id": "route.workflow.integrations.mcp-server-design"
+    },
+    {
+      "id": "tooling server architecture",
+      "route_id": "route.workflow.integrations.mcp-server-design"
+    },
+    {
+      "id": "integration contract design",
+      "route_id": "route.workflow.integrations.mcp-server-design"
+    },
+    {
+      "id": "compliance audit",
+      "route_id": "route.workflow.legal-compliance.compliance-audit"
+    },
+    {
+      "id": "regulatory audit",
+      "route_id": "route.workflow.legal-compliance.compliance-audit"
+    },
+    {
+      "id": "agreement review process",
+      "route_id": "route.workflow.legal-compliance.contract-review-process"
+    },
+    {
+      "id": "contract risk review",
+      "route_id": "route.workflow.legal-compliance.contract-risk-review"
+    },
+    {
+      "id": "agreement triage",
+      "route_id": "route.workflow.legal-compliance.contract-risk-review"
+    },
+    {
+      "id": "legal diligence process",
+      "route_id": "route.workflow.legal-compliance.due-diligence-process"
+    },
+    {
+      "id": "law research process",
+      "route_id": "route.workflow.legal-compliance.legal-research-process"
+    },
+    {
+      "id": "policy development",
+      "route_id": "route.workflow.legal-compliance.policy-development"
+    },
+    {
+      "id": "policy creation process",
+      "route_id": "route.workflow.legal-compliance.policy-development"
+    },
+    {
+      "id": "demand balancing",
+      "route_id": "route.workflow.manufacturing.demand-inventory-balancing"
+    },
+    {
+      "id": "s&op reconciliation",
+      "route_id": "route.workflow.manufacturing.demand-inventory-balancing"
+    },
+    {
+      "id": "throughput improvement",
+      "route_id": "route.workflow.manufacturing.production-optimization"
+    },
+    {
+      "id": "defect reduction",
+      "route_id": "route.workflow.manufacturing.quality-improvement"
+    },
+    {
+      "id": "supply chain review",
+      "route_id": "route.workflow.manufacturing.supply-chain-analysis"
+    },
+    {
+      "id": "editorial strategy",
+      "route_id": "route.workflow.marketing.content-marketing-strategy"
+    },
+    {
+      "id": "cro",
+      "route_id": "route.workflow.marketing.conversion-optimization"
+    },
+    {
+      "id": "email campaign",
+      "route_id": "route.workflow.marketing.email-campaign-creation"
+    },
+    {
+      "id": "email plan",
+      "route_id": "route.workflow.marketing.email-campaign-creation"
+    },
+    {
+      "id": "campaign launch",
+      "route_id": "route.workflow.marketing.launch-campaign"
+    },
+    {
+      "id": "launch plan",
+      "route_id": "route.workflow.marketing.launch-campaign"
+    },
+    {
+      "id": "paid ads",
+      "route_id": "route.workflow.marketing.paid-advertising-setup"
+    },
+    {
+      "id": "ppc campaign",
+      "route_id": "route.workflow.marketing.paid-advertising-setup"
+    },
+    {
+      "id": "site audit",
+      "route_id": "route.workflow.marketing.seo-audit-process"
+    },
+    {
+      "id": "social campaign",
+      "route_id": "route.workflow.marketing.social-media-campaign"
+    },
+    {
+      "id": "social media plan",
+      "route_id": "route.workflow.marketing.social-media-campaign"
+    },
+    {
+      "id": "source dossier build",
+      "route_id": "route.workflow.meta-system.source-mine-and-dossier"
+    },
+    {
+      "id": "source mining",
+      "route_id": "route.workflow.meta-system.source-mine-and-dossier"
+    },
+    {
+      "id": "ci triage",
+      "route_id": "route.workflow.platform.ci-failure-triage"
+    },
+    {
+      "id": "pipeline failure review",
+      "route_id": "route.workflow.platform.ci-failure-triage"
+    },
+    {
+      "id": "cloud migration",
+      "route_id": "route.workflow.platform.cloud-migration"
+    },
+    {
+      "id": "workload migration",
+      "route_id": "route.workflow.platform.cloud-migration"
+    },
+    {
+      "id": "lift and shift",
+      "route_id": "route.workflow.platform.cloud-migration"
+    },
+    {
+      "id": "dr setup",
+      "route_id": "route.workflow.platform.disaster-recovery-setup"
+    },
+    {
+      "id": "failover configuration",
+      "route_id": "route.workflow.platform.disaster-recovery-setup"
+    },
+    {
+      "id": "backup and recovery",
+      "route_id": "route.workflow.platform.disaster-recovery-setup"
+    },
+    {
+      "id": "incident response",
+      "route_id": "route.workflow.platform.incident-response-playbook"
+    },
+    {
+      "id": "outage playbook",
+      "route_id": "route.workflow.platform.incident-response-playbook"
+    },
+    {
+      "id": "incident workflow",
+      "route_id": "route.workflow.platform.incident-response-playbook"
+    },
+    {
+      "id": "k8s setup",
+      "route_id": "route.workflow.platform.kubernetes-cluster-setup"
+    },
+    {
+      "id": "cluster bootstrap",
+      "route_id": "route.workflow.platform.kubernetes-cluster-setup"
+    },
+    {
+      "id": "kubernetes provisioning",
+      "route_id": "route.workflow.platform.kubernetes-cluster-setup"
+    },
+    {
+      "id": "observability setup",
+      "route_id": "route.workflow.platform.monitoring-stack-deployment"
+    },
+    {
+      "id": "monitoring deployment",
+      "route_id": "route.workflow.platform.monitoring-stack-deployment"
+    },
+    {
+      "id": "metrics stack install",
+      "route_id": "route.workflow.platform.monitoring-stack-deployment"
+    },
+    {
+      "id": "terraform deploy",
+      "route_id": "route.workflow.platform.terraform-infrastructure-deployment"
+    },
+    {
+      "id": "iac deployment",
+      "route_id": "route.workflow.platform.terraform-infrastructure-deployment"
+    },
+    {
+      "id": "terraform apply",
+      "route_id": "route.workflow.platform.terraform-infrastructure-deployment"
+    },
+    {
+      "id": "competitor analysis",
+      "route_id": "route.workflow.product-business.competitive-analysis"
+    },
+    {
+      "id": "competitive landscape",
+      "route_id": "route.workflow.product-business.competitive-analysis"
+    },
+    {
+      "id": "competitive research",
+      "route_id": "route.workflow.product-business.competitive-analysis"
+    },
+    {
+      "id": "backlog prioritization",
+      "route_id": "route.workflow.product-business.feature-prioritization"
+    },
+    {
+      "id": "feature ranking",
+      "route_id": "route.workflow.product-business.feature-prioritization"
+    },
+    {
+      "id": "priority session",
+      "route_id": "route.workflow.product-business.feature-prioritization"
+    },
+    {
+      "id": "prd breakdown",
+      "route_id": "route.workflow.product-business.prd-to-plan"
+    },
+    {
+      "id": "requirements to plan",
+      "route_id": "route.workflow.product-business.prd-to-plan"
+    },
+    {
+      "id": "product execution plan",
+      "route_id": "route.workflow.product-business.prd-to-plan"
+    },
+    {
+      "id": "discovery process",
+      "route_id": "route.workflow.product-business.product-discovery"
+    },
+    {
+      "id": "product exploration",
+      "route_id": "route.workflow.product-business.product-discovery"
+    },
+    {
+      "id": "opportunity discovery",
+      "route_id": "route.workflow.product-business.product-discovery"
+    },
+    {
+      "id": "launch coordination",
+      "route_id": "route.workflow.product-business.product-launch"
+    },
+    {
+      "id": "go live process",
+      "route_id": "route.workflow.product-business.product-launch"
+    },
+    {
+      "id": "launch workflow",
+      "route_id": "route.workflow.product-business.product-launch"
+    },
+    {
+      "id": "roadmap build",
+      "route_id": "route.workflow.product-business.product-roadmap-creation"
+    },
+    {
+      "id": "quarterly roadmap",
+      "route_id": "route.workflow.product-business.product-roadmap-creation"
+    },
+    {
+      "id": "strategic roadmap",
+      "route_id": "route.workflow.product-business.product-roadmap-creation"
+    },
+    {
+      "id": "ux research process",
+      "route_id": "route.workflow.product-business.user-research-process"
+    },
+    {
+      "id": "user study",
+      "route_id": "route.workflow.product-business.user-research-process"
+    },
+    {
+      "id": "research sprint",
+      "route_id": "route.workflow.product-business.user-research-process"
+    },
+    {
+      "id": "deep research",
+      "route_id": "route.workflow.research.deep-research-synthesis"
+    },
+    {
+      "id": "research report",
+      "route_id": "route.workflow.research.deep-research-synthesis"
+    },
+    {
+      "id": "account planning",
+      "route_id": "route.workflow.sales.account-planning"
+    },
+    {
+      "id": "account strategy",
+      "route_id": "route.workflow.sales.account-planning"
+    },
+    {
+      "id": "contract negotiation",
+      "route_id": "route.workflow.sales.contract-negotiation"
+    },
+    {
+      "id": "deal negotiation",
+      "route_id": "route.workflow.sales.contract-negotiation"
+    },
+    {
+      "id": "opportunity review",
+      "route_id": "route.workflow.sales.deal-review"
+    },
+    {
+      "id": "proposal development",
+      "route_id": "route.workflow.sales.proposal-development"
+    },
+    {
+      "id": "proposal creation",
+      "route_id": "route.workflow.sales.proposal-development"
+    },
+    {
+      "id": "sales forecast",
+      "route_id": "route.workflow.sales.sales-forecast-creation"
+    },
+    {
+      "id": "revenue forecast",
+      "route_id": "route.workflow.sales.sales-forecast-creation"
+    },
+    {
+      "id": "qualification process",
+      "route_id": "route.workflow.sales.sales-qualification-process"
+    },
+    {
+      "id": "lead qualification",
+      "route_id": "route.workflow.sales.sales-qualification-process"
+    },
+    {
+      "id": "ir playbook",
+      "route_id": "route.workflow.security.incident-response-playbook"
+    },
+    {
+      "id": "incident response process",
+      "route_id": "route.workflow.security.incident-response-playbook"
+    },
+    {
+      "id": "security incident handling",
+      "route_id": "route.workflow.security.incident-response-playbook"
+    },
+    {
+      "id": "breach response workflow",
+      "route_id": "route.workflow.security.incident-response-playbook"
+    },
+    {
+      "id": "pentest execution",
+      "route_id": "route.workflow.security.penetration-test-execution"
+    },
+    {
+      "id": "offensive security assessment",
+      "route_id": "route.workflow.security.penetration-test-execution"
+    },
+    {
+      "id": "red team simulation",
+      "route_id": "route.workflow.security.penetration-test-execution"
+    },
+    {
+      "id": "ethical hacking engagement",
+      "route_id": "route.workflow.security.penetration-test-execution"
+    },
+    {
+      "id": "llm prompt injection review",
+      "route_id": "route.workflow.security.prompt-injection-review"
+    },
+    {
+      "id": "agent prompt attack audit",
+      "route_id": "route.workflow.security.prompt-injection-review"
+    },
+    {
+      "id": "prompt security review",
+      "route_id": "route.workflow.security.prompt-injection-review"
+    },
+    {
+      "id": "repository security scan",
+      "route_id": "route.workflow.security.repo-risk-scan"
+    },
+    {
+      "id": "appsec repo review",
+      "route_id": "route.workflow.security.repo-risk-scan"
+    },
+    {
+      "id": "secret and vuln sweep",
+      "route_id": "route.workflow.security.repo-risk-scan"
+    },
+    {
+      "id": "full security audit",
+      "route_id": "route.workflow.security.security-audit-process"
+    },
+    {
+      "id": "comprehensive security review",
+      "route_id": "route.workflow.security.security-audit-process"
+    },
+    {
+      "id": "security posture assessment",
+      "route_id": "route.workflow.security.security-audit-process"
+    },
+    {
+      "id": "platform security audit",
+      "route_id": "route.workflow.security.security-audit-process"
+    },
+    {
+      "id": "compliance verification",
+      "route_id": "route.workflow.security.security-compliance-check"
+    },
+    {
+      "id": "security controls audit",
+      "route_id": "route.workflow.security.security-compliance-check"
+    },
+    {
+      "id": "framework compliance check",
+      "route_id": "route.workflow.security.security-compliance-check"
+    },
+    {
+      "id": "regulatory compliance assessment",
+      "route_id": "route.workflow.security.security-compliance-check"
+    },
+    {
+      "id": "threat hunt",
+      "route_id": "route.workflow.security.threat-hunting-campaign"
+    },
+    {
+      "id": "proactive threat detection",
+      "route_id": "route.workflow.security.threat-hunting-campaign"
+    },
+    {
+      "id": "ioc hunting",
+      "route_id": "route.workflow.security.threat-hunting-campaign"
+    },
+    {
+      "id": "advanced threat investigation",
+      "route_id": "route.workflow.security.threat-hunting-campaign"
+    },
+    {
+      "id": "vuln remediation",
+      "route_id": "route.workflow.security.vulnerability-remediation"
+    },
+    {
+      "id": "cve patching",
+      "route_id": "route.workflow.security.vulnerability-remediation"
+    },
+    {
+      "id": "security fix workflow",
+      "route_id": "route.workflow.security.vulnerability-remediation"
+    },
+    {
+      "id": "vulnerability patch management",
+      "route_id": "route.workflow.security.vulnerability-remediation"
+    },
+    {
+      "id": "biz model validation",
+      "route_id": "route.workflow.startup-ops.business-model-validation"
+    },
+    {
+      "id": "model validation",
+      "route_id": "route.workflow.startup-ops.business-model-validation"
+    },
+    {
+      "id": "ceo review",
+      "route_id": "route.workflow.startup-ops.ceo-review-pack"
+    },
+    {
+      "id": "office hours pack",
+      "route_id": "route.workflow.startup-ops.ceo-review-pack"
+    },
+    {
+      "id": "cust discovery",
+      "route_id": "route.workflow.startup-ops.customer-discovery"
+    },
+    {
+      "id": "customer research",
+      "route_id": "route.workflow.startup-ops.customer-discovery"
+    },
+    {
+      "id": "fundraise prep",
+      "route_id": "route.workflow.startup-ops.fundraising-preparation"
+    },
+    {
+      "id": "deck creation",
+      "route_id": "route.workflow.startup-ops.pitch-deck-creation"
+    },
+    {
+      "id": "pitch build",
+      "route_id": "route.workflow.startup-ops.pitch-deck-creation"
     }
   ]
 }

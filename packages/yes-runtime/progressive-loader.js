@@ -1,6 +1,51 @@
 import fs from 'fs';
 import path from 'path';
 
+function uniqueStrings(values) {
+  const seen = new Set();
+  const out = [];
+  for (const value of values || []) {
+    const normalized = String(value || '').trim();
+    if (!normalized || seen.has(normalized)) continue;
+    seen.add(normalized);
+    out.push(normalized);
+  }
+  return out;
+}
+
+function listFieldNames(entries) {
+  return uniqueStrings((entries || []).map((entry) => {
+    if (typeof entry === 'string') return entry;
+    return entry?.name || entry?.summary || entry?.id || entry?.dossier_path || entry?.method || entry?.rule || '';
+  }));
+}
+
+function normalizeWorkflow(workflow) {
+  const route = workflow.route || {};
+  const primaryAgent = workflow.primary_agent || route.primary || null;
+  return {
+    ...workflow,
+    inputs: listFieldNames(workflow.inputs),
+    outputs: listFieldNames(workflow.outputs),
+    gates: listFieldNames(workflow.gates),
+    steps: listFieldNames(workflow.steps),
+    tools: listFieldNames(workflow.tools),
+    verification: listFieldNames(workflow.verification),
+    route: {
+      domain_master: route.domain_master || (primaryAgent ? `${primaryAgent.split('.')[0]}.master` : null),
+      agents: uniqueStrings([
+        ...(route.agents || []),
+        route.primary || primaryAgent,
+        ...(route.participants || [])
+      ]),
+      parallel: route.parallel === true,
+      max_parallel_agents: route.max_parallel_agents || 1
+    },
+    rollback: typeof workflow.rollback === 'string' ? workflow.rollback : workflow.rollback?.mode || 'trace_based',
+    source_references: listFieldNames(workflow.source_references)
+  };
+}
+
 /**
  * Progressive Loader - Lazy-loads agents/skills/workflows on demand
  * 
@@ -51,28 +96,40 @@ export class ProgressiveLoader {
     if (this.loaded.has(routeId)) {
       return this.loaded.get(routeId);
     }
-    
-    // Parse route ID to determine what to load
-    const parts = routeId.split('.');
-    if (parts.length < 3) return null;
-    
-    const [_, domain, type, id] = parts;
-    
-    let content = null;
-    if (type === 'master' || type === 'agent') {
-      content = this.loadAgent(domain, id);
-    } else if (type === 'skill') {
-      content = this.loadSkill(domain, id);
-    } else if (type === 'workflow') {
-      content = this.loadWorkflow(domain, id);
+
+    const route = this.getRoute(routeId);
+    if (!route) {
+      return null;
     }
-    
+
+    const content = {
+      route,
+      agent: route.target?.agent ? this.loadAgentById(route.target.agent) : null,
+      skills: (route.target?.skills || [])
+        .map((skillId) => this.loadSkillById(skillId))
+        .filter(Boolean),
+      workflow: route.target?.workflow ? this.loadWorkflowById(route.target.workflow) : null
+    };
+
     if (content) {
       this.loaded.set(routeId, content);
       this.currentTokens += this.estimateTokens(content);
     }
-    
+
     return content;
+  }
+
+  getRoute(routeId) {
+    const routes = this.loadJSON(path.join(this.registryDir, 'routes.json')) || [];
+    return routes.find((route) => route.route_id === routeId) || null;
+  }
+
+  loadAgentById(agentId) {
+    const [domain, ...rest] = String(agentId || '').split('.');
+    if (!domain || rest.length === 0) {
+      return null;
+    }
+    return this.loadAgent(domain, rest.join('.'));
   }
 
   /**
@@ -115,6 +172,14 @@ export class ProgressiveLoader {
     }
   }
 
+  loadSkillById(skillId) {
+    const [domain, ...rest] = String(skillId || '').split('.');
+    if (!domain || rest.length === 0) {
+      return null;
+    }
+    return this.loadSkill(domain, rest.join('.'));
+  }
+
   /**
    * Load workflow from content/workflows/{domain}/{id}.json
    */
@@ -128,11 +193,19 @@ export class ProgressiveLoader {
     
     try {
       const content = fs.readFileSync(filePath, 'utf8');
-      return JSON.parse(content);
+      return normalizeWorkflow(JSON.parse(content));
     } catch (error) {
       console.error(`[ProgressiveLoader] Failed to load workflow ${domain}.${id}:`, error.message);
       return null;
     }
+  }
+
+  loadWorkflowById(workflowId) {
+    const [domain, ...rest] = String(workflowId || '').split('.');
+    if (!domain || rest.length === 0) {
+      return null;
+    }
+    return this.loadWorkflow(domain, rest.join('.'));
   }
 
   /**

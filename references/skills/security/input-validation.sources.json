@@ -1,0 +1,60 @@
+{
+  "dossier_id": "dossier.skill.security.input-validation.2026-06-01",
+  "skill_id": "security.input-validation",
+  "domain": "security",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html",
+      "source_type": "official_docs",
+      "license": "MIT",
+      "version_or_commit": "2024",
+      "used_for": ["validation patterns", "allowlist vs denylist"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://cwe.mitre.org/data/definitions/20.html",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "CWE-20",
+      "used_for": ["improper input validation", "weakness patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://json-schema.org/specification",
+      "source_type": "official_docs",
+      "license": "BSD-3-Clause",
+      "version_or_commit": "2020-12",
+      "used_for": ["schema validation", "JSON input validation"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/colinhacks/zod",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "v3.23",
+      "used_for": ["TypeScript validation", "schema-first validation"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/pydantic/pydantic",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "v2.7",
+      "used_for": ["Python data validation", "type-based validation"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 5,
+    "official_docs": 3,
+    "github_quality": 93,
+    "license_safety": 96,
+    "maintenance": 94,
+    "pattern_clarity": 95,
+    "testability": 92,
+    "total": 94
+  },
+  "promotion_decision": "staging"
+}

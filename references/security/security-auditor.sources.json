@@ -1,0 +1,54 @@
+{
+  "dossier_id": "dossier.security.security-auditor.2026-05-31",
+  "agent_id": "security.security-auditor",
+  "domain": "security",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2026-08-29T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://csrc.nist.gov/publications/detail/sp/800-53a/rev-4/final",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "Rev 4",
+      "used_for": ["security control assessment methodology", "audit sampling techniques"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/SecurityFTW/awesome-security-auditing",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "stars": 1200,
+      "used_for": ["audit checklist patterns", "framework mapping approaches"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/trimstray/technical-whitepapers",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "master",
+      "stars": 5800,
+      "used_for": ["security audit whitepapers", "control effectiveness patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "Rev 5",
+      "used_for": ["NIST security controls catalog", "control families structure"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 2,
+    "github_quality": 88,
+    "license_safety": 97,
+    "maintenance": 89,
+    "pattern_clarity": 91,
+    "testability": 84,
+    "total": 88
+  },
+  "promotion_decision": "staging"
+}

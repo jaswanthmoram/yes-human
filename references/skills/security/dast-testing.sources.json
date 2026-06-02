@@ -1,0 +1,52 @@
+{
+  "dossier_id": "dossier.skill.security.dast-testing.2026-06-01",
+  "skill_id": "security.dast-testing",
+  "domain": "security",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://www.zaproxy.org/docs/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "v2.14",
+      "used_for": ["OWASP ZAP usage", "automated scanning"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://owasp.org/www-project-web-security-testing-guide/",
+      "source_type": "official_docs",
+      "license": "CC BY-SA 4.0",
+      "version_or_commit": "v4.2",
+      "used_for": ["testing methodology", "vulnerability categories"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://portswigger.net/burp/documentation",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Burp Suite usage", "manual testing techniques"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/nicknisi/awesome-web-security",
+      "source_type": "github_repo",
+      "license": "CC0-1.0",
+      "version_or_commit": "2024",
+      "used_for": ["tool references", "testing resources"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 3,
+    "github_quality": 87,
+    "license_safety": 91,
+    "maintenance": 90,
+    "pattern_clarity": 89,
+    "testability": 92,
+    "total": 90
+  },
+  "promotion_decision": "staging"
+}

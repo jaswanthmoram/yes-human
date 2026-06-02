@@ -1,0 +1,49 @@
+{
+  "skill_id": "product-business.user-interviews",
+  "dossier_id": "dossier.skill.product-business.user-interviews.2026-05-31",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2027-05-31T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://www.nngroup.com/articles/user-interviews/",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "live",
+      "used_for": [
+        "user interview planning and synthesis methodology"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/PostHog/posthog",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "master",
+      "used_for": [
+        "user interview planning and synthesis methodology"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://dscout.com/people-nerds",
+      "source_type": "technical_blog",
+      "license": "Proprietary",
+      "version_or_commit": "live",
+      "used_for": [
+        "user interview planning and synthesis methodology"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 1,
+    "github_quality": 90,
+    "license_safety": 88,
+    "maintenance": 86,
+    "pattern_clarity": 87,
+    "testability": 82,
+    "total": 90
+  },
+  "promotion_decision": "staging"
+}

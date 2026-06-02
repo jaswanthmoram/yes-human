@@ -1,0 +1,66 @@
+{
+  "domain": "education-specialists",
+  "description": "Routing fixtures for Wave-4 Education specialists.",
+  "fixtures": [
+    {
+      "prompt": "curriculum design pack",
+      "expected_route": "route.education.curriculum-designer"
+    },
+    {
+      "prompt": "lesson sequence map",
+      "expected_route": "route.education.curriculum-designer"
+    },
+    {
+      "prompt": "standards aligned syllabus",
+      "expected_route": "route.education.curriculum-designer"
+    },
+    {
+      "prompt": "course objective ladder",
+      "expected_route": "route.education.curriculum-designer"
+    },
+    {
+      "prompt": "learning path design",
+      "expected_route": "route.education.curriculum-designer"
+    },
+    {
+      "prompt": "assessment plan build",
+      "expected_route": "route.education.assessment-designer"
+    },
+    {
+      "prompt": "rubric design pass",
+      "expected_route": "route.education.assessment-designer"
+    },
+    {
+      "prompt": "formative quiz strategy",
+      "expected_route": "route.education.assessment-designer"
+    },
+    {
+      "prompt": "mastery check design",
+      "expected_route": "route.education.assessment-designer"
+    },
+    {
+      "prompt": "evaluation blueprint",
+      "expected_route": "route.education.assessment-designer"
+    },
+    {
+      "prompt": "personalized tutor strategy",
+      "expected_route": "route.education.tutor-agent"
+    },
+    {
+      "prompt": "struggling learner plan",
+      "expected_route": "route.education.tutor-agent"
+    },
+    {
+      "prompt": "tutor intervention map",
+      "expected_route": "route.education.tutor-agent"
+    },
+    {
+      "prompt": "feedback hint ladder",
+      "expected_route": "route.education.tutor-agent"
+    },
+    {
+      "prompt": "coaching dialogue structure",
+      "expected_route": "route.education.tutor-agent"
+    }
+  ]
+}

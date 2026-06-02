@@ -1,0 +1,53 @@
+{
+  "dossier_id": "dossier.workflow.finance.monthly-forecast.2026-06-01",
+  "workflow_id": "finance.monthly-forecast",
+  "domain": "finance",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://docs.stripe.com/revenue-recognition",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "live",
+      "used_for": [
+        "revenue timing and reporting terminology",
+        "finance review workflow patterns"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.netsuite.com/portal/resource/articles/financial-management/cash-flow-forecasting.shtml",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "live",
+      "used_for": [
+        "cash forecasting checkpoints",
+        "variance-analysis framing"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/actualbudget/actual",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "master",
+      "used_for": [
+        "forecast and budgeting workflow patterns",
+        "monthly review package structure"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 1,
+    "github_quality": 84,
+    "license_safety": 92,
+    "maintenance": 82,
+    "pattern_clarity": 84,
+    "testability": 74,
+    "total": 84
+  },
+  "promotion_decision": "staging"
+}

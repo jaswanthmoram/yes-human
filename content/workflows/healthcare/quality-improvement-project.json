@@ -1,0 +1,97 @@
+{
+  "id": "healthcare.quality-improvement-project",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Design and execute a healthcare quality improvement project using PDSA cycles with baseline metrics and sustainability planning.",
+  "task_family": "quality_improvement",
+  "triggers": [
+    "quality improvement project",
+    "pdsa cycle planning",
+    "healthcare process improvement",
+    "quality initiative design",
+    "clinical quality improvement"
+  ],
+  "aliases": [
+    "qi project",
+    "quality initiative",
+    "pdsa project"
+  ],
+  "negative_keywords": [
+    "software quality",
+    "code quality",
+    "manufacturing quality"
+  ],
+  "inputs": [
+    {"name": "improvement_scope", "required": true, "description": "The process, unit, or outcome targeted for improvement."},
+    {"name": "current_metrics", "required": true, "description": "Baseline performance data and current state metrics."},
+    {"name": "stakeholder_requirements", "required": true, "description": "Requirements from clinical staff, patients, and leadership."},
+    {"name": "resource_constraints", "required": false, "description": "Budget, staffing, and timeline constraints."},
+    {"name": "previous_attempts", "required": false, "description": "Documentation of previous improvement attempts and outcomes."}
+  ],
+  "outputs": [
+    {"name": "improvement_plan", "description": "Detailed improvement plan with aim statement, interventions, and PDSA cycles."},
+    {"name": "measurement_framework", "description": "Process, outcome, and balancing measures with data collection plan."},
+    {"name": "implementation_roadmap", "description": "Phased implementation plan with milestones and accountability."},
+    {"name": "sustainability_plan", "description": "Plan for sustaining improvements and spreading to other areas."}
+  ],
+  "primary_agent": "healthcare.quality-improvement",
+  "route": {
+    "domain_master": "healthcare.master",
+    "primary": "healthcare.quality-improvement",
+    "participants": [
+      "healthcare.patient-safety",
+      "healthcare.health-data-analyst"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 3
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 6000,
+    "max_tool_calls": 14
+  },
+  "gates": [
+    {"id": "pre-route", "rule": "Confirm the task is healthcare quality improvement, not software or manufacturing quality."},
+    {"id": "pre-tool", "rule": "Require improvement scope and baseline metrics before planning."},
+    {"id": "pre-write", "rule": "Verify no PHI is present in improvement documentation."},
+    {"id": "on-task-complete", "rule": "Output must include improvement plan, measurement framework, and sustainability plan."}
+  ],
+  "steps": [
+    {"id": "define-aim", "agent": "healthcare.quality-improvement", "action": "Define SMART aim statement and key driver diagram."},
+    {"id": "establish-baseline", "agent": "healthcare.health-data-analyst", "action": "Analyze baseline metrics and establish control charts."},
+    {"id": "design-interventions", "agent": "healthcare.quality-improvement", "action": "Design evidence-based interventions and change ideas."},
+    {"id": "plan-pdsa-cycles", "agent": "healthcare.quality-improvement", "action": "Plan PDSA cycles with predictions, data collection, and analysis."},
+    {"id": "assess-safety", "agent": "healthcare.patient-safety", "action": "Evaluate patient safety implications of proposed changes."},
+    {"id": "plan-sustainability", "agent": "healthcare.quality-improvement", "action": "Design sustainability and spread strategies."}
+  ],
+  "tools": [
+    "filesystem.read",
+    "filesystem.write"
+  ],
+  "verification": [
+    "aim_statement_is_smart_and_measurable",
+    "baseline_metrics_established_with_control_charts",
+    "interventions_are_evidence_based",
+    "pdsa_cycles_include_predictions_and_analysis",
+    "sustainability_plan_addresses_spread_and_hardwiring"
+  ],
+  "success_criteria": [
+    "Aim statement is specific, measurable, and time-bound.",
+    "Baseline metrics are established with appropriate statistical methods.",
+    "Interventions are based on evidence or best practices.",
+    "PDSA cycles include predictions, data collection plans, and analysis.",
+    "Sustainability plan addresses spread to other units or sites."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If patient safety concerns are identified, halt implementation and reassess."
+  },
+  "source_references": [
+    {"dossier_path": "references/workflows/healthcare/quality-improvement-project.sources.json", "relationship": "workflow_dossier"}
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

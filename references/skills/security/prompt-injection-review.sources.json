@@ -1,0 +1,43 @@
+{
+  "skill_id": "security.prompt-injection-review",
+  "dossier_id": "dossier.skill.security.prompt-injection-review.2026-06-01",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+      "source_type": "official_docs",
+      "license": "CC-BY-SA-4.0",
+      "version_or_commit": "2024",
+      "used_for": ["OWASP LLM Top 10", "prompt injection attacks"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/OWASP/www-project-top-10-for-large-language-model-applications",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": ["LLM security risks", "mitigation strategies"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://simonwillison.net/2023/Apr/14/worst-that-can-happen/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["prompt injection examples", "attack vectors"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 2,
+    "github_quality": 85,
+    "license_safety": 92,
+    "maintenance": 88,
+    "pattern_clarity": 93,
+    "testability": 86,
+    "total": 89
+  },
+  "promotion_decision": "production"
+}

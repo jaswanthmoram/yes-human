@@ -1,0 +1,66 @@
+{
+  "domain": "manufacturing-specialists",
+  "description": "Routing fixtures for Wave-4 Manufacturing specialists.",
+  "fixtures": [
+    {
+      "prompt": "inventory planning run",
+      "expected_route": "route.manufacturing.inventory-planner"
+    },
+    {
+      "prompt": "safety stock review",
+      "expected_route": "route.manufacturing.inventory-planner"
+    },
+    {
+      "prompt": "bom inventory check",
+      "expected_route": "route.manufacturing.inventory-planner"
+    },
+    {
+      "prompt": "replenishment policy draft",
+      "expected_route": "route.manufacturing.inventory-planner"
+    },
+    {
+      "prompt": "warehouse slotting plan",
+      "expected_route": "route.manufacturing.inventory-planner"
+    },
+    {
+      "prompt": "demand planning forecast",
+      "expected_route": "route.manufacturing.demand-planner"
+    },
+    {
+      "prompt": "product family forecast",
+      "expected_route": "route.manufacturing.demand-planner"
+    },
+    {
+      "prompt": "seasonality demand memo",
+      "expected_route": "route.manufacturing.demand-planner"
+    },
+    {
+      "prompt": "supply demand balancing",
+      "expected_route": "route.manufacturing.demand-planner"
+    },
+    {
+      "prompt": "forecast bias review",
+      "expected_route": "route.manufacturing.demand-planner"
+    },
+    {
+      "prompt": "quality nonconformance investigation",
+      "expected_route": "route.manufacturing.quality-nonconformance-analyst"
+    },
+    {
+      "prompt": "lot failure triage",
+      "expected_route": "route.manufacturing.quality-nonconformance-analyst"
+    },
+    {
+      "prompt": "defect containment plan",
+      "expected_route": "route.manufacturing.quality-nonconformance-analyst"
+    },
+    {
+      "prompt": "root cause quality memo",
+      "expected_route": "route.manufacturing.quality-nonconformance-analyst"
+    },
+    {
+      "prompt": "corrective action review",
+      "expected_route": "route.manufacturing.quality-nonconformance-analyst"
+    }
+  ]
+}

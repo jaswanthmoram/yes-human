@@ -1,0 +1,139 @@
+{
+  "id": "security.security-audit-process",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Conduct a comprehensive security audit covering code, dependencies, infrastructure config, and access controls.",
+  "task_family": "security_review",
+  "triggers": [
+    "run a full security audit",
+    "perform a comprehensive security assessment",
+    "audit the entire codebase for security",
+    "schedule a security audit",
+    "conduct a security review of the platform",
+    "assess our overall security posture"
+  ],
+  "aliases": [
+    "full security audit",
+    "comprehensive security review",
+    "security posture assessment",
+    "platform security audit"
+  ],
+  "negative_keywords": [
+    "single file code review",
+    "fix a specific bug",
+    "write new feature",
+    "deploy to production"
+  ],
+  "inputs": [
+    {
+      "name": "audit_scope",
+      "required": true
+    },
+    {
+      "name": "compliance_framework",
+      "required": false
+    },
+    {
+      "name": "previous_audit_report",
+      "required": false
+    },
+    {
+      "name": "infrastructure_config",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "audit_findings"
+    },
+    {
+      "name": "risk_matrix"
+    },
+    {
+      "name": "remediation_roadmap"
+    },
+    {
+      "name": "compliance_gap_analysis"
+    }
+  ],
+  "primary_agent": "security.security-reviewer",
+  "route": {
+    "domain_master": "security.master",
+    "primary": "security.security-reviewer",
+    "participants": [
+      "security.secret-scan-agent",
+      "security.compliance-checker"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 3
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 5000,
+    "max_tool_calls": 18
+  },
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "post-tool",
+    "on-task-complete"
+  ],
+  "steps": [
+    {
+      "id": "scope-definition",
+      "summary": "Define audit boundaries, identify critical assets, and establish risk tolerance thresholds."
+    },
+    {
+      "id": "static-analysis",
+      "summary": "Run SAST tools across the codebase to identify code-level vulnerabilities and insecure patterns."
+    },
+    {
+      "id": "dependency-audit",
+      "summary": "Scan all dependencies for known CVEs, license risks, and outdated packages."
+    },
+    {
+      "id": "infrastructure-review",
+      "summary": "Assess infrastructure-as-code configs, secrets management, network policies, and access controls."
+    },
+    {
+      "id": "secret-exposure-scan",
+      "summary": "Sweep repositories and configs for leaked credentials, tokens, keys, and hardcoded secrets."
+    },
+    {
+      "id": "risk-scoring-and-report",
+      "summary": "Aggregate findings, assign CVSS-aligned risk scores, and produce a prioritized remediation roadmap."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "shell.readonly",
+    "security_scanner",
+    "secret_scanner",
+    "dependency_checker",
+    "infra_config_reader"
+  ],
+  "verification": [
+    "all_scanners_completed",
+    "findings_have_cvss_scores",
+    "remediation_priorities_justified",
+    "compliance_gaps_mapped_to_framework"
+  ],
+  "success_criteria": [
+    "Every finding includes severity, evidence path, and remediation guidance.",
+    "Risk matrix covers all scanned areas with no unexplained gaps.",
+    "Remediation roadmap is ordered by risk and includes effort estimates.",
+    "Compliance gaps are mapped to specific framework controls."
+  ],
+  "rollback": {
+    "mode": "no_write",
+    "summary": "Read-only audit workflow with no code modifications."
+  },
+  "source_references": [
+    "ref.workflow.security.security-audit-process.2026-06-01"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

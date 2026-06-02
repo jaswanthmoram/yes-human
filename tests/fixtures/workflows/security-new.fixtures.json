@@ -1,0 +1,148 @@
+{
+  "description": "Fixtures for new security workflows (2 per workflow, 12 total)",
+  "fixtures": [
+    {
+      "id": "fixture.security-audit-process.full-stack",
+      "workflow_id": "security.security-audit-process",
+      "input": {
+        "audit_scope": "Full-stack web application with React frontend, Node.js backend, and PostgreSQL database",
+        "compliance_framework": "SOC 2 Type II",
+        "infrastructure_config": "AWS EKS with Terraform-managed infrastructure"
+      },
+      "expected_outputs": ["audit_findings", "risk_matrix", "remediation_roadmap", "compliance_gap_analysis"],
+      "expected_step_count": 6
+    },
+    {
+      "id": "fixture.security-audit-process.microservices",
+      "workflow_id": "security.security-audit-process",
+      "input": {
+        "audit_scope": "Microservices platform with 12 services, API gateway, and message queue",
+        "compliance_framework": "ISO 27001",
+        "previous_audit_report": "Last audit 6 months ago with 8 medium findings"
+      },
+      "expected_outputs": ["audit_findings", "risk_matrix", "remediation_roadmap", "compliance_gap_analysis"],
+      "expected_step_count": 6
+    },
+    {
+      "id": "fixture.incident-response-playbook.ransomware",
+      "workflow_id": "security.incident-response-playbook",
+      "input": {
+        "incident_description": "Ransomware detected on 3 production servers with encrypted file extensions",
+        "severity_level": "critical",
+        "affected_systems": ["prod-web-01", "prod-web-02", "prod-db-01"],
+        "detection_source": "EDR alert from CrowdStrike",
+        "timeline_of_events": "Initial alert at 02:15 UTC, lateral movement detected at 02:30 UTC"
+      },
+      "expected_outputs": ["incident_timeline", "containment_actions", "eradication_plan", "recovery_steps", "post_incident_report"],
+      "expected_step_count": 7
+    },
+    {
+      "id": "fixture.incident-response-playbook.data-exfiltration",
+      "workflow_id": "security.incident-response-playbook",
+      "input": {
+        "incident_description": "Unusual outbound data transfer detected from database server to external IP",
+        "severity_level": "high",
+        "affected_systems": ["prod-db-01"],
+        "detection_source": "SIEM anomaly detection rule"
+      },
+      "expected_outputs": ["incident_timeline", "containment_actions", "eradication_plan", "recovery_steps", "post_incident_report"],
+      "expected_step_count": 7
+    },
+    {
+      "id": "fixture.vulnerability-remediation.log4j",
+      "workflow_id": "security.vulnerability-remediation",
+      "input": {
+        "vulnerability_report": "CVE-2021-44228 Log4Shell affecting 4 Java services",
+        "affected_components": ["auth-service", "payment-service", "notification-service", "api-gateway"],
+        "patch_availability": "Log4j 2.17.1 available",
+        "business_impact_assessment": "Critical - remote code execution in production"
+      },
+      "expected_outputs": ["remediation_plan", "patch_application_log", "verification_results", "residual_risk_assessment"],
+      "expected_step_count": 6
+    },
+    {
+      "id": "fixture.vulnerability-remediation.outdated-deps",
+      "workflow_id": "security.vulnerability-remediation",
+      "input": {
+        "vulnerability_report": "12 medium-severity CVEs in npm dependencies across frontend application",
+        "affected_components": ["frontend-app"],
+        "patch_availability": "Mixed - some patches available, some require major version upgrades",
+        "business_impact_assessment": "Medium - XSS and prototype pollution risks"
+      },
+      "expected_outputs": ["remediation_plan", "patch_application_log", "verification_results", "residual_risk_assessment"],
+      "expected_step_count": 6
+    },
+    {
+      "id": "fixture.penetration-test-execution.web-app",
+      "workflow_id": "security.penetration-test-execution",
+      "input": {
+        "test_scope": "External-facing web application and API endpoints",
+        "rules_of_engagement": "No DDoS, no social engineering, testing window 00:00-06:00 UTC",
+        "target_systems": ["app.example.com", "api.example.com"],
+        "authorization_documentation": "Signed ROE dated 2026-05-15",
+        "previous_pentest_reports": "Last pentest 12 months ago with 3 high findings"
+      },
+      "expected_outputs": ["reconnaissance_findings", "exploitation_results", "vulnerability_report", "risk_assessment", "remediation_recommendations"],
+      "expected_step_count": 7
+    },
+    {
+      "id": "fixture.penetration-test-execution.internal-network",
+      "workflow_id": "security.penetration-test-execution",
+      "input": {
+        "test_scope": "Internal corporate network assuming insider threat model",
+        "rules_of_engagement": "No production database modification, read-only data access allowed",
+        "target_systems": ["10.0.0.0/8 internal network"],
+        "authorization_documentation": "Signed ROE dated 2026-05-20"
+      },
+      "expected_outputs": ["reconnaissance_findings", "exploitation_results", "vulnerability_report", "risk_assessment", "remediation_recommendations"],
+      "expected_step_count": 7
+    },
+    {
+      "id": "fixture.security-compliance-check.soc2",
+      "workflow_id": "security.security-compliance-check",
+      "input": {
+        "compliance_framework": "SOC 2 Type II",
+        "current_controls_inventory": "85 controls documented across 5 trust service criteria",
+        "previous_assessment": "SOC 2 Type I completed 6 months ago",
+        "audit_scope": "Full organization scope for annual Type II audit"
+      },
+      "expected_outputs": ["compliance_matrix", "control_gaps", "evidence_gaps", "remediation_plan", "certification_readiness_score"],
+      "expected_step_count": 6
+    },
+    {
+      "id": "fixture.security-compliance-check.gdpr",
+      "workflow_id": "security.security-compliance-check",
+      "input": {
+        "compliance_framework": "GDPR",
+        "current_controls_inventory": "Data protection controls for processing EU citizen data",
+        "evidence_repository": "Confluence documentation and Jira tickets"
+      },
+      "expected_outputs": ["compliance_matrix", "control_gaps", "evidence_gaps", "remediation_plan", "certification_readiness_score"],
+      "expected_step_count": 6
+    },
+    {
+      "id": "fixture.threat-hunting-campaign.lateral-movement",
+      "workflow_id": "security.threat-hunting-campaign",
+      "input": {
+        "hunting_hypothesis": "Attacker may be using legitimate admin credentials for lateral movement via PowerShell remoting",
+        "target_environment": "Windows Active Directory environment with 500 endpoints",
+        "threat_intelligence_feeds": "Recent APT report describing similar TTPs",
+        "detection_gaps": "Limited PowerShell logging on legacy servers"
+      },
+      "expected_outputs": ["hunting_findings", "ioc_list", "detection_rules", "threat_assessment", "hunting_report"],
+      "expected_step_count": 6
+    },
+    {
+      "id": "fixture.threat-hunting-campaign.data-exfiltration",
+      "workflow_id": "security.threat-hunting-campaign",
+      "input": {
+        "hunting_hypothesis": "Insider threat may be exfiltrating sensitive data via encrypted cloud storage services",
+        "target_environment": "Corporate network with DLP controls and proxy logging",
+        "historical_incidents": "2 previous data loss incidents in past year",
+        "detection_gaps": "Encrypted traffic not fully inspected"
+      },
+      "expected_outputs": ["hunting_findings", "ioc_list", "detection_rules", "threat_assessment", "hunting_report"],
+      "expected_step_count": 6
+    }
+  ]
+}

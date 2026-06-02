@@ -1,0 +1,75 @@
+{
+  "dossier_id": "dossier.workflow.platform.disaster-recovery-setup.2026-06-01",
+  "workflow_id": "platform.disaster-recovery-setup",
+  "domain": "platform",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://aws.amazon.com/blogs/architecture/disaster-recovery-dr-architecture-on-aws-part-i-strategies-for-recovery/",
+      "source_type": "official_docs",
+      "license": "proprietary_reference",
+      "version_or_commit": "live",
+      "used_for": [
+        "DR architecture patterns (backup-restore, pilot light, warm standby)",
+        "RTO/RPO strategy selection"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://cloud.google.com/architecture/dr-scenarios-planning-guide",
+      "source_type": "official_docs",
+      "license": "CC-BY-4.0",
+      "version_or_commit": "live",
+      "used_for": [
+        "DR planning and testing frameworks",
+        "cross-region replication patterns"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/solution-ideas/articles/disaster-recovery-enterprise-scale-dr",
+      "source_type": "official_docs",
+      "license": "CC-BY-4.0",
+      "version_or_commit": "live",
+      "used_for": [
+        "enterprise-scale DR reference architecture",
+        "failover automation patterns"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/awslabs/aws-disaster-recovery",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": [
+        "automated DR deployment templates",
+        "failover testing frameworks"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://sre.google/sre-book/addressing-cascading-failures/",
+      "source_type": "official_docs",
+      "license": "CC-BY-4.0",
+      "version_or_commit": "live",
+      "used_for": [
+        "cascading failure prevention in DR",
+        "resilience engineering patterns"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 5,
+    "official_docs": 4,
+    "github_quality": 88,
+    "license_safety": 94,
+    "maintenance": 91,
+    "pattern_clarity": 93,
+    "testability": 87,
+    "total": 91
+  },
+  "promotion_decision": "staging"
+}

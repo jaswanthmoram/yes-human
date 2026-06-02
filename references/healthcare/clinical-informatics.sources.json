@@ -1,0 +1,14 @@
+{
+  "dossier_id": "dossier.agent.healthcare.clinical-informatics.2026-05-31",
+  "agent_id": "healthcare.clinical-informatics",
+  "domain": "healthcare",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2027-05-31T00:00:00Z",
+  "sources": [
+    {"url": "https://www.amia.org/", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["AMIA", "clinical informatics best practices"], "copy_policy": "patterns_only"},
+    {"url": "https://www.healthit.gov/", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["HealthIT.gov", "EHR and informatics standards"], "copy_policy": "patterns_only"},
+    {"url": "https://www.hl7.org/fhir/", "source_type": "official_docs", "license": "CC0-1.0", "version_or_commit": "R4", "used_for": ["HL7 FHIR", "clinical data models"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 3, "official_docs": 2, "github_quality": 0, "license_safety": 92, "maintenance": 90, "pattern_clarity": 88, "testability": 82, "total": 86},
+  "promotion_decision": "staging"
+}

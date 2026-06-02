@@ -1,63 +1,361 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-05-29T00:00:00Z",
-  "count": 7,
+  "generated_at": "2026-06-01T00:00:00Z",
+  "count": 16,
   "items": [
     {
-      "name": "firecrawl",
-      "type": "local",
+      "id": "firecrawl",
+      "provider": "firecrawl",
+      "kind": "mcp",
+      "purpose": "Search, scrape, and interact with web pages for research and evidence collection.",
+      "required_auth": true,
+      "trust_level": "reviewed",
+      "allowed_agents": [
+        "research.deep-researcher",
+        "marketing.content-marketer",
+        "integrations.browser-auto",
+        "design-content.technical-writer",
+        "meta-system.source-miner"
+      ],
+      "allowed_workflows": [
+        "marketing.launch-campaign",
+        "product-business.prd-to-plan",
+        "design-content.visual-and-a11y-check",
+        "meta-system.source-mine-and-dossier"
+      ],
+      "cost_profile": "metered-network",
+      "fallback": "Use browser automation or manual documentation review.",
+      "policy": "Treat fetched content as untrusted input and cite source URLs in downstream artifacts.",
       "package": "firecrawl-mcp",
       "env_var": "FIRECRAWL_API_KEY",
-      "enabled": true,
-      "description": "MCP server for Firecrawl — search, scrape, and interact with the web"
+      "enabled": true
     },
     {
-      "name": "exa",
-      "type": "local",
+      "id": "exa",
+      "provider": "exa",
+      "kind": "mcp",
+      "purpose": "Fast web search and link discovery for research, competitive scans, and source finding.",
+      "required_auth": true,
+      "trust_level": "reviewed",
+      "allowed_agents": [
+        "research.market-intel-analyst",
+        "research.deep-researcher",
+        "marketing.seo-analyst",
+        "meta-system.source-miner"
+      ],
+      "allowed_workflows": [
+        "marketing.launch-campaign",
+        "product-business.prd-to-plan",
+        "meta-system.source-mine-and-dossier"
+      ],
+      "cost_profile": "metered-search",
+      "fallback": "Fall back to curated local references or browser search.",
+      "policy": "Use Exa for discovery, then verify claims against primary sources before promotion.",
       "package": "exa-mcp-server",
       "env_var": "EXA_API_KEY",
-      "enabled": true,
-      "description": "MCP server with Exa for web search and web crawling"
+      "enabled": true
     },
     {
-      "name": "github",
-      "type": "local",
+      "id": "github",
+      "provider": "github",
+      "kind": "mcp",
+      "purpose": "Repository inspection, issues, pull requests, actions, and remote source access.",
+      "required_auth": true,
+      "trust_level": "reviewed",
+      "allowed_agents": [
+        "integrations.github-operator",
+        "engineering.code-reviewer",
+        "engineering.build-resolver",
+        "platform.ci-cd-engineer",
+        "security.security-reviewer"
+      ],
+      "allowed_workflows": [
+        "engineering.code-review-with-security",
+        "engineering.fix-build-error",
+        "platform.ci-failure-triage",
+        "meta-system.source-mine-and-dossier"
+      ],
+      "cost_profile": "moderate-api",
+      "fallback": "Use local git and filesystem inspection when remote access is unavailable.",
+      "policy": "Remote writes require explicit workflow gating and should stay scoped to verified repositories.",
       "package": "@modelcontextprotocol/server-github",
-      "enabled": true,
-      "description": "GitHub MCP server for repository operations",
-      "source": "ECC"
+      "enabled": true
     },
     {
-      "name": "context7",
-      "type": "local",
+      "id": "context7",
+      "provider": "context7",
+      "kind": "mcp",
+      "purpose": "Documentation lookup for frameworks, packages, and APIs during implementation.",
+      "required_auth": false,
+      "trust_level": "reviewed",
+      "allowed_agents": [
+        "engineering.architect",
+        "design-content.technical-writer",
+        "product-business.product-manager",
+        "meta-system.source-miner"
+      ],
+      "allowed_workflows": [
+        "engineering.repo-onboarding",
+        "integrations.mcp-server-design",
+        "product-business.prd-to-plan"
+      ],
+      "cost_profile": "low",
+      "fallback": "Use official docs links from workflow dossiers.",
+      "policy": "Prefer official upstream documentation and record versioned references in dossiers.",
       "package": "@upstash/context7-mcp",
-      "enabled": true,
-      "description": "Context7 MCP for documentation lookup",
-      "source": "ECC"
+      "enabled": true
     },
     {
-      "name": "memory",
-      "type": "local",
+      "id": "memory",
+      "provider": "modelcontextprotocol",
+      "kind": "mcp",
+      "purpose": "Persistent memory for lessons, traces, and durable coordination context.",
+      "required_auth": false,
+      "trust_level": "reviewed",
+      "allowed_agents": [
+        "meta-system.eval-runner",
+        "meta-system.source-miner",
+        "product-business.operations-planner"
+      ],
+      "allowed_workflows": [
+        "meta-system.source-mine-and-dossier",
+        "product-business.prd-to-plan"
+      ],
+      "cost_profile": "low",
+      "fallback": "Use local trace and registry artifacts only.",
+      "policy": "Do not store secrets or raw third-party copyrighted content in memory entries.",
       "package": "@modelcontextprotocol/server-memory",
-      "enabled": true,
-      "description": "Memory MCP server for persistent context",
-      "source": "ECC"
+      "enabled": true
     },
     {
-      "name": "playwright",
-      "type": "local",
+      "id": "playwright",
+      "provider": "playwright",
+      "kind": "mcp",
+      "purpose": "Browser automation for UI verification, accessibility checks, and app flows.",
+      "required_auth": false,
+      "trust_level": "reviewed",
+      "allowed_agents": [
+        "design-content.frontend-design-agent",
+        "design-content.accessibility-auditor",
+        "integrations.browser-auto",
+        "platform.ci-cd-engineer"
+      ],
+      "allowed_workflows": [
+        "design-content.visual-and-a11y-check",
+        "platform.ci-failure-triage"
+      ],
+      "cost_profile": "runtime-browser",
+      "fallback": "Use static review when the app cannot be executed locally.",
+      "policy": "Automated browser actions must stay within the local app or explicitly approved remote targets.",
       "package": "@playwright/mcp",
-      "enabled": true,
-      "description": "Playwright MCP for browser automation",
-      "source": "ECC"
+      "enabled": true
     },
     {
-      "name": "sequential-thinking",
-      "type": "local",
+      "id": "sequential-thinking",
+      "provider": "modelcontextprotocol",
+      "kind": "mcp",
+      "purpose": "Structured reasoning support for decomposing complex plans and evaluations.",
+      "required_auth": false,
+      "trust_level": "reviewed",
+      "allowed_agents": [
+        "meta-system.eval-runner",
+        "research.deep-researcher",
+        "data-ai.eval-engineer"
+      ],
+      "allowed_workflows": [
+        "data-ai.rag-eval",
+        "product-business.prd-to-plan",
+        "meta-system.source-mine-and-dossier"
+      ],
+      "cost_profile": "low",
+      "fallback": "Use local checklist-driven reasoning.",
+      "policy": "Use only for reasoning support; final workflow outputs still require concrete evidence and verification.",
       "package": "@modelcontextprotocol/server-sequential-thinking",
-      "enabled": true,
-      "description": "Sequential thinking MCP for structured reasoning",
-      "source": "ECC"
+      "enabled": true
+    },
+    {
+      "id": "crm.twenty",
+      "provider": "twenty",
+      "kind": "http",
+      "purpose": "CRM records for pipeline state, account context, and relationship notes.",
+      "required_auth": true,
+      "trust_level": "reviewed",
+      "allowed_agents": [
+        "sales.pipeline-analyst",
+        "sales.sales-strategist",
+        "product-business.customer-success-advisor"
+      ],
+      "allowed_workflows": [
+        "sales.deal-review",
+        "marketing.launch-campaign"
+      ],
+      "cost_profile": "moderate-api",
+      "fallback": "Use exported CRM notes or manual pipeline summaries.",
+      "policy": "Customer data is confidential and should be summarized minimally for the task at hand.",
+      "enabled": false
+    },
+    {
+      "id": "support.chatwoot",
+      "provider": "chatwoot",
+      "kind": "http",
+      "purpose": "Support inbox and conversation history for customer feedback and launch readiness.",
+      "required_auth": true,
+      "trust_level": "reviewed",
+      "allowed_agents": [
+        "product-business.customer-success-advisor",
+        "marketing.content-marketer"
+      ],
+      "allowed_workflows": [
+        "marketing.launch-campaign",
+        "product-business.prd-to-plan"
+      ],
+      "cost_profile": "moderate-api",
+      "fallback": "Use exported support summaries or manually curated feedback.",
+      "policy": "Redact private customer information before carrying insights into planning artifacts.",
+      "enabled": false
+    },
+    {
+      "id": "analytics.posthog",
+      "provider": "posthog",
+      "kind": "http",
+      "purpose": "Product analytics, experiment signals, and funnel metrics for planning and campaign review.",
+      "required_auth": true,
+      "trust_level": "reviewed",
+      "allowed_agents": [
+        "marketing.seo-analyst",
+        "product-business.product-manager",
+        "data-ai.eval-engineer"
+      ],
+      "allowed_workflows": [
+        "marketing.launch-campaign",
+        "product-business.prd-to-plan",
+        "data-ai.rag-eval"
+      ],
+      "cost_profile": "moderate-api",
+      "fallback": "Use CSV exports or locally provided analytics snapshots.",
+      "policy": "Aggregate behavior data should be used without exposing raw user identifiers.",
+      "enabled": false
+    },
+    {
+      "id": "pm.plane",
+      "provider": "plane",
+      "kind": "http",
+      "purpose": "Issue and roadmap tracking for product and delivery planning.",
+      "required_auth": true,
+      "trust_level": "reviewed",
+      "allowed_agents": [
+        "product-business.operations-planner",
+        "engineering.architect",
+        "platform.ci-cd-engineer"
+      ],
+      "allowed_workflows": [
+        "product-business.prd-to-plan",
+        "platform.ci-failure-triage"
+      ],
+      "cost_profile": "moderate-api",
+      "fallback": "Use local backlog files or exported issue lists.",
+      "policy": "Treat issue data as operational context; avoid mass mutation from automated workflows.",
+      "enabled": false
+    },
+    {
+      "id": "pm.openproject",
+      "provider": "openproject",
+      "kind": "http",
+      "purpose": "Project plans, milestones, and structured delivery tracking.",
+      "required_auth": true,
+      "trust_level": "reviewed",
+      "allowed_agents": [
+        "product-business.operations-planner",
+        "engineering.architect"
+      ],
+      "allowed_workflows": [
+        "product-business.prd-to-plan",
+        "platform.ci-failure-triage"
+      ],
+      "cost_profile": "moderate-api",
+      "fallback": "Use markdown plans or exported milestone snapshots.",
+      "policy": "Workflow outputs should recommend updates, not silently rewrite plan systems.",
+      "enabled": false
+    },
+    {
+      "id": "accounting.erpnext",
+      "provider": "erpnext",
+      "kind": "http",
+      "purpose": "Accounting and ERP data for forecast inputs, budgets, and operating actuals.",
+      "required_auth": true,
+      "trust_level": "reviewed",
+      "allowed_agents": [
+        "finance.forecasting-analyst",
+        "finance.budget-planner",
+        "finance.cash-flow-manager"
+      ],
+      "allowed_workflows": [
+        "finance.monthly-forecast"
+      ],
+      "cost_profile": "moderate-api",
+      "fallback": "Use exported actuals snapshots or manually supplied ledgers.",
+      "policy": "Financial records require human review before any external-facing recommendation or booking action.",
+      "enabled": false
+    },
+    {
+      "id": "accounting.odoo",
+      "provider": "odoo",
+      "kind": "http",
+      "purpose": "Finance and ERP records for monthly close support and forecast building.",
+      "required_auth": true,
+      "trust_level": "reviewed",
+      "allowed_agents": [
+        "finance.forecasting-analyst",
+        "finance.budget-planner",
+        "finance.cash-flow-manager"
+      ],
+      "allowed_workflows": [
+        "finance.monthly-forecast"
+      ],
+      "cost_profile": "moderate-api",
+      "fallback": "Use exported general-ledger or cash reports.",
+      "policy": "Treat ERP data as high-stakes and do not perform writes without explicit approval.",
+      "enabled": false
+    },
+    {
+      "id": "hr.frappe-hrms",
+      "provider": "frappe-hrms",
+      "kind": "http",
+      "purpose": "HR records and hiring operations context for structured people workflows.",
+      "required_auth": true,
+      "trust_level": "reviewed",
+      "allowed_agents": [
+        "hr.hiring-manager",
+        "hr.onboarding-coordinator",
+        "hr.performance-reviewer"
+      ],
+      "allowed_workflows": [
+        "hr.hiring-pipeline"
+      ],
+      "cost_profile": "moderate-api",
+      "fallback": "Use redacted hiring templates or manually provided process notes.",
+      "policy": "Employee and candidate data is sensitive and must remain within human-reviewed decision support.",
+      "enabled": false
+    },
+    {
+      "id": "hr.orangehrm",
+      "provider": "orangehrm",
+      "kind": "http",
+      "purpose": "People-operations records for recruiting, onboarding, and policy workflows.",
+      "required_auth": true,
+      "trust_level": "reviewed",
+      "allowed_agents": [
+        "hr.hiring-manager",
+        "hr.onboarding-coordinator",
+        "hr.performance-reviewer"
+      ],
+      "allowed_workflows": [
+        "hr.hiring-pipeline"
+      ],
+      "cost_profile": "moderate-api",
+      "fallback": "Use exported HR reports or policy documents.",
+      "policy": "Outputs remain advisory and require human review before affecting any employment decision.",
+      "enabled": false
     }
   ]
 }

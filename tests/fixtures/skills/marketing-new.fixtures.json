@@ -1,0 +1,274 @@
+{
+  "fixtures": [
+    {
+      "prompt": "perform comprehensive seo audit on main site",
+      "expected_skill": "marketing.seo-audits",
+      "category": "marketing"
+    },
+    {
+      "prompt": "run technical seo health check",
+      "expected_skill": "marketing.seo-audits",
+      "category": "marketing"
+    },
+    {
+      "prompt": "conduct site seo review for organic search",
+      "expected_skill": "marketing.seo-audits",
+      "category": "marketing"
+    },
+    {
+      "prompt": "keyword research for B2B SaaS topic",
+      "expected_skill": "marketing.keyword-research",
+      "category": "marketing"
+    },
+    {
+      "prompt": "find keyword opportunities for fintech blog",
+      "expected_skill": "marketing.keyword-research",
+      "category": "marketing"
+    },
+    {
+      "prompt": "competitive keyword gap analysis",
+      "expected_skill": "marketing.keyword-research",
+      "category": "marketing"
+    },
+    {
+      "prompt": "optimize landing page for target keyword",
+      "expected_skill": "marketing.on-page-seo",
+      "category": "marketing"
+    },
+    {
+      "prompt": "review on-page seo for blog post",
+      "expected_skill": "marketing.on-page-seo",
+      "category": "marketing"
+    },
+    {
+      "prompt": "fix meta tags for product pages",
+      "expected_skill": "marketing.on-page-seo",
+      "category": "marketing"
+    },
+    {
+      "prompt": "technical seo audit for e-commerce site",
+      "expected_skill": "marketing.technical-seo",
+      "category": "marketing"
+    },
+    {
+      "prompt": "fix crawl and indexation issues",
+      "expected_skill": "marketing.technical-seo",
+      "category": "marketing"
+    },
+    {
+      "prompt": "optimize core web vitals scores",
+      "expected_skill": "marketing.technical-seo",
+      "category": "marketing"
+    },
+    {
+      "prompt": "set up google ads for SaaS product",
+      "expected_skill": "marketing.google-ads",
+      "category": "marketing"
+    },
+    {
+      "prompt": "optimize existing search campaigns",
+      "expected_skill": "marketing.google-ads",
+      "category": "marketing"
+    },
+    {
+      "prompt": "create performance max campaign",
+      "expected_skill": "marketing.google-ads",
+      "category": "marketing"
+    },
+    {
+      "prompt": "set up facebook ads for e-commerce",
+      "expected_skill": "marketing.facebook-ads",
+      "category": "marketing"
+    },
+    {
+      "prompt": "optimize instagram ad campaigns",
+      "expected_skill": "marketing.facebook-ads",
+      "category": "marketing"
+    },
+    {
+      "prompt": "create lookalike audience strategy",
+      "expected_skill": "marketing.facebook-ads",
+      "category": "marketing"
+    },
+    {
+      "prompt": "set up linkedin ads for B2B SaaS",
+      "expected_skill": "marketing.linkedin-ads",
+      "category": "marketing"
+    },
+    {
+      "prompt": "create linkedin lead gen campaign",
+      "expected_skill": "marketing.linkedin-ads",
+      "category": "marketing"
+    },
+    {
+      "prompt": "optimize linkedin sponsored content",
+      "expected_skill": "marketing.linkedin-ads",
+      "category": "marketing"
+    },
+    {
+      "prompt": "create Q3 content calendar for SaaS blog",
+      "expected_skill": "marketing.content-calendars",
+      "category": "marketing"
+    },
+    {
+      "prompt": "plan editorial calendar for product launch",
+      "expected_skill": "marketing.content-calendars",
+      "category": "marketing"
+    },
+    {
+      "prompt": "structure content calendar around topic clusters",
+      "expected_skill": "marketing.content-calendars",
+      "category": "marketing"
+    },
+    {
+      "prompt": "write blog post about API security best practices",
+      "expected_skill": "marketing.blog-writing",
+      "category": "marketing"
+    },
+    {
+      "prompt": "draft seo blog article for fintech audience",
+      "expected_skill": "marketing.blog-writing",
+      "category": "marketing"
+    },
+    {
+      "prompt": "create long-form guide on marketing automation",
+      "expected_skill": "marketing.blog-writing",
+      "category": "marketing"
+    },
+    {
+      "prompt": "create social media strategy for B2B startup",
+      "expected_skill": "marketing.social-media-strategy",
+      "category": "marketing"
+    },
+    {
+      "prompt": "audit current social media presence",
+      "expected_skill": "marketing.social-media-strategy",
+      "category": "marketing"
+    },
+    {
+      "prompt": "plan social engagement for product launch",
+      "expected_skill": "marketing.social-media-strategy",
+      "category": "marketing"
+    },
+    {
+      "prompt": "create email campaign for product launch",
+      "expected_skill": "marketing.email-campaigns",
+      "category": "marketing"
+    },
+    {
+      "prompt": "design drip sequence for new subscribers",
+      "expected_skill": "marketing.email-campaigns",
+      "category": "marketing"
+    },
+    {
+      "prompt": "plan newsletter campaign for Q3",
+      "expected_skill": "marketing.email-campaigns",
+      "category": "marketing"
+    },
+    {
+      "prompt": "design marketing funnel for SaaS trial",
+      "expected_skill": "marketing.marketing-funnels",
+      "category": "marketing"
+    },
+    {
+      "prompt": "map content to buyer journey stages",
+      "expected_skill": "marketing.marketing-funnels",
+      "category": "marketing"
+    },
+    {
+      "prompt": "audit conversion funnel drop-off points",
+      "expected_skill": "marketing.marketing-funnels",
+      "category": "marketing"
+    },
+    {
+      "prompt": "design a b test for landing page headline",
+      "expected_skill": "marketing.a-b-testing",
+      "category": "marketing"
+    },
+    {
+      "prompt": "analyze email subject line split test",
+      "expected_skill": "marketing.a-b-testing",
+      "category": "marketing"
+    },
+    {
+      "prompt": "calculate sample size for conversion test",
+      "expected_skill": "marketing.a-b-testing",
+      "category": "marketing"
+    },
+    {
+      "prompt": "improve landing page conversion rate",
+      "expected_skill": "marketing.conversion-optimization",
+      "category": "marketing"
+    },
+    {
+      "prompt": "cro audit for checkout flow",
+      "expected_skill": "marketing.conversion-optimization",
+      "category": "marketing"
+    },
+    {
+      "prompt": "optimize signup form conversions",
+      "expected_skill": "marketing.conversion-optimization",
+      "category": "marketing"
+    },
+    {
+      "prompt": "set up multi-touch attribution model",
+      "expected_skill": "marketing.marketing-attribution",
+      "category": "marketing"
+    },
+    {
+      "prompt": "analyze channel contribution to revenue",
+      "expected_skill": "marketing.marketing-attribution",
+      "category": "marketing"
+    },
+    {
+      "prompt": "compare attribution models for budget planning",
+      "expected_skill": "marketing.marketing-attribution",
+      "category": "marketing"
+    },
+    {
+      "prompt": "map customer journey for B2B SaaS purchase",
+      "expected_skill": "marketing.customer-journey-mapping",
+      "category": "marketing"
+    },
+    {
+      "prompt": "analyze buyer journey touchpoint gaps",
+      "expected_skill": "marketing.customer-journey-mapping",
+      "category": "marketing"
+    },
+    {
+      "prompt": "create customer journey for e-commerce",
+      "expected_skill": "marketing.customer-journey-mapping",
+      "category": "marketing"
+    },
+    {
+      "prompt": "set up lead nurturing automation in hubspot",
+      "expected_skill": "marketing.marketing-automation",
+      "category": "marketing"
+    },
+    {
+      "prompt": "design lifecycle email automation",
+      "expected_skill": "marketing.marketing-automation",
+      "category": "marketing"
+    },
+    {
+      "prompt": "implement lead scoring model",
+      "expected_skill": "marketing.marketing-automation",
+      "category": "marketing"
+    },
+    {
+      "prompt": "design lead scoring model for B2B SaaS",
+      "expected_skill": "marketing.lead-scoring",
+      "category": "marketing"
+    },
+    {
+      "prompt": "refine mql qualification thresholds",
+      "expected_skill": "marketing.lead-scoring",
+      "category": "marketing"
+    },
+    {
+      "prompt": "implement behavioral lead scoring",
+      "expected_skill": "marketing.lead-scoring",
+      "category": "marketing"
+    }
+  ]
+}

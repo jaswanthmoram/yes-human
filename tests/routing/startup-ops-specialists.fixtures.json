@@ -1,0 +1,66 @@
+{
+  "domain": "startup-ops-specialists",
+  "description": "Routing fixtures for Wave-4 Startup Ops specialists.",
+  "fixtures": [
+    {
+      "prompt": "office hours decision",
+      "expected_route": "route.startup-ops.ceo-rethink"
+    },
+    {
+      "prompt": "founder plan review",
+      "expected_route": "route.startup-ops.ceo-rethink"
+    },
+    {
+      "prompt": "founder priority reset",
+      "expected_route": "route.startup-ops.ceo-rethink"
+    },
+    {
+      "prompt": "product bet rethink",
+      "expected_route": "route.startup-ops.ceo-rethink"
+    },
+    {
+      "prompt": "should we build this",
+      "expected_route": "route.startup-ops.ceo-rethink"
+    },
+    {
+      "prompt": "qa the staging site",
+      "expected_route": "route.startup-ops.qa"
+    },
+    {
+      "prompt": "startup release qa",
+      "expected_route": "route.startup-ops.qa"
+    },
+    {
+      "prompt": "founder smoke test",
+      "expected_route": "route.startup-ops.qa"
+    },
+    {
+      "prompt": "browser qa pass",
+      "expected_route": "route.startup-ops.qa"
+    },
+    {
+      "prompt": "prelaunch quality gate",
+      "expected_route": "route.startup-ops.qa"
+    },
+    {
+      "prompt": "ship the release",
+      "expected_route": "route.startup-ops.release"
+    },
+    {
+      "prompt": "startup changelog ship",
+      "expected_route": "route.startup-ops.release"
+    },
+    {
+      "prompt": "cut launch candidate",
+      "expected_route": "route.startup-ops.release"
+    },
+    {
+      "prompt": "release checklist run",
+      "expected_route": "route.startup-ops.release"
+    },
+    {
+      "prompt": "publish hotfix now",
+      "expected_route": "route.startup-ops.release"
+    }
+  ]
+}

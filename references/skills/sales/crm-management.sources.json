@@ -1,0 +1,44 @@
+{
+  "dossier_id": "dossier.skill.sales.crm-management.2026-05-31",
+  "skill_id": "sales.crm-management",
+  "domain": "sales",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2027-05-31T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/TwentyHQ/twenty",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": ["CRM schema and data model patterns", "workflow automation configuration"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://trailhead.salesforce.com/",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Salesforce admin best practices", "CRM reporting structures"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.hubspot.com/products/crm",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "live",
+      "used_for": ["HubSpot CRM configuration patterns", "pipeline stage definitions"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 1,
+    "github_quality": 88,
+    "license_safety": 90,
+    "maintenance": 90,
+    "pattern_clarity": 92,
+    "testability": 84,
+    "total": 88
+  },
+  "promotion_decision": "staging"
+}

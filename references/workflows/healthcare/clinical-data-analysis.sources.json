@@ -1,0 +1,15 @@
+{
+  "dossier_id": "dossier.workflow.healthcare.clinical-data-analysis.2026-06-01",
+  "workflow_id": "healthcare.clinical-data-analysis",
+  "domain": "healthcare",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8039765/", "source_type": "research_paper", "license": "Open Access", "version_or_commit": "published", "used_for": ["clinical data analysis methodology", "observational study design"], "copy_policy": "patterns_only"},
+    {"url": "https://www.fda.gov/science-research/bioinformatics-and-computational-biology/clinical-data-analysis", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "live", "used_for": ["FDA clinical data standards", "analysis pipeline requirements"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/OHDSI/Atlas", "source_type": "github_repo", "license": "Apache-2.0", "version_or_commit": "master", "used_for": ["OHDSI cohort analysis patterns", "observational health data analytics"], "copy_policy": "patterns_only"},
+    {"url": "https://www.hl7.org/fhir/clinicalreasoning-module.html", "source_type": "official_docs", "license": "HL7 License", "version_or_commit": "R4", "used_for": ["FHIR clinical reasoning resources", "data modeling for clinical workflows"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 4, "official_docs": 3, "github_quality": 88, "license_safety": 94, "maintenance": 90, "pattern_clarity": 91, "testability": 85, "total": 90},
+  "promotion_decision": "staging"
+}

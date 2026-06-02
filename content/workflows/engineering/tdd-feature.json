@@ -1,0 +1,108 @@
+{
+  "id": "engineering.tdd-feature",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Deliver a feature or bug fix using red-green-refactor with tests written before production changes.",
+  "task_family": "feature_dev",
+  "triggers": [
+    "implement this with TDD",
+    "write the failing test first",
+    "use red green refactor"
+  ],
+  "aliases": [
+    "tdd implementation",
+    "red green refactor workflow",
+    "test first feature"
+  ],
+  "negative_keywords": [
+    "docs only",
+    "security scan only",
+    "repo tour"
+  ],
+  "inputs": [
+    {
+      "name": "task_description",
+      "required": true
+    },
+    {
+      "name": "test_command",
+      "required": true
+    },
+    {
+      "name": "acceptance_notes",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "failing_test"
+    },
+    {
+      "name": "implementation_patch"
+    },
+    {
+      "name": "refactor_notes"
+    }
+  ],
+  "primary_agent": "engineering.tdd-guide",
+  "route": {
+    "domain_master": "engineering.master",
+    "primary": "engineering.tdd-guide",
+    "participants": [],
+    "parallel": false,
+    "max_parallel_agents": 1
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 2600,
+    "max_tool_calls": 10
+  },
+  "gates": [
+    "pre-route",
+    "pre-write",
+    "post-tool",
+    "on-task-complete"
+  ],
+  "steps": [
+    {
+      "id": "write-red-test",
+      "summary": "Add or update the smallest test that captures the missing behavior and confirm it fails for the expected reason."
+    },
+    {
+      "id": "make-green",
+      "summary": "Implement only enough production code to satisfy the failing test."
+    },
+    {
+      "id": "refactor",
+      "summary": "Clean local design debt without changing behavior, then rerun the focused suite."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "filesystem.write",
+    "test_runner",
+    "diff_inspection"
+  ],
+  "verification": [
+    "test_runs_red_then_green",
+    "focused_suite_passes",
+    "refactor_keeps_tests_green"
+  ],
+  "success_criteria": [
+    "A failing test exists before the implementation change.",
+    "The relevant tests pass after the implementation.",
+    "Refactor changes do not expand beyond the feature surface."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "summary": "Back out the latest implementation or refactor if the red-green order is broken or tests regress."
+  },
+  "source_references": [
+    "ref.workflow.engineering.tdd-feature.2026-06-01"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

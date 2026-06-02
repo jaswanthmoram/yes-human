@@ -1,0 +1,95 @@
+{
+  "id": "healthcare.clinical-data-analysis",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Analyze clinical datasets for outcomes, utilization, and quality insights with de-identification verification and statistical rigor.",
+  "task_family": "clinical_analytics",
+  "triggers": [
+    "clinical data analysis",
+    "healthcare outcomes review",
+    "clinical dataset analysis",
+    "healthcare utilization analysis",
+    "clinical quality analytics"
+  ],
+  "aliases": [
+    "clinical analytics",
+    "health data review",
+    "outcomes analysis"
+  ],
+  "negative_keywords": [
+    "marketing analytics",
+    "financial reporting",
+    "code deployment"
+  ],
+  "inputs": [
+    {"name": "dataset_description", "required": true, "description": "Description of the clinical dataset including variables and population."},
+    {"name": "analysis_objectives", "required": true, "description": "Research questions or analysis goals."},
+    {"name": "deidentification_status", "required": true, "description": "Confirmation that data is de-identified per HIPAA Safe Harbor or Expert Determination."},
+    {"name": "statistical_requirements", "required": false, "description": "Required statistical methods or frameworks."}
+  ],
+  "outputs": [
+    {"name": "analysis_report", "description": "Complete analysis with statistical methods and results."},
+    {"name": "data_quality_assessment", "description": "Assessment of data completeness, accuracy, and limitations."},
+    {"name": "insights_summary", "description": "Key findings with confidence levels and clinical relevance."},
+    {"name": "recommendations", "description": "Actionable recommendations based on analysis findings."}
+  ],
+  "primary_agent": "healthcare.health-data-analyst",
+  "route": {
+    "domain_master": "healthcare.master",
+    "primary": "healthcare.health-data-analyst",
+    "participants": [
+      "healthcare.phi-compliance",
+      "healthcare.quality-improvement"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 5000,
+    "max_tool_calls": 10
+  },
+  "gates": [
+    {"id": "pre-route", "rule": "Confirm the task is clinical data analysis, not diagnosis or treatment."},
+    {"id": "pre-tool", "rule": "Verify de-identification status before any data processing."},
+    {"id": "pre-write", "rule": "Confirm no PHI is present in outputs."},
+    {"id": "on-task-complete", "rule": "Output must include analysis report, data quality assessment, and insights."}
+  ],
+  "steps": [
+    {"id": "verify-deidentification", "agent": "healthcare.phi-compliance", "action": "Verify data de-identification status and document method used."},
+    {"id": "assess-data-quality", "agent": "healthcare.health-data-analyst", "action": "Assess data completeness, accuracy, and limitations."},
+    {"id": "execute-analysis", "agent": "healthcare.health-data-analyst", "action": "Apply appropriate statistical methods to answer research questions."},
+    {"id": "validate-results", "agent": "healthcare.health-data-analyst", "action": "Validate results with sensitivity analyses and benchmark comparisons."},
+    {"id": "generate-insights", "agent": "healthcare.quality-improvement", "action": "Translate findings into actionable quality improvement recommendations."}
+  ],
+  "tools": [
+    "filesystem.read",
+    "filesystem.write"
+  ],
+  "verification": [
+    "deidentification_verified_before_analysis",
+    "statistical_methods_appropriate_and_documented",
+    "data_quality_limitations_stated",
+    "findings_distinguish_correlation_from_causation",
+    "recommendations_are_actionable"
+  ],
+  "success_criteria": [
+    "De-identification status verified before any data access.",
+    "Statistical methods are appropriate for the study design and data type.",
+    "Data quality limitations are explicitly stated.",
+    "Findings include confidence intervals and clinical significance.",
+    "Recommendations are specific and actionable."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If PHI is detected in outputs or analysis methods are inappropriate, roll back and restart with verified inputs."
+  },
+  "source_references": [
+    {"dossier_path": "references/workflows/healthcare/clinical-data-analysis.sources.json", "relationship": "workflow_dossier"}
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

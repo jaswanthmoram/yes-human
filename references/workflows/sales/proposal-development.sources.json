@@ -1,0 +1,44 @@
+{
+  "dossier_id": "dossier.workflow.sales.proposal-development.2026-05-31",
+  "workflow_id": "sales.proposal-development",
+  "domain": "sales",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://www.proposify.com/blog",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "live",
+      "used_for": ["proposal development process", "proposal structure best practices"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.pandadoc.com/blog",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "live",
+      "used_for": ["proposal workflow patterns", "pricing presentation techniques"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/TwentyHQ/twenty",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": ["CRM deal context for proposal alignment", "buyer requirement tracking"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 0,
+    "github_quality": 84,
+    "license_safety": 90,
+    "maintenance": 86,
+    "pattern_clarity": 86,
+    "testability": 80,
+    "total": 85
+  },
+  "promotion_decision": "staging"
+}

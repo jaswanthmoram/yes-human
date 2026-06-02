@@ -1,0 +1,43 @@
+{
+  "skill_id": "platform.incident-analysis",
+  "dossier_id": "dossier.skill.platform.incident-analysis.2026-06-01",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://sre.google/sre-book/postmortem-culture/",
+      "source_type": "official_docs",
+      "license": "CC-BY-4.0",
+      "version_or_commit": "2024",
+      "used_for": ["postmortem culture", "blameless analysis"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.atlassian.com/incident-management/postmortem",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["incident postmortem templates", "best practices"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/dastergon/awesome-sre",
+      "source_type": "github_repo",
+      "license": "CC0-1.0",
+      "version_or_commit": "main",
+      "used_for": ["SRE resources", "incident management"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 2,
+    "github_quality": 88,
+    "license_safety": 95,
+    "maintenance": 90,
+    "pattern_clarity": 93,
+    "testability": 86,
+    "total": 90
+  },
+  "promotion_decision": "production"
+}

@@ -1,0 +1,15 @@
+{
+  "dossier_id": "dossier.workflow.integrations.api-integration-setup.2026-06-01",
+  "workflow_id": "integrations.api-integration-setup",
+  "domain": "integrations",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {"url": "https://swagger.io/specification/", "source_type": "official_specs", "license": "Apache-2.0", "version_or_commit": "3.1.0", "used_for": ["OpenAPI specification structure", "API contract definition"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/public-apis/public-apis", "source_type": "github_repo", "license": "MIT", "version_or_commit": "master", "used_for": ["API integration catalog patterns", "authentication method survey"], "copy_policy": "patterns_only"},
+    {"url": "https://restfulapi.net/", "source_type": "technical_blog", "license": "Proprietary", "version_or_commit": "live", "used_for": ["REST API design best practices", "integration endpoint conventions"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/Kong/insomnia", "source_type": "github_repo", "license": "Apache-2.0", "version_or_commit": "develop", "used_for": ["API testing and debugging patterns", "request collection management"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 4, "official_docs": 2, "github_quality": 92, "license_safety": 94, "maintenance": 90, "pattern_clarity": 91, "testability": 88, "total": 91},
+  "promotion_decision": "staging"
+}

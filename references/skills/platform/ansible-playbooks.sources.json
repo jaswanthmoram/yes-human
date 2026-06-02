@@ -1,0 +1,52 @@
+{
+  "dossier_id": "dossier.skill.platform.ansible-playbooks.2026-06-01",
+  "skill_id": "platform.ansible-playbooks",
+  "domain": "platform",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://docs.ansible.com/ansible/latest/playbook_guide/",
+      "source_type": "official_docs",
+      "license": "GPL-3.0",
+      "version_or_commit": "v2.17",
+      "used_for": ["playbook guide", "task patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_best_practices.html",
+      "source_type": "official_docs",
+      "license": "GPL-3.0",
+      "version_or_commit": "v2.17",
+      "used_for": ["best practices", "directory layout"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://galaxy.ansible.com/",
+      "source_type": "community",
+      "license": "Apache-2.0",
+      "version_or_commit": "2024",
+      "used_for": ["role examples", "community roles"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://docs.ansible.com/ansible/latest/collections/",
+      "source_type": "official_docs",
+      "license": "GPL-3.0",
+      "version_or_commit": "v2.17",
+      "used_for": ["collections", "module reference"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 3,
+    "github_quality": 88,
+    "license_safety": 90,
+    "maintenance": 91,
+    "pattern_clarity": 89,
+    "testability": 85,
+    "total": 87
+  },
+  "promotion_decision": "staging"
+}

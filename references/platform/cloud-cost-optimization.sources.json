@@ -1,0 +1,52 @@
+{
+  "dossier_id": "dossier.platform.cloud-cost-optimization.2026-05-31",
+  "agent_id": "platform.cloud-cost-optimization",
+  "domain": "platform",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2026-08-29T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/infracost/infracost",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "master",
+      "used_for": ["infrastructure cost estimation and CI/CD cost gates"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/opencost/opencost",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "develop",
+      "used_for": ["Kubernetes cost allocation and monitoring patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/awslabs/aws-well-architected-labs",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": ["cost optimization pillar patterns and right-sizing labs"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.finops.org/framework/",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "live",
+      "used_for": ["FinOps framework principles and cost allocation strategies"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 4,
+    "official_docs": 1,
+    "github_quality": 92,
+    "license_safety": 95,
+    "maintenance": 90,
+    "pattern_clarity": 89,
+    "testability": 84,
+    "total": 89
+  },
+  "promotion_decision": "staging"
+}

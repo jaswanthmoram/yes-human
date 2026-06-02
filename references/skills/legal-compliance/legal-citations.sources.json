@@ -1,0 +1,52 @@
+{
+  "skill_id": "legal-compliance.legal-citations",
+  "dossier_id": "dossier.skill.legal-compliance.legal-citations.2026-06-01",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://www.legalbluebook.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": [
+        "Bluebook citation rules",
+        "formatting standards"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.law.cornell.edu/citations",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": [
+        "citation patterns",
+        "jurisdiction-specific rules"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://guides.loc.gov/legal-research/citations",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": [
+        "citation guides",
+        "reference formatting"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 2,
+    "github_quality": 0,
+    "license_safety": 92,
+    "maintenance": 88,
+    "pattern_clarity": 86,
+    "testability": 82,
+    "total": 85
+  },
+  "promotion_decision": "staging"
+}

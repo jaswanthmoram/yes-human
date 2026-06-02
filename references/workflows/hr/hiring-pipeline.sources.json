@@ -1,0 +1,53 @@
+{
+  "dossier_id": "dossier.workflow.hr.hiring-pipeline.2026-06-01",
+  "workflow_id": "hr.hiring-pipeline",
+  "domain": "hr",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://www.shrm.org/topics-tools/tools/toolkits/understanding-employment-application-process",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "live",
+      "used_for": [
+        "hiring pipeline framing",
+        "application and interview process checkpoints"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.ashbyhq.com/blog/topics/recruiting-operations",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "live",
+      "used_for": [
+        "recruiting operations stage design",
+        "interview coordination patterns"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/clef/handbook",
+      "source_type": "github_repo",
+      "license": "CC0-1.0",
+      "version_or_commit": "master",
+      "used_for": [
+        "candidate-evaluation and onboarding checklist patterns",
+        "people-process documentation structure"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 0,
+    "github_quality": 78,
+    "license_safety": 90,
+    "maintenance": 80,
+    "pattern_clarity": 84,
+    "testability": 68,
+    "total": 80
+  },
+  "promotion_decision": "staging"
+}

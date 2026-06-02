@@ -1,0 +1,14 @@
+{
+  "dossier_id": "dossier.design-content.visual-designer.2026-05-31",
+  "agent_id": "design-content.visual-designer",
+  "domain": "design-content",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {"url": "https://m3.material.io/styles", "source_type": "official_docs", "license": "Apache-2.0", "version_or_commit": "2024", "used_for": ["Material Design visual styles", "color and typography"], "copy_policy": "patterns_only"},
+    {"url": "https://www.smashingmagazine.com/category/visual-design/", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["visual design techniques", "layout patterns"], "copy_policy": "patterns_only"},
+    {"url": "https://web.dev/learn/design/", "source_type": "official_docs", "license": "Apache-2.0", "version_or_commit": "2024", "used_for": ["web design best practices", "responsive design"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 3, "official_docs": 2, "github_quality": 70, "license_safety": 90, "maintenance": 90, "pattern_clarity": 91, "testability": 84, "total": 87},
+  "promotion_decision": "staging"
+}

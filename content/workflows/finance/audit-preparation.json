@@ -1,0 +1,157 @@
+{
+  "id": "finance.audit-preparation",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Prepare for a financial audit including document organization, control testing, workpaper preparation, and findings pre-assessment.",
+  "task_family": "audit_support",
+  "triggers": [
+    "audit preparation workflow",
+    "pre-audit readiness check",
+    "audit document preparation",
+    "audit readiness assessment"
+  ],
+  "aliases": [
+    "audit preparation",
+    "pre-audit prep"
+  ],
+  "negative_keywords": [
+    "security audit",
+    "IT audit",
+    "code review"
+  ],
+  "inputs": [
+    {
+      "name": "audit_scope",
+      "required": true,
+      "description": "Audit scope, period, and objectives from the audit plan."
+    },
+    {
+      "name": "financial_records",
+      "required": true,
+      "description": "Financial records and supporting documentation for the audit period."
+    },
+    {
+      "name": "control_documentation",
+      "required": false,
+      "description": "Internal control documentation and prior audit findings."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "audit_readiness_report",
+      "description": "Assessment of audit readiness with gaps and action items."
+    },
+    {
+      "name": "document_index",
+      "description": "Organized index of audit documents and workpapers."
+    },
+    {
+      "name": "control_assessment",
+      "description": "Pre-audit control testing results and gap identification."
+    }
+  ],
+  "primary_agent": "finance.audit-specialist",
+  "route": {
+    "domain_master": "finance.master",
+    "agents": [
+      "finance.audit-specialist",
+      "finance.compliance-officer"
+    ],
+    "primary_agent": "finance.audit-specialist",
+    "participants": [
+      "finance.compliance-officer"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 4200,
+    "max_tool_calls": 10,
+    "notes": "High-stakes workflow. Preserve documentation standards and reviewer handoff."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is financial audit preparation and not security or IT audit."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require audit scope and financial records before any preparation work begins."
+    },
+    {
+      "id": "pre-write",
+      "rule": "Mark all assessments as decision support and attach disclaimer before external sharing."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "End with named human audit owner or reviewer handoff; do not claim audit completion."
+    }
+  ],
+  "steps": [
+    {
+      "id": "scope-review",
+      "agent": "finance.audit-specialist",
+      "action": "Review audit scope, identify required documents, and create preparation checklist."
+    },
+    {
+      "id": "document-organization",
+      "agent": "finance.audit-specialist",
+      "action": "Organize financial records, create document index, and identify gaps."
+    },
+    {
+      "id": "control-testing",
+      "agent": "finance.compliance-officer",
+      "action": "Pre-test key controls, document results, and identify control gaps."
+    },
+    {
+      "id": "readiness-assessment",
+      "agent": "finance.audit-specialist",
+      "action": "Compile readiness assessment with gaps, action items, and timeline to audit readiness."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read financial records, control documentation, and prior audit reports."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Write audit preparation documents when requested."
+    }
+  ],
+  "verification": [
+    {
+      "id": "documents-indexed",
+      "method": "Check all required documents are indexed with gap identification."
+    },
+    {
+      "id": "controls-tested",
+      "method": "Check key controls have been pre-tested with documented results."
+    },
+    {
+      "id": "disclaimer-present",
+      "method": "Check output includes disclaimer and named reviewer handoff."
+    }
+  ],
+  "success_criteria": [
+    "The preparation covers all audit scope areas with organized documentation.",
+    "Key controls are pre-tested with results and gap identification.",
+    "The final output explicitly states it is preparation support and requires human audit owner review."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If documents are missing or controls are untested, revert to the relevant preparation step."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/finance/audit-preparation.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

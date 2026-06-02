@@ -1,0 +1,52 @@
+{
+  "skill_id": "legal-compliance.contract-review",
+  "dossier_id": "dossier.skill.legal-compliance.contract-review.2026-06-01",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/open-agreements/open-agreements",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "2024",
+      "used_for": [
+        "contract review patterns",
+        "standard clause benchmarks"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.iaccm.com/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": [
+        "contract management standards",
+        "review best practices"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.law.cornell.edu/wex/contract",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": [
+        "contract law framework",
+        "clause requirements"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 1,
+    "github_quality": 85,
+    "license_safety": 92,
+    "maintenance": 88,
+    "pattern_clarity": 86,
+    "testability": 82,
+    "total": 85
+  },
+  "promotion_decision": "staging"
+}

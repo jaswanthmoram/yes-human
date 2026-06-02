@@ -1,0 +1,142 @@
+{
+  "id": "engineering.code-migration-execution",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Execute a code migration between frameworks, versions, or patterns with incremental validation and rollback safety at each stage.",
+  "task_family": "migration",
+  "triggers": [
+    "migrate this codebase to the new framework",
+    "upgrade this module to the new API",
+    "convert these class components to hooks",
+    "migrate from the old pattern to the new one",
+    "execute the migration plan for this module",
+    "port this code to the new version"
+  ],
+  "aliases": [
+    "code migration",
+    "framework migration",
+    "API version upgrade"
+  ],
+  "negative_keywords": [
+    "new feature",
+    "bug fix only",
+    "docs only"
+  ],
+  "inputs": [
+    {
+      "name": "migration_plan",
+      "required": true
+    },
+    {
+      "name": "source_pattern",
+      "required": true
+    },
+    {
+      "name": "target_pattern",
+      "required": true
+    },
+    {
+      "name": "affected_files",
+      "required": false
+    },
+    {
+      "name": "test_command",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "migrated_files"
+    },
+    {
+      "name": "migration_report"
+    },
+    {
+      "name": "validation_results"
+    }
+  ],
+  "primary_agent": "engineering.migration-executor",
+  "route": {
+    "domain_master": "engineering.master",
+    "primary": "engineering.migration-executor",
+    "participants": [],
+    "parallel": false,
+    "max_parallel_agents": 1
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 3800,
+    "max_tool_calls": 16
+  },
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "pre-write",
+    "post-tool",
+    "on-task-complete"
+  ],
+  "steps": [
+    {
+      "id": "inventory-scope",
+      "summary": "Enumerate all files matching the source pattern and classify them by complexity and dependency."
+    },
+    {
+      "id": "pilot-migration",
+      "summary": "Migrate a small representative subset first to validate the transformation approach and catch edge cases."
+    },
+    {
+      "id": "validate-pilot",
+      "summary": "Run tests and lint on the pilot batch to confirm correctness before proceeding."
+    },
+    {
+      "id": "batch-migrate",
+      "summary": "Apply the validated transformation to remaining files in incremental batches with validation between each."
+    },
+    {
+      "id": "resolve-edge-cases",
+      "summary": "Fix files that did not transform cleanly due to edge cases or non-standard patterns."
+    },
+    {
+      "id": "full-validation",
+      "summary": "Run the complete test suite, lint, and type checks on the full migrated codebase."
+    },
+    {
+      "id": "generate-report",
+      "summary": "Produce a migration report with file counts, edge cases encountered, and validation results."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "filesystem.write",
+    "test_runner",
+    "lint_runner",
+    "shell.readonly",
+    "diff_inspection",
+    "codemod_runner"
+  ],
+  "verification": [
+    "all_tests_pass_after_migration",
+    "lint_passes",
+    "type_check_passes",
+    "no_source_pattern_remnants",
+    "pilot_validated_before_batch"
+  ],
+  "success_criteria": [
+    "All files matching the source pattern are migrated to the target pattern.",
+    "The full test suite passes after migration.",
+    "No remnants of the old pattern remain unless explicitly documented.",
+    "Migration report documents edge cases and any manual interventions."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "summary": "Revert migrated files to pre-migration state using git or saved snapshots if validation fails."
+  },
+  "source_references": [
+    "ref.workflow.engineering.code-migration-execution.2026-06-01"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

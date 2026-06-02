@@ -1,0 +1,155 @@
+{
+  "id": "sales.contract-negotiation",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Manage commercial contract negotiation with term analysis, concession planning, and legal routing for non-standard terms.",
+  "task_family": "negotiation",
+  "triggers": [
+    "negotiate contract terms",
+    "commercial negotiation planning",
+    "deal terms negotiation",
+    "contract concession planning"
+  ],
+  "aliases": [
+    "contract negotiation",
+    "deal negotiation"
+  ],
+  "negative_keywords": [
+    "legal contract drafting",
+    "litigation strategy",
+    "employment negotiation"
+  ],
+  "inputs": [
+    {
+      "name": "contract_terms",
+      "required": true,
+      "description": "Current or proposed contract terms and conditions."
+    },
+    {
+      "name": "negotiation_objectives",
+      "required": true,
+      "description": "Desired outcomes, priorities, and walk-away points."
+    },
+    {
+      "name": "counterparty_position",
+      "required": false,
+      "description": "Known counterparty demands, constraints, and leverage."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "negotiation_strategy",
+      "description": "Structured negotiation plan with tactics and sequencing."
+    },
+    {
+      "name": "concession_matrix",
+      "description": "Planned concessions with trade-off options and limits."
+    },
+    {
+      "name": "legal_routing_plan",
+      "description": "Non-standard terms requiring legal review with routing path."
+    }
+  ],
+  "primary_agent": "sales.contract-negotiator",
+  "route": {
+    "domain_master": "sales.master",
+    "agents": [
+      "sales.contract-negotiator",
+      "sales.deal-desk",
+      "sales.account-executive"
+    ],
+    "primary_agent": "sales.contract-negotiator",
+    "participants": [
+      "sales.deal-desk",
+      "sales.account-executive"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 3
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 3000,
+    "max_tool_calls": 6,
+    "notes": "Focus on protecting value while enabling deal progress."
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is commercial negotiation, not legal contract drafting."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require contract terms and negotiation objectives before planning."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Return strategy, concession matrix, and legal routing in one consistent output."
+    }
+  ],
+  "steps": [
+    {
+      "id": "analyze-terms",
+      "agent": "sales.contract-negotiator",
+      "action": "Analyze contract terms against standard playbook and identify risks."
+    },
+    {
+      "id": "plan-concessions",
+      "agent": "sales.deal-desk",
+      "action": "Design concession matrix with trade-off options and approval limits."
+    },
+    {
+      "id": "route-legal",
+      "agent": "sales.contract-negotiator",
+      "action": "Identify non-standard terms requiring legal review and define routing."
+    },
+    {
+      "id": "finalize-strategy",
+      "agent": "sales.account-executive",
+      "action": "Compile negotiation strategy with sequencing and fallback positions."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read contract drafts, term playbooks, and deal context."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Save negotiation strategy and concession matrix."
+    }
+  ],
+  "verification": [
+    {
+      "id": "terms-analyzed",
+      "method": "Check that all contract terms are compared against standard playbook."
+    },
+    {
+      "id": "concessions-limited",
+      "method": "Check that concession limits and approval requirements are defined."
+    },
+    {
+      "id": "legal-routing-included",
+      "method": "Check that non-standard terms have legal routing recommendations."
+    }
+  ],
+  "success_criteria": [
+    "The negotiation strategy protects value while enabling deal progress.",
+    "Concession limits are defined with approval requirements.",
+    "Non-standard terms are routed to legal for review."
+  ],
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If the strategy proposes concessions beyond authority or misreads terms, roll back to contract data and rerun."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/sales/contract-negotiation.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
+}

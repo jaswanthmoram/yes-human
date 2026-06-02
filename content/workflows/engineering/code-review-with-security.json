@@ -1,0 +1,120 @@
+{
+  "id": "engineering.code-review-with-security",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "Run engineering and security review on the same change set, then merge findings into one severity-ordered report.",
+  "task_family": "code_review",
+  "triggers": [
+    "review this PR for bugs and security issues",
+    "perform code review with appsec coverage",
+    "audit this diff before merge"
+  ],
+  "aliases": [
+    "secure code review",
+    "pr review with security",
+    "engineering security review"
+  ],
+  "negative_keywords": [
+    "threat model only",
+    "secret scan only",
+    "write new feature"
+  ],
+  "inputs": [
+    {
+      "name": "diff",
+      "required": true
+    },
+    {
+      "name": "changed_files",
+      "required": true
+    },
+    {
+      "name": "project_rules",
+      "required": false
+    },
+    {
+      "name": "scanner_output",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "severity_ordered_findings"
+    },
+    {
+      "name": "security_findings"
+    },
+    {
+      "name": "test_and_verification_gaps"
+    }
+  ],
+  "primary_agent": "engineering.code-reviewer",
+  "route": {
+    "domain_master": "engineering.master",
+    "primary": "engineering.code-reviewer",
+    "participants": [
+      "security.security-reviewer"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 2
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 3600,
+    "max_tool_calls": 12
+  },
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "post-tool",
+    "on-task-complete"
+  ],
+  "steps": [
+    {
+      "id": "collect-scope",
+      "summary": "Read the diff, enumerate touched subsystems, and note any repo-specific review rules."
+    },
+    {
+      "id": "parallel-review",
+      "summary": "Run engineering quality review and security review in parallel against the same change set."
+    },
+    {
+      "id": "merge-findings",
+      "summary": "Deduplicate overlaps, order remaining findings by severity, and separate confirmed issues from gaps."
+    },
+    {
+      "id": "verify",
+      "summary": "Run available validation commands or record which checks were not run."
+    }
+  ],
+  "tools": [
+    "filesystem.read",
+    "shell.readonly",
+    "diff_inspection",
+    "test_runner_if_available",
+    "scanner_output_ingest"
+  ],
+  "verification": [
+    "lint_if_available",
+    "test_if_available",
+    "every_finding_has_file_evidence",
+    "security_findings_reference_real_code_paths"
+  ],
+  "success_criteria": [
+    "Findings are grouped by severity with concrete file evidence.",
+    "Security and engineering duplicates are merged into one report.",
+    "Unrun checks are explicitly called out as gaps."
+  ],
+  "rollback": {
+    "mode": "no_write",
+    "summary": "This workflow is read-only unless explicitly paired with a fix workflow."
+  },
+  "source_references": [
+    "ref.workflow.engineering.code-review-with-security.2026-06-01"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "quality_gate": "staging",
+    "min_successes_before_update": 2
+  }
+}

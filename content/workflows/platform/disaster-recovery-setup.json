@@ -1,0 +1,187 @@
+{
+  "id": "platform.disaster-recovery-setup",
+  "version": "1.0.0",
+  "status": "active",
+  "name": "Disaster Recovery Setup",
+  "description": "Design and implement disaster recovery capabilities including backup strategies, failover mechanisms, and recovery testing.",
+  "task_family": "resilience_engineering",
+  "triggers": [
+    "disaster recovery setup",
+    "configure backup and failover",
+    "implement DR strategy",
+    "setup cross-region replication",
+    "disaster recovery testing",
+    "RTO RPO configuration"
+  ],
+  "aliases": [
+    "DR setup",
+    "failover configuration",
+    "backup and recovery"
+  ],
+  "negative_keywords": [
+    "incident response",
+    "monitoring deployment",
+    "cloud migration",
+    "performance optimization"
+  ],
+  "inputs": [
+    {
+      "name": "critical_services",
+      "required": true,
+      "description": "List of services, databases, and data stores requiring disaster recovery protection."
+    },
+    {
+      "name": "rto_rpo_targets",
+      "required": true,
+      "description": "Recovery Time Objective and Recovery Point Objective for each critical service."
+    },
+    {
+      "name": "infrastructure_topology",
+      "required": false,
+      "description": "Current deployment topology including regions, availability zones, and dependencies."
+    },
+    {
+      "name": "compliance_requirements",
+      "required": false,
+      "description": "Regulatory requirements for data residency, encryption, and retention."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "dr_architecture",
+      "description": "Disaster recovery architecture with primary, secondary, and failover configurations."
+    },
+    {
+      "name": "backup_strategy",
+      "description": "Backup schedules, retention policies, encryption, and storage locations."
+    },
+    {
+      "name": "failover_runbook",
+      "description": "Step-by-step failover procedure with automated and manual steps."
+    },
+    {
+      "name": "recovery_test_report",
+      "description": "Results from DR test execution including RTO/RPO achievement and gaps."
+    }
+  ],
+  "primary_agent": "platform.sre-engineer",
+  "participants": [
+    "platform.devops-engineer",
+    "platform.security-engineer",
+    "platform.network-engineer"
+  ],
+  "skills": [
+    "disaster-recovery",
+    "backup-management",
+    "cross-region-replication",
+    "failover-automation",
+    "compliance-auditing"
+  ],
+  "budget_band": "expanded",
+  "max_context_tokens": 4000,
+  "max_tool_calls": 14,
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is DR capability design, not active incident response or monitoring setup."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require defined RTO/RPO targets before provisioning backup or replication infrastructure."
+    },
+    {
+      "id": "post-tool",
+      "rule": "Validate each backup or replication component produces verified artifacts before proceeding."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Return DR architecture, backup strategy, failover runbook, and recovery test report."
+    }
+  ],
+  "steps": [
+    {
+      "id": "assess-recovery-requirements",
+      "agent": "platform.sre-engineer",
+      "description": "Analyze critical services, define RTO/RPO targets, and identify compliance constraints."
+    },
+    {
+      "id": "design-dr-architecture",
+      "agent": "platform.sre-engineer",
+      "description": "Design multi-region or multi-cloud DR topology with primary, warm standby, and failover paths."
+    },
+    {
+      "id": "implement-backup-strategy",
+      "agent": "platform.devops-engineer",
+      "description": "Configure automated backups with encryption, retention policies, and off-site storage."
+    },
+    {
+      "id": "setup-replication",
+      "agent": "platform.devops-engineer",
+      "description": "Enable cross-region data replication for databases and stateful services with consistency guarantees."
+    },
+    {
+      "id": "build-failover-automation",
+      "agent": "platform.sre-engineer",
+      "description": "Create automated failover scripts, DNS switching, and health-check-driven failover triggers."
+    },
+    {
+      "id": "execute-dr-test",
+      "agent": "platform.sre-engineer",
+      "description": "Run a full DR test simulating a regional failure and measure RTO/RPO achievement."
+    },
+    {
+      "id": "document-and-remediate",
+      "agent": "platform.sre-engineer",
+      "description": "Document gaps from DR test, create remediation plan, and update runbooks."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read infrastructure topology, compliance requirements, and existing backup configurations."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Write DR architecture docs, backup configs, failover scripts, and test reports."
+    },
+    {
+      "name": "shell.exec",
+      "purpose": "Execute backup commands, replication setup, and failover test scripts."
+    }
+  ],
+  "verification": [
+    {
+      "id": "backups-verified",
+      "method": "Backup restoration succeeds for each critical service within RPO target."
+    },
+    {
+      "id": "replication-healthy",
+      "method": "Cross-region replication lag is within acceptable bounds for all data stores."
+    },
+    {
+      "id": "failover-tested",
+      "method": "Automated failover completes within RTO target during DR test."
+    },
+    {
+      "id": "compliance-met",
+      "method": "Backup encryption and data residency meet all defined compliance requirements."
+    }
+  ],
+  "success_criteria": [
+    "DR architecture covers all critical services with defined RTO/RPO.",
+    "Backups are automated, encrypted, and restoration-tested.",
+    "Failover mechanism is automated and tested end-to-end.",
+    "DR test report confirms RTO/RPO targets are met."
+  ],
+  "rollback": {
+    "mode": "failover_reversal",
+    "when": "If DR test reveals data loss or extended RTO, revert to primary and remediate gaps before re-testing."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/platform/disaster-recovery-setup.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "quality_gate": "staging"
+}

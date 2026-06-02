@@ -1,0 +1,187 @@
+{
+  "dossier_id": "dossier.domain.security.2026-06-01",
+  "domain": "security",
+  "created_at": "2026-06-01T16:30:00Z",
+  "expires_at": "2027-06-01T16:30:00Z",
+  "sources": [
+    {
+      "url": "https://owasp.org/www-project-top-ten/",
+      "source_type": "official_docs",
+      "license": "CC-BY-SA-4.0",
+      "version_or_commit": "2024",
+      "used_for": ["OWASP Top 10 web security risks", "vulnerability categories"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://owasp.org/www-community/Threat_Modeling",
+      "source_type": "official_docs",
+      "license": "CC-BY-SA-4.0",
+      "version_or_commit": "2024",
+      "used_for": ["threat modeling methodology", "STRIDE framework"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://cheatsheetseries.owasp.org/",
+      "source_type": "official_docs",
+      "license": "CC-BY-SA-4.0",
+      "version_or_commit": "2024",
+      "used_for": ["security cheat sheets", "implementation guidance"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://csrc.nist.gov/",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": ["NIST cybersecurity framework", "security standards"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://cve.mitre.org/",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["CVE database", "vulnerability enumeration"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/OWASP/CheatSheetSeries",
+      "source_type": "github_repo",
+      "license": "CC-BY-SA-4.0",
+      "version_or_commit": "master",
+      "stars": 28500,
+      "last_updated": "2026-05-28",
+      "used_for": ["OWASP cheat sheets", "security implementation patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/trimstray/the-book-of-secret-hashes",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "master",
+      "stars": 12500,
+      "last_updated": "2026-04-20",
+      "used_for": ["hashing algorithms", "cryptography patterns"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/zaproxy/zaproxy",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "stars": 13500,
+      "last_updated": "2026-05-29",
+      "used_for": ["OWASP ZAP", "security testing", "vulnerability scanning"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/aquasecurity/trivy",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "stars": 23500,
+      "last_updated": "2026-05-30",
+      "used_for": ["Trivy vulnerability scanner", "container security"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/falcosecurity/falco",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "master",
+      "stars": 7800,
+      "last_updated": "2026-05-29",
+      "used_for": ["Falco runtime security", "threat detection"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/PortSwigger/burp-extensions-montoya-api",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "stars": 850,
+      "last_updated": "2026-04-15",
+      "used_for": ["Burp Suite extensions", "security testing automation"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/snyk/snyk",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "master",
+      "stars": 5200,
+      "last_updated": "2026-05-28",
+      "used_for": ["Snyk vulnerability scanning", "dependency security"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/microsoft/Threat-Matrix-for-ML",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "stars": 1850,
+      "last_updated": "2026-03-20",
+      "used_for": ["ML threat matrix", "AI security threats"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/OWASP/Top10",
+      "source_type": "github_repo",
+      "license": "CC-BY-SA-4.0",
+      "version_or_commit": "main",
+      "stars": 3500,
+      "last_updated": "2026-05-15",
+      "used_for": ["OWASP Top 10 documentation", "security awareness"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/DevSecOpsHQ/awesome-devsecops",
+      "source_type": "github_repo",
+      "license": "CC0-1.0",
+      "version_or_commit": "master",
+      "stars": 6200,
+      "last_updated": "2026-04-10",
+      "used_for": ["DevSecOps tools", "security automation"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.sans.org/security-resources/",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["SANS security resources", "incident response"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/curl/curl",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "master",
+      "stars": 36500,
+      "last_updated": "2026-05-30",
+      "used_for": ["curl security practices", "HTTP security"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/openssl/openssl",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "master",
+      "stars": 26500,
+      "last_updated": "2026-05-30",
+      "used_for": ["OpenSSL cryptography", "TLS implementation"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 18,
+    "official_docs": 5,
+    "github_quality": 92,
+    "license_safety": 95,
+    "maintenance": 90,
+    "pattern_clarity": 90,
+    "testability": 85,
+    "total": 91
+  },
+  "promotion_decision": "production"
+}

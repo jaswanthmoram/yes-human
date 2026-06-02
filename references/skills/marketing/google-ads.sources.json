@@ -1,0 +1,42 @@
+{
+  "dossier_id": "dossier.skill.marketing.google-ads.2026-05-31",
+  "skill_id": "marketing.google-ads",
+  "domain": "marketing",
+  "created_at": "2026-05-31T00:00:00Z",
+  "expires_at": "2027-05-31T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://support.google.com/google-ads",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "live",
+      "used_for": [
+        "Google Ads campaign structure and optimization",
+        "google-ads skill patterns"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://blog.hubspot.com/marketing",
+      "source_type": "vendor_docs",
+      "license": "Proprietary",
+      "version_or_commit": "live",
+      "used_for": [
+        "HubSpot marketing patterns",
+        "inbound methodology references"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 2,
+    "official_docs": 1,
+    "github_quality": 0,
+    "license_safety": 88,
+    "maintenance": 85,
+    "pattern_clarity": 86,
+    "testability": 80,
+    "total": 86
+  },
+  "promotion_decision": "staging"
+}

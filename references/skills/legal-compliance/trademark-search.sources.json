@@ -1,0 +1,52 @@
+{
+  "skill_id": "legal-compliance.trademark-search",
+  "dossier_id": "dossier.skill.legal-compliance.trademark-search.2026-06-01",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://www.uspto.gov/trademarks/search",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": [
+        "USPTO search patterns",
+        "mark classification"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.wipo.int/branddb/en/",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": [
+        "international mark search",
+        "similarity analysis"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://tmsearch.uspto.gov/",
+      "source_type": "official_docs",
+      "license": "Public Domain",
+      "version_or_commit": "2024",
+      "used_for": [
+        "TESS search patterns",
+        "mark comparison"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 3,
+    "github_quality": 0,
+    "license_safety": 92,
+    "maintenance": 88,
+    "pattern_clarity": 86,
+    "testability": 82,
+    "total": 85
+  },
+  "promotion_decision": "staging"
+}

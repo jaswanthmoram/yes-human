@@ -1,0 +1,259 @@
+{
+  "fixtures": [
+    {
+      "prompt": "lean canvas for B2B SaaS startup",
+      "expected_skill": "startup-ops.lean-canvas",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "one page business model analysis",
+      "expected_skill": "startup-ops.lean-canvas",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "run lean canvas process",
+      "expected_skill": "startup-ops.lean-canvas",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "business model canvas for B2B SaaS startup",
+      "expected_skill": "startup-ops.business-model-canvas",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "BMC analysis",
+      "expected_skill": "startup-ops.business-model-canvas",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "run business model canvas process",
+      "expected_skill": "startup-ops.business-model-canvas",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "value proposition for B2B SaaS startup",
+      "expected_skill": "startup-ops.value-proposition",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "value prop design analysis",
+      "expected_skill": "startup-ops.value-proposition",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "run value proposition process",
+      "expected_skill": "startup-ops.value-proposition",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "customer interview for B2B SaaS startup",
+      "expected_skill": "startup-ops.customer-interviews",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "discovery interview analysis",
+      "expected_skill": "startup-ops.customer-interviews",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "run customer interview process",
+      "expected_skill": "startup-ops.customer-interviews",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "market validation for B2B SaaS startup",
+      "expected_skill": "startup-ops.market-validation",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "market sizing analysis",
+      "expected_skill": "startup-ops.market-validation",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "run market validation process",
+      "expected_skill": "startup-ops.market-validation",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "MVP planning for B2B SaaS startup",
+      "expected_skill": "startup-ops.mvp-development",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "minimum viable product analysis",
+      "expected_skill": "startup-ops.mvp-development",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "run MVP planning process",
+      "expected_skill": "startup-ops.mvp-development",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "pitch deck for B2B SaaS startup",
+      "expected_skill": "startup-ops.pitch-decks",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "investor deck analysis",
+      "expected_skill": "startup-ops.pitch-decks",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "run pitch deck process",
+      "expected_skill": "startup-ops.pitch-decks",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "financial projections for B2B SaaS startup",
+      "expected_skill": "startup-ops.financial-projections",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "revenue forecast analysis",
+      "expected_skill": "startup-ops.financial-projections",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "run financial projections process",
+      "expected_skill": "startup-ops.financial-projections",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "unit economics for B2B SaaS startup",
+      "expected_skill": "startup-ops.unit-economics",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "CAC LTV analysis",
+      "expected_skill": "startup-ops.unit-economics",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "run unit economics process",
+      "expected_skill": "startup-ops.unit-economics",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "burn rate for B2B SaaS startup",
+      "expected_skill": "startup-ops.burn-rate-calculation",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "runway calculation analysis",
+      "expected_skill": "startup-ops.burn-rate-calculation",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "run burn rate process",
+      "expected_skill": "startup-ops.burn-rate-calculation",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "fundraising strategy for B2B SaaS startup",
+      "expected_skill": "startup-ops.fundraising-strategy",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "raise planning analysis",
+      "expected_skill": "startup-ops.fundraising-strategy",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "run fundraising strategy process",
+      "expected_skill": "startup-ops.fundraising-strategy",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "investor outreach for B2B SaaS startup",
+      "expected_skill": "startup-ops.investor-outreach",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "investor email analysis",
+      "expected_skill": "startup-ops.investor-outreach",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "run investor outreach process",
+      "expected_skill": "startup-ops.investor-outreach",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "term sheet for B2B SaaS startup",
+      "expected_skill": "startup-ops.term-sheets",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "term sheet analysis analysis",
+      "expected_skill": "startup-ops.term-sheets",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "run term sheet process",
+      "expected_skill": "startup-ops.term-sheets",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "cap table for B2B SaaS startup",
+      "expected_skill": "startup-ops.cap-tables",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "capitalization table analysis",
+      "expected_skill": "startup-ops.cap-tables",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "run cap table process",
+      "expected_skill": "startup-ops.cap-tables",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "hiring process for B2B SaaS startup",
+      "expected_skill": "startup-ops.hiring-processes",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "interview design analysis",
+      "expected_skill": "startup-ops.hiring-processes",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "run hiring process process",
+      "expected_skill": "startup-ops.hiring-processes",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "company culture for B2B SaaS startup",
+      "expected_skill": "startup-ops.company-culture",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "values definition analysis",
+      "expected_skill": "startup-ops.company-culture",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "run company culture process",
+      "expected_skill": "startup-ops.company-culture",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "growth metrics for B2B SaaS startup",
+      "expected_skill": "startup-ops.growth-metrics",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "AARRR analysis",
+      "expected_skill": "startup-ops.growth-metrics",
+      "category": "startup-ops"
+    },
+    {
+      "prompt": "run growth metrics process",
+      "expected_skill": "startup-ops.growth-metrics",
+      "category": "startup-ops"
+    }
+  ]
+}

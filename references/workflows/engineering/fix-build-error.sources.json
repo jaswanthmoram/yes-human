@@ -1,0 +1,40 @@
+{
+  "dossier_id": "dossier.workflow.engineering.fix-build-error.2026-06-01",
+  "workflow_id": "engineering.fix-build-error",
+  "domain": "engineering",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows",
+      "source_type": "official_docs",
+      "license": "GitHub Docs",
+      "version_or_commit": "live",
+      "used_for": [
+        "CI failure investigation flow"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://bazel.build/docs/user-manual",
+      "source_type": "official_docs",
+      "license": "CC BY 4.0",
+      "version_or_commit": "live",
+      "used_for": [
+        "build log triage patterns"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 2,
+    "official_docs": 2,
+    "github_quality": 0,
+    "license_safety": 93,
+    "maintenance": 84,
+    "pattern_clarity": 85,
+    "testability": 88,
+    "total": 86
+  },
+  "promotion_decision": "staging"
+}

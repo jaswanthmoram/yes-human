@@ -1,0 +1,43 @@
+{
+  "skill_id": "security.threat-model",
+  "dossier_id": "dossier.skill.security.threat-model.2026-06-01",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://owasp.org/www-community/Threat_Modeling",
+      "source_type": "official_docs",
+      "license": "CC-BY-SA-4.0",
+      "version_or_commit": "2024",
+      "used_for": ["OWASP threat modeling methodology", "STRIDE framework"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/OWASP/threat-modeling-playbook",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": ["threat modeling process", "practical examples"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/securityengineering/sdl/threatmodeling",
+      "source_type": "official_docs",
+      "license": "Proprietary",
+      "version_or_commit": "2024",
+      "used_for": ["Microsoft SDL threat modeling", "STRIDE/DREAD"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 3,
+    "official_docs": 3,
+    "github_quality": 88,
+    "license_safety": 95,
+    "maintenance": 92,
+    "pattern_clarity": 94,
+    "testability": 87,
+    "total": 91
+  },
+  "promotion_decision": "production"
+}

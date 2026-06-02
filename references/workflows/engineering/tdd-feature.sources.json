@@ -1,0 +1,40 @@
+{
+  "dossier_id": "dossier.workflow.engineering.tdd-feature.2026-06-01",
+  "workflow_id": "engineering.tdd-feature",
+  "domain": "engineering",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2026-08-30T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://martinfowler.com/bliki/TestDrivenDevelopment.html",
+      "source_type": "official_docs",
+      "license": "Martin Fowler site terms",
+      "version_or_commit": "live",
+      "used_for": [
+        "red green refactor loop"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://testing.googleblog.com/2008/09/tott-test-first-programming.html",
+      "source_type": "official_blog",
+      "license": "Google blog terms",
+      "version_or_commit": "live",
+      "used_for": [
+        "test-first implementation framing"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 2,
+    "official_docs": 1,
+    "github_quality": 0,
+    "license_safety": 91,
+    "maintenance": 78,
+    "pattern_clarity": 92,
+    "testability": 94,
+    "total": 87
+  },
+  "promotion_decision": "staging"
+}

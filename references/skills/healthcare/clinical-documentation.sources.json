@@ -1,0 +1,15 @@
+{
+  "dossier_id": "dossier.skill.healthcare.clinical-documentation.2026-06-01",
+  "skill_id": "healthcare.clinical-documentation",
+  "domain": "healthcare",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-06-01T00:00:00Z",
+  "sources": [
+    {"url": "https://www.ahima.org/topics/clinical-documentation-improvement/", "source_type": "vendor_docs", "license": "Proprietary", "version_or_commit": "2024", "used_for": ["CDI frameworks", "documentation standards"], "copy_policy": "patterns_only"},
+    {"url": "https://www.cms.gov/medicare/quality/clinical-documentation-improvement", "source_type": "official_docs", "license": "Public Domain", "version_or_commit": "2024", "used_for": ["CMS documentation requirements"], "copy_policy": "patterns_only"},
+    {"url": "https://www.hl7.org/implement/standards/product_brief.cfm?product_id=378", "source_type": "official_docs", "license": "Creative Commons", "version_or_commit": "CDA R2", "used_for": ["CDA document structure"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/clinical-documentation/cda-examples", "source_type": "github_repo", "license": "Apache-2.0", "version_or_commit": "v2.1", "used_for": ["CDA implementation examples"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 4, "official_docs": 2, "github_quality": 74, "license_safety": 94, "maintenance": 89, "pattern_clarity": 88, "testability": 85, "total": 87},
+  "promotion_decision": "staging"
+}

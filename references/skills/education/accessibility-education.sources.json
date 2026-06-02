@@ -1,0 +1,13 @@
+{
+  "skill_id": "education.accessibility-education",
+  "dossier_id": "dossier.skill.education.accessibility-education.2026-06-01",
+  "created_at": "2026-06-01T00:00:00Z",
+  "expires_at": "2027-05-31T00:00:00Z",
+  "sources": [
+    {"url": "https://github.com/HKUDS/DeepTutor", "source_type": "github_repo", "license": "Apache-2.0", "version_or_commit": "main", "used_for": ["Educational accessibility patterns and WCAG application"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/Abelo9996/LearnOS", "source_type": "github_repo", "license": "MIT", "version_or_commit": "main", "used_for": ["UDL implementation and inclusive design patterns"], "copy_policy": "patterns_only"},
+    {"url": "https://github.com/huangjia2019/agent-design-patterns", "source_type": "github_repo", "license": "MIT", "version_or_commit": "main", "used_for": ["Accessibility in education pattern taxonomy"], "copy_policy": "patterns_only"}
+  ],
+  "scores": {"source_count": 3, "official_docs": 0, "github_quality": 86, "license_safety": 94, "maintenance": 82, "pattern_clarity": 87, "testability": 82, "total": 85},
+  "promotion_decision": "staging"
+}
