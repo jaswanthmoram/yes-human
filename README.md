@@ -6,6 +6,8 @@ Portable, low-token agentic control plane (v2.0.0). Routes tasks through a tiny 
 
 **Phase 8 complete (7A–7H):** longtail expansion, routing eval scale, knowledge packs, hook bindings, and acceptance freeze.
 
+**Phase 9 implemented:** lightweight learning/evaluator/trainer surface, tenant-scoped redacted traces, outcome tracking with exponential decay, staged feedback, workflow suggestions, mistake graph, offline/crash recovery checkpoints, and optional adapter packs.
+
 **Key achievements:**
 - **318** agents, **366** skills, **119** workflows across 18 domains
 - **1503** route fixtures; routing eval **≥95%** top-1 (see `reports/phase8-acceptance.md`)
@@ -14,8 +16,9 @@ Portable, low-token agentic control plane (v2.0.0). Routes tasks through a tiny 
 - Hook bindings (`registry/hook-bindings.json`) wired to `hooks/hook-registry.json`
 - `npm run validate`, route/skill/workflow evals, and host bundles (`npm run build:hosts`) passing
 - Architecture §32.4 specialists added; hybrid aliases merge into canonical routes (no duplicate CFO/browser routes)
+- Phase 9 optional bundles: Cursor, Windsurf, VS Code, Sourcegraph, and zero-trust Generic
 
-**Next:** Phase 9 — learning loop, mistake graph promotion, dossier score uplift for promotion gates, and optional adapter packs.
+**Out of scope for this checkpoint:** Agent Lightning-style heavy trainer, automatic production route mutation, production quality-gate rewrites, and jas-human migration.
 
 ## Quick start
 
@@ -26,7 +29,9 @@ npm test             # unit tests (router, promotion gate, markitdown)
 npm run eval:cost    # startup token budget
 node packages/yes-cli/index.js eval workflow   # workflow routing accuracy
 npm run report:phase8                          # regenerate reports/phase8-acceptance.md
-npm run build:hosts                            # Claude, Codex, OpenCode, MCP bundles
+npm run build:hosts                            # Claude, Codex, OpenCode, MCP + optional bundles
+npm run phase9:gate                            # eval-gated feedback checks
+npm run phase9:trainer                         # learning/trainer summary report
 node packages/yes-cli/index.js doctor          # environment + project health
 ```
 
@@ -58,6 +63,7 @@ get `{ markdown, images, hasImages }` instead of a string.
 | `packages/yes-schema/` | JSON schemas and validator |
 | `yes-human.plugin.json` | Plugin manifest |
 | `reports/phase8-acceptance.md` | Generated Phase 8 acceptance summary |
+| `reports/phase9-acceptance.md` | Phase 9 learning/team/offline/adapter acceptance summary |
 
 ## Documentation
 
@@ -84,7 +90,23 @@ get `{ markdown, images, hasImages }` instead of a string.
 2. `yes-runtime` — Execution, spawner, traces
 3. `yes-graph` — Multi-tiered routing (Trie, SQLite, semantic fallback)
 4. `yes-workflows` — Composable orchestration patterns
-5. `yes-adapters` — Host bundles (Claude, Codex, CLI, MCP) plus optional adapter packs later
+5. `yes-adapters` — Host bundles (Claude, Codex, OpenCode, MCP) plus optional adapter packs (Cursor, Windsurf, VS Code, Sourcegraph, Generic)
+
+## Phase 9 CLI
+
+```bash
+node packages/yes-cli/index.js evaluator status
+node packages/yes-cli/index.js evaluator trace --task "..." --route route.engineering.code-reviewer --success true
+node packages/yes-cli/index.js evaluator outcome --route route.engineering.code-reviewer --success false --failure-class wrong-agent
+node packages/yes-cli/index.js feedback wrong-agent --trace <trace-id> --route <old-route> --suggested-route <new-route>
+node packages/yes-cli/index.js workflow suggest
+node packages/yes-cli/index.js trainer report
+node packages/yes-cli/index.js team status
+node packages/yes-cli/index.js offline status
+node packages/yes-cli/index.js recover resume
+```
+
+Feedback, workflow suggestions, and trainer output are staging/report artifacts only. They never mutate `registry/routes.json` or `graph/indexes/ROUTE_TABLE.min.json` directly.
 
 **ECC Integration:** Selectively absorbing patterns from 180+ repositories:
 - PlanCard pattern (`forgent`) for structured route output

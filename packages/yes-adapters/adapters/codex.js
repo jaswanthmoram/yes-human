@@ -28,6 +28,7 @@ ${ctx.bootText.trim()}
 Route table: \`graph/indexes/ROUTE_TABLE.min.json\`
 Agent registry: \`registry/agents.json\` (lazy-loaded after route match)
 Run \`yes route "<task>" --dry-run\` to inspect routing.
+Phase 9 learning (staged only): \`yes evaluator trace\` or \`yes evaluator outcome\`; never mutates route tables.
 
 _Generated ${ctx.generatedAt}_
 `;

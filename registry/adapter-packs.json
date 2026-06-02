@@ -1,0 +1,77 @@
+{
+  "version": "2.0.0",
+  "generated_at": "2026-06-02T00:00:00.000Z",
+  "count": 5,
+  "items": [
+    {
+      "id": "cursor",
+      "host": "cursor",
+      "status": "optional",
+      "trust_model": "workspace",
+      "build_command": "yes build cursor",
+      "boot_file": "AGENTS.md",
+      "files": ["AGENTS.md", ".cursor/rules/yes-human.mdc"],
+      "manifest": null,
+      "supports_hooks": "wrapper",
+      "supports_cancellation": true,
+      "sandbox": { "mode": "host-managed", "network": "host", "filesystem": "workspace" },
+      "audit": { "enabled": true, "redacted": true, "path": "graph/memory/tenants/<tenant>/traces.jsonl" }
+    },
+    {
+      "id": "windsurf",
+      "host": "windsurf",
+      "status": "optional",
+      "trust_model": "workspace",
+      "build_command": "yes build windsurf",
+      "boot_file": "AGENTS.md",
+      "files": ["AGENTS.md", ".windsurfrules"],
+      "manifest": null,
+      "supports_hooks": "wrapper",
+      "supports_cancellation": true,
+      "sandbox": { "mode": "host-managed", "network": "host", "filesystem": "workspace" },
+      "audit": { "enabled": true, "redacted": true, "path": "graph/memory/tenants/<tenant>/traces.jsonl" }
+    },
+    {
+      "id": "vscode",
+      "host": "vscode",
+      "status": "optional",
+      "trust_model": "workspace",
+      "build_command": "yes build vscode",
+      "boot_file": "AGENTS.md",
+      "files": ["AGENTS.md", ".vscode/settings.json", ".vscode/mcp.json"],
+      "manifest": null,
+      "supports_hooks": "wrapper",
+      "supports_cancellation": true,
+      "sandbox": { "mode": "host-managed", "network": "host", "filesystem": "workspace" },
+      "audit": { "enabled": true, "redacted": true, "path": "graph/memory/tenants/<tenant>/traces.jsonl" }
+    },
+    {
+      "id": "sourcegraph",
+      "host": "sourcegraph",
+      "status": "optional",
+      "trust_model": "read-mostly",
+      "build_command": "yes build sourcegraph",
+      "boot_file": "AGENTS.md",
+      "files": ["AGENTS.md", "sourcegraph.json"],
+      "manifest": null,
+      "supports_hooks": "wrapper",
+      "supports_cancellation": true,
+      "sandbox": { "mode": "read-mostly", "network": "host", "filesystem": "workspace-read" },
+      "audit": { "enabled": true, "redacted": true, "path": "graph/memory/tenants/<tenant>/traces.jsonl" }
+    },
+    {
+      "id": "generic",
+      "host": "generic",
+      "status": "optional",
+      "trust_model": "zero-trust",
+      "build_command": "yes build generic",
+      "boot_file": "README.md",
+      "files": ["manifest.json", "README.md", "sandbox.policy.json", "audit.jsonl", "CANCEL.md"],
+      "manifest": "manifest.json",
+      "supports_hooks": "wrapper",
+      "supports_cancellation": true,
+      "sandbox": { "mode": "deny-by-default", "network": "deny", "filesystem": "explicit-allowlist" },
+      "audit": { "enabled": true, "redacted": true, "path": "audit.jsonl" }
+    }
+  ]
+}

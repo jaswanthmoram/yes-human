@@ -24,7 +24,7 @@ test('loadBuildContext loads all required fields', () => {
   assert.ok(ctx.routeTable?.routes, 'routeTable loaded');
 });
 
-for (const host of ['claude', 'codex', 'opencode', 'mcp']) {
+for (const host of ['claude', 'codex', 'opencode', 'mcp', 'cursor', 'windsurf', 'vscode', 'sourcegraph', 'generic']) {
   test(`${host} bundle passes validation`, () => {
     const dir = path.join(generatedRoot, host);
     const { ok, checks } = validateHostBundle(host, dir);
@@ -33,7 +33,7 @@ for (const host of ['claude', 'codex', 'opencode', 'mcp']) {
   });
 
   test(`${host} boot file is under 300 token cap`, () => {
-    const bootFiles = { claude: 'CLAUDE.md', codex: 'AGENTS.md', opencode: 'AGENTS.md', mcp: null };
+    const bootFiles = { claude: 'CLAUDE.md', codex: 'AGENTS.md', opencode: 'AGENTS.md', mcp: null, cursor: 'AGENTS.md', windsurf: 'AGENTS.md', vscode: 'AGENTS.md', sourcegraph: 'AGENTS.md', generic: 'README.md' };
     const bootFile = bootFiles[host];
     if (!bootFile) return; // MCP skips prose token check
     const p = path.join(generatedRoot, host, bootFile);
@@ -75,6 +75,18 @@ test('opencode opencode.json references YES_BOOT.md', () => {
 test('mcp manifest has yes_route tool', () => {
   const mf = JSON.parse(fs.readFileSync(path.join(generatedRoot, 'mcp', 'mcp-manifest.json'), 'utf8'));
   assert.ok(mf.tools?.some(t => t.name === 'yes_route'), 'yes_route tool present');
+});
+
+test('generic adapter has zero-trust manifest, sandbox, audit, and cancellation files', () => {
+  const dir = path.join(generatedRoot, 'generic');
+  const manifest = JSON.parse(fs.readFileSync(path.join(dir, 'manifest.json'), 'utf8'));
+  const sandbox = JSON.parse(fs.readFileSync(path.join(dir, 'sandbox.policy.json'), 'utf8'));
+  assert.equal(manifest.trust_model, 'zero-trust');
+  assert.ok(manifest.signature?.value);
+  assert.equal(manifest.permissions.production_mutation_from_feedback, false);
+  assert.equal(sandbox.default, 'deny');
+  assert.ok(fs.existsSync(path.join(dir, 'audit.jsonl')));
+  assert.ok(fs.existsSync(path.join(dir, 'CANCEL.md')));
 });
 
 test('no bundle contains a literal API key', () => {

@@ -31,7 +31,12 @@ const HOST_REQUIRED_FILES = {
   claude:   ['CLAUDE.md', 'plugin.json', 'settings.json'],
   codex:    ['AGENTS.md', 'config.toml'],
   opencode: ['AGENTS.md', 'opencode.json'],
-  mcp:      ['mcp-manifest.json']
+  mcp:      ['mcp-manifest.json'],
+  cursor:   ['AGENTS.md', '.cursor/rules/yes-human.mdc'],
+  windsurf: ['AGENTS.md', '.windsurfrules'],
+  vscode:   ['AGENTS.md', '.vscode/settings.json', '.vscode/mcp.json'],
+  sourcegraph: ['AGENTS.md', 'sourcegraph.json'],
+  generic:  ['manifest.json', 'README.md', 'sandbox.policy.json', 'audit.jsonl', 'CANCEL.md']
 };
 
 // The "boot file" for token-cap purposes: the file loaded at host startup.
@@ -40,7 +45,12 @@ const HOST_BOOT_FILE = {
   claude:   'CLAUDE.md',
   codex:    'AGENTS.md',
   opencode: 'AGENTS.md',
-  mcp:      null
+  mcp:      null,
+  cursor:   'AGENTS.md',
+  windsurf: 'AGENTS.md',
+  vscode:   'AGENTS.md',
+  sourcegraph: 'AGENTS.md',
+  generic:  'README.md'
 };
 
 /**
@@ -135,6 +145,70 @@ export function validateHostBundle(host, generatedRoot, registryRoutes = []) {
         add('mcp manifest has resources', Array.isArray(mf.resources) && mf.resources.length > 0, `${mf.resources?.length} resources`);
       } catch (e) {
         add('mcp-manifest.json is valid JSON', false, e.message);
+      }
+    }
+  }
+
+  if (host === 'cursor') {
+    const rulesPath = path.join(generatedRoot, '.cursor/rules/yes-human.mdc');
+    if (fs.existsSync(rulesPath)) {
+      add('cursor rules mention route table', fs.readFileSync(rulesPath, 'utf8').includes('ROUTE_TABLE.min.json'));
+    }
+  }
+
+  if (host === 'windsurf') {
+    const rulesPath = path.join(generatedRoot, '.windsurfrules');
+    if (fs.existsSync(rulesPath)) {
+      add('windsurf rules mention staging-only feedback', fs.readFileSync(rulesPath, 'utf8').includes('Stage feedback'));
+    }
+  }
+
+  if (host === 'vscode') {
+    for (const rel of ['.vscode/settings.json', '.vscode/mcp.json']) {
+      const p = path.join(generatedRoot, rel);
+      if (fs.existsSync(p)) {
+        try {
+          JSON.parse(fs.readFileSync(p, 'utf8'));
+          add(`${rel} is valid JSON`, true);
+        } catch (e) {
+          add(`${rel} is valid JSON`, false, e.message);
+        }
+      }
+    }
+  }
+
+  if (host === 'sourcegraph') {
+    const p = path.join(generatedRoot, 'sourcegraph.json');
+    if (fs.existsSync(p)) {
+      try {
+        const sg = JSON.parse(fs.readFileSync(p, 'utf8'));
+        add('sourcegraph bundle is read-mostly', sg.mode === 'read-mostly');
+      } catch (e) {
+        add('sourcegraph.json is valid JSON', false, e.message);
+      }
+    }
+  }
+
+  if (host === 'generic') {
+    const manifestPath = path.join(generatedRoot, 'manifest.json');
+    const sandboxPath = path.join(generatedRoot, 'sandbox.policy.json');
+    if (fs.existsSync(manifestPath)) {
+      try {
+        const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+        add('generic manifest has signature', !!manifest.signature?.value);
+        add('generic feedback is staging-only', manifest.permissions?.production_mutation_from_feedback === false);
+        add('generic supports cancellation', manifest.cancellation?.supported === true);
+      } catch (e) {
+        add('manifest.json is valid JSON', false, e.message);
+      }
+    }
+    if (fs.existsSync(sandboxPath)) {
+      try {
+        const sandbox = JSON.parse(fs.readFileSync(sandboxPath, 'utf8'));
+        add('generic sandbox defaults deny', sandbox.default === 'deny');
+        add('generic network denied', sandbox.network === 'deny');
+      } catch (e) {
+        add('sandbox.policy.json is valid JSON', false, e.message);
       }
     }
   }

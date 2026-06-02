@@ -10,34 +10,28 @@
 import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
-import { MemoryManager } from '../packages/yes-runtime/memory-manager.js';
+import { LearningEngine } from '../packages/yes-runtime/learning-engine.js';
+import { redactString } from '../packages/yes-runtime/redaction.js';
 
-const memory = new MemoryManager();
+const learning = new LearningEngine();
 
 export default async function onTaskComplete(context) {
   const { task, route, agents, tools, duration, success } = context;
   
-  // 1. Generate trace ID and hash
-  const traceId = generateTraceId();
-  const taskHash = hashTask(task);
-  
-  // 2. Create trace entry
-  const trace = {
-    trace_id: traceId,
-    task_hash: taskHash,
-    task: task ? task.substring(0, 500) : null,
-    route_id: route,
+  // 1. Create tenant-scoped redacted trace and episodic record.
+  const { trace } = learning.recordTrace({
+    ...context,
+    task,
+    route_id: typeof route === 'string' ? route : route?.route_id,
+    route,
     agents: agents || [],
     tools: tools || [],
     duration_ms: duration,
-    success,
-    timestamp: new Date().toISOString()
-  };
-  
-  // 3. Write to episodic memory
-  const episodeId = memory.addEpisodicMemory('tasks', trace);
-  
-  // 4. Write to immutable ledger (from iso pattern)
+    success
+  });
+
+  // 2. Write to immutable ledger (from iso pattern). The ledger stores the
+  // redacted trace only, never raw task text.
   const ledgerEntry = {
     ...trace,
     previous_hash: getLastLedgerHash(),
@@ -47,34 +41,19 @@ export default async function onTaskComplete(context) {
   
   appendToJSONL('registry/ledger.jsonl', ledgerEntry);
   
-  // 5. Log to console
-  console.log(`[trace] task="${task}" route=${route} success=${success} duration=${duration}ms trace=${traceId}`);
+  // 3. Log redacted summary to console.
+  const taskPreview = task ? redactString(String(task).slice(0, 120)) : '';
+  console.log(`[trace] task="${taskPreview}" route=${trace.route_id} success=${success} duration=${duration}ms trace=${trace.trace_id}`);
   
   return { 
     recorded: true,
-    trace_id: traceId,
-    episode_id: episodeId,
+    trace_id: trace.trace_id,
     ledger_hash: ledgerEntry.hash
   };
 }
 
 /**
  * Generate unique trace ID
- */
-function generateTraceId() {
-  return crypto.randomBytes(16).toString('hex');
-}
-
-/**
- * Hash task for deduplication
- */
-function hashTask(task) {
-  if (!task) return 'empty';
-  return crypto.createHash('sha256').update(task).digest('hex').substring(0, 16);
-}
-
-/**
- * Append entry to JSONL file
  */
 function appendToJSONL(filePath, entry) {
   const dir = path.dirname(filePath);

@@ -15,7 +15,7 @@ addFormats(ajv);
 
 const schemasDir = path.join(__dirname, 'schemas');
 const schemaFiles = fs.readdirSync(schemasDir).filter((f) => f.endsWith('.json'));
-const registryIndexNames = ['agents', 'skills', 'workflows', 'tools', 'mcps', 'categories', 'aliases', 'commands', 'bundles', 'category-packs'];
+const registryIndexNames = ['agents', 'skills', 'workflows', 'tools', 'mcps', 'categories', 'aliases', 'commands', 'bundles', 'category-packs', 'adapter-packs'];
 const highStakesWorkflowDomains = new Set(['finance', 'legal-compliance', 'healthcare', 'hr']);
 
 for (const file of schemaFiles) {
@@ -293,7 +293,8 @@ const detailedSchemaMapping = {
   'workflows': 'workflow',
   'mcps': 'mcp',
   'categories': 'category',
-  'category-packs': 'category-pack'
+  'category-packs': 'category-pack',
+  'adapter-packs': 'adapter-pack'
 };
 
 for (const [registryName, schemaName] of Object.entries(detailedSchemaMapping)) {
@@ -383,6 +384,11 @@ if (fileExists(agentsRegistryPath)) {
 
 console.log('\n--- Workflow dossier verification ---');
 if (!validateWorkflowDossiersAndPolicies()) success = false;
+
+console.log('\n--- Phase 9 config validation ---');
+if (!validateAgainst('registry/learning-policy.json', 'learning-policy')) success = false;
+if (!validateAgainst('registry/team-mode.json', 'team-mode')) success = false;
+if (!validateAgainst('registry/offline-mode.json', 'offline-mode')) success = false;
 
 console.log('\n--- Manifest and path validation ---');
 if (!validateManifestPaths()) success = false;

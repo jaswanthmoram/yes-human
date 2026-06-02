@@ -1,0 +1,17 @@
+{
+  "id": "offline-mode",
+  "version": "1.0.0",
+  "enabled": true,
+  "env_flag": "YES_OFFLINE",
+  "state_dir": "graph/memory/offline",
+  "journal_file": "graph/memory/offline/journal.jsonl",
+  "checkpoint_file": "graph/memory/offline/checkpoint.json",
+  "network_policy_when_offline": "deny",
+  "connector_fallback": "local-cache-or-skip",
+  "crash_recovery": {
+    "enabled": true,
+    "checkpoint_on": ["route", "tool", "write", "verify", "complete"],
+    "resume_requires_user_confirmation": false,
+    "max_pending_operations": 200
+  }
+}

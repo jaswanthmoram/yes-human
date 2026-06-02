@@ -51,9 +51,13 @@ export function loadBuildContext() {
   const routeTable = readJSON('graph/indexes/ROUTE_TABLE.min.json');
   const workflows  = readJSON('registry/workflows.json');
   const mcps       = readJSON('registry/mcps.json');
+  const adapterPacks = readJSON('registry/adapter-packs.json');
   const categoryPacks = readJSON('registry/category-packs.json');
   const categories = readJSON('registry/categories.json');
   const costPolicy = readJSON('registry/cost-policy.json');
+  const learningPolicy = readJSON('registry/learning-policy.json');
+  const teamMode = readJSON('registry/team-mode.json');
+  const offlineMode = readJSON('registry/offline-mode.json');
   const bootText   = readFile('YES_BOOT.md');
 
   return {
@@ -63,9 +67,13 @@ export function loadBuildContext() {
     routeTable,
     workflows: workflows.items,
     mcps: mcps.items,
+    adapterPacks: adapterPacks.items,
     categoryPacks: categoryPacks.items,
     categories: categories.items,
     costPolicy,
+    learningPolicy,
+    teamMode,
+    offlineMode,
     bootText,
     version: plugin.version,
     generatedAt: new Date().toISOString()
@@ -75,10 +83,12 @@ export function loadBuildContext() {
 // ── adapter registry ──────────────────────────────────────────────────────────
 
 const CORE_HOSTS = ['claude', 'codex', 'opencode', 'mcp'];
+const OPTIONAL_HOSTS = ['cursor', 'windsurf', 'vscode', 'sourcegraph', 'generic'];
+const ALL_HOSTS = [...CORE_HOSTS, ...OPTIONAL_HOSTS];
 
 export async function buildHost(host, ctx) {
-  if (!CORE_HOSTS.includes(host)) {
-    throw new Error(`Unknown host "${host}". Core hosts: ${CORE_HOSTS.join(', ')}`);
+  if (!ALL_HOSTS.includes(host)) {
+    throw new Error(`Unknown host "${host}". Hosts: ${ALL_HOSTS.join(', ')}`);
   }
   const adapter = await import(`./adapters/${host}.js`);
   ensureDir(`generated/${host}`);
@@ -88,7 +98,7 @@ export async function buildHost(host, ctx) {
 
 export async function buildAll(ctx) {
   const results = {};
-  for (const host of CORE_HOSTS) {
+  for (const host of ALL_HOSTS) {
     results[host] = await buildHost(host, ctx);
   }
   return results;

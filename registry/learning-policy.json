@@ -1,0 +1,29 @@
+{
+  "id": "learning-policy",
+  "version": "1.0.0",
+  "description": "Phase 9 lightweight learning policy. Feedback can stage candidates, but never mutates production routing directly.",
+  "enabled": true,
+  "outcome_tracking": {
+    "enabled": true,
+    "decay": 0.92,
+    "min_events_for_signal": 3,
+    "state_dir": "graph/memory/learning"
+  },
+  "feedback_gate": {
+    "requires_eval_pass": true,
+    "allowed_mutations": ["staging.feedback", "staging.workflow-suggestions", "graph.memory.learning"],
+    "forbidden_mutations": ["registry/routes.json", "graph/indexes/ROUTE_TABLE.min.json", "registry/workflows.json", "registry/agents.json"],
+    "checks": ["route", "workflow", "skill", "cost"]
+  },
+  "workflow_miner": {
+    "enabled": true,
+    "min_successes": 3,
+    "min_distinct_task_hashes": 2,
+    "suggestion_dir": "staging/workflow-suggestions"
+  },
+  "mistake_graph": {
+    "enabled": true,
+    "state_file": "graph/memory/learning/mistake-graph.json",
+    "min_repeats_for_candidate": 2
+  }
+}

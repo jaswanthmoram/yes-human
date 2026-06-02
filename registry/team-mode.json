@@ -1,0 +1,20 @@
+{
+  "id": "team-mode",
+  "version": "1.0.0",
+  "enabled": true,
+  "default_tenant": "local",
+  "tenant_source_order": ["context.tenant_id", "YES_TENANT_ID", "default"],
+  "isolation": {
+    "base_dir": "graph/memory/tenants",
+    "trace_file": "traces.jsonl",
+    "hash_tenant_ids": true,
+    "deny_cross_tenant_reads": true
+  },
+  "redaction": {
+    "enabled": true,
+    "hash_task_text": true,
+    "drop_raw_task": true,
+    "redact_fields": ["password", "secret", "token", "api_key", "private_key", "authorization", "cookie"],
+    "redact_patterns": ["email", "openai_key", "github_token", "aws_key", "ssn", "credit_card"]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "offline-recovery-state-machine",
+  "version": "1.0.0",
+  "description": "Phase 9 offline and crash-recovery lifecycle with local checkpoints and journal replay.",
+  "initial": "online",
+  "states": [
+    { "name": "online", "type": "normal", "description": "Normal connector and network policy applies" },
+    { "name": "offline", "type": "normal", "description": "YES_OFFLINE is set; network and MCP calls are denied or skipped" },
+    { "name": "checkpointed", "type": "normal", "description": "Task stage checkpoint written to offline journal" },
+    { "name": "interrupted", "type": "normal", "description": "Process stopped before completion" },
+    { "name": "resume_gate", "type": "gate", "gate": "ask", "description": "Resume from latest checkpoint according to policy" },
+    { "name": "resumed", "type": "normal", "description": "Checkpoint replay selected" },
+    { "name": "complete", "type": "terminal", "description": "Recovered task completed" },
+    { "name": "abandoned", "type": "terminal", "description": "Checkpoint cleared or discarded" }
+  ],
+  "transitions": [
+    { "from": "online", "on": "set_offline", "to": "offline" },
+    { "from": "offline", "on": "checkpoint", "to": "checkpointed" },
+    { "from": "checkpointed", "on": "crash", "to": "interrupted" },
+    { "from": "interrupted", "on": "recover", "to": "resume_gate" },
+    { "from": "resume_gate", "on": "allow", "to": "resumed" },
+    { "from": "resume_gate", "on": "deny", "to": "abandoned" },
+    { "from": "resumed", "on": "finish", "to": "complete" },
+    { "from": "checkpointed", "on": "clear", "to": "abandoned" }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Yes-human Team Mode",
+  "type": "object",
+  "required": ["id", "version", "enabled", "default_tenant", "tenant_source_order", "isolation", "redaction"],
+  "properties": {
+    "id": { "type": "string" },
+    "version": { "type": "string" },
+    "enabled": { "type": "boolean" },
+    "default_tenant": { "type": "string" },
+    "tenant_source_order": { "type": "array", "items": { "type": "string" } },
+    "isolation": {
+      "type": "object",
+      "required": ["base_dir", "trace_file", "hash_tenant_ids", "deny_cross_tenant_reads"],
+      "properties": {
+        "base_dir": { "type": "string" },
+        "trace_file": { "type": "string" },
+        "hash_tenant_ids": { "type": "boolean" },
+        "deny_cross_tenant_reads": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "redaction": {
+      "type": "object",
+      "required": ["enabled", "hash_task_text", "drop_raw_task", "redact_fields", "redact_patterns"],
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "hash_task_text": { "type": "boolean" },
+        "drop_raw_task": { "type": "boolean" },
+        "redact_fields": { "type": "array", "items": { "type": "string" } },
+        "redact_patterns": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

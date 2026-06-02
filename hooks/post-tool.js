@@ -8,6 +8,7 @@
  */
 
 import { MemoryManager } from '../packages/yes-runtime/memory-manager.js';
+import { redactObject } from '../packages/yes-runtime/redaction.js';
 
 const memory = new MemoryManager();
 
@@ -47,17 +48,8 @@ export default async function postTool(context) {
  * Sanitize arguments to remove sensitive data
  */
 function sanitizeArgs(args) {
-  if (!args || typeof args !== 'object') return args;
-  
-  const sanitized = { ...args };
-  
-  // Remove sensitive fields
-  const sensitiveFields = ['password', 'secret', 'token', 'api_key', 'private_key'];
-  for (const field of sensitiveFields) {
-    if (sanitized[field]) {
-      sanitized[field] = '[REDACTED]';
-    }
-  }
+  const sanitized = redactObject(args);
+  if (!sanitized || typeof sanitized !== 'object') return sanitized;
   
   // Truncate long values
   for (const [key, value] of Object.entries(sanitized)) {

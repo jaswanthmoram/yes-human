@@ -14,11 +14,14 @@
     "validate": "node packages/yes-schema/validate.js",
     "eval:cost": "node packages/yes-schema/eval-cost.js",
     "report:phase8": "node packages/yes-schema/generate-phase8-acceptance.js",
+    "phase9:gate": "node packages/yes-cli/index.js evaluator gate",
+    "phase9:trainer": "node packages/yes-cli/index.js trainer report",
     "doctor": "node packages/yes-cli/index.js doctor",
     "test": "node --test 'tests/**/*.test.js'",
     "build:hosts": "node packages/yes-cli/index.js build all",
     "audit:dossiers": "node packages/yes-schema/audit-dossiers.js",
     "audit:dossiers:strict": "node packages/yes-schema/audit-dossiers.js --strict",
-    "research:gaps": "node packages/yes-schema/generate-research-gaps.js"
+    "research:gaps": "node packages/yes-schema/generate-research-gaps.js",
+    "phase9:acceptance": "npm run phase9:gate && npm run phase9:trainer"
   }
 }

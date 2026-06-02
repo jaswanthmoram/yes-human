@@ -6,8 +6,12 @@
   "properties": {
     "trace_id": { "type": "string" },
     "task_hash": { "type": "string" },
+    "task_redacted": { "type": ["string", "null"] },
+    "tenant_id": { "type": ["string", "null"] },
+    "tenant_hash": { "type": ["string", "null"] },
     "host": { "type": "string" },
     "route_id": { "type": "string" },
+    "workflow_id": { "type": ["string", "null"] },
     "agents": { "type": "array", "items": { "type": "string" } },
     "skills": { "type": "array", "items": { "type": "string" } },
     "tools": { "type": "array", "items": { "type": "string" } },
@@ -16,6 +20,17 @@
     "cost_band": { "type": "string", "enum": ["micro", "standard", "expanded", "deep"] },
     "success": { "type": "boolean" },
     "failure_class": { "type": ["string", "null"] },
+    "duration_ms": { "type": "integer", "minimum": 0 },
+    "created_at": { "type": "string", "format": "date-time" },
+    "redaction": {
+      "type": "object",
+      "properties": {
+        "applied": { "type": "boolean" },
+        "dropped_raw_task": { "type": "boolean" },
+        "patterns": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
     "verification": {
       "type": "object",
       "properties": {
@@ -24,7 +39,18 @@
       },
       "additionalProperties": false
     },
-    "learning_candidate": { "type": "boolean" }
+    "learning_candidate": { "type": "boolean" },
+    "outcome": {
+      "type": "object",
+      "properties": {
+        "source": { "type": "string" },
+        "score": { "type": "number", "minimum": 0, "maximum": 1 },
+        "feedback": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "offline": { "type": "boolean" },
+    "recovery_checkpoint": { "type": ["string", "null"] }
   },
   "additionalProperties": false
 }

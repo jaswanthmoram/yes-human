@@ -24,6 +24,7 @@ import path from 'path';
 export class ToolStrategy {
   constructor(config = {}) {
     this.config = config;
+    this.offline = config.offline ?? ['1', 'true', 'yes'].includes(String(process.env.YES_OFFLINE || '').toLowerCase());
     this.availableTools = this.detectAvailableTools();
   }
 
@@ -31,6 +32,18 @@ export class ToolStrategy {
    * Detect which tools are available in the environment
    */
   detectAvailableTools() {
+    if (this.offline) {
+      return {
+        webfetch: false,
+        playwright: false,
+        gh: false,
+        curl: false,
+        wget: false,
+        firecrawl: false,
+        exa: false
+      };
+    }
+
     const tools = {
       webfetch: true,  // Always available (built-in)
       playwright: true, // Always available (built-in)
@@ -223,6 +236,10 @@ export class ToolStrategy {
     let lastError = null;
 
     for (const tool of [strategy.tool, ...strategy.fallback]) {
+      if (!this.isExecutableTool(tool)) {
+        lastError = new Error(this.offline ? `Tool ${tool} unavailable in offline mode` : `Tool ${tool} unavailable`);
+        continue;
+      }
       try {
         const result = await this.executeTool(tool, task);
         return {
@@ -242,6 +259,17 @@ export class ToolStrategy {
       error: lastError?.message || 'All tools failed',
       strategy
     };
+  }
+
+  isExecutableTool(tool) {
+    if (tool.startsWith('firecrawl')) return this.availableTools.firecrawl;
+    if (tool.includes('exa')) return this.availableTools.exa;
+    if (tool === 'webfetch') return this.availableTools.webfetch;
+    if (tool === 'playwright') return this.availableTools.playwright;
+    if (tool === 'gh') return this.availableTools.gh;
+    if (tool === 'curl') return this.availableTools.curl;
+    if (tool === 'wget') return this.availableTools.wget;
+    return true;
   }
 
   /**

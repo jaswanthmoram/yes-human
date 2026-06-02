@@ -8,18 +8,23 @@
  */
 
 import { MemoryManager } from '../packages/yes-runtime/memory-manager.js';
+import { LearningEngine } from '../packages/yes-runtime/learning-engine.js';
+import { redactObject, redactString } from '../packages/yes-runtime/redaction.js';
 
 const memory = new MemoryManager();
+const learning = new LearningEngine({ memoryManager: memory });
 
 export default async function onError(context) {
   const { error, task, agent, tool, args } = context;
+  const errorMessage = redactString(error?.message || String(error));
   
   // 1. Log error to episodic memory
   const episodeId = memory.addEpisodicMemory('errors', {
     error_type: classifyError(error),
-    error_message: error?.message || String(error),
-    error_stack: error?.stack || null,
-    task: task ? task.substring(0, 200) : null,
+    error: errorMessage,
+    error_message: errorMessage,
+    error_stack: null,
+    task_hash: task ? learning.createTrace({ task, route_id: context.route_id, success: false }).task_hash : null,
     agent,
     tool,
     args: sanitizeArgs(args),
@@ -29,6 +34,15 @@ export default async function onError(context) {
   // 2. Update mistake graph (semantic memory)
   const mistakePattern = extractMistakePattern(context);
   if (mistakePattern) {
+    learning.updateMistakeGraph({
+      trace_id: context.trace_id || null,
+      route_id: context.route_id || context.route?.route_id || 'route.meta-system.supreme-router',
+      workflow_id: context.workflow_id || null,
+      failure_class: mistakePattern.error_type,
+      task_hash: task ? learning.createTrace({ task, route_id: context.route_id, success: false }).task_hash : null,
+      suggested_route: context.suggested_route || null
+    });
+
     memory.addSemanticMemory({
       pattern: mistakePattern.pattern,
       lesson: mistakePattern.lesson,
@@ -39,7 +53,7 @@ export default async function onError(context) {
   }
   
   // 3. Log to console
-  console.error(`[error] task="${task}" agent=${agent} error=${error?.message || error} episode=${episodeId}`);
+  console.error(`[error] task_hash=${task ? learning.createTrace({ task, route_id: context.route_id, success: false }).task_hash : 'empty'} agent=${agent} error=${errorMessage} episode=${episodeId}`);
   
   return { 
     handled: true,
@@ -123,17 +137,5 @@ function extractMistakePattern(context) {
  * Sanitize arguments to remove sensitive data
  */
 function sanitizeArgs(args) {
-  if (!args || typeof args !== 'object') return args;
-  
-  const sanitized = { ...args };
-  
-  // Remove sensitive fields
-  const sensitiveFields = ['password', 'secret', 'token', 'api_key', 'private_key'];
-  for (const field of sensitiveFields) {
-    if (sanitized[field]) {
-      sanitized[field] = '[REDACTED]';
-    }
-  }
-  
-  return sanitized;
+  return redactObject(args);
 }

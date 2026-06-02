@@ -1,0 +1,14 @@
+{
+  "generated_at": "2026-06-02T09:52:03.089Z",
+  "status": {
+    "policy_enabled": true,
+    "outcomes": 0,
+    "route_stats": 0,
+    "mistake_nodes": 0,
+    "mistake_edges": 0,
+    "learning_dir": "graph/memory/learning"
+  },
+  "weak_routes": [],
+  "production_mutation": false,
+  "next_action": "Review staged feedback/workflow suggestions, then run yes evaluator gate before any registry promotion."
+}

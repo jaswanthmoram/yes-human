@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Yes-human Offline Mode",
+  "type": "object",
+  "required": ["id", "version", "enabled", "env_flag", "state_dir", "journal_file", "checkpoint_file", "network_policy_when_offline", "connector_fallback", "crash_recovery"],
+  "properties": {
+    "id": { "type": "string" },
+    "version": { "type": "string" },
+    "enabled": { "type": "boolean" },
+    "env_flag": { "type": "string" },
+    "state_dir": { "type": "string" },
+    "journal_file": { "type": "string" },
+    "checkpoint_file": { "type": "string" },
+    "network_policy_when_offline": { "type": "string", "enum": ["allow", "deny", "ask"] },
+    "connector_fallback": { "type": "string" },
+    "crash_recovery": {
+      "type": "object",
+      "required": ["enabled", "checkpoint_on", "resume_requires_user_confirmation", "max_pending_operations"],
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "checkpoint_on": { "type": "array", "items": { "type": "string" } },
+        "resume_requires_user_confirmation": { "type": "boolean" },
+        "max_pending_operations": { "type": "integer", "minimum": 1 }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

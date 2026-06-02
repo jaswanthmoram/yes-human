@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Yes-human Adapter Pack",
+  "type": "object",
+  "required": ["id", "host", "status", "trust_model", "build_command", "boot_file", "files", "supports_hooks", "supports_cancellation", "sandbox", "audit"],
+  "properties": {
+    "id": { "type": "string" },
+    "host": { "type": "string", "enum": ["cursor", "windsurf", "vscode", "sourcegraph", "generic"] },
+    "status": { "type": "string", "enum": ["optional", "active", "disabled"] },
+    "trust_model": { "type": "string", "enum": ["workspace", "read-mostly", "zero-trust"] },
+    "build_command": { "type": "string" },
+    "boot_file": { "type": "string" },
+    "files": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "manifest": { "type": ["string", "null"] },
+    "supports_hooks": { "type": "string", "enum": ["native", "wrapper", "unsupported"] },
+    "supports_cancellation": { "type": "boolean" },
+    "sandbox": {
+      "type": "object",
+      "required": ["mode", "network", "filesystem"],
+      "properties": {
+        "mode": { "type": "string" },
+        "network": { "type": "string" },
+        "filesystem": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "audit": {
+      "type": "object",
+      "required": ["enabled", "redacted", "path"],
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "redacted": { "type": "boolean" },
+        "path": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

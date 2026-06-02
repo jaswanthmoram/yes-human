@@ -7,6 +7,10 @@ import { resolveRoute } from '../yes-runtime/router.js';
 import { checkAgentPromotion } from '../../validators/promotion.validator.js';
 import { DreamCycle } from '../yes-runtime/dream-cycle.js';
 import { MemoryManager } from '../yes-runtime/memory-manager.js';
+import { YesEvaluator } from '../yes-runtime/yes-evaluator.js';
+import { YesTrainer } from '../yes-runtime/yes-trainer.js';
+import { WorkflowMiner } from '../yes-runtime/workflow-miner.js';
+import { OfflineRecovery } from '../yes-runtime/offline-recovery.js';
 import { loadBuildContext, buildHost, buildAll } from '../yes-adapters/index.js';
 import { validateHostBundle } from '../../validators/host-bundle.validator.js';
 import { CodeGraph } from '../yes-graph/index.js';
@@ -26,6 +30,18 @@ function runScript(relativeScript, extraArgs = []) {
 
 function readJSON(relativePath) {
   return JSON.parse(fs.readFileSync(path.join(repoRoot, relativePath), 'utf8'));
+}
+
+function flagValue(args, name, fallback = null) {
+  const idx = args.indexOf(name);
+  if (idx < 0) return fallback;
+  return args[idx + 1] ?? fallback;
+}
+
+function boolFlag(args, name, fallback = false) {
+  const value = flagValue(args, name, null);
+  if (value === null) return args.includes(name) ? true : fallback;
+  return ['1', 'true', 'yes', 'pass', 'passed', 'success'].includes(String(value).toLowerCase());
 }
 
 async function cmdRoute(args) {
@@ -230,6 +246,161 @@ function cmdMemory(args) {
   }
   
   console.error('Usage: yes memory <status|clear|archive>');
+  return 1;
+}
+
+function cmdEvaluator(args) {
+  const evaluator = new YesEvaluator({ repoRoot });
+  const sub = args[0] || 'status';
+
+  if (sub === 'status') {
+    console.log(JSON.stringify(evaluator.status(), null, 2));
+    return 0;
+  }
+
+  if (sub === 'trace') {
+    const task = flagValue(args, '--task', args.slice(1).filter((a) => !a.startsWith('--')).join(' ').trim());
+    const routeId = flagValue(args, '--route', 'route.meta-system.supreme-router');
+    const success = boolFlag(args, '--success', true);
+    const result = evaluator.trace({
+      task,
+      route_id: routeId,
+      workflow_id: flagValue(args, '--workflow', null),
+      tenant_id: flagValue(args, '--tenant', null),
+      host: flagValue(args, '--host', 'cli'),
+      success,
+      failure_class: flagValue(args, '--failure-class', null),
+      duration_ms: Number(flagValue(args, '--duration-ms', 0))
+    });
+    console.log(JSON.stringify(result, null, 2));
+    return 0;
+  }
+
+  if (sub === 'outcome') {
+    const routeId = flagValue(args, '--route', null);
+    if (!routeId) {
+      console.error('Usage: yes evaluator outcome --route <route-id> --success <true|false> [--trace <trace-id>]');
+      return 1;
+    }
+    const result = evaluator.outcome({
+      trace_id: flagValue(args, '--trace', null),
+      route_id: routeId,
+      workflow_id: flagValue(args, '--workflow', null),
+      success: boolFlag(args, '--success', true),
+      score: Number(flagValue(args, '--score', boolFlag(args, '--success', true) ? 1 : 0)),
+      source: flagValue(args, '--source', 'manual'),
+      feedback: flagValue(args, '--feedback', null),
+      failure_class: flagValue(args, '--failure-class', null),
+      suggested_route: flagValue(args, '--suggested-route', null),
+      tenant_id: flagValue(args, '--tenant', null)
+    });
+    console.log(JSON.stringify(result, null, 2));
+    return 0;
+  }
+
+  if (sub === 'gate') {
+    const checks = flagValue(args, '--checks', 'route,workflow,skill,cost').split(',').map((s) => s.trim()).filter(Boolean);
+    const result = evaluator.gate(checks);
+    console.log(JSON.stringify(result, null, 2));
+    return result.passed ? 0 : 1;
+  }
+
+  console.error('Usage: yes evaluator <status|trace|outcome|gate>');
+  return 1;
+}
+
+function cmdTrainer(args) {
+  const trainer = new YesTrainer({ repoRoot });
+  const sub = args[0] || 'report';
+
+  if (sub === 'report') {
+    const result = trainer.report();
+    console.log(JSON.stringify(result, null, 2));
+    return 0;
+  }
+
+  if (sub === 'suggest' || sub === 'suggest-workflows') {
+    const result = trainer.suggestWorkflows();
+    console.log(JSON.stringify(result, null, 2));
+    return 0;
+  }
+
+  console.error('Usage: yes trainer <report|suggest>');
+  return 1;
+}
+
+function cmdFeedback(args) {
+  const type = args[0];
+  if (!['accept', 'reject', 'partial', 'wrong-agent'].includes(type)) {
+    console.error('Usage: yes feedback <accept|reject|partial|wrong-agent> --trace <trace-id> [--route <route-id>] [--suggested-route <route-id>] [--note "..."]');
+    return 1;
+  }
+  const evaluator = new YesEvaluator({ repoRoot });
+  const result = evaluator.engine.stageFeedback({
+    type,
+    trace_id: flagValue(args, '--trace', null),
+    route_id: flagValue(args, '--route', null),
+    suggested_route: flagValue(args, '--suggested-route', null),
+    note: flagValue(args, '--note', null),
+    metadata: { source: 'cli' }
+  });
+  console.log(JSON.stringify(result, null, 2));
+  return 0;
+}
+
+function cmdWorkflow(args) {
+  const sub = args[0];
+  if (sub === 'suggest') {
+    const miner = new WorkflowMiner({ repoRoot });
+    const result = miner.suggest();
+    console.log(JSON.stringify(result, null, 2));
+    return 0;
+  }
+  console.error('Usage: yes workflow suggest');
+  return 1;
+}
+
+function cmdTeam(args) {
+  const sub = args[0] || 'status';
+  if (sub !== 'status') {
+    console.error('Usage: yes team status');
+    return 1;
+  }
+  const config = readJSON('registry/team-mode.json');
+  const tenant = flagValue(args, '--tenant', process.env.YES_TENANT_ID || config.default_tenant);
+  const evaluator = new YesEvaluator({ repoRoot });
+  const trace = evaluator.engine.createTrace({ task: 'tenant status probe', tenant_id: tenant, route_id: 'route.meta-system.supreme-router', success: true });
+  console.log(JSON.stringify({
+    enabled: config.enabled,
+    tenant_hash: trace.tenant_hash,
+    raw_tenant_stored: config.isolation?.hash_tenant_ids === false,
+    trace_base_dir: config.isolation?.base_dir,
+    redaction: config.redaction
+  }, null, 2));
+  return 0;
+}
+
+function cmdOffline(args) {
+  const recovery = new OfflineRecovery({ repoRoot });
+  const sub = args[0] || 'status';
+  if (sub === 'status') {
+    console.log(JSON.stringify(recovery.status(), null, 2));
+    return 0;
+  }
+  if (sub === 'checkpoint') {
+    const stage = flagValue(args, '--stage', args[1] || 'manual');
+    console.log(JSON.stringify(recovery.checkpoint(stage, { source: 'cli' }), null, 2));
+    return 0;
+  }
+  if (sub === 'resume') {
+    console.log(JSON.stringify(recovery.resume(), null, 2));
+    return 0;
+  }
+  if (sub === 'clear') {
+    console.log(JSON.stringify(recovery.clear(), null, 2));
+    return 0;
+  }
+  console.error('Usage: yes offline <status|checkpoint|resume|clear>');
   return 1;
 }
 
@@ -456,7 +627,7 @@ async function cmdAbsorb(args) {
 }
 
 async function cmdBuild(args) {
-  const HOSTS = ['claude', 'codex', 'opencode', 'mcp', 'all'];
+  const HOSTS = ['claude', 'codex', 'opencode', 'mcp', 'cursor', 'windsurf', 'vscode', 'sourcegraph', 'generic', 'all'];
   const host = args[0];
   if (!host || !HOSTS.includes(host)) {
     console.error(`Usage: yes build <host>  (hosts: ${HOSTS.join(', ')})`);
@@ -483,7 +654,7 @@ async function cmdBuild(args) {
   }
 
   // Auto-validate after build
-  const hostsBuilt = host === 'all' ? ['claude', 'codex', 'opencode', 'mcp'] : [host];
+    const hostsBuilt = host === 'all' ? ['claude', 'codex', 'opencode', 'mcp', 'cursor', 'windsurf', 'vscode', 'sourcegraph', 'generic'] : [host];
   let allOk = true;
   for (const h of hostsBuilt) {
     const dir = path.join(repoRoot, 'generated', h);
@@ -509,6 +680,17 @@ Usage:
   yes eval route                 Score routing fixtures against eval thresholds
   yes eval workflow              Score workflow fixtures against eval thresholds
   yes eval skill                 Score skill fixtures against eval thresholds
+  yes evaluator status           Show Phase 9 learning/outcome status
+  yes evaluator trace            Record a redacted tenant-scoped trace
+  yes evaluator outcome          Record a lightweight route outcome
+  yes evaluator gate             Run eval-gated feedback checks
+  yes trainer report             Summarize learning signals without mutating prod
+  yes trainer suggest            Stage workflow suggestions from repeated traces
+  yes feedback <type>            Stage feedback; never mutates production routing
+  yes workflow suggest           Stage workflow-miner suggestions
+  yes team status                Show tenant isolation/redaction status
+  yes offline status             Show offline/crash-recovery state
+  yes recover <status|resume>    Alias for offline recovery
   yes validate                   Validate schemas, registries, routes, hooks, rules, policies
   yes compile                    Recompile registries and route table from content
   yes promote --check <agent>    Check if an agent's dossier qualifies for promotion
@@ -547,6 +729,20 @@ async function main() {
       if (rest[0] === 'skill') return runScript('packages/yes-schema/eval-skill.js');
       console.error(`Unknown eval subcommand: ${rest[0] ?? ''}. Try: yes eval cost | yes eval route | yes eval workflow | yes eval skill`);
       return 1;
+    case 'evaluator':
+      return cmdEvaluator(rest);
+    case 'trainer':
+      return cmdTrainer(rest);
+    case 'feedback':
+      return cmdFeedback(rest);
+    case 'workflow':
+      return cmdWorkflow(rest);
+    case 'team':
+      return cmdTeam(rest);
+    case 'offline':
+      return cmdOffline(rest);
+    case 'recover':
+      return cmdOffline(rest.length ? rest : ['status']);
     case 'validate':
       return runScript('packages/yes-schema/validate.js');
     case 'compile':

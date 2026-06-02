@@ -17,13 +17,17 @@
     "target_tokens": 180,
     "hard_cap_tokens": 300
   },
-  "exports": ["claude", "codex", "opencode", "agent-md", "cli", "mcp", "cursor", "windsurf", "generic"],
+  "exports": ["claude", "codex", "opencode", "agent-md", "cli", "mcp", "cursor", "windsurf", "vscode", "sourcegraph", "generic"],
   "registries": {
     "agents": "registry/agents.json",
     "skills": "registry/skills.json",
     "workflows": "registry/workflows.json",
     "tools": "registry/tools.json",
     "mcps": "registry/mcps.json",
-    "category_packs": "registry/category-packs.json"
+    "category_packs": "registry/category-packs.json",
+    "adapter_packs": "registry/adapter-packs.json",
+    "learning_policy": "registry/learning-policy.json",
+    "team_mode": "registry/team-mode.json",
+    "offline_mode": "registry/offline-mode.json"
   }
 }
