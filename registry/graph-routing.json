@@ -1,0 +1,7 @@
+{
+  "version": "2.0.0",
+  "code_graph_assist": true,
+  "db_path": "graph/indexes/yes.sqlite",
+  "max_context_items": 8,
+  "stale_after_days": 14
+}

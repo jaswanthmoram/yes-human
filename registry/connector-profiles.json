@@ -1,0 +1,29 @@
+{
+  "version": "2.0.0",
+  "profiles": {
+    "minimal": {
+      "description": "Local dev: GitHub + filesystem + markitdown",
+      "enable": [
+        "github",
+        "filesystem",
+        "markitdown"
+      ]
+    },
+    "research": {
+      "description": "Research lane",
+      "enable": [
+        "github",
+        "filesystem",
+        "markitdown",
+        "firecrawl",
+        "exa"
+      ]
+    },
+    "enterprise": {
+      "description": "Declared connectors; require env before enable",
+      "enable": [],
+      "note": "Enable per MCP after creds review"
+    }
+  },
+  "default_profile": "minimal"
+}
