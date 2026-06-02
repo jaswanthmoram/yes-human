@@ -67,13 +67,16 @@
   "primary_agent": "security.incident-responder",
   "route": {
     "domain_master": "security.master",
+    "agents": [
+      "security.incident-responder"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 2,
     "primary": "security.incident-responder",
     "participants": [
       "security.security-reviewer",
       "security.forensics-analyst"
-    ],
-    "parallel": false,
-    "max_parallel_agents": 2
+    ]
   },
   "budget": {
     "band": "expanded",

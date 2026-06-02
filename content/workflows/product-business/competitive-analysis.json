@@ -47,13 +47,16 @@
   "primary_agent": "product-business.competitive-analyst",
   "route": {
     "domain_master": "product-business.master",
+    "agents": [
+      "product-business.competitive-analyst"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 2,
     "primary": "product-business.competitive-analyst",
     "participants": [
       "product-business.product-strategist",
       "product-business.market-researcher"
-    ],
-    "parallel": false,
-    "max_parallel_agents": 2
+    ]
   },
   "budget": {
     "band": "standard",

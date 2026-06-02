@@ -55,13 +55,13 @@
     "domain_master": "legal-compliance.master",
     "agents": [
       "legal-compliance.due-diligence",
-      "legal-compliance.contract-lawyer",
+      "legal-compliance.contract-reviewer",
       "legal-compliance.ip-lawyer",
       "legal-compliance.employment-lawyer"
     ],
     "primary_agent": "legal-compliance.due-diligence",
     "participants": [
-      "legal-compliance.contract-lawyer",
+      "legal-compliance.contract-reviewer",
       "legal-compliance.ip-lawyer",
       "legal-compliance.employment-lawyer"
     ],
@@ -90,7 +90,11 @@
     {
       "id": "on-task-complete",
       "rule": "End with attorney review packet; do not recommend for or against the transaction."
-    }
+    },
+    "pre-route",
+    "pre-tool",
+    "pre-write",
+    "on-task-complete"
   ],
   "steps": [
     {
@@ -100,7 +104,7 @@
     },
     {
       "id": "contract-review",
-      "agent": "legal-compliance.contract-lawyer",
+      "agent": "legal-compliance.contract-reviewer",
       "action": "Review material contracts for risks and obligations."
     },
     {

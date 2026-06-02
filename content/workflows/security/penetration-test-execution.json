@@ -66,13 +66,16 @@
   "primary_agent": "security.penetration-tester",
   "route": {
     "domain_master": "security.master",
+    "agents": [
+      "security.penetration-tester"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 2,
     "primary": "security.penetration-tester",
     "participants": [
       "security.security-reviewer",
       "security.network-analyst"
-    ],
-    "parallel": false,
-    "max_parallel_agents": 2
+    ]
   },
   "budget": {
     "band": "expanded",

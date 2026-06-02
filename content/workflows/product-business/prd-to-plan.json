@@ -47,12 +47,15 @@
   "primary_agent": "product-business.product-manager",
   "route": {
     "domain_master": "product-business.master",
+    "agents": [
+      "product-business.product-manager"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 2,
     "primary": "product-business.product-manager",
     "participants": [
       "product-business.operations-planner"
-    ],
-    "parallel": false,
-    "max_parallel_agents": 2
+    ]
   },
   "budget": {
     "band": "standard",

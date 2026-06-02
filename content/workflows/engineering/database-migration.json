@@ -57,10 +57,13 @@
   "primary_agent": "engineering.migration-builder",
   "route": {
     "domain_master": "engineering.master",
-    "primary": "engineering.migration-builder",
-    "participants": [],
+    "agents": [
+      "engineering.migration-builder"
+    ],
     "parallel": false,
-    "max_parallel_agents": 1
+    "max_parallel_agents": 1,
+    "primary": "engineering.migration-builder",
+    "participants": []
   },
   "budget": {
     "band": "standard",

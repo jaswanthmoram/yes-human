@@ -47,12 +47,15 @@
   "primary_agent": "security.threat-modeler",
   "route": {
     "domain_master": "security.master",
+    "agents": [
+      "security.threat-modeler"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 2,
     "primary": "security.threat-modeler",
     "participants": [
       "security.security-reviewer"
-    ],
-    "parallel": false,
-    "max_parallel_agents": 2
+    ]
   },
   "budget": {
     "band": "expanded",

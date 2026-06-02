@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-06-02T04:23:37.726Z",
-  "count": 93,
+  "generated_at": "2026-06-02T09:18:20.287Z",
+  "count": 119,
   "items": [
     {
       "id": "data-ai.rag-eval",
@@ -119,11 +119,11 @@
         "remediation_plan",
         "assistive_tech_findings"
       ],
-      "primary_agent": "design-content.accessibility-expert",
+      "primary_agent": "design-content.accessibility-auditor",
       "route": {
         "domain_master": "design-content.master",
         "agents": [
-          "design-content.accessibility-expert",
+          "design-content.accessibility-auditor",
           "design-content.ui-designer"
         ],
         "parallel": false,
@@ -351,6 +351,132 @@
       }
     },
     {
+      "id": "design-content.copy-and-a11y-review",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "copy-and-a11y-review workflow",
+      "task_family": "design-content",
+      "triggers": [
+        "copy and a11y review"
+      ],
+      "aliases": [
+        "copy-and-a11y-review"
+      ],
+      "negative_keywords": [
+        "wrong domain"
+      ],
+      "inputs": [
+        "task_context"
+      ],
+      "outputs": [
+        "workflow_output"
+      ],
+      "primary_agent": "design-content.accessibility-auditor",
+      "route": {
+        "domain_master": "design-content.master",
+        "agents": [
+          "design-content.accessibility-auditor"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 1
+      },
+      "budget": {
+        "band": "standard",
+        "max_context_tokens": 8000,
+        "max_tool_calls": 12
+      },
+      "gates": [
+        "pre-route",
+        "pre-tool",
+        "on-task-complete"
+      ],
+      "steps": [
+        "intake_scope",
+        "execute_workflow",
+        "verify_outputs"
+      ],
+      "tools": [
+        "filesystem.read"
+      ],
+      "verification": [
+        "outputs_verified"
+      ],
+      "success_criteria": [
+        "workflow_objectives_met"
+      ],
+      "rollback": "trace_based",
+      "source_references": [
+        "ref.workflow.design-content.copy-and-a11y-review.2026-06-02"
+      ],
+      "promotion": {
+        "can_learn": true,
+        "min_successes_before_update": 2
+      }
+    },
+    {
+      "id": "design-content.design-system-audit",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "design-system-audit workflow",
+      "task_family": "design-content",
+      "triggers": [
+        "design system audit"
+      ],
+      "aliases": [
+        "design-system-audit"
+      ],
+      "negative_keywords": [
+        "wrong domain"
+      ],
+      "inputs": [
+        "task_context"
+      ],
+      "outputs": [
+        "workflow_output"
+      ],
+      "primary_agent": "design-content.ui-designer",
+      "route": {
+        "domain_master": "design-content.master",
+        "agents": [
+          "design-content.ui-designer"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 1
+      },
+      "budget": {
+        "band": "standard",
+        "max_context_tokens": 8000,
+        "max_tool_calls": 12
+      },
+      "gates": [
+        "pre-route",
+        "pre-tool",
+        "on-task-complete"
+      ],
+      "steps": [
+        "intake_scope",
+        "execute_workflow",
+        "verify_outputs"
+      ],
+      "tools": [
+        "filesystem.read"
+      ],
+      "verification": [
+        "outputs_verified"
+      ],
+      "success_criteria": [
+        "workflow_objectives_met"
+      ],
+      "rollback": "trace_based",
+      "source_references": [
+        "ref.workflow.design-content.design-system-audit.2026-06-02"
+      ],
+      "promotion": {
+        "can_learn": true,
+        "min_successes_before_update": 2
+      }
+    },
+    {
       "id": "design-content.design-system-creation",
       "version": "1.0.0",
       "status": "active",
@@ -389,7 +515,7 @@
         "agents": [
           "design-content.design-systems",
           "design-content.visual-designer",
-          "design-content.accessibility-expert"
+          "design-content.accessibility-auditor"
         ],
         "parallel": true,
         "max_parallel_agents": 3
@@ -654,7 +780,6 @@
       },
       "gates": [
         "pre-route",
-        "pre-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -736,7 +861,6 @@
       },
       "gates": [
         "pre-route",
-        "pre-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -818,7 +942,6 @@
       },
       "gates": [
         "pre-route",
-        "pre-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -901,7 +1024,6 @@
       },
       "gates": [
         "pre-route",
-        "pre-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -928,6 +1050,69 @@
       "rollback": "no_write",
       "source_references": [
         "references/workflows/education/online-course-development.sources.json"
+      ],
+      "promotion": {
+        "can_learn": true,
+        "min_successes_before_update": 2
+      }
+    },
+    {
+      "id": "education.syllabus-alignment",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "syllabus-alignment workflow",
+      "task_family": "education",
+      "triggers": [
+        "syllabus alignment"
+      ],
+      "aliases": [
+        "syllabus-alignment"
+      ],
+      "negative_keywords": [
+        "wrong domain"
+      ],
+      "inputs": [
+        "task_context"
+      ],
+      "outputs": [
+        "workflow_output"
+      ],
+      "primary_agent": "education.curriculum-designer",
+      "route": {
+        "domain_master": "education.master",
+        "agents": [
+          "education.curriculum-designer"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 1
+      },
+      "budget": {
+        "band": "standard",
+        "max_context_tokens": 8000,
+        "max_tool_calls": 12
+      },
+      "gates": [
+        "pre-route",
+        "pre-tool",
+        "on-task-complete"
+      ],
+      "steps": [
+        "intake_scope",
+        "execute_workflow",
+        "verify_outputs"
+      ],
+      "tools": [
+        "filesystem.read"
+      ],
+      "verification": [
+        "outputs_verified"
+      ],
+      "success_criteria": [
+        "workflow_objectives_met"
+      ],
+      "rollback": "trace_based",
+      "source_references": [
+        "ref.workflow.education.syllabus-alignment.2026-06-02"
       ],
       "promotion": {
         "can_learn": true,
@@ -2417,6 +2602,70 @@
       }
     },
     {
+      "id": "finance.monthly-close-support",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "monthly-close-support workflow",
+      "task_family": "finance",
+      "triggers": [
+        "monthly close support"
+      ],
+      "aliases": [
+        "monthly-close-support"
+      ],
+      "negative_keywords": [
+        "wrong domain"
+      ],
+      "inputs": [
+        "task_context"
+      ],
+      "outputs": [
+        "workflow_output"
+      ],
+      "primary_agent": "finance.financial-analyst",
+      "route": {
+        "domain_master": "finance.master",
+        "agents": [
+          "finance.financial-analyst"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 1
+      },
+      "budget": {
+        "band": "standard",
+        "max_context_tokens": 8000,
+        "max_tool_calls": 12
+      },
+      "gates": [
+        "pre-route",
+        "pre-tool",
+        "on-task-complete",
+        "pre-write"
+      ],
+      "steps": [
+        "intake_scope",
+        "execute_workflow",
+        "verify_outputs"
+      ],
+      "tools": [
+        "filesystem.read"
+      ],
+      "verification": [
+        "outputs_verified"
+      ],
+      "success_criteria": [
+        "workflow_objectives_met"
+      ],
+      "rollback": "trace_based",
+      "source_references": [
+        "ref.workflow.finance.monthly-close-support.2026-06-02"
+      ],
+      "promotion": {
+        "can_learn": true,
+        "min_successes_before_update": 2
+      }
+    },
+    {
       "id": "finance.monthly-forecast",
       "version": "1.0.0",
       "status": "active",
@@ -2756,6 +3005,70 @@
       }
     },
     {
+      "id": "healthcare.clinical-note-summary",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "clinical-note-summary workflow",
+      "task_family": "healthcare",
+      "triggers": [
+        "clinical note summary"
+      ],
+      "aliases": [
+        "clinical-note-summary"
+      ],
+      "negative_keywords": [
+        "wrong domain"
+      ],
+      "inputs": [
+        "task_context"
+      ],
+      "outputs": [
+        "workflow_output"
+      ],
+      "primary_agent": "healthcare.clinical-informatics",
+      "route": {
+        "domain_master": "healthcare.master",
+        "agents": [
+          "healthcare.clinical-informatics"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 1
+      },
+      "budget": {
+        "band": "standard",
+        "max_context_tokens": 8000,
+        "max_tool_calls": 12
+      },
+      "gates": [
+        "pre-route",
+        "pre-tool",
+        "on-task-complete",
+        "pre-write"
+      ],
+      "steps": [
+        "intake_scope",
+        "execute_workflow",
+        "verify_outputs"
+      ],
+      "tools": [
+        "filesystem.read"
+      ],
+      "verification": [
+        "outputs_verified"
+      ],
+      "success_criteria": [
+        "workflow_objectives_met"
+      ],
+      "rollback": "trace_based",
+      "source_references": [
+        "ref.workflow.healthcare.clinical-note-summary.2026-06-02"
+      ],
+      "promotion": {
+        "can_learn": true,
+        "min_successes_before_update": 2
+      }
+    },
+    {
       "id": "healthcare.hipaa-compliance-audit",
       "version": "1.0.0",
       "status": "active",
@@ -2840,7 +3153,7 @@
         "No PHI appears in any audit output.",
         "All Business Associate Agreements are validated."
       ],
-      "rollback": "no_write",
+      "rollback": "trace_based",
       "source_references": [
         "references/workflows/healthcare/hipaa-compliance-audit.sources.json"
       ],
@@ -3201,6 +3514,70 @@
       }
     },
     {
+      "id": "hr.offer-letter-prep",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "offer-letter-prep workflow",
+      "task_family": "hr",
+      "triggers": [
+        "offer letter prep"
+      ],
+      "aliases": [
+        "offer-letter-prep"
+      ],
+      "negative_keywords": [
+        "wrong domain"
+      ],
+      "inputs": [
+        "task_context"
+      ],
+      "outputs": [
+        "workflow_output"
+      ],
+      "primary_agent": "hr.hiring-manager",
+      "route": {
+        "domain_master": "hr.master",
+        "agents": [
+          "hr.hiring-manager"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 1
+      },
+      "budget": {
+        "band": "standard",
+        "max_context_tokens": 8000,
+        "max_tool_calls": 12
+      },
+      "gates": [
+        "pre-route",
+        "pre-tool",
+        "on-task-complete",
+        "pre-write"
+      ],
+      "steps": [
+        "intake_scope",
+        "execute_workflow",
+        "verify_outputs"
+      ],
+      "tools": [
+        "filesystem.read"
+      ],
+      "verification": [
+        "outputs_verified"
+      ],
+      "success_criteria": [
+        "workflow_objectives_met"
+      ],
+      "rollback": "trace_based",
+      "source_references": [
+        "ref.workflow.hr.offer-letter-prep.2026-06-02"
+      ],
+      "promotion": {
+        "can_learn": true,
+        "min_successes_before_update": 2
+      }
+    },
+    {
       "id": "hr.onboarding-process",
       "version": "1.0.0",
       "status": "active",
@@ -3313,11 +3690,10 @@
         "calibration_process",
         "growth_plan_template"
       ],
-      "primary_agent": "hr.performance-manager",
+      "primary_agent": "hr.performance-reviewer",
       "route": {
         "domain_master": "hr.master",
         "agents": [
-          "hr.performance-manager",
           "hr.performance-reviewer"
         ],
         "parallel": false,
@@ -3560,11 +3936,11 @@
         "gap_analysis",
         "remediation_plan"
       ],
-      "primary_agent": "legal-compliance.compliance-officer",
+      "primary_agent": "legal-compliance.compliance-checker",
       "route": {
         "domain_master": "legal-compliance.master",
         "agents": [
-          "legal-compliance.compliance-officer",
+          "legal-compliance.compliance-checker",
           "legal-compliance.regulatory-affairs",
           "legal-compliance.risk-manager"
         ],
@@ -3643,13 +4019,13 @@
         "clause_analysis",
         "attorney_handoff"
       ],
-      "primary_agent": "legal-compliance.contract-lawyer",
+      "primary_agent": "legal-compliance.contract-reviewer",
       "route": {
         "domain_master": "legal-compliance.master",
         "agents": [
-          "legal-compliance.contract-lawyer",
-          "legal-compliance.compliance-officer",
-          "legal-compliance.privacy-officer"
+          "legal-compliance.contract-reviewer",
+          "legal-compliance.compliance-checker",
+          "legal-compliance.privacy-advisor"
         ],
         "parallel": true,
         "max_parallel_agents": 3
@@ -3813,7 +4189,7 @@
         "domain_master": "legal-compliance.master",
         "agents": [
           "legal-compliance.due-diligence",
-          "legal-compliance.contract-lawyer",
+          "legal-compliance.contract-reviewer",
           "legal-compliance.ip-lawyer",
           "legal-compliance.employment-lawyer"
         ],
@@ -3980,7 +4356,7 @@
         "domain_master": "legal-compliance.master",
         "agents": [
           "legal-compliance.policy-analyst",
-          "legal-compliance.compliance-officer",
+          "legal-compliance.compliance-checker",
           "legal-compliance.regulatory-affairs"
         ],
         "parallel": true,
@@ -4021,6 +4397,70 @@
       "rollback": "trace_based",
       "source_references": [
         "references/workflows/legal-compliance/policy-development.sources.json"
+      ],
+      "promotion": {
+        "can_learn": true,
+        "min_successes_before_update": 2
+      }
+    },
+    {
+      "id": "legal-compliance.vendor-contract-triage",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "vendor-contract-triage workflow",
+      "task_family": "legal-compliance",
+      "triggers": [
+        "vendor contract triage"
+      ],
+      "aliases": [
+        "vendor-contract-triage"
+      ],
+      "negative_keywords": [
+        "wrong domain"
+      ],
+      "inputs": [
+        "task_context"
+      ],
+      "outputs": [
+        "workflow_output"
+      ],
+      "primary_agent": "legal-compliance.contract-reviewer",
+      "route": {
+        "domain_master": "legal-compliance.master",
+        "agents": [
+          "legal-compliance.contract-reviewer"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 1
+      },
+      "budget": {
+        "band": "standard",
+        "max_context_tokens": 8000,
+        "max_tool_calls": 12
+      },
+      "gates": [
+        "pre-route",
+        "pre-tool",
+        "on-task-complete",
+        "pre-write"
+      ],
+      "steps": [
+        "intake_scope",
+        "execute_workflow",
+        "verify_outputs"
+      ],
+      "tools": [
+        "filesystem.read"
+      ],
+      "verification": [
+        "outputs_verified"
+      ],
+      "success_criteria": [
+        "workflow_objectives_met"
+      ],
+      "rollback": "trace_based",
+      "source_references": [
+        "ref.workflow.legal-compliance.vendor-contract-triage.2026-06-02"
       ],
       "promotion": {
         "can_learn": true,
@@ -4076,7 +4516,6 @@
       },
       "gates": [
         "pre-route",
-        "pre-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -4158,7 +4597,6 @@
       },
       "gates": [
         "pre-route",
-        "pre-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -4240,7 +4678,6 @@
       },
       "gates": [
         "pre-route",
-        "pre-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -4322,7 +4759,6 @@
       },
       "gates": [
         "pre-route",
-        "pre-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -4390,7 +4826,7 @@
         "domain_master": "marketing.master",
         "agents": [
           "marketing.content-marketer",
-          "marketing.seo-specialist"
+          "marketing.seo-analyst"
         ],
         "parallel": true,
         "max_parallel_agents": 2
@@ -4403,7 +4839,6 @@
       },
       "gates": [
         "pre-route",
-        "pre-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -4429,6 +4864,69 @@
       "rollback": "trace_based",
       "source_references": [
         "references/workflows/marketing/content-marketing-strategy.sources.json"
+      ],
+      "promotion": {
+        "can_learn": true,
+        "min_successes_before_update": 2
+      }
+    },
+    {
+      "id": "marketing.content-pipeline",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "content-pipeline workflow",
+      "task_family": "marketing",
+      "triggers": [
+        "content pipeline"
+      ],
+      "aliases": [
+        "content-pipeline"
+      ],
+      "negative_keywords": [
+        "wrong domain"
+      ],
+      "inputs": [
+        "task_context"
+      ],
+      "outputs": [
+        "workflow_output"
+      ],
+      "primary_agent": "marketing.content-marketer",
+      "route": {
+        "domain_master": "marketing.master",
+        "agents": [
+          "marketing.content-marketer"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 1
+      },
+      "budget": {
+        "band": "standard",
+        "max_context_tokens": 8000,
+        "max_tool_calls": 12
+      },
+      "gates": [
+        "pre-route",
+        "pre-tool",
+        "on-task-complete"
+      ],
+      "steps": [
+        "intake_scope",
+        "execute_workflow",
+        "verify_outputs"
+      ],
+      "tools": [
+        "filesystem.read"
+      ],
+      "verification": [
+        "outputs_verified"
+      ],
+      "success_criteria": [
+        "workflow_objectives_met"
+      ],
+      "rollback": "trace_based",
+      "source_references": [
+        "ref.workflow.marketing.content-pipeline.2026-06-02"
       ],
       "promotion": {
         "can_learn": true,
@@ -4484,7 +4982,6 @@
       },
       "gates": [
         "pre-route",
-        "pre-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -4565,7 +5062,6 @@
       },
       "gates": [
         "pre-route",
-        "pre-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -4647,7 +5143,6 @@
       },
       "gates": [
         "pre-route",
-        "pre-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -4728,7 +5223,6 @@
       },
       "gates": [
         "pre-route",
-        "pre-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -4791,11 +5285,11 @@
         "issue_prioritization",
         "remediation_roadmap"
       ],
-      "primary_agent": "marketing.seo-specialist",
+      "primary_agent": "marketing.seo-analyst",
       "route": {
         "domain_master": "marketing.master",
         "agents": [
-          "marketing.seo-specialist",
+          "marketing.seo-analyst",
           "marketing.content-marketer"
         ],
         "parallel": true,
@@ -4809,7 +5303,6 @@
       },
       "gates": [
         "pre-route",
-        "pre-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -4835,6 +5328,69 @@
       "rollback": "trace_based",
       "source_references": [
         "references/workflows/marketing/seo-audit-process.sources.json"
+      ],
+      "promotion": {
+        "can_learn": true,
+        "min_successes_before_update": 2
+      }
+    },
+    {
+      "id": "marketing.seo-improvement",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "seo-improvement workflow",
+      "task_family": "marketing",
+      "triggers": [
+        "seo improvement"
+      ],
+      "aliases": [
+        "seo-improvement"
+      ],
+      "negative_keywords": [
+        "wrong domain"
+      ],
+      "inputs": [
+        "task_context"
+      ],
+      "outputs": [
+        "workflow_output"
+      ],
+      "primary_agent": "marketing.seo-analyst",
+      "route": {
+        "domain_master": "marketing.master",
+        "agents": [
+          "marketing.seo-analyst"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 1
+      },
+      "budget": {
+        "band": "standard",
+        "max_context_tokens": 8000,
+        "max_tool_calls": 12
+      },
+      "gates": [
+        "pre-route",
+        "pre-tool",
+        "on-task-complete"
+      ],
+      "steps": [
+        "intake_scope",
+        "execute_workflow",
+        "verify_outputs"
+      ],
+      "tools": [
+        "filesystem.read"
+      ],
+      "verification": [
+        "outputs_verified"
+      ],
+      "success_criteria": [
+        "workflow_objectives_met"
+      ],
+      "rollback": "trace_based",
+      "source_references": [
+        "ref.workflow.marketing.seo-improvement.2026-06-02"
       ],
       "promotion": {
         "can_learn": true,
@@ -4890,7 +5446,6 @@
       },
       "gates": [
         "pre-route",
-        "pre-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -4916,6 +5471,343 @@
       "rollback": "trace_based",
       "source_references": [
         "references/workflows/marketing/social-media-campaign.sources.json"
+      ],
+      "promotion": {
+        "can_learn": true,
+        "min_successes_before_update": 2
+      }
+    },
+    {
+      "id": "meta-system.agent-creation",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "End-to-end workflow for creating new agents with proper design, validation, dossier, and fixture generation.",
+      "task_family": "agent_lifecycle",
+      "triggers": [
+        "create new agent",
+        "agent creation workflow",
+        "onboard new agent",
+        "agent lifecycle start"
+      ],
+      "aliases": [
+        "agent onboarding",
+        "new agent workflow"
+      ],
+      "negative_keywords": [
+        "modify existing agent",
+        "delete agent",
+        "workflow creation"
+      ],
+      "inputs": [
+        "agent_requirement",
+        "domain_context",
+        "dossier_sources"
+      ],
+      "outputs": [
+        "agent_specification",
+        "agent_dossier",
+        "agent_fixtures"
+      ],
+      "primary_agent": "meta-system.agent-designer",
+      "route": {
+        "domain_master": "meta-system.master",
+        "agents": [
+          "meta-system.agent-designer",
+          "meta-system.system-architect",
+          "meta-system.fixture-engineer",
+          "meta-system.dossier-evaluator"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 2
+      },
+      "budget": {
+        "band": "expanded",
+        "max_context_tokens": 4000,
+        "max_tool_calls": 12,
+        "notes": "Stay focused on agent creation lifecycle only."
+      },
+      "gates": [
+        "pre-route",
+        "on-task-complete"
+      ],
+      "steps": [
+        "design-agent",
+        "review-architecture",
+        "build-dossier",
+        "generate-fixtures",
+        "validate-agent"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write",
+        "shell.readonly"
+      ],
+      "verification": [
+        "spec-complete",
+        "dossier-score",
+        "fixtures-present"
+      ],
+      "success_criteria": [
+        "Agent specification passes format and content validation.",
+        "Dossier score is >= 80 with complete provenance.",
+        "Routing fixtures cover positive, edge, and negative cases."
+      ],
+      "rollback": "trace_based",
+      "source_references": [
+        "references/workflows/meta-system/agent-creation.sources.json"
+      ],
+      "promotion": {
+        "can_learn": true,
+        "min_successes_before_update": 2
+      }
+    },
+    {
+      "id": "meta-system.fixture-generation",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "End-to-end workflow for generating comprehensive test fixtures for routing, skill, and workflow validation.",
+      "task_family": "testing_lifecycle",
+      "triggers": [
+        "generate test fixtures",
+        "fixture generation workflow",
+        "create test fixtures batch",
+        "fixture lifecycle start"
+      ],
+      "aliases": [
+        "fixture batch generation",
+        "test fixture workflow"
+      ],
+      "negative_keywords": [
+        "run tests",
+        "evaluate routing",
+        "agent creation"
+      ],
+      "inputs": [
+        "fixture_requirements",
+        "target_registry",
+        "coverage_gaps"
+      ],
+      "outputs": [
+        "routing_fixtures",
+        "skill_fixtures",
+        "workflow_fixtures",
+        "coverage_report"
+      ],
+      "primary_agent": "meta-system.fixture-engineer",
+      "route": {
+        "domain_master": "meta-system.master",
+        "agents": [
+          "meta-system.fixture-engineer",
+          "meta-system.eval-runner",
+          "meta-system.quality-assurance"
+        ],
+        "parallel": true,
+        "max_parallel_agents": 3
+      },
+      "budget": {
+        "band": "expanded",
+        "max_context_tokens": 4000,
+        "max_tool_calls": 15,
+        "notes": "Stay focused on fixture generation only."
+      },
+      "gates": [
+        "pre-route",
+        "on-task-complete"
+      ],
+      "steps": [
+        "analyze-coverage",
+        "generate-routing-fixtures",
+        "generate-skill-fixtures",
+        "generate-workflow-fixtures",
+        "validate-fixtures",
+        "report-coverage"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write",
+        "shell.readonly"
+      ],
+      "verification": [
+        "format-valid",
+        "coverage-met",
+        "edge-cases"
+      ],
+      "success_criteria": [
+        "All fixtures pass format validation.",
+        "Coverage requirements met for routing, skill, and workflow fixtures.",
+        "Edge cases and negative scenarios included."
+      ],
+      "rollback": "trace_based",
+      "source_references": [
+        "references/workflows/meta-system/fixture-generation.sources.json"
+      ],
+      "promotion": {
+        "can_learn": true,
+        "min_successes_before_update": 2
+      }
+    },
+    {
+      "id": "meta-system.quality-assurance",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "End-to-end workflow for running quality assurance checks across agents, skills, and workflows.",
+      "task_family": "quality_lifecycle",
+      "triggers": [
+        "run quality assurance",
+        "QA workflow",
+        "system quality check",
+        "registry quality audit"
+      ],
+      "aliases": [
+        "QA sweep",
+        "quality audit workflow"
+      ],
+      "negative_keywords": [
+        "code testing",
+        "security audit",
+        "agent creation"
+      ],
+      "inputs": [
+        "audit_scope",
+        "quality_criteria",
+        "registry_snapshot"
+      ],
+      "outputs": [
+        "qa_report",
+        "compliance_matrix",
+        "remediation_list"
+      ],
+      "primary_agent": "meta-system.quality-assurance",
+      "route": {
+        "domain_master": "meta-system.master",
+        "agents": [
+          "meta-system.quality-assurance",
+          "meta-system.stub-detector",
+          "meta-system.dossier-evaluator",
+          "meta-system.eval-runner"
+        ],
+        "parallel": true,
+        "max_parallel_agents": 4
+      },
+      "budget": {
+        "band": "expanded",
+        "max_context_tokens": 4000,
+        "max_tool_calls": 15,
+        "notes": "Stay focused on quality assurance checks only."
+      },
+      "gates": [
+        "pre-route",
+        "on-task-complete"
+      ],
+      "steps": [
+        "detect-stubs",
+        "evaluate-dossiers",
+        "run-evaluation",
+        "compile-qa-report",
+        "prioritize-remediation"
+      ],
+      "tools": [
+        "filesystem.read",
+        "shell.readonly",
+        "filesystem.write"
+      ],
+      "verification": [
+        "scope-covered",
+        "compliance-matrix",
+        "remediation-prioritized"
+      ],
+      "success_criteria": [
+        "All items in audit scope evaluated.",
+        "Compliance matrix complete with pass/fail per artifact.",
+        "Remediation list prioritized by impact."
+      ],
+      "rollback": "trace_based",
+      "source_references": [
+        "references/workflows/meta-system/quality-assurance.sources.json"
+      ],
+      "promotion": {
+        "can_learn": true,
+        "min_successes_before_update": 2
+      }
+    },
+    {
+      "id": "meta-system.skill-development",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "End-to-end workflow for developing new skills with proper authoring, validation, dossier creation, and fixture generation.",
+      "task_family": "skill_lifecycle",
+      "triggers": [
+        "develop new skill",
+        "skill development workflow",
+        "create skill definition",
+        "skill lifecycle start"
+      ],
+      "aliases": [
+        "skill creation",
+        "new skill development"
+      ],
+      "negative_keywords": [
+        "modify existing skill",
+        "delete skill",
+        "agent creation"
+      ],
+      "inputs": [
+        "skill_requirement",
+        "domain_context",
+        "dossier_sources"
+      ],
+      "outputs": [
+        "skill_specification",
+        "skill_dossier",
+        "skill_fixtures"
+      ],
+      "primary_agent": "meta-system.skill-designer",
+      "route": {
+        "domain_master": "meta-system.master",
+        "agents": [
+          "meta-system.skill-designer",
+          "meta-system.system-architect",
+          "meta-system.fixture-engineer",
+          "meta-system.dossier-evaluator"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 2
+      },
+      "budget": {
+        "band": "expanded",
+        "max_context_tokens": 4000,
+        "max_tool_calls": 12,
+        "notes": "Stay focused on skill development lifecycle only."
+      },
+      "gates": [
+        "pre-route",
+        "on-task-complete"
+      ],
+      "steps": [
+        "author-skill",
+        "review-architecture",
+        "build-dossier",
+        "generate-fixtures",
+        "validate-skill"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write",
+        "shell.readonly"
+      ],
+      "verification": [
+        "spec-complete",
+        "dossier-score",
+        "fixtures-present"
+      ],
+      "success_criteria": [
+        "Skill specification passes format and content validation.",
+        "Dossier score is >= 80 with complete provenance.",
+        "Test fixtures cover trigger scenarios and edge cases."
+      ],
+      "rollback": "trace_based",
+      "source_references": [
+        "references/workflows/meta-system/skill-development.sources.json"
       ],
       "promotion": {
         "can_learn": true,
@@ -4972,8 +5864,6 @@
       },
       "gates": [
         "pre-route",
-        "pre-tool",
-        "on-absorb",
         "on-task-complete"
       ],
       "steps": [
@@ -5000,6 +5890,174 @@
       "rollback": "trace_based",
       "source_references": [
         "references/workflows/meta-system/source-mine-and-dossier.sources.json"
+      ],
+      "promotion": {
+        "can_learn": true,
+        "min_successes_before_update": 2
+      }
+    },
+    {
+      "id": "meta-system.system-optimization",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "End-to-end workflow for optimizing system performance through boot token reduction, route table compression, and registry pruning.",
+      "task_family": "optimization_lifecycle",
+      "triggers": [
+        "optimize system",
+        "system optimization workflow",
+        "performance optimization pass",
+        "boot token reduction"
+      ],
+      "aliases": [
+        "system tuning",
+        "performance optimization workflow"
+      ],
+      "negative_keywords": [
+        "code optimization",
+        "database optimization",
+        "agent creation"
+      ],
+      "inputs": [
+        "system_metrics",
+        "optimization_targets",
+        "budget_constraints"
+      ],
+      "outputs": [
+        "optimization_plan",
+        "performance_report",
+        "implementation_log"
+      ],
+      "primary_agent": "meta-system.system-optimizer",
+      "route": {
+        "domain_master": "meta-system.master",
+        "agents": [
+          "meta-system.system-optimizer",
+          "meta-system.system-architect",
+          "meta-system.quality-assurance"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 2
+      },
+      "budget": {
+        "band": "expanded",
+        "max_context_tokens": 4000,
+        "max_tool_calls": 12,
+        "notes": "Stay focused on system optimization only."
+      },
+      "gates": [
+        "pre-route",
+        "on-task-complete"
+      ],
+      "steps": [
+        "measure-baseline",
+        "identify-opportunities",
+        "review-architecture",
+        "implement-optimizations",
+        "verify-no-regression",
+        "report-results"
+      ],
+      "tools": [
+        "filesystem.read",
+        "shell.readonly",
+        "filesystem.write"
+      ],
+      "verification": [
+        "baseline-measured",
+        "no-regression",
+        "results-documented"
+      ],
+      "success_criteria": [
+        "Baseline measured before any changes.",
+        "Optimizations applied with measurable improvement.",
+        "No functionality regression introduced."
+      ],
+      "rollback": "trace_based",
+      "source_references": [
+        "references/workflows/meta-system/system-optimization.sources.json"
+      ],
+      "promotion": {
+        "can_learn": true,
+        "min_successes_before_update": 2
+      }
+    },
+    {
+      "id": "meta-system.workflow-design",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "End-to-end workflow for designing new workflows with proper step sequencing, agent routing, gates, and validation.",
+      "task_family": "workflow_lifecycle",
+      "triggers": [
+        "design new workflow",
+        "workflow design workflow",
+        "create workflow definition",
+        "workflow lifecycle start"
+      ],
+      "aliases": [
+        "workflow creation",
+        "new workflow design"
+      ],
+      "negative_keywords": [
+        "modify existing workflow",
+        "delete workflow",
+        "agent creation"
+      ],
+      "inputs": [
+        "workflow_requirement",
+        "available_agents",
+        "domain_constraints"
+      ],
+      "outputs": [
+        "workflow_specification",
+        "workflow_dossier",
+        "workflow_fixtures"
+      ],
+      "primary_agent": "meta-system.workflow-architect",
+      "route": {
+        "domain_master": "meta-system.master",
+        "agents": [
+          "meta-system.workflow-architect",
+          "meta-system.system-architect",
+          "meta-system.fixture-engineer",
+          "meta-system.dossier-evaluator"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 2
+      },
+      "budget": {
+        "band": "expanded",
+        "max_context_tokens": 4000,
+        "max_tool_calls": 12,
+        "notes": "Stay focused on workflow design lifecycle only."
+      },
+      "gates": [
+        "pre-route",
+        "on-task-complete"
+      ],
+      "steps": [
+        "design-workflow",
+        "review-architecture",
+        "build-dossier",
+        "generate-fixtures",
+        "validate-workflow"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write",
+        "shell.readonly"
+      ],
+      "verification": [
+        "spec-complete",
+        "dossier-score",
+        "fixtures-present"
+      ],
+      "success_criteria": [
+        "Workflow specification passes format and content validation.",
+        "Dossier score is >= 80 with complete provenance.",
+        "Test fixtures cover primary and edge case scenarios."
+      ],
+      "rollback": "trace_based",
+      "source_references": [
+        "references/workflows/meta-system/workflow-design.sources.json"
       ],
       "promotion": {
         "can_learn": true,
@@ -5056,8 +6114,6 @@
       },
       "gates": [
         "pre-route",
-        "pre-tool",
-        "pre-write",
         "on-task-complete"
       ],
       "steps": [
@@ -5093,8 +6149,7 @@
       "id": "platform.cloud-migration",
       "version": "1.0.0",
       "status": "active",
-      "name": "Cloud Migration",
-      "description": "Plan and execute workload migration between cloud providers or from on-premises to cloud with minimal downtime.",
+      "summary": "Plan and execute workload migration between cloud providers or from on-premises to cloud with minimal downtime.",
       "task_family": "infrastructure_migration",
       "triggers": [
         "cloud migration workflow",
@@ -5129,26 +6184,21 @@
         "cutover_runbook"
       ],
       "primary_agent": "platform.devops-engineer",
-      "participants": [
-        "platform.security-engineer",
-        "platform.network-engineer",
-        "platform.sre-engineer",
-        "platform.cost-analyst"
-      ],
-      "skills": [
-        "cloud-migration",
-        "infrastructure-as-code",
-        "data-replication",
-        "dns-management",
-        "cost-optimization"
-      ],
-      "budget_band": "expanded",
-      "max_context_tokens": 4500,
-      "max_tool_calls": 16,
+      "route": {
+        "domain_master": "platform.master",
+        "agents": [
+          "platform.devops-engineer"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 1
+      },
+      "budget": {
+        "band": "standard",
+        "max_context_tokens": 8000,
+        "max_tool_calls": 12
+      },
       "gates": [
         "pre-route",
-        "pre-tool",
-        "post-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -5181,15 +6231,6 @@
       "source_references": [
         "references/workflows/platform/cloud-migration.sources.json"
       ],
-      "quality_gate": "staging",
-      "route": {
-        "domain_master": "platform.master",
-        "agents": [
-          "platform.devops-engineer"
-        ],
-        "parallel": false,
-        "max_parallel_agents": 1
-      },
       "promotion": {
         "can_learn": true,
         "min_successes_before_update": 2
@@ -5199,8 +6240,7 @@
       "id": "platform.disaster-recovery-setup",
       "version": "1.0.0",
       "status": "active",
-      "name": "Disaster Recovery Setup",
-      "description": "Design and implement disaster recovery capabilities including backup strategies, failover mechanisms, and recovery testing.",
+      "summary": "Design and implement disaster recovery capabilities including backup strategies, failover mechanisms, and recovery testing.",
       "task_family": "resilience_engineering",
       "triggers": [
         "disaster recovery setup",
@@ -5234,25 +6274,21 @@
         "recovery_test_report"
       ],
       "primary_agent": "platform.sre-engineer",
-      "participants": [
-        "platform.devops-engineer",
-        "platform.security-engineer",
-        "platform.network-engineer"
-      ],
-      "skills": [
-        "disaster-recovery",
-        "backup-management",
-        "cross-region-replication",
-        "failover-automation",
-        "compliance-auditing"
-      ],
-      "budget_band": "expanded",
-      "max_context_tokens": 4000,
-      "max_tool_calls": 14,
+      "route": {
+        "domain_master": "platform.master",
+        "agents": [
+          "platform.sre-engineer"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 1
+      },
+      "budget": {
+        "band": "standard",
+        "max_context_tokens": 8000,
+        "max_tool_calls": 12
+      },
       "gates": [
         "pre-route",
-        "pre-tool",
-        "post-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -5285,26 +6321,16 @@
       "source_references": [
         "references/workflows/platform/disaster-recovery-setup.sources.json"
       ],
-      "quality_gate": "staging",
-      "route": {
-        "domain_master": "platform.master",
-        "agents": [
-          "platform.sre-engineer"
-        ],
-        "parallel": false,
-        "max_parallel_agents": 1
-      },
       "promotion": {
         "can_learn": true,
         "min_successes_before_update": 2
       }
     },
     {
-      "id": "platform.incident-response-playbook",
+      "id": "platform.incident-responder-playbook",
       "version": "1.0.0",
       "status": "active",
-      "name": "Incident Response Playbook",
-      "description": "Execute a structured incident response workflow from detection through triage, mitigation, communication, and post-mortem.",
+      "summary": "Execute a structured incident response workflow from detection through triage, mitigation, communication, and post-mortem.",
       "task_family": "incident_management",
       "triggers": [
         "incident response playbook",
@@ -5338,24 +6364,21 @@
         "post_mortem_draft"
       ],
       "primary_agent": "platform.incident-responder",
-      "participants": [
-        "platform.sre-engineer",
-        "platform.devops-engineer",
-        "platform.security-engineer"
-      ],
-      "skills": [
-        "incident-management",
-        "log-analysis",
-        "runbook-execution",
-        "stakeholder-communication"
-      ],
-      "budget_band": "standard",
-      "max_context_tokens": 3200,
-      "max_tool_calls": 10,
+      "route": {
+        "domain_master": "platform.master",
+        "agents": [
+          "platform.incident-responder"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 1
+      },
+      "budget": {
+        "band": "standard",
+        "max_context_tokens": 8000,
+        "max_tool_calls": 12
+      },
       "gates": [
         "pre-route",
-        "pre-tool",
-        "post-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -5387,15 +6410,6 @@
       "source_references": [
         "references/workflows/platform/incident-response-playbook.sources.json"
       ],
-      "quality_gate": "staging",
-      "route": {
-        "domain_master": "platform.master",
-        "agents": [
-          "platform.incident-responder"
-        ],
-        "parallel": false,
-        "max_parallel_agents": 1
-      },
       "promotion": {
         "can_learn": true,
         "min_successes_before_update": 2
@@ -5405,8 +6419,7 @@
       "id": "platform.kubernetes-cluster-setup",
       "version": "1.0.0",
       "status": "active",
-      "name": "Kubernetes Cluster Setup",
-      "description": "Provision and configure a production-ready Kubernetes cluster with networking, storage, security, and observability foundations.",
+      "summary": "Provision and configure a production-ready Kubernetes cluster with networking, storage, security, and observability foundations.",
       "task_family": "infrastructure_provisioning",
       "triggers": [
         "kubernetes cluster setup",
@@ -5440,24 +6453,21 @@
         "validation_report"
       ],
       "primary_agent": "platform.devops-engineer",
-      "participants": [
-        "platform.security-engineer",
-        "platform.network-engineer",
-        "platform.sre-engineer"
-      ],
-      "skills": [
-        "kubernetes-admin",
-        "infrastructure-as-code",
-        "cloud-networking",
-        "container-security"
-      ],
-      "budget_band": "expanded",
-      "max_context_tokens": 4200,
-      "max_tool_calls": 14,
+      "route": {
+        "domain_master": "platform.master",
+        "agents": [
+          "platform.devops-engineer"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 1
+      },
+      "budget": {
+        "band": "standard",
+        "max_context_tokens": 8000,
+        "max_tool_calls": 12
+      },
       "gates": [
         "pre-route",
-        "pre-tool",
-        "post-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -5490,15 +6500,6 @@
       "source_references": [
         "references/workflows/platform/kubernetes-cluster-setup.sources.json"
       ],
-      "quality_gate": "staging",
-      "route": {
-        "domain_master": "platform.master",
-        "agents": [
-          "platform.devops-engineer"
-        ],
-        "parallel": false,
-        "max_parallel_agents": 1
-      },
       "promotion": {
         "can_learn": true,
         "min_successes_before_update": 2
@@ -5508,8 +6509,7 @@
       "id": "platform.monitoring-stack-deployment",
       "version": "1.0.0",
       "status": "active",
-      "name": "Monitoring Stack Deployment",
-      "description": "Deploy and configure a full observability stack with metrics, logs, traces, dashboards, and alerting rules.",
+      "summary": "Deploy and configure a full observability stack with metrics, logs, traces, dashboards, and alerting rules.",
       "task_family": "observability",
       "triggers": [
         "monitoring stack deployment",
@@ -5543,24 +6543,21 @@
         "validation_report"
       ],
       "primary_agent": "platform.sre-engineer",
-      "participants": [
-        "platform.devops-engineer",
-        "platform.security-engineer"
-      ],
-      "skills": [
-        "prometheus",
-        "grafana",
-        "opentelemetry",
-        "alerting-systems",
-        "kubernetes-admin"
-      ],
-      "budget_band": "expanded",
-      "max_context_tokens": 3800,
-      "max_tool_calls": 12,
+      "route": {
+        "domain_master": "platform.master",
+        "agents": [
+          "platform.sre-engineer"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 1
+      },
+      "budget": {
+        "band": "standard",
+        "max_context_tokens": 8000,
+        "max_tool_calls": 12
+      },
       "gates": [
         "pre-route",
-        "pre-tool",
-        "post-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -5593,15 +6590,6 @@
       "source_references": [
         "references/workflows/platform/monitoring-stack-deployment.sources.json"
       ],
-      "quality_gate": "staging",
-      "route": {
-        "domain_master": "platform.master",
-        "agents": [
-          "platform.sre-engineer"
-        ],
-        "parallel": false,
-        "max_parallel_agents": 1
-      },
       "promotion": {
         "can_learn": true,
         "min_successes_before_update": 2
@@ -5611,8 +6599,7 @@
       "id": "platform.terraform-infrastructure-deployment",
       "version": "1.0.0",
       "status": "active",
-      "name": "Terraform Infrastructure Deployment",
-      "description": "Plan, validate, and apply Terraform configurations with state management, drift detection, and approval gates.",
+      "summary": "Plan, validate, and apply Terraform configurations with state management, drift detection, and approval gates.",
       "task_family": "infrastructure_provisioning",
       "triggers": [
         "terraform infrastructure deployment",
@@ -5646,24 +6633,21 @@
         "state_backup"
       ],
       "primary_agent": "platform.devops-engineer",
-      "participants": [
-        "platform.security-engineer",
-        "platform.cost-analyst",
-        "platform.sre-engineer"
-      ],
-      "skills": [
-        "terraform",
-        "infrastructure-as-code",
-        "cloud-provider-apis",
-        "state-management"
-      ],
-      "budget_band": "expanded",
-      "max_context_tokens": 4000,
-      "max_tool_calls": 12,
+      "route": {
+        "domain_master": "platform.master",
+        "agents": [
+          "platform.devops-engineer"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 1
+      },
+      "budget": {
+        "band": "standard",
+        "max_context_tokens": 8000,
+        "max_tool_calls": 12
+      },
       "gates": [
         "pre-route",
-        "pre-tool",
-        "post-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -5696,15 +6680,6 @@
       "source_references": [
         "references/workflows/platform/terraform-infrastructure-deployment.sources.json"
       ],
-      "quality_gate": "staging",
-      "route": {
-        "domain_master": "platform.master",
-        "agents": [
-          "platform.devops-engineer"
-        ],
-        "parallel": false,
-        "max_parallel_agents": 1
-      },
       "promotion": {
         "can_learn": true,
         "min_successes_before_update": 2
@@ -5867,6 +6842,69 @@
       "rollback": "no_write",
       "source_references": [
         "ref.workflow.product-business.feature-prioritization.2026-05-31"
+      ],
+      "promotion": {
+        "can_learn": true,
+        "min_successes_before_update": 2
+      }
+    },
+    {
+      "id": "product-business.prd-review",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "prd-review workflow",
+      "task_family": "product-business",
+      "triggers": [
+        "prd review"
+      ],
+      "aliases": [
+        "prd-review"
+      ],
+      "negative_keywords": [
+        "wrong domain"
+      ],
+      "inputs": [
+        "task_context"
+      ],
+      "outputs": [
+        "workflow_output"
+      ],
+      "primary_agent": "product-business.product-manager",
+      "route": {
+        "domain_master": "product-business.master",
+        "agents": [
+          "product-business.product-manager"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 1
+      },
+      "budget": {
+        "band": "standard",
+        "max_context_tokens": 8000,
+        "max_tool_calls": 12
+      },
+      "gates": [
+        "pre-route",
+        "pre-tool",
+        "on-task-complete"
+      ],
+      "steps": [
+        "intake_scope",
+        "execute_workflow",
+        "verify_outputs"
+      ],
+      "tools": [
+        "filesystem.read"
+      ],
+      "verification": [
+        "outputs_verified"
+      ],
+      "success_criteria": [
+        "workflow_objectives_met"
+      ],
+      "rollback": "trace_based",
+      "source_references": [
+        "ref.workflow.product-business.prd-review.2026-06-02"
       ],
       "promotion": {
         "can_learn": true,
@@ -6200,6 +7238,69 @@
       }
     },
     {
+      "id": "product-business.roadmap-refresh",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "roadmap-refresh workflow",
+      "task_family": "product-business",
+      "triggers": [
+        "roadmap refresh"
+      ],
+      "aliases": [
+        "roadmap-refresh"
+      ],
+      "negative_keywords": [
+        "wrong domain"
+      ],
+      "inputs": [
+        "task_context"
+      ],
+      "outputs": [
+        "workflow_output"
+      ],
+      "primary_agent": "product-business.product-manager",
+      "route": {
+        "domain_master": "product-business.master",
+        "agents": [
+          "product-business.product-manager"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 1
+      },
+      "budget": {
+        "band": "standard",
+        "max_context_tokens": 8000,
+        "max_tool_calls": 12
+      },
+      "gates": [
+        "pre-route",
+        "pre-tool",
+        "on-task-complete"
+      ],
+      "steps": [
+        "intake_scope",
+        "execute_workflow",
+        "verify_outputs"
+      ],
+      "tools": [
+        "filesystem.read"
+      ],
+      "verification": [
+        "outputs_verified"
+      ],
+      "success_criteria": [
+        "workflow_objectives_met"
+      ],
+      "rollback": "trace_based",
+      "source_references": [
+        "ref.workflow.product-business.roadmap-refresh.2026-06-02"
+      ],
+      "promotion": {
+        "can_learn": true,
+        "min_successes_before_update": 2
+      }
+    },
+    {
       "id": "product-business.user-research-process",
       "version": "1.0.0",
       "status": "active",
@@ -6281,6 +7382,89 @@
       }
     },
     {
+      "id": "research.data-collection-process",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "Execute a research data collection process with instrument deployment, participant recruitment, data quality monitoring, and dataset compilation.",
+      "task_family": "data_collection",
+      "triggers": [
+        "data collection process",
+        "research data gathering workflow",
+        "survey deployment pipeline",
+        "field data collection execution",
+        "participant recruitment workflow"
+      ],
+      "aliases": [
+        "data collection",
+        "field collection"
+      ],
+      "negative_keywords": [
+        "code testing",
+        "product analytics",
+        "sales reporting"
+      ],
+      "inputs": [
+        "collection_protocol",
+        "sampling_plan",
+        "ethics_clearance"
+      ],
+      "outputs": [
+        "recruitment_log",
+        "compiled_dataset",
+        "quality_report"
+      ],
+      "primary_agent": "research.data-researcher",
+      "route": {
+        "domain_master": "research.master",
+        "agents": [
+          "research.data-researcher",
+          "research.research-methodologist",
+          "research.statistical-consultant"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 3
+      },
+      "budget": {
+        "band": "expanded",
+        "max_context_tokens": 5000,
+        "max_tool_calls": 20
+      },
+      "gates": [
+        "pre-route",
+        "on-task-complete"
+      ],
+      "steps": [
+        "prepare-instruments",
+        "recruit-participants",
+        "collect-data",
+        "validate-data",
+        "compile-dataset"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write",
+        "web.search"
+      ],
+      "verification": [
+        "ethics-confirmed",
+        "quality-metrics",
+        "dataset-complete"
+      ],
+      "success_criteria": [
+        "Recruitment meets the planned sample size within acceptable margins.",
+        "Data quality metrics exceed pre-defined thresholds.",
+        "Compiled dataset is documented and ready for analysis."
+      ],
+      "rollback": "no_write",
+      "source_references": [
+        "references/workflows/research/data-collection-process.sources.json"
+      ],
+      "promotion": {
+        "can_learn": true,
+        "min_successes_before_update": 2
+      }
+    },
+    {
       "id": "research.deep-research-synthesis",
       "version": "1.0.0",
       "status": "active",
@@ -6329,8 +7513,6 @@
       },
       "gates": [
         "pre-route",
-        "pre-tool",
-        "post-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -6358,6 +7540,345 @@
       "rollback": "no_write",
       "source_references": [
         "references/workflows/research/deep-research-synthesis.sources.json"
+      ],
+      "promotion": {
+        "can_learn": true,
+        "min_successes_before_update": 2
+      }
+    },
+    {
+      "id": "research.literature-review-process",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "Execute a structured literature review with systematic search, screening, data extraction, and narrative synthesis following PRISMA-aligned methodology.",
+      "task_family": "literature_review",
+      "triggers": [
+        "literature review process",
+        "structured review execution",
+        "evidence review workflow",
+        "bibliography synthesis project",
+        "research background review"
+      ],
+      "aliases": [
+        "lit review workflow",
+        "evidence review"
+      ],
+      "negative_keywords": [
+        "code review",
+        "financial audit",
+        "security scan"
+      ],
+      "inputs": [
+        "review_question",
+        "search_strategy",
+        "inclusion_criteria"
+      ],
+      "outputs": [
+        "prisma_flow",
+        "evidence_table",
+        "narrative_synthesis"
+      ],
+      "primary_agent": "research.literature-reviewer",
+      "route": {
+        "domain_master": "research.master",
+        "agents": [
+          "research.literature-reviewer",
+          "research.scientific-literature-analyst"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 2
+      },
+      "budget": {
+        "band": "expanded",
+        "max_context_tokens": 5000,
+        "max_tool_calls": 20
+      },
+      "gates": [
+        "pre-route",
+        "on-task-complete"
+      ],
+      "steps": [
+        "define-protocol",
+        "execute-search",
+        "screen-records",
+        "extract-data",
+        "synthesize"
+      ],
+      "tools": [
+        "filesystem.read",
+        "web.search",
+        "web.fetch",
+        "filesystem.write"
+      ],
+      "verification": [
+        "search-documented",
+        "screening-consistent",
+        "synthesis-grounded"
+      ],
+      "success_criteria": [
+        "The review follows a documented and reproducible search strategy.",
+        "All included studies are described in a structured evidence table.",
+        "The synthesis distinguishes strong from weak evidence."
+      ],
+      "rollback": "no_write",
+      "source_references": [
+        "references/workflows/research/literature-review-process.sources.json"
+      ],
+      "promotion": {
+        "can_learn": true,
+        "min_successes_before_update": 2
+      }
+    },
+    {
+      "id": "research.research-project-setup",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "Set up a new research project with protocol development, ethics planning, data management plan, team coordination, and milestone scheduling.",
+      "task_family": "research_setup",
+      "triggers": [
+        "research project setup",
+        "new study initialization",
+        "research project kickoff",
+        "study protocol development",
+        "research planning workflow"
+      ],
+      "aliases": [
+        "project setup",
+        "study kickoff"
+      ],
+      "negative_keywords": [
+        "code deployment",
+        "product launch",
+        "sales campaign"
+      ],
+      "inputs": [
+        "research_objective",
+        "team_composition",
+        "funding_context"
+      ],
+      "outputs": [
+        "project_protocol",
+        "ethics_plan",
+        "data_management_plan",
+        "milestone_schedule"
+      ],
+      "primary_agent": "research.research-project-manager",
+      "route": {
+        "domain_master": "research.master",
+        "agents": [
+          "research.research-project-manager",
+          "research.research-methodologist",
+          "research.researcher-ethics"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 2
+      },
+      "budget": {
+        "band": "expanded",
+        "max_context_tokens": 5000,
+        "max_tool_calls": 15
+      },
+      "gates": [
+        "pre-route",
+        "on-task-complete"
+      ],
+      "steps": [
+        "define-objective",
+        "design-methodology",
+        "plan-ethics",
+        "create-dmp",
+        "schedule-milestones"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write",
+        "web.search"
+      ],
+      "verification": [
+        "protocol-complete",
+        "timeline-realistic",
+        "ethics-addressed"
+      ],
+      "success_criteria": [
+        "A complete research protocol document is produced.",
+        "Ethics and data management plans meet institutional requirements.",
+        "Project timeline has clear milestones with dependencies mapped."
+      ],
+      "rollback": "no_write",
+      "source_references": [
+        "references/workflows/research/research-project-setup.sources.json"
+      ],
+      "promotion": {
+        "can_learn": true,
+        "min_successes_before_update": 2
+      }
+    },
+    {
+      "id": "research.research-publication",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "Manage the research publication process from manuscript drafting through journal selection, submission preparation, peer review response, and dissemination.",
+      "task_family": "publication",
+      "triggers": [
+        "research publication workflow",
+        "manuscript preparation process",
+        "journal submission pipeline",
+        "paper publication planning",
+        "research dissemination workflow"
+      ],
+      "aliases": [
+        "publication workflow",
+        "manuscript pipeline"
+      ],
+      "negative_keywords": [
+        "blog post",
+        "marketing content",
+        "sales collateral"
+      ],
+      "inputs": [
+        "research_findings",
+        "target_venue",
+        "authorship_list"
+      ],
+      "outputs": [
+        "manuscript_draft",
+        "submission_package",
+        "dissemination_plan"
+      ],
+      "primary_agent": "research.scientific-writer",
+      "route": {
+        "domain_master": "research.master",
+        "agents": [
+          "research.scientific-writer",
+          "research.research-analyst",
+          "research.literature-reviewer"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 3
+      },
+      "budget": {
+        "band": "expanded",
+        "max_context_tokens": 6000,
+        "max_tool_calls": 20
+      },
+      "gates": [
+        "pre-route",
+        "on-task-complete"
+      ],
+      "steps": [
+        "select-journal",
+        "draft-manuscript",
+        "format-references",
+        "prepare-figures",
+        "compile-submission",
+        "plan-dissemination"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write",
+        "web.search"
+      ],
+      "verification": [
+        "formatting-compliant",
+        "citations-verified",
+        "authorship-agreed",
+        "package-complete"
+      ],
+      "success_criteria": [
+        "Manuscript is formatted for the target journal and passes initial editorial screening.",
+        "All citations are verified and correctly formatted.",
+        "Submission package is complete with all required documents."
+      ],
+      "rollback": "no_write",
+      "source_references": [
+        "references/workflows/research/research-publication.sources.json"
+      ],
+      "promotion": {
+        "can_learn": true,
+        "min_successes_before_update": 2
+      }
+    },
+    {
+      "id": "research.systematic-review",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "Conduct a full PRISMA-compliant systematic review with protocol registration, dual screening, data extraction, risk-of-bias assessment, and synthesis.",
+      "task_family": "systematic_review",
+      "triggers": [
+        "systematic review workflow",
+        "PRISMA review process",
+        "evidence synthesis protocol",
+        "structured systematic study",
+        "bias-assessed review"
+      ],
+      "aliases": [
+        "systematic review",
+        "PRISMA workflow"
+      ],
+      "negative_keywords": [
+        "code review",
+        "product launch",
+        "sales pipeline"
+      ],
+      "inputs": [
+        "review_protocol",
+        "databases",
+        "quality_tool"
+      ],
+      "outputs": [
+        "prisma_flow_diagram",
+        "data_extraction_table",
+        "risk_of_bias_summary",
+        "synthesis_report"
+      ],
+      "primary_agent": "research.literature-reviewer",
+      "route": {
+        "domain_master": "research.master",
+        "agents": [
+          "research.literature-reviewer",
+          "research.scientific-literature-analyst",
+          "research.research-analyst"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 3
+      },
+      "budget": {
+        "band": "expanded",
+        "max_context_tokens": 8000,
+        "max_tool_calls": 30
+      },
+      "gates": [
+        "pre-route",
+        "on-task-complete"
+      ],
+      "steps": [
+        "register-protocol",
+        "systematic-search",
+        "dual-screening",
+        "data-extraction",
+        "bias-assessment",
+        "synthesis"
+      ],
+      "tools": [
+        "filesystem.read",
+        "web.search",
+        "web.fetch",
+        "filesystem.write"
+      ],
+      "verification": [
+        "protocol-adherence",
+        "dual-screening",
+        "bias-assessed",
+        "synthesis-graded"
+      ],
+      "success_criteria": [
+        "PRISMA flow diagram accounts for every record from search to inclusion.",
+        "Data extraction covers all pre-specified fields.",
+        "Synthesis includes risk of bias and evidence quality assessment."
+      ],
+      "rollback": "no_write",
+      "source_references": [
+        "references/workflows/research/systematic-review.sources.json"
       ],
       "promotion": {
         "can_learn": true,
@@ -6414,7 +7935,6 @@
       },
       "gates": [
         "pre-route",
-        "pre-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -6496,7 +8016,6 @@
       },
       "gates": [
         "pre-route",
-        "pre-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -6522,6 +8041,69 @@
       "rollback": "trace_based",
       "source_references": [
         "references/workflows/sales/contract-negotiation.sources.json"
+      ],
+      "promotion": {
+        "can_learn": true,
+        "min_successes_before_update": 2
+      }
+    },
+    {
+      "id": "sales.crm-hygiene",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "crm-hygiene workflow",
+      "task_family": "sales",
+      "triggers": [
+        "crm hygiene"
+      ],
+      "aliases": [
+        "crm-hygiene"
+      ],
+      "negative_keywords": [
+        "wrong domain"
+      ],
+      "inputs": [
+        "task_context"
+      ],
+      "outputs": [
+        "workflow_output"
+      ],
+      "primary_agent": "sales.pipeline-analyst",
+      "route": {
+        "domain_master": "sales.master",
+        "agents": [
+          "sales.pipeline-analyst"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 1
+      },
+      "budget": {
+        "band": "standard",
+        "max_context_tokens": 8000,
+        "max_tool_calls": 12
+      },
+      "gates": [
+        "pre-route",
+        "pre-tool",
+        "on-task-complete"
+      ],
+      "steps": [
+        "intake_scope",
+        "execute_workflow",
+        "verify_outputs"
+      ],
+      "tools": [
+        "filesystem.read"
+      ],
+      "verification": [
+        "outputs_verified"
+      ],
+      "success_criteria": [
+        "workflow_objectives_met"
+      ],
+      "rollback": "trace_based",
+      "source_references": [
+        "ref.workflow.sales.crm-hygiene.2026-06-02"
       ],
       "promotion": {
         "can_learn": true,
@@ -6578,7 +8160,6 @@
       },
       "gates": [
         "pre-route",
-        "pre-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -6660,7 +8241,6 @@
       },
       "gates": [
         "pre-route",
-        "pre-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -6686,6 +8266,69 @@
       "rollback": "trace_based",
       "source_references": [
         "references/workflows/sales/proposal-development.sources.json"
+      ],
+      "promotion": {
+        "can_learn": true,
+        "min_successes_before_update": 2
+      }
+    },
+    {
+      "id": "sales.proposal-review",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "proposal-review workflow",
+      "task_family": "sales",
+      "triggers": [
+        "proposal review"
+      ],
+      "aliases": [
+        "proposal-review"
+      ],
+      "negative_keywords": [
+        "wrong domain"
+      ],
+      "inputs": [
+        "task_context"
+      ],
+      "outputs": [
+        "workflow_output"
+      ],
+      "primary_agent": "sales.proposal-generator",
+      "route": {
+        "domain_master": "sales.master",
+        "agents": [
+          "sales.proposal-generator"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 1
+      },
+      "budget": {
+        "band": "standard",
+        "max_context_tokens": 8000,
+        "max_tool_calls": 12
+      },
+      "gates": [
+        "pre-route",
+        "pre-tool",
+        "on-task-complete"
+      ],
+      "steps": [
+        "intake_scope",
+        "execute_workflow",
+        "verify_outputs"
+      ],
+      "tools": [
+        "filesystem.read"
+      ],
+      "verification": [
+        "outputs_verified"
+      ],
+      "success_criteria": [
+        "workflow_objectives_met"
+      ],
+      "rollback": "trace_based",
+      "source_references": [
+        "ref.workflow.sales.proposal-review.2026-06-02"
       ],
       "promotion": {
         "can_learn": true,
@@ -6742,7 +8385,6 @@
       },
       "gates": [
         "pre-route",
-        "pre-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -6824,7 +8466,6 @@
       },
       "gates": [
         "pre-route",
-        "pre-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -7668,7 +9309,6 @@
       },
       "gates": [
         "pre-route",
-        "pre-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -7750,7 +9390,6 @@
       },
       "gates": [
         "pre-route",
-        "pre-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -7831,7 +9470,6 @@
       },
       "gates": [
         "pre-route",
-        "pre-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -7914,7 +9552,6 @@
       },
       "gates": [
         "pre-route",
-        "pre-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -7941,6 +9578,69 @@
       "rollback": "trace_based",
       "source_references": [
         "references/workflows/startup-ops/fundraising-preparation.sources.json"
+      ],
+      "promotion": {
+        "can_learn": true,
+        "min_successes_before_update": 2
+      }
+    },
+    {
+      "id": "startup-ops.fundraising-readiness",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "fundraising-readiness workflow",
+      "task_family": "startup-ops",
+      "triggers": [
+        "fundraising readiness"
+      ],
+      "aliases": [
+        "fundraising-readiness"
+      ],
+      "negative_keywords": [
+        "wrong domain"
+      ],
+      "inputs": [
+        "task_context"
+      ],
+      "outputs": [
+        "workflow_output"
+      ],
+      "primary_agent": "startup-ops.fundraising-specialist",
+      "route": {
+        "domain_master": "startup-ops.master",
+        "agents": [
+          "startup-ops.fundraising-specialist"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 1
+      },
+      "budget": {
+        "band": "standard",
+        "max_context_tokens": 8000,
+        "max_tool_calls": 12
+      },
+      "gates": [
+        "pre-route",
+        "pre-tool",
+        "on-task-complete"
+      ],
+      "steps": [
+        "intake_scope",
+        "execute_workflow",
+        "verify_outputs"
+      ],
+      "tools": [
+        "filesystem.read"
+      ],
+      "verification": [
+        "outputs_verified"
+      ],
+      "success_criteria": [
+        "workflow_objectives_met"
+      ],
+      "rollback": "trace_based",
+      "source_references": [
+        "ref.workflow.startup-ops.fundraising-readiness.2026-06-02"
       ],
       "promotion": {
         "can_learn": true,
@@ -7996,7 +9696,6 @@
       },
       "gates": [
         "pre-route",
-        "pre-tool",
         "on-task-complete"
       ],
       "steps": [
@@ -8022,6 +9721,69 @@
       "rollback": "trace_based",
       "source_references": [
         "references/workflows/startup-ops/pitch-deck-creation.sources.json"
+      ],
+      "promotion": {
+        "can_learn": true,
+        "min_successes_before_update": 2
+      }
+    },
+    {
+      "id": "startup-ops.weekly-operating-review",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "weekly-operating-review workflow",
+      "task_family": "startup-ops",
+      "triggers": [
+        "weekly operating review"
+      ],
+      "aliases": [
+        "weekly-operating-review"
+      ],
+      "negative_keywords": [
+        "wrong domain"
+      ],
+      "inputs": [
+        "task_context"
+      ],
+      "outputs": [
+        "workflow_output"
+      ],
+      "primary_agent": "startup-ops.operations-manager",
+      "route": {
+        "domain_master": "startup-ops.master",
+        "agents": [
+          "startup-ops.operations-manager"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 1
+      },
+      "budget": {
+        "band": "standard",
+        "max_context_tokens": 8000,
+        "max_tool_calls": 12
+      },
+      "gates": [
+        "pre-route",
+        "pre-tool",
+        "on-task-complete"
+      ],
+      "steps": [
+        "intake_scope",
+        "execute_workflow",
+        "verify_outputs"
+      ],
+      "tools": [
+        "filesystem.read"
+      ],
+      "verification": [
+        "outputs_verified"
+      ],
+      "success_criteria": [
+        "workflow_objectives_met"
+      ],
+      "rollback": "trace_based",
+      "source_references": [
+        "ref.workflow.startup-ops.weekly-operating-review.2026-06-02"
       ],
       "promotion": {
         "can_learn": true,

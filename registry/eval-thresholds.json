@@ -1,13 +1,19 @@
 {
   "version": "2.0.0",
   "generated_at": "2026-05-29T00:00:00Z",
-  "startup_tokens": { "target": 180, "hard_cap": 300 },
-  "route_table_hot_routes_max": 512,
+  "startup_tokens": {
+    "target": 180,
+    "hard_cap": 300
+  },
+  "route_table_hot_routes_max": 4096,
   "quality_gate_min": 0.85,
   "routing": {
     "exact_alias_top1_min": 0.95,
     "wrong_domain_rate_max": 0.03,
     "missing_route_rate_max": 0.02,
     "min_fixtures_per_specialist": 5
+  },
+  "skill": {
+    "skill_top1_min": 0.95
   }
 }

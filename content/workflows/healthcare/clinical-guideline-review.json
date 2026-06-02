@@ -4,47 +4,139 @@
   "status": "active",
   "summary": "Screen a clinical guideline or care pathway for evidence quality, safety constraints, and implementation readiness before clinician review.",
   "task_family": "clinical_review",
-  "triggers": ["clinical guideline review", "care pathway screening", "evidence grade check", "guideline implementation readiness", "clinical protocol review"],
-  "aliases": ["guideline review", "clinical protocol check"],
-  "negative_keywords": ["code review", "financial forecast", "marketing campaign"],
+  "triggers": [
+    "clinical guideline review",
+    "care pathway screening",
+    "evidence grade check",
+    "guideline implementation readiness",
+    "clinical protocol review"
+  ],
+  "aliases": [
+    "guideline review",
+    "clinical protocol check"
+  ],
+  "negative_keywords": [
+    "code review",
+    "financial forecast",
+    "marketing campaign"
+  ],
   "inputs": [
-    {"name": "guideline_document", "required": true, "description": "The clinical guideline or care pathway to review."},
-    {"name": "evidence_set", "required": true, "description": "Supporting evidence, references, or systematic review data."},
-    {"name": "safety_constraints", "required": false, "description": "Known contraindications, patient safety requirements, or regulatory constraints."}
+    {
+      "name": "guideline_document",
+      "required": true,
+      "description": "The clinical guideline or care pathway to review."
+    },
+    {
+      "name": "evidence_set",
+      "required": true,
+      "description": "Supporting evidence, references, or systematic review data."
+    },
+    {
+      "name": "safety_constraints",
+      "required": false,
+      "description": "Known contraindications, patient safety requirements, or regulatory constraints."
+    }
   ],
   "outputs": [
-    {"name": "evidence_quality_report", "description": "Evidence grading using recognized levels (e.g., GRADE, Oxford CEBM)."},
-    {"name": "safety_flags", "description": "Safety concerns, contraindications, or missing safety language."},
-    {"name": "clinician_handoff", "description": "Summary with unresolved questions for clinician or committee review."}
+    {
+      "name": "evidence_quality_report",
+      "description": "Evidence grading using recognized levels (e.g., GRADE, Oxford CEBM)."
+    },
+    {
+      "name": "safety_flags",
+      "description": "Safety concerns, contraindications, or missing safety language."
+    },
+    {
+      "name": "clinician_handoff",
+      "description": "Summary with unresolved questions for clinician or committee review."
+    }
   ],
   "primary_agent": "healthcare.clinical-decision-support",
   "route": {
     "domain_master": "healthcare.master",
-    "agents": ["healthcare.clinical-decision-support", "healthcare.phi-compliance"],
+    "agents": [
+      "healthcare.clinical-decision-support",
+      "healthcare.phi-compliance"
+    ],
     "primary_agent": "healthcare.clinical-decision-support",
-    "participants": ["healthcare.phi-compliance"],
+    "participants": [
+      "healthcare.phi-compliance"
+    ],
     "parallel": false,
     "max_parallel_agents": 2
   },
-  "budget": {"band": "standard", "max_context_tokens": 3500, "max_tool_calls": 8},
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 3500,
+    "max_tool_calls": 8
+  },
   "gates": [
-    {"id": "pre-route", "rule": "Confirm the task is clinical guideline support, not diagnosis or prescription."},
-    {"id": "pre-tool", "rule": "Require the guideline document and evidence set before grading."},
-    {"id": "pre-write", "rule": "Verify no PHI is present in inputs or outputs."},
-    {"id": "on-task-complete", "rule": "Output must include evidence grades, safety flags, and clinician handoff."}
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is clinical guideline support, not diagnosis or prescription."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require the guideline document and evidence set before grading."
+    },
+    {
+      "id": "pre-write",
+      "rule": "Verify no PHI is present in inputs or outputs."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Output must include evidence grades, safety flags, and clinician handoff."
+    },
+    "pre-route",
+    "pre-tool",
+    "pre-write",
+    "on-task-complete"
   ],
   "steps": [
-    {"id": "check-phi", "agent": "healthcare.phi-compliance", "action": "Screen inputs for protected health information and redact if found."},
-    {"id": "grade-evidence", "agent": "healthcare.clinical-decision-support", "action": "Apply evidence grading framework to each recommendation in the guideline."},
-    {"id": "flag-safety", "agent": "healthcare.clinical-decision-support", "action": "Identify missing safety language, contraindications, or unaddressed risks."},
-    {"id": "prepare-handoff", "agent": "healthcare.clinical-decision-support", "action": "Compile findings into a clinician review packet with unresolved questions."}
+    {
+      "id": "check-phi",
+      "agent": "healthcare.phi-compliance",
+      "action": "Screen inputs for protected health information and redact if found."
+    },
+    {
+      "id": "grade-evidence",
+      "agent": "healthcare.clinical-decision-support",
+      "action": "Apply evidence grading framework to each recommendation in the guideline."
+    },
+    {
+      "id": "flag-safety",
+      "agent": "healthcare.clinical-decision-support",
+      "action": "Identify missing safety language, contraindications, or unaddressed risks."
+    },
+    {
+      "id": "prepare-handoff",
+      "agent": "healthcare.clinical-decision-support",
+      "action": "Compile findings into a clinician review packet with unresolved questions."
+    }
   ],
-  "tools": [{"name": "filesystem.read", "purpose": "Read guideline documents and evidence sets."}],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read guideline documents and evidence sets."
+    }
+  ],
   "verification": [
-    {"id": "evidence-graded", "method": "Check that each recommendation has an evidence level assigned."},
-    {"id": "safety-flags-present", "method": "Check that safety concerns are listed with severity."},
-    {"id": "clinician-handoff-present", "method": "Check that unresolved questions are listed for human review."},
-    {"id": "phi-redacted", "method": "Confirm no protected health information appears in outputs."}
+    {
+      "id": "evidence-graded",
+      "method": "Check that each recommendation has an evidence level assigned."
+    },
+    {
+      "id": "safety-flags-present",
+      "method": "Check that safety concerns are listed with severity."
+    },
+    {
+      "id": "clinician-handoff-present",
+      "method": "Check that unresolved questions are listed for human review."
+    },
+    {
+      "id": "phi-redacted",
+      "method": "Confirm no protected health information appears in outputs."
+    }
   ],
   "success_criteria": [
     "Every recommendation in the guideline has an evidence grade.",
@@ -52,7 +144,19 @@
     "The output ends with a clinician handoff, not approval language.",
     "No PHI appears in the output."
   ],
-  "rollback": {"mode": "trace_based", "when": "If PHI is detected in outputs or evidence grades are fabricated, roll back and restart with verified inputs."},
-  "source_references": [{"dossier_path": "references/workflows/healthcare/clinical-guideline-review.sources.json", "relationship": "workflow_dossier"}],
-  "promotion": {"can_learn": true, "min_successes_before_update": 2, "quality_gate": "staging"}
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If PHI is detected in outputs or evidence grades are fabricated, roll back and restart with verified inputs."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/healthcare/clinical-guideline-review.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2,
+    "quality_gate": "staging"
+  }
 }

@@ -54,13 +54,16 @@
   "primary_agent": "design-content.design-systems",
   "route": {
     "domain_master": "design-content.master",
+    "agents": [
+      "design-content.design-systems"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 3,
     "primary": "design-content.design-systems",
     "participants": [
       "design-content.visual-designer",
-      "design-content.accessibility-expert"
-    ],
-    "parallel": true,
-    "max_parallel_agents": 3
+      "design-content.accessibility-auditor"
+    ]
   },
   "budget": {
     "band": "expanded",

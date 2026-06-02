@@ -1,0 +1,67 @@
+{
+  "id": "design-content.design-system-audit",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "design-system-audit workflow",
+  "triggers": [
+    "design system audit"
+  ],
+  "aliases": [
+    "design-system-audit"
+  ],
+  "primary_agent": "design-content.ui-designer",
+  "inputs": [
+    "task_context"
+  ],
+  "outputs": [
+    "workflow_output"
+  ],
+  "steps": [
+    "intake_scope",
+    "execute_workflow",
+    "verify_outputs"
+  ],
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "on-task-complete"
+  ],
+  "route": {
+    "domain_master": "design-content.master",
+    "agents": [
+      "design-content.ui-designer"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 1,
+    "primary": "design-content.ui-designer",
+    "participants": [
+      "design-content.ui-designer"
+    ]
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 8000,
+    "max_tool_calls": 12
+  },
+  "source_references": [
+    "ref.workflow.design-content.design-system-audit.2026-06-02"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2
+  },
+  "task_family": "design-content",
+  "negative_keywords": [
+    "wrong domain"
+  ],
+  "tools": [
+    "filesystem.read"
+  ],
+  "verification": [
+    "outputs_verified"
+  ],
+  "success_criteria": [
+    "workflow_objectives_met"
+  ],
+  "rollback": "trace_based"
+}

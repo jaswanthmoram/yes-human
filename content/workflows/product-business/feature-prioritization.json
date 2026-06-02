@@ -47,13 +47,16 @@
   "primary_agent": "product-business.feature-prioritizer",
   "route": {
     "domain_master": "product-business.master",
+    "agents": [
+      "product-business.feature-prioritizer"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 2,
     "primary": "product-business.feature-prioritizer",
     "participants": [
       "product-business.product-manager",
       "product-business.product-analyst"
-    ],
-    "parallel": false,
-    "max_parallel_agents": 2
+    ]
   },
   "budget": {
     "band": "standard",

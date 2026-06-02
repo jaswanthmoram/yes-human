@@ -1,0 +1,68 @@
+{
+  "id": "finance.monthly-close-support",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "monthly-close-support workflow",
+  "triggers": [
+    "monthly close support"
+  ],
+  "aliases": [
+    "monthly-close-support"
+  ],
+  "primary_agent": "finance.financial-analyst",
+  "inputs": [
+    "task_context"
+  ],
+  "outputs": [
+    "workflow_output"
+  ],
+  "steps": [
+    "intake_scope",
+    "execute_workflow",
+    "verify_outputs"
+  ],
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "on-task-complete",
+    "pre-write"
+  ],
+  "route": {
+    "domain_master": "finance.master",
+    "agents": [
+      "finance.financial-analyst"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 1,
+    "primary": "finance.financial-analyst",
+    "participants": [
+      "finance.financial-analyst"
+    ]
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 8000,
+    "max_tool_calls": 12
+  },
+  "source_references": [
+    "ref.workflow.finance.monthly-close-support.2026-06-02"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2
+  },
+  "task_family": "finance",
+  "negative_keywords": [
+    "wrong domain"
+  ],
+  "tools": [
+    "filesystem.read"
+  ],
+  "verification": [
+    "outputs_verified"
+  ],
+  "success_criteria": [
+    "workflow_objectives_met"
+  ],
+  "rollback": "trace_based"
+}

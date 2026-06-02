@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { resolveRoute } from '../yes-runtime/router.js';
+import { execSync } from 'child_process';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -148,9 +149,29 @@ async function main() {
   const thresholds = readJson('registry/eval-thresholds.json');
   const routeEval = await evaluateRoutes();
   const workflowEval = await evaluateWorkflows();
+  let skillTop1 = 'n/a';
+  let skillFixtures = 'n/a';
+  let dossierFailures = 0;
+  let selfRefOnly = 0;
+  try {
+    const skillEvalOut = execSync('node packages/yes-schema/eval-skill.js', { cwd: repoRoot, encoding: 'utf8' });
+    const m1 = skillEvalOut.match(/top-1 accuracy: ([\d.]+)%/);
+    const m2 = skillEvalOut.match(/fixtures: (\d+)/);
+    if (m1) skillTop1 = m1[1];
+    if (m2) skillFixtures = m2[1];
+  } catch (_) {}
+  if (fileExists('reports/dossier-scores.json')) {
+    const da = readJson('reports/dossier-scores.json');
+    dossierFailures = da.required_failures ?? 0;
+    selfRefOnly = da.self_ref_only ?? 0;
+  }
   const coverage = dossierCoverage();
   const connectors = connectorCoverage();
+  const agents = readJson('registry/agents.json');
+  const skills = readJson('registry/skills.json');
   const workflows = readJson('registry/workflows.json');
+  const knowledgePacks = readJson('registry/knowledge-packs.json');
+  const hookBindings = readJson('registry/hook-bindings.json');
   const categoryPacks = readJson('registry/category-packs.json');
 
   const lines = [
@@ -160,8 +181,12 @@ async function main() {
     '',
     '## Summary',
     '',
-    '- Phase 8 scope: Wave 5 workflows + acceptance surface',
+    '- Phase 8 scope: Waves 7A–7H longtail + acceptance freeze',
+    `- Agents: ${agents.count}`,
+    `- Skills: ${skills.count}`,
     `- Canonical workflows: ${workflows.count}`,
+    `- Knowledge packs: ${knowledgePacks.count}`,
+    `- Hook bindings: ${(hookBindings.bindings?.length ?? hookBindings.count ?? 0)}`,
     `- Category packs: ${categoryPacks.count}`,
     `- Connectors: ${connectors.total} (${connectors.enabled} enabled, ${connectors.disabled.length} disabled)`,
     '',
@@ -170,6 +195,9 @@ async function main() {
     `- Routing top-1: ${(routeEval.top1 * 100).toFixed(1)}% across ${routeEval.fixtures} fixtures`,
     `- Wrong-domain rate: ${(routeEval.wrongDomainRate * 100).toFixed(1)}%`,
     `- Missing-route rate: ${(routeEval.missingRouteRate * 100).toFixed(1)}%`,
+    `- Skill top-1: ${skillTop1}% across ${skillFixtures} fixtures`,
+    `- Dossier staging failures: ${dossierFailures}`,
+    `- Self-ref-only dossiers: ${selfRefOnly}`,
     `- Workflow top-1: ${(workflowEval.top1 * 100).toFixed(1)}% across ${workflowEval.fixtures} fixtures`,
     '',
     '## Token Budget',

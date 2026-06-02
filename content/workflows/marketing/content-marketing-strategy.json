@@ -55,11 +55,11 @@
     "domain_master": "marketing.master",
     "agents": [
       "marketing.content-marketer",
-      "marketing.seo-specialist"
+      "marketing.seo-analyst"
     ],
     "primary_agent": "marketing.content-marketer",
     "participants": [
-      "marketing.seo-specialist"
+      "marketing.seo-analyst"
     ],
     "parallel": true,
     "max_parallel_agents": 2
@@ -92,7 +92,7 @@
     },
     {
       "id": "keyword-alignment",
-      "agent": "marketing.seo-specialist",
+      "agent": "marketing.seo-analyst",
       "action": "Map keyword clusters to content pillars and identify gaps."
     },
     {

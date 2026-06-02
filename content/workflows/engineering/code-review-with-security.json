@@ -51,12 +51,15 @@
   "primary_agent": "engineering.code-reviewer",
   "route": {
     "domain_master": "engineering.master",
+    "agents": [
+      "engineering.code-reviewer"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 2,
     "primary": "engineering.code-reviewer",
     "participants": [
       "security.security-reviewer"
-    ],
-    "parallel": true,
-    "max_parallel_agents": 2
+    ]
   },
   "budget": {
     "band": "expanded",

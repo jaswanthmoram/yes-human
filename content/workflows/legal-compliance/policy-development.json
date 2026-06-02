@@ -55,12 +55,12 @@
     "domain_master": "legal-compliance.master",
     "agents": [
       "legal-compliance.policy-analyst",
-      "legal-compliance.compliance-officer",
+      "legal-compliance.compliance-checker",
       "legal-compliance.regulatory-affairs"
     ],
     "primary_agent": "legal-compliance.policy-analyst",
     "participants": [
-      "legal-compliance.compliance-officer",
+      "legal-compliance.compliance-checker",
       "legal-compliance.regulatory-affairs"
     ],
     "parallel": true,
@@ -88,7 +88,11 @@
     {
       "id": "on-task-complete",
       "rule": "End with stakeholder review checklist; do not claim policy is approved."
-    }
+    },
+    "pre-route",
+    "pre-tool",
+    "pre-write",
+    "on-task-complete"
   ],
   "steps": [
     {
@@ -108,7 +112,7 @@
     },
     {
       "id": "compliance-review",
-      "agent": "legal-compliance.compliance-officer",
+      "agent": "legal-compliance.compliance-checker",
       "action": "Review draft for compliance framework alignment."
     },
     {

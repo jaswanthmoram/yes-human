@@ -44,10 +44,13 @@
   "primary_agent": "engineering.docs-updater",
   "route": {
     "domain_master": "engineering.master",
-    "primary": "engineering.docs-updater",
-    "participants": [],
+    "agents": [
+      "engineering.docs-updater"
+    ],
     "parallel": false,
-    "max_parallel_agents": 1
+    "max_parallel_agents": 1,
+    "primary": "engineering.docs-updater",
+    "participants": []
   },
   "budget": {
     "band": "standard",

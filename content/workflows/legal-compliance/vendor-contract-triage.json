@@ -1,0 +1,68 @@
+{
+  "id": "legal-compliance.vendor-contract-triage",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "vendor-contract-triage workflow",
+  "triggers": [
+    "vendor contract triage"
+  ],
+  "aliases": [
+    "vendor-contract-triage"
+  ],
+  "primary_agent": "legal-compliance.contract-reviewer",
+  "inputs": [
+    "task_context"
+  ],
+  "outputs": [
+    "workflow_output"
+  ],
+  "steps": [
+    "intake_scope",
+    "execute_workflow",
+    "verify_outputs"
+  ],
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "on-task-complete",
+    "pre-write"
+  ],
+  "route": {
+    "domain_master": "legal-compliance.master",
+    "agents": [
+      "legal-compliance.contract-reviewer"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 1,
+    "primary": "legal-compliance.contract-reviewer",
+    "participants": [
+      "legal-compliance.contract-reviewer"
+    ]
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 8000,
+    "max_tool_calls": 12
+  },
+  "source_references": [
+    "ref.workflow.legal-compliance.vendor-contract-triage.2026-06-02"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2
+  },
+  "task_family": "legal-compliance",
+  "negative_keywords": [
+    "wrong domain"
+  ],
+  "tools": [
+    "filesystem.read"
+  ],
+  "verification": [
+    "outputs_verified"
+  ],
+  "success_criteria": [
+    "workflow_objectives_met"
+  ],
+  "rollback": "trace_based"
+}

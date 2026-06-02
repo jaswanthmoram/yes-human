@@ -1,0 +1,67 @@
+{
+  "id": "product-business.roadmap-refresh",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "roadmap-refresh workflow",
+  "triggers": [
+    "roadmap refresh"
+  ],
+  "aliases": [
+    "roadmap-refresh"
+  ],
+  "primary_agent": "product-business.product-manager",
+  "inputs": [
+    "task_context"
+  ],
+  "outputs": [
+    "workflow_output"
+  ],
+  "steps": [
+    "intake_scope",
+    "execute_workflow",
+    "verify_outputs"
+  ],
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "on-task-complete"
+  ],
+  "route": {
+    "domain_master": "product-business.master",
+    "agents": [
+      "product-business.product-manager"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 1,
+    "primary": "product-business.product-manager",
+    "participants": [
+      "product-business.product-manager"
+    ]
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 8000,
+    "max_tool_calls": 12
+  },
+  "source_references": [
+    "ref.workflow.product-business.roadmap-refresh.2026-06-02"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2
+  },
+  "task_family": "product-business",
+  "negative_keywords": [
+    "wrong domain"
+  ],
+  "tools": [
+    "filesystem.read"
+  ],
+  "verification": [
+    "outputs_verified"
+  ],
+  "success_criteria": [
+    "workflow_objectives_met"
+  ],
+  "rollback": "trace_based"
+}

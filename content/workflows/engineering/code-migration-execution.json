@@ -58,10 +58,13 @@
   "primary_agent": "engineering.migration-executor",
   "route": {
     "domain_master": "engineering.master",
-    "primary": "engineering.migration-executor",
-    "participants": [],
+    "agents": [
+      "engineering.migration-executor"
+    ],
     "parallel": false,
-    "max_parallel_agents": 1
+    "max_parallel_agents": 1,
+    "primary": "engineering.migration-executor",
+    "participants": []
   },
   "budget": {
     "band": "expanded",

@@ -47,12 +47,15 @@
   "primary_agent": "security.security-reviewer",
   "route": {
     "domain_master": "security.master",
+    "agents": [
+      "security.security-reviewer"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 2,
     "primary": "security.security-reviewer",
     "participants": [
       "security.secret-scan-agent"
-    ],
-    "parallel": true,
-    "max_parallel_agents": 2
+    ]
   },
   "budget": {
     "band": "expanded",

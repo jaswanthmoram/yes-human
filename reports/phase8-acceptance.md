@@ -1,20 +1,27 @@
 # Phase 8 Acceptance
 
-Generated: 2026-06-01T08:20:34.008Z
+Generated: 2026-06-02T09:19:21.078Z
 
 ## Summary
 
-- Phase 8 scope: Wave 5 workflows + acceptance surface
-- Canonical workflows: 23
+- Phase 8 scope: Waves 7A–7H longtail + acceptance freeze
+- Agents: 318
+- Skills: 366
+- Canonical workflows: 119
+- Knowledge packs: 18
+- Hook bindings: 7
 - Category packs: 19
-- Connectors: 16 (7 enabled, 9 disabled)
+- Connectors: 30 (7 enabled, 23 disabled)
 
 ## Evaluation
 
-- Routing top-1: 99.3% across 437 fixtures
-- Wrong-domain rate: 0.2%
+- Routing top-1: 99.6% across 1583 fixtures
+- Wrong-domain rate: 0.1%
 - Missing-route rate: 0.0%
-- Workflow top-1: 100.0% across 46 fixtures
+- Skill top-1: 98.8% across 592 fixtures
+- Dossier staging failures: 0
+- Self-ref-only dossiers: 0
+- Workflow top-1: 100.0% across 51 fixtures
 
 ## Token Budget
 
@@ -25,13 +32,13 @@ Generated: 2026-06-01T08:20:34.008Z
 
 ## Dossier Coverage
 
-- Agent dossiers: 86/86
-- Workflow dossiers: 23/23
+- Agent dossiers: 318/318
+- Workflow dossiers: 119/119
 
 ## Connector Coverage
 
 - Enabled connectors: 7
-- Disabled declarations: crm.twenty, support.chatwoot, analytics.posthog, pm.plane, pm.openproject, accounting.erpnext, accounting.odoo, hr.frappe-hrms, hr.orangehrm
+- Disabled declarations: crm.twenty, support.chatwoot, analytics.posthog, pm.plane, pm.openproject, accounting.erpnext, accounting.odoo, hr.frappe-hrms, hr.orangehrm, hubspot, salesforce, jira, linear, slack, mixpanel, notion-api, stripe-api, github-app, datadog, pagerduty, snowflake, bigquery, postgres
 
 ## Notes
 

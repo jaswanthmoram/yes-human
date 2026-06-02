@@ -54,10 +54,13 @@
   "primary_agent": "engineering.perf-optimizer",
   "route": {
     "domain_master": "engineering.master",
-    "primary": "engineering.perf-optimizer",
-    "participants": [],
+    "agents": [
+      "engineering.perf-optimizer"
+    ],
     "parallel": false,
-    "max_parallel_agents": 1
+    "max_parallel_agents": 1,
+    "primary": "engineering.perf-optimizer",
+    "participants": []
   },
   "budget": {
     "band": "expanded",

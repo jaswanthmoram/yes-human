@@ -13,31 +13,75 @@
     "status"
   ],
   "properties": {
-    "id": { "type": "string" },
-    "master_agent": { "type": "string" },
+    "id": {
+      "type": "string"
+    },
+    "master_agent": {
+      "type": "string"
+    },
     "specialists": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
     "workflows": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
     "connectors": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
     "route_fixture_files": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
     "workflow_fixture_files": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
     "status": {
       "type": "string",
-      "enum": ["active", "draft"]
+      "enum": [
+        "active",
+        "draft"
+      ]
+    },
+    "knowledge_pack_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "hook_binding_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dossier_coverage": {
+      "type": "object",
+      "properties": {
+        "agents": {
+          "type": "integer"
+        },
+        "workflows": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "agents",
+        "workflows"
+      ]
     }
   },
   "additionalProperties": false

@@ -47,12 +47,15 @@
   "primary_agent": "data-ai.rag-engineer",
   "route": {
     "domain_master": "data-ai.master",
+    "agents": [
+      "data-ai.rag-engineer"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 2,
     "primary": "data-ai.rag-engineer",
     "participants": [
       "data-ai.eval-engineer"
-    ],
-    "parallel": false,
-    "max_parallel_agents": 2
+    ]
   },
   "budget": {
     "band": "expanded",

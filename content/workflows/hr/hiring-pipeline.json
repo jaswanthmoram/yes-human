@@ -86,7 +86,11 @@
     {
       "id": "on-task-complete",
       "rule": "Return clear stage ownership and note where policy, compensation, or offer decisions need human approval."
-    }
+    },
+    "pre-route",
+    "pre-tool",
+    "pre-write",
+    "on-task-complete"
   ],
   "steps": [
     {

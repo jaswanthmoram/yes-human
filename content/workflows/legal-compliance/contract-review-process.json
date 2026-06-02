@@ -50,18 +50,18 @@
       "description": "Structured handoff packet with open questions for counsel."
     }
   ],
-  "primary_agent": "legal-compliance.contract-lawyer",
+  "primary_agent": "legal-compliance.contract-reviewer",
   "route": {
     "domain_master": "legal-compliance.master",
     "agents": [
-      "legal-compliance.contract-lawyer",
-      "legal-compliance.compliance-officer",
-      "legal-compliance.privacy-officer"
+      "legal-compliance.contract-reviewer",
+      "legal-compliance.compliance-checker",
+      "legal-compliance.privacy-advisor"
     ],
-    "primary_agent": "legal-compliance.contract-lawyer",
+    "primary_agent": "legal-compliance.contract-reviewer",
     "participants": [
-      "legal-compliance.compliance-officer",
-      "legal-compliance.privacy-officer"
+      "legal-compliance.compliance-checker",
+      "legal-compliance.privacy-advisor"
     ],
     "parallel": true,
     "max_parallel_agents": 3
@@ -88,32 +88,36 @@
     {
       "id": "on-task-complete",
       "rule": "End with attorney review handoff; never claim autonomous approval."
-    }
+    },
+    "pre-route",
+    "pre-tool",
+    "pre-write",
+    "on-task-complete"
   ],
   "steps": [
     {
       "id": "triage-contract",
-      "agent": "legal-compliance.contract-lawyer",
+      "agent": "legal-compliance.contract-reviewer",
       "action": "Classify contract type, identify parties, and set review priority."
     },
     {
       "id": "clause-analysis",
-      "agent": "legal-compliance.contract-lawyer",
+      "agent": "legal-compliance.contract-reviewer",
       "action": "Perform clause-by-clause risk analysis against standard playbook."
     },
     {
       "id": "compliance-check",
-      "agent": "legal-compliance.compliance-officer",
+      "agent": "legal-compliance.compliance-checker",
       "action": "Map contract obligations to applicable compliance frameworks."
     },
     {
       "id": "privacy-review",
-      "agent": "legal-compliance.privacy-officer",
+      "agent": "legal-compliance.privacy-advisor",
       "action": "Flag data handling, retention, and transfer provisions."
     },
     {
       "id": "prepare-handoff",
-      "agent": "legal-compliance.contract-lawyer",
+      "agent": "legal-compliance.contract-reviewer",
       "action": "Merge findings into attorney handoff packet with open questions."
     }
   ],

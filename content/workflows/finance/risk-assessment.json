@@ -86,7 +86,11 @@
     {
       "id": "on-task-complete",
       "rule": "End with named human risk owner or reviewer handoff; do not claim risk acceptance."
-    }
+    },
+    "pre-route",
+    "pre-tool",
+    "pre-write",
+    "on-task-complete"
   ],
   "steps": [
     {

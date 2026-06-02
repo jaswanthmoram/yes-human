@@ -51,15 +51,18 @@
       "name": "assistive_tech_findings"
     }
   ],
-  "primary_agent": "design-content.accessibility-expert",
+  "primary_agent": "design-content.accessibility-auditor",
   "route": {
     "domain_master": "design-content.master",
-    "primary": "design-content.accessibility-expert",
-    "participants": [
-      "design-content.ui-designer"
+    "agents": [
+      "design-content.accessibility-auditor"
     ],
     "parallel": false,
-    "max_parallel_agents": 1
+    "max_parallel_agents": 1,
+    "primary": "design-content.accessibility-auditor",
+    "participants": [
+      "design-content.ui-designer"
+    ]
   },
   "budget": {
     "band": "standard",

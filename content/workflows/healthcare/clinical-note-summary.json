@@ -1,0 +1,68 @@
+{
+  "id": "healthcare.clinical-note-summary",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "clinical-note-summary workflow",
+  "triggers": [
+    "clinical note summary"
+  ],
+  "aliases": [
+    "clinical-note-summary"
+  ],
+  "primary_agent": "healthcare.clinical-informatics",
+  "inputs": [
+    "task_context"
+  ],
+  "outputs": [
+    "workflow_output"
+  ],
+  "steps": [
+    "intake_scope",
+    "execute_workflow",
+    "verify_outputs"
+  ],
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "on-task-complete",
+    "pre-write"
+  ],
+  "route": {
+    "domain_master": "healthcare.master",
+    "agents": [
+      "healthcare.clinical-informatics"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 1,
+    "primary": "healthcare.clinical-informatics",
+    "participants": [
+      "healthcare.clinical-informatics"
+    ]
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 8000,
+    "max_tool_calls": 12
+  },
+  "source_references": [
+    "ref.workflow.healthcare.clinical-note-summary.2026-06-02"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2
+  },
+  "task_family": "healthcare",
+  "negative_keywords": [
+    "wrong domain"
+  ],
+  "tools": [
+    "filesystem.read"
+  ],
+  "verification": [
+    "outputs_verified"
+  ],
+  "success_criteria": [
+    "workflow_objectives_met"
+  ],
+  "rollback": "trace_based"
+}

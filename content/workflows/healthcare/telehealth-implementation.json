@@ -22,29 +22,64 @@
     "marketing webinars"
   ],
   "inputs": [
-    {"name": "clinical_requirements", "required": true, "description": "Visit types, clinical workflows, and care delivery requirements."},
-    {"name": "platform_options", "required": true, "description": "Available telehealth platforms and their capabilities."},
-    {"name": "regulatory_constraints", "required": true, "description": "HIPAA, licensure, prescribing, and reimbursement requirements."},
-    {"name": "patient_population", "required": false, "description": "Patient demographics, access barriers, and technology availability."},
-    {"name": "ehr_integration_needs", "required": false, "description": "Required EHR integrations and data exchange needs."}
+    {
+      "name": "clinical_requirements",
+      "required": true,
+      "description": "Visit types, clinical workflows, and care delivery requirements."
+    },
+    {
+      "name": "platform_options",
+      "required": true,
+      "description": "Available telehealth platforms and their capabilities."
+    },
+    {
+      "name": "regulatory_constraints",
+      "required": true,
+      "description": "HIPAA, licensure, prescribing, and reimbursement requirements."
+    },
+    {
+      "name": "patient_population",
+      "required": false,
+      "description": "Patient demographics, access barriers, and technology availability."
+    },
+    {
+      "name": "ehr_integration_needs",
+      "required": false,
+      "description": "Required EHR integrations and data exchange needs."
+    }
   ],
   "outputs": [
-    {"name": "platform_assessment", "description": "Evaluation of platform options against clinical and regulatory requirements."},
-    {"name": "implementation_plan", "description": "Phased implementation plan with milestones, training, and go-live support."},
-    {"name": "workflow_design", "description": "Clinical and operational workflows for telehealth visits."},
-    {"name": "compliance_assessment", "description": "HIPAA, licensure, and reimbursement compliance verification."}
+    {
+      "name": "platform_assessment",
+      "description": "Evaluation of platform options against clinical and regulatory requirements."
+    },
+    {
+      "name": "implementation_plan",
+      "description": "Phased implementation plan with milestones, training, and go-live support."
+    },
+    {
+      "name": "workflow_design",
+      "description": "Clinical and operational workflows for telehealth visits."
+    },
+    {
+      "name": "compliance_assessment",
+      "description": "HIPAA, licensure, and reimbursement compliance verification."
+    }
   ],
   "primary_agent": "healthcare.telehealth-specialist",
   "route": {
     "domain_master": "healthcare.master",
+    "agents": [
+      "healthcare.telehealth-specialist"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 3,
     "primary": "healthcare.telehealth-specialist",
     "participants": [
       "healthcare.phi-compliance",
       "healthcare.health-it",
       "healthcare.healthcare-operations"
-    ],
-    "parallel": false,
-    "max_parallel_agents": 3
+    ]
   },
   "budget": {
     "band": "expanded",
@@ -52,18 +87,58 @@
     "max_tool_calls": 14
   },
   "gates": [
-    {"id": "pre-route", "rule": "Confirm the task is telehealth implementation, not general IT or video conferencing."},
-    {"id": "pre-tool", "rule": "Require clinical requirements and platform options before assessment."},
-    {"id": "pre-write", "rule": "Verify HIPAA compliance for all platform recommendations."},
-    {"id": "on-task-complete", "rule": "Output must include platform assessment, implementation plan, and compliance verification."}
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is telehealth implementation, not general IT or video conferencing."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require clinical requirements and platform options before assessment."
+    },
+    {
+      "id": "pre-write",
+      "rule": "Verify HIPAA compliance for all platform recommendations."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Output must include platform assessment, implementation plan, and compliance verification."
+    },
+    "pre-route",
+    "pre-tool",
+    "pre-write",
+    "on-task-complete"
   ],
   "steps": [
-    {"id": "assess-requirements", "agent": "healthcare.telehealth-specialist", "action": "Define clinical requirements, visit types, and care delivery models."},
-    {"id": "evaluate-platforms", "agent": "healthcare.health-it", "action": "Evaluate telehealth platforms against clinical and technical requirements."},
-    {"id": "verify-compliance", "agent": "healthcare.phi-compliance", "action": "Verify HIPAA compliance, BAA status, and licensure requirements."},
-    {"id": "design-workflows", "agent": "healthcare.telehealth-specialist", "action": "Design clinical and operational workflows for telehealth visits."},
-    {"id": "assess-access", "agent": "healthcare.healthcare-operations", "action": "Assess patient access barriers including broadband, devices, and digital literacy."},
-    {"id": "plan-implementation", "agent": "healthcare.telehealth-specialist", "action": "Create phased implementation plan with training and go-live support."}
+    {
+      "id": "assess-requirements",
+      "agent": "healthcare.telehealth-specialist",
+      "action": "Define clinical requirements, visit types, and care delivery models."
+    },
+    {
+      "id": "evaluate-platforms",
+      "agent": "healthcare.health-it",
+      "action": "Evaluate telehealth platforms against clinical and technical requirements."
+    },
+    {
+      "id": "verify-compliance",
+      "agent": "healthcare.phi-compliance",
+      "action": "Verify HIPAA compliance, BAA status, and licensure requirements."
+    },
+    {
+      "id": "design-workflows",
+      "agent": "healthcare.telehealth-specialist",
+      "action": "Design clinical and operational workflows for telehealth visits."
+    },
+    {
+      "id": "assess-access",
+      "agent": "healthcare.healthcare-operations",
+      "action": "Assess patient access barriers including broadband, devices, and digital literacy."
+    },
+    {
+      "id": "plan-implementation",
+      "agent": "healthcare.telehealth-specialist",
+      "action": "Create phased implementation plan with training and go-live support."
+    }
   ],
   "tools": [
     "filesystem.read",
@@ -88,7 +163,10 @@
     "when": "If HIPAA compliance cannot be verified for selected platform, halt and reassess options."
   },
   "source_references": [
-    {"dossier_path": "references/workflows/healthcare/telehealth-implementation.sources.json", "relationship": "workflow_dossier"}
+    {
+      "dossier_path": "references/workflows/healthcare/telehealth-implementation.sources.json",
+      "relationship": "workflow_dossier"
+    }
   ],
   "promotion": {
     "can_learn": true,

@@ -54,10 +54,13 @@
   "primary_agent": "engineering.frontend-builder",
   "route": {
     "domain_master": "engineering.master",
-    "primary": "engineering.frontend-builder",
-    "participants": [],
+    "agents": [
+      "engineering.frontend-builder"
+    ],
     "parallel": false,
-    "max_parallel_agents": 1
+    "max_parallel_agents": 1,
+    "primary": "engineering.frontend-builder",
+    "participants": []
   },
   "budget": {
     "band": "standard",

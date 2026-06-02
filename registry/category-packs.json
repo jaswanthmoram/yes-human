@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-06-02T04:23:37.726Z",
+  "generated_at": "2026-06-02T09:18:20.287Z",
   "count": 19,
   "items": [
     {
@@ -12,20 +12,29 @@
         "engineering.build-resolver",
         "engineering.code-migration",
         "engineering.code-reviewer",
+        "engineering.cpp-reviewer",
         "engineering.database-design",
         "engineering.database-optimization",
         "engineering.dev-workflow",
         "engineering.docs-updater",
         "engineering.frontend-react",
         "engineering.frontend-vue",
+        "engineering.go-reviewer",
+        "engineering.java-reviewer",
+        "engineering.kotlin-reviewer",
         "engineering.mobile-android",
         "engineering.mobile-ios",
         "engineering.performance-profiling",
+        "engineering.planner",
+        "engineering.python-reviewer",
         "engineering.refactoring",
+        "engineering.rust-reviewer",
+        "engineering.swift-reviewer",
         "engineering.tdd-guide",
         "engineering.testing-e2e",
         "engineering.testing-integration",
-        "engineering.testing-unit"
+        "engineering.testing-unit",
+        "engineering.typescript-reviewer"
       ],
       "workflows": [
         "engineering.backend-api-implementation",
@@ -51,13 +60,29 @@
         "engineering-batch1.fixtures.json",
         "engineering-batch2.fixtures.json",
         "engineering-batch3.fixtures.json",
+        "engineering-lang-reviewers.fixtures.json",
         "engineering.fixtures.json",
+        "phase8-scale.fixtures.json",
         "seed.fixtures.json",
         "workflow-routes.fixtures.json"
       ],
       "workflow_fixture_files": [
         "phase8.fixtures.json"
       ],
+      "knowledge_pack_id": "engineering-pack",
+      "hook_binding_ids": [
+        "hook.pre-route.budget-safety",
+        "hook.pre-tool.permission-strategy",
+        "hook.pre-write.policy-contract",
+        "hook.post-tool.audit-learning",
+        "hook.on-error.mistake-graph",
+        "hook.on-task-complete.trace-ledger",
+        "hook.on-absorb.provenance-license"
+      ],
+      "dossier_coverage": {
+        "agents": 29,
+        "workflows": 12
+      },
       "status": "active"
     },
     {
@@ -69,20 +94,29 @@
         "engineering.build-resolver",
         "engineering.code-migration",
         "engineering.code-reviewer",
+        "engineering.cpp-reviewer",
         "engineering.database-design",
         "engineering.database-optimization",
         "engineering.dev-workflow",
         "engineering.docs-updater",
         "engineering.frontend-react",
         "engineering.frontend-vue",
+        "engineering.go-reviewer",
+        "engineering.java-reviewer",
+        "engineering.kotlin-reviewer",
         "engineering.mobile-android",
         "engineering.mobile-ios",
         "engineering.performance-profiling",
+        "engineering.planner",
+        "engineering.python-reviewer",
         "engineering.refactoring",
+        "engineering.rust-reviewer",
+        "engineering.swift-reviewer",
         "engineering.tdd-guide",
         "engineering.testing-e2e",
         "engineering.testing-integration",
-        "engineering.testing-unit"
+        "engineering.testing-unit",
+        "engineering.typescript-reviewer"
       ],
       "workflows": [
         "engineering.backend-api-implementation",
@@ -108,13 +142,29 @@
         "engineering-batch1.fixtures.json",
         "engineering-batch2.fixtures.json",
         "engineering-batch3.fixtures.json",
+        "engineering-lang-reviewers.fixtures.json",
         "engineering.fixtures.json",
+        "phase8-scale.fixtures.json",
         "seed.fixtures.json",
         "workflow-routes.fixtures.json"
       ],
       "workflow_fixture_files": [
         "phase8.fixtures.json"
       ],
+      "knowledge_pack_id": "engineering-pack",
+      "hook_binding_ids": [
+        "hook.pre-route.budget-safety",
+        "hook.pre-tool.permission-strategy",
+        "hook.pre-write.policy-contract",
+        "hook.post-tool.audit-learning",
+        "hook.on-error.mistake-graph",
+        "hook.on-task-complete.trace-ledger",
+        "hook.on-absorb.provenance-license"
+      ],
+      "dossier_coverage": {
+        "agents": 29,
+        "workflows": 12
+      },
       "status": "active"
     },
     {
@@ -160,6 +210,20 @@
       "workflow_fixture_files": [
         "phase8.fixtures.json"
       ],
+      "knowledge_pack_id": "security-pack",
+      "hook_binding_ids": [
+        "hook.pre-route.budget-safety",
+        "hook.pre-tool.permission-strategy",
+        "hook.pre-write.policy-contract",
+        "hook.post-tool.audit-learning",
+        "hook.on-error.mistake-graph",
+        "hook.on-task-complete.trace-ledger",
+        "hook.on-absorb.provenance-license"
+      ],
+      "dossier_coverage": {
+        "agents": 16,
+        "workflows": 8
+      },
       "status": "active"
     },
     {
@@ -168,16 +232,17 @@
       "specialists": [
         "platform.ci-cd-engineer",
         "platform.ci-cd-pipeline",
+        "platform.cloud-architect",
         "platform.cloud-cost-optimization",
         "platform.container-security",
         "platform.devops-engineer",
         "platform.gitops-workflow",
         "platform.incident-responder",
-        "platform.incident-response",
         "platform.infrastructure-testing",
         "platform.kubernetes-admin",
         "platform.monitoring-setup",
         "platform.observability-engineer",
+        "platform.release-manager",
         "platform.service-mesh",
         "platform.terraform-architect"
       ],
@@ -185,7 +250,7 @@
         "platform.ci-failure-triage",
         "platform.cloud-migration",
         "platform.disaster-recovery-setup",
-        "platform.incident-response-playbook",
+        "platform.incident-responder-playbook",
         "platform.kubernetes-cluster-setup",
         "platform.monitoring-stack-deployment",
         "platform.terraform-infrastructure-deployment"
@@ -198,6 +263,7 @@
       ],
       "route_fixture_files": [
         "phase8-new-agents.fixtures.json",
+        "phase8-specialists.fixtures.json",
         "platform-new.fixtures.json",
         "platform-specialists.fixtures.json",
         "seed.fixtures.json",
@@ -206,17 +272,34 @@
       "workflow_fixture_files": [
         "phase8.fixtures.json"
       ],
+      "knowledge_pack_id": "platform-pack",
+      "hook_binding_ids": [
+        "hook.pre-route.budget-safety",
+        "hook.pre-tool.permission-strategy",
+        "hook.pre-write.policy-contract",
+        "hook.post-tool.audit-learning",
+        "hook.on-error.mistake-graph",
+        "hook.on-task-complete.trace-ledger",
+        "hook.on-absorb.provenance-license"
+      ],
+      "dossier_coverage": {
+        "agents": 16,
+        "workflows": 7
+      },
       "status": "active"
     },
     {
       "id": "meta-system",
       "master_agent": "meta-system.master",
       "specialists": [
+        "meta-system.adapter-generator",
         "meta-system.agent-designer",
+        "meta-system.cost-controller",
         "meta-system.deduplicator",
         "meta-system.dossier-evaluator",
         "meta-system.eval-runner",
         "meta-system.fixture-engineer",
+        "meta-system.graph-builder",
         "meta-system.plugin-absorber",
         "meta-system.quality-assurance",
         "meta-system.skill-designer",
@@ -224,10 +307,17 @@
         "meta-system.stub-detector",
         "meta-system.system-architect",
         "meta-system.system-optimizer",
-        "meta-system.workflow-architect"
+        "meta-system.workflow-architect",
+        "meta-system.workflow-miner"
       ],
       "workflows": [
-        "meta-system.source-mine-and-dossier"
+        "meta-system.agent-creation",
+        "meta-system.fixture-generation",
+        "meta-system.quality-assurance",
+        "meta-system.skill-development",
+        "meta-system.source-mine-and-dossier",
+        "meta-system.system-optimization",
+        "meta-system.workflow-design"
       ],
       "connectors": [
         "firecrawl",
@@ -238,14 +328,31 @@
         "sequential-thinking"
       ],
       "route_fixture_files": [
+        "integrations-meta-missing.fixtures.json",
         "meta-system-specialists.fixtures.json",
         "phase8-new-agents.fixtures.json",
+        "phase8-scale.fixtures.json",
+        "regulated-negative.fixtures.json",
         "seed.fixtures.json",
         "workflow-routes.fixtures.json"
       ],
       "workflow_fixture_files": [
         "phase8.fixtures.json"
       ],
+      "knowledge_pack_id": "meta-system-pack",
+      "hook_binding_ids": [
+        "hook.pre-route.budget-safety",
+        "hook.pre-tool.permission-strategy",
+        "hook.pre-write.policy-contract",
+        "hook.post-tool.audit-learning",
+        "hook.on-error.mistake-graph",
+        "hook.on-task-complete.trace-ledger",
+        "hook.on-absorb.provenance-license"
+      ],
+      "dossier_coverage": {
+        "agents": 18,
+        "workflows": 7
+      },
       "status": "active"
     },
     {
@@ -255,6 +362,7 @@
         "data-ai.ai-ethics-specialist",
         "data-ai.ai-product-manager",
         "data-ai.ai-research-scientist",
+        "data-ai.analytics-engineer",
         "data-ai.bi-developer",
         "data-ai.computer-vision-engineer",
         "data-ai.data-analyst",
@@ -281,11 +389,27 @@
         "data-ai-specialists.fixtures.json",
         "data-ai.fixtures.json",
         "phase8-new-agents.fixtures.json",
+        "phase8-scale.fixtures.json",
+        "phase8-specialists.fixtures.json",
         "workflow-routes.fixtures.json"
       ],
       "workflow_fixture_files": [
         "phase8.fixtures.json"
       ],
+      "knowledge_pack_id": "data-ai-pack",
+      "hook_binding_ids": [
+        "hook.pre-route.budget-safety",
+        "hook.pre-tool.permission-strategy",
+        "hook.pre-write.policy-contract",
+        "hook.post-tool.audit-learning",
+        "hook.on-error.mistake-graph",
+        "hook.on-task-complete.trace-ledger",
+        "hook.on-absorb.provenance-license"
+      ],
+      "dossier_coverage": {
+        "agents": 19,
+        "workflows": 1
+      },
       "status": "active"
     },
     {
@@ -296,12 +420,16 @@
         "integrations.api-integration-specialist",
         "integrations.browser-auto",
         "integrations.event-streaming-architect",
+        "integrations.figma-agent",
         "integrations.github-operator",
         "integrations.graphql-integrator",
+        "integrations.mcp-connector-designer",
         "integrations.message-queue-engineer",
         "integrations.microservices-integrator",
         "integrations.middleware-developer",
+        "integrations.notion-agent",
         "integrations.sourcegraph-context-agent",
+        "integrations.stripe-agent",
         "integrations.third-party-integrator",
         "integrations.vercel-agent",
         "integrations.webhook-developer"
@@ -316,6 +444,7 @@
         "playwright"
       ],
       "route_fixture_files": [
+        "integrations-meta-missing.fixtures.json",
         "integrations-specialists.fixtures.json",
         "integrations.fixtures.json",
         "phase8-new-agents.fixtures.json",
@@ -324,6 +453,20 @@
       "workflow_fixture_files": [
         "phase8.fixtures.json"
       ],
+      "knowledge_pack_id": "integrations-pack",
+      "hook_binding_ids": [
+        "hook.pre-route.budget-safety",
+        "hook.pre-tool.permission-strategy",
+        "hook.pre-write.policy-contract",
+        "hook.post-tool.audit-learning",
+        "hook.on-error.mistake-graph",
+        "hook.on-task-complete.trace-ledger",
+        "hook.on-absorb.provenance-license"
+      ],
+      "dossier_coverage": {
+        "agents": 18,
+        "workflows": 1
+      },
       "status": "active"
     },
     {
@@ -351,7 +494,9 @@
         "startup-ops.ceo-review-pack",
         "startup-ops.customer-discovery",
         "startup-ops.fundraising-preparation",
-        "startup-ops.pitch-deck-creation"
+        "startup-ops.fundraising-readiness",
+        "startup-ops.pitch-deck-creation",
+        "startup-ops.weekly-operating-review"
       ],
       "connectors": [],
       "route_fixture_files": [
@@ -363,6 +508,20 @@
       "workflow_fixture_files": [
         "phase8.fixtures.json"
       ],
+      "knowledge_pack_id": "startup-ops-pack",
+      "hook_binding_ids": [
+        "hook.pre-route.budget-safety",
+        "hook.pre-tool.permission-strategy",
+        "hook.pre-write.policy-contract",
+        "hook.post-tool.audit-learning",
+        "hook.on-error.mistake-graph",
+        "hook.on-task-complete.trace-ledger",
+        "hook.on-absorb.provenance-license"
+      ],
+      "dossier_coverage": {
+        "agents": 16,
+        "workflows": 7
+      },
       "status": "active"
     },
     {
@@ -383,7 +542,12 @@
         "research.statistical-consultant"
       ],
       "workflows": [
-        "research.deep-research-synthesis"
+        "research.data-collection-process",
+        "research.deep-research-synthesis",
+        "research.literature-review-process",
+        "research.research-project-setup",
+        "research.research-publication",
+        "research.systematic-review"
       ],
       "connectors": [
         "firecrawl",
@@ -398,13 +562,29 @@
       "workflow_fixture_files": [
         "phase8.fixtures.json"
       ],
+      "knowledge_pack_id": "research-pack",
+      "hook_binding_ids": [
+        "hook.pre-route.budget-safety",
+        "hook.pre-tool.permission-strategy",
+        "hook.pre-write.policy-contract",
+        "hook.post-tool.audit-learning",
+        "hook.on-error.mistake-graph",
+        "hook.on-task-complete.trace-ledger",
+        "hook.on-absorb.provenance-license"
+      ],
+      "dossier_coverage": {
+        "agents": 13,
+        "workflows": 6
+      },
       "status": "active"
     },
     {
       "id": "product-business",
       "master_agent": "product-business.master",
       "specialists": [
+        "product-business.ceo-advisor",
         "product-business.competitive-analyst",
+        "product-business.cto-advisor",
         "product-business.customer-success-advisor",
         "product-business.feature-prioritizer",
         "product-business.growth-manager",
@@ -421,15 +601,18 @@
         "product-business.product-strategist",
         "product-business.product-writer",
         "product-business.roadmap-planner",
+        "product-business.sales-operator",
         "product-business.user-researcher"
       ],
       "workflows": [
         "product-business.competitive-analysis",
         "product-business.feature-prioritization",
+        "product-business.prd-review",
         "product-business.prd-to-plan",
         "product-business.product-discovery",
         "product-business.product-launch",
         "product-business.product-roadmap-creation",
+        "product-business.roadmap-refresh",
         "product-business.user-research-process"
       ],
       "connectors": [
@@ -446,6 +629,7 @@
       ],
       "route_fixture_files": [
         "phase8-new-agents.fixtures.json",
+        "phase8-specialists.fixtures.json",
         "product-business-new.fixtures.json",
         "product-business-specialists.fixtures.json",
         "product-business.fixtures.json",
@@ -454,6 +638,20 @@
       "workflow_fixture_files": [
         "phase8.fixtures.json"
       ],
+      "knowledge_pack_id": "product-business-pack",
+      "hook_binding_ids": [
+        "hook.pre-route.budget-safety",
+        "hook.pre-tool.permission-strategy",
+        "hook.pre-write.policy-contract",
+        "hook.post-tool.audit-learning",
+        "hook.on-error.mistake-graph",
+        "hook.on-task-complete.trace-ledger",
+        "hook.on-absorb.provenance-license"
+      ],
+      "dossier_coverage": {
+        "agents": 22,
+        "workflows": 9
+      },
       "status": "active"
     },
     {
@@ -461,7 +659,6 @@
       "master_agent": "design-content.master",
       "specialists": [
         "design-content.accessibility-auditor",
-        "design-content.accessibility-expert",
         "design-content.brand-designer",
         "design-content.brand-strategist",
         "design-content.content-editor",
@@ -471,6 +668,7 @@
         "design-content.frontend-design-agent",
         "design-content.interaction-designer",
         "design-content.motion-designer",
+        "design-content.presentation-designer",
         "design-content.seo-writer",
         "design-content.technical-writer",
         "design-content.ui-designer",
@@ -481,6 +679,8 @@
         "design-content.accessibility-audit",
         "design-content.brand-identity-design",
         "design-content.content-strategy-development",
+        "design-content.copy-and-a11y-review",
+        "design-content.design-system-audit",
         "design-content.design-system-creation",
         "design-content.seo-content-creation",
         "design-content.visual-and-a11y-check"
@@ -495,11 +695,27 @@
         "design-content-specialists.fixtures.json",
         "design-content.fixtures.json",
         "phase8-new-agents.fixtures.json",
+        "phase8-scale.fixtures.json",
+        "phase8-specialists.fixtures.json",
         "workflow-routes.fixtures.json"
       ],
       "workflow_fixture_files": [
         "phase8.fixtures.json"
       ],
+      "knowledge_pack_id": "design-content-pack",
+      "hook_binding_ids": [
+        "hook.pre-route.budget-safety",
+        "hook.pre-tool.permission-strategy",
+        "hook.pre-write.policy-contract",
+        "hook.post-tool.audit-learning",
+        "hook.on-error.mistake-graph",
+        "hook.on-task-complete.trace-ledger",
+        "hook.on-absorb.provenance-license"
+      ],
+      "dossier_coverage": {
+        "agents": 17,
+        "workflows": 8
+      },
       "status": "active"
     },
     {
@@ -507,6 +723,7 @@
       "master_agent": "marketing.master",
       "specialists": [
         "marketing.brand-marketer",
+        "marketing.campaign-analyst",
         "marketing.content-marketer",
         "marketing.conversion-optimizer",
         "marketing.digital-marketer",
@@ -520,16 +737,17 @@
         "marketing.product-marketer",
         "marketing.sem-specialist",
         "marketing.seo-analyst",
-        "marketing.seo-specialist",
         "marketing.social-media-manager"
       ],
       "workflows": [
         "marketing.content-marketing-strategy",
+        "marketing.content-pipeline",
         "marketing.conversion-optimization",
         "marketing.email-campaign-creation",
         "marketing.launch-campaign",
         "marketing.paid-advertising-setup",
         "marketing.seo-audit-process",
+        "marketing.seo-improvement",
         "marketing.social-media-campaign"
       ],
       "connectors": [
@@ -544,11 +762,27 @@
         "marketing-specialists.fixtures.json",
         "marketing.fixtures.json",
         "phase8-new-agents.fixtures.json",
+        "phase8-specialists.fixtures.json",
+        "product-business-new.fixtures.json",
         "workflow-routes.fixtures.json"
       ],
       "workflow_fixture_files": [
         "phase8.fixtures.json"
       ],
+      "knowledge_pack_id": "marketing-pack",
+      "hook_binding_ids": [
+        "hook.pre-route.budget-safety",
+        "hook.pre-tool.permission-strategy",
+        "hook.pre-write.policy-contract",
+        "hook.post-tool.audit-learning",
+        "hook.on-error.mistake-graph",
+        "hook.on-task-complete.trace-ledger",
+        "hook.on-absorb.provenance-license"
+      ],
+      "dossier_coverage": {
+        "agents": 17,
+        "workflows": 9
+      },
       "status": "active"
     },
     {
@@ -556,12 +790,14 @@
       "master_agent": "sales.master",
       "specialists": [
         "sales.account-executive",
+        "sales.account-manager",
         "sales.competitive-intel-analyst",
         "sales.contract-negotiator",
         "sales.crm-admin",
         "sales.customer-success",
         "sales.deal-desk",
         "sales.pipeline-analyst",
+        "sales.pricing-strategist",
         "sales.proposal-generator",
         "sales.proposal-writer",
         "sales.sales-analyst",
@@ -576,8 +812,10 @@
       "workflows": [
         "sales.account-planning",
         "sales.contract-negotiation",
+        "sales.crm-hygiene",
         "sales.deal-review",
         "sales.proposal-development",
+        "sales.proposal-review",
         "sales.sales-forecast-creation",
         "sales.sales-qualification-process"
       ],
@@ -586,6 +824,7 @@
       ],
       "route_fixture_files": [
         "phase8-new-agents.fixtures.json",
+        "phase8-specialists.fixtures.json",
         "sales-new.fixtures.json",
         "sales-specialists.fixtures.json",
         "sales.fixtures.json",
@@ -594,6 +833,20 @@
       "workflow_fixture_files": [
         "phase8.fixtures.json"
       ],
+      "knowledge_pack_id": "sales-pack",
+      "hook_binding_ids": [
+        "hook.pre-route.budget-safety",
+        "hook.pre-tool.permission-strategy",
+        "hook.pre-write.policy-contract",
+        "hook.post-tool.audit-learning",
+        "hook.on-error.mistake-graph",
+        "hook.on-task-complete.trace-ledger",
+        "hook.on-absorb.provenance-license"
+      ],
+      "dossier_coverage": {
+        "agents": 20,
+        "workflows": 8
+      },
       "status": "active"
     },
     {
@@ -619,6 +872,7 @@
       "workflows": [
         "healthcare.clinical-data-analysis",
         "healthcare.clinical-guideline-review",
+        "healthcare.clinical-note-summary",
         "healthcare.hipaa-compliance-audit",
         "healthcare.quality-improvement-project",
         "healthcare.telehealth-implementation"
@@ -627,11 +881,26 @@
       "route_fixture_files": [
         "healthcare-specialists.fixtures.json",
         "healthcare.fixtures.json",
-        "phase8-new-agents.fixtures.json"
+        "phase8-new-agents.fixtures.json",
+        "phase8-scale.fixtures.json"
       ],
       "workflow_fixture_files": [
         "phase8.fixtures.json"
       ],
+      "knowledge_pack_id": "healthcare-pack",
+      "hook_binding_ids": [
+        "hook.pre-route.budget-safety",
+        "hook.pre-tool.permission-strategy",
+        "hook.pre-write.policy-contract",
+        "hook.post-tool.audit-learning",
+        "hook.on-error.mistake-graph",
+        "hook.on-task-complete.trace-ledger",
+        "hook.on-absorb.provenance-license"
+      ],
+      "dossier_coverage": {
+        "agents": 16,
+        "workflows": 6
+      },
       "status": "active"
     },
     {
@@ -656,17 +925,33 @@
         "education.assessment-creation",
         "education.curriculum-assessment-alignment",
         "education.curriculum-design-process",
-        "education.online-course-development"
+        "education.online-course-development",
+        "education.syllabus-alignment"
       ],
       "connectors": [],
       "route_fixture_files": [
         "education-specialists.fixtures.json",
         "education.fixtures.json",
-        "phase8-new-agents.fixtures.json"
+        "phase8-new-agents.fixtures.json",
+        "phase8-scale.fixtures.json"
       ],
       "workflow_fixture_files": [
         "phase8.fixtures.json"
       ],
+      "knowledge_pack_id": "education-pack",
+      "hook_binding_ids": [
+        "hook.pre-route.budget-safety",
+        "hook.pre-tool.permission-strategy",
+        "hook.pre-write.policy-contract",
+        "hook.post-tool.audit-learning",
+        "hook.on-error.mistake-graph",
+        "hook.on-task-complete.trace-ledger",
+        "hook.on-absorb.provenance-license"
+      ],
+      "dossier_coverage": {
+        "agents": 14,
+        "workflows": 5
+      },
       "status": "active"
     },
     {
@@ -703,6 +988,20 @@
       "workflow_fixture_files": [
         "phase8.fixtures.json"
       ],
+      "knowledge_pack_id": "manufacturing-pack",
+      "hook_binding_ids": [
+        "hook.pre-route.budget-safety",
+        "hook.pre-tool.permission-strategy",
+        "hook.pre-write.policy-contract",
+        "hook.post-tool.audit-learning",
+        "hook.on-error.mistake-graph",
+        "hook.on-task-complete.trace-ledger",
+        "hook.on-absorb.provenance-license"
+      ],
+      "dossier_coverage": {
+        "agents": 15,
+        "workflows": 4
+      },
       "status": "active"
     },
     {
@@ -720,14 +1019,15 @@
         "hr.learning-specialist",
         "hr.onboarding-coordinator",
         "hr.organizational-development",
-        "hr.performance-manager",
         "hr.performance-reviewer",
+        "hr.policy-drafter",
         "hr.talent-acquisition",
         "hr.workforce-planner"
       ],
       "workflows": [
         "hr.compensation-analysis",
         "hr.hiring-pipeline",
+        "hr.offer-letter-prep",
         "hr.onboarding-process",
         "hr.performance-review-cycle",
         "hr.recruitment-process"
@@ -740,11 +1040,27 @@
         "hr-specialists.fixtures.json",
         "hr.fixtures.json",
         "phase8-new-agents.fixtures.json",
+        "phase8-scale.fixtures.json",
+        "phase8-specialists.fixtures.json",
         "workflow-routes.fixtures.json"
       ],
       "workflow_fixture_files": [
         "phase8.fixtures.json"
       ],
+      "knowledge_pack_id": "hr-pack",
+      "hook_binding_ids": [
+        "hook.pre-route.budget-safety",
+        "hook.pre-tool.permission-strategy",
+        "hook.pre-write.policy-contract",
+        "hook.post-tool.audit-learning",
+        "hook.on-error.mistake-graph",
+        "hook.on-task-complete.trace-ledger",
+        "hook.on-absorb.provenance-license"
+      ],
+      "dossier_coverage": {
+        "agents": 16,
+        "workflows": 6
+      },
       "status": "active"
     },
     {
@@ -757,12 +1073,14 @@
         "finance.cfo-advisor",
         "finance.compliance-officer",
         "finance.credit-analyst",
+        "finance.expense-auditor",
         "finance.financial-analyst",
         "finance.financial-modeler",
         "finance.financial-planner",
         "finance.forecasting-analyst",
         "finance.investment-analyst",
         "finance.m-and-a-specialist",
+        "finance.payroll-analyst",
         "finance.portfolio-manager",
         "finance.risk-manager",
         "finance.tax-specialist",
@@ -775,6 +1093,7 @@
         "finance.financial-analysis-process",
         "finance.financial-model-creation",
         "finance.investment-evaluation",
+        "finance.monthly-close-support",
         "finance.monthly-forecast",
         "finance.risk-assessment"
       ],
@@ -787,11 +1106,27 @@
         "finance-specialists.fixtures.json",
         "finance.fixtures.json",
         "phase8-new-agents.fixtures.json",
+        "phase8-scale.fixtures.json",
+        "phase8-specialists.fixtures.json",
         "workflow-routes.fixtures.json"
       ],
       "workflow_fixture_files": [
         "phase8.fixtures.json"
       ],
+      "knowledge_pack_id": "finance-pack",
+      "hook_binding_ids": [
+        "hook.pre-route.budget-safety",
+        "hook.pre-tool.permission-strategy",
+        "hook.pre-write.policy-contract",
+        "hook.post-tool.audit-learning",
+        "hook.on-error.mistake-graph",
+        "hook.on-task-complete.trace-ledger",
+        "hook.on-absorb.provenance-license"
+      ],
+      "dossier_coverage": {
+        "agents": 20,
+        "workflows": 8
+      },
       "status": "active"
     },
     {
@@ -799,8 +1134,6 @@
       "master_agent": "legal-compliance.master",
       "specialists": [
         "legal-compliance.compliance-checker",
-        "legal-compliance.compliance-officer",
-        "legal-compliance.contract-lawyer",
         "legal-compliance.contract-reviewer",
         "legal-compliance.corporate-lawyer",
         "legal-compliance.due-diligence",
@@ -809,11 +1142,12 @@
         "legal-compliance.legal-researcher",
         "legal-compliance.legal-writer",
         "legal-compliance.litigation-support",
+        "legal-compliance.nda-reviewer",
         "legal-compliance.policy-analyst",
         "legal-compliance.privacy-advisor",
-        "legal-compliance.privacy-officer",
         "legal-compliance.regulatory-affairs",
-        "legal-compliance.risk-manager"
+        "legal-compliance.risk-manager",
+        "legal-compliance.terms-drafter"
       ],
       "workflows": [
         "legal-compliance.compliance-audit",
@@ -821,18 +1155,34 @@
         "legal-compliance.contract-risk-review",
         "legal-compliance.due-diligence-process",
         "legal-compliance.legal-research-process",
-        "legal-compliance.policy-development"
+        "legal-compliance.policy-development",
+        "legal-compliance.vendor-contract-triage"
       ],
       "connectors": [],
       "route_fixture_files": [
         "legal-compliance-new.fixtures.json",
         "legal-compliance-specialists.fixtures.json",
         "legal-compliance.fixtures.json",
+        "phase8-specialists.fixtures.json",
         "workflow-routes.fixtures.json"
       ],
       "workflow_fixture_files": [
         "phase8.fixtures.json"
       ],
+      "knowledge_pack_id": "legal-compliance-pack",
+      "hook_binding_ids": [
+        "hook.pre-route.budget-safety",
+        "hook.pre-tool.permission-strategy",
+        "hook.pre-write.policy-contract",
+        "hook.post-tool.audit-learning",
+        "hook.on-error.mistake-graph",
+        "hook.on-task-complete.trace-ledger",
+        "hook.on-absorb.provenance-license"
+      ],
+      "dossier_coverage": {
+        "agents": 16,
+        "workflows": 7
+      },
       "status": "active"
     }
   ]

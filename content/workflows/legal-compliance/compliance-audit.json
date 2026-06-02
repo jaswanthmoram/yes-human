@@ -50,15 +50,15 @@
       "description": "Prioritized plan for addressing identified gaps."
     }
   ],
-  "primary_agent": "legal-compliance.compliance-officer",
+  "primary_agent": "legal-compliance.compliance-checker",
   "route": {
     "domain_master": "legal-compliance.master",
     "agents": [
-      "legal-compliance.compliance-officer",
+      "legal-compliance.compliance-checker",
       "legal-compliance.regulatory-affairs",
       "legal-compliance.risk-manager"
     ],
-    "primary_agent": "legal-compliance.compliance-officer",
+    "primary_agent": "legal-compliance.compliance-checker",
     "participants": [
       "legal-compliance.regulatory-affairs",
       "legal-compliance.risk-manager"
@@ -88,17 +88,21 @@
     {
       "id": "on-task-complete",
       "rule": "End with remediation plan for compliance-owner review; do not claim certification."
-    }
+    },
+    "pre-route",
+    "pre-tool",
+    "pre-write",
+    "on-task-complete"
   ],
   "steps": [
     {
       "id": "map-framework",
-      "agent": "legal-compliance.compliance-officer",
+      "agent": "legal-compliance.compliance-checker",
       "action": "Map framework requirements to control inventory."
     },
     {
       "id": "identify-gaps",
-      "agent": "legal-compliance.compliance-officer",
+      "agent": "legal-compliance.compliance-checker",
       "action": "Identify gaps between requirements and current implementation."
     },
     {
@@ -113,7 +117,7 @@
     },
     {
       "id": "build-plan",
-      "agent": "legal-compliance.compliance-officer",
+      "agent": "legal-compliance.compliance-checker",
       "action": "Compile remediation plan with timelines and ownership."
     }
   ],

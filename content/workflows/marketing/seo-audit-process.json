@@ -50,14 +50,14 @@
       "description": "Phased action plan with expected outcomes."
     }
   ],
-  "primary_agent": "marketing.seo-specialist",
+  "primary_agent": "marketing.seo-analyst",
   "route": {
     "domain_master": "marketing.master",
     "agents": [
-      "marketing.seo-specialist",
+      "marketing.seo-analyst",
       "marketing.content-marketer"
     ],
-    "primary_agent": "marketing.seo-specialist",
+    "primary_agent": "marketing.seo-analyst",
     "participants": [
       "marketing.content-marketer"
     ],
@@ -87,7 +87,7 @@
   "steps": [
     {
       "id": "technical-crawl",
-      "agent": "marketing.seo-specialist",
+      "agent": "marketing.seo-analyst",
       "action": "Analyze crawlability, indexation, Core Web Vitals, and site architecture."
     },
     {
@@ -97,12 +97,12 @@
     },
     {
       "id": "competitive-benchmark",
-      "agent": "marketing.seo-specialist",
+      "agent": "marketing.seo-analyst",
       "action": "Benchmark domain authority, backlink profile, and keyword overlap."
     },
     {
       "id": "prioritize-and-roadmap",
-      "agent": "marketing.seo-specialist",
+      "agent": "marketing.seo-analyst",
       "action": "Rank issues by impact and produce phased remediation roadmap."
     }
   ],

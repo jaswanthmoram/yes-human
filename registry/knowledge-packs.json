@@ -1,0 +1,133 @@
+{
+  "version": "2.0.0",
+  "generated_at": "2026-06-02T08:27:32.066Z",
+  "count": 18,
+  "items": [
+    {
+      "id": "data-ai-pack",
+      "domain": "data-ai",
+      "path": "content/knowledge/data-ai-pack",
+      "status": "active",
+      "risk_level": "standard"
+    },
+    {
+      "id": "design-content-pack",
+      "domain": "design-content",
+      "path": "content/knowledge/design-content-pack",
+      "status": "active",
+      "risk_level": "standard"
+    },
+    {
+      "id": "education-pack",
+      "domain": "education",
+      "path": "content/knowledge/education-pack",
+      "status": "active",
+      "risk_level": "standard"
+    },
+    {
+      "id": "engineering-pack",
+      "domain": "engineering",
+      "path": "content/knowledge/engineering-pack",
+      "status": "active",
+      "risk_level": "standard"
+    },
+    {
+      "id": "finance-pack",
+      "domain": "finance",
+      "path": "content/knowledge/finance-pack",
+      "status": "active",
+      "risk_level": "high"
+    },
+    {
+      "id": "healthcare-pack",
+      "domain": "healthcare",
+      "path": "content/knowledge/healthcare-pack",
+      "status": "active",
+      "risk_level": "high"
+    },
+    {
+      "id": "hr-pack",
+      "domain": "hr",
+      "path": "content/knowledge/hr-pack",
+      "status": "active",
+      "risk_level": "high"
+    },
+    {
+      "id": "integrations-pack",
+      "domain": "integrations",
+      "path": "content/knowledge/integrations-pack",
+      "status": "active",
+      "risk_level": "standard"
+    },
+    {
+      "id": "legal-compliance-pack",
+      "domain": "legal-compliance",
+      "path": "content/knowledge/legal-compliance-pack",
+      "status": "active",
+      "risk_level": "high"
+    },
+    {
+      "id": "manufacturing-pack",
+      "domain": "manufacturing",
+      "path": "content/knowledge/manufacturing-pack",
+      "status": "active",
+      "risk_level": "standard"
+    },
+    {
+      "id": "marketing-pack",
+      "domain": "marketing",
+      "path": "content/knowledge/marketing-pack",
+      "status": "active",
+      "risk_level": "standard"
+    },
+    {
+      "id": "meta-system-pack",
+      "domain": "meta-system",
+      "path": "content/knowledge/meta-system-pack",
+      "status": "active",
+      "risk_level": "standard"
+    },
+    {
+      "id": "platform-pack",
+      "domain": "platform",
+      "path": "content/knowledge/platform-pack",
+      "status": "active",
+      "risk_level": "standard"
+    },
+    {
+      "id": "product-business-pack",
+      "domain": "product-business",
+      "path": "content/knowledge/product-business-pack",
+      "status": "active",
+      "risk_level": "standard"
+    },
+    {
+      "id": "research-pack",
+      "domain": "research",
+      "path": "content/knowledge/research-pack",
+      "status": "active",
+      "risk_level": "standard"
+    },
+    {
+      "id": "sales-pack",
+      "domain": "sales",
+      "path": "content/knowledge/sales-pack",
+      "status": "active",
+      "risk_level": "standard"
+    },
+    {
+      "id": "security-pack",
+      "domain": "security",
+      "path": "content/knowledge/security-pack",
+      "status": "active",
+      "risk_level": "standard"
+    },
+    {
+      "id": "startup-ops-pack",
+      "domain": "startup-ops",
+      "path": "content/knowledge/startup-ops-pack",
+      "status": "active",
+      "risk_level": "standard"
+    }
+  ]
+}

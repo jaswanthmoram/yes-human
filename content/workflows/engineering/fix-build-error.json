@@ -47,10 +47,13 @@
   "primary_agent": "engineering.build-resolver",
   "route": {
     "domain_master": "engineering.master",
-    "primary": "engineering.build-resolver",
-    "participants": [],
+    "agents": [
+      "engineering.build-resolver"
+    ],
     "parallel": false,
-    "max_parallel_agents": 1
+    "max_parallel_agents": 1,
+    "primary": "engineering.build-resolver",
+    "participants": []
   },
   "budget": {
     "band": "standard",

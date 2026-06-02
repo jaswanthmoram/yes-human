@@ -47,13 +47,16 @@
   "primary_agent": "product-business.roadmap-planner",
   "route": {
     "domain_master": "product-business.master",
+    "agents": [
+      "product-business.roadmap-planner"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 2,
     "primary": "product-business.roadmap-planner",
     "participants": [
       "product-business.product-strategist",
       "product-business.feature-prioritizer"
-    ],
-    "parallel": false,
-    "max_parallel_agents": 2
+    ]
   },
   "budget": {
     "band": "standard",

@@ -54,12 +54,15 @@
   "primary_agent": "design-content.seo-writer",
   "route": {
     "domain_master": "design-content.master",
+    "agents": [
+      "design-content.seo-writer"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 1,
     "primary": "design-content.seo-writer",
     "participants": [
       "design-content.content-editor"
-    ],
-    "parallel": false,
-    "max_parallel_agents": 1
+    ]
   },
   "budget": {
     "band": "standard",

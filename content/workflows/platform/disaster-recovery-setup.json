@@ -183,5 +183,18 @@
       "relationship": "workflow_dossier"
     }
   ],
-  "quality_gate": "staging"
+  "quality_gate": "staging",
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 8000,
+    "max_tool_calls": 12
+  },
+  "route": {
+    "domain_master": "platform.master",
+    "agents": [
+      "platform.sre-engineer"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 1
+  }
 }

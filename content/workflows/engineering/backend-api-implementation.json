@@ -57,12 +57,15 @@
   "primary_agent": "engineering.backend-builder",
   "route": {
     "domain_master": "engineering.master",
+    "agents": [
+      "engineering.backend-builder"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 1,
     "primary": "engineering.backend-builder",
     "participants": [
       "security.security-reviewer"
-    ],
-    "parallel": false,
-    "max_parallel_agents": 1
+    ]
   },
   "budget": {
     "band": "expanded",

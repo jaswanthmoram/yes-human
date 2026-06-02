@@ -88,7 +88,11 @@
     {
       "id": "on-task-complete",
       "rule": "End with attorney or compliance-owner review; never claim autonomous approval."
-    }
+    },
+    "pre-route",
+    "pre-tool",
+    "pre-write",
+    "on-task-complete"
   ],
   "steps": [
     {

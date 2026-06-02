@@ -1,0 +1,67 @@
+{
+  "id": "sales.proposal-review",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "proposal-review workflow",
+  "triggers": [
+    "proposal review"
+  ],
+  "aliases": [
+    "proposal-review"
+  ],
+  "primary_agent": "sales.proposal-generator",
+  "inputs": [
+    "task_context"
+  ],
+  "outputs": [
+    "workflow_output"
+  ],
+  "steps": [
+    "intake_scope",
+    "execute_workflow",
+    "verify_outputs"
+  ],
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "on-task-complete"
+  ],
+  "route": {
+    "domain_master": "sales.master",
+    "agents": [
+      "sales.proposal-generator"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 1,
+    "primary": "sales.proposal-generator",
+    "participants": [
+      "sales.proposal-generator"
+    ]
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 8000,
+    "max_tool_calls": 12
+  },
+  "source_references": [
+    "ref.workflow.sales.proposal-review.2026-06-02"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2
+  },
+  "task_family": "sales",
+  "negative_keywords": [
+    "wrong domain"
+  ],
+  "tools": [
+    "filesystem.read"
+  ],
+  "verification": [
+    "outputs_verified"
+  ],
+  "success_criteria": [
+    "workflow_objectives_met"
+  ],
+  "rollback": "trace_based"
+}

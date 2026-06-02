@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-06-02T04:23:37.726Z",
-  "count": 664,
+  "generated_at": "2026-06-02T09:18:20.287Z",
+  "count": 757,
   "items": [
     {
       "id": "ai-ethics",
@@ -14,6 +14,10 @@
     {
       "id": "ai-research",
       "route_id": "route.data-ai.ai-research-scientist"
+    },
+    {
+      "id": "analytics-engineer",
+      "route_id": "route.data-ai.analytics-engineer"
     },
     {
       "id": "bi",
@@ -80,16 +84,16 @@
       "route_id": "route.data-ai.recommendation-engineer"
     },
     {
-      "id": "a11y audit",
+      "id": "accessibility-expert",
       "route_id": "route.design-content.accessibility-auditor"
     },
     {
-      "id": "a11y expert",
-      "route_id": "route.design-content.accessibility-expert"
+      "id": "accessibility expert",
+      "route_id": "route.design-content.accessibility-auditor"
     },
     {
-      "id": "accessibility specialist",
-      "route_id": "route.design-content.accessibility-expert"
+      "id": "a11y audit",
+      "route_id": "route.design-content.accessibility-auditor"
     },
     {
       "id": "brand designer",
@@ -164,6 +168,10 @@
       "route_id": "route.design-content.motion-designer"
     },
     {
+      "id": "presentation-designer",
+      "route_id": "route.design-content.presentation-designer"
+    },
+    {
       "id": "seo writer",
       "route_id": "route.design-content.seo-writer"
     },
@@ -185,6 +193,14 @@
     },
     {
       "id": "interface designer",
+      "route_id": "route.design-content.ui-designer"
+    },
+    {
+      "id": "ui-ux-designer",
+      "route_id": "route.design-content.ui-designer"
+    },
+    {
+      "id": "ui ux designer",
       "route_id": "route.design-content.ui-designer"
     },
     {
@@ -312,6 +328,18 @@
       "route_id": "route.engineering.backend-api"
     },
     {
+      "id": "build-resolver",
+      "route_id": "route.engineering.build-resolver"
+    },
+    {
+      "id": "build-error-resolver",
+      "route_id": "route.engineering.build-resolver"
+    },
+    {
+      "id": "build error resolver",
+      "route_id": "route.engineering.build-resolver"
+    },
+    {
       "id": "migration",
       "route_id": "route.engineering.code-migration"
     },
@@ -330,6 +358,14 @@
     {
       "id": "pr review",
       "route_id": "route.engineering.code-reviewer"
+    },
+    {
+      "id": "cpp",
+      "route_id": "route.engineering.cpp-reviewer"
+    },
+    {
+      "id": "c++",
+      "route_id": "route.engineering.cpp-reviewer"
     },
     {
       "id": "database-design",
@@ -388,6 +424,26 @@
       "route_id": "route.engineering.frontend-vue"
     },
     {
+      "id": "golang reviewer",
+      "route_id": "route.engineering.go-reviewer"
+    },
+    {
+      "id": "go",
+      "route_id": "route.engineering.go-reviewer"
+    },
+    {
+      "id": "java",
+      "route_id": "route.engineering.java-reviewer"
+    },
+    {
+      "id": "kotlin",
+      "route_id": "route.engineering.kotlin-reviewer"
+    },
+    {
+      "id": "master",
+      "route_id": "route.engineering.master"
+    },
+    {
       "id": "android dev",
       "route_id": "route.engineering.mobile-android"
     },
@@ -420,6 +476,18 @@
       "route_id": "route.engineering.performance-profiling"
     },
     {
+      "id": "planner",
+      "route_id": "route.engineering.planner"
+    },
+    {
+      "id": "py reviewer",
+      "route_id": "route.engineering.python-reviewer"
+    },
+    {
+      "id": "python",
+      "route_id": "route.engineering.python-reviewer"
+    },
+    {
       "id": "refactor",
       "route_id": "route.engineering.refactoring"
     },
@@ -430,6 +498,22 @@
     {
       "id": "cleanup",
       "route_id": "route.engineering.refactoring"
+    },
+    {
+      "id": "refactor-cleaner",
+      "route_id": "route.engineering.refactoring"
+    },
+    {
+      "id": "refactor cleaner",
+      "route_id": "route.engineering.refactoring"
+    },
+    {
+      "id": "rust",
+      "route_id": "route.engineering.rust-reviewer"
+    },
+    {
+      "id": "swift",
+      "route_id": "route.engineering.swift-reviewer"
     },
     {
       "id": "tdd guide",
@@ -448,6 +532,14 @@
       "route_id": "route.engineering.testing-e2e"
     },
     {
+      "id": "e2e-runner",
+      "route_id": "route.engineering.testing-e2e"
+    },
+    {
+      "id": "e2e runner",
+      "route_id": "route.engineering.testing-e2e"
+    },
+    {
       "id": "testing-integration",
       "route_id": "route.engineering.testing-integration"
     },
@@ -462,6 +554,14 @@
     {
       "id": "unit-testing",
       "route_id": "route.engineering.testing-unit"
+    },
+    {
+      "id": "ts reviewer",
+      "route_id": "route.engineering.typescript-reviewer"
+    },
+    {
+      "id": "typescript",
+      "route_id": "route.engineering.typescript-reviewer"
     },
     {
       "id": "audit specialist",
@@ -484,6 +584,10 @@
       "route_id": "route.finance.cfo-advisor"
     },
     {
+      "id": "cfo-advisor",
+      "route_id": "route.finance.cfo-advisor"
+    },
+    {
       "id": "compliance officer",
       "route_id": "route.finance.compliance-officer"
     },
@@ -494,6 +598,10 @@
     {
       "id": "credit analyst",
       "route_id": "route.finance.credit-analyst"
+    },
+    {
+      "id": "expense-auditor",
+      "route_id": "route.finance.expense-auditor"
     },
     {
       "id": "financial analyst",
@@ -534,6 +642,10 @@
     {
       "id": "cfo task",
       "route_id": "route.finance.master"
+    },
+    {
+      "id": "payroll-analyst",
+      "route_id": "route.finance.payroll-analyst"
     },
     {
       "id": "portfolio manager",
@@ -764,16 +876,20 @@
       "route_id": "route.hr.organizational-development"
     },
     {
-      "id": "performance manager",
-      "route_id": "route.hr.performance-manager"
+      "id": "performance-manager",
+      "route_id": "route.hr.performance-reviewer"
     },
     {
-      "id": "performance management",
-      "route_id": "route.hr.performance-manager"
+      "id": "performance manager",
+      "route_id": "route.hr.performance-reviewer"
     },
     {
       "id": "performance review",
       "route_id": "route.hr.performance-reviewer"
+    },
+    {
+      "id": "policy-drafter",
+      "route_id": "route.hr.policy-drafter"
     },
     {
       "id": "talent acquisition",
@@ -808,6 +924,14 @@
       "route_id": "route.integrations.api-integration-specialist"
     },
     {
+      "id": "browser automation agent",
+      "route_id": "route.integrations.browser-auto"
+    },
+    {
+      "id": "browser-automation-agent",
+      "route_id": "route.integrations.browser-auto"
+    },
+    {
       "id": "browser auto",
       "route_id": "route.integrations.browser-auto"
     },
@@ -818,6 +942,10 @@
     {
       "id": "event pipeline",
       "route_id": "route.integrations.event-streaming-architect"
+    },
+    {
+      "id": "figma",
+      "route_id": "route.integrations.figma-agent"
     },
     {
       "id": "github ops",
@@ -838,6 +966,14 @@
     {
       "id": "external service",
       "route_id": "route.integrations.master"
+    },
+    {
+      "id": "mcp designer",
+      "route_id": "route.integrations.mcp-connector-designer"
+    },
+    {
+      "id": "connector design",
+      "route_id": "route.integrations.mcp-connector-designer"
     },
     {
       "id": "queue engineer",
@@ -864,8 +1000,16 @@
       "route_id": "route.integrations.middleware-developer"
     },
     {
+      "id": "notion",
+      "route_id": "route.integrations.notion-agent"
+    },
+    {
       "id": "code context",
       "route_id": "route.integrations.sourcegraph-context-agent"
+    },
+    {
+      "id": "stripe",
+      "route_id": "route.integrations.stripe-agent"
     },
     {
       "id": "third party integration",
@@ -888,16 +1032,20 @@
       "route_id": "route.integrations.webhook-developer"
     },
     {
+      "id": "compliance-officer",
+      "route_id": "route.legal-compliance.compliance-checker"
+    },
+    {
       "id": "compliance check",
       "route_id": "route.legal-compliance.compliance-checker"
     },
     {
-      "id": "compliance management",
-      "route_id": "route.legal-compliance.compliance-officer"
+      "id": "contract-lawyer",
+      "route_id": "route.legal-compliance.contract-reviewer"
     },
     {
-      "id": "contract law",
-      "route_id": "route.legal-compliance.contract-lawyer"
+      "id": "contract lawyer",
+      "route_id": "route.legal-compliance.contract-reviewer"
     },
     {
       "id": "contract review",
@@ -948,20 +1096,24 @@
       "route_id": "route.legal-compliance.master"
     },
     {
+      "id": "nda-reviewer",
+      "route_id": "route.legal-compliance.nda-reviewer"
+    },
+    {
       "id": "policy analysis",
       "route_id": "route.legal-compliance.policy-analyst"
     },
     {
-      "id": "privacy check",
+      "id": "privacy-officer",
       "route_id": "route.legal-compliance.privacy-advisor"
     },
     {
-      "id": "privacy management",
-      "route_id": "route.legal-compliance.privacy-officer"
+      "id": "privacy officer",
+      "route_id": "route.legal-compliance.privacy-advisor"
     },
     {
-      "id": "data protection officer",
-      "route_id": "route.legal-compliance.privacy-officer"
+      "id": "privacy check",
+      "route_id": "route.legal-compliance.privacy-advisor"
     },
     {
       "id": "regulatory affairs",
@@ -970,6 +1122,10 @@
     {
       "id": "legal risk management",
       "route_id": "route.legal-compliance.risk-manager"
+    },
+    {
+      "id": "terms-drafter",
+      "route_id": "route.legal-compliance.terms-drafter"
     },
     {
       "id": "demand plan",
@@ -1084,6 +1240,14 @@
       "route_id": "route.marketing.brand-marketer"
     },
     {
+      "id": "brand-manager",
+      "route_id": "route.marketing.brand-marketer"
+    },
+    {
+      "id": "campaign-analyst",
+      "route_id": "route.marketing.campaign-analyst"
+    },
+    {
       "id": "content market",
       "route_id": "route.marketing.content-marketer"
     },
@@ -1109,6 +1273,10 @@
     },
     {
       "id": "growth marketing",
+      "route_id": "route.marketing.growth-marketer"
+    },
+    {
+      "id": "growth-marketer",
       "route_id": "route.marketing.growth-marketer"
     },
     {
@@ -1144,16 +1312,28 @@
       "route_id": "route.marketing.sem-specialist"
     },
     {
-      "id": "seo audit",
+      "id": "seo-specialist",
       "route_id": "route.marketing.seo-analyst"
     },
     {
       "id": "seo specialist",
-      "route_id": "route.marketing.seo-specialist"
+      "route_id": "route.marketing.seo-analyst"
+    },
+    {
+      "id": "seo audit",
+      "route_id": "route.marketing.seo-analyst"
     },
     {
       "id": "social media",
       "route_id": "route.marketing.social-media-manager"
+    },
+    {
+      "id": "adapter gen",
+      "route_id": "route.meta-system.adapter-generator"
+    },
+    {
+      "id": "bundle gen",
+      "route_id": "route.meta-system.adapter-generator"
     },
     {
       "id": "agent designer",
@@ -1162,6 +1342,14 @@
     {
       "id": "agent spec writer",
       "route_id": "route.meta-system.agent-designer"
+    },
+    {
+      "id": "cost control",
+      "route_id": "route.meta-system.cost-controller"
+    },
+    {
+      "id": "budget check",
+      "route_id": "route.meta-system.cost-controller"
     },
     {
       "id": "deduplicator",
@@ -1186,6 +1374,10 @@
     {
       "id": "test fixture writer",
       "route_id": "route.meta-system.fixture-engineer"
+    },
+    {
+      "id": "graph build",
+      "route_id": "route.meta-system.graph-builder"
     },
     {
       "id": "bundle absorber",
@@ -1236,6 +1428,10 @@
       "route_id": "route.meta-system.workflow-architect"
     },
     {
+      "id": "workflow mine",
+      "route_id": "route.meta-system.workflow-miner"
+    },
+    {
       "id": "cicd",
       "route_id": "route.platform.ci-cd-engineer"
     },
@@ -1246,6 +1442,10 @@
     {
       "id": "cicd-design",
       "route_id": "route.platform.ci-cd-pipeline"
+    },
+    {
+      "id": "cloud-architect",
+      "route_id": "route.platform.cloud-architect"
     },
     {
       "id": "cloud-cost",
@@ -1276,16 +1476,16 @@
       "route_id": "route.platform.gitops-workflow"
     },
     {
-      "id": "oncall",
+      "id": "incident-response",
       "route_id": "route.platform.incident-responder"
     },
     {
-      "id": "incident-mgmt",
-      "route_id": "route.platform.incident-response"
+      "id": "incident response",
+      "route_id": "route.platform.incident-responder"
     },
     {
-      "id": "ir-manager",
-      "route_id": "route.platform.incident-response"
+      "id": "oncall",
+      "route_id": "route.platform.incident-responder"
     },
     {
       "id": "infra-test",
@@ -1316,6 +1516,10 @@
       "route_id": "route.platform.observability-engineer"
     },
     {
+      "id": "release-manager",
+      "route_id": "route.platform.release-manager"
+    },
+    {
       "id": "mesh",
       "route_id": "route.platform.service-mesh"
     },
@@ -1332,8 +1536,16 @@
       "route_id": "route.platform.terraform-architect"
     },
     {
+      "id": "ceo-advisor",
+      "route_id": "route.product-business.ceo-advisor"
+    },
+    {
       "id": "competitive intel",
       "route_id": "route.product-business.competitive-analyst"
+    },
+    {
+      "id": "cto-advisor",
+      "route_id": "route.product-business.cto-advisor"
     },
     {
       "id": "customer success",
@@ -1404,6 +1616,10 @@
       "route_id": "route.product-business.roadmap-planner"
     },
     {
+      "id": "sales-operator",
+      "route_id": "route.product-business.sales-operator"
+    },
+    {
       "id": "ux research",
       "route_id": "route.product-business.user-researcher"
     },
@@ -1468,6 +1684,10 @@
       "route_id": "route.sales.account-executive"
     },
     {
+      "id": "account-manager",
+      "route_id": "route.sales.account-manager"
+    },
+    {
       "id": "contract negotiator",
       "route_id": "route.sales.contract-negotiator"
     },
@@ -1510,6 +1730,10 @@
     {
       "id": "pipeline check",
       "route_id": "route.sales.pipeline-analyst"
+    },
+    {
+      "id": "pricing-strategist",
+      "route_id": "route.sales.pricing-strategist"
     },
     {
       "id": "proposal gen",
@@ -1633,6 +1857,10 @@
     },
     {
       "id": "secrev",
+      "route_id": "route.security.security-reviewer"
+    },
+    {
+      "id": "security-reviewer",
       "route_id": "route.security.security-reviewer"
     },
     {
@@ -1804,6 +2032,14 @@
       "route_id": "route.workflow.design-content.content-strategy-development"
     },
     {
+      "id": "copy-and-a11y-review",
+      "route_id": "route.workflow.design-content.copy-and-a11y-review"
+    },
+    {
+      "id": "design-system-audit",
+      "route_id": "route.workflow.design-content.design-system-audit"
+    },
+    {
       "id": "design system setup",
       "route_id": "route.workflow.design-content.design-system-creation"
     },
@@ -1870,6 +2106,10 @@
     {
       "id": "e-learning development",
       "route_id": "route.workflow.education.online-course-development"
+    },
+    {
+      "id": "syllabus-alignment",
+      "route_id": "route.workflow.education.syllabus-alignment"
     },
     {
       "id": "api endpoint creation",
@@ -2056,6 +2296,10 @@
       "route_id": "route.workflow.finance.investment-evaluation"
     },
     {
+      "id": "monthly-close-support",
+      "route_id": "route.workflow.finance.monthly-close-support"
+    },
+    {
       "id": "monthly forecast",
       "route_id": "route.workflow.finance.monthly-forecast"
     },
@@ -2090,6 +2334,10 @@
     {
       "id": "clinical protocol check",
       "route_id": "route.workflow.healthcare.clinical-guideline-review"
+    },
+    {
+      "id": "clinical-note-summary",
+      "route_id": "route.workflow.healthcare.clinical-note-summary"
     },
     {
       "id": "hipaa audit",
@@ -2142,6 +2390,10 @@
     {
       "id": "interview pipeline",
       "route_id": "route.workflow.hr.hiring-pipeline"
+    },
+    {
+      "id": "offer-letter-prep",
+      "route_id": "route.workflow.hr.offer-letter-prep"
     },
     {
       "id": "onboarding process",
@@ -2216,6 +2468,10 @@
       "route_id": "route.workflow.legal-compliance.policy-development"
     },
     {
+      "id": "vendor-contract-triage",
+      "route_id": "route.workflow.legal-compliance.vendor-contract-triage"
+    },
+    {
       "id": "demand balancing",
       "route_id": "route.workflow.manufacturing.demand-inventory-balancing"
     },
@@ -2238,6 +2494,10 @@
     {
       "id": "editorial strategy",
       "route_id": "route.workflow.marketing.content-marketing-strategy"
+    },
+    {
+      "id": "content-pipeline",
+      "route_id": "route.workflow.marketing.content-pipeline"
     },
     {
       "id": "cro",
@@ -2272,6 +2532,10 @@
       "route_id": "route.workflow.marketing.seo-audit-process"
     },
     {
+      "id": "seo-improvement",
+      "route_id": "route.workflow.marketing.seo-improvement"
+    },
+    {
       "id": "social campaign",
       "route_id": "route.workflow.marketing.social-media-campaign"
     },
@@ -2280,12 +2544,60 @@
       "route_id": "route.workflow.marketing.social-media-campaign"
     },
     {
+      "id": "agent onboarding",
+      "route_id": "route.workflow.meta-system.agent-creation"
+    },
+    {
+      "id": "new agent workflow",
+      "route_id": "route.workflow.meta-system.agent-creation"
+    },
+    {
+      "id": "fixture batch generation",
+      "route_id": "route.workflow.meta-system.fixture-generation"
+    },
+    {
+      "id": "test fixture workflow",
+      "route_id": "route.workflow.meta-system.fixture-generation"
+    },
+    {
+      "id": "qa sweep",
+      "route_id": "route.workflow.meta-system.quality-assurance"
+    },
+    {
+      "id": "quality audit workflow",
+      "route_id": "route.workflow.meta-system.quality-assurance"
+    },
+    {
+      "id": "skill creation",
+      "route_id": "route.workflow.meta-system.skill-development"
+    },
+    {
+      "id": "new skill development",
+      "route_id": "route.workflow.meta-system.skill-development"
+    },
+    {
       "id": "source dossier build",
       "route_id": "route.workflow.meta-system.source-mine-and-dossier"
     },
     {
       "id": "source mining",
       "route_id": "route.workflow.meta-system.source-mine-and-dossier"
+    },
+    {
+      "id": "system tuning",
+      "route_id": "route.workflow.meta-system.system-optimization"
+    },
+    {
+      "id": "performance optimization workflow",
+      "route_id": "route.workflow.meta-system.system-optimization"
+    },
+    {
+      "id": "workflow creation",
+      "route_id": "route.workflow.meta-system.workflow-design"
+    },
+    {
+      "id": "new workflow design",
+      "route_id": "route.workflow.meta-system.workflow-design"
     },
     {
       "id": "ci triage",
@@ -2320,16 +2632,12 @@
       "route_id": "route.workflow.platform.disaster-recovery-setup"
     },
     {
-      "id": "incident response",
-      "route_id": "route.workflow.platform.incident-response-playbook"
-    },
-    {
       "id": "outage playbook",
-      "route_id": "route.workflow.platform.incident-response-playbook"
+      "route_id": "route.workflow.platform.incident-responder-playbook"
     },
     {
       "id": "incident workflow",
-      "route_id": "route.workflow.platform.incident-response-playbook"
+      "route_id": "route.workflow.platform.incident-responder-playbook"
     },
     {
       "id": "k8s setup",
@@ -2392,6 +2700,10 @@
       "route_id": "route.workflow.product-business.feature-prioritization"
     },
     {
+      "id": "prd-review",
+      "route_id": "route.workflow.product-business.prd-review"
+    },
+    {
       "id": "prd breakdown",
       "route_id": "route.workflow.product-business.prd-to-plan"
     },
@@ -2440,6 +2752,10 @@
       "route_id": "route.workflow.product-business.product-roadmap-creation"
     },
     {
+      "id": "roadmap-refresh",
+      "route_id": "route.workflow.product-business.roadmap-refresh"
+    },
+    {
       "id": "ux research process",
       "route_id": "route.workflow.product-business.user-research-process"
     },
@@ -2452,12 +2768,52 @@
       "route_id": "route.workflow.product-business.user-research-process"
     },
     {
+      "id": "data collection",
+      "route_id": "route.workflow.research.data-collection-process"
+    },
+    {
+      "id": "field collection",
+      "route_id": "route.workflow.research.data-collection-process"
+    },
+    {
       "id": "deep research",
       "route_id": "route.workflow.research.deep-research-synthesis"
     },
     {
       "id": "research report",
       "route_id": "route.workflow.research.deep-research-synthesis"
+    },
+    {
+      "id": "lit review workflow",
+      "route_id": "route.workflow.research.literature-review-process"
+    },
+    {
+      "id": "evidence review",
+      "route_id": "route.workflow.research.literature-review-process"
+    },
+    {
+      "id": "project setup",
+      "route_id": "route.workflow.research.research-project-setup"
+    },
+    {
+      "id": "study kickoff",
+      "route_id": "route.workflow.research.research-project-setup"
+    },
+    {
+      "id": "publication workflow",
+      "route_id": "route.workflow.research.research-publication"
+    },
+    {
+      "id": "manuscript pipeline",
+      "route_id": "route.workflow.research.research-publication"
+    },
+    {
+      "id": "systematic review",
+      "route_id": "route.workflow.research.systematic-review"
+    },
+    {
+      "id": "prisma workflow",
+      "route_id": "route.workflow.research.systematic-review"
     },
     {
       "id": "account planning",
@@ -2476,6 +2832,10 @@
       "route_id": "route.workflow.sales.contract-negotiation"
     },
     {
+      "id": "crm-hygiene",
+      "route_id": "route.workflow.sales.crm-hygiene"
+    },
+    {
       "id": "opportunity review",
       "route_id": "route.workflow.sales.deal-review"
     },
@@ -2486,6 +2846,10 @@
     {
       "id": "proposal creation",
       "route_id": "route.workflow.sales.proposal-development"
+    },
+    {
+      "id": "proposal-review",
+      "route_id": "route.workflow.sales.proposal-review"
     },
     {
       "id": "sales forecast",
@@ -2652,12 +3016,20 @@
       "route_id": "route.workflow.startup-ops.fundraising-preparation"
     },
     {
+      "id": "fundraising-readiness",
+      "route_id": "route.workflow.startup-ops.fundraising-readiness"
+    },
+    {
       "id": "deck creation",
       "route_id": "route.workflow.startup-ops.pitch-deck-creation"
     },
     {
       "id": "pitch build",
       "route_id": "route.workflow.startup-ops.pitch-deck-creation"
+    },
+    {
+      "id": "weekly-operating-review",
+      "route_id": "route.workflow.startup-ops.weekly-operating-review"
     }
   ]
 }

@@ -4,17 +4,18 @@ Portable, low-token agentic control plane (v2.0.0). Routes tasks through a tiny 
 
 ## Status
 
-**Phase 8 Complete**: Wave 4 specialist coverage and Wave 5 workflow/acceptance surfaces are implemented on the current 74-agent baseline.
+**Phase 8 complete (7A–7H):** longtail expansion, routing eval scale, knowledge packs, hook bindings, and acceptance freeze.
 
-**Key Achievements:**
-- 74 production-gated agents across engineering, research, product, design, marketing, sales, platform, security, data/AI, and regulated domains
-- 18 canonical workflows under `content/workflows/` with matching workflow dossiers under `references/workflows/`
-- Generated workflow routing, workflow cache, and category packs (`registry/category-packs.json`)
-- Schema-backed connector registry with 16 declared connectors and explicit agent/workflow allowlists
-- Validation, route eval, workflow eval, and Phase 8 acceptance report generation operational
-- Core host bundles complete for Claude, Codex, OpenCode, and MCP
+**Key achievements:**
+- **318** agents, **366** skills, **119** workflows across 18 domains
+- **1503** route fixtures; routing eval **≥95%** top-1 (see `reports/phase8-acceptance.md`)
+- **18** domain knowledge packs (`registry/knowledge-packs.json`, `content/knowledge/`)
+- **30** connectors (7 enabled, 23 declared disabled until creds)
+- Hook bindings (`registry/hook-bindings.json`) wired to `hooks/hook-registry.json`
+- `npm run validate`, route/skill/workflow evals, and host bundles (`npm run build:hosts`) passing
+- Architecture §32.4 specialists added; hybrid aliases merge into canonical routes (no duplicate CFO/browser routes)
 
-**Next:** Phase 9 — learning loop, mistake graph promotion, team/offline concerns, and optional adapter packs.
+**Next:** Phase 9 — learning loop, mistake graph promotion, dossier score uplift for promotion gates, and optional adapter packs.
 
 ## Quick start
 
@@ -25,7 +26,8 @@ npm test             # unit tests (router, promotion gate, markitdown)
 npm run eval:cost    # startup token budget
 node packages/yes-cli/index.js eval workflow   # workflow routing accuracy
 npm run report:phase8                          # regenerate reports/phase8-acceptance.md
-node packages/yes-cli/index.js doctor   # environment + project health
+npm run build:hosts                            # Claude, Codex, OpenCode, MCP bundles
+node packages/yes-cli/index.js doctor          # environment + project health
 ```
 
 ## Document conversion (MarkItDown)

@@ -59,12 +59,15 @@
   "primary_agent": "engineering.refactor-planner",
   "route": {
     "domain_master": "engineering.master",
+    "agents": [
+      "engineering.refactor-planner"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 1,
     "primary": "engineering.refactor-planner",
     "participants": [
       "engineering.code-reviewer"
-    ],
-    "parallel": false,
-    "max_parallel_agents": 1
+    ]
   },
   "budget": {
     "band": "expanded",

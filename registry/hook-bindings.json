@@ -1,0 +1,64 @@
+{
+  "version": "2.0.0",
+  "generated_at": "2026-06-02T08:27:32.068Z",
+  "bindings": [
+    {
+      "hook_id": "hook.pre-route.budget-safety",
+      "event": "pre-route",
+      "entry": "hooks/pre-route.js",
+      "policy_dependencies": [
+        "budget.rules.json",
+        "safety.rules.json"
+      ]
+    },
+    {
+      "hook_id": "hook.pre-tool.permission-strategy",
+      "event": "pre-tool",
+      "entry": "hooks/pre-tool.js",
+      "policy_dependencies": [
+        "tool-use.rules.json",
+        "mcp-trust.policy.json"
+      ]
+    },
+    {
+      "hook_id": "hook.pre-write.policy-contract",
+      "event": "pre-write",
+      "entry": "hooks/pre-write.js",
+      "policy_dependencies": [
+        "filesystem.policy.json",
+        "privacy.policy.json"
+      ]
+    },
+    {
+      "hook_id": "hook.post-tool.audit-learning",
+      "event": "post-tool",
+      "entry": "hooks/post-tool.js",
+      "policy_dependencies": [
+        "telemetry.policy.json"
+      ]
+    },
+    {
+      "hook_id": "hook.on-error.mistake-graph",
+      "event": "on-error",
+      "entry": "hooks/on-error.js",
+      "policy_dependencies": []
+    },
+    {
+      "hook_id": "hook.on-task-complete.trace-ledger",
+      "event": "on-task-complete",
+      "entry": "hooks/on-task-complete.js",
+      "policy_dependencies": [
+        "telemetry.policy.json"
+      ]
+    },
+    {
+      "hook_id": "hook.on-absorb.provenance-license",
+      "event": "on-absorb",
+      "entry": "hooks/on-absorb.js",
+      "policy_dependencies": [
+        "licensing.policy.json",
+        "source-mining.rules.json"
+      ]
+    }
+  ]
+}

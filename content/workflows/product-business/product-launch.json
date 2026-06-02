@@ -47,13 +47,16 @@
   "primary_agent": "product-business.product-launcher",
   "route": {
     "domain_master": "product-business.master",
+    "agents": [
+      "product-business.product-launcher"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 2,
     "primary": "product-business.product-launcher",
     "participants": [
       "product-business.product-marketer",
       "product-business.product-ops"
-    ],
-    "parallel": false,
-    "max_parallel_agents": 2
+    ]
   },
   "budget": {
     "band": "standard",

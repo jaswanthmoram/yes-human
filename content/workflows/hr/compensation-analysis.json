@@ -86,7 +86,11 @@
     {
       "id": "on-task-complete",
       "rule": "Return clear benchmarking and note where individual pay decisions need human approval."
-    }
+    },
+    "pre-route",
+    "pre-tool",
+    "pre-write",
+    "on-task-complete"
   ],
   "steps": [
     {

@@ -86,7 +86,11 @@
     {
       "id": "on-task-complete",
       "rule": "End with a named human finance owner or reviewer handoff; do not claim approval."
-    }
+    },
+    "pre-route",
+    "pre-tool",
+    "pre-write",
+    "on-task-complete"
   ],
   "steps": [
     {

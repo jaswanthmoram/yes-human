@@ -47,13 +47,16 @@
   "primary_agent": "integrations.master",
   "route": {
     "domain_master": "integrations.master",
+    "agents": [
+      "integrations.master"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 3,
     "primary": "integrations.master",
     "participants": [
       "meta-system.source-miner",
       "engineering.architect"
-    ],
-    "parallel": false,
-    "max_parallel_agents": 3
+    ]
   },
   "budget": {
     "band": "expanded",

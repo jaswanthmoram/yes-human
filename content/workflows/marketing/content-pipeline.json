@@ -1,0 +1,67 @@
+{
+  "id": "marketing.content-pipeline",
+  "version": "1.0.0",
+  "status": "active",
+  "summary": "content-pipeline workflow",
+  "triggers": [
+    "content pipeline"
+  ],
+  "aliases": [
+    "content-pipeline"
+  ],
+  "primary_agent": "marketing.content-marketer",
+  "inputs": [
+    "task_context"
+  ],
+  "outputs": [
+    "workflow_output"
+  ],
+  "steps": [
+    "intake_scope",
+    "execute_workflow",
+    "verify_outputs"
+  ],
+  "gates": [
+    "pre-route",
+    "pre-tool",
+    "on-task-complete"
+  ],
+  "route": {
+    "domain_master": "marketing.master",
+    "agents": [
+      "marketing.content-marketer"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 1,
+    "primary": "marketing.content-marketer",
+    "participants": [
+      "marketing.content-marketer"
+    ]
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 8000,
+    "max_tool_calls": 12
+  },
+  "source_references": [
+    "ref.workflow.marketing.content-pipeline.2026-06-02"
+  ],
+  "promotion": {
+    "can_learn": true,
+    "min_successes_before_update": 2
+  },
+  "task_family": "marketing",
+  "negative_keywords": [
+    "wrong domain"
+  ],
+  "tools": [
+    "filesystem.read"
+  ],
+  "verification": [
+    "outputs_verified"
+  ],
+  "success_criteria": [
+    "workflow_objectives_met"
+  ],
+  "rollback": "trace_based"
+}

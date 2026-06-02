@@ -54,13 +54,16 @@
   "primary_agent": "design-content.content-strategist",
   "route": {
     "domain_master": "design-content.master",
+    "agents": [
+      "design-content.content-strategist"
+    ],
+    "parallel": true,
+    "max_parallel_agents": 2,
     "primary": "design-content.content-strategist",
     "participants": [
       "design-content.seo-writer",
       "design-content.content-editor"
-    ],
-    "parallel": true,
-    "max_parallel_agents": 2
+    ]
   },
   "budget": {
     "band": "expanded",

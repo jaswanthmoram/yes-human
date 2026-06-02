@@ -134,7 +134,91 @@ function uniqueStrings(values) {
   return out;
 }
 
-function buildRegistryFromMarkdown(relativeDir) {
+function asStringArray(value, fallback = []) {
+  if (Array.isArray(value)) {
+    return uniqueStrings(value.map((entry) => String(entry || '').trim()).filter(Boolean));
+  }
+  if (typeof value === 'string' && value.trim()) {
+    return [value.trim()];
+  }
+  return [...fallback];
+}
+
+function normalizeSkill(skill) {
+  const domain = skill.domain || String(skill.id || '').split('.')[0] || 'meta-system';
+  const steps = asStringArray(skill.steps, asStringArray(skill.procedure, ['Follow the skill procedure in SKILL.md body.']));
+  const triggers = asStringArray(skill.triggers, asStringArray(skill.activation_triggers, []));
+  const sourceRefs = asStringArray(skill.source_references, [`ref.yes-human.${skill.id}.2026-06-02`]);
+  return {
+    id: skill.id,
+    name: skill.name || skill.id,
+    version: skill.version || '1.0.0',
+    domain,
+    category: skill.category || skill.id || `${domain}.general`,
+    purpose: skill.purpose,
+    summary: skill.summary || skill.purpose || skill.name || skill.id,
+    triggers,
+    activation_triggers: asStringArray(skill.activation_triggers, []),
+    prerequisites: asStringArray(skill.prerequisites, ['Task matches this skill scope']),
+    inputs: asStringArray(skill.inputs, []),
+    steps,
+    procedure: asStringArray(skill.procedure, []),
+    outputs: asStringArray(skill.outputs, ['skill_output']),
+    tools: asStringArray(skill.tools, []),
+    quality_gates: asStringArray(skill.quality_gates, []),
+    failure_modes: asStringArray(skill.failure_modes, []),
+    handoffs: asStringArray(skill.handoffs, []),
+    budget_band: skill.budget_band || 'standard',
+    rollback: asStringArray(skill.rollback, ['Revert partial outputs and re-run with narrower scope']),
+    validators: asStringArray(skill.validators, asStringArray(skill.quality_gates, ['outputs_complete', 'policy_safe'])),
+    source_references: sourceRefs,
+    allowed_agents: asStringArray(skill.allowed_agents, []),
+    allowed_workflows: asStringArray(skill.allowed_workflows, []),
+    status: skill.status || 'active'
+  };
+}
+
+function getArchitectureAliasExtensions(compiledAgents) {
+  const agentById = new Map(compiledAgents.map((agent) => [agent.id, agent]));
+  const specs = [
+    { route_id: 'route.engineering.build-resolver', agent: 'engineering.build-resolver', keywords: ['build error', 'fix build', 'compilation error'], aliases: ['build-error-resolver', 'build error resolver'] },
+    { route_id: 'route.engineering.testing-e2e', agent: 'engineering.testing-e2e', keywords: ['e2e test', 'end to end test', 'playwright test'], aliases: ['e2e-runner', 'e2e runner'] },
+    { route_id: 'route.engineering.refactoring', agent: 'engineering.refactoring', keywords: ['refactor code', 'clean up code', 'code cleanup'], aliases: ['refactor-cleaner', 'refactor cleaner'] },
+    { route_id: 'route.security.security-reviewer', agent: 'security.security-reviewer', keywords: ['security code review', 'review security'], aliases: ['security-reviewer'] },
+    { route_id: 'route.integrations.browser-auto', agent: 'integrations.browser-auto', keywords: ['browser automation', 'playwright automation', 'web automation'], aliases: ['browser-automation-agent', 'browser automation agent'] },
+    { route_id: 'route.design-content.ui-designer', agent: 'design-content.ui-designer', keywords: ['ui ux design', 'ui/ux', 'interface design'], aliases: ['ui-ux-designer', 'ui ux designer'] },
+    { route_id: 'route.finance.cfo-advisor', agent: 'finance.cfo-advisor', keywords: ['cfo advice', 'chief financial officer'], aliases: ['cfo-advisor'] },
+    { route_id: 'route.marketing.brand-marketer', agent: 'marketing.brand-marketer', keywords: ['brand manager', 'brand management'], aliases: ['brand-manager'] },
+    { route_id: 'route.marketing.growth-marketer', agent: 'marketing.growth-marketer', keywords: ['growth marketer', 'growth marketing'], aliases: ['growth-marketer'] }
+  ];
+  const extensions = new Map();
+  for (const spec of specs) {
+    if (!agentById.has(spec.agent)) continue;
+    extensions.set(spec.route_id, {
+      keywords: uniqueStrings(spec.keywords),
+      aliases: uniqueStrings(spec.aliases)
+    });
+  }
+  return extensions;
+}
+
+function mergeArchitectureAliasExtensions(routes, extensions) {
+  if (!extensions || extensions.size === 0) return routes;
+  return routes.map((route) => {
+    const extension = extensions.get(route.route_id);
+    if (!extension) return route;
+    return {
+      ...route,
+      match: {
+        ...route.match,
+        keywords: uniqueStrings([...(route.match?.keywords || []), ...extension.keywords]),
+        aliases: uniqueStrings([...(route.match?.aliases || []), ...extension.aliases])
+      }
+    };
+  });
+}
+
+function buildRegistryFromMarkdown(relativeDir, options = {}) {
   const dir = resolvePath(relativeDir);
   const files = getFilesRecursively(dir, ['.md']);
   const items = [];
@@ -144,7 +228,8 @@ function buildRegistryFromMarkdown(relativeDir) {
       const content = fs.readFileSync(file, 'utf8');
       const { frontmatter } = parseFrontmatter(content);
       if (frontmatter?.id) {
-        items.push(frontmatter);
+        const item = frontmatter;
+        items.push(options.normalize ? options.normalize(item) : item);
       }
     } catch (error) {
       console.error(`Error compiling markdown file ${file}: ${error.message}`);
@@ -184,6 +269,7 @@ function listFieldNames(entries) {
 
 function normalizeWorkflow(workflow) {
   const route = workflow.route || {};
+  const domain = String(workflow.id || '').split('.')[0] || 'meta-system';
   const normalizedRoute = {
     domain_master: route.domain_master || deriveDomainMaster(workflow.primary_agent),
     agents: uniqueStrings([
@@ -197,18 +283,28 @@ function normalizeWorkflow(workflow) {
       ...(route.participants || [])
     ]).length)
   };
-
   const promotion = workflow.promotion || {};
-
+  const gates = asStringArray(workflow.gates, ['pre-route', 'on-task-complete']);
+  const validGates = gates.filter((g) => ['pre-route','pre-tool','pre-write','post-tool','on-error','on-task-complete','on-absorb'].includes(g));
   return {
-    ...workflow,
+    id: workflow.id,
+    version: workflow.version || '1.0.0',
+    status: workflow.status || 'active',
+    summary: workflow.summary || workflow.description || workflow.name || workflow.id,
+    task_family: workflow.task_family || domain,
+    triggers: asStringArray(workflow.triggers, []),
+    aliases: asStringArray(workflow.aliases, []),
+    negative_keywords: asStringArray(workflow.negative_keywords, []),
     inputs: listFieldNames(workflow.inputs),
     outputs: listFieldNames(workflow.outputs),
-    gates: listFieldNames(workflow.gates),
+    primary_agent: workflow.primary_agent,
     route: normalizedRoute,
+    budget: workflow.budget?.band ? workflow.budget : { band: 'standard', max_context_tokens: 8000, max_tool_calls: 12 },
+    gates: validGates.length ? validGates : ['pre-route', 'on-task-complete'],
     steps: listFieldNames(workflow.steps),
     tools: listFieldNames(workflow.tools),
     verification: listFieldNames(workflow.verification),
+    success_criteria: listFieldNames(workflow.success_criteria),
     rollback: typeof workflow.rollback === 'string' ? workflow.rollback : workflow.rollback?.mode || 'trace_based',
     source_references: listFieldNames(workflow.source_references),
     promotion: {
@@ -290,6 +386,18 @@ function buildWorkflowRoutes(workflows) {
   }));
 }
 
+const DEPRECATED_ARCH_MANUAL_ROUTE_IDS = new Set([
+  'route.engineering.build-error-resolver',
+  'route.engineering.e2e-runner',
+  'route.engineering.refactor-cleaner',
+  'route.engineering.security-reviewer',
+  'route.integrations.browser-automation-agent',
+  'route.design-content.ui-ux-designer',
+  'route.product-business.cfo-advisor',
+  'route.marketing.brand-manager',
+  'route.product-business.growth-marketer'
+]);
+
 function buildRouteSet(existingRoutes, compiledAgents, workflows) {
   const fallbackRoute = existingRoutes.find((route) => route.route_id === 'route.meta-system.supreme-router') || {
     route_id: 'route.meta-system.supreme-router',
@@ -305,17 +413,18 @@ function buildRouteSet(existingRoutes, compiledAgents, workflows) {
     fallback: 'route.meta-system.supreme-router'
   };
 
-  const manualRoutes = existingRoutes.filter((route) => route.manual === true && route.route_id !== fallbackRoute.route_id);
+  const manualRoutes = existingRoutes.filter((route) => route.manual === true && route.route_id !== fallbackRoute.route_id && !DEPRECATED_ARCH_MANUAL_ROUTE_IDS.has(route.route_id));
   const workflowByPrimaryAgent = buildWorkflowByPrimaryAgent(workflows);
+  const archExtensions = getArchitectureAliasExtensions(compiledAgents);
   const generatedRoutes = [
-    ...buildAgentRoutes(compiledAgents, workflowByPrimaryAgent),
+    ...mergeArchitectureAliasExtensions(buildAgentRoutes(compiledAgents, workflowByPrimaryAgent), archExtensions),
     ...buildWorkflowRoutes(workflows)
   ];
 
-  const manualIds = new Set(manualRoutes.map((route) => route.route_id));
+  const orderedManualIds = new Set(manualRoutes.map((route) => route.route_id));
   const orderedRoutes = [fallbackRoute, ...manualRoutes];
   for (const route of generatedRoutes) {
-    if (!manualIds.has(route.route_id)) {
+    if (!orderedManualIds.has(route.route_id)) {
       orderedRoutes.push(route);
     }
   }
@@ -433,7 +542,7 @@ function workflowFixtureDomain(fixture) {
   return workflowId.split('.')[0] || null;
 }
 
-function buildCategoryPacks(categories, agents, workflows, connectors) {
+function buildCategoryPacks(categories, agents, workflows, connectors, knowledgePacks, hookBindings) {
   const routeFixtureMap = loadFixtureDomainMap('tests/routing', routeFixtureDomain);
   const workflowFixtureMap = loadFixtureDomainMap('tests/workflows', workflowFixtureDomain);
 
@@ -461,6 +570,9 @@ function buildCategoryPacks(categories, agents, workflows, connectors) {
       connectors: uniqueStrings(categoryConnectors),
       route_fixture_files: Array.from(routeFixtureMap.get(domainPrefix) || []).sort(),
       workflow_fixture_files: Array.from(workflowFixtureMap.get(domainPrefix) || []).sort(),
+      knowledge_pack_id: (knowledgePacks.items || []).find((p) => p.domain === domainPrefix)?.id || null,
+      hook_binding_ids: (hookBindings.bindings || []).map((b) => b.hook_id),
+      dossier_coverage: { agents: categoryAgents.filter((a) => a.quality_gate === "staging" || a.quality_gate === "production").length, workflows: categoryWorkflows.length },
       status: category.master_agent && categoryAgents.some((agent) => agent.id === category.master_agent) ? 'active' : 'draft'
     };
   });
@@ -472,7 +584,7 @@ const compiledAgents = buildRegistryFromMarkdown('content/agents');
 writeRegistry('registry/agents.json', compiledAgents);
 console.log(`✓ Compiled ${compiledAgents.length} agents into registry/agents.json`);
 
-const compiledSkills = buildRegistryFromMarkdown('content/skills');
+const compiledSkills = buildRegistryFromMarkdown('content/skills', { normalize: normalizeSkill });
 writeRegistry('registry/skills.json', compiledSkills);
 console.log(`✓ Compiled ${compiledSkills.length} skills into registry/skills.json`);
 
@@ -503,7 +615,9 @@ console.log('✓ Synchronized registry/aliases.json');
 
 const categories = readJson('registry/categories.json', { items: [] });
 const connectors = readJson('registry/mcps.json', { items: [] });
-const categoryPacks = buildCategoryPacks(categories.items || [], compiledAgents, compiledWorkflows, connectors.items || []);
+const knowledgePacks = readJson("registry/knowledge-packs.json", { items: [] });
+const hookBindings = readJson("registry/hook-bindings.json", { bindings: [] });
+const categoryPacks = buildCategoryPacks(categories.items || [], compiledAgents, compiledWorkflows, connectors.items || [], knowledgePacks, hookBindings);
 writeRegistry('registry/category-packs.json', categoryPacks);
 console.log(`✓ Generated registry/category-packs.json (${categoryPacks.length} packs)`);
 

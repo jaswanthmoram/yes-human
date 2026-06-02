@@ -88,7 +88,11 @@
     {
       "id": "on-task-complete",
       "rule": "End with named human reviewer handoff; do not claim investment approval."
-    }
+    },
+    "pre-route",
+    "pre-tool",
+    "pre-write",
+    "on-task-complete"
   ],
   "steps": [
     {

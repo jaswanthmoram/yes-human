@@ -66,13 +66,16 @@
   "primary_agent": "security.threat-hunter",
   "route": {
     "domain_master": "security.master",
+    "agents": [
+      "security.threat-hunter"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 2,
     "primary": "security.threat-hunter",
     "participants": [
       "security.incident-responder",
       "security.forensics-analyst"
-    ],
-    "parallel": false,
-    "max_parallel_agents": 2
+    ]
   },
   "budget": {
     "band": "expanded",

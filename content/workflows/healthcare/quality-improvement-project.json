@@ -22,28 +22,63 @@
     "manufacturing quality"
   ],
   "inputs": [
-    {"name": "improvement_scope", "required": true, "description": "The process, unit, or outcome targeted for improvement."},
-    {"name": "current_metrics", "required": true, "description": "Baseline performance data and current state metrics."},
-    {"name": "stakeholder_requirements", "required": true, "description": "Requirements from clinical staff, patients, and leadership."},
-    {"name": "resource_constraints", "required": false, "description": "Budget, staffing, and timeline constraints."},
-    {"name": "previous_attempts", "required": false, "description": "Documentation of previous improvement attempts and outcomes."}
+    {
+      "name": "improvement_scope",
+      "required": true,
+      "description": "The process, unit, or outcome targeted for improvement."
+    },
+    {
+      "name": "current_metrics",
+      "required": true,
+      "description": "Baseline performance data and current state metrics."
+    },
+    {
+      "name": "stakeholder_requirements",
+      "required": true,
+      "description": "Requirements from clinical staff, patients, and leadership."
+    },
+    {
+      "name": "resource_constraints",
+      "required": false,
+      "description": "Budget, staffing, and timeline constraints."
+    },
+    {
+      "name": "previous_attempts",
+      "required": false,
+      "description": "Documentation of previous improvement attempts and outcomes."
+    }
   ],
   "outputs": [
-    {"name": "improvement_plan", "description": "Detailed improvement plan with aim statement, interventions, and PDSA cycles."},
-    {"name": "measurement_framework", "description": "Process, outcome, and balancing measures with data collection plan."},
-    {"name": "implementation_roadmap", "description": "Phased implementation plan with milestones and accountability."},
-    {"name": "sustainability_plan", "description": "Plan for sustaining improvements and spreading to other areas."}
+    {
+      "name": "improvement_plan",
+      "description": "Detailed improvement plan with aim statement, interventions, and PDSA cycles."
+    },
+    {
+      "name": "measurement_framework",
+      "description": "Process, outcome, and balancing measures with data collection plan."
+    },
+    {
+      "name": "implementation_roadmap",
+      "description": "Phased implementation plan with milestones and accountability."
+    },
+    {
+      "name": "sustainability_plan",
+      "description": "Plan for sustaining improvements and spreading to other areas."
+    }
   ],
   "primary_agent": "healthcare.quality-improvement",
   "route": {
     "domain_master": "healthcare.master",
+    "agents": [
+      "healthcare.quality-improvement"
+    ],
+    "parallel": false,
+    "max_parallel_agents": 3,
     "primary": "healthcare.quality-improvement",
     "participants": [
       "healthcare.patient-safety",
       "healthcare.health-data-analyst"
-    ],
-    "parallel": false,
-    "max_parallel_agents": 3
+    ]
   },
   "budget": {
     "band": "expanded",
@@ -51,18 +86,58 @@
     "max_tool_calls": 14
   },
   "gates": [
-    {"id": "pre-route", "rule": "Confirm the task is healthcare quality improvement, not software or manufacturing quality."},
-    {"id": "pre-tool", "rule": "Require improvement scope and baseline metrics before planning."},
-    {"id": "pre-write", "rule": "Verify no PHI is present in improvement documentation."},
-    {"id": "on-task-complete", "rule": "Output must include improvement plan, measurement framework, and sustainability plan."}
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is healthcare quality improvement, not software or manufacturing quality."
+    },
+    {
+      "id": "pre-tool",
+      "rule": "Require improvement scope and baseline metrics before planning."
+    },
+    {
+      "id": "pre-write",
+      "rule": "Verify no PHI is present in improvement documentation."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Output must include improvement plan, measurement framework, and sustainability plan."
+    },
+    "pre-route",
+    "pre-tool",
+    "pre-write",
+    "on-task-complete"
   ],
   "steps": [
-    {"id": "define-aim", "agent": "healthcare.quality-improvement", "action": "Define SMART aim statement and key driver diagram."},
-    {"id": "establish-baseline", "agent": "healthcare.health-data-analyst", "action": "Analyze baseline metrics and establish control charts."},
-    {"id": "design-interventions", "agent": "healthcare.quality-improvement", "action": "Design evidence-based interventions and change ideas."},
-    {"id": "plan-pdsa-cycles", "agent": "healthcare.quality-improvement", "action": "Plan PDSA cycles with predictions, data collection, and analysis."},
-    {"id": "assess-safety", "agent": "healthcare.patient-safety", "action": "Evaluate patient safety implications of proposed changes."},
-    {"id": "plan-sustainability", "agent": "healthcare.quality-improvement", "action": "Design sustainability and spread strategies."}
+    {
+      "id": "define-aim",
+      "agent": "healthcare.quality-improvement",
+      "action": "Define SMART aim statement and key driver diagram."
+    },
+    {
+      "id": "establish-baseline",
+      "agent": "healthcare.health-data-analyst",
+      "action": "Analyze baseline metrics and establish control charts."
+    },
+    {
+      "id": "design-interventions",
+      "agent": "healthcare.quality-improvement",
+      "action": "Design evidence-based interventions and change ideas."
+    },
+    {
+      "id": "plan-pdsa-cycles",
+      "agent": "healthcare.quality-improvement",
+      "action": "Plan PDSA cycles with predictions, data collection, and analysis."
+    },
+    {
+      "id": "assess-safety",
+      "agent": "healthcare.patient-safety",
+      "action": "Evaluate patient safety implications of proposed changes."
+    },
+    {
+      "id": "plan-sustainability",
+      "agent": "healthcare.quality-improvement",
+      "action": "Design sustainability and spread strategies."
+    }
   ],
   "tools": [
     "filesystem.read",
@@ -87,7 +162,10 @@
     "when": "If patient safety concerns are identified, halt implementation and reassess."
   },
   "source_references": [
-    {"dossier_path": "references/workflows/healthcare/quality-improvement-project.sources.json", "relationship": "workflow_dossier"}
+    {
+      "dossier_path": "references/workflows/healthcare/quality-improvement-project.sources.json",
+      "relationship": "workflow_dossier"
+    }
   ],
   "promotion": {
     "can_learn": true,
