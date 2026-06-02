@@ -191,3 +191,61 @@ test('tool strategy denies network tools in offline mode', async () => {
   assert.equal(result.success, false);
   assert.match(result.error, /offline mode|unavailable/);
 });
+
+test('feedback lifecycle: review, apply dry-run, promote after skip-gate review', () => {
+  const dir = tempDir();
+  try {
+    const engine = new LearningEngine({
+      repoRoot: dir,
+      memoryDir: path.join(dir, 'memory'),
+      learningDir: path.join(dir, 'learning'),
+      feedbackDir: path.join(dir, 'feedback'),
+      mistakeGraphFile: path.join(dir, 'learning/mistake-graph.json'),
+      teamMode: teamMode(dir),
+      policy: {
+        feedback_gate: {
+          forbidden_mutations: ['registry/routes.json', 'graph/indexes/ROUTE_TABLE.min.json'],
+          checks: []
+        }
+      }
+    });
+    const staged = engine.stageFeedback({
+      type: 'wrong-agent',
+      trace_id: 't1',
+      route_id: 'route.a',
+      suggested_route: 'route.b',
+      metadata: { phrase: 'fix routing' }
+    });
+    const reviewed = engine.reviewFeedback(staged.feedback.id, 'accept', { run_gate: false });
+    assert.equal(reviewed.feedback.status, 'reviewed');
+    const applied = engine.applyFeedback(staged.feedback.id, { dry_run: true, phrase: 'fix routing' });
+    assert.equal(applied.proposal.dry_run, true);
+    assert.ok(applied.proposal.changes.length > 0);
+    assert.ok(!fs.existsSync(path.join(dir, 'registry/routes.json')));
+    const promoted = engine.promoteFeedback(staged.feedback.id);
+    assert.equal(promoted.feedback.status, 'promoted');
+    assert.ok(fs.existsSync(promoted.promoted_path));
+    assert.ok(fs.readFileSync(path.join(dir, 'registry/ledger.jsonl'), 'utf8').includes('feedback_promotion'));
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('apply fails when eval gate not passed on reviewed feedback', () => {
+  const dir = tempDir();
+  try {
+    const engine = new LearningEngine({
+      repoRoot: dir,
+      feedbackDir: path.join(dir, 'feedback'),
+      policy: { feedback_gate: { forbidden_mutations: [] } }
+    });
+    const staged = engine.stageFeedback({ type: 'partial', trace_id: 't2' });
+    const entry = JSON.parse(fs.readFileSync(staged.path, 'utf8'));
+    entry.status = 'reviewed';
+    entry.eval_gate = { passed: false };
+    fs.writeFileSync(staged.path, JSON.stringify(entry));
+    assert.throws(() => engine.applyFeedback(staged.feedback.id), /eval gate/);
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});

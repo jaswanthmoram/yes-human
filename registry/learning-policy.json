@@ -11,9 +11,23 @@
   },
   "feedback_gate": {
     "requires_eval_pass": true,
-    "allowed_mutations": ["staging.feedback", "staging.workflow-suggestions", "graph.memory.learning"],
-    "forbidden_mutations": ["registry/routes.json", "graph/indexes/ROUTE_TABLE.min.json", "registry/workflows.json", "registry/agents.json"],
-    "checks": ["route", "workflow", "skill", "cost"]
+    "allowed_mutations": [
+      "staging.feedback",
+      "staging.workflow-suggestions",
+      "graph.memory.learning"
+    ],
+    "forbidden_mutations": [
+      "registry/routes.json",
+      "graph/indexes/ROUTE_TABLE.min.json",
+      "registry/workflows.json",
+      "registry/agents.json"
+    ],
+    "checks": [
+      "route",
+      "workflow",
+      "skill",
+      "cost"
+    ]
   },
   "workflow_miner": {
     "enabled": true,
@@ -25,5 +39,9 @@
     "enabled": true,
     "state_file": "graph/memory/learning/mistake-graph.json",
     "min_repeats_for_candidate": 2
+  },
+  "routing_hints": {
+    "enabled": false,
+    "read_only": true
   }
 }

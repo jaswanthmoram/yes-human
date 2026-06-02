@@ -219,6 +219,169 @@ export class LearningEngine {
     return { node, graph_path: this.mistakeGraphFile };
   }
 
+
+  listFeedback() {
+    if (!fs.existsSync(this.feedbackDir)) return [];
+    return fs.readdirSync(this.feedbackDir)
+      .filter((name) => name.endsWith('.json'))
+      .map((name) => {
+        const filePath = path.join(this.feedbackDir, name);
+        const entry = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+        return { ...entry, path: filePath, file: name };
+      })
+      .sort((a, b) => String(b.created_at).localeCompare(String(a.created_at)));
+  }
+
+  findFeedbackById(id) {
+    for (const entry of this.listFeedback()) {
+      if (entry.id === id || entry.file.includes(id)) return entry;
+    }
+    return null;
+  }
+
+  saveFeedbackEntry(entry, filePath) {
+    writeJson(filePath, entry);
+    return entry;
+  }
+
+  reviewFeedback(id, decision, opts = {}) {
+    const found = this.findFeedbackById(id);
+    if (!found) throw new Error(`feedback not found: ${id}`);
+    if (!['accept', 'reject'].includes(decision)) {
+      throw new Error('decision must be accept or reject');
+    }
+    const entry = { ...found };
+    delete entry.path;
+    delete entry.file;
+    entry.status = decision === 'accept' ? 'reviewed' : 'rejected';
+    entry.reviewed_at = new Date().toISOString();
+    entry.reviewer = opts.reviewer || 'cli';
+    if (decision === 'accept' && opts.run_gate !== false) {
+      const gate = runEvalGate(this.repoRoot, this.policy.feedback_gate?.checks || ['route', 'workflow', 'skill', 'cost']);
+      entry.eval_gate = { passed: gate.passed, report: gate.report, at: new Date().toISOString() };
+      if (!gate.passed) {
+        entry.status = 'rejected';
+        entry.rejection_reason = 'eval_gate_failed';
+      }
+    }
+    this.saveFeedbackEntry(entry, found.path);
+    return { feedback: entry, path: found.path };
+  }
+
+  applyFeedback(id, opts = {}) {
+    const found = this.findFeedbackById(id);
+    if (!found) throw new Error(`feedback not found: ${id}`);
+    if (found.status !== 'reviewed') {
+      throw new Error(`feedback must be reviewed before apply (status: ${found.status})`);
+    }
+    if (found.eval_gate && found.eval_gate.passed === false) {
+      throw new Error('eval gate did not pass for this feedback');
+    }
+    const forbidden = this.policy.feedback_gate?.forbidden_mutations || [];
+    const phrase = opts.phrase || found.metadata?.phrase || null;
+    const proposal = {
+      proposal_id: hashValue(`${found.id}:apply:${Date.now()}`, 16),
+      feedback_id: found.id,
+      dry_run: opts.dry_run !== false,
+      production_mutation: false,
+      forbidden_writes: forbidden,
+      changes: [],
+      created_at: new Date().toISOString()
+    };
+    if (found.suggested_route && phrase) {
+      proposal.changes.push({
+        op: 'propose_route_table_entry',
+        target: 'graph/indexes/ROUTE_TABLE.min.json',
+        phrase,
+        route_id: found.suggested_route
+      });
+      proposal.changes.push({
+        op: 'propose_alias_entry',
+        target: 'graph/indexes/ALIAS_TABLE.min.json',
+        phrase,
+        route_id: found.suggested_route
+      });
+    } else if (found.suggested_route) {
+      proposal.changes.push({
+        op: 'route_correction_hint',
+        from_route_id: found.route_id,
+        to_route_id: found.suggested_route,
+        note: 'Provide --phrase to generate hot-table patch proposal'
+      });
+    }
+    const proposalDir = path.join(this.repoRoot, 'staging', 'feedback-proposals');
+    fs.mkdirSync(proposalDir, { recursive: true });
+    const proposalPath = path.join(proposalDir, `${proposal.proposal_id}.json`);
+    writeJson(proposalPath, proposal);
+    const entry = { ...found };
+    delete entry.path;
+    delete entry.file;
+    entry.status = 'proposal_ready';
+    entry.proposal_path = path.relative(this.repoRoot, proposalPath);
+    entry.applied_at = new Date().toISOString();
+    this.saveFeedbackEntry(entry, found.path);
+    for (const target of forbidden) {
+      const abs = path.join(this.repoRoot, target);
+      if (opts.dry_run === false && fs.existsSync(abs)) {
+        throw new Error(`forbidden mutation blocked: ${target}`);
+      }
+    }
+    return { feedback: entry, proposal, proposal_path: proposalPath };
+  }
+
+  promoteFeedback(id) {
+    const found = this.findFeedbackById(id);
+    if (!found) throw new Error(`feedback not found: ${id}`);
+    if (!['reviewed', 'proposal_ready'].includes(found.status)) {
+      throw new Error(`feedback not ready for promote (status: ${found.status})`);
+    }
+    const gate = runEvalGate(this.repoRoot, this.policy.feedback_gate?.checks || ['route', 'workflow', 'skill', 'cost']);
+    if (!gate.passed) throw new Error('eval gate failed; promotion blocked');
+    const promotedDir = path.join(this.repoRoot, 'staging', 'promoted', 'feedback');
+    fs.mkdirSync(promotedDir, { recursive: true });
+    const entry = { ...found };
+    delete entry.path;
+    delete entry.file;
+    entry.status = 'promoted';
+    entry.promoted_at = new Date().toISOString();
+    entry.eval_gate = { passed: true, report: gate.report, at: new Date().toISOString() };
+    const promotedPath = path.join(promotedDir, `${entry.promoted_at.replace(/[:.]/g, '-')}-${entry.id}.json`);
+    writeJson(promotedPath, entry);
+    const ledgerPath = path.join(this.repoRoot, 'registry', 'ledger.jsonl');
+    appendJsonl(ledgerPath, {
+      type: 'feedback_promotion',
+      feedback_id: entry.id,
+      promoted_path: path.relative(this.repoRoot, promotedPath),
+      proposal_path: entry.proposal_path || null,
+      route_id: entry.route_id,
+      suggested_route: entry.suggested_route,
+      production_mutation: false,
+      rollback: { action: 'remove', path: path.relative(this.repoRoot, promotedPath) },
+      created_at: entry.promoted_at
+    });
+    if (found.path && fs.existsSync(found.path)) fs.unlinkSync(found.path);
+    return { feedback: entry, promoted_path: promotedPath, gate };
+  }
+
+  getMistakeRoutingHints(routeId) {
+    if (this.policy.routing_hints?.enabled !== true) return [];
+    const graph = readJsonIfExists(this.mistakeGraphFile, { nodes: {}, edges: [] });
+    const hints = [];
+    for (const node of Object.values(graph.nodes || {})) {
+      if (node.route_id !== routeId || !node.candidate_ready) continue;
+      const suggested = Object.entries(node.suggested_routes || {}).sort((a, b) => b[1] - a[1])[0];
+      if (!suggested) continue;
+      hints.push({
+        route_id: routeId,
+        failure_class: node.failure_class,
+        repeat_count: node.count,
+        penalty: Math.min(0.5, 0.1 * node.count),
+        suggested_route: suggested[0]
+      });
+    }
+    return hints;
+  }
+
   status() {
     const outcomes = readJsonl(this.outcomesFile);
     const routeStats = readJsonIfExists(this.routeStatsFile, { routes: {} });

@@ -2,52 +2,153 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Yes-human Learning Policy",
   "type": "object",
-  "required": ["id", "version", "enabled", "outcome_tracking", "feedback_gate", "workflow_miner", "mistake_graph"],
+  "required": [
+    "id",
+    "version",
+    "enabled",
+    "outcome_tracking",
+    "feedback_gate",
+    "workflow_miner",
+    "mistake_graph"
+  ],
   "properties": {
-    "id": { "type": "string" },
-    "version": { "type": "string" },
-    "description": { "type": "string" },
-    "enabled": { "type": "boolean" },
+    "id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
     "outcome_tracking": {
       "type": "object",
-      "required": ["enabled", "decay", "min_events_for_signal", "state_dir"],
+      "required": [
+        "enabled",
+        "decay",
+        "min_events_for_signal",
+        "state_dir"
+      ],
       "properties": {
-        "enabled": { "type": "boolean" },
-        "decay": { "type": "number", "minimum": 0, "maximum": 1 },
-        "min_events_for_signal": { "type": "integer", "minimum": 1 },
-        "state_dir": { "type": "string" }
+        "enabled": {
+          "type": "boolean"
+        },
+        "decay": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "min_events_for_signal": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "state_dir": {
+          "type": "string"
+        }
       },
       "additionalProperties": false
     },
     "feedback_gate": {
       "type": "object",
-      "required": ["requires_eval_pass", "allowed_mutations", "forbidden_mutations", "checks"],
+      "required": [
+        "requires_eval_pass",
+        "allowed_mutations",
+        "forbidden_mutations",
+        "checks"
+      ],
       "properties": {
-        "requires_eval_pass": { "type": "boolean" },
-        "allowed_mutations": { "type": "array", "items": { "type": "string" } },
-        "forbidden_mutations": { "type": "array", "items": { "type": "string" } },
-        "checks": { "type": "array", "items": { "type": "string", "enum": ["route", "workflow", "skill", "cost"] } }
+        "requires_eval_pass": {
+          "type": "boolean"
+        },
+        "allowed_mutations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "forbidden_mutations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "route",
+              "workflow",
+              "skill",
+              "cost"
+            ]
+          }
+        }
       },
       "additionalProperties": false
     },
     "workflow_miner": {
       "type": "object",
-      "required": ["enabled", "min_successes", "min_distinct_task_hashes", "suggestion_dir"],
+      "required": [
+        "enabled",
+        "min_successes",
+        "min_distinct_task_hashes",
+        "suggestion_dir"
+      ],
       "properties": {
-        "enabled": { "type": "boolean" },
-        "min_successes": { "type": "integer", "minimum": 1 },
-        "min_distinct_task_hashes": { "type": "integer", "minimum": 1 },
-        "suggestion_dir": { "type": "string" }
+        "enabled": {
+          "type": "boolean"
+        },
+        "min_successes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "min_distinct_task_hashes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "suggestion_dir": {
+          "type": "string"
+        }
       },
       "additionalProperties": false
     },
     "mistake_graph": {
       "type": "object",
-      "required": ["enabled", "state_file", "min_repeats_for_candidate"],
+      "required": [
+        "enabled",
+        "state_file",
+        "min_repeats_for_candidate"
+      ],
       "properties": {
-        "enabled": { "type": "boolean" },
-        "state_file": { "type": "string" },
-        "min_repeats_for_candidate": { "type": "integer", "minimum": 1 }
+        "enabled": {
+          "type": "boolean"
+        },
+        "state_file": {
+          "type": "string"
+        },
+        "min_repeats_for_candidate": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "routing_hints": {
+      "type": "object",
+      "required": [
+        "enabled"
+      ],
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "read_only": {
+          "type": "boolean"
+        }
       },
       "additionalProperties": false
     }
