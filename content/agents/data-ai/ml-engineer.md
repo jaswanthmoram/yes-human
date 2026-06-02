@@ -41,7 +41,7 @@ verification:
   - data_leakage_check_documented
 source_references:
   - ref.github.data-ai.ml-engineer.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs and operates ML training, fine-tuning, serving, and inference pipelines with reproducibility and monitoring.

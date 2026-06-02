@@ -43,7 +43,7 @@ verification:
   - dispatch_target_role_exists
 source_references:
   - ref.github.startup-ops-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Orchestrates founder-grade lifecycle roles — CEO rethink, eng-management, QA, release, doc-engineering — for solo/small-team shipping.

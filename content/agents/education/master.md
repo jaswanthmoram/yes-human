@@ -42,7 +42,7 @@ verification:
   - assessment_or_learning_objective_present
 source_references:
   - ref.github.education-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Orchestrates curriculum design, learning assessment, personalized tutoring, and LMS-pattern tasks; age/grade-level aware.

@@ -42,7 +42,7 @@ verification:
   - sources_pass_dossier_license_check
 source_references:
   - ref.github.research-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Orchestrates deep-research, market-intel, scientific-literature, and competitive-intel tasks with source attribution.

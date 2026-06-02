@@ -43,7 +43,7 @@ verification:
   - a11y_findings_cite_WCAG_criterion
 source_references:
   - ref.github.design-content-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Orchestrates UI/UX, frontend-design, accessibility, brand, and technical-writing tasks; gates AI-slop.

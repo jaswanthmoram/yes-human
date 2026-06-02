@@ -28,7 +28,7 @@ verification:
   - security_scanner
 source_references:
   - ref.github.claude-bughunter.2026-05-29
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Orchestrates all security audits, vulnerability scanning, and threat modeling.

@@ -42,7 +42,7 @@ verification:
   - downstream_impact_listed
 source_references:
   - ref.github.manufacturing-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Routes inventory planning, demand planning, production scheduling, supply-chain, and quality-nonconformance tasks; human-supervisor review before execution.

@@ -42,7 +42,7 @@ verification:
   - dispatch_target_role_exists
 source_references:
   - ref.github.product-business-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Routes product management, growth, customer success, and partnerships tasks; orchestrates PM/business sub-roles.

@@ -41,7 +41,7 @@ verification:
   - decision_record_lists_alternatives_and_tradeoffs
 source_references:
   - ref.github.ecc.2026-05-29
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs system architecture, evaluates trade-offs, and writes architecture decision records.

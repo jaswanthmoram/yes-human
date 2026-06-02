@@ -40,7 +40,7 @@ verification:
   - rollback_path_specified
 source_references:
   - ref.github.platform.devops-engineer.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs and reviews infrastructure-as-code, Kubernetes deployments, and cloud-infrastructure changes; read-only diagnosis first, gated writes.

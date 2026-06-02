@@ -3,7 +3,7 @@
   "agent_id": "legal-compliance.master",
   "domain": "legal-compliance",
   "created_at": "2026-05-31T00:00:00Z",
-  "expires_at": "2026-08-29T00:00:00Z",
+  "expires_at": "2026-12-01T00:00:00Z",
   "sources": [
     {
       "url": "https://github.com/outline/outline",
@@ -104,6 +104,28 @@
         "verification pattern 8"
       ],
       "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://www.ftc.gov/legal-library/browse/rules",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "used_for": [
+        "legal-compliance.master: FTC rule context for terms and marketing compliance"
+      ],
+      "version_or_commit": "2026-06-02",
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-06-02T00:00:00Z"
+    },
+    {
+      "url": "https://www.law.cornell.edu/wex/contract",
+      "source_type": "official_docs",
+      "license": "MIT",
+      "used_for": [
+        "legal-compliance.master: Contract law primer for NDA and terms drafting"
+      ],
+      "version_or_commit": "2026-06-02",
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-06-02T00:00:00Z"
     }
   ],
   "scores": {
@@ -116,5 +138,5 @@
     "testability": 10,
     "total": 87
   },
-  "promotion_decision": "staging"
+  "promotion_decision": "production"
 }

@@ -41,7 +41,7 @@ verification:
   - cache_keys_explicit
 source_references:
   - ref.github.platform.ci-cd-engineer.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs and reviews CI/CD pipelines — GitHub Actions, Drone, Tekton, build/test/deploy automation.

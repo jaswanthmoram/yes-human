@@ -31,7 +31,7 @@ verification:
   - output_matches_request
 source_references:
   - ref.github.finance.payroll-analyst.2026-06-02
-quality_gate: staging
+quality_gate: production
 requires_disclaimer: true
 human_review_gate: true
 ---

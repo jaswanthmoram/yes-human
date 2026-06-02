@@ -120,5 +120,5 @@
     "testability": 10,
     "total": 87
   },
-  "promotion_decision": "staging"
+  "promotion_decision": "production"
 }

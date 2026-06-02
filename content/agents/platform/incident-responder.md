@@ -48,7 +48,7 @@ verification:
   - root_cause_distinguishes_cause_from_factors
 source_references:
   - ref.github.platform.incident-responder.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Drives incident triage, sev assessment, comms, and blameless postmortems.

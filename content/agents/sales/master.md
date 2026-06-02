@@ -43,7 +43,7 @@ verification:
   - pricing_changes_carry_an_approval_record
 source_references:
   - ref.github.sales-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Routes sales strategy, pipeline analysis, proposals, pricing, and account management tasks; gates external sends.

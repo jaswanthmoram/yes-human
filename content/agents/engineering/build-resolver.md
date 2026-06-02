@@ -29,7 +29,7 @@ verification:
   - compiler_check
 source_references:
   - ref.github.ecc.2026-05-29
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Resolves build and compilation errors.

@@ -41,7 +41,7 @@ verification:
   - alerting_defined
 source_references:
   - ref.github.platform.observability-engineer.2026-06-01
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs observability systems with OpenTelemetry, SLI/SLO definitions, and monitoring strategies for production services.

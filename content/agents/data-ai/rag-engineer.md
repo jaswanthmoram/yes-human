@@ -41,7 +41,7 @@ verification:
   - tradeoffs_explicit
 source_references:
   - ref.github.data-ai.rag-engineer.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs and tunes retrieval-augmented generation pipelines with measured retrieval quality before generation quality.

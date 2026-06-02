@@ -28,7 +28,7 @@ verification:
   - deployment_check
 source_references:
   - ref.github.claude-repos-pack.2026-05-29
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Orchestrates DevOps operations, CI/CD pipeline management, and monitoring/logging configurations.

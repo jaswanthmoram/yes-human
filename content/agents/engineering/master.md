@@ -27,7 +27,7 @@ verification:
   - compiler_check
 source_references:
   - ref.github.ecc.2026-05-29
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Orchestrates all software engineering subtasks and delegates to language or review specialists.

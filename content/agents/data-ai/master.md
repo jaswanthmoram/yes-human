@@ -43,7 +43,7 @@ verification:
   - eval_report_cites_concrete_metric
 source_references:
   - ref.github.data-ai-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Orchestrates data engineering, ML/AI, RAG, eval, and analytics tasks; delegates to specialists.

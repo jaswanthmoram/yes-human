@@ -27,7 +27,7 @@ verification:
   - output_matches_request
 source_references:
   - ref.github.product-business.cto-advisor.2026-06-02
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Advises CTOs on technical strategy.

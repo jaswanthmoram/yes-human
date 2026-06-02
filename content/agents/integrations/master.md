@@ -42,7 +42,7 @@ verification:
   - auth_requirement_explicit
 source_references:
   - ref.github.integrations-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Routes connector/MCP/external-service tasks (GitHub, browser, Figma, Notion, Vercel, Stripe) to the right binding.

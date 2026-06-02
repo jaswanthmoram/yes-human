@@ -39,7 +39,7 @@ verification:
   - doc_examples_match_current_api
 source_references:
   - ref.github.ecc.2026-05-29
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Updates documentation, READMEs, and API docs to match current code behavior.

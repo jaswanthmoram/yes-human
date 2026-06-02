@@ -3,7 +3,7 @@
   "agent_id": "hr.master",
   "domain": "hr",
   "created_at": "2026-05-31T00:00:00Z",
-  "expires_at": "2026-08-29T00:00:00Z",
+  "expires_at": "2026-12-01T00:00:00Z",
   "sources": [
     {
       "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
@@ -145,6 +145,28 @@
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://www.dol.gov/general/topic/wages",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "used_for": [
+        "hr.master: DOL wage and hour guidance for policy drafting"
+      ],
+      "version_or_commit": "2026-06-02",
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-06-02T00:00:00Z"
+    },
+    {
+      "url": "https://www.eeoc.gov/laws/guidance",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "used_for": [
+        "hr.master: EEOC guidance for workplace policy review"
+      ],
+      "version_or_commit": "2026-06-02",
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-06-02T00:00:00Z"
     }
   ],
   "scores": {
@@ -157,5 +179,5 @@
     "testability": 10,
     "total": 91
   },
-  "promotion_decision": "staging"
+  "promotion_decision": "production"
 }

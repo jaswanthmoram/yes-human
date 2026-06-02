@@ -3,7 +3,7 @@
   "agent_id": "healthcare.master",
   "domain": "healthcare",
   "created_at": "2026-05-31T00:00:00Z",
-  "expires_at": "2026-08-29T00:00:00Z",
+  "expires_at": "2026-12-01T00:00:00Z",
   "sources": [
     {
       "url": "https://github.com/openai/openai-agents-js",
@@ -106,6 +106,28 @@
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://www.hhs.gov/hipaa/for-professionals/index.html",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "used_for": [
+        "healthcare.master: HIPAA professional guidance for PHI workflows"
+      ],
+      "version_or_commit": "2026-06-02",
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-06-02T00:00:00Z"
+    },
+    {
+      "url": "https://www.fda.gov/medical-devices",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "used_for": [
+        "healthcare.master: FDA device regulation context for clinical software"
+      ],
+      "version_or_commit": "2026-06-02",
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-06-02T00:00:00Z"
     }
   ],
   "scores": {
@@ -118,5 +140,5 @@
     "testability": 10,
     "total": 87
   },
-  "promotion_decision": "staging"
+  "promotion_decision": "production"
 }

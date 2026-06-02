@@ -41,7 +41,7 @@ verification:
   - cost_analysis_present
 source_references:
   - ref.github.data-ai.graph-rag.2026-06-01
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs and evaluates graph-augmented retrieval systems using knowledge graphs and community detection for improved RAG quality.

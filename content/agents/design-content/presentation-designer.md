@@ -31,7 +31,7 @@ verification:
   - output_matches_request
 source_references:
   - ref.github.design-content.presentation-designer.2026-06-02
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs slide decks and narratives.

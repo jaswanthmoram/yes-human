@@ -32,7 +32,7 @@ verification:
   - output_matches_request
 source_references:
   - ref.github.product-business.sales-operator.2026-06-02
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Runs sales operations and CRM hygiene.

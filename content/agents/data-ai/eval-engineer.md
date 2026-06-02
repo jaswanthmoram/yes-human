@@ -42,7 +42,7 @@ verification:
   - non_determinism_quantified
 source_references:
   - ref.github.data-ai.eval-engineer.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Builds reproducible LLM/agent eval harnesses with regression-blocking gates.

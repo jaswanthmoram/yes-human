@@ -43,7 +43,7 @@ verification:
   - campaign_metrics_cite_actual_data_not_estimates
 source_references:
   - ref.github.marketing-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Routes marketing strategy, content, SEO, email, and campaign analysis tasks; gates external sends with policy approval.

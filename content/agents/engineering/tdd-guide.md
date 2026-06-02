@@ -41,7 +41,7 @@ verification:
   - relevant_suite_passes
 source_references:
   - ref.github.ecc.2026-05-29
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Drives red-green-refactor test-driven development for features and bug fixes.

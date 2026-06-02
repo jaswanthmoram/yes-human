@@ -31,7 +31,7 @@ verification:
   - output_matches_request
 source_references:
   - ref.github.sales.account-manager.2026-06-02
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Manages strategic accounts and renewals.
