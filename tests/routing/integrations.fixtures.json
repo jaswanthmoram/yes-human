@@ -2,12 +2,33 @@
   "domain": "integrations",
   "description": "Routing fixtures for the Integrations master.",
   "fixtures": [
-    { "prompt": "integration task", "expected_route": "route.integrations.master" },
-    { "prompt": "connector setup", "expected_route": "route.integrations.master" },
-    { "prompt": "mcp server", "expected_route": "route.integrations.master" },
-    { "prompt": "github operation", "expected_route": "route.integrations.master" },
-    { "prompt": "browser automation", "expected_route": "route.integrations.master" },
-    { "prompt": "we need an integration task for stripe", "expected_route": "route.integrations.master" },
-    { "prompt": "set up browser automation for our test suite", "expected_route": "route.integrations.master" }
+    {
+      "prompt": "integration task",
+      "expected_route": "route.integrations.master"
+    },
+    {
+      "prompt": "connector setup",
+      "expected_route": "route.integrations.master"
+    },
+    {
+      "prompt": "mcp server",
+      "expected_route": "route.integrations.master"
+    },
+    {
+      "prompt": "github operation",
+      "expected_route": "route.integrations.master"
+    },
+    {
+      "prompt": "browser automation",
+      "expected_route": "route.integrations.browser-auto"
+    },
+    {
+      "prompt": "we need an integration task for stripe",
+      "expected_route": "route.integrations.master"
+    },
+    {
+      "prompt": "set up browser automation for our test suite",
+      "expected_route": "route.integrations.master"
+    }
   ]
 }

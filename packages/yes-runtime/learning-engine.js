@@ -3,7 +3,7 @@ import path from 'path';
 import crypto from 'crypto';
 import { spawnSync } from 'child_process';
 import { MemoryManager } from './memory-manager.js';
-import { loadTeamMode, readJsonIfExists, redactObject, redactedTask, resolveTenant, tenantHash, tenantTracePath, hashValue } from './redaction.js';
+import { loadTeamMode, readJsonIfExists, redactObject, redactString, redactedTask, resolveTenant, tenantHash, tenantTracePath, hashValue } from './redaction.js';
 
 function ensureDirFor(filePath) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
@@ -116,7 +116,7 @@ export class LearningEngine {
       success: Boolean(outcome.success),
       score: typeof outcome.score === 'number' ? Math.max(0, Math.min(1, outcome.score)) : (outcome.success ? 1 : 0),
       source: outcome.source || 'manual',
-      feedback: outcome.feedback || null,
+      feedback: outcome.feedback ? redactString(String(outcome.feedback).slice(0, 1000), this.teamMode) : null,
       failure_class: outcome.failure_class || null,
       tenant_hash: tenantHash(resolveTenant(outcome, this.teamMode), this.teamMode),
       created_at: new Date().toISOString()
@@ -166,7 +166,7 @@ export class LearningEngine {
       type: feedback.type || 'partial',
       route_id: feedback.route_id || null,
       suggested_route: feedback.suggested_route || null,
-      note: feedback.note ? String(feedback.note).slice(0, 1000) : null,
+      note: feedback.note ? redactString(String(feedback.note).slice(0, 1000), this.teamMode) : null,
       metadata: redactObject(feedback.metadata || {}, this.teamMode),
       production_mutation: false,
       blocked_mutations: Array.from(forbidden),

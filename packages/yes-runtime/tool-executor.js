@@ -2,6 +2,7 @@ import { HookRunner } from '../../hooks/hook-runner.js';
 import { PolicyEvaluator } from '../yes-core/policy-evaluator.js';
 import { ToolStrategy } from './tool-strategy.js';
 import { MemoryManager } from './memory-manager.js';
+import { hashValue } from './redaction.js';
 
 /**
  * Tool Executor - Executes tools with hooks, policies, and fallback chains
@@ -86,7 +87,7 @@ export class ToolExecutor {
         error: result?.error || null,
         duration,
         agent,
-        task: task ? task.substring(0, 200) : null
+        task_hash: task ? hashValue(task, 24) : null
       });
 
       return {

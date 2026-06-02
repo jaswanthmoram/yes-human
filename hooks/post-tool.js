@@ -8,7 +8,7 @@
  */
 
 import { MemoryManager } from '../packages/yes-runtime/memory-manager.js';
-import { redactObject } from '../packages/yes-runtime/redaction.js';
+import { hashValue, redactObject } from '../packages/yes-runtime/redaction.js';
 
 const memory = new MemoryManager();
 
@@ -23,7 +23,7 @@ export default async function postTool(context) {
     error: result?.error || null,
     duration,
     agent,
-    task: task ? task.substring(0, 200) : null, // Truncate long tasks
+    task_hash: task ? hashValue(task, 24) : null,
     timestamp: new Date().toISOString()
   });
   

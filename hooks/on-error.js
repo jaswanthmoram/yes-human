@@ -9,7 +9,7 @@
 
 import { MemoryManager } from '../packages/yes-runtime/memory-manager.js';
 import { LearningEngine } from '../packages/yes-runtime/learning-engine.js';
-import { redactObject, redactString } from '../packages/yes-runtime/redaction.js';
+import { hashValue, redactObject, redactString } from '../packages/yes-runtime/redaction.js';
 
 const memory = new MemoryManager();
 const learning = new LearningEngine({ memoryManager: memory });
@@ -93,32 +93,32 @@ function extractMistakePattern(context) {
     'timeout': {
       pattern: `Timeout on ${tool || 'operation'}`,
       lesson: 'Consider increasing timeout or breaking into smaller operations',
-      context: task
+      context: task ? `task_hash:${hashValue(task, 24)}` : null
     },
     'network': {
       pattern: `Network error on ${tool || 'operation'}`,
       lesson: 'Check network connectivity or use fallback tool',
-      context: task
+      context: task ? `task_hash:${hashValue(task, 24)}` : null
     },
     'permission': {
       pattern: `Permission denied on ${tool || 'operation'}`,
       lesson: 'Verify permissions before attempting operation',
-      context: task
+      context: task ? `task_hash:${hashValue(task, 24)}` : null
     },
     'not_found': {
       pattern: `Resource not found: ${tool || 'operation'}`,
       lesson: 'Verify resource exists before accessing',
-      context: task
+      context: task ? `task_hash:${hashValue(task, 24)}` : null
     },
     'validation': {
       pattern: `Validation error on ${tool || 'operation'}`,
       lesson: 'Validate inputs before passing to tool',
-      context: task
+      context: task ? `task_hash:${hashValue(task, 24)}` : null
     },
     'rate_limit': {
       pattern: `Rate limit exceeded on ${tool || 'operation'}`,
       lesson: 'Implement rate limiting or use alternative tool',
-      context: task
+      context: task ? `task_hash:${hashValue(task, 24)}` : null
     }
   };
   

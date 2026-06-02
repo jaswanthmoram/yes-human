@@ -64,3 +64,9 @@
 {"candidate_id":0,"decision":"reject","rationale":"Not relevant","timestamp":"2026-06-02T09:16:23.445Z"}
 {"candidate_id":4,"decision":"graduate","rationale":"This is a test lesson","timestamp":"2026-06-02T09:18:19.428Z"}
 {"candidate_id":0,"decision":"reject","rationale":"Not relevant","timestamp":"2026-06-02T09:18:19.432Z"}
+{"candidate_id":4,"decision":"graduate","rationale":"This is a test lesson","timestamp":"2026-06-02T09:53:12.698Z"}
+{"candidate_id":0,"decision":"reject","rationale":"Not relevant","timestamp":"2026-06-02T09:53:12.727Z"}
+{"candidate_id":4,"decision":"graduate","rationale":"This is a test lesson","timestamp":"2026-06-02T09:55:03.182Z"}
+{"candidate_id":0,"decision":"reject","rationale":"Not relevant","timestamp":"2026-06-02T09:55:03.190Z"}
+{"candidate_id":4,"decision":"graduate","rationale":"This is a test lesson","timestamp":"2026-06-02T09:55:46.666Z"}
+{"candidate_id":0,"decision":"reject","rationale":"Not relevant","timestamp":"2026-06-02T09:55:46.670Z"}
