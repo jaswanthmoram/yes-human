@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
 import { StateMachine } from '../yes-core/state-machine.js';
+import { evaluateStagingDossier } from '../../validators/promotion.validator.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -216,6 +217,17 @@ function validateWorkflowDossiersAndPolicies() {
             console.error(`✗ Non-draft workflow '${workflow.id}' cannot use draft dossier promotion in ${dossierPath}`);
             ok = false;
           }
+          const licenseRegistry = fileExists('registry/license-registry.json')
+            ? readJson('registry/license-registry.json').content
+            : { allowed: [], forbidden: [], restricted: [] };
+          const stagingCheck = evaluateStagingDossier(dossier, { licenseRegistry });
+          if (!stagingCheck.allowed) {
+            console.error(`✗ Staging dossier gate failed for workflow '${workflow.id}' at ${dossierPath}:`);
+            for (const blocker of stagingCheck.blockers) {
+              console.error(`  - ${blocker}`);
+            }
+            ok = false;
+          }
         }
       }
     }
@@ -309,6 +321,9 @@ for (const [registryName, schemaName] of Object.entries(detailedSchemaMapping)) 
 }
 
 // Validate source dossiers for staging/production agents
+  const licenseRegistry = fileExists('registry/license-registry.json')
+    ? readJson('registry/license-registry.json').content
+    : { allowed: [], forbidden: [], restricted: [] };
 console.log('\n--- Source dossier verification ---');
 const agentsRegistryPath = 'registry/agents.json';
 if (fileExists(agentsRegistryPath)) {
@@ -345,6 +360,15 @@ if (fileExists(agentsRegistryPath)) {
           }
           if (dossier.promotion_decision !== agent.quality_gate) {
             console.error(`✗ Dossier promotion decision ('${dossier.promotion_decision}') does not match agent quality gate ('${agent.quality_gate}') in ${dossierPath}`);
+            dossiersOk = false;
+            success = false;
+          }
+          const stagingCheck = evaluateStagingDossier(dossier, { licenseRegistry });
+          if (!stagingCheck.allowed) {
+            console.error(`✗ Staging dossier gate failed for '${agent.id}' at ${dossierPath}:`);
+            for (const blocker of stagingCheck.blockers) {
+              console.error(`  - ${blocker}`);
+            }
             dossiersOk = false;
             success = false;
           }
