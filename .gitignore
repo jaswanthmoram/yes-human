@@ -19,3 +19,4 @@ staging/rollback/
 *.log
 .env
 .env.*
+.claude/worktrees/
