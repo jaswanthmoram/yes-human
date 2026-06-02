@@ -4,23 +4,23 @@
   "fixtures": [
     {
       "prompt": "contract drafting review",
-      "expected_route": "route.legal-compliance.contract-lawyer"
+      "expected_route": "route.legal-compliance.contract-reviewer"
     },
     {
       "prompt": "agreement clause analysis",
-      "expected_route": "route.legal-compliance.contract-lawyer"
+      "expected_route": "route.legal-compliance.contract-reviewer"
     },
     {
       "prompt": "contract term negotiation",
-      "expected_route": "route.legal-compliance.contract-lawyer"
+      "expected_route": "route.legal-compliance.contract-reviewer"
     },
     {
       "prompt": "breach of contract assessment",
-      "expected_route": "route.legal-compliance.contract-lawyer"
+      "expected_route": "route.legal-compliance.contract-reviewer"
     },
     {
       "prompt": "contract template creation",
-      "expected_route": "route.legal-compliance.contract-lawyer"
+      "expected_route": "route.legal-compliance.contract-reviewer"
     },
     {
       "prompt": "corporate governance review",
@@ -84,43 +84,43 @@
     },
     {
       "prompt": "compliance program review",
-      "expected_route": "route.legal-compliance.compliance-officer"
+      "expected_route": "route.legal-compliance.compliance-checker"
     },
     {
       "prompt": "control framework mapping",
-      "expected_route": "route.legal-compliance.compliance-officer"
+      "expected_route": "route.legal-compliance.compliance-checker"
     },
     {
       "prompt": "regulatory change assessment",
-      "expected_route": "route.legal-compliance.compliance-officer"
+      "expected_route": "route.legal-compliance.compliance-checker"
     },
     {
       "prompt": "audit readiness check",
-      "expected_route": "route.legal-compliance.compliance-officer"
+      "expected_route": "route.legal-compliance.compliance-checker"
     },
     {
       "prompt": "compliance training gap analysis",
-      "expected_route": "route.legal-compliance.compliance-officer"
+      "expected_route": "route.legal-compliance.compliance-checker"
     },
     {
       "prompt": "privacy impact assessment",
-      "expected_route": "route.legal-compliance.privacy-officer"
+      "expected_route": "route.legal-compliance.privacy-advisor"
     },
     {
       "prompt": "data protection audit",
-      "expected_route": "route.legal-compliance.privacy-officer"
+      "expected_route": "route.legal-compliance.privacy-advisor"
     },
     {
       "prompt": "cross-border transfer review",
-      "expected_route": "route.legal-compliance.privacy-officer"
+      "expected_route": "route.legal-compliance.privacy-advisor"
     },
     {
       "prompt": "consent mechanism audit",
-      "expected_route": "route.legal-compliance.privacy-officer"
+      "expected_route": "route.legal-compliance.privacy-advisor"
     },
     {
       "prompt": "breach notification analysis",
-      "expected_route": "route.legal-compliance.privacy-officer"
+      "expected_route": "route.legal-compliance.privacy-advisor"
     },
     {
       "prompt": "regulatory change tracking",

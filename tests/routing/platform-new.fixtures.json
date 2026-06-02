@@ -26,11 +26,11 @@
     { "prompt": "log aggregation setup", "expected_route": "route.platform.monitoring-setup" },
     { "prompt": "monitoring stack deployment", "expected_route": "route.platform.monitoring-setup" },
 
-    { "prompt": "incident management framework", "expected_route": "route.platform.incident-response" },
-    { "prompt": "severity classification system", "expected_route": "route.platform.incident-response" },
-    { "prompt": "incident communication template", "expected_route": "route.platform.incident-response" },
-    { "prompt": "on-call rotation design", "expected_route": "route.platform.incident-response" },
-    { "prompt": "escalation policy design", "expected_route": "route.platform.incident-response" },
+    { "prompt": "incident management framework", "expected_route": "route.platform.incident-responder" },
+    { "prompt": "severity classification system", "expected_route": "route.platform.incident-responder" },
+    { "prompt": "incident communication template", "expected_route": "route.platform.incident-responder" },
+    { "prompt": "on-call rotation design", "expected_route": "route.platform.incident-responder" },
+    { "prompt": "escalation policy design", "expected_route": "route.platform.incident-responder" },
 
     { "prompt": "cloud cost reduction", "expected_route": "route.platform.cloud-cost-optimization" },
     { "prompt": "right sizing instances", "expected_route": "route.platform.cloud-cost-optimization" },

@@ -1,0 +1,304 @@
+{
+  "fixtures": [
+    {
+      "prompt": "design multi cloud landing zone",
+      "expected_route": "route.platform.cloud-architect"
+    },
+    {
+      "prompt": "cloud architecture review for aws and gcp",
+      "expected_route": "route.platform.cloud-architect"
+    },
+    {
+      "prompt": "multi account cloud architecture plan",
+      "expected_route": "route.platform.cloud-architect"
+    },
+    {
+      "prompt": "cloud architect network segmentation",
+      "expected_route": "route.platform.cloud-architect"
+    },
+    {
+      "prompt": "cloud architect disaster recovery design",
+      "expected_route": "route.platform.cloud-architect"
+    },
+    {
+      "prompt": "release manager cutover plan",
+      "expected_route": "route.platform.release-manager"
+    },
+    {
+      "prompt": "coordinate production release checklist",
+      "expected_route": "route.platform.release-manager"
+    },
+    {
+      "prompt": "release train governance review",
+      "expected_route": "route.platform.release-manager"
+    },
+    {
+      "prompt": "release manager rollback strategy",
+      "expected_route": "route.platform.release-manager"
+    },
+    {
+      "prompt": "release manager change advisory board pack",
+      "expected_route": "route.platform.release-manager"
+    },
+    {
+      "prompt": "analytics engineer dbt model review",
+      "expected_route": "route.data-ai.analytics-engineer"
+    },
+    {
+      "prompt": "build analytics engineering pipeline spec",
+      "expected_route": "route.data-ai.analytics-engineer"
+    },
+    {
+      "prompt": "analytics engineer data mart design",
+      "expected_route": "route.data-ai.analytics-engineer"
+    },
+    {
+      "prompt": "analytics engineer incremental model strategy",
+      "expected_route": "route.data-ai.analytics-engineer"
+    },
+    {
+      "prompt": "analytics engineer test and documentation plan",
+      "expected_route": "route.data-ai.analytics-engineer"
+    },
+    {
+      "prompt": "ceo advisor board update draft",
+      "expected_route": "route.product-business.ceo-advisor"
+    },
+    {
+      "prompt": "executive decision framing for ceo",
+      "expected_route": "route.product-business.ceo-advisor"
+    },
+    {
+      "prompt": "ceo advisor strategy narrative review",
+      "expected_route": "route.product-business.ceo-advisor"
+    },
+    {
+      "prompt": "ceo advisor investor messaging coaching",
+      "expected_route": "route.product-business.ceo-advisor"
+    },
+    {
+      "prompt": "ceo advisor leadership offsite agenda",
+      "expected_route": "route.product-business.ceo-advisor"
+    },
+    {
+      "prompt": "cto advisor engineering strategy review",
+      "expected_route": "route.product-business.cto-advisor"
+    },
+    {
+      "prompt": "cto advisor architecture council brief",
+      "expected_route": "route.product-business.cto-advisor"
+    },
+    {
+      "prompt": "cto advisor technical debt prioritization",
+      "expected_route": "route.product-business.cto-advisor"
+    },
+    {
+      "prompt": "cto advisor platform investment memo",
+      "expected_route": "route.product-business.cto-advisor"
+    },
+    {
+      "prompt": "cto advisor engineering hiring plan",
+      "expected_route": "route.product-business.cto-advisor"
+    },
+    {
+      "prompt": "sales operator pipeline hygiene sprint",
+      "expected_route": "route.product-business.sales-operator"
+    },
+    {
+      "prompt": "sales operator outreach sequence setup",
+      "expected_route": "route.product-business.sales-operator"
+    },
+    {
+      "prompt": "sales operator crm workflow cleanup",
+      "expected_route": "route.product-business.sales-operator"
+    },
+    {
+      "prompt": "sales operator lead routing rules",
+      "expected_route": "route.product-business.sales-operator"
+    },
+    {
+      "prompt": "sales operator quota tracking dashboard",
+      "expected_route": "route.product-business.sales-operator"
+    },
+    {
+      "prompt": "campaign analyst performance report",
+      "expected_route": "route.marketing.campaign-analyst"
+    },
+    {
+      "prompt": "marketing campaign attribution analysis",
+      "expected_route": "route.marketing.campaign-analyst"
+    },
+    {
+      "prompt": "campaign analyst channel mix review",
+      "expected_route": "route.marketing.campaign-analyst"
+    },
+    {
+      "prompt": "campaign analyst experiment readout",
+      "expected_route": "route.marketing.campaign-analyst"
+    },
+    {
+      "prompt": "campaign analyst budget reallocation brief",
+      "expected_route": "route.marketing.campaign-analyst"
+    },
+    {
+      "prompt": "account manager qbr preparation",
+      "expected_route": "route.sales.account-manager"
+    },
+    {
+      "prompt": "account manager renewal risk plan",
+      "expected_route": "route.sales.account-manager"
+    },
+    {
+      "prompt": "account manager stakeholder map update",
+      "expected_route": "route.sales.account-manager"
+    },
+    {
+      "prompt": "account manager expansion strategy",
+      "expected_route": "route.sales.account-manager"
+    },
+    {
+      "prompt": "account manager customer success alignment",
+      "expected_route": "route.sales.account-manager"
+    },
+    {
+      "prompt": "pricing strategist packaging review",
+      "expected_route": "route.sales.pricing-strategist"
+    },
+    {
+      "prompt": "sales pricing strategist discount guardrails",
+      "expected_route": "route.sales.pricing-strategist"
+    },
+    {
+      "prompt": "pricing strategist competitive benchmark",
+      "expected_route": "route.sales.pricing-strategist"
+    },
+    {
+      "prompt": "pricing strategist value metric analysis",
+      "expected_route": "route.sales.pricing-strategist"
+    },
+    {
+      "prompt": "pricing strategist proposal pricing table",
+      "expected_route": "route.sales.pricing-strategist"
+    },
+    {
+      "prompt": "payroll analyst reconciliation review",
+      "expected_route": "route.finance.payroll-analyst"
+    },
+    {
+      "prompt": "payroll analyst deduction audit",
+      "expected_route": "route.finance.payroll-analyst"
+    },
+    {
+      "prompt": "payroll analyst multi state compliance check",
+      "expected_route": "route.finance.payroll-analyst"
+    },
+    {
+      "prompt": "payroll analyst overtime calculation review",
+      "expected_route": "route.finance.payroll-analyst"
+    },
+    {
+      "prompt": "payroll analyst year end payroll prep",
+      "expected_route": "route.finance.payroll-analyst"
+    },
+    {
+      "prompt": "expense auditor policy exception review",
+      "expected_route": "route.finance.expense-auditor"
+    },
+    {
+      "prompt": "expense auditor receipt compliance audit",
+      "expected_route": "route.finance.expense-auditor"
+    },
+    {
+      "prompt": "expense auditor corporate card misuse scan",
+      "expected_route": "route.finance.expense-auditor"
+    },
+    {
+      "prompt": "expense auditor t and e report analysis",
+      "expected_route": "route.finance.expense-auditor"
+    },
+    {
+      "prompt": "expense auditor vendor spend anomaly review",
+      "expected_route": "route.finance.expense-auditor"
+    },
+    {
+      "prompt": "terms drafter saas terms update",
+      "expected_route": "route.legal-compliance.terms-drafter"
+    },
+    {
+      "prompt": "draft terms of service for b2b platform",
+      "expected_route": "route.legal-compliance.terms-drafter"
+    },
+    {
+      "prompt": "terms drafter limitation of liability clause",
+      "expected_route": "route.legal-compliance.terms-drafter"
+    },
+    {
+      "prompt": "terms drafter data processing addendum",
+      "expected_route": "route.legal-compliance.terms-drafter"
+    },
+    {
+      "prompt": "terms drafter acceptance mechanism review",
+      "expected_route": "route.legal-compliance.terms-drafter"
+    },
+    {
+      "prompt": "nda reviewer mutual nda redlines",
+      "expected_route": "route.legal-compliance.nda-reviewer"
+    },
+    {
+      "prompt": "nda reviewer confidentiality term check",
+      "expected_route": "route.legal-compliance.nda-reviewer"
+    },
+    {
+      "prompt": "nda reviewer term length and scope review",
+      "expected_route": "route.legal-compliance.nda-reviewer"
+    },
+    {
+      "prompt": "nda reviewer residuals clause analysis",
+      "expected_route": "route.legal-compliance.nda-reviewer"
+    },
+    {
+      "prompt": "nda reviewer governing law review",
+      "expected_route": "route.legal-compliance.nda-reviewer"
+    },
+    {
+      "prompt": "hr policy drafter remote work policy",
+      "expected_route": "route.hr.policy-drafter"
+    },
+    {
+      "prompt": "draft employee code of conduct update",
+      "expected_route": "route.hr.policy-drafter"
+    },
+    {
+      "prompt": "hr policy drafter pto policy revision",
+      "expected_route": "route.hr.policy-drafter"
+    },
+    {
+      "prompt": "hr policy drafter anti harassment policy",
+      "expected_route": "route.hr.policy-drafter"
+    },
+    {
+      "prompt": "hr policy drafter performance management policy",
+      "expected_route": "route.hr.policy-drafter"
+    },
+    {
+      "prompt": "presentation designer slide narrative",
+      "expected_route": "route.design-content.presentation-designer"
+    },
+    {
+      "prompt": "presentation designer executive deck polish",
+      "expected_route": "route.design-content.presentation-designer"
+    },
+    {
+      "prompt": "presentation designer data storytelling slides",
+      "expected_route": "route.design-content.presentation-designer"
+    },
+    {
+      "prompt": "presentation designer keynote structure",
+      "expected_route": "route.design-content.presentation-designer"
+    },
+    {
+      "prompt": "presentation designer brand compliant slides",
+      "expected_route": "route.design-content.presentation-designer"
+    }
+  ]
+}

@@ -32,11 +32,11 @@
     { "prompt": "design system documentation site", "expected_route": "route.design-content.design-systems" },
     { "prompt": "audit the existing design system for consistency", "expected_route": "route.design-content.design-systems" },
 
-    { "prompt": "run an accessibility audit on the dashboard", "expected_route": "route.design-content.accessibility-expert" },
-    { "prompt": "wcag 2.2 compliance check for the app", "expected_route": "route.design-content.accessibility-expert" },
-    { "prompt": "inclusive design review for the signup flow", "expected_route": "route.design-content.accessibility-expert" },
-    { "prompt": "a11y remediation plan for the navigation", "expected_route": "route.design-content.accessibility-expert" },
-    { "prompt": "screen reader testing for the data table", "expected_route": "route.design-content.accessibility-expert" },
+    { "prompt": "run an accessibility audit on the dashboard", "expected_route": "route.design-content.accessibility-auditor" },
+    { "prompt": "wcag 2.2 compliance check for the app", "expected_route": "route.design-content.accessibility-auditor" },
+    { "prompt": "inclusive design review for the signup flow", "expected_route": "route.design-content.accessibility-auditor" },
+    { "prompt": "a11y remediation plan for the navigation", "expected_route": "route.design-content.accessibility-auditor" },
+    { "prompt": "screen reader testing for the data table", "expected_route": "route.design-content.accessibility-auditor" },
 
     { "prompt": "develop a content strategy for the blog", "expected_route": "route.design-content.content-strategist" },
     { "prompt": "content audit for the help documentation", "expected_route": "route.design-content.content-strategist" },

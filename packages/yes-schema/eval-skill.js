@@ -32,54 +32,61 @@ function normalize(text) {
     .replace(/\s+/g, ' ');
 }
 
-function resolveSkill(prompt, skills) {
+function domainHints(prompt) {
+  const p = normalize(prompt);
+  const hints = [];
+  if (/security|owasp|vulnerability|secret|auth|pci|gdpr|iam|penetration|threat|compliance officer|attack/.test(p)) hints.push('security');
+  if (/payroll|expense|forecast|budget|financial|invoice|revenue/.test(p)) hints.push('finance');
+  if (/legal|contract|nda|terms of service|privacy policy/.test(p)) hints.push('legal-compliance');
+  if (/startup|fundraising|founder|pmf|growth hack/.test(p)) hints.push('startup-ops');
+  if (/market sizing|product roadmap|prd/.test(p)) hints.push('product-business');
+  return hints;
+}
+
+function scoreSkillMatch(prompt, skill) {
   const normalizedPrompt = normalize(prompt);
-  const promptWords = new Set(normalizedPrompt.split(' '));
-  
-  // Try exact trigger match first
-  for (const skill of skills) {
-    const triggers = [
-      ...(skill.triggers || []),
-      ...(skill.activation_triggers || [])
-    ];
-    for (const trigger of triggers) {
-      if (normalize(trigger) === normalizedPrompt) {
-        return { skill_id: skill.id, match_type: 'exact', confidence: 1.0 };
+  const promptWords = new Set(normalizedPrompt.split(' ').filter(Boolean));
+  const triggers = [...(skill.triggers || []), ...(skill.activation_triggers || [])];
+  let best = { confidence: 0, match_type: 'none' };
+  const skillDomain = String(skill.id || '').split('.')[0];
+  const hints = domainHints(prompt);
+  const domainBoost = hints.includes(skillDomain) ? 0.15 : 0;
+  for (const trigger of triggers) {
+    const nt = normalize(trigger);
+    if (!nt) continue;
+    if (nt === normalizedPrompt) {
+      return { skill_id: skill.id, match_type: 'exact', confidence: 1 + domainBoost };
+    }
+    if (normalizedPrompt.includes(nt)) {
+      const score = 0.85 + nt.length * 0.002 + domainBoost;
+      if (score > best.confidence) best = { skill_id: skill.id, match_type: 'containment', confidence: score };
+      continue;
+    }
+    if (nt.includes(normalizedPrompt)) {
+      const score = 0.8 + domainBoost;
+      if (score > best.confidence) best = { skill_id: skill.id, match_type: 'containment_rev', confidence: score };
+      continue;
+    }
+    const triggerWords = nt.split(' ').filter(Boolean);
+    const overlap = triggerWords.filter((w) => promptWords.has(w)).length;
+    if (triggerWords.length > 0) {
+      const ratio = overlap / triggerWords.length;
+      if (ratio >= 0.5) {
+        const score = 0.65 + ratio * 0.2 + domainBoost;
+        if (score > best.confidence) best = { skill_id: skill.id, match_type: 'word_overlap', confidence: score };
       }
     }
   }
-  
-  // Try keyword containment match
+  return best.confidence > 0 ? { skill_id: skill.id, match_type: best.match_type, confidence: best.confidence } : { skill_id: null, match_type: 'none', confidence: 0 };
+}
+
+function resolveSkill(prompt, skills) {
+  let best = { skill_id: null, match_type: 'none', confidence: 0 };
   for (const skill of skills) {
-    const triggers = [
-      ...(skill.triggers || []),
-      ...(skill.activation_triggers || [])
-    ];
-    for (const trigger of triggers) {
-      const normalizedTrigger = normalize(trigger);
-      if (normalizedPrompt.includes(normalizedTrigger) || normalizedTrigger.includes(normalizedPrompt)) {
-        return { skill_id: skill.id, match_type: 'containment', confidence: 0.85 };
-      }
-    }
+    const match = scoreSkillMatch(prompt, skill);
+    if (match.skill_id && match.confidence > best.confidence) best = match;
   }
-  
-  // Try word overlap match (at least 50% of trigger words in prompt)
-  for (const skill of skills) {
-    const triggers = [
-      ...(skill.triggers || []),
-      ...(skill.activation_triggers || [])
-    ];
-    for (const trigger of triggers) {
-      const triggerWords = normalize(trigger).split(' ');
-      const overlap = triggerWords.filter(w => promptWords.has(w)).length;
-      if (triggerWords.length > 0 && overlap / triggerWords.length >= 0.5) {
-        return { skill_id: skill.id, match_type: 'word_overlap', confidence: 0.7 };
-      }
-    }
-  }
-  
-  // No match found
-  return { skill_id: null, match_type: 'none', confidence: 0 };
+  return best;
 }
 
 const thresholds = (() => {

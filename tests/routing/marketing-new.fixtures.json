@@ -24,23 +24,23 @@
     },
     {
       "prompt": "comprehensive seo audit for main site",
-      "expected_route": "route.marketing.seo-specialist"
+      "expected_route": "route.marketing.seo-analyst"
     },
     {
       "prompt": "keyword gap analysis vs competitors",
-      "expected_route": "route.marketing.seo-specialist"
+      "expected_route": "route.marketing.seo-analyst"
     },
     {
       "prompt": "search visibility review",
-      "expected_route": "route.marketing.seo-specialist"
+      "expected_route": "route.marketing.seo-analyst"
     },
     {
       "prompt": "organic traffic growth strategy",
-      "expected_route": "route.marketing.seo-specialist"
+      "expected_route": "route.marketing.seo-analyst"
     },
     {
       "prompt": "seo competitive benchmarking",
-      "expected_route": "route.marketing.seo-specialist"
+      "expected_route": "route.marketing.seo-analyst"
     },
     {
       "prompt": "paid search campaign setup",

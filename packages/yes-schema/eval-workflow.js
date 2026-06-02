@@ -32,9 +32,14 @@ if (fixtures.length === 0) {
 }
 
 let correct = 0;
+let evaluated = 0;
 const failures = [];
 
 for (const fixture of fixtures) {
+  if (fixture.expected_route && !fixture.expected_workflow) {
+    continue;
+  }
+  evaluated++;
   const resolved = await resolveRoute(fixture.prompt);
   const resolvedWorkflow = resolved.target?.workflow || null;
   const resolvedAgent = resolved.target?.agent || null;
@@ -56,13 +61,13 @@ for (const fixture of fixtures) {
   failures.push(`"${fixture.prompt}" -> ${details.join(', ')}`);
 }
 
-const total = fixtures.length;
-const top1 = correct / total;
+const total = evaluated;
+const top1 = total > 0 ? correct / total : 0;
 const minTop1 = thresholds.exact_alias_top1_min ?? 0.95;
 const ok = top1 >= minTop1;
 
 console.log('--- Workflow eval ---');
-console.log(`fixtures: ${total}`);
+console.log(`fixtures: ${total} (${fixtures.length} loaded)`);
 console.log(`top-1 accuracy: ${(top1 * 100).toFixed(1)}% (min ${(minTop1 * 100).toFixed(1)}%)`);
 
 if (failures.length) {

@@ -104,23 +104,23 @@
     },
     {
       "prompt": "growth experiment design",
-      "expected_route": "route.product-business.growth-manager"
+      "expected_route": "route.marketing.growth-marketer"
     },
     {
       "prompt": "retention strategy plan",
-      "expected_route": "route.product-business.growth-manager"
+      "expected_route": "route.marketing.growth-marketer"
     },
     {
       "prompt": "activation funnel optimization",
-      "expected_route": "route.product-business.growth-manager"
+      "expected_route": "route.marketing.growth-marketer"
     },
     {
       "prompt": "growth loop analysis",
-      "expected_route": "route.product-business.growth-manager"
+      "expected_route": "route.marketing.growth-marketer"
     },
     {
       "prompt": "churn reduction playbook",
-      "expected_route": "route.product-business.growth-manager"
+      "expected_route": "route.marketing.growth-marketer"
     },
     {
       "prompt": "product messaging framework",
