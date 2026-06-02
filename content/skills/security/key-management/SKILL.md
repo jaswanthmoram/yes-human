@@ -7,6 +7,7 @@ category: security.cryptography
 purpose: Implement secure cryptographic key lifecycle management including generation, storage, rotation, and destruction.
 summary: Key management review covering key generation, secure storage, rotation policies, access controls, and key destruction procedures.
 triggers:
+  - audit key storage and access controls in HSM
   - review key management implementation
   - implement key rotation policy
   - check cryptographic key security

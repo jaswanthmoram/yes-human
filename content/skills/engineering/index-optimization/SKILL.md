@@ -3,6 +3,8 @@ id: engineering.index-optimization
 name: Database Index Optimization
 description: Analyze query patterns and recommend optimal database indexes to improve query performance while minimizing write overhead.
 triggers:
+  - which columns should be indexed for this query pattern
+  - optimize database indexes for the products table
   - optimize index
   - slow query
   - add index

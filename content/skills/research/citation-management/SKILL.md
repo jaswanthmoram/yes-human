@@ -55,3 +55,8 @@ Use when a research task requires formatting, organizing, or converting citation
 ## Common Failures
 - Missing metadata fields causing incomplete citations.
 - Inconsistent application of style rules across entries.
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

@@ -102,3 +102,8 @@ Use this skill when designing quality gates, enforcing gate checks, or auditing 
 - Generic gates without specific criteria
 - Missing gate types
 - Untested gate enforcement
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

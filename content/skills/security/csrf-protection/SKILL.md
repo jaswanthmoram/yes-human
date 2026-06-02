@@ -7,6 +7,7 @@ category: security.application-security
 purpose: Implement and review Cross-Site Request Forgery protection mechanisms across web applications.
 summary: CSRF protection review covering token-based defenses, SameSite cookies, and origin validation patterns.
 triggers:
+  - review CSRF mitigation patterns in web app
   - review CSRF protection implementation
   - implement CSRF defense
   - check for CSRF vulnerabilities

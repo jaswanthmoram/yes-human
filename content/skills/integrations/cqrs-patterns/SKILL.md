@@ -86,3 +86,8 @@ Use this skill when implementing CQRS patterns for separating read and write ope
 - Mixing read and write concerns in handlers
 - Not handling read model synchronization failures
 - Assuming strong consistency when using eventual consistency
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

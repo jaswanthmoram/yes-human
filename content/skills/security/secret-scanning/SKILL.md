@@ -7,6 +7,8 @@ category: security.credential-management
 purpose: Detect hardcoded secrets, API keys, tokens, and credentials in source code and configuration files.
 summary: Comprehensive secret scanning across codebases to identify exposed credentials and sensitive tokens.
 triggers:
+  - find exposed tokens in configuration files
+  - scan codebase for hardcoded API keys and secrets
   - scan codebase for hardcoded secrets
   - find API keys in source code
   - detect credentials in configuration files

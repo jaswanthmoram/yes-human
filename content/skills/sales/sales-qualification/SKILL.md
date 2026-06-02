@@ -7,6 +7,7 @@ category: sales.pipeline
 purpose: Qualify leads and opportunities using structured frameworks like MEDDIC, BANT, and CHAMP to focus seller effort on winnable deals.
 summary: Structured qualification using MEDDIC, BANT, and CHAMP frameworks with scoring and disqualification criteria.
 triggers:
+  - score this opportunity with BANT framework
   - qualify a lead
   - opportunity qualification review
   - MEDDIC assessment

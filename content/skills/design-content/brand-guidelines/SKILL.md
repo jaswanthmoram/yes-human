@@ -7,6 +7,7 @@ category: design-content.brand-design
 purpose: Create comprehensive brand guidelines covering visual identity, voice, tone, and application rules.
 summary: Brand guideline creation with visual identity specs, voice and tone, logo usage, and application examples.
 triggers:
+  - create brand guidelines for the startup
   - brand guidelines creation
   - brand book design
   - visual identity documentation

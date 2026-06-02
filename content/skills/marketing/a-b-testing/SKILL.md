@@ -7,6 +7,8 @@ category: marketing.optimization
 purpose: Design and analyze A/B tests for marketing assets with proper statistical methodology and significance thresholds.
 summary: A/B testing process covering hypothesis formation, test design, sample size calculation, and result analysis.
 triggers:
+  - calculate sample size for conversion test
+  - analyze email subject line split test
   - design a b test
   - split test analysis
   - experiment design for marketing

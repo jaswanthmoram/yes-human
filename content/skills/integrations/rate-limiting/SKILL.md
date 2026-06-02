@@ -86,3 +86,8 @@ Use this skill when implementing rate limiting for API protection.
 - Race conditions in non-atomic counter updates
 - Not returning rate limit headers in successful responses
 - Setting limits without monitoring actual traffic patterns
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

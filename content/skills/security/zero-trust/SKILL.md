@@ -7,6 +7,7 @@ category: security.architecture
 purpose: Review and implement zero trust security principles across network, identity, and access management.
 summary: Zero trust architecture review covering identity verification, least privilege, microsegmentation, and continuous validation.
 triggers:
+  - implement identity-based access with microsegmentation
   - review zero trust implementation
   - implement zero trust architecture
   - zero trust security audit

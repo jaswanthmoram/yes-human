@@ -7,6 +7,7 @@ category: security.design-review
 purpose: Apply structured threat modeling methodologies to identify security threats and design mitigations.
 summary: Systematic threat modeling using STRIDE, PASTA, and attack trees to identify threats and design security controls.
 triggers:
+  - perform STRIDE threat modeling on new service
   - perform threat modeling on application
   - identify security threats using STRIDE
   - create attack tree for system

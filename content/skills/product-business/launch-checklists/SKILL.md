@@ -96,3 +96,8 @@ Use this skill when creating launch checklists or assessing launch readiness.
 - [ ] Email campaign scheduled (Owner: Growth, Due: T-1 day)
 - [ ] Social media posts queued (Owner: Social, Due: T-2 days)
 - [ ] Press release distributed (Owner: PR, Due: Launch day)
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

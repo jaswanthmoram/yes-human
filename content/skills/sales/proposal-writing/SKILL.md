@@ -7,6 +7,7 @@ category: sales.pipeline
 purpose: Create persuasive, structured-aligned proposals that connect buyer requirements to solution value with clear commercial terms.
 summary: Proposal structure, narrative design, pricing presentation, and compliance checks for winning proposals.
 triggers:
+  - design proposal template for mid-market segment
   - write a sales proposal
   - proposal structure design
   - proposal narrative creation

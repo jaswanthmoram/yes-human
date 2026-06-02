@@ -101,3 +101,7 @@ Output:
 - burn_rate_report with evidence-based entries
 - runway_analysis with prioritized items
 - optimization_plan with clear next steps
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

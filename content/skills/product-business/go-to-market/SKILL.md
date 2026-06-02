@@ -97,3 +97,8 @@ ICP: Product teams at Series A-C startups (20-200 employees)
 Positioning: "The simplest way to keep your product team aligned"
 Channels: Product-led growth, content marketing, community
 Success: 500 active teams in first 90 days
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

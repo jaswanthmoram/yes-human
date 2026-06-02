@@ -7,6 +7,7 @@ category: platform.release-engineering
 purpose: Safely rollback failed deployments while minimizing downtime and data loss.
 summary: Systematic approach to rolling back deployments including verification, data considerations, and communication.
 triggers:
+  - undo production release
   - rollback deployment
   - revert deployment
   - deployment failed
@@ -158,3 +159,8 @@ Output:
 - Verification: Error rate returned to 0.1% within 2 minutes
 - Monitoring: Stable for 30 minutes post-rollback
 - Documentation: Root cause was memory leak in new caching logic
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

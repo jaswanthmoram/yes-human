@@ -7,6 +7,7 @@ category: engineering.dev-workflow
 purpose: Implement effective Git workflows with proper branching strategies and commit discipline.
 summary: Guides through branch management, commit message conventions, and merge strategies for clean history.
 triggers:
+  - what branching strategy should we use
   - git workflow
   - branch strategy
   - commit message
@@ -138,3 +139,8 @@ Output:
 - Merge: Squash merge to keep linear history
 - Protection: Require 1 review + CI pass
 - CI: Run tests on all branches, deploy from main
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

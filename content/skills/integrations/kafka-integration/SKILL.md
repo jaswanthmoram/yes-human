@@ -86,3 +86,8 @@ Use this skill when implementing Apache Kafka producers, consumers, or stream pr
 - Using acks=0 or acks=1 when durability is required
 - Not handling consumer rebalance gracefully
 - Schema changes without compatibility checks
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

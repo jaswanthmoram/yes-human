@@ -7,6 +7,7 @@ category: security.application-security
 purpose: Implement comprehensive input validation to prevent injection attacks, buffer overflows, and data integrity issues.
 summary: Input validation review covering allowlist/denylist patterns, type checking, length limits, and validation at trust boundaries.
 triggers:
+  - validate file upload type size and content
   - review input validation implementation
   - implement input validation patterns
   - check for input validation gaps

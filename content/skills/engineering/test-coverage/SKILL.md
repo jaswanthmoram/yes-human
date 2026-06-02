@@ -3,6 +3,7 @@ id: engineering.test-coverage
 name: Test Coverage Analysis
 description: Analyze test coverage metrics, identify untested critical paths, and recommend targeted tests to improve meaningful coverage.
 triggers:
+  - what code paths are not tested
   - test coverage
   - coverage report
   - coverage analysis

@@ -95,3 +95,8 @@ Use this skill when optimizing model hyperparameters or searching for the best m
 - Overfitting to validation set during search
 - Search space too narrow (missing good configs)
 - Ignoring compute budget constraints
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

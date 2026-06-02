@@ -55,3 +55,8 @@ Use when a research task requires designing qualitative interviews or focus grou
 ## Common Failures
 - Overly structured guide that limits participant expression.
 - Inadequate consent procedures risking ethical violations.
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

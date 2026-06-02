@@ -55,3 +55,8 @@ Use when a task requires preparing a grant application or funding proposal for a
 ## Common Failures
 - Misalignment between research goals and funder priorities.
 - Budget items lacking clear justification.
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

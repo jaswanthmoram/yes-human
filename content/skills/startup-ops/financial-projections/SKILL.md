@@ -7,6 +7,7 @@ category: startup-ops.finance
 purpose: Build financial projections with revenue models, cost forecasts, and scenario analysis for investor materials.
 summary: Creates 3-5 year financial projections with base/bull/bear scenarios, key assumptions, and sensitivity analysis.
 triggers:
+  - revenue forecast analysis
   - financial projections
   - revenue forecast
   - financial forecast startup
@@ -99,3 +100,7 @@ Output:
 - projection_model with evidence-based entries
 - scenario_analysis with prioritized items
 - assumptions_doc with clear next steps
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

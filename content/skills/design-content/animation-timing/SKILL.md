@@ -7,6 +7,7 @@ category: design-content.motion-design
 purpose: Define animation timing curves, durations, and delay patterns for consistent motion behavior.
 summary: Animation timing specification with easing curves, duration scales, delay patterns, and performance budgets.
 triggers:
+  - define easing curves for the design system
   - animation timing specification
   - easing curve definition
   - duration scale design

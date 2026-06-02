@@ -115,3 +115,8 @@ Output:
 - Medium: `test_email_notification` - Test outdated after API change
 - Low: `test_ui_rendering` - Flaky, needs retry logic
 - Infrastructure: `test_database_connection` - CI database not initialized
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

@@ -94,3 +94,8 @@ Use this skill when designing or analyzing A/B experiments for ML model comparis
 - Peeking at results and stopping early (inflated false positive rate)
 - Not correcting for multiple comparisons
 - Ignoring sample ratio mismatch
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

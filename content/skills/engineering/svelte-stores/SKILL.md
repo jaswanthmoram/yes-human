@@ -6,6 +6,8 @@ domain: engineering
 category: engineering.frameworks
 description: Guide Svelte stores and reactivity patterns including writable, readable, derived stores, and Svelte 5 runes.
 triggers:
+  - fix memory leak from unsubscribed Svelte store
+  - create a custom Svelte store with async data
   - svelte stores
   - svelte reactivity
   - svelte writable

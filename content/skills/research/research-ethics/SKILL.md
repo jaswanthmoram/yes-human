@@ -55,3 +55,8 @@ Use when a research protocol requires ethical review before data collection or w
 ## Common Failures
 - Overlooking vulnerable population protections.
 - Inadequate data anonymization procedures.
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

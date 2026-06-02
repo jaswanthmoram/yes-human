@@ -54,3 +54,8 @@ Use when a task requires discovering academic papers, preprints, or technical re
 ## Common Failures
 - API rate limits exceeded during large searches.
 - Database returns incomplete metadata for older publications.
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

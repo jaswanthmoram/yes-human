@@ -55,3 +55,8 @@ Use when a research task requires planning data management, creating a DMP, or p
 ## Common Failures
 - Inadequate metadata preventing data reuse.
 - Missing consent for data sharing in human subjects research.
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

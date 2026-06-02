@@ -7,6 +7,8 @@ category: platform.incident-management
 purpose: Conduct thorough incident postmortems to identify root causes and prevent recurrence.
 summary: Systematic approach to analyzing incidents, documenting findings, and implementing preventive measures.
 triggers:
+  - root cause analysis for incident
+  - analyze production outage
   - incident postmortem
   - analyze incident
   - incident review
@@ -179,3 +181,8 @@ Output:
   2. Add CPU alert (owner: DevOps, due: 2 days)
   3. Create database runbook (owner: SRE, due: 2 weeks)
   4. Set up database replica (owner: DevOps, due: 1 month)
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

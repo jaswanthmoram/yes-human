@@ -131,3 +131,8 @@ Output:
 - Major: Missing input validation on email field (line 23)
 - Minor: Variable name `usr` should be `user` for clarity (line 12)
 - Suggestion: Consider extracting auth logic to separate module
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

@@ -104,3 +104,8 @@ Use this skill when designing templates for registry artifacts, standardizing ar
 - Templates without validation rules
 - Not testing templates with real artifacts
 - Overly rigid templates that don't allow variation
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

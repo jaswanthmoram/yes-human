@@ -102,3 +102,8 @@ Use this skill when designing logging strategies, planning observability, or rev
 - Logging without clear observability requirements
 - Inconsistent log formats across components
 - Excessive logging increasing token cost
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

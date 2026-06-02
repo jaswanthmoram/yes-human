@@ -6,6 +6,7 @@ domain: platform
 category: platform.cloud
 description: Author and optimize gcloud CLI commands for GCP resource management, automation, and troubleshooting.
 triggers:
+  - manage Cloud Run services with gcloud
   - gcloud CLI command patterns
   - manage GCP resources
   - gcloud automation

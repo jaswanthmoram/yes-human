@@ -7,6 +7,8 @@ category: sales.strategy
 purpose: Quantify and communicate business value to buyers using ROI models, business case frameworks, and value metrics.
 summary: Value quantification, ROI modeling, and business case creation for connecting solution capabilities to buyer outcomes.
 triggers:
+  - quantify value for productivity improvement pitch
+  - create ROI model for cost savings proposition
   - build business case
   - ROI model creation
   - value proposition quantification

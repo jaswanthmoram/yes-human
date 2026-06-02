@@ -98,3 +98,8 @@ Use this skill when deploying an ML model to production or setting up model serv
 - Deploying without tested rollback
 - Skipping load testing (production failures)
 - No post-deployment monitoring (silent degradation)
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

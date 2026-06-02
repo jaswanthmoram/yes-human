@@ -167,3 +167,8 @@ Output:
   1. Update knowledge base with new product docs
   2. Add pricing guardrails to prevent hallucinations
   3. Improve retriever for product-specific queries
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

@@ -7,6 +7,7 @@ category: marketing.seo
 purpose: Address technical SEO issues including crawlability, indexation, site speed, and structured data implementation.
 summary: Technical SEO review covering crawl budget, indexation, Core Web Vitals, XML sitemaps, and site architecture.
 triggers:
+  - technical seo audit for e-commerce site
   - technical seo review
   - crawl and indexation audit
   - core web vitals optimization

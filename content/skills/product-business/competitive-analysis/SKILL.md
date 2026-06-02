@@ -97,3 +97,8 @@ Use this skill when analyzing competitors or updating competitive intelligence.
 | SSO | Yes | Yes (Enterprise) | No |
 | API | Full | Limited | Full |
 | Pricing | $29/mo | $49/mo | Free tier |
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

@@ -55,3 +55,8 @@ Use when a research task involves setting up or managing a multi-person or multi
 ## Common Failures
 - Unclear authorship expectations leading to disputes.
 - Incompatible data management practices across sites.
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

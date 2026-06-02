@@ -56,3 +56,8 @@ Use when a completed systematic review has sufficient homogeneous quantitative d
 ## Common Failures
 - Pooling studies with incompatible outcome measures.
 - Ignoring substantial heterogeneity in effect sizes.
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

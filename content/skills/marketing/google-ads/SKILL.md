@@ -7,6 +7,9 @@ category: marketing.paid-media
 purpose: Design, structure, and optimize Google Ads campaigns for search, display, and performance max.
 summary: Google Ads campaign setup covering structure, bidding, targeting, ad copy, and optimization strategies.
 triggers:
+  - create performance max campaign
+  - optimize existing search campaigns
+  - set up google ads for SaaS product
   - set up google ads campaign
   - google ads optimization
   - search ads structure

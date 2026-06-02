@@ -55,3 +55,8 @@ Use when a task requires drafting a research proposal for funding, thesis approv
 ## Common Failures
 - Overly ambitious scope that exceeds available resources.
 - Weak connection between literature review and proposed methodology.
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

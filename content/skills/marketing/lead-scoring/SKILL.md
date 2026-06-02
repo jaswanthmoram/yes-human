@@ -7,6 +7,8 @@ category: marketing.operations
 purpose: Design lead scoring models that rank prospects by engagement and fit for sales handoff prioritization.
 summary: Lead scoring model design covering demographic fit, behavioral signals, scoring thresholds, and sales alignment.
 triggers:
+  - implement behavioral lead scoring
+  - design lead scoring model for B2B SaaS
   - lead scoring model
   - prospect ranking system
   - mql qualification criteria

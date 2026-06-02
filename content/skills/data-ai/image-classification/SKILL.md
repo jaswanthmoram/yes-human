@@ -94,3 +94,8 @@ Use this skill when building an image classification model or visual categorizat
 - Insufficient augmentation causing overfitting
 - Ignoring class imbalance (poor minority class performance)
 - Not analyzing confusion matrix (missing systematic errors)
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

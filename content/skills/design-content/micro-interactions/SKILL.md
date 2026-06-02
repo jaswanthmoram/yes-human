@@ -7,6 +7,7 @@ category: design-content.motion-design
 purpose: Design micro-interactions for feedback, state changes, and delightful user experiences.
 summary: Micro-interaction design covering triggers, rules, feedback, and loops for small interactive moments.
 triggers:
+  - create loading animation for the spinner
   - micro-interaction design
   - button feedback animation
   - state change animation

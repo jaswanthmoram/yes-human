@@ -7,6 +7,9 @@ category: marketing.analytics
 purpose: Design and implement attribution models to measure marketing channel contribution to conversions and revenue.
 summary: Marketing attribution covering model selection, data integration, channel credit assignment, and ROI analysis.
 triggers:
+  - compare attribution models for budget planning
+  - analyze channel contribution to revenue
+  - set up multi-touch attribution model
   - marketing attribution model
   - channel attribution analysis
   - multi-touch attribution

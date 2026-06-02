@@ -7,6 +7,7 @@ category: startup-ops.validation
 purpose: Plan and scope minimum viable products that test core hypotheses with minimal resources.
 summary: Guides MVP scoping, build-vs-buy decisions, and validation criteria for rapid iteration.
 triggers:
+  - minimum viable product analysis
   - MVP planning
   - minimum viable product
   - MVP scope
@@ -99,3 +100,7 @@ Output:
 - mvp_scope with evidence-based entries
 - build_plan with prioritized items
 - validation_criteria with clear next steps
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

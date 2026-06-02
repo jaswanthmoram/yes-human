@@ -103,3 +103,8 @@ Use this skill when designing agent architectures, reviewing agent modular struc
 - Missing negative triggers causing routing conflicts
 - Undefined verification gates
 - Ignoring context token budget
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

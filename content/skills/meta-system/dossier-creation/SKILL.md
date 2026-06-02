@@ -103,3 +103,8 @@ Use this skill when creating dossiers, assembling source dossiers, or building a
 - Creating dossiers without provenance checks
 - Ignoring license compatibility
 - Inflating quality scores without evidence
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

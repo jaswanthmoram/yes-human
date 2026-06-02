@@ -7,6 +7,7 @@ category: design-content.design-systems
 purpose: Define and manage design tokens for color, spacing, typography, and other design primitives across platforms.
 summary: Design token architecture with naming conventions, multi-platform output, and token governance.
 triggers:
+  - define design tokens for color and spacing
   - design token definition
   - token naming convention
   - multi-platform token output

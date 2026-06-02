@@ -118,3 +118,8 @@ Output:
 - Root cause: `lodash` not in package.json
 - Fix: `npm install lodash`
 - Verification: Build succeeds, tests pass
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

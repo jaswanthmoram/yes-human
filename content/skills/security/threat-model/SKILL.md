@@ -7,6 +7,7 @@ category: security.threat-modeling
 purpose: Perform systematic threat modeling using STRIDE and DREAD frameworks to identify and prioritize security threats.
 summary: Guides through identifying threats, vulnerabilities, and attack vectors using industry-standard threat modeling methodologies.
 triggers:
+  - identify security threats using STRIDE
   - threat model
   - threat modeling
   - identify security threats
@@ -130,3 +131,8 @@ Output:
 - Tampering: Request body modification (DREAD: 28) → Validate all inputs, use HTTPS
 - Information Disclosure: Error messages leak stack traces (DREAD: 32) → Generic error messages
 - Elevation of Privilege: IDOR vulnerability (DREAD: 42) → Authorization checks on all endpoints
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

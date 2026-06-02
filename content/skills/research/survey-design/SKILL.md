@@ -55,3 +55,8 @@ Use when a research task requires designing a survey or questionnaire for data c
 ## Common Failures
 - Leading or ambiguous question wording.
 - Insufficient sample size for planned analyses.
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

@@ -86,3 +86,8 @@ Use this skill when building integration tests that verify multiple services wor
 - Tests that pass in isolation but fail when run together
 - Not testing the failure paths between services
 - Shared databases causing test interference
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

@@ -55,3 +55,8 @@ Use when a research task requires assessing or improving the reproducibility of 
 ## Common Failures
 - Undocumented preprocessing steps preventing reproduction.
 - Missing random seeds causing non-deterministic results.
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

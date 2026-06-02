@@ -95,3 +95,8 @@ Use this skill when setting up or interpreting product analytics.
 North Star: Weekly Active Projects
 Supporting: Signup conversion, D1 activation, D7 retention, Feature adoption rate
 Dashboard: Product Health (weekly review)
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

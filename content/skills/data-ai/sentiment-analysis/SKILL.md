@@ -94,3 +94,8 @@ Use this skill when analyzing text sentiment, opinions, or emotions.
 - Ignoring sarcasm and irony (systematic misclassification)
 - Not handling negation ("not good" classified as positive)
 - Using generic model for domain-specific sentiment (financial, medical)
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

@@ -7,6 +7,8 @@ category: security.authentication
 purpose: Review and implement secure OAuth 2.0 authorization flows following RFC 6749 and security best practices.
 summary: OAuth 2.0 security review covering grant type selection, token management, PKCE, and protection against common OAuth attacks.
 triggers:
+  - audit OAuth2 PKCE and redirect URI validation
+  - check OAuth2 token endpoint for security issues
   - review OAuth 2.0 implementation
   - implement secure OAuth flow
   - check OAuth grant type security

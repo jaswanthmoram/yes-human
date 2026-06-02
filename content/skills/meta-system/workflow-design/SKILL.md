@@ -102,3 +102,8 @@ Use this skill when designing workflow orchestration, planning workflow steps, o
 - Designing steps without proper sequencing
 - Missing gate definitions between steps
 - No rollback strategies for failure recovery
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

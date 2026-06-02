@@ -95,3 +95,8 @@ Use this skill when monitoring deployed ML models for drift, degradation, or hea
 - Only monitoring system health, not model quality
 - Alert thresholds without statistical basis
 - No automated retraining trigger
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

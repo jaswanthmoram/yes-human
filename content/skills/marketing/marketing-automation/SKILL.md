@@ -7,6 +7,7 @@ category: marketing.operations
 purpose: Design and implement marketing automation workflows for lead nurturing, scoring, and lifecycle management.
 summary: Marketing automation setup covering workflow design, trigger rules, lead scoring, and platform configuration.
 triggers:
+  - implement lead scoring model
   - set up marketing automation
   - lead nurturing workflow
   - automation platform configuration

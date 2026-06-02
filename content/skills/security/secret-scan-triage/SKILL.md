@@ -139,3 +139,8 @@ Output:
   - Action: Remove, use test fixtures
 - Finding 3: `const passwordField = "password"` in form component → False positive
   - Action: Document as false positive
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

@@ -94,3 +94,8 @@ Use this skill when selecting an ML algorithm or comparing models for a specific
 - Choosing model without comparison
 - Ignoring deployment constraints
 - Overlooking interpretability needs
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

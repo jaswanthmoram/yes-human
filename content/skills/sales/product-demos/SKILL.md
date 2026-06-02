@@ -7,6 +7,9 @@ category: sales.pipeline
 purpose: Design product demonstrations that connect buyer pain to specific product capabilities with compelling narrative and proof points.
 summary: Demo scripting, scenario selection, and proof-point alignment to buyer requirements for persuasive product demonstrations.
 triggers:
+  - plan a POC demo for this specific opportunity
+  - create a demo script for our analytics platform
+  - design a demo for the enterprise security buyer
   - design a product demo
   - demo script creation
   - demo scenario planning

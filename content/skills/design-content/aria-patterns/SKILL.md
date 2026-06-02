@@ -7,6 +7,7 @@ category: design-content.accessibility
 purpose: Implement WAI-ARIA patterns for complex interactive widgets and dynamic content.
 summary: ARIA authoring practices for common widget patterns including tabs, dialogs, menus, and tree views.
 triggers:
+  - set up aria live regions for notifications
   - aria pattern implementation
   - aria widget design
   - aria role assignment

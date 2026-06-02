@@ -7,6 +7,7 @@ category: engineering.productivity
 purpose: Maximize developer productivity through effective use of IDE shortcuts, commands, and productivity features.
 summary: Comprehensive reference for VS Code, JetBrains, and Vim/Neovim shortcuts, multi-cursor editing, navigation, and refactoring commands.
 triggers:
+  - how do I edit multiple lines at once
   - IDE shortcuts
   - keyboard shortcut
   - VS Code tips

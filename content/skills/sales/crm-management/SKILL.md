@@ -7,6 +7,8 @@ category: sales.operations
 purpose: Design CRM workflows, data models, and reporting structures that support sales team productivity and pipeline visibility.
 summary: CRM configuration, data model design, workflow automation, and reporting setup for sales organizations.
 triggers:
+  - create CRM reporting structure for VP of Sales
+  - audit CRM configuration for data quality issues
   - design CRM workflow
   - CRM data model review
   - CRM automation setup

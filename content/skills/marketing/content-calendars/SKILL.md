@@ -7,6 +7,7 @@ category: marketing.content
 purpose: Plan and structure editorial content calendars with topic clusters, publishing cadence, and distribution alignment.
 summary: Content calendar creation covering topic planning, publishing schedule, format mix, and channel distribution.
 triggers:
+  - plan editorial calendar for product launch
   - create content calendar
   - editorial calendar planning
   - content publishing schedule

@@ -7,6 +7,8 @@ category: marketing.seo
 purpose: Conduct comprehensive SEO audits covering technical health, content gaps, and competitive positioning.
 summary: Full-site SEO audit process with technical, on-page, and off-page analysis for organic search improvement.
 triggers:
+  - conduct site seo review for organic search
+  - run technical seo health check
   - perform seo audit
   - site health check for search
   - comprehensive seo review

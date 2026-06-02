@@ -103,3 +103,8 @@ Use this skill when defining documentation standards, reviewing documentation qu
 - Defining standards without reviewing existing documentation
 - Vague or ambiguous guidelines
 - Not auditing existing documentation against new standards
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

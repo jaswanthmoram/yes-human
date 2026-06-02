@@ -7,6 +7,9 @@ category: security.cryptography
 purpose: Implement and review encryption for data stored in databases, file systems, and storage services.
 summary: Encryption at rest review covering database encryption, file encryption, cloud storage encryption, and key management integration.
 triggers:
+  - check cloud storage encryption configuration
+  - implement AES-256 encryption for sensitive data at rest
+  - review encryption at rest for database and storage
   - review encryption at rest implementation
   - implement database encryption
   - check data encryption in storage

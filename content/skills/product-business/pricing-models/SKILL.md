@@ -7,6 +7,7 @@ category: product-business.monetization
 purpose: Design and evaluate pricing models aligned to product value and customer willingness to pay.
 summary: Guides through value-based pricing, tier design, and pricing experimentation for SaaS and digital products.
 triggers:
+  - pricing experimentation for usage based model
   - pricing model
   - pricing strategy
   - pricing tiers
@@ -96,3 +97,8 @@ Free: 3 projects, 1 user
 Pro ($29/mo): Unlimited projects, 10 users, integrations
 Enterprise (Custom): SSO, audit log, dedicated support
 Value Metric: Number of active projects
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

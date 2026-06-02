@@ -86,3 +86,8 @@ Use this skill when implementing retry logic for handling transient failures in 
 - Retrying POST requests without idempotency keys
 - No jitter causing thundering herd on service recovery
 - Retrying 400/401/403 errors that will never succeed
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

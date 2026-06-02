@@ -86,3 +86,8 @@ Use this skill when planning or implementing API versioning strategies.
 - Making breaking changes without incrementing version
 - Not communicating deprecation timelines
 - Supporting deprecated versions beyond reasonable sunset dates
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

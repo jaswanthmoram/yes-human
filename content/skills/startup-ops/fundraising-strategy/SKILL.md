@@ -99,3 +99,7 @@ Output:
 - fundraising_plan with evidence-based entries
 - investor_targets with prioritized items
 - timeline with clear next steps
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

@@ -160,3 +160,8 @@ Output:
   - Latency p99 > 2s for 10 minutes → Slack
   - Pod restarts > 3 in 1 hour → Email
 - Documentation: Runbooks for each alert, dashboard guide
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

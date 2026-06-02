@@ -6,6 +6,7 @@ domain: platform
 category: platform.ci-cd
 description: Design, implement, and optimize GitHub Actions workflows for CI/CD automation.
 triggers:
+  - optimize slow GitHub Actions pipeline
   - GitHub Actions workflow design
   - create GitHub Actions workflow
   - CI/CD with GitHub Actions

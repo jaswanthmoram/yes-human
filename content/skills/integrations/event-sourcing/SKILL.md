@@ -86,3 +86,8 @@ Use this skill when implementing event sourcing patterns for domain-driven appli
 - Allowing mutation of stored events
 - Projections that cannot handle out-of-order events
 - Snapshot strategy that misses edge cases
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

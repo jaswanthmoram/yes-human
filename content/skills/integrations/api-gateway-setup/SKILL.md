@@ -85,3 +85,8 @@ Use this skill when setting up or configuring an API gateway for microservices.
 - Wildcard routes catching requests meant for specific services
 - Missing auth plugin on newly added routes
 - Plugin ordering causing unexpected behavior
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

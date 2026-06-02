@@ -7,6 +7,8 @@ category: marketing.paid-media
 purpose: Design and optimize Meta/Facebook advertising campaigns across Facebook, Instagram, and Audience Network.
 summary: Facebook/Meta ads campaign setup covering audience targeting, creative strategy, budget allocation, and optimization.
 triggers:
+  - create lookalike audience strategy
+  - optimize instagram ad campaigns
   - facebook ads campaign
   - meta ads setup
   - instagram advertising

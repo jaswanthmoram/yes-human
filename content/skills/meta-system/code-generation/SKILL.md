@@ -104,3 +104,8 @@ Use this skill when generating code for registry artifacts, scaffolding agents/s
 - Generating code without following conventions
 - Missing verification sections
 - Not linting generated code
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

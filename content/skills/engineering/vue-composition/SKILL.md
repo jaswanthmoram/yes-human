@@ -6,6 +6,9 @@ domain: engineering
 category: engineering.frameworks
 description: Guide Vue 3 Composition API patterns including ref, reactive, computed, watch, composables, and script setup syntax.
 triggers:
+  - fix reactivity loss when destructuring reactive object
+  - migrate this options API component to composition API
+  - create a useAuth composable in Vue 3
   - vue composition api
   - vue 3 setup
   - composables

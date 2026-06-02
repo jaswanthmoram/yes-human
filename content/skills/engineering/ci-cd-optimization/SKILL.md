@@ -7,6 +7,7 @@ category: engineering.devops
 purpose: Optimize CI/CD pipelines for speed, reliability, and cost efficiency through caching, parallelism, and smart job orchestration.
 summary: Systematic approach to diagnosing slow pipelines and applying optimizations like caching, parallelization, conditional jobs, and artifact reuse.
 triggers:
+  - optimize the GitHub Actions workflow
   - CI is slow
   - optimize pipeline
   - speed up builds

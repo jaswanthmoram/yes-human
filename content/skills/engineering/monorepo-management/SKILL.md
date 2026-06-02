@@ -7,6 +7,8 @@ category: engineering.architecture
 purpose: Design, implement, and maintain monorepo structures using modern tooling for scalable multi-package development.
 summary: Guide to monorepo architecture patterns, tooling selection (Turborepo, Nx, Bazel, Lerna), dependency management, and build orchestration.
 triggers:
+  - how to manage multiple packages in one repo
+  - set up a monorepo for our packages
   - monorepo setup
   - monorepo tooling
   - turborepo

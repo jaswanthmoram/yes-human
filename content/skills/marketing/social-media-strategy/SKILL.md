@@ -7,6 +7,8 @@ category: marketing.social
 purpose: Develop platform-specific social media strategies with content pillars, engagement tactics, and measurement frameworks.
 summary: Social media strategy covering platform selection, content pillars, engagement protocols, and performance measurement.
 triggers:
+  - plan social engagement for product launch
+  - create social media strategy for B2B startup
   - social media strategy
   - social platform plan
   - social engagement strategy

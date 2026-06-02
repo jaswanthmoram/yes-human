@@ -101,3 +101,7 @@ Output:
 - culture_handbook with evidence-based entries
 - values_framework with prioritized items
 - rituals_guide with clear next steps
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

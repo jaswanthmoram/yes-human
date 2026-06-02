@@ -7,6 +7,8 @@ category: security.application-security
 purpose: Implement and review rate limiting to protect against brute force, DDoS, and abuse.
 summary: Rate limiting review covering algorithm selection, distributed limiting, API throttling, and DDoS protection patterns.
 triggers:
+  - review distributed rate limiting with Redis
+  - implement rate limiting on API endpoints
   - implement rate limiting
   - review API throttling
   - check brute force protection

@@ -7,6 +7,8 @@ category: security.application-security
 purpose: Perform static analysis of source code to detect security vulnerabilities without executing the application.
 summary: SAST analysis using pattern matching, data flow analysis, and taint tracking to find security flaws in source code.
 triggers:
+  - taint analysis on user input data flows
+  - perform SAST scan for injection vulnerabilities
   - run static security analysis on code
   - SAST scan for vulnerabilities
   - find security flaws in source code

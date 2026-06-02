@@ -7,6 +7,9 @@ category: marketing.strategy
 purpose: Design marketing funnels that guide prospects from awareness to conversion with stage-appropriate content and touchpoints.
 summary: Marketing funnel design covering awareness, consideration, decision stages with content mapping and conversion points.
 triggers:
+  - audit conversion funnel drop-off points
+  - map content to buyer journey stages
+  - design marketing funnel for SaaS trial
   - design marketing funnel
   - funnel stage mapping
   - conversion funnel review

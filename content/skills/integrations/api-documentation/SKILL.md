@@ -85,3 +85,8 @@ Use this skill when creating or updating API documentation for internal or exter
 - Documentation drifts from actual API behavior
 - Missing examples for complex operations
 - No documentation for error responses
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

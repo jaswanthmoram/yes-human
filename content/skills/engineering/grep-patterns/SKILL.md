@@ -7,6 +7,7 @@ category: engineering.search
 purpose: Use advanced grep, ripgrep, and search patterns to efficiently find code, patterns, and anomalies across large codebases.
 summary: Comprehensive guide to regex patterns, search tool selection, and multi-file search strategies for codebase exploration.
 triggers:
+  - search for all usages of this function
   - grep pattern
   - search codebase
   - find in files

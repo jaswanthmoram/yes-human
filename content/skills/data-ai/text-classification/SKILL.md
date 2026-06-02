@@ -95,3 +95,8 @@ Use this skill when building a text classification model for document or content
 - Ignoring class imbalance (poor minority class recall)
 - Over-preprocessing (removing useful signal)
 - Not testing on out-of-domain or adversarial text
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

@@ -86,3 +86,8 @@ Use this skill when creating or updating OpenAPI 3.x specifications for REST API
 - Using any type instead of defining proper schemas
 - Missing response codes (only documenting 200)
 - Inconsistent naming between path parameters and schemas
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

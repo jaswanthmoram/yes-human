@@ -95,3 +95,8 @@ Use this skill when designing or analyzing A/B tests and product experiments.
 "Changing the signup CTA from 'Get Started' to 'Start Free Trial' will increase signup conversion by 15% because it reduces perceived commitment."
 Primary Metric: Signup conversion rate
 Guardrail: Time to first action, D7 retention
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

@@ -95,3 +95,8 @@ Use this skill when analyzing conversion funnels or identifying drop-off points.
 Landing → Signup Form → Email Verification → Onboarding → First Value Moment
 Conversion: 100% → 40% → 32% → 28% → 18%
 Biggest drop: Landing to Signup (60% loss) — optimize landing page CTA
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

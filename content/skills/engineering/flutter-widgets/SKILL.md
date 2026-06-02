@@ -6,6 +6,8 @@ domain: engineering
 category: engineering.frameworks
 description: Guide Flutter widget patterns including stateless/stateful widgets, state management, custom painters, and responsive layouts.
 triggers:
+  - fix Flutter widget rebuild performance
+  - implement Riverpod state management for shopping cart
   - flutter widgets
   - flutter state
   - flutter layout

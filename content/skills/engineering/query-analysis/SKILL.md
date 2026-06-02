@@ -3,6 +3,9 @@ id: engineering.query-analysis
 name: SQL Query Analysis and Optimization
 description: Analyze SQL queries for performance issues, identify anti-patterns, and recommend optimized query structures.
 triggers:
+  - optimize the reporting dashboard query
+  - find N+1 queries in the repository layer
+  - analyze why this SQL query is slow
   - analyze query
   - slow SQL
   - query optimization

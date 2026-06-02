@@ -7,6 +7,7 @@ category: product-business.communications
 purpose: Create consistent product messaging across all channels aligned with positioning and target audience.
 summary: Guides through messaging hierarchy creation, channel adaptation, and consistency auditing.
 triggers:
+  - messaging for new feature announcement
   - product messaging
   - messaging framework
   - messaging hierarchy
@@ -95,3 +96,8 @@ Use this skill when creating or auditing product messaging.
 Headline: "Ship products your customers love"
 Sub-headline: "The product platform that connects user feedback to your roadmap"
 Supporting: "Used by 10,000+ product teams" | "Integrates with your existing tools" | "Set up in 5 minutes"
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

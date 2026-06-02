@@ -55,3 +55,8 @@ Use when a research task requires statistical analysis of quantitative data with
 ## Common Failures
 - Applying parametric tests to non-normal data without transformation.
 - Reporting p-values without effect sizes or confidence intervals.
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

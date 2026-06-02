@@ -7,6 +7,8 @@ category: sales.pipeline
 purpose: Apply structured closing techniques matched to deal stage, buyer signals, and urgency to advance deals to commitment.
 summary: Closing technique selection, commitment sequencing, and urgency creation patterns for advancing deals to close.
 triggers:
+  - create urgency framework for Q4 pipeline
+  - design a close plan for this enterprise deal
   - closing technique selection
   - deal closing strategy
   - commitment sequence design

@@ -174,3 +174,8 @@ Output:
 - Tests: ✓ All pass in sandbox
 - Integration: Added to engineering category, routes generated
 - Provenance: Recorded with commit hash abc123
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

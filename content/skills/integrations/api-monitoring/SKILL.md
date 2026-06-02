@@ -86,3 +86,8 @@ Use this skill when setting up monitoring and observability for API services.
 - Health checks that always return 200 regardless of actual health
 - Alert thresholds too sensitive causing alert fatigue
 - Missing trace context propagation between services
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

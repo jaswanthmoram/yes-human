@@ -193,3 +193,8 @@ Output:
   2. Adjust threshold to reduce false negatives (business priority)
   3. Investigate lower performance for 51+ age group
   4. Consider cost-sensitive learning (churn is more costly)
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

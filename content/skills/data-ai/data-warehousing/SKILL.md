@@ -98,3 +98,8 @@ Use this skill when designing or optimizing a data warehouse schema or analytica
 - Over-normalized schema (slow queries)
 - No partitioning for large fact tables
 - Missing SCD strategy (historical data loss)
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

@@ -7,6 +7,8 @@ category: marketing.seo
 purpose: Systematic keyword discovery, clustering, and intent mapping for content and SEO strategy.
 summary: Keyword research process covering discovery, intent classification, difficulty assessment, and cluster mapping.
 triggers:
+  - competitive keyword gap analysis
+  - find keyword opportunities for fintech blog
   - keyword research for topic
   - find keywords for content
   - keyword cluster mapping

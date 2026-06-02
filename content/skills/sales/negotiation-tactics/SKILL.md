@@ -7,6 +7,7 @@ category: sales.pipeline
 purpose: Design negotiation strategies and tactics for commercial discussions that protect value while advancing deal closure.
 summary: Negotiation preparation, concession planning, and tactical frameworks for structured commercial negotiations.
 triggers:
+  - create concession matrix for annual contracts
   - negotiation strategy design
   - concession planning
   - negotiation preparation

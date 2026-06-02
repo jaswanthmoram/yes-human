@@ -57,3 +57,8 @@ Use when a research task involves analyzing qualitative data such as interview t
 ## Common Failures
 - Imposing pre-conceived themes without grounding in data.
 - Insufficient inter-coder reliability when multiple coders are used.
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

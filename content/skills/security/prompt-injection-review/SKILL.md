@@ -142,3 +142,8 @@ Output:
   - Validate input doesn't contain injection patterns
   - Monitor for "ignore instructions" patterns
   - Validate output doesn't contain system prompt
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

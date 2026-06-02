@@ -6,6 +6,7 @@ domain: engineering
 category: engineering.frameworks
 description: Guide React hooks patterns including useState, useEffect, useReducer, custom hooks, and performance optimization with useMemo and useCallback.
 triggers:
+  - fix stale closure in useEffect with async function
   - react hooks
   - useState pattern
   - useEffect cleanup

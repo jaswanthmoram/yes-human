@@ -101,3 +101,7 @@ Output:
 - metrics_framework with evidence-based entries
 - funnel_dashboard with prioritized items
 - growth_accounting with clear next steps
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

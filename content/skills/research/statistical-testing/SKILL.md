@@ -55,3 +55,8 @@ Use when a research task requires selecting and running a specific statistical t
 ## Common Failures
 - Running tests without checking assumptions.
 - Ignoring family-wise error rate in multiple testing scenarios.
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

@@ -7,6 +7,7 @@ category: security.supply-chain
 purpose: Audit project dependencies for known vulnerabilities, license issues, and outdated packages.
 summary: Systematic dependency auditing using package managers and vulnerability databases to identify and prioritize remediation.
 triggers:
+  - find vulnerable and outdated packages
   - audit dependencies for vulnerabilities
   - check npm packages for CVEs
   - dependency security review

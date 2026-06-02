@@ -94,3 +94,8 @@ Use this skill when building an object detection model for localizing and classi
 - Inconsistent bounding box annotations
 - Ignoring small object detection (low recall for small objects)
 - Not measuring inference speed for real-time use cases
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

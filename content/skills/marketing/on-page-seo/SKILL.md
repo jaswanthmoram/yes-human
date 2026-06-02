@@ -7,6 +7,7 @@ category: marketing.seo
 purpose: Optimize individual pages for search engines with title tags, meta descriptions, headings, and content structure.
 summary: On-page SEO optimization covering metadata, content structure, internal linking, and schema markup.
 triggers:
+  - fix meta tags for product pages
   - optimize page for seo
   - on-page seo review
   - meta tag optimization

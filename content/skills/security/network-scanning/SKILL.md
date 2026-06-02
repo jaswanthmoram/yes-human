@@ -7,6 +7,9 @@ category: security.infrastructure-security
 purpose: Scan network infrastructure for vulnerabilities, open ports, and misconfigurations.
 summary: Network vulnerability scanning using port scanning, service detection, and vulnerability assessment to identify infrastructure security issues.
 triggers:
+  - identify network misconfigurations and exposed services
+  - run nmap scan on production network
+  - scan network for open ports and vulnerabilities
   - scan network for vulnerabilities
   - port scan infrastructure
   - network security assessment

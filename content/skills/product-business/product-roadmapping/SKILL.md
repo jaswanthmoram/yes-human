@@ -95,3 +95,8 @@ Use this skill when building or updating a product roadmap.
 Initiatives: Onboarding redesign, In-app tutorials, Email drip sequence
 Horizon: Next quarter
 Success Metric: Increase D1 activation rate from 30% to 45%
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

@@ -57,3 +57,8 @@ Use when a task requires a rigorous, reproducible literature review following PR
 ## Common Failures
 - Inconsistent application of inclusion criteria across screeners.
 - Insufficient reporting of search strategies for reproducibility.
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

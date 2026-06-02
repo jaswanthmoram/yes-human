@@ -96,3 +96,8 @@ Hypothesis: Adding social proof to pricing page will increase trial signup by 10
 ICE: Impact 7, Confidence 6, Ease 8 = 7.0
 Success Metric: Trial signup conversion rate
 Kill Criteria: No improvement after 2 weeks at full traffic
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

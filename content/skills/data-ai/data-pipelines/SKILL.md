@@ -98,3 +98,8 @@ Use this skill when designing or implementing data pipelines for batch or stream
 - Non-idempotent processing causing duplicates
 - Missing dead-letter handling
 - No alerting on pipeline staleness
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

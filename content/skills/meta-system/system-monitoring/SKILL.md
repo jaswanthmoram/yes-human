@@ -103,3 +103,8 @@ Use this skill when monitoring system health, running health checks, or detectin
 - Monitoring without comparing to baseline
 - Missing anomaly detection logic
 - Not alerting on critical issues
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

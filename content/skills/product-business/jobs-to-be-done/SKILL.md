@@ -93,3 +93,8 @@ Use this skill when applying the Jobs to Be Done framework to understand custome
 ## Examples
 ### Job Statement
 When I'm onboarding a new team member, I want to share project context quickly, so I can get them productive within their first week.
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

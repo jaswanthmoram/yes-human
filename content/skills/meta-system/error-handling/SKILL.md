@@ -101,3 +101,8 @@ Use this skill when designing error handling, reviewing failure recovery, or pla
 - Missing error scenarios in the design
 - Undefined recovery paths
 - No graceful degradation strategy
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

@@ -7,6 +7,7 @@ category: design-content.content-strategy
 purpose: Optimize content and pages for search engines with on-page SEO, technical SEO, and content structure.
 summary: On-page and technical SEO optimization including meta tags, heading structure, internal linking, and schema markup.
 triggers:
+  - add schema markup to the product pages
   - seo optimization review
   - on-page seo audit
   - technical seo check

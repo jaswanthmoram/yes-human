@@ -7,6 +7,7 @@ category: design-content.motion-design
 purpose: Define motion design principles for a product's animation language and behavior system.
 summary: Motion design principle definition covering easing, duration, choreography, and purposeful animation.
 triggers:
+  - define motion principles for the product
   - motion principles definition
   - animation language design
   - motion design guidelines

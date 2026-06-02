@@ -94,3 +94,8 @@ Use this skill when creating, transforming, or selecting features for machine le
 - Target leakage through derived features
 - High multicollinearity degrading model interpretability
 - Undocumented features causing reproducibility issues
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

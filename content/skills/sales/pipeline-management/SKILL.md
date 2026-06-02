@@ -7,6 +7,9 @@ category: sales.operations
 purpose: Design and maintain pipeline processes that ensure deal visibility, stage accuracy, and forecast reliability.
 summary: Pipeline stage definitions, hygiene processes, slippage detection, and forecast alignment for reliable pipeline management.
 triggers:
+  - align pipeline data with commit best-case forecast
+  - set up pipeline hygiene rules for weekly review
+  - design pipeline stages for enterprise sales motion
   - pipeline management design
   - stage definition review
   - pipeline hygiene process

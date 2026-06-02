@@ -86,3 +86,8 @@ Use this skill when implementing GraphQL client or server integrations.
 - N+1 queries from naive resolver implementation
 - Missing authorization checks in resolvers
 - Unbounded query depth allowing DoS
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

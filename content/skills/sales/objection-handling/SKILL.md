@@ -7,6 +7,9 @@ category: sales.pipeline
 purpose: Equip sellers with structured responses to common buyer objections using evidence, reframing, and social proof.
 summary: Objection response frameworks with categorized objections, evidence-based rebuttals, and escalation paths.
 triggers:
+  - design objection handling for enterprise procurement
+  - build an objection playbook for competitor comparisons
+  - create objection responses for pricing pushback
   - handle buyer objections
   - objection response guide
   - common objections framework

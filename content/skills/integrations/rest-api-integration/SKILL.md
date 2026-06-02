@@ -88,3 +88,8 @@ Use this skill when building REST API client integrations or connecting to exter
 - Not handling 429 Too Many Requests properly
 - Missing timeout on connection and read operations
 - Logging sensitive data from requests or responses
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

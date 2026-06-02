@@ -95,3 +95,8 @@ Story: As a registered user, I want to reset my password via email, so that I ca
 Acceptance Criteria:
 - Given I am on the login page, When I click "Forgot Password", Then I see the password reset form
 - Given I enter a valid email, When I submit, Then I receive a reset link within 5 minutes
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

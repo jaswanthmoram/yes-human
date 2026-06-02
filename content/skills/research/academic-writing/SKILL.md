@@ -55,3 +55,8 @@ Use when a research task requires drafting or revising academic texts such as pa
 ## Common Failures
 - Overclaiming results without appropriate hedging.
 - Inconsistent citation style within the document.
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

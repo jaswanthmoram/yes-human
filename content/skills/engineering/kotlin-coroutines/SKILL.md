@@ -6,6 +6,7 @@ domain: engineering
 category: engineering.frameworks
 description: Guide Kotlin coroutines and Flow patterns including structured concurrency, coroutine scopes, channels, and reactive streams.
 triggers:
+  - fix coroutine cancellation in long running loop
   - kotlin coroutines
   - kotlin flow
   - coroutine scope

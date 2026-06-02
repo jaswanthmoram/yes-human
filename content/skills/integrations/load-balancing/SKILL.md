@@ -86,3 +86,8 @@ Use this skill when configuring load balancing for distributing traffic across s
 - Health check interval too long, keeping bad instances in pool
 - Session affinity preventing proper load distribution
 - Not accounting for connection draining during deployments
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

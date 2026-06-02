@@ -136,3 +136,8 @@ Output:
 - Update README: Add example showing options usage
 - Update API reference: Document all option fields
 - Add example: `getUser(123, { includePosts: true })`
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

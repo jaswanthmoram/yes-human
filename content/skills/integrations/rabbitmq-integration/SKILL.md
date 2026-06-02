@@ -85,3 +85,8 @@ Use this skill when implementing RabbitMQ producers, consumers, or exchange topo
 - Using auto-ack and losing messages on consumer crash
 - Not setting queue TTL leading to unbounded growth
 - Missing publisher confirms for important messages
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

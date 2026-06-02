@@ -93,3 +93,8 @@ Use this skill when defining or refining product positioning.
 ## Examples
 ### Positioning Statement
 For product teams at startups, Linear is the issue tracker that moves at the speed of thought because it's keyboard-first, real-time synced, and designed for makers not managers.
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

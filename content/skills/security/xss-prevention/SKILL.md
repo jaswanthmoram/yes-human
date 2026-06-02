@@ -7,6 +7,8 @@ category: security.application-security
 purpose: Prevent Cross-Site Scripting vulnerabilities through proper output encoding, input validation, and Content Security Policy.
 summary: XSS prevention review covering reflected, stored, and DOM-based XSS with encoding strategies and CSP implementation.
 triggers:
+  - implement DOM-based XSS protections
+  - review stored and reflected XSS vulnerabilities
   - review XSS protection implementation
   - prevent cross-site scripting vulnerabilities
   - implement Content Security Policy

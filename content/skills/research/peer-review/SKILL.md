@@ -55,3 +55,8 @@ Use when a task requires reviewing a research manuscript or paper for quality, r
 ## Common Failures
 - Providing vague feedback without specific examples.
 - Overlooking methodological flaws due to domain unfamiliarity.
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

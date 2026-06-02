@@ -86,3 +86,8 @@ Use this skill when implementing consumer-driven contract testing between micros
 - Contracts that do not match actual API behavior
 - Not running provider verification in CI pipeline
 - Ignoring contract compatibility when evolving APIs
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

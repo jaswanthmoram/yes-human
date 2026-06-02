@@ -7,6 +7,8 @@ category: marketing.content
 purpose: Draft SEO-optimized blog posts with clear structure, audience value, and conversion-oriented CTAs.
 summary: Blog post writing process covering research, outlining, drafting, SEO optimization, and CTA placement.
 triggers:
+  - create long-form guide on marketing automation
+  - write blog post about API security best practices
   - write blog post
   - draft blog article
   - seo blog content

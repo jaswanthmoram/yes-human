@@ -94,3 +94,8 @@ Use this skill when validating designs or identifying usability issues through u
 ### Task Scenario
 "Imagine you just signed up for a new project. Create a project called 'Q4 Launch' and invite two team members to collaborate."
 Success: Project created and invitations sent within 3 minutes.
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

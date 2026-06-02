@@ -99,3 +99,7 @@ Output:
 - hiring_process with evidence-based entries
 - interview_guides with prioritized items
 - scorecards with clear next steps
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

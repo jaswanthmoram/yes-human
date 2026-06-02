@@ -103,3 +103,8 @@ Use this skill when managing artifact versions, setting up version control, or p
 - Versioning without semantic rules
 - Missing change tracking between versions
 - Not testing rollback procedures
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

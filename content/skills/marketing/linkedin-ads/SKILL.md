@@ -7,6 +7,7 @@ category: marketing.paid-media
 purpose: Design B2B advertising campaigns on LinkedIn with professional targeting, sponsored content, and lead gen forms.
 summary: LinkedIn Ads campaign setup covering professional audience targeting, ad formats, bidding, and lead generation.
 triggers:
+  - set up linkedin ads for B2B SaaS
   - linkedin ads campaign
   - b2b advertising on linkedin
   - linkedin sponsored content

@@ -97,3 +97,7 @@ Output:
 - value_proposition_canvas with evidence-based entries
 - fit_analysis with prioritized items
 - test_plan with clear next steps
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

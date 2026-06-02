@@ -7,6 +7,7 @@ category: sales.operations
 purpose: Build accurate sales forecasts using pipeline data, historical patterns, and deal-level analysis to support revenue planning.
 summary: Forecast methodology design, deal-level forecast analysis, and forecast accuracy tracking for revenue planning.
 triggers:
+  - build Q3 sales forecast from current pipeline
   - build sales forecast
   - forecast methodology design
   - quarterly forecast review

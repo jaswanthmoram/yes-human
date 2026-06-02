@@ -85,3 +85,8 @@ Use this skill when implementing webhook receivers or senders for event-driven i
 - Not verifying webhook signatures
 - Synchronous processing causing timeouts
 - Missing idempotency leading to duplicate side effects
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

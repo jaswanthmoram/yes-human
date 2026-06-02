@@ -55,3 +55,8 @@ Use when research findings are ready for dissemination and a strategy is needed 
 ## Common Failures
 - Targeting journals outside the study scope.
 - Neglecting funder open access mandates.
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

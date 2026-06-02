@@ -58,3 +58,8 @@ Use this skill automatically whenever a user provides or references a PDF, PPTX,
 ### Converting a PDF
 Input: `path/to/report.pdf`
 Output: `staging/normalized/report.md`
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

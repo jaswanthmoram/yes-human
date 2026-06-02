@@ -6,6 +6,7 @@ domain: engineering
 category: engineering.frameworks
 description: Guide Next.js App Router patterns including server components, server actions, layouts, loading states, and data fetching strategies.
 triggers:
+  - implement server action with input validation
   - nextjs app router
   - next app directory
   - server components

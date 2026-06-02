@@ -85,3 +85,8 @@ Use this skill when implementing Redis Pub/Sub or Redis Streams for real-time me
 - Using Pub/Sub when message persistence is required
 - No reconnection logic causing silent subscriber loss
 - Not using consumer groups for horizontal scaling
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

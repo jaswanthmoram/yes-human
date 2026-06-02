@@ -7,6 +7,7 @@ category: startup-ops.strategy
 purpose: Create and iterate Lean Canvas one-page business models for rapid hypothesis testing.
 summary: Guides through filling out a Lean Canvas with problem, solution, key metrics, unique value proposition, and unfair advantage.
 triggers:
+  - one page business model analysis
   - lean canvas
   - one page business model
   - lean startup canvas
@@ -97,3 +98,7 @@ Output:
 - lean_canvas with evidence-based entries
 - hypothesis_list with prioritized items
 - validation_priorities with clear next steps
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

@@ -101,3 +101,7 @@ Output:
 - unit_economics_report with evidence-based entries
 - channel_analysis with prioritized items
 - improvement_levers with clear next steps
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

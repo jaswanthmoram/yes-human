@@ -7,6 +7,8 @@ category: security.cryptography
 purpose: Review and harden SSL/TLS configurations for servers, load balancers, and application endpoints.
 summary: SSL/TLS configuration audit ensuring strong cipher suites, proper certificate management, and protection against known TLS attacks.
 triggers:
+  - harden TLS settings and enable HSTS preload
+  - review SSL/TLS configuration for web server
   - review SSL TLS configuration
   - harden TLS cipher suites
   - check SSL certificate validity

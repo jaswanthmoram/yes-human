@@ -7,6 +7,8 @@ category: security.infrastructure-security
 purpose: Scan container images for vulnerabilities, misconfigurations, and compliance issues.
 summary: Container image scanning to detect CVEs in base images, layer vulnerabilities, and security misconfigurations in Dockerfiles.
 triggers:
+  - check container base image for CVEs
+  - scan Docker image for known vulnerabilities
   - scan container image for vulnerabilities
   - docker image security scan
   - check base image for CVEs

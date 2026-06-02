@@ -94,3 +94,8 @@ Use this skill when building a collaborative filtering recommendation system.
 - Ignoring sparsity (poor recommendations for long-tail items)
 - No cold-start handling (new users get no recommendations)
 - Amplifying popularity bias (only recommending popular items)
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

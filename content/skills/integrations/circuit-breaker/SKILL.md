@@ -86,3 +86,8 @@ Use this skill when implementing circuit breaker patterns for service resilience
 - Setting failure threshold too high, allowing cascade
 - No fallback implementation causing total unavailability
 - Not testing circuit breaker behavior in staging
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

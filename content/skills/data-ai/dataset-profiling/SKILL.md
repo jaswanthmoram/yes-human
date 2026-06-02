@@ -7,6 +7,7 @@ category: data-ai.data-engineering
 purpose: Profile datasets to assess quality, completeness, and suitability for ML/AI tasks.
 summary: Systematic approach to analyzing dataset characteristics including distributions, missing values, outliers, and biases.
 triggers:
+  - analyze data distribution
   - profile dataset
   - assess data quality
   - check dataset
@@ -184,3 +185,8 @@ Output:
   4. Consider oversampling churned class or using class weights
   5. Impute missing income with median by age group
   6. Document demographic biases for model fairness assessment
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

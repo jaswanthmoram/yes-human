@@ -103,3 +103,8 @@ Use this skill when generating test fixtures, creating routing/skill/workflow fi
 - Generating fixtures without edge cases
 - Missing negative test scenarios
 - Not validating format against schema
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

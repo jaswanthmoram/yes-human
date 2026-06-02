@@ -101,3 +101,7 @@ Output:
 - cap_table with evidence-based entries
 - dilution_projection with prioritized items
 - equity_summary with clear next steps
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

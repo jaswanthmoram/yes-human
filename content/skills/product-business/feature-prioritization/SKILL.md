@@ -98,3 +98,8 @@ Feature: In-app notifications
 - Confidence: 80% (backed by user interviews)
 - Effort: 2 person-weeks
 - RICE Score: (8 × 3 × 0.8) / 2 = 9.6
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

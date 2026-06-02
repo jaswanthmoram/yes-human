@@ -102,3 +102,8 @@ Use this skill when validating agent definitions, testing skill specifications, 
 - Validating format without checking content
 - Skipping cross-reference validation
 - Not re-validating after fixes
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

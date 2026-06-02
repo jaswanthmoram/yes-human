@@ -94,3 +94,8 @@ Use this skill when creating or improving product documentation.
 ### Documentation Structure
 Getting Started (Tutorial) → How-to Guides → API Reference → Concepts
 Each page: Title, Prerequisites, Steps, Expected Outcome, Related Links
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

@@ -118,3 +118,8 @@ Output:
 - Update `express` from 4.17.0 to 4.17.3 (fixes open redirect)
 - Run tests after each update
 - Verify `npm audit` shows 0 vulnerabilities
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

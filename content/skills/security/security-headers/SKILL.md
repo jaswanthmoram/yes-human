@@ -7,6 +7,7 @@ category: security.application-security
 purpose: Configure and review HTTP security headers to protect web applications against common attacks.
 summary: Security headers review covering CSP, HSTS, X-Frame-Options, X-Content-Type-Options, and other protective HTTP headers.
 triggers:
+  - review Content-Security-Policy implementation
   - review HTTP security headers
   - configure security headers
   - check CSP header implementation

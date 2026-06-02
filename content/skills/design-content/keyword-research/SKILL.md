@@ -7,6 +7,7 @@ category: design-content.content-strategy
 purpose: Conduct keyword research with search volume analysis, intent mapping, and competitive gap identification.
 summary: Keyword research methodology including search volume analysis, keyword difficulty, intent classification, and gap analysis.
 triggers:
+  - keyword research for the devops topic area
   - keyword research analysis
   - search volume analysis
   - keyword difficulty assessment

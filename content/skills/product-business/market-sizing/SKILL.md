@@ -97,3 +97,8 @@ TAM: $15B (global PM software market)
 SAM: $3B (US + EU, SMB segment)
 SOM: $30M (1% SAM in year 3, based on growth trajectory)
 Bottom-up: 100K target companies × $300/year = $30M SOM
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

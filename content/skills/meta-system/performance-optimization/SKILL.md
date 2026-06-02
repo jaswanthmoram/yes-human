@@ -103,3 +103,8 @@ Use this skill when optimizing boot performance, reducing token usage, or tuning
 - Optimizing without measuring baseline first
 - Removing entries without impact analysis
 - Not checking for functionality regression
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

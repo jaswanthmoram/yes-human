@@ -6,6 +6,7 @@ domain: platform
 category: platform.infrastructure
 description: Design, implement, and maintain reusable Terraform modules for infrastructure provisioning.
 triggers:
+  - refactor monolithic terraform into modules
   - Terraform module design
   - create Terraform module
   - infrastructure as code patterns

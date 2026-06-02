@@ -85,3 +85,8 @@ Use this skill when building test suites for API endpoints and integrations.
 - Testing only the happy path
 - Tests that depend on specific external service state
 - Not cleaning up test data between runs
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

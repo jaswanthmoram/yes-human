@@ -95,3 +95,8 @@ Use this skill when building a named entity recognition model or extracting enti
 - Inconsistent entity boundary annotations
 - Ignoring nested entities (e.g., "Bank of America" as ORG containing LOC)
 - Using token-level accuracy instead of entity-level F1
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

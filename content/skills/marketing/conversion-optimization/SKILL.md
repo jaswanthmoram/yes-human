@@ -7,6 +7,7 @@ category: marketing.optimization
 purpose: Systematically improve conversion rates through heuristic analysis, user research, and data-driven testing.
 summary: CRO process covering heuristic analysis, user behavior review, hypothesis generation, and testing prioritization.
 triggers:
+  - optimize signup form conversions
   - improve conversion rate
   - cro audit
   - landing page conversion review

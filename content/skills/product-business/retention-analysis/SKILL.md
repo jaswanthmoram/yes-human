@@ -96,3 +96,8 @@ Retention Event: Created first project
 D1: 45%, D7: 30%, D30: 20%
 Finding: Users who invite a teammate in first session have 2x D30 retention
 Intervention: Add teammate invite prompt to onboarding
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

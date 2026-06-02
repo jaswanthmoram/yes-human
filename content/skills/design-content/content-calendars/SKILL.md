@@ -7,6 +7,7 @@ category: design-content.content-strategy
 purpose: Plan and manage editorial calendars with content scheduling, workflow assignments, and publishing timelines.
 summary: Editorial calendar creation with content scheduling, team assignments, and publishing workflow management.
 triggers:
+  - publishing timeline for the product launch
   - editorial calendar creation
   - content scheduling plan
   - publishing timeline design

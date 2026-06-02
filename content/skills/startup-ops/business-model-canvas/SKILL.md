@@ -7,6 +7,7 @@ category: startup-ops.strategy
 purpose: Design comprehensive business models using the Osterwalder Business Model Canvas framework.
 summary: Walks through all 9 building blocks of the BMC including partners, activities, resources, value propositions, relationships, channels, segments, costs, and revenue.
 triggers:
+  - run business model canvas process
   - business model canvas
   - BMC
   - osterwalder canvas
@@ -101,3 +102,7 @@ Output:
 - business_model_canvas with evidence-based entries
 - partner_map with prioritized items
 - revenue_model with clear next steps
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

@@ -101,3 +101,7 @@ Output:
 - term_sheet_analysis with evidence-based entries
 - dilution_model with prioritized items
 - negotiation_points with clear next steps
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

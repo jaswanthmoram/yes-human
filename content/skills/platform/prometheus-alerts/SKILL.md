@@ -6,6 +6,7 @@ domain: platform
 category: platform.observability
 description: Design, implement, and maintain Prometheus alerting rules for infrastructure and application monitoring.
 triggers:
+  - configure Alertmanager routing to PagerDuty
   - Prometheus alerting rules
   - create Prometheus alerts
   - PromQL alert expressions

@@ -95,3 +95,8 @@ Use this skill when analyzing user behavior patterns across cohorts.
 Cohort: Users who signed up in January 2026
 Metric: Weekly active usage
 Finding: Week-4 retention improved from 25% to 35% after onboarding redesign
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

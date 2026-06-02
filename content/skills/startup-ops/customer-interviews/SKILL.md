@@ -97,3 +97,7 @@ Output:
 - interview_guide with evidence-based entries
 - findings_report with prioritized items
 - hypothesis_updates with clear next steps
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

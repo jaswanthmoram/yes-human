@@ -97,3 +97,8 @@ Use this skill when designing or optimizing ETL processes for data integration.
 - Using full extraction when incremental is feasible
 - Missing quality checks (silent data corruption)
 - No recovery mechanism for partial failures
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

@@ -7,6 +7,7 @@ category: security.application-security
 purpose: Test running applications for security vulnerabilities through automated and manual dynamic testing.
 summary: DAST testing by interacting with live applications to identify runtime vulnerabilities including injection, auth bypass, and misconfigurations.
 triggers:
+  - DAST scan live web app for runtime vulnerabilities
   - run dynamic security test on application
   - DAST scan running application
   - test live application for vulnerabilities

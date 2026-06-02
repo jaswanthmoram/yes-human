@@ -3,6 +3,8 @@ id: engineering.test-architecture
 name: Test Suite Architecture and Organization
 description: Design and organize test suites following testing pyramid principles with clear boundaries between unit, integration, and E2E tests.
 triggers:
+  - design a testing strategy for our microservices
+  - how should we organize our test suite
   - test architecture
   - test organization
   - test structure

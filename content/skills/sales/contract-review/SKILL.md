@@ -7,6 +7,9 @@ category: sales.pipeline
 purpose: Review commercial contract terms from a sales perspective, identifying deal-structure risks and coordinating legal handoff for non-standard terms.
 summary: Commercial term review, risk identification, and legal-routing coordination for sales contracts.
 triggers:
+  - flag non-standard terms in this enterprise agreement
+  - check these terms against our standard playbook
+  - review this contract draft for commercial risks
   - review contract terms for deal
   - commercial terms check
   - contract risk assessment

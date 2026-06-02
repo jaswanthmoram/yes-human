@@ -6,6 +6,7 @@ domain: platform
 category: platform.ci-cd
 description: Design, implement, and maintain Jenkins declarative and scripted pipelines for CI/CD automation.
 triggers:
+  - design Jenkins pipeline for Java application
   - Jenkins pipeline design
   - create Jenkinsfile
   - Jenkins pipeline optimization

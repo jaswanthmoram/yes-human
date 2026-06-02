@@ -7,6 +7,8 @@ category: startup-ops.validation
 purpose: Validate market opportunity using TAM/SAM/SOM analysis, competitive landscape, and demand signals.
 summary: Guides through market sizing, competitive analysis, and demand validation for startup opportunities.
 triggers:
+  - run market validation process
+  - market sizing analysis
   - market validation
   - market sizing
   - TAM SAM SOM
@@ -99,3 +101,7 @@ Output:
 - market_analysis with evidence-based entries
 - competitive_map with prioritized items
 - market_thesis with clear next steps
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

@@ -7,6 +7,7 @@ category: security.application-security
 purpose: Prevent SQL injection vulnerabilities through parameterized queries, ORM usage, and input validation.
 summary: SQL injection prevention review covering parameterized queries, ORM security, stored procedure safety, and input validation.
 triggers:
+  - review raw SQL queries for injection vulnerabilities
   - review SQL injection protection
   - check for SQL injection vulnerabilities
   - implement parameterized queries

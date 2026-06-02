@@ -3,6 +3,7 @@ id: engineering.schema-migration
 name: Database Schema Migration Patterns
 description: Plan, generate, and validate safe database schema migrations with rollback strategies and zero-downtime deployment support.
 triggers:
+  - create a rollback script for the last migration
   - schema migration
   - database migration
   - alter table

@@ -3,6 +3,8 @@ id: engineering.mutation-testing
 name: Mutation Testing for Test Quality
 description: Evaluate test suite effectiveness by introducing code mutations and measuring test detection rates to find weak spots.
 triggers:
+  - find surviving mutants in the billing service
+  - how effective are our tests really
   - mutation testing
   - mutation score
   - test quality

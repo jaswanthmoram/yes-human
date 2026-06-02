@@ -7,6 +7,8 @@ category: engineering.productivity
 purpose: Generate boilerplate code, scaffolding, and repetitive code structures using templates, generators, and code generation tools.
 summary: Systematic approach to code generation using templates, AST-based generators, and scaffolding tools to eliminate repetitive coding tasks.
 triggers:
+  - create a project template with CRUD operations
+  - scaffold a new API endpoint
   - generate code
   - scaffold project
   - boilerplate

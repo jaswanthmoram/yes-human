@@ -3,6 +3,8 @@ id: engineering.test-data-generation
 name: Test Data Generation Strategies
 description: Design and implement test data generation approaches including factories, fixtures, fuzzing, and property-based testing.
 triggers:
+  - set up factory bot for our test suite
+  - generate test data for the user model
   - test data
   - generate test data
   - test fixtures

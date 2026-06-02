@@ -7,6 +7,7 @@ category: marketing.email
 purpose: Design and execute email marketing campaigns with segmentation, personalization, and deliverability optimization.
 summary: Email campaign creation covering list segmentation, subject lines, body copy, automation triggers, and deliverability.
 triggers:
+  - create email campaign for product launch
   - create email campaign
   - email sequence design
   - newsletter campaign plan

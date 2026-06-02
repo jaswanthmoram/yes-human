@@ -7,6 +7,8 @@ category: sales.strategy
 purpose: Develop competitive positioning and battle cards that help sellers differentiate against specific competitors in active deals.
 summary: Competitive positioning, battle card creation, and win/loss analysis integration for competitive deal situations.
 triggers:
+  - analyze win loss data against Competitor Y
+  - develop competitive positioning for enterprise deals
   - competitive positioning for deal
   - battle card creation
   - competitive selling strategy

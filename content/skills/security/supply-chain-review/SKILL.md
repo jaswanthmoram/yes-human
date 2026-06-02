@@ -7,6 +7,7 @@ category: security.supply-chain
 purpose: Assess and mitigate supply chain risks in software dependencies.
 summary: Systematic review of dependencies for supply chain attacks, compromised packages, and trust issues.
 triggers:
+  - assess supply chain risk
   - supply chain security risk assessment
   - dependency security audit for vulnerabilities
   - check dependencies for supply chain attacks
@@ -149,3 +150,8 @@ Output:
     - Mitigation: Pin to v1.2.3, monitor for issues
 - Typosquatting: None detected
 - Integrity: All checksums verified
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

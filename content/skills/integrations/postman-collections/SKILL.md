@@ -85,3 +85,8 @@ Use this skill when creating Postman collections for API testing and development
 - Hardcoding URLs and tokens instead of using variables
 - Test scripts with no assertions (just logging)
 - Not separating development, staging, and production environments
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

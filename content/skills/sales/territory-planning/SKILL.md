@@ -7,6 +7,7 @@ category: sales.operations
 purpose: Design territory assignments and coverage models that maximize market penetration and rep productivity.
 summary: Territory design, account tiering, coverage models, and capacity planning for sales territory optimization.
 triggers:
+  - create coverage model for SMB segment
   - territory plan design
   - territory assignment review
   - coverage model creation

@@ -7,6 +7,7 @@ category: sales.operations
 purpose: Build strategic account plans that map stakeholder relationships, expansion opportunities, and risk factors for key accounts.
 summary: Account plan structure, stakeholder mapping, expansion opportunity identification, and risk assessment for strategic accounts.
 triggers:
+  - identify expansion opportunities in key accounts
   - create account plan
   - account strategy design
   - stakeholder relationship mapping

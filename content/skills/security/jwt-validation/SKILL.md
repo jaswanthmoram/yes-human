@@ -7,6 +7,7 @@ category: security.authentication
 purpose: Review and implement secure JWT token validation, signing, and management patterns.
 summary: JWT security review covering algorithm validation, token structure, claims verification, and protection against common JWT attacks.
 triggers:
+  - review JWT expiration and refresh token handling
   - review JWT implementation
   - validate JWT token security
   - check JWT algorithm configuration

@@ -7,6 +7,8 @@ category: sales.operations
 purpose: Design sales reports and dashboards that provide clear visibility into pipeline health, team performance, and revenue outcomes.
 summary: Report structure design, dashboard configuration, and KPI definition for sales leadership visibility.
 triggers:
+  - define KPIs for quarterly business review
+  - create pipeline dashboard for sales managers
   - design sales report
   - sales dashboard creation
   - KPI definition for sales

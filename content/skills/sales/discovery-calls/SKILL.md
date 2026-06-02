@@ -7,6 +7,7 @@ category: sales.pipeline
 purpose: Structure discovery conversations that uncover buyer pain, decision process, and success criteria through effective questioning techniques.
 summary: Discovery call frameworks with question sequences, active listening patterns, and note-taking structures for productive first meetings.
 triggers:
+  - create discovery questions for enterprise IT buyer
   - design a discovery call
   - discovery question framework
   - first meeting structure

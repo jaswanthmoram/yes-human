@@ -193,3 +193,8 @@ Output:
   3. Evaluate OpenAI embeddings for 2% recall improvement
   4. Add hybrid search (combine vector + BM25) for ambiguous queries
   5. Plan for index sharding when reaching 500K items
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs

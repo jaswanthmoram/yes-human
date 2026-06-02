@@ -104,3 +104,8 @@ Use this skill when authoring new skills, writing skill specifications, or creat
 - Missing quality gates in the skill
 - Undefined handoff chains
 - Incomplete trigger sets
+
+## Procedure
+1. Clarify inputs
+2. Apply dossier patterns
+3. Verify outputs
