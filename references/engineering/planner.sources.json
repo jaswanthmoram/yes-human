@@ -1,0 +1,36 @@
+{
+  "dossier_id": "dossier.engineering.planner.2026-06-02",
+  "agent_id": "engineering.planner",
+  "domain": "engineering.language-review",
+  "created_at": "2026-06-02T00:00:00Z",
+  "expires_at": "2026-09-02T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/affaan-m/ECC",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": ["language patterns and code review conventions"],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/github/agile-development-handbook",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-05",
+      "used_for": ["official language patterns"],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 15,
+    "official_docs": 10,
+    "github_quality": 18,
+    "license_safety": 18,
+    "maintenance": 14,
+    "pattern_clarity": 12,
+    "testability": 10,
+    "total": 82
+  },
+  "promotion_decision": "staging"
+}
