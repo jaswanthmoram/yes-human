@@ -1,0 +1,13 @@
+{
+  "slug": "anthropics-skills",
+  "source": "https://github.com/anthropics/skills",
+  "license": "Apache-2.0",
+  "decision": "allowed",
+  "staged_at": "2026-06-02T10:03:34.817Z",
+  "operator_note": "Phase 10 vertical slice: SKILL.md conventions reference only; promote via yes absorber apply after review.",
+  "rollback_id": null,
+  "files_classified": {
+    "skills": true,
+    "agents": false
+  }
+}

@@ -22,6 +22,10 @@
     "audit:dossiers": "node packages/yes-schema/audit-dossiers.js",
     "audit:dossiers:strict": "node packages/yes-schema/audit-dossiers.js --strict",
     "research:gaps": "node packages/yes-schema/generate-research-gaps.js",
-    "phase9:acceptance": "npm run phase9:gate && npm run phase9:trainer"
+    "phase9:acceptance": "npm run phase9:gate && npm run phase9:trainer",
+    "audit:promotion": "node packages/yes-schema/audit-promotion.js --strict",
+    "report:phase9": "npm run phase9:gate && npm run phase9:trainer && node packages/yes-schema/generate-phase9-acceptance.js",
+    "report:phase10": "node packages/yes-schema/generate-phase10-acceptance.js",
+    "audit:route-dedup": "node scripts/dedup-hot-routes.mjs"
   }
 }

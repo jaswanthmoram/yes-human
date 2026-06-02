@@ -14,6 +14,8 @@ import { OfflineRecovery } from '../yes-runtime/offline-recovery.js';
 import { loadBuildContext, buildHost, buildAll } from '../yes-adapters/index.js';
 import { validateHostBundle } from '../../validators/host-bundle.validator.js';
 import { CodeGraph } from '../yes-graph/index.js';
+import { buildPlanCard, appendEpisodicOutcome } from '../yes-runtime/lib/plan-card.js';
+import { buildContextPack, readGraphRoutingConfig, isGraphStale } from '../yes-runtime/lib/code-graph-assist.js';
 import * as absorber from '../yes-absorber/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -46,9 +48,12 @@ function boolFlag(args, name, fallback = false) {
 
 async function cmdRoute(args) {
   const dryRun = args.includes('--dry-run');
-  const task = args.filter((a) => a !== '--dry-run').join(' ').trim();
+  const showHints = args.includes('--hints');
+  const showPlan = args.includes('--plan');
+  const ROUTE_FLAGS = new Set(['--dry-run', '--hints', '--plan']);
+  const task = args.filter((a) => !ROUTE_FLAGS.has(a)).join(' ').trim();
   if (!task) {
-    console.error('Usage: yes route <task> [--dry-run]');
+    console.error('Usage: yes route <task> [--dry-run] [--hints] [--plan]');
     return 1;
   }
   const route = await resolveRoute(task);
@@ -74,6 +79,14 @@ async function cmdRoute(args) {
       confidence: match.confidence ?? null,
       why: match.reason ?? (route.route_id?.startsWith('route.meta-system') ? 'fallback' : 'matched route table')
     };
+    if (showHints && route.routing_hints) card.routing_hints = route.routing_hints;
+    if (showPlan) card.plan = buildPlanCard(repoRoot, route);
+    const grCfg = readGraphRoutingConfig(repoRoot);
+    if (grCfg.code_graph_assist) {
+      const pack = buildContextPack(repoRoot, task, grCfg);
+      if (pack.length) card.context_pack = pack;
+    }
+    appendEpisodicOutcome(repoRoot, { task, route_id: route.route_id, dry_run: true });
     console.log(JSON.stringify(card, null, 2));
   } else {
     console.log(JSON.stringify(route, null, 2));
@@ -134,6 +147,35 @@ function cmdDoctor() {
     }
   }
   add(countsOk, 'Registry counts match', countDetail.join(' '));
+
+  // Code graph staleness
+  try {
+    const grCfg = readGraphRoutingConfig(repoRoot);
+    const stale = isGraphStale(repoRoot, grCfg);
+    add(!stale.stale, 'Code graph fresh', stale.stale ? (stale.reason || 'stale') : `built ${stale.built_at || 'ok'}`);
+  } catch (e) {
+    add(false, 'Code graph check', e.message);
+  }
+
+  // Connector env vars (enabled MCPs only)
+  try {
+    const mcps = readJSON('registry/mcps.json');
+    const missing = [];
+    for (const item of mcps.items || []) {
+      if (!item.enabled || !item.env_var) continue;
+      if (!process.env[item.env_var]) missing.push(item.env_var);
+    }
+    add(missing.length === 0, 'MCP env vars (enabled)', missing.length ? `missing: ${missing.join(', ')}` : 'all set');
+  } catch (e) {
+    add(false, 'MCP env check', e.message);
+  }
+
+  try {
+    const profiles = readJSON('registry/connector-profiles.json');
+    add(Boolean(profiles.default_profile), 'Connector profiles', profiles.default_profile || 'none');
+  } catch (e) {
+    add(false, 'Connector profiles', e.message);
+  }
 
   console.log('yes doctor\n');
   for (const c of checks) {
@@ -330,19 +372,79 @@ function cmdTrainer(args) {
 }
 
 function cmdFeedback(args) {
-  const type = args[0];
+  const sub = args[0];
+  const evaluator = new YesEvaluator({ repoRoot });
+  const engine = evaluator.engine;
+
+  if (sub === 'list') {
+    console.log(JSON.stringify(engine.listFeedback(), null, 2));
+    return 0;
+  }
+
+  if (sub === 'review') {
+    const id = flagValue(args, '--id', null);
+    const decision = flagValue(args, '--accept', null) ? 'accept' : (flagValue(args, '--reject', null) ? 'reject' : null);
+    if (!id || !decision) {
+      console.error('Usage: yes feedback review --id <id> --accept|--reject [--skip-gate]');
+      return 1;
+    }
+    try {
+      const result = engine.reviewFeedback(id, decision, { run_gate: !args.includes('--skip-gate') });
+      console.log(JSON.stringify(result, null, 2));
+      return 0;
+    } catch (err) {
+      console.error(err.message);
+      return 1;
+    }
+  }
+
+  if (sub === 'apply') {
+    const id = flagValue(args, '--id', null);
+    if (!id) {
+      console.error('Usage: yes feedback apply --id <id> [--phrase "..."] [--write]');
+      return 1;
+    }
+    try {
+      const result = engine.applyFeedback(id, {
+        dry_run: !args.includes('--write'),
+        phrase: flagValue(args, '--phrase', null)
+      });
+      console.log(JSON.stringify(result, null, 2));
+      return 0;
+    } catch (err) {
+      console.error(err.message);
+      return 1;
+    }
+  }
+
+  if (sub === 'promote') {
+    const id = flagValue(args, '--id', null);
+    if (!id) {
+      console.error('Usage: yes feedback promote --id <id>');
+      return 1;
+    }
+    try {
+      const result = engine.promoteFeedback(id);
+      console.log(JSON.stringify(result, null, 2));
+      return 0;
+    } catch (err) {
+      console.error(err.message);
+      return 1;
+    }
+  }
+
+  const type = sub;
   if (!['accept', 'reject', 'partial', 'wrong-agent'].includes(type)) {
-    console.error('Usage: yes feedback <accept|reject|partial|wrong-agent> --trace <trace-id> [--route <route-id>] [--suggested-route <route-id>] [--note "..."]');
+    console.error('Usage: yes feedback <list|review|apply|promote|accept|reject|partial|wrong-agent> ...');
     return 1;
   }
-  const evaluator = new YesEvaluator({ repoRoot });
-  const result = evaluator.engine.stageFeedback({
+  const result = engine.stageFeedback({
     type,
     trace_id: flagValue(args, '--trace', null),
     route_id: flagValue(args, '--route', null),
     suggested_route: flagValue(args, '--suggested-route', null),
     note: flagValue(args, '--note', null),
-    metadata: { source: 'cli' }
+    metadata: { source: 'cli', phrase: flagValue(args, '--phrase', null) }
   });
   console.log(JSON.stringify(result, null, 2));
   return 0;
