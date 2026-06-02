@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Yes-human Persona Schema",
+  "type": "object",
+  "required": ["persona_id", "name", "default_domain"],
+  "properties": {
+    "persona_id": { "type": "string" },
+    "name": { "type": "string" },
+    "default_domain": { "type": "string" },
+    "preferred_agents": { "type": "array", "items": { "type": "string" } },
+    "preferred_tools": { "type": "array", "items": { "type": "string" } },
+    "vocabulary_aliases": { "type": "object", "additionalProperties": { "type": "string" } },
+    "budget_bias": { "type": "string", "enum": ["micro", "standard", "expanded", "deep"] },
+    "default_output_format": { "type": "string" },
+    "disclaimer_level": { "type": "string" },
+    "description": { "type": "string" }
+  },
+  "additionalProperties": false
+}

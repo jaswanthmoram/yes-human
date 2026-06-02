@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-06-02T10:05:45.462Z",
-  "count": 318,
+  "generated_at": "2026-06-02T10:25:21.672Z",
+  "count": 325,
   "items": [
     {
       "id": "data-ai.ai-ethics-specialist",
@@ -1886,6 +1886,60 @@
       "quality_gate": "staging"
     },
     {
+      "id": "design-content.ui-ux-designer",
+      "name": "UI/UX Designer",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "design-content",
+      "kind": "specialist",
+      "summary": "Handles integrated UI and UX design tasks — user research, wireframes, visual design, and design-system alignment in one workflow.",
+      "triggers": [
+        "ui ux design",
+        "user interface design",
+        "ux research and design",
+        "product design",
+        "interface design"
+      ],
+      "aliases": [
+        "ui ux",
+        "product design"
+      ],
+      "negative_keywords": [
+        "code review",
+        "financial forecast",
+        "legal contract"
+      ],
+      "inputs": [
+        "user_requirements",
+        "brand_context",
+        "existing_design_system"
+      ],
+      "outputs": [
+        "design_recommendations",
+        "wireframe_description",
+        "a11y_notes"
+      ],
+      "allowed_tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 2000,
+      "failure_modes": [
+        "ships design without accessibility check",
+        "ignores existing design system components",
+        "conflates visual preference with UX research"
+      ],
+      "verification": [
+        "a11y_check_performed",
+        "design_system_alignment_stated"
+      ],
+      "source_references": [
+        "ref.github.ecc.2026-05-29"
+      ],
+      "quality_gate": "staging"
+    },
+    {
       "id": "design-content.ux-designer",
       "name": "UX Designer",
       "version": "1.0.0",
@@ -3335,6 +3389,58 @@
       "quality_gate": "production"
     },
     {
+      "id": "engineering.e2e-runner",
+      "name": "E2E Test Runner",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "engineering",
+      "kind": "specialist",
+      "summary": "Writes and runs end-to-end browser tests using Playwright or agent-browser for critical user flows.",
+      "triggers": [
+        "write e2e tests",
+        "playwright test",
+        "end to end test",
+        "e2e test setup",
+        "browser test automation"
+      ],
+      "aliases": [
+        "e2e"
+      ],
+      "negative_keywords": [
+        "unit test",
+        "financial forecast",
+        "threat model"
+      ],
+      "inputs": [
+        "user_flow_description",
+        "staging_url"
+      ],
+      "outputs": [
+        "e2e_test_file",
+        "test_run_report"
+      ],
+      "allowed_tools": [
+        "filesystem.read",
+        "filesystem.write",
+        "shell.readonly"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 2000,
+      "failure_modes": [
+        "writes tests that only work in a specific environment",
+        "flaky selectors that break on minor UI changes",
+        "skips assertions on critical success criteria"
+      ],
+      "verification": [
+        "tests_run_against_staging_or_localhost",
+        "critical_flow_fully_covered"
+      ],
+      "source_references": [
+        "ref.github.ecc.2026-05-29"
+      ],
+      "quality_gate": "staging"
+    },
+    {
       "id": "engineering.frontend-react",
       "name": "React Component Developer",
       "version": "1.0.0",
@@ -3955,6 +4061,59 @@
       "quality_gate": "staging"
     },
     {
+      "id": "engineering.refactor-cleaner",
+      "name": "Refactor Cleaner",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "engineering",
+      "kind": "specialist",
+      "summary": "Performs structured, test-backed refactoring to reduce duplication and improve clarity without changing behavior.",
+      "triggers": [
+        "refactor this code",
+        "clean up this module",
+        "reduce code duplication",
+        "simplify this function",
+        "improve code structure"
+      ],
+      "aliases": [
+        "refactor"
+      ],
+      "negative_keywords": [
+        "add new feature",
+        "financial forecast",
+        "security audit"
+      ],
+      "inputs": [
+        "target_file_or_module",
+        "test_command"
+      ],
+      "outputs": [
+        "refactored_code",
+        "change_summary",
+        "test_result"
+      ],
+      "allowed_tools": [
+        "filesystem.read",
+        "filesystem.write",
+        "shell.readonly"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 2000,
+      "failure_modes": [
+        "changes behavior while claiming to only refactor",
+        "refactors without running the test suite",
+        "creates long-range coupling while reducing local duplication"
+      ],
+      "verification": [
+        "test_suite_green_before_and_after",
+        "no_behavior_change_stated"
+      ],
+      "source_references": [
+        "ref.github.ecc.2026-05-29"
+      ],
+      "quality_gate": "staging"
+    },
+    {
       "id": "engineering.refactoring",
       "name": "Code Refactoring Specialist",
       "version": "1.0.0",
@@ -4066,6 +4225,59 @@
       "verification": [
         "route_eval",
         "sample_prompt_eval"
+      ],
+      "source_references": [
+        "ref.github.ecc.2026-05-29"
+      ],
+      "quality_gate": "staging"
+    },
+    {
+      "id": "engineering.security-reviewer",
+      "name": "Engineering Security Reviewer",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "engineering",
+      "kind": "specialist",
+      "summary": "Reviews engineering pull requests and code changes for security vulnerabilities in the engineering context, separate from general threat modeling.",
+      "triggers": [
+        "security review pull request",
+        "appsec code check",
+        "review for security vulnerabilities",
+        "code security scan",
+        "check for injection vulnerabilities"
+      ],
+      "aliases": [
+        "pr security review",
+        "code security"
+      ],
+      "negative_keywords": [
+        "threat model",
+        "penetration test",
+        "financial forecast"
+      ],
+      "inputs": [
+        "changed_files",
+        "diff"
+      ],
+      "outputs": [
+        "security_findings",
+        "severity_report",
+        "remediation_recommendations"
+      ],
+      "allowed_tools": [
+        "filesystem.read",
+        "shell.readonly"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 2000,
+      "failure_modes": [
+        "reports findings without evidence",
+        "relies solely on LLM judgment over scanner output",
+        "misses injection paths in user-controlled inputs"
+      ],
+      "verification": [
+        "every_finding_has_evidence_or_file_ref",
+        "scanner_output_consulted_first"
       ],
       "source_references": [
         "ref.github.ecc.2026-05-29"
@@ -10046,6 +10258,58 @@
       "quality_gate": "staging"
     },
     {
+      "id": "marketing.brand-manager",
+      "name": "Brand Manager",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "marketing",
+      "kind": "specialist",
+      "summary": "Manages brand consistency, voice, and guidelines — auditing outputs for brand compliance before customer-facing release.",
+      "triggers": [
+        "brand management",
+        "brand voice management",
+        "brand consistency review",
+        "brand identity management",
+        "manage brand guidelines"
+      ],
+      "aliases": [
+        "brand mgr"
+      ],
+      "negative_keywords": [
+        "code review",
+        "financial forecast",
+        "legal contract"
+      ],
+      "inputs": [
+        "brand_guidelines",
+        "content_or_asset"
+      ],
+      "outputs": [
+        "brand_compliance_report",
+        "voice_corrections",
+        "guidelines_update"
+      ],
+      "allowed_tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 2000,
+      "failure_modes": [
+        "approves off-brand copy without anti-slop check",
+        "confuses brand management with brand strategy design",
+        "ships customer-facing content without voice check"
+      ],
+      "verification": [
+        "anti_slop_check_performed",
+        "brand_voice_criteria_explicit"
+      ],
+      "source_references": [
+        "ref.github.ecc.2026-05-29"
+      ],
+      "quality_gate": "staging"
+    },
+    {
       "id": "marketing.brand-marketer",
       "name": "Brand Marketer",
       "version": "1.0.0",
@@ -12842,6 +13106,59 @@
       "quality_gate": "production"
     },
     {
+      "id": "product-business.cfo-advisor",
+      "name": "CFO Advisor",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "product-business",
+      "kind": "specialist",
+      "summary": "Provides CFO-level financial strategy advice — runway, board prep, investor modeling, burn rate — with mandatory disclaimer.",
+      "triggers": [
+        "cfo advisory session",
+        "financial strategy advice",
+        "board financial prep",
+        "investor financial model",
+        "runway strategy"
+      ],
+      "aliases": [
+        "cfo"
+      ],
+      "negative_keywords": [
+        "code review",
+        "marketing campaign",
+        "hr policy"
+      ],
+      "inputs": [
+        "financial_context",
+        "horizon"
+      ],
+      "outputs": [
+        "financial_strategy",
+        "board_ready_summary",
+        "reviewer_handoff"
+      ],
+      "allowed_tools": [
+        "filesystem.read"
+      ],
+      "budget_band": "expanded",
+      "max_context_tokens": 4000,
+      "failure_modes": [
+        "implies tax or investment advice",
+        "omits disclaimer",
+        "treats estimates as actuals"
+      ],
+      "verification": [
+        "disclaimer_attached",
+        "actuals_vs_estimates_labeled"
+      ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
+      "source_references": [
+        "ref.github.ecc.2026-05-29"
+      ],
+      "quality_gate": "staging"
+    },
+    {
       "id": "product-business.competitive-analyst",
       "name": "Competitive Analyst",
       "version": "1.0.0",
@@ -13089,6 +13406,58 @@
       ],
       "source_references": [
         "ref.github.product-business.2026-05-31"
+      ],
+      "quality_gate": "staging"
+    },
+    {
+      "id": "product-business.growth-marketer",
+      "name": "Growth Marketer",
+      "version": "1.0.0",
+      "status": "active",
+      "category": "product-business",
+      "kind": "specialist",
+      "summary": "Designs and analyzes growth experiments — acquisition, activation, retention, referral loops — with metric-backed outcomes.",
+      "triggers": [
+        "growth marketing strategy",
+        "growth experiment design",
+        "user acquisition plan",
+        "viral growth loop",
+        "growth hacking"
+      ],
+      "aliases": [
+        "growth"
+      ],
+      "negative_keywords": [
+        "financial forecast",
+        "paid campaign execution",
+        "legal contract"
+      ],
+      "inputs": [
+        "current_metrics",
+        "growth_target"
+      ],
+      "outputs": [
+        "growth_experiment_plan",
+        "metric_baseline",
+        "success_criteria"
+      ],
+      "allowed_tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "budget_band": "standard",
+      "max_context_tokens": 2000,
+      "failure_modes": [
+        "recommends experiments without a measurable success metric",
+        "confuses growth with paid marketing channel execution",
+        "sets thresholds after seeing results"
+      ],
+      "verification": [
+        "success_metric_defined_before_experiment",
+        "experiment_is_reversible"
+      ],
+      "source_references": [
+        "ref.github.ecc.2026-05-29"
       ],
       "quality_gate": "staging"
     },

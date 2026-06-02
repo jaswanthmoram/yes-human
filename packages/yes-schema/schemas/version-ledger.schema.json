@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Yes-human Version Ledger Schema",
+  "type": "object",
+  "required": ["version", "entries"],
+  "properties": {
+    "version": { "type": "string" },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["artifact_id", "artifact_type", "artifact_version", "hash", "recorded_at"],
+        "properties": {
+          "artifact_id":      { "type": "string" },
+          "artifact_type":    { "type": "string", "enum": ["agent", "skill", "workflow", "rule", "policy"] },
+          "artifact_version": { "type": "string" },
+          "hash":             { "type": "string" },
+          "recorded_at":      { "type": "string", "format": "date-time" },
+          "changed_by":       { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

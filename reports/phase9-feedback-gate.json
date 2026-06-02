@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T09:52:02.753Z",
+  "generated_at": "2026-06-02T10:04:00.066Z",
   "passed": true,
   "results": [
     {
@@ -7,7 +7,7 @@
       "command": "node packages/yes-schema/eval-route.js",
       "status": 0,
       "passed": true,
-      "stdout_tail": "  ✗ \"browser automation\" → route.integrations.browser-auto (expected route.integrations.master)\n  ✗ \"email marketing\" → route.marketing.email-marketer (expected route.marketing.master)\n  ✗ \"campaign analysis\" → route.marketing.campaign-analyst (expected route.marketing.master)\n  ✗ \"competitive intel\" → route.research.master (expected route.sales.competitive-intel-analyst)\n  ✗ \"account management\" → route.sales.account-manager (expected route.sales.master)\n\n✓ Routing eval passed.\n",
+      "stdout_tail": "\nmismatches:\n  ✗ \"campaign analysis\" → route.marketing.campaign-analyst (expected route.marketing.master)\n  ✗ \"competitive intel\" → route.research.master (expected route.sales.competitive-intel-analyst)\n  ✗ \"account management\" → route.sales.account-manager (expected route.sales.master)\n\n✓ Routing eval passed.\n",
       "stderr_tail": ""
     },
     {

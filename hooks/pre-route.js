@@ -8,7 +8,28 @@
  * 4. Loop prevention (from loop-prevention.rules.json)
  */
 
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import { PolicyEvaluator } from '../packages/yes-core/policy-evaluator.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const repoRoot = path.resolve(__dirname, '..');
+const PERSONA_FILE = path.join(process.cwd(), '.yes-human-persona');
+const PERSONAS_REGISTRY = path.join(repoRoot, 'registry', 'personas.json');
+
+/** Load the active persona if one is set. Returns null if none set. */
+function loadActivePersona() {
+  try {
+    if (!fs.existsSync(PERSONA_FILE)) return null;
+    const personaId = fs.readFileSync(PERSONA_FILE, 'utf8').trim();
+    if (!personaId) return null;
+    if (!fs.existsSync(PERSONAS_REGISTRY)) return null;
+    const registry = JSON.parse(fs.readFileSync(PERSONAS_REGISTRY, 'utf8'));
+    return (registry.items || []).find(p => p.persona_id === personaId) || null;
+  } catch { return null; }
+}
 
 export default async function preRoute(context, policyEvaluator = null) {
   const { task, estimatedTokens, depth = 0, visited = [] } = context;
@@ -65,11 +86,23 @@ export default async function preRoute(context, policyEvaluator = null) {
     };
   }
   
+  // 5. Persona bias — inject preferred domain hint if a persona is active
+  const persona = loadActivePersona();
+  let personaHint = null;
+  if (persona && !routingHint) {
+    // Only use persona hint when no stronger signal-word hint was found
+    const preferredAgent = persona.preferred_agents?.[0];
+    if (preferredAgent) {
+      personaHint = { routeId: `route.${preferredAgent}`, priority: 0.5 };
+    }
+  }
+
   // Success: return modified context with routing hints
   return {
     modified_task: task,
-    routing_hint: routingHint,
+    routing_hint: routingHint || personaHint,
     signal_words: signalWords,
+    active_persona: persona?.persona_id || null,
     allowed: true
   };
 }

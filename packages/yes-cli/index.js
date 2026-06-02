@@ -514,6 +514,257 @@ function formatBytes(bytes) {
   return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
 }
 
+// ── yes status ────────────────────────────────────────────────────────────────
+
+function cmdStatus() {
+  const j = (rel) => { try { return JSON.parse(fs.readFileSync(path.join(repoRoot, rel), 'utf8')); } catch { return null; } };
+  const agents    = j('registry/agents.json');
+  const skills    = j('registry/skills.json');
+  const workflows = j('registry/workflows.json');
+  const mcps      = j('registry/mcps.json');
+  const boot      = j('packages/yes-schema/eval-cost.js') ? (() => {
+    try { return fs.readFileSync(path.join(repoRoot, 'YES_BOOT.md'), 'utf8').trim().split(/\s+/).length; } catch { return '?'; }
+  })() : '?';
+  const sqliteExists = fs.existsSync(path.join(repoRoot, 'graph/indexes/yes.sqlite'));
+  const personaFile = path.join(process.cwd(), '.yes-human-persona');
+  const activePersona = fs.existsSync(personaFile) ? fs.readFileSync(personaFile, 'utf8').trim() : '(none)';
+  const adaptersBuilt = ['claude','codex','opencode','mcp','cursor','windsurf','generic']
+    .filter(h => fs.existsSync(path.join(repoRoot, 'generated', h)));
+
+  console.log('yes-human status\n');
+  console.log(`  Node           : ${process.versions.node}`);
+  console.log(`  Boot tokens    : ~${boot} (target ≤180, hard cap 300)`);
+  console.log(`  Active persona : ${activePersona}`);
+  console.log(`  Code graph     : ${sqliteExists ? '✓ built' : '○ not built (run: yes graph build .)'}`);
+  console.log(`  Agents         : ${agents?.count ?? '?'}`);
+  console.log(`  Skills         : ${skills?.count ?? '?'}`);
+  console.log(`  Workflows      : ${workflows?.count ?? '?'}`);
+  console.log(`  Connectors     : ${mcps?.count ?? '?'}`);
+  console.log(`  Adapter packs  : ${adaptersBuilt.length > 0 ? adaptersBuilt.join(', ') : '(none built — run: yes build all)'}`);
+  return 0;
+}
+
+// ── yes run ───────────────────────────────────────────────────────────────────
+
+async function cmdRun(args) {
+  const task = args.filter(a => a !== '--dry-run' && a !== '--plan').join(' ').trim();
+  if (!task) {
+    console.error('Usage: yes run "<task>" [--dry-run]');
+    return 1;
+  }
+  const route = await resolveRoute(task);
+  const target = route.target || {};
+  const band = route.budget_band ?? 'micro';
+  let maxTokens = null;
+  try {
+    const cp = readJSON('registry/cost-policy.json');
+    maxTokens = cp.bands?.[band]?.max_context_tokens ?? null;
+  } catch { /* ignore */ }
+
+  // Load agent body for context size estimate
+  let agentTokens = 0;
+  if (target.agent) {
+    const agentId = target.agent;
+    const parts = agentId.split('.');
+    const agentPath = path.join(repoRoot, 'content', 'agents', parts[0], `${parts.slice(1).join('.')}.md`);
+    if (fs.existsSync(agentPath)) {
+      agentTokens = Math.ceil(fs.readFileSync(agentPath, 'utf8').length / 4);
+    }
+  }
+
+  console.log('yes run — routing + context plan\n');
+  console.log(`  Task           : ${task}`);
+  console.log(`  Route          : ${route.route_id}`);
+  console.log(`  Match stage    : ${route._match?.stage ?? 'unknown'} (confidence: ${route._match?.confidence ?? '?'})`);
+  console.log(`  Domain master  : ${target.domain_master ?? '(none)'}`);
+  console.log(`  Agent          : ${target.agent ?? '(none)'} (~${agentTokens} tokens)`);
+  console.log(`  Workflow       : ${target.workflow ?? '(none)'}`);
+  console.log(`  Budget band    : ${band} (max ${maxTokens?.toLocaleString() ?? '?'} tokens)`);
+  console.log(`  Why            : ${route._match?.reason ?? 'unknown'}`);
+  console.log('\n  Policy gates that apply:');
+  console.log('    pre-route: budget + safety + loop-prevention');
+  console.log('    pre-tool: tool-use policy');
+  console.log('    pre-write: filesystem + privacy policy');
+  if (route._match?.stage === 'fallback') {
+    console.log('\n  ⚠ Fallback route — no specific agent matched this task.');
+    console.log('    Add triggers to an agent or add a route fixture to improve coverage.');
+  }
+  return 0;
+}
+
+// ── yes persona ───────────────────────────────────────────────────────────────
+
+function cmdPersona(args) {
+  const sub = args[0];
+  const personaFile = path.join(process.cwd(), '.yes-human-persona');
+  const reg = (() => {
+    try { return JSON.parse(fs.readFileSync(path.join(repoRoot, 'registry', 'personas.json'), 'utf8')); }
+    catch { return { items: [] }; }
+  })();
+
+  if (sub === 'set') {
+    const personaId = args[1];
+    if (!personaId) { console.error('Usage: yes persona set <persona-id>'); return 1; }
+    const found = reg.items.find(p => p.persona_id === personaId);
+    if (!found) {
+      console.error(`Unknown persona: ${personaId}`);
+      console.error(`Available: ${reg.items.map(p => p.persona_id).join(', ')}`);
+      return 1;
+    }
+    fs.writeFileSync(personaFile, personaId);
+    console.log(`✓ Persona set to: ${found.name} (${personaId})`);
+    console.log(`  Default domain : ${found.default_domain}`);
+    console.log(`  Budget bias    : ${found.budget_bias}`);
+    if (found.disclaimer_level && found.disclaimer_level !== 'none') {
+      console.log(`  ⚠ Disclaimer level: ${found.disclaimer_level}`);
+    }
+    return 0;
+  }
+
+  if (sub === 'clear') {
+    if (fs.existsSync(personaFile)) fs.rmSync(personaFile);
+    console.log('✓ Persona cleared');
+    return 0;
+  }
+
+  if (!sub || sub === 'list') {
+    const active = fs.existsSync(personaFile) ? fs.readFileSync(personaFile, 'utf8').trim() : null;
+    console.log(`Available personas (${reg.items.length}):\n`);
+    for (const p of reg.items) {
+      const marker = p.persona_id === active ? ' ← active' : '';
+      console.log(`  ${p.persona_id.padEnd(22)} ${p.name}${marker}`);
+    }
+    if (active) console.log(`\nActive: ${active}`);
+    else console.log('\n(no active persona — routing is unbiased)');
+    return 0;
+  }
+
+  console.error(`Unknown persona subcommand: ${sub}. Try: yes persona list | set <id> | clear`);
+  return 1;
+}
+
+// ── yes version ───────────────────────────────────────────────────────────────
+
+function cmdVersion(args) {
+  const sub = args[0];
+  const ledgerPath = path.join(repoRoot, 'registry', 'version-ledger.json');
+  const ledger = fs.existsSync(ledgerPath) ? JSON.parse(fs.readFileSync(ledgerPath, 'utf8')) : { entries: [] };
+
+  if (!sub || sub === 'list') {
+    const artifactId = args[1];
+    const entries = artifactId
+      ? ledger.entries.filter(e => e.artifact_id === artifactId)
+      : ledger.entries.slice(-20);
+    if (entries.length === 0) {
+      console.log(artifactId ? `No version history for: ${artifactId}` : 'Version ledger is empty. Run `yes compile` to populate.');
+      return 0;
+    }
+    console.log(artifactId ? `Version history: ${artifactId}\n` : `Recent artifact versions (${entries.length}):\n`);
+    for (const e of entries) {
+      console.log(`  ${e.artifact_id.padEnd(40)} v${e.artifact_version}  ${e.artifact_type.padEnd(8)}  ${e.hash.slice(0,8)}  ${e.recorded_at.slice(0,10)}`);
+    }
+    return 0;
+  }
+
+  if (sub === 'diff') {
+    const artifactId = args[1];
+    if (!artifactId) { console.error('Usage: yes version diff <artifact-id> <v1> <v2>'); return 1; }
+    const v1 = args[2], v2 = args[3];
+    const entries = ledger.entries.filter(e => e.artifact_id === artifactId);
+    const e1 = entries.find(e => e.artifact_version === v1);
+    const e2 = entries.find(e => e.artifact_version === v2);
+    if (!e1) { console.error(`Version ${v1} not found for ${artifactId}`); return 1; }
+    if (!e2) { console.error(`Version ${v2} not found for ${artifactId}`); return 1; }
+    console.log(`Diff ${artifactId}: v${v1} (${e1.hash.slice(0,8)}) → v${v2} (${e2.hash.slice(0,8)})`);
+    console.log(`  Recorded: ${e1.recorded_at.slice(0,16)} → ${e2.recorded_at.slice(0,16)}`);
+    if (e1.hash === e2.hash) console.log('  (no content change)');
+    else console.log('  Content changed (hashes differ).');
+    return 0;
+  }
+
+  if (sub === 'rollback') {
+    const artifactId = args[1], version = args[2];
+    const confirm = args.includes('--confirm');
+    if (!artifactId || !version) { console.error('Usage: yes version rollback <artifact-id> <version> [--confirm]'); return 1; }
+    if (!confirm) {
+      console.log(`Would rollback ${artifactId} to v${version}. Add --confirm to apply.`);
+      console.log('This writes a rollback record to staging/rollback/.');
+      return 0;
+    }
+    const rollback = {
+      change_id: `version-rollback-${artifactId.replace(/\./g,'-')}-${version}-${Date.now()}`,
+      created_at: new Date().toISOString(),
+      reason: `version rollback ${artifactId} to v${version}`,
+      files_added: [], files_modified: [], registry_entries_added: [],
+      graph_edges_added: [], previous_hashes: {},
+      rollback_command: `yes version rollback ${artifactId} ${version} --confirm`,
+      safe_to_auto_rollback: false
+    };
+    const rollbackDir = path.join(repoRoot, 'staging', 'rollback');
+    fs.mkdirSync(rollbackDir, { recursive: true });
+    fs.writeFileSync(path.join(rollbackDir, `${rollback.change_id}.json`), JSON.stringify(rollback, null, 2));
+    console.log(`✓ Rollback record written: staging/rollback/${rollback.change_id}.json`);
+    console.log('  Review the record and manually restore the artifact to complete the rollback.');
+    return 0;
+  }
+
+  console.error('Usage: yes version list [<artifact-id>] | diff <id> <v1> <v2> | rollback <id> <version> [--confirm]');
+  return 1;
+}
+
+// ── yes contribute ────────────────────────────────────────────────────────────
+
+function cmdContribute(args) {
+  const kind = args[0]; // agent | skill
+  const filePath = args[1];
+  if (!kind || !filePath || !['agent','skill'].includes(kind)) {
+    console.error('Usage: yes contribute agent <path> | yes contribute skill <path>');
+    return 1;
+  }
+  const absPath = path.resolve(filePath);
+  if (!fs.existsSync(absPath)) { console.error(`File not found: ${absPath}`); return 1; }
+
+  const content = fs.readFileSync(absPath, 'utf8');
+  const slug = path.basename(absPath, path.extname(absPath));
+  const stagingDir = path.join(repoRoot, 'staging', 'incoming', `contrib-${kind}-${slug}`);
+  fs.mkdirSync(stagingDir, { recursive: true });
+  fs.copyFileSync(absPath, path.join(stagingDir, path.basename(absPath)));
+
+  // Basic validation
+  const issues = [];
+  const frontmatterMatch = content.match(/^---\r?\n([\s\S]+?)\r?\n---/);
+  if (!frontmatterMatch) issues.push('missing YAML frontmatter');
+  else {
+    if (!content.includes('triggers:')) issues.push('missing triggers field');
+    if (!content.includes('quality_gate:')) issues.push('missing quality_gate field');
+    if (!content.includes('source_references:')) issues.push('missing source_references field');
+  }
+
+  const manifest = {
+    kind, slug,
+    source_file: path.relative(repoRoot, absPath),
+    staged_at: new Date().toISOString(),
+    validation_issues: issues,
+    decision: issues.length === 0 ? 'pending_review' : 'needs_fixes',
+    next_steps: issues.length === 0
+      ? [`Create references/<domain>/${slug}.sources.json dossier`, 'Run: yes dossier validate <agent-id>', 'Submit PR for human review']
+      : issues.map(i => `Fix: ${i}`)
+  };
+  fs.writeFileSync(path.join(stagingDir, 'manifest.json'), JSON.stringify(manifest, null, 2));
+
+  console.log(`\nContribution staged: contrib-${kind}-${slug}`);
+  console.log(`  File     : ${manifest.source_file}`);
+  console.log(`  Decision : ${manifest.decision}`);
+  if (issues.length > 0) {
+    console.log('\n  Issues to fix:');
+    for (const i of issues) console.log(`    ✗ ${i}`);
+  } else {
+    console.log('\n  Next steps:');
+    for (const s of manifest.next_steps) console.log(`    → ${s}`);
+  }
+  return issues.length === 0 ? 0 : 1;
+}
+
 function cmdDossier(args) {
   if (args[0] !== 'validate' || !args[1]) {
     console.error('Usage: yes dossier validate <agent-id> [--gate production|staging]');
@@ -859,6 +1110,19 @@ async function main() {
       return await cmdGraph(rest);
     case 'absorb':
       return await cmdAbsorb(rest);
+    case 'status':
+      return cmdStatus();
+    case 'run':
+      return await cmdRun(rest);
+    case 'persona':
+      return cmdPersona(rest);
+    case 'version':
+      return cmdVersion(rest);
+    case 'contribute':
+      return cmdContribute(rest);
+    case 'export':
+      // `yes export <host>` is an alias for `yes build <host>`
+      return await cmdBuild(rest);
     case 'doctor':
       return cmdDoctor();
     case 'dream':

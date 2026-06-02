@@ -1232,6 +1232,40 @@
     "fallback": "route.meta-system.supreme-router"
   },
   {
+    "route_id": "route.design-content.ui-ux-designer",
+    "match": {
+      "keywords": [
+        "ui ux design",
+        "user interface design",
+        "ux research and design",
+        "product design",
+        "interface design"
+      ],
+      "aliases": [
+        "ui ux",
+        "product design"
+      ],
+      "negative_keywords": [
+        "code review",
+        "financial forecast",
+        "legal contract"
+      ]
+    },
+    "target": {
+      "domain_master": "design-content.master",
+      "agent": "design-content.ui-ux-designer",
+      "skills": []
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
     "route_id": "route.design-content.ux-designer",
     "match": {
       "keywords": [
@@ -2165,6 +2199,39 @@
     "fallback": "route.meta-system.supreme-router"
   },
   {
+    "route_id": "route.engineering.e2e-runner",
+    "match": {
+      "keywords": [
+        "write e2e tests",
+        "playwright test",
+        "end to end test",
+        "e2e test setup",
+        "browser test automation"
+      ],
+      "aliases": [
+        "e2e"
+      ],
+      "negative_keywords": [
+        "unit test",
+        "financial forecast",
+        "threat model"
+      ]
+    },
+    "target": {
+      "domain_master": "engineering.master",
+      "agent": "engineering.e2e-runner",
+      "skills": []
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
     "route_id": "route.engineering.frontend-react",
     "match": {
       "keywords": [
@@ -2564,6 +2631,39 @@
     "fallback": "route.meta-system.supreme-router"
   },
   {
+    "route_id": "route.engineering.refactor-cleaner",
+    "match": {
+      "keywords": [
+        "refactor this code",
+        "clean up this module",
+        "reduce code duplication",
+        "simplify this function",
+        "improve code structure"
+      ],
+      "aliases": [
+        "refactor"
+      ],
+      "negative_keywords": [
+        "add new feature",
+        "financial forecast",
+        "security audit"
+      ]
+    },
+    "target": {
+      "domain_master": "engineering.master",
+      "agent": "engineering.refactor-cleaner",
+      "skills": []
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
     "route_id": "route.engineering.refactoring",
     "match": {
       "keywords": [
@@ -2630,6 +2730,40 @@
     "target": {
       "domain_master": "engineering.master",
       "agent": "engineering.rust-reviewer",
+      "skills": []
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.engineering.security-reviewer",
+    "match": {
+      "keywords": [
+        "security review pull request",
+        "appsec code check",
+        "review for security vulnerabilities",
+        "code security scan",
+        "check for injection vulnerabilities"
+      ],
+      "aliases": [
+        "pr security review",
+        "code security"
+      ],
+      "negative_keywords": [
+        "threat model",
+        "penetration test",
+        "financial forecast"
+      ]
+    },
+    "target": {
+      "domain_master": "engineering.master",
+      "agent": "engineering.security-reviewer",
       "skills": []
     },
     "confidence": {
@@ -6380,6 +6514,39 @@
     "fallback": "route.meta-system.supreme-router"
   },
   {
+    "route_id": "route.marketing.brand-manager",
+    "match": {
+      "keywords": [
+        "brand management",
+        "brand voice management",
+        "brand consistency review",
+        "brand identity management",
+        "manage brand guidelines"
+      ],
+      "aliases": [
+        "brand mgr"
+      ],
+      "negative_keywords": [
+        "code review",
+        "financial forecast",
+        "legal contract"
+      ]
+    },
+    "target": {
+      "domain_master": "marketing.master",
+      "agent": "marketing.brand-manager",
+      "skills": []
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
     "route_id": "route.marketing.brand-marketer",
     "match": {
       "keywords": [
@@ -8170,6 +8337,39 @@
     "fallback": "route.meta-system.supreme-router"
   },
   {
+    "route_id": "route.product-business.cfo-advisor",
+    "match": {
+      "keywords": [
+        "cfo advisory session",
+        "financial strategy advice",
+        "board financial prep",
+        "investor financial model",
+        "runway strategy"
+      ],
+      "aliases": [
+        "cfo"
+      ],
+      "negative_keywords": [
+        "code review",
+        "marketing campaign",
+        "hr policy"
+      ]
+    },
+    "target": {
+      "domain_master": "product-business.master",
+      "agent": "product-business.cfo-advisor",
+      "skills": []
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "expanded",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
     "route_id": "route.product-business.competitive-analyst",
     "match": {
       "keywords": [
@@ -8319,6 +8519,39 @@
     "target": {
       "domain_master": "product-business.master",
       "agent": "product-business.growth-manager",
+      "skills": []
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.product-business.growth-marketer",
+    "match": {
+      "keywords": [
+        "growth marketing strategy",
+        "growth experiment design",
+        "user acquisition plan",
+        "viral growth loop",
+        "growth hacking"
+      ],
+      "aliases": [
+        "growth"
+      ],
+      "negative_keywords": [
+        "financial forecast",
+        "paid campaign execution",
+        "legal contract"
+      ]
+    },
+    "target": {
+      "domain_master": "product-business.master",
+      "agent": "product-business.growth-marketer",
       "skills": []
     },
     "confidence": {

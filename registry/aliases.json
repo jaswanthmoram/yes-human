@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-06-02T10:05:45.462Z",
-  "count": 757,
+  "generated_at": "2026-06-02T10:25:21.672Z",
+  "count": 762,
   "items": [
     {
       "id": "ai-ethics",
@@ -204,6 +204,10 @@
       "route_id": "route.design-content.ui-designer"
     },
     {
+      "id": "product design",
+      "route_id": "route.design-content.ui-ux-designer"
+    },
+    {
       "id": "ux design",
       "route_id": "route.design-content.ux-designer"
     },
@@ -400,6 +404,10 @@
       "route_id": "route.engineering.docs-updater"
     },
     {
+      "id": "e2e",
+      "route_id": "route.engineering.e2e-runner"
+    },
+    {
       "id": "react dev",
       "route_id": "route.engineering.frontend-react"
     },
@@ -489,7 +497,7 @@
     },
     {
       "id": "refactor",
-      "route_id": "route.engineering.refactoring"
+      "route_id": "route.engineering.refactor-cleaner"
     },
     {
       "id": "code cleanup",
@@ -512,16 +520,20 @@
       "route_id": "route.engineering.rust-reviewer"
     },
     {
+      "id": "pr security review",
+      "route_id": "route.engineering.security-reviewer"
+    },
+    {
+      "id": "code security",
+      "route_id": "route.engineering.security-reviewer"
+    },
+    {
       "id": "swift",
       "route_id": "route.engineering.swift-reviewer"
     },
     {
       "id": "tdd guide",
       "route_id": "route.engineering.tdd-guide"
-    },
-    {
-      "id": "e2e",
-      "route_id": "route.engineering.testing-e2e"
     },
     {
       "id": "e2e testing",
@@ -1236,6 +1248,10 @@
       "route_id": "route.manufacturing.supply-chain-analyst"
     },
     {
+      "id": "brand mgr",
+      "route_id": "route.marketing.brand-manager"
+    },
+    {
       "id": "brand marketing",
       "route_id": "route.marketing.brand-marketer"
     },
@@ -1538,6 +1554,10 @@
     {
       "id": "ceo-advisor",
       "route_id": "route.product-business.ceo-advisor"
+    },
+    {
+      "id": "cfo",
+      "route_id": "route.product-business.cfo-advisor"
     },
     {
       "id": "competitive intel",

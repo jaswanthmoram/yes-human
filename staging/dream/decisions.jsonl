@@ -70,3 +70,11 @@
 {"candidate_id":0,"decision":"reject","rationale":"Not relevant","timestamp":"2026-06-02T09:55:03.190Z"}
 {"candidate_id":4,"decision":"graduate","rationale":"This is a test lesson","timestamp":"2026-06-02T09:55:46.666Z"}
 {"candidate_id":0,"decision":"reject","rationale":"Not relevant","timestamp":"2026-06-02T09:55:46.670Z"}
+{"candidate_id":4,"decision":"graduate","rationale":"This is a test lesson","timestamp":"2026-06-02T10:05:44.789Z"}
+{"candidate_id":0,"decision":"reject","rationale":"Not relevant","timestamp":"2026-06-02T10:05:44.795Z"}
+{"candidate_id":4,"decision":"graduate","rationale":"This is a test lesson","timestamp":"2026-06-02T10:18:56.150Z"}
+{"candidate_id":0,"decision":"reject","rationale":"Not relevant","timestamp":"2026-06-02T10:18:56.159Z"}
+{"candidate_id":4,"decision":"graduate","rationale":"This is a test lesson","timestamp":"2026-06-02T10:23:08.086Z"}
+{"candidate_id":0,"decision":"reject","rationale":"Not relevant","timestamp":"2026-06-02T10:23:08.110Z"}
+{"candidate_id":4,"decision":"graduate","rationale":"This is a test lesson","timestamp":"2026-06-02T10:25:21.016Z"}
+{"candidate_id":0,"decision":"reject","rationale":"Not relevant","timestamp":"2026-06-02T10:25:21.024Z"}

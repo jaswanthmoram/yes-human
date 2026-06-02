@@ -1,0 +1,146 @@
+{
+  "domain": "gap-close-specialists",
+  "description": "Routing fixtures for 7 architecture §32.4 named specialists added in gap-close wave.",
+  "fixtures": [
+    {
+      "prompt": "security review pull request",
+      "expected_route": "route.engineering.security-reviewer"
+    },
+    {
+      "prompt": "appsec code check",
+      "expected_route": "route.engineering.security-reviewer"
+    },
+    {
+      "prompt": "review for security vulnerabilities",
+      "expected_route": "route.engineering.security-reviewer"
+    },
+    {
+      "prompt": "code security scan",
+      "expected_route": "route.engineering.security-reviewer"
+    },
+    {
+      "prompt": "check for injection vulnerabilities",
+      "expected_route": "route.engineering.security-reviewer"
+    },
+    {
+      "prompt": "write e2e tests",
+      "expected_route": "route.engineering.e2e-runner"
+    },
+    {
+      "prompt": "playwright test",
+      "expected_route": "route.engineering.e2e-runner"
+    },
+    {
+      "prompt": "end to end test",
+      "expected_route": "route.engineering.e2e-runner"
+    },
+    {
+      "prompt": "e2e test setup",
+      "expected_route": "route.engineering.e2e-runner"
+    },
+    {
+      "prompt": "browser test automation",
+      "expected_route": "route.engineering.e2e-runner"
+    },
+    {
+      "prompt": "refactor this code",
+      "expected_route": "route.engineering.refactor-cleaner"
+    },
+    {
+      "prompt": "clean up this module",
+      "expected_route": "route.engineering.refactor-cleaner"
+    },
+    {
+      "prompt": "reduce code duplication",
+      "expected_route": "route.engineering.refactor-cleaner"
+    },
+    {
+      "prompt": "simplify this function",
+      "expected_route": "route.engineering.refactor-cleaner"
+    },
+    {
+      "prompt": "improve code structure",
+      "expected_route": "route.engineering.refactor-cleaner"
+    },
+    {
+      "prompt": "cfo advisory session",
+      "expected_route": "route.product-business.cfo-advisor"
+    },
+    {
+      "prompt": "financial strategy advice",
+      "expected_route": "route.product-business.cfo-advisor"
+    },
+    {
+      "prompt": "board financial prep",
+      "expected_route": "route.product-business.cfo-advisor"
+    },
+    {
+      "prompt": "investor financial model",
+      "expected_route": "route.product-business.cfo-advisor"
+    },
+    {
+      "prompt": "runway strategy",
+      "expected_route": "route.product-business.cfo-advisor"
+    },
+    {
+      "prompt": "growth marketing strategy",
+      "expected_route": "route.product-business.growth-marketer"
+    },
+    {
+      "prompt": "growth experiment design",
+      "expected_route": "route.marketing.growth-marketer"
+    },
+    {
+      "prompt": "user acquisition plan",
+      "expected_route": "route.product-business.growth-marketer"
+    },
+    {
+      "prompt": "viral growth loop",
+      "expected_route": "route.product-business.growth-marketer"
+    },
+    {
+      "prompt": "growth hacking",
+      "expected_route": "route.product-business.growth-marketer"
+    },
+    {
+      "prompt": "ui ux design",
+      "expected_route": "route.design-content.ui-designer"
+    },
+    {
+      "prompt": "user interface design",
+      "expected_route": "route.design-content.ui-ux-designer"
+    },
+    {
+      "prompt": "ux research and design",
+      "expected_route": "route.design-content.ui-ux-designer"
+    },
+    {
+      "prompt": "product design",
+      "expected_route": "route.design-content.ui-ux-designer"
+    },
+    {
+      "prompt": "interface design",
+      "expected_route": "route.design-content.ui-designer"
+    },
+    {
+      "prompt": "brand management",
+      "expected_route": "route.marketing.brand-manager"
+    },
+    {
+      "prompt": "brand voice management",
+      "expected_route": "route.marketing.brand-manager"
+    },
+    {
+      "prompt": "brand consistency review",
+      "expected_route": "route.marketing.brand-manager"
+    },
+    {
+      "prompt": "brand identity management",
+      "expected_route": "route.marketing.brand-manager"
+    },
+    {
+      "prompt": "manage brand guidelines",
+      "expected_route": "route.marketing.brand-manager"
+    }
+  ]
+}

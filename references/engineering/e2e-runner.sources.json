@@ -1,0 +1,91 @@
+{
+  "dossier_id": "dossier.engineering.e2e-runner.2026-06-02",
+  "agent_id": "engineering.e2e-runner",
+  "domain": "engineering",
+  "created_at": "2026-06-02T00:00:00Z",
+  "expires_at": "2026-09-02T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/microsoft/playwright",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": [
+        "E2E test patterns"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 70000,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/vercel-labs/agent-browser",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": [
+        "Native browser CLI patterns"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 34000,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/affaan-m/ECC",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "2.0.0-rc.1",
+      "used_for": [
+        "agent patterns and workflow structure"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 200000,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-cookbook",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "task recipe and prompt engineering patterns"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 5000,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/garrytan/gstack",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "specialist role lifecycle patterns"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 104000,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://docs.github.com/en/code-security",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-05",
+      "used_for": [
+        "official documentation patterns for engineering domain"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-01T00:00:00Z"
+    }
+  ],
+  "scores": {
+    "source_count": 12,
+    "official_docs": 15,
+    "github_quality": 20,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 92
+  },
+  "promotion_decision": "staging"
+}

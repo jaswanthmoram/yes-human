@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-06-02T10:05:45.462Z",
+  "generated_at": "2026-06-02T10:25:21.672Z",
   "count": 19,
   "items": [
     {
@@ -17,6 +17,7 @@
         "engineering.database-optimization",
         "engineering.dev-workflow",
         "engineering.docs-updater",
+        "engineering.e2e-runner",
         "engineering.frontend-react",
         "engineering.frontend-vue",
         "engineering.go-reviewer",
@@ -27,8 +28,10 @@
         "engineering.performance-profiling",
         "engineering.planner",
         "engineering.python-reviewer",
+        "engineering.refactor-cleaner",
         "engineering.refactoring",
         "engineering.rust-reviewer",
+        "engineering.security-reviewer",
         "engineering.swift-reviewer",
         "engineering.tdd-guide",
         "engineering.testing-e2e",
@@ -62,6 +65,7 @@
         "engineering-batch3.fixtures.json",
         "engineering-lang-reviewers.fixtures.json",
         "engineering.fixtures.json",
+        "gap-close-specialists.fixtures.json",
         "phase8-scale.fixtures.json",
         "seed.fixtures.json",
         "workflow-routes.fixtures.json"
@@ -80,7 +84,7 @@
         "hook.on-absorb.provenance-license"
       ],
       "dossier_coverage": {
-        "agents": 29,
+        "agents": 32,
         "workflows": 12
       },
       "status": "active"
@@ -99,6 +103,7 @@
         "engineering.database-optimization",
         "engineering.dev-workflow",
         "engineering.docs-updater",
+        "engineering.e2e-runner",
         "engineering.frontend-react",
         "engineering.frontend-vue",
         "engineering.go-reviewer",
@@ -109,8 +114,10 @@
         "engineering.performance-profiling",
         "engineering.planner",
         "engineering.python-reviewer",
+        "engineering.refactor-cleaner",
         "engineering.refactoring",
         "engineering.rust-reviewer",
+        "engineering.security-reviewer",
         "engineering.swift-reviewer",
         "engineering.tdd-guide",
         "engineering.testing-e2e",
@@ -144,6 +151,7 @@
         "engineering-batch3.fixtures.json",
         "engineering-lang-reviewers.fixtures.json",
         "engineering.fixtures.json",
+        "gap-close-specialists.fixtures.json",
         "phase8-scale.fixtures.json",
         "seed.fixtures.json",
         "workflow-routes.fixtures.json"
@@ -162,7 +170,7 @@
         "hook.on-absorb.provenance-license"
       ],
       "dossier_coverage": {
-        "agents": 29,
+        "agents": 32,
         "workflows": 12
       },
       "status": "active"
@@ -583,11 +591,13 @@
       "master_agent": "product-business.master",
       "specialists": [
         "product-business.ceo-advisor",
+        "product-business.cfo-advisor",
         "product-business.competitive-analyst",
         "product-business.cto-advisor",
         "product-business.customer-success-advisor",
         "product-business.feature-prioritizer",
         "product-business.growth-manager",
+        "product-business.growth-marketer",
         "product-business.market-researcher",
         "product-business.operations-planner",
         "product-business.partnerships-advisor",
@@ -628,6 +638,7 @@
         "pm.openproject"
       ],
       "route_fixture_files": [
+        "gap-close-specialists.fixtures.json",
         "phase8-new-agents.fixtures.json",
         "phase8-specialists.fixtures.json",
         "product-business-new.fixtures.json",
@@ -649,7 +660,7 @@
         "hook.on-absorb.provenance-license"
       ],
       "dossier_coverage": {
-        "agents": 22,
+        "agents": 24,
         "workflows": 9
       },
       "status": "active"
@@ -672,6 +683,7 @@
         "design-content.seo-writer",
         "design-content.technical-writer",
         "design-content.ui-designer",
+        "design-content.ui-ux-designer",
         "design-content.ux-designer",
         "design-content.visual-designer"
       ],
@@ -694,6 +706,7 @@
         "design-content-new.fixtures.json",
         "design-content-specialists.fixtures.json",
         "design-content.fixtures.json",
+        "gap-close-specialists.fixtures.json",
         "phase8-new-agents.fixtures.json",
         "phase8-scale.fixtures.json",
         "phase8-specialists.fixtures.json",
@@ -713,7 +726,7 @@
         "hook.on-absorb.provenance-license"
       ],
       "dossier_coverage": {
-        "agents": 17,
+        "agents": 18,
         "workflows": 8
       },
       "status": "active"
@@ -722,6 +735,7 @@
       "id": "marketing",
       "master_agent": "marketing.master",
       "specialists": [
+        "marketing.brand-manager",
         "marketing.brand-marketer",
         "marketing.campaign-analyst",
         "marketing.content-marketer",
@@ -758,6 +772,7 @@
         "analytics.posthog"
       ],
       "route_fixture_files": [
+        "gap-close-specialists.fixtures.json",
         "marketing-new.fixtures.json",
         "marketing-specialists.fixtures.json",
         "marketing.fixtures.json",
@@ -780,7 +795,7 @@
         "hook.on-absorb.provenance-license"
       ],
       "dossier_coverage": {
-        "agents": 17,
+        "agents": 18,
         "workflows": 9
       },
       "status": "active"

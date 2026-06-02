@@ -1,0 +1,91 @@
+{
+  "dossier_id": "dossier.design-content.ui-ux-designer.2026-06-02",
+  "agent_id": "design-content.ui-ux-designer",
+  "domain": "design-content",
+  "created_at": "2026-06-02T00:00:00Z",
+  "expires_at": "2026-09-02T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/storybookjs/storybook",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "next",
+      "used_for": [
+        "Component documentation and UI testing workflow"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 84000,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/shadcn-ui/ui",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "Design system component patterns"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 80000,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/radix-ui/primitives",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "Accessible component primitive patterns"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 15000,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/dequelabs/axe-core",
+      "source_type": "github_repo",
+      "license": "MPL-2.0",
+      "version_or_commit": "develop",
+      "used_for": [
+        "WCAG 2.1 AA accessibility rule taxonomy (patterns only)"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 6000,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/affaan-m/ECC",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "2.0.0-rc.1",
+      "used_for": [
+        "Design agent and workflow structure patterns"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 200000,
+      "last_updated": "2026-05-01T00:00:00Z"
+    },
+    {
+      "url": "https://www.w3.org/TR/WCAG21/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-05",
+      "used_for": [
+        "official documentation patterns for design-content domain"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-01T00:00:00Z"
+    }
+  ],
+  "scores": {
+    "source_count": 12,
+    "official_docs": 15,
+    "github_quality": 20,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 92
+  },
+  "promotion_decision": "staging"
+}

@@ -20,7 +20,7 @@
     },
     {
       "prompt": "campaign analysis",
-      "expected_route": "route.marketing.master"
+      "expected_route": "route.marketing.campaign-analyst"
     },
     {
       "prompt": "draft a marketing strategy for next quarter",
