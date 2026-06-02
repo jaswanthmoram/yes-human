@@ -1,0 +1,42 @@
+{
+  "dossier_id": "dossier.meta-system.adapter-generator.2026-06-02",
+  "agent_id": "meta-system.adapter-generator",
+  "domain": "meta-system",
+  "created_at": "2026-06-02T00:00:00Z",
+  "expires_at": "2026-09-02T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/ndizazzo/saddle",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "Adapter scaffold and host-bundle generation patterns",
+        "canonical-source separation from host-specific overrides"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/modelcontextprotocol/servers",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": [
+        "MCP adapter bundle manifest and compatibility report patterns",
+        "host-capability flag specification for Claude, Codex, and OpenCode targets"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 15,
+    "official_docs": 8,
+    "github_quality": 18,
+    "license_safety": 18,
+    "maintenance": 12,
+    "pattern_clarity": 12,
+    "testability": 10,
+    "total": 83
+  },
+  "promotion_decision": "staging"
+}

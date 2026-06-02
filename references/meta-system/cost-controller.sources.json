@@ -1,0 +1,42 @@
+{
+  "dossier_id": "dossier.meta-system.cost-controller.2026-06-02",
+  "agent_id": "meta-system.cost-controller",
+  "domain": "meta-system",
+  "created_at": "2026-06-02T00:00:00Z",
+  "expires_at": "2026-09-02T00:00:00Z",
+  "sources": [
+    {
+      "url": "https://github.com/stevesolun/ctx",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "Context-pack cost estimation and token-budget enforcement patterns",
+        "input-vs-output token disambiguation in cost projections"
+      ],
+      "copy_policy": "patterns_only"
+    },
+    {
+      "url": "https://github.com/modelcontextprotocol/servers",
+      "source_type": "github_repo",
+      "license": "Apache-2.0",
+      "version_or_commit": "main",
+      "used_for": [
+        "Budget-band compliance scanning patterns across agent configurations",
+        "uncapped-context flagging and approval-gate integration patterns"
+      ],
+      "copy_policy": "patterns_only"
+    }
+  ],
+  "scores": {
+    "source_count": 15,
+    "official_docs": 8,
+    "github_quality": 18,
+    "license_safety": 18,
+    "maintenance": 12,
+    "pattern_clarity": 12,
+    "testability": 10,
+    "total": 83
+  },
+  "promotion_decision": "staging"
+}
