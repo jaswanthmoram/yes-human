@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import { buildTrieFromRouteMap } from '../yes-graph/index.js';
 import { HookRunner } from '../../hooks/hook-runner.js';
 import { PolicyEvaluator } from '../yes-core/policy-evaluator.js';
+import { LearningEngine } from './learning-engine.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -63,6 +64,21 @@ function hasNegativeKeyword(route, query) {
  * @param {object} [context] - { depth, visited } for multi-hop loop prevention
  * @returns {Promise<object>} route object, annotated with `_match` metadata
  */
+
+function attachRoutingHints(matchedRoute) {
+  try {
+    const learningPolicy = safeReadJSON('registry/learning-policy.json', {});
+    if (learningPolicy.routing_hints?.enabled === true) {
+      const engine = new LearningEngine({ repoRoot: process.cwd() });
+      const hints = engine.getMistakeRoutingHints(matchedRoute.route_id);
+      if (hints.length) matchedRoute.routing_hints = hints;
+    }
+  } catch (err) {
+    console.error(`⚠ routing hints unavailable: ${err.message}`);
+  }
+  return matchedRoute;
+}
+
 export async function resolveRoute(prompt, context = {}) {
   const { depth = 0, visited = [], estimatedTokens } = context;
 
@@ -181,6 +197,8 @@ export async function resolveRoute(prompt, context = {}) {
   });
 
   // Attach hook results to route
+  attachRoutingHints(matchedRoute);
+
   matchedRoute._hooks = {
     pre_route: preRouteResult.results,
     post_route: postRouteResult.results
@@ -197,17 +215,17 @@ export function resolveRouteSync(prompt, context = {}) {
   const { depth = 0, visited = [] } = context;
 
   if (!prompt || typeof prompt !== 'string') {
-    return annotate(getFallbackRoute(), { stage: 'fallback', confidence: 0, reason: 'empty or invalid prompt' });
+    return attachRoutingHints(annotate(getFallbackRoute(), { stage: 'fallback', confidence: 0, reason: 'empty or invalid prompt' }));
   }
   if (depth > MAX_ROUTE_DEPTH) {
-    return annotate(getFallbackRoute(), { stage: 'fallback', confidence: 0, reason: `max route depth ${MAX_ROUTE_DEPTH} exceeded` });
+    return attachRoutingHints(annotate(getFallbackRoute(), { stage: 'fallback', confidence: 0, reason: `max route depth ${MAX_ROUTE_DEPTH} exceeded` }));
   }
 
   const query = normalize(prompt);
 
   const routeTable = safeReadJSON('graph/indexes/ROUTE_TABLE.min.json', null);
   if (!routeTable || !routeTable.routes) {
-    return annotate(getFallbackRoute(), { stage: 'fallback', confidence: 0, reason: 'route table unavailable' });
+    return attachRoutingHints(annotate(getFallbackRoute(), { stage: 'fallback', confidence: 0, reason: 'route table unavailable' }));
   }
   const routes = safeReadJSON('registry/routes.json', []);
   const fallbackId = routeTable.fallback || DEFAULT_FALLBACK;
@@ -229,7 +247,7 @@ export function resolveRouteSync(prompt, context = {}) {
   if (routeTable.routes[query]) {
     const route = getRoute(routeTable.routes[query]);
     if (route && !hasNegativeKeyword(route, query)) {
-      return annotate(route, { stage: 'exact', confidence: route.confidence?.exact ?? 1, reason: `exact match "${query}"` });
+      return attachRoutingHints(annotate(route, { stage: 'exact', confidence: route.confidence?.exact ?? 1, reason: `exact match "${query}"` }));
     }
   }
 
@@ -239,7 +257,7 @@ export function resolveRouteSync(prompt, context = {}) {
   if (aliases[query]) {
     const route = getRoute(aliases[query]);
     if (route && !hasNegativeKeyword(route, query)) {
-      return annotate(route, { stage: 'alias', confidence: route.confidence?.alias ?? 0.95, reason: `alias match "${query}"` });
+      return attachRoutingHints(annotate(route, { stage: 'alias', confidence: route.confidence?.alias ?? 0.95, reason: `alias match "${query}"` }));
     }
   }
 
@@ -249,12 +267,12 @@ export function resolveRouteSync(prompt, context = {}) {
   if (hit) {
     const route = getRoute(hit.routeId);
     if (route && !hasNegativeKeyword(route, query)) {
-      return annotate(route, { stage: 'keyword', confidence: route.confidence?.exact ?? 0.9, reason: `keyword "${hit.phrase}"` });
+      return attachRoutingHints(annotate(route, { stage: 'keyword', confidence: route.confidence?.exact ?? 0.9, reason: `keyword "${hit.phrase}"` }));
     }
   }
 
   // 4. Fallback
-  return annotate(getFallbackRoute(fallbackId), { stage: 'fallback', confidence: 0, reason: 'no route matched' });
+  return attachRoutingHints(annotate(getFallbackRoute(fallbackId), { stage: 'fallback', confidence: 0, reason: 'no route matched' }));
 }
 
 /** Attach non-enumerable-ish match metadata without breaking schema shape. */
