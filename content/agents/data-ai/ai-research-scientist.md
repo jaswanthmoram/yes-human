@@ -41,7 +41,7 @@ verification:
   - ablations_performed
 source_references:
   - ref.github.data-ai.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Conducts AI research including novel architectures, training methods, and theoretical analysis with reproducible experiments.

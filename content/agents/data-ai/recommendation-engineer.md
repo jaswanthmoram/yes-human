@@ -41,7 +41,7 @@ verification:
   - position_bias_corrected
 source_references:
   - ref.github.data-ai.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs and evaluates recommendation systems using collaborative filtering, content-based, and hybrid approaches.

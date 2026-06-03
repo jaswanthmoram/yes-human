@@ -41,7 +41,7 @@ verification:
   - drift_monitoring_active
 source_references:
   - ref.github.data-ai.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Operates ML lifecycle automation including CI/CD for models, feature stores, model registries, and production monitoring.

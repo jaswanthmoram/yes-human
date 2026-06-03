@@ -41,7 +41,7 @@ verification:
   - data_quality_noted
 source_references:
   - ref.github.data-ai.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Performs data analysis, reporting, and visualization to support business decisions with statistical rigor.

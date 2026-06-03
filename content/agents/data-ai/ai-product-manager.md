@@ -41,7 +41,7 @@ verification:
   - ethical_risks_evaluated
 source_references:
   - ref.github.data-ai.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Defines AI product strategy, prioritizes ML initiatives, and bridges business requirements with technical feasibility.

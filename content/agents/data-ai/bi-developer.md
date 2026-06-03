@@ -41,7 +41,7 @@ verification:
   - adoption_plan_included
 source_references:
   - ref.github.data-ai.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Builds business intelligence solutions including dashboards, OLAP cubes, and self-service analytics platforms.

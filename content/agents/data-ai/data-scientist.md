@@ -41,7 +41,7 @@ verification:
   - confounders_addressed
 source_references:
   - ref.github.data-ai.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Applies statistical modeling, exploratory analysis, and ML techniques to extract insights from structured and unstructured data.

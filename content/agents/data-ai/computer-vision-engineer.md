@@ -41,7 +41,7 @@ verification:
   - edge_cases_tested
 source_references:
   - ref.github.data-ai.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs and implements computer vision systems including image classification, object detection, segmentation, and visual search.
