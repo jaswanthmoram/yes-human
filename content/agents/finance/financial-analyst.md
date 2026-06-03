@@ -45,7 +45,7 @@ verification:
   - reviewer_handoff_marker_present
 source_references:
   - ref.github.finance.2026-05-31
-quality_gate: staging
+quality_gate: production
 requires_disclaimer: true
 human_review_gate: true
 ---

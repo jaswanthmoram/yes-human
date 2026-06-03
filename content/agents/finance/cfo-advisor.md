@@ -40,7 +40,7 @@ verification:
   - reviewer_handoff_marker_present
 source_references:
   - ref.github.finance.cfo-advisor.2026-06-01
-quality_gate: staging
+quality_gate: production
 requires_disclaimer: true
 human_review_gate: true
 ---
