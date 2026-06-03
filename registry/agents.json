@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-06-03T08:01:21.942Z",
+  "generated_at": "2026-06-03T09:15:35.728Z",
   "count": 325,
   "items": [
     {
@@ -55,7 +55,7 @@
       "source_references": [
         "ref.github.data-ai.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "data-ai.ai-product-manager",
@@ -109,7 +109,7 @@
       "source_references": [
         "ref.github.data-ai.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "data-ai.ai-research-scientist",
@@ -163,7 +163,7 @@
       "source_references": [
         "ref.github.data-ai.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "data-ai.analytics-engineer",
@@ -260,7 +260,7 @@
       "source_references": [
         "ref.github.data-ai.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "data-ai.computer-vision-engineer",
@@ -314,7 +314,7 @@
       "source_references": [
         "ref.github.data-ai.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "data-ai.data-analyst",
@@ -368,7 +368,7 @@
       "source_references": [
         "ref.github.data-ai.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "data-ai.data-engineer",
@@ -476,7 +476,7 @@
       "source_references": [
         "ref.github.data-ai.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "data-ai.eval-engineer",
@@ -639,7 +639,7 @@
       "source_references": [
         "ref.github.data-ai.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "data-ai.master",
@@ -803,7 +803,7 @@
       "source_references": [
         "ref.github.data-ai.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "data-ai.nlp-engineer",
@@ -857,7 +857,7 @@
       "source_references": [
         "ref.github.data-ai.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "data-ai.prompt-engineer",
@@ -912,7 +912,7 @@
       "source_references": [
         "ref.github.data-ai.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "data-ai.rag-engineer",
@@ -1020,7 +1020,7 @@
       "source_references": [
         "ref.github.data-ai.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "design-content.accessibility-auditor",
@@ -1079,7 +1079,7 @@
       "source_references": [
         "ref.github.design-content-master.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "design-content.brand-designer",
@@ -1138,7 +1138,7 @@
       "source_references": [
         "ref.github.design-content.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "design-content.brand-strategist",
@@ -1192,7 +1192,7 @@
       "source_references": [
         "ref.github.design-content.brand-strategist.2026-06-01"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "design-content.content-editor",
@@ -1252,7 +1252,7 @@
       "source_references": [
         "ref.github.design-content.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "design-content.content-strategist",
@@ -1311,7 +1311,7 @@
       "source_references": [
         "ref.github.design-content.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "design-content.copywriter",
@@ -1370,7 +1370,7 @@
       "source_references": [
         "ref.github.design-content.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "design-content.design-systems",
@@ -1430,7 +1430,7 @@
       "source_references": [
         "ref.github.design-content.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "design-content.frontend-design-agent",
@@ -1483,7 +1483,7 @@
       "source_references": [
         "ref.github.design-content-master.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "design-content.interaction-designer",
@@ -1542,7 +1542,7 @@
       "source_references": [
         "ref.github.design-content.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "design-content.master",
@@ -1657,7 +1657,7 @@
       "source_references": [
         "ref.github.design-content.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "design-content.presentation-designer",
@@ -1760,7 +1760,7 @@
       "source_references": [
         "ref.github.design-content.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "design-content.technical-writer",
@@ -1824,7 +1824,7 @@
       "source_references": [
         "ref.github.design-content.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "design-content.ui-designer",
@@ -1883,7 +1883,7 @@
       "source_references": [
         "ref.github.design-content.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "design-content.ui-ux-designer",
@@ -1937,7 +1937,7 @@
       "source_references": [
         "ref.github.ecc.2026-05-29"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "design-content.ux-designer",
@@ -1996,7 +1996,7 @@
       "source_references": [
         "ref.github.design-content.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "design-content.visual-designer",
@@ -2055,7 +2055,7 @@
       "source_references": [
         "ref.github.design-content.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "education.academic-advisor",
@@ -2109,7 +2109,7 @@
       "source_references": [
         "ref.github.education.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "education.assessment-designer",
@@ -2162,7 +2162,7 @@
       "source_references": [
         "ref.github.education-master.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "education.assessment-specialist",
@@ -2216,7 +2216,7 @@
       "source_references": [
         "ref.github.education.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "education.curriculum-designer",
@@ -2269,7 +2269,7 @@
       "source_references": [
         "ref.github.education.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "education.education-policy",
@@ -2323,7 +2323,7 @@
       "source_references": [
         "ref.github.education.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "education.education-researcher",
@@ -2377,7 +2377,7 @@
       "source_references": [
         "ref.github.education.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "education.educational-technologist",
@@ -2431,7 +2431,7 @@
       "source_references": [
         "ref.github.education.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "education.instructional-designer",
@@ -2485,7 +2485,7 @@
       "source_references": [
         "ref.github.education.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "education.learning-analyst",
@@ -2539,7 +2539,7 @@
       "source_references": [
         "ref.github.education.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "education.master",
@@ -2648,7 +2648,7 @@
       "source_references": [
         "ref.github.education.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "education.special-education",
@@ -2702,7 +2702,7 @@
       "source_references": [
         "ref.github.education.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "education.student-success",
@@ -2756,7 +2756,7 @@
       "source_references": [
         "ref.github.education.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "education.tutor-agent",
@@ -2810,7 +2810,7 @@
       "source_references": [
         "ref.github.education-master.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "engineering.architect",
@@ -2932,7 +2932,7 @@
       "source_references": [
         "ref.github.engineering.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "engineering.build-resolver",
@@ -3044,7 +3044,7 @@
       "source_references": [
         "ref.github.engineering.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "engineering.code-reviewer",
@@ -3137,7 +3137,7 @@
       "source_references": [
         "ref.github.ecc.2026-05-29"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "engineering.database-design",
@@ -3201,7 +3201,7 @@
       "source_references": [
         "ref.github.engineering.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "engineering.database-optimization",
@@ -3266,7 +3266,7 @@
       "source_references": [
         "ref.github.engineering.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "engineering.dev-workflow",
@@ -3334,7 +3334,7 @@
       "source_references": [
         "ref.github.engineering.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "engineering.docs-updater",
@@ -3438,7 +3438,7 @@
       "source_references": [
         "ref.github.ecc.2026-05-29"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "engineering.frontend-react",
@@ -3505,7 +3505,7 @@
       "source_references": [
         "ref.github.engineering.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "engineering.frontend-vue",
@@ -3572,7 +3572,7 @@
       "source_references": [
         "ref.github.engineering.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "engineering.go-reviewer",
@@ -3622,7 +3622,7 @@
       "source_references": [
         "ref.github.ecc.2026-05-29"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "engineering.java-reviewer",
@@ -3671,7 +3671,7 @@
       "source_references": [
         "ref.github.ecc.2026-05-29"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "engineering.kotlin-reviewer",
@@ -3720,7 +3720,7 @@
       "source_references": [
         "ref.github.ecc.2026-05-29"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "engineering.master",
@@ -3826,7 +3826,7 @@
       "source_references": [
         "ref.github.engineering.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "engineering.mobile-ios",
@@ -3893,7 +3893,7 @@
       "source_references": [
         "ref.github.engineering.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "engineering.performance-profiling",
@@ -3958,7 +3958,7 @@
       "source_references": [
         "ref.github.engineering.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "engineering.planner",
@@ -4058,7 +4058,7 @@
       "source_references": [
         "ref.github.ecc.2026-05-29"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "engineering.refactor-cleaner",
@@ -4111,7 +4111,7 @@
       "source_references": [
         "ref.github.ecc.2026-05-29"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "engineering.refactoring",
@@ -4180,7 +4180,7 @@
       "source_references": [
         "ref.github.engineering.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "engineering.rust-reviewer",
@@ -4229,7 +4229,7 @@
       "source_references": [
         "ref.github.ecc.2026-05-29"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "engineering.security-reviewer",
@@ -4282,7 +4282,7 @@
       "source_references": [
         "ref.github.ecc.2026-05-29"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "engineering.swift-reviewer",
@@ -4331,7 +4331,7 @@
       "source_references": [
         "ref.github.ecc.2026-05-29"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "engineering.tdd-guide",
@@ -4455,7 +4455,7 @@
       "source_references": [
         "ref.github.engineering.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "engineering.testing-integration",
@@ -4522,7 +4522,7 @@
       "source_references": [
         "ref.github.engineering.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "engineering.testing-unit",
@@ -4588,7 +4588,7 @@
       "source_references": [
         "ref.github.engineering.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "engineering.typescript-reviewer",
@@ -4638,7 +4638,7 @@
       "source_references": [
         "ref.github.ecc.2026-05-29"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "finance.audit-specialist",
@@ -4697,7 +4697,7 @@
       "source_references": [
         "ref.github.finance.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -4752,7 +4752,7 @@
       "source_references": [
         "ref.github.finance-master.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -4807,7 +4807,7 @@
       "source_references": [
         "ref.github.finance-master.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -4862,7 +4862,7 @@
       "source_references": [
         "ref.github.finance.cfo-advisor.2026-06-01"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -4923,7 +4923,7 @@
       "source_references": [
         "ref.github.finance.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -4983,7 +4983,7 @@
       "source_references": [
         "ref.github.finance.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -5088,7 +5088,7 @@
       "source_references": [
         "ref.github.finance.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -5149,7 +5149,7 @@
       "source_references": [
         "ref.github.finance.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -5209,7 +5209,7 @@
       "source_references": [
         "ref.github.finance.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -5264,7 +5264,7 @@
       "source_references": [
         "ref.github.finance-master.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -5324,7 +5324,7 @@
       "source_references": [
         "ref.github.finance.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -5385,7 +5385,7 @@
       "source_references": [
         "ref.github.finance.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -5548,7 +5548,7 @@
       "source_references": [
         "ref.github.finance.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -5608,7 +5608,7 @@
       "source_references": [
         "ref.github.finance.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -5669,7 +5669,7 @@
       "source_references": [
         "ref.github.finance.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -5730,7 +5730,7 @@
       "source_references": [
         "ref.github.finance.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -5791,7 +5791,7 @@
       "source_references": [
         "ref.github.finance.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -5846,7 +5846,7 @@
       "source_references": [
         "ref.github.healthcare-master.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -5902,7 +5902,7 @@
       "source_references": [
         "ref.github.healthcare.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -5958,7 +5958,7 @@
       "source_references": [
         "ref.github.healthcare.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -6013,7 +6013,7 @@
       "source_references": [
         "ref.github.healthcare-master.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -6068,7 +6068,7 @@
       "source_references": [
         "ref.github.healthcare.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -6124,7 +6124,7 @@
       "source_references": [
         "ref.github.healthcare.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -6180,7 +6180,7 @@
       "source_references": [
         "ref.github.healthcare.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -6236,7 +6236,7 @@
       "source_references": [
         "ref.github.healthcare.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -6350,7 +6350,7 @@
       "source_references": [
         "ref.github.healthcare.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -6406,7 +6406,7 @@
       "source_references": [
         "ref.github.healthcare.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -6462,7 +6462,7 @@
       "source_references": [
         "ref.github.healthcare.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -6517,7 +6517,7 @@
       "source_references": [
         "ref.github.healthcare-master.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -6573,7 +6573,7 @@
       "source_references": [
         "ref.github.healthcare.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -6629,7 +6629,7 @@
       "source_references": [
         "ref.github.healthcare.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -6685,7 +6685,7 @@
       "source_references": [
         "ref.github.healthcare.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -6740,7 +6740,7 @@
       "source_references": [
         "ref.github.hr.compensation-analyst.2026-06-01"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -6796,7 +6796,7 @@
       "source_references": [
         "ref.github.hr.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -6852,7 +6852,7 @@
       "source_references": [
         "ref.github.hr.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -6907,7 +6907,7 @@
       "source_references": [
         "ref.github.hr-master.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -6963,7 +6963,7 @@
       "source_references": [
         "ref.github.hr.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -7019,7 +7019,7 @@
       "source_references": [
         "ref.github.hr.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -7075,7 +7075,7 @@
       "source_references": [
         "ref.github.hr.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -7131,7 +7131,7 @@
       "source_references": [
         "ref.github.hr.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -7187,7 +7187,7 @@
       "source_references": [
         "ref.github.hr.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -7300,7 +7300,7 @@
       "source_references": [
         "ref.github.hr-master.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -7356,7 +7356,7 @@
       "source_references": [
         "ref.github.hr.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -7413,7 +7413,7 @@
       "source_references": [
         "ref.github.hr-master.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -7514,7 +7514,7 @@
       "source_references": [
         "ref.github.hr.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -7570,7 +7570,7 @@
       "source_references": [
         "ref.github.hr.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -7628,7 +7628,7 @@
       "source_references": [
         "ref.github.integrations.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "integrations.api-integration-specialist",
@@ -7684,7 +7684,7 @@
       "source_references": [
         "ref.github.integrations.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "integrations.browser-auto",
@@ -7740,7 +7740,7 @@
       "source_references": [
         "ref.github.integrations-master.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "integrations.event-streaming-architect",
@@ -7796,7 +7796,7 @@
       "source_references": [
         "ref.github.integrations.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "integrations.figma-agent",
@@ -7848,7 +7848,7 @@
       "source_references": [
         "ref.github.ecc.2026-05-29"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "integrations.github-operator",
@@ -7902,7 +7902,7 @@
       "source_references": [
         "ref.github.integrations-master.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "integrations.graphql-integrator",
@@ -7958,7 +7958,7 @@
       "source_references": [
         "ref.github.integrations.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "integrations.master",
@@ -8066,7 +8066,7 @@
       "source_references": [
         "ref.github.ecc.2026-05-29"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "integrations.message-queue-engineer",
@@ -8122,7 +8122,7 @@
       "source_references": [
         "ref.github.integrations.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "integrations.microservices-integrator",
@@ -8178,7 +8178,7 @@
       "source_references": [
         "ref.github.integrations.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "integrations.middleware-developer",
@@ -8234,7 +8234,7 @@
       "source_references": [
         "ref.github.integrations.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "integrations.notion-agent",
@@ -8286,7 +8286,7 @@
       "source_references": [
         "ref.github.ecc.2026-05-29"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "integrations.sourcegraph-context-agent",
@@ -8340,7 +8340,7 @@
       "source_references": [
         "ref.github.integrations.sourcegraph-context.2026-06-01"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "integrations.stripe-agent",
@@ -8392,7 +8392,7 @@
       "source_references": [
         "ref.github.ecc.2026-05-29"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -8450,7 +8450,7 @@
       "source_references": [
         "ref.github.integrations.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "integrations.vercel-agent",
@@ -8504,7 +8504,7 @@
       "source_references": [
         "ref.github.integrations-master.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "integrations.webhook-developer",
@@ -8560,7 +8560,7 @@
       "source_references": [
         "ref.github.integrations.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "legal-compliance.compliance-checker",
@@ -8620,7 +8620,7 @@
       "source_references": [
         "ref.github.legal-compliance-master.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -8682,7 +8682,7 @@
       "source_references": [
         "ref.github.legal-compliance-master.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -8737,7 +8737,7 @@
       "source_references": [
         "ref.github.legal-compliance.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -8792,7 +8792,7 @@
       "source_references": [
         "ref.github.legal-compliance.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -8848,7 +8848,7 @@
       "source_references": [
         "ref.github.legal-compliance.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -8904,7 +8904,7 @@
       "source_references": [
         "ref.github.legal-compliance.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -8959,7 +8959,7 @@
       "source_references": [
         "ref.github.legal-compliance.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -9014,7 +9014,7 @@
       "source_references": [
         "ref.github.legal-compliance.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -9069,7 +9069,7 @@
       "source_references": [
         "ref.github.legal-compliance.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -9227,7 +9227,7 @@
       "source_references": [
         "ref.github.legal-compliance.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -9289,7 +9289,7 @@
       "source_references": [
         "ref.github.legal-compliance-master.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -9344,7 +9344,7 @@
       "source_references": [
         "ref.github.legal-compliance.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -9399,7 +9399,7 @@
       "source_references": [
         "ref.github.legal-compliance.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -9498,7 +9498,7 @@
       "source_references": [
         "ref.github.manufacturing-master.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "manufacturing.industrial-engineer",
@@ -9552,7 +9552,7 @@
       "source_references": [
         "ref.github.manufacturing.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "manufacturing.inventory-manager",
@@ -9606,7 +9606,7 @@
       "source_references": [
         "ref.github.manufacturing.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "manufacturing.inventory-planner",
@@ -9659,7 +9659,7 @@
       "source_references": [
         "ref.github.manufacturing-master.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "manufacturing.lean-manufacturing",
@@ -9713,7 +9713,7 @@
       "source_references": [
         "ref.github.manufacturing.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "manufacturing.maintenance-engineer",
@@ -9767,7 +9767,7 @@
       "source_references": [
         "ref.github.manufacturing.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "manufacturing.manufacturing-analyst",
@@ -9821,7 +9821,7 @@
       "source_references": [
         "ref.github.manufacturing.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "manufacturing.manufacturing-operations",
@@ -9875,7 +9875,7 @@
       "source_references": [
         "ref.github.manufacturing.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "manufacturing.master",
@@ -9984,7 +9984,7 @@
       "source_references": [
         "ref.github.manufacturing.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "manufacturing.production-engineer",
@@ -10038,7 +10038,7 @@
       "source_references": [
         "ref.github.manufacturing.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "manufacturing.quality-engineer",
@@ -10092,7 +10092,7 @@
       "source_references": [
         "ref.github.manufacturing.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "manufacturing.quality-nonconformance-analyst",
@@ -10145,7 +10145,7 @@
       "source_references": [
         "ref.github.manufacturing-master.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "manufacturing.safety-engineer",
@@ -10199,7 +10199,7 @@
       "source_references": [
         "ref.github.manufacturing.2026-05-31"
       ],
-      "quality_gate": "staging",
+      "quality_gate": "production",
       "requires_disclaimer": true,
       "human_review_gate": true
     },
@@ -10255,7 +10255,7 @@
       "source_references": [
         "ref.github.manufacturing.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "marketing.brand-manager",
@@ -10307,7 +10307,7 @@
       "source_references": [
         "ref.github.ecc.2026-05-29"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "marketing.brand-marketer",
@@ -10361,7 +10361,7 @@
       "source_references": [
         "ref.github.marketing.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "marketing.campaign-analyst",
@@ -10460,7 +10460,7 @@
       "source_references": [
         "ref.github.marketing.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "marketing.conversion-optimizer",
@@ -10518,7 +10518,7 @@
       "source_references": [
         "ref.github.marketing.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "marketing.digital-marketer",
@@ -10574,7 +10574,7 @@
       "source_references": [
         "ref.github.marketing.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "marketing.email-marketer",
@@ -10633,7 +10633,7 @@
       "source_references": [
         "ref.github.marketing.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "marketing.event-marketer",
@@ -10687,7 +10687,7 @@
       "source_references": [
         "ref.github.marketing.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "marketing.growth-marketer",
@@ -10745,7 +10745,7 @@
       "source_references": [
         "ref.github.marketing.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "marketing.influencer-marketer",
@@ -10799,7 +10799,7 @@
       "source_references": [
         "ref.github.marketing.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "marketing.marketing-analyst",
@@ -10852,7 +10852,7 @@
       "source_references": [
         "ref.github.marketing.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "marketing.marketing-automator",
@@ -10906,7 +10906,7 @@
       "source_references": [
         "ref.github.marketing.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "marketing.marketing-strategist",
@@ -10959,7 +10959,7 @@
       "source_references": [
         "ref.github.marketing-master.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "marketing.master",
@@ -11070,7 +11070,7 @@
       "source_references": [
         "ref.github.marketing.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "marketing.sem-specialist",
@@ -11126,7 +11126,7 @@
       "source_references": [
         "ref.github.marketing.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "marketing.seo-analyst",
@@ -11186,7 +11186,7 @@
       "source_references": [
         "ref.github.marketing-master.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "marketing.social-media-manager",
@@ -11243,7 +11243,7 @@
       "source_references": [
         "ref.github.marketing.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "meta-system.adapter-generator",
@@ -11296,7 +11296,7 @@
       "source_references": [
         "ref.github.ecc.2026-05-29"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "meta-system.agent-designer",
@@ -11350,7 +11350,7 @@
       "source_references": [
         "ref.github.meta-system.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "meta-system.cost-controller",
@@ -11403,7 +11403,7 @@
       "source_references": [
         "ref.github.ecc.2026-05-29"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "meta-system.deduplicator",
@@ -11456,7 +11456,7 @@
       "source_references": [
         "ref.github.meta-system.deduplicator.2026-06-01"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "meta-system.dossier-evaluator",
@@ -11510,7 +11510,7 @@
       "source_references": [
         "ref.github.meta-system.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "meta-system.eval-runner",
@@ -11564,7 +11564,7 @@
       "source_references": [
         "ref.github.ecc.2026-05-29"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "meta-system.fixture-engineer",
@@ -11619,7 +11619,7 @@
       "source_references": [
         "ref.github.meta-system.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "meta-system.graph-builder",
@@ -11671,7 +11671,7 @@
       "source_references": [
         "ref.github.ecc.2026-05-29"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "meta-system.master",
@@ -11761,7 +11761,7 @@
       "source_references": [
         "ref.github.ecc.2026-05-29"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "meta-system.quality-assurance",
@@ -11815,7 +11815,7 @@
       "source_references": [
         "ref.github.meta-system.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "meta-system.skill-designer",
@@ -11869,7 +11869,7 @@
       "source_references": [
         "ref.github.meta-system.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "meta-system.source-miner",
@@ -11923,7 +11923,7 @@
       "source_references": [
         "ref.github.ecc.2026-05-29"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "meta-system.stub-detector",
@@ -11976,7 +11976,7 @@
       "source_references": [
         "ref.github.meta-system.stub-detector.2026-06-01"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "meta-system.system-architect",
@@ -12030,7 +12030,7 @@
       "source_references": [
         "ref.github.meta-system.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "meta-system.system-optimizer",
@@ -12084,7 +12084,7 @@
       "source_references": [
         "ref.github.meta-system.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "meta-system.workflow-architect",
@@ -12138,7 +12138,7 @@
       "source_references": [
         "ref.github.meta-system.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "meta-system.workflow-miner",
@@ -12190,7 +12190,7 @@
       "source_references": [
         "ref.github.ecc.2026-05-29"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "platform.ci-cd-engineer",
@@ -12302,7 +12302,7 @@
       "source_references": [
         "ref.github.platform.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "platform.cloud-architect",
@@ -12404,7 +12404,7 @@
       "source_references": [
         "ref.github.platform.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "platform.container-security",
@@ -12462,7 +12462,7 @@
       "source_references": [
         "ref.github.platform.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "platform.devops-engineer",
@@ -12573,7 +12573,7 @@
       "source_references": [
         "ref.github.platform.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "platform.incident-responder",
@@ -12692,7 +12692,7 @@
       "source_references": [
         "ref.github.platform.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "platform.kubernetes-admin",
@@ -12751,7 +12751,7 @@
       "source_references": [
         "ref.github.platform.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "platform.master",
@@ -12849,7 +12849,7 @@
       "source_references": [
         "ref.github.platform.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "platform.observability-engineer",
@@ -13005,7 +13005,7 @@
       "source_references": [
         "ref.github.platform.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "platform.terraform-architect",
@@ -13063,7 +13063,7 @@
       "source_references": [
         "ref.github.platform.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "product-business.ceo-advisor",
@@ -13156,7 +13156,7 @@
       "source_references": [
         "ref.github.ecc.2026-05-29"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "product-business.competitive-analyst",
@@ -13209,7 +13209,7 @@
       "source_references": [
         "ref.github.product-business.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "product-business.cto-advisor",
@@ -13301,7 +13301,7 @@
       "source_references": [
         "ref.github.product-business-master.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "product-business.feature-prioritizer",
@@ -13354,7 +13354,7 @@
       "source_references": [
         "ref.github.product-business.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "product-business.growth-manager",
@@ -13407,7 +13407,7 @@
       "source_references": [
         "ref.github.product-business.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "product-business.growth-marketer",
@@ -13459,7 +13459,7 @@
       "source_references": [
         "ref.github.ecc.2026-05-29"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "product-business.market-researcher",
@@ -13512,7 +13512,7 @@
       "source_references": [
         "ref.github.product-business.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "product-business.master",
@@ -13620,7 +13620,7 @@
       "source_references": [
         "ref.github.product-business-master.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "product-business.partnerships-advisor",
@@ -13673,7 +13673,7 @@
       "source_references": [
         "ref.github.product-business.partnerships.2026-06-01"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "product-business.pricing-strategist",
@@ -13726,7 +13726,7 @@
       "source_references": [
         "ref.github.product-business.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "product-business.product-analyst",
@@ -13779,7 +13779,7 @@
       "source_references": [
         "ref.github.product-business.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "product-business.product-designer",
@@ -13832,7 +13832,7 @@
       "source_references": [
         "ref.github.product-business.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "product-business.product-launcher",
@@ -13885,7 +13885,7 @@
       "source_references": [
         "ref.github.product-business.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "product-business.product-manager",
@@ -13938,7 +13938,7 @@
       "source_references": [
         "ref.github.product-business-master.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "product-business.product-marketer",
@@ -13991,7 +13991,7 @@
       "source_references": [
         "ref.github.product-business.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "product-business.product-ops",
@@ -14044,7 +14044,7 @@
       "source_references": [
         "ref.github.product-business.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "product-business.product-strategist",
@@ -14097,7 +14097,7 @@
       "source_references": [
         "ref.github.product-business.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "product-business.product-writer",
@@ -14150,7 +14150,7 @@
       "source_references": [
         "ref.github.product-business.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "product-business.roadmap-planner",
@@ -14203,7 +14203,7 @@
       "source_references": [
         "ref.github.product-business.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "product-business.sales-operator",
@@ -14300,7 +14300,7 @@
       "source_references": [
         "ref.github.product-business.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "research.academic-researcher",
@@ -14354,7 +14354,7 @@
       "source_references": [
         "ref.github.research.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "research.data-researcher",
@@ -14408,7 +14408,7 @@
       "source_references": [
         "ref.github.research.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "research.deep-researcher",
@@ -14462,7 +14462,7 @@
       "source_references": [
         "ref.github.research-master.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "research.literature-reviewer",
@@ -14516,7 +14516,7 @@
       "source_references": [
         "ref.github.research.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "research.market-intel-analyst",
@@ -14570,7 +14570,7 @@
       "source_references": [
         "ref.github.research-master.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "research.market-researcher",
@@ -14624,7 +14624,7 @@
       "source_references": [
         "ref.github.research.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "research.master",
@@ -14733,7 +14733,7 @@
       "source_references": [
         "ref.github.research.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "research.research-methodologist",
@@ -14787,7 +14787,7 @@
       "source_references": [
         "ref.github.research.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "research.research-project-manager",
@@ -14841,7 +14841,7 @@
       "source_references": [
         "ref.github.research.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "research.scientific-literature-analyst",
@@ -14895,7 +14895,7 @@
       "source_references": [
         "ref.github.research-master.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "research.scientific-writer",
@@ -14949,7 +14949,7 @@
       "source_references": [
         "ref.github.research.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "research.statistical-consultant",
@@ -15003,7 +15003,7 @@
       "source_references": [
         "ref.github.research.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "sales.account-executive",
@@ -15057,7 +15057,7 @@
       "source_references": [
         "ref.github.sales.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "sales.account-manager",
@@ -15154,7 +15154,7 @@
       "source_references": [
         "ref.github.sales.competitive-intel.2026-06-01"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "sales.contract-negotiator",
@@ -15208,7 +15208,7 @@
       "source_references": [
         "ref.github.sales.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "sales.crm-admin",
@@ -15262,7 +15262,7 @@
       "source_references": [
         "ref.github.sales.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "sales.customer-success",
@@ -15316,7 +15316,7 @@
       "source_references": [
         "ref.github.sales.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "sales.deal-desk",
@@ -15370,7 +15370,7 @@
       "source_references": [
         "ref.github.sales.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "sales.master",
@@ -15479,7 +15479,7 @@
       "source_references": [
         "ref.github.sales-master.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "sales.pricing-strategist",
@@ -15574,7 +15574,7 @@
       "source_references": [
         "ref.github.sales-master.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "sales.proposal-writer",
@@ -15628,7 +15628,7 @@
       "source_references": [
         "ref.github.sales.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "sales.sales-analyst",
@@ -15682,7 +15682,7 @@
       "source_references": [
         "ref.github.sales.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "sales.sales-development",
@@ -15737,7 +15737,7 @@
       "source_references": [
         "ref.github.sales.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "sales.sales-enablement",
@@ -15791,7 +15791,7 @@
       "source_references": [
         "ref.github.sales.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "sales.sales-engineer",
@@ -15845,7 +15845,7 @@
       "source_references": [
         "ref.github.sales.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "sales.sales-ops",
@@ -15899,7 +15899,7 @@
       "source_references": [
         "ref.github.sales.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "sales.sales-strategist",
@@ -15952,7 +15952,7 @@
       "source_references": [
         "ref.github.sales-master.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "sales.sales-trainer",
@@ -16006,7 +16006,7 @@
       "source_references": [
         "ref.github.sales.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "sales.territory-manager",
@@ -16060,7 +16060,7 @@
       "source_references": [
         "ref.github.sales.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "security.application-security",
@@ -16125,7 +16125,7 @@
       "source_references": [
         "ref.github.security.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "security.cloud-security",
@@ -16190,7 +16190,7 @@
       "source_references": [
         "ref.github.security.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "security.compliance-officer",
@@ -16254,7 +16254,7 @@
       "source_references": [
         "ref.github.security.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "security.cryptography-expert",
@@ -16318,7 +16318,7 @@
       "source_references": [
         "ref.github.security.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "security.dependency-risk-agent",
@@ -16372,7 +16372,7 @@
       "source_references": [
         "ref.github.security.dependency-risk.2026-06-01"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "security.identity-access",
@@ -16436,7 +16436,7 @@
       "source_references": [
         "ref.github.security.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "security.incident-responder",
@@ -16502,7 +16502,7 @@
       "source_references": [
         "ref.github.security.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "security.master",
@@ -16607,7 +16607,7 @@
       "source_references": [
         "ref.github.security.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "security.penetration-tester",
@@ -16671,7 +16671,7 @@
       "source_references": [
         "ref.github.security.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "security.secret-scan-agent",
@@ -16725,7 +16725,7 @@
       "source_references": [
         "ref.github.security.secret-scan-agent.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "security.security-auditor",
@@ -16789,7 +16789,7 @@
       "source_references": [
         "ref.github.security.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "security.security-reviewer",
@@ -16843,7 +16843,7 @@
       "source_references": [
         "ref.github.security.security-reviewer.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "security.threat-hunter",
@@ -16908,7 +16908,7 @@
       "source_references": [
         "ref.github.security.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "security.threat-modeler",
@@ -16961,7 +16961,7 @@
       "source_references": [
         "ref.github.security.threat-modeler.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "security.vulnerability-manager",
@@ -17026,7 +17026,7 @@
       "source_references": [
         "ref.github.security.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "startup-ops.business-model-designer",
@@ -17082,7 +17082,7 @@
       "source_references": [
         "ref.github.startup-ops.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "startup-ops.ceo-rethink",
@@ -17135,7 +17135,7 @@
       "source_references": [
         "ref.github.startup-ops-master.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "startup-ops.customer-development",
@@ -17191,7 +17191,7 @@
       "source_references": [
         "ref.github.startup-ops.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "startup-ops.financial-modeler",
@@ -17247,7 +17247,7 @@
       "source_references": [
         "ref.github.startup-ops.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "startup-ops.fundraising-specialist",
@@ -17303,7 +17303,7 @@
       "source_references": [
         "ref.github.startup-ops.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "startup-ops.growth-hacker",
@@ -17359,7 +17359,7 @@
       "source_references": [
         "ref.github.startup-ops.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "startup-ops.hr-specialist",
@@ -17415,7 +17415,7 @@
       "source_references": [
         "ref.github.startup-ops.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "startup-ops.legal-compliance",
@@ -17471,7 +17471,7 @@
       "source_references": [
         "ref.github.startup-ops.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "startup-ops.master",
@@ -17583,7 +17583,7 @@
       "source_references": [
         "ref.github.startup-ops.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "startup-ops.pitch-deck-creator",
@@ -17639,7 +17639,7 @@
       "source_references": [
         "ref.github.startup-ops.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "startup-ops.product-market-fit",
@@ -17695,7 +17695,7 @@
       "source_references": [
         "ref.github.startup-ops.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "startup-ops.qa",
@@ -17749,7 +17749,7 @@
       "source_references": [
         "ref.github.startup-ops-master.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "startup-ops.release",
@@ -17803,7 +17803,7 @@
       "source_references": [
         "ref.github.startup-ops-master.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "startup-ops.startup-mentor",
@@ -17859,7 +17859,7 @@
       "source_references": [
         "ref.github.startup-ops.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     },
     {
       "id": "startup-ops.startup-strategist",
@@ -17915,7 +17915,7 @@
       "source_references": [
         "ref.github.startup-ops.2026-05-31"
       ],
-      "quality_gate": "staging"
+      "quality_gate": "production"
     }
   ]
 }

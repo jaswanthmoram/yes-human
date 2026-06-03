@@ -3,5 +3,6 @@
   "code_graph_assist": true,
   "db_path": "graph/indexes/yes.sqlite",
   "max_context_items": 8,
-  "stale_after_days": 14
+  "stale_after_days": 14,
+  "semantic_fallback": false
 }
