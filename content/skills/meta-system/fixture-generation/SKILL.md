@@ -2,7 +2,7 @@
 id: meta-system.fixture-generation
 name: Test Fixture Generation and Validation
 version: 1.0.0
-domain: meta-system
+domain: moramvenkatasatyajaswanth
 category: meta-system.testing
 purpose: Generate and validate test fixtures for routing, skill, and workflow evaluation.
 summary: Systematic approach to generating comprehensive test fixtures with edge cases and coverage analysis.
@@ -12,99 +12,125 @@ triggers:
   - build skill fixtures
   - produce workflow fixtures
   - validate fixture coverage
+  - yes human task
+  - test fixture generation and validation review
 activation_triggers:
   - fixture generation
   - test fixture creation
   - fixture coverage validation
 prerequisites:
-  - target registry available
-  - coverage requirements defined
-  - fixture schema known
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - target_registry
   - coverage_requirements
   - fixture_schema
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
 steps:
-  - Analyze coverage requirements
-  - Identify target agents, skills, or workflows
-  - Generate positive test cases
-  - Generate edge case fixtures
-  - Generate negative test cases
-  - Validate fixture format against schema
-  - Check coverage completeness
-  - Remove duplicate fixtures
-  - Produce fixture set
-  - Validate with quality gates
+  - Confirm the requested test fixture generation and validation outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - fixture_set
   - coverage_report
   - edge_cases
   - negative_cases
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - filesystem.read (read registry and existing fixtures)
   - filesystem.write (write fixture files)
+  - filesystem.read
+  - filesystem.write
 quality_gates:
   - Coverage requirements met
   - Edge cases included
   - Negative cases included
   - Format validated
   - No duplicates
+  - Inputs and assumptions are explicit
 failure_modes:
   - Generating fixtures without edge cases
   - Missing negative test scenarios
   - Format not matching schema
   - Duplicate fixtures
   - Incomplete coverage
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
 handoffs:
   - meta-system.fixture-engineer (to review fixtures)
   - meta-system.route-evaluation (to evaluate routing)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.meta-system.2026-05-31
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - meta-system.fixture-engineer
   - meta-system.eval-runner
-allowed_workflows: []
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - Revert fixture files
   - Restore previous fixture set
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when generating test fixtures, creating routing/skill/workflow fixtures, or validating fixture coverage.
+Use this skill when a task explicitly matches `meta-system.fixture-generation` or when the user asks for test fixture generation and validation support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Target registry available
-- Coverage requirements defined
-- Fixture schema known
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Analyze Coverage**: Determine what needs to be tested and at what depth.
-2. **Identify Targets**: List all agents, skills, or workflows needing fixtures.
-3. **Generate Positive Cases**: Create fixtures for typical usage scenarios.
-4. **Generate Edge Cases**: Create fixtures for boundary conditions.
-5. **Generate Negative Cases**: Create fixtures for scenarios that should NOT route.
-6. **Validate Format**: Check fixture format against the schema.
-7. **Check Coverage**: Verify all targets have adequate fixture coverage.
-8. **Remove Duplicates**: Eliminate redundant fixtures.
-9. **Produce Set**: Write the complete fixture file.
-10. **Validate**: Run through quality gates.
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- All quality gates passed
-- Coverage requirements met
-- Edge cases included
-- Format validated
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
+
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Generating fixtures without edge cases
-- Missing negative test scenarios
-- Not validating format against schema
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Examples
+**Example A:** A user asks for test fixture generation and validation help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
+
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

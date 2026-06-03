@@ -2,7 +2,7 @@
 id: meta-system.agent-architecture
 name: Agent Architecture Design and Review
 version: 1.0.0
-domain: meta-system
+domain: moramvenkatasatyajaswanth
 category: meta-system.architecture
 purpose: Design agent architectures with proper modularity, trigger matrices, and verification gates.
 summary: Systematic approach to designing agent architectures that fit the yes-human registry conventions.
@@ -12,99 +12,124 @@ triggers:
   - plan agent trigger matrix
   - architect agent capabilities
   - review agent dependency graph
+  - yes human task
+  - agent architecture design and review review
 activation_triggers:
   - agent architecture plan
   - agent structure review
   - agent capability design
 prerequisites:
-  - agent requirement defined
-  - domain context available
-  - registry snapshot accessible
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - agent_requirement
   - domain_context
   - registry_snapshot
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
 steps:
-  - Analyze agent requirement and scope
-  - Map agent capabilities to domain needs
-  - Design trigger matrix with positive and negative triggers
-  - Define input and output contracts
-  - Plan verification gates
-  - Check overlap with existing agents
-  - Design failure modes and recovery
-  - Validate budget band and context limits
-  - Produce architecture specification
-  - Review with quality gates
+  - Confirm the requested agent architecture design and review outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - architecture_specification
   - trigger_matrix
   - verification_plan
   - overlap_analysis
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - filesystem.read (read registry and existing agents)
+  - filesystem.read
+  - filesystem.write
 quality_gates:
   - Requirements fully analyzed
   - Trigger matrix validated
   - Overlap check complete
   - Verification gates defined
   - Budget constraints respected
+  - Inputs and assumptions are explicit
 failure_modes:
   - Designing without overlap analysis
   - Missing negative triggers
   - Undefined verification gates
   - Ignoring budget constraints
   - Skipping failure mode design
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
 handoffs:
   - meta-system.agent-designer (to finalize agent spec)
   - meta-system.fixture-engineer (to create test fixtures)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.meta-system.2026-05-31
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - meta-system.agent-designer
   - meta-system.system-architect
-allowed_workflows: []
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - Revert architecture specification
   - Restore previous agent design
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when designing agent architectures, reviewing agent modular structure, or planning agent trigger matrices.
+Use this skill when a task explicitly matches `meta-system.agent-architecture` or when the user asks for agent architecture design and review support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Agent requirement defined
-- Domain context available
-- Registry snapshot accessible
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Analyze Requirement**: Break down the agent requirement into capabilities, inputs, and outputs.
-2. **Map Capabilities**: Align agent capabilities with domain needs and existing agents.
-3. **Design Trigger Matrix**: Create positive triggers and negative keywords to prevent routing conflicts.
-4. **Define Contracts**: Specify input and output contracts with types and validation rules.
-5. **Plan Verification**: Design verification gates that the agent must pass.
-6. **Check Overlap**: Scan existing registry for overlapping agents.
-7. **Design Failure Modes**: Enumerate failure modes and recovery strategies.
-8. **Validate Budget**: Ensure the agent fits within its budget band and context limits.
-9. **Produce Specification**: Write the complete architecture specification.
-10. **Review**: Run through quality gates before finalizing.
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- All quality gates passed
-- Trigger matrix validated against registry
-- Overlap analysis complete
-- Budget constraints respected
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
+
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Designing without checking existing agents
-- Missing negative triggers causing routing conflicts
-- Undefined verification gates
-- Ignoring context token budget
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Examples
+**Example A:** A user asks for agent architecture design and review help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
+
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

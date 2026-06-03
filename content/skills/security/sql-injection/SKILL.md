@@ -2,7 +2,7 @@
 id: security.sql-injection
 name: SQL Injection Prevention
 version: 1.0.0
-domain: security
+domain: moramvenkatasatyajaswanth
 category: security.application-security
 purpose: Prevent SQL injection vulnerabilities through parameterized queries, ORM usage, and input validation.
 summary: SQL injection prevention review covering parameterized queries, ORM security, stored procedure safety, and input validation.
@@ -14,142 +14,114 @@ triggers:
   - SQL injection audit
   - review ORM query safety
   - check raw SQL queries
-  - database query security review
-aliases:
-  - SQLi review
-  - SQL injection check
-  - query safety audit
-negative_keywords:
-  - NoSQL databases
-  - database performance
-  - schema design
+activation_triggers:
+  - help me with sql injection prevention
+  - review sql injection prevention work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - database_query_code
   - orm_configuration
   - stored_procedures
   - input_validation_code
+  - target_artifact
+  - requirements_or_context
+steps:
+  - Confirm the requested sql injection prevention outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - sqli_assessment_report
   - vulnerable_queries
   - remediation_plan
   - secure_query_patterns
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
   - code.grep
   - web.search
-required_skills: []
-budget_band: micro
-max_context_tokens: 8000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Missing dynamic query construction
   - ORM raw query bypasses
   - Stored procedure concatenation
   - Second-order SQL injection
-verification:
-  - All queries use parameterized statements or ORM
-  - No string concatenation in SQL queries
-  - Input validation on all database inputs
-  - Least privilege database accounts configured
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.security.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: micro
 rollback:
   - Revert query changes if they break application functionality
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Prevent SQL injection vulnerabilities by reviewing database query construction patterns, enforcing parameterized queries, and ensuring proper input validation before data reaches the database layer.
+## Trigger
+Use this skill when a task explicitly matches `security.sql-injection` or when the user asks for sql injection prevention support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- When building or reviewing database query code
-- During security review of data access layers
-- When migrating from raw SQL to ORM or query builders
-- After SQL injection vulnerability reports
-- Before deploying applications that interact with SQL databases
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- For NoSQL databases (different injection patterns, use sast-analysis)
-- For database performance optimization (use index-optimization skill)
-- For schema design review (use schema-migration skill)
-- When only checking database connection security
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Identify All Database Access Points**:
-   - Map all code paths that execute SQL queries
-   - Identify ORM usage, raw queries, and stored procedures
-   - Find dynamic query construction patterns
-   - Document database connection configurations
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-2. **Review Query Construction**:
-   - Check for string concatenation in SQL queries
-   - Verify parameterized queries are used everywhere
-   - Review prepared statement usage
-   - Check for dynamic table/column name injection
-   - Identify LIKE clause injection via wildcards
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
 
-3. **Assess ORM Security**:
-   - Check for raw query methods (e.g., .raw(), .extra(), .execute())
-   - Review ORM query builder for injection vectors
-   - Check for unsafe dynamic field selection
-   - Verify ORM version is patched for known injection bugs
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
 
-4. **Review Stored Procedures**:
-   - Check for dynamic SQL within stored procedures
-   - Verify EXECUTE IMMEDIATE uses bind variables
-   - Review procedure parameter types and validation
-   - Check for privilege escalation through procedures
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
 
-5. **Check Input Validation**:
-   - Verify type checking on numeric parameters
-   - Check allowlist validation for sort columns and directions
-   - Review pagination parameter validation
-   - Verify search query sanitization
-
-6. **Test for Advanced Injection**:
-   - Second-order SQL injection (stored then used in query)
-   - Blind SQL injection (time-based, boolean-based)
-   - UNION-based injection
-   - Stacked queries
-   - Out-of-band data exfiltration
-
-7. **Implement Defense-in-Depth**:
-   - Use least privilege database accounts
-   - Implement WAF rules for SQL injection patterns
-   - Enable database query logging and monitoring
-   - Set up alerts for suspicious query patterns
-
-## Tool Policy
-- Use `code.grep` to find raw SQL patterns and string concatenation
-- Use `filesystem.read` to review query construction code
-- Use `web.search` for SQL injection techniques and ORM advisories
-- Use `filesystem.write` to produce assessment reports
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Zero instances of string concatenation in SQL queries
-- All queries use parameterized statements or safe ORM methods
-- Input validation applied before query construction
-- Database accounts follow least privilege principle
-- No SQL injection possible in testing
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Missing dynamic ORDER BY or column name injection
-- ORM raw query methods used without parameterization
-- Second-order injection through stored data
-- Not validating numeric parameters (assuming type safety)
-- Stored procedures with dynamic SQL concatenation
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- `GET /users?id=1 OR 1=1` - test parameter injection
-- `GET /search?q='; DROP TABLE users;--` - test search injection
-- `POST /api/filter` - test dynamic WHERE clause construction
-- `GET /api/sort?column=name&dir=ASC` - test ORDER BY injection
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for sql injection prevention help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- OWASP SQL Injection Prevention Cheat Sheet
-- CWE-89: SQL Injection
-- Bobby Tables: https://bobby-tables.com/
-- Reference: ref.github.security.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

@@ -2,7 +2,7 @@
 id: sales.value-selling
 name: Value Selling Framework
 version: 1.0.0
-domain: sales
+domain: moramvenkatasatyajaswanth
 category: sales.strategy
 purpose: Quantify and communicate business value to buyers using ROI models, business case frameworks, and value metrics.
 summary: Value quantification, ROI modeling, and business case creation for connecting solution capabilities to buyer outcomes.
@@ -14,88 +14,110 @@ triggers:
   - value proposition quantification
   - value selling framework
   - total cost of ownership analysis
-  - business value assessment
-aliases:
-  - value selling
-  - ROI selling
-  - business case
-negative_keywords:
-  - financial valuation
-  - investment analysis
-  - product pricing
+activation_triggers:
+  - help me with value selling framework
+  - review value selling framework work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - buyer_metrics
   - solution_capabilities
   - industry_benchmarks
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested value selling framework outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - value_assessment
   - roi_model
   - business_case
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
-required_skills: []
-budget_band: standard
-max_context_tokens: 8000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Creates ROI model without buyer-specific metrics
   - Uses generic benchmarks without buyer validation
   - Skips total cost of ownership in value calculation
-verification:
-  - ROI model uses buyer-specific data where available
-  - Assumptions explicitly stated and validated
-  - TCO included in value calculation
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.sales.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - No state changes to rollback
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Quantify and communicate business value to buyers using ROI models, business case frameworks, and value metrics.
+## Trigger
+Use this skill when a task explicitly matches `sales.value-selling` or when the user asks for value selling framework support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- Building business cases for enterprise deals
-- Creating ROI models for buyer presentations
-- Quantifying value propositions for specific opportunities
-- Developing value selling frameworks for sales teams
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- Financial valuation belongs to finance
-- Investment analysis belongs to finance
-- Product pricing belongs to product-business
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. Identify buyer-specific metrics and success criteria.
-2. Map solution capabilities to buyer outcome improvements.
-3. Build ROI model with conservative assumptions.
-4. Calculate total cost of ownership including implementation.
-5. Create business case with payback period and NPV.
-6. Validate assumptions with buyer or industry benchmarks.
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-## Tool Policy
-- Use `filesystem.read` to access buyer data and industry benchmarks.
-- Use `filesystem.write` to save ROI models and business cases.
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- ROI model uses buyer-specific data where available
-- All assumptions explicitly stated with confidence level
-- TCO included alongside value calculation
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Using only generic benchmarks without buyer validation
-- Ignoring implementation costs in ROI calculation
-- Presenting ROI as guaranteed rather than projected
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- "build business case for enterprise analytics deal"
-- "create ROI model for cost savings proposition"
-- "quantify value for productivity improvement pitch"
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for value selling framework help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- Value selling frameworks from Solution Selling methodology
-- Reference: ref.github.sales.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

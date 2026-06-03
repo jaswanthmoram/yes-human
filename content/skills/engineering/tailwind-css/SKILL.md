@@ -2,9 +2,10 @@
 id: engineering.tailwind-css
 name: Tailwind CSS Utility Patterns
 version: 1.0.0
-domain: engineering
+domain: moramvenkatasatyajaswanth
 category: engineering.frameworks
-description: Guide Tailwind CSS utility-first patterns including responsive design, component extraction, custom themes, and performance optimization.
+purpose: Execute tailwind css utility patterns work with evidence, verification, and clear handoff rules.
+summary: Tailwind CSS Utility Patterns provides a repeatable operating procedure for task tasks. It defines inputs, checks, outputs, rollback behavior, and escalation paths so routed agents produce useful work rather than generic advice.
 triggers:
   - tailwind css
   - tailwind utility
@@ -13,100 +14,111 @@ triggers:
   - tailwind component
   - tailwind dark mode
   - tailwind performance
-aliases:
-  - tailwind patterns
-  - utility first css
-  - tailwind config
-negative_keywords:
-  - css modules
-  - styled components
-  - sass
-  - bootstrap
+activation_triggers:
+  - help me with tailwind css utility patterns
+  - review tailwind css utility patterns work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - design_requirements
   - tailwind_version
   - design_system_tokens (optional)
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested tailwind css utility patterns outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - tailwind_markup
   - theme_configuration
   - component_extraction_guide
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
-  - code_graph.query
-required_skills: []
-budget_band: micro
-max_context_tokens: 4000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Class name bloat reducing readability
   - PurgeCSS removing used classes in production
   - Inconsistent spacing/sizing without design tokens
   - Dark mode not covering all components
-verification:
-  - All responsive breakpoints tested
-  - Dark mode styles complete
-  - Production CSS bundle contains only used classes
-  - No inline styles that should be utility classes
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.engineering.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: micro
 rollback:
   - Revert to previous CSS implementation
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Provide expert guidance on Tailwind CSS utility-first patterns, ensuring consistent design systems, responsive layouts, and optimized production builds.
+## Trigger
+Use this skill when a task explicitly matches `engineering.tailwind-css` or when the user asks for tailwind css utility patterns support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- Building UI with Tailwind CSS utility classes
-- Implementing responsive designs with Tailwind breakpoints
-- Configuring custom themes and design tokens
-- Extracting reusable component patterns from utility classes
-- Implementing dark mode with Tailwind
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- Projects using CSS-in-JS (styled-components, emotion)
-- CSS Modules or Sass-based styling systems
-- Bootstrap or other CSS framework projects
-- Simple pages with minimal styling needs
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Configure Theme**: Set up tailwind.config.js with custom colors, spacing, fonts, and breakpoints matching the design system.
-2. **Apply Utility Classes**: Use Tailwind utilities for layout (flex, grid), spacing (p-4, m-2), typography (text-lg, font-bold), and colors.
-3. **Implement Responsive Design**: Use responsive prefixes (sm:, md:, lg:, xl:) for breakpoint-specific styles.
-4. **Add Dark Mode**: Configure dark mode strategy (class or media), apply dark: variants to all color-related utilities.
-5. **Extract Components**: Use @apply in CSS or extract to framework components when class lists become unwieldy.
-6. **Optimize Bundle**: Configure content paths for PurgeCSS, verify production build removes unused classes.
-7. **Handle Edge Cases**: Use arbitrary values ([#hex], [calc()]) for one-off values, create plugins for repeated patterns.
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-## Tool Policy
-- Use `filesystem.read` to inspect existing Tailwind markup and configuration
-- Use `filesystem.write` to create or update component markup and theme config
-- Use `code_graph.query` to find Tailwind usage patterns across the codebase
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Run `npm run build` to verify production CSS is optimized
-- Test responsive design at all breakpoints
-- Verify dark mode covers all components
-- Run visual regression tests if available
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- **Class Bloat**: Too many utility classes on one element; extract to component or use @apply
-- **PurgeCSS Issues**: Dynamic class names not detected; use safelist or static class names
-- **Inconsistent Design**: Not using theme tokens leads to magic numbers; configure extend in tailwind.config.js
-- **Dark Mode Gaps**: Missing dark: variants on some elements; audit all color utilities
-- **Performance**: Large CSS bundle in development; use @tailwindcss/jit for faster builds
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- `yes route "create tailwind responsive layout"` -> engineering.tailwind-css
-- `yes route "configure tailwind dark mode"` -> engineering.tailwind-css
-- `yes route "extract tailwind component"` -> engineering.tailwind-css
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for tailwind css utility patterns help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- Tailwind CSS documentation: https://tailwindcss.com/docs
-- Tailwind CSS GitHub: github.com/tailwindlabs/tailwindcss (85k+ stars)
-- Tailwind UI component patterns: https://tailwindui.com
-- Reference dossier: ref.github.engineering.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

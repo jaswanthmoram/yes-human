@@ -2,7 +2,7 @@
 id: healthcare.patient-safety-protocols
 name: Patient Safety Protocols
 version: 1.0.0
-domain: healthcare
+domain: moramvenkatasatyajaswanth
 category: healthcare.safety
 purpose: Design and evaluate patient safety protocols, adverse event reporting, and root cause analysis frameworks.
 summary: Patient safety protocols covering event reporting, RCA methodology, prevention strategies, and safety culture assessment.
@@ -13,105 +13,111 @@ triggers:
   - safety culture assessment
   - near miss analysis
   - sentinel event review
-aliases:
-  - patient safety
-  - safety protocols
-negative_keywords:
-  - software safety testing
-  - product safety review
-  - workplace safety
+  - yes human task
+activation_triggers:
+  - help me with patient safety protocols
+  - review patient safety protocols work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - event_data
   - safety_framework
   - organizational_context
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested patient safety protocols outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - safety_protocol
   - rca_report
   - prevention_recommendations
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
-required_skills: []
-budget_band: standard
-max_context_tokens: 10000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - RCA focuses on individual blame instead of systems
   - Misses contributing factors at organizational level
   - Recommendations lack measurability
-verification:
-  - Systems-based approach applied to RCA
-  - All contributing factors identified
-  - Recommendations are measurable and actionable
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.healthcare.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - Revert protocol changes if safety concerns are identified
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Design and evaluate patient safety protocols, adverse event reporting systems, and root cause analysis frameworks.
+## Trigger
+Use this skill when a task explicitly matches `healthcare.patient-safety-protocols` or when the user asks for patient safety protocols support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- When designing patient safety protocols
-- When conducting root cause analysis of adverse events
-- When assessing safety culture
-- When implementing adverse event reporting systems
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- For software safety testing (use engineering/security agents)
-- For workplace safety (use manufacturing agents)
-- For clinical treatment decisions (use clinical-decision-support)
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Assess Safety Culture**:
-   - Evaluate reporting culture and just culture principles
-   - Review existing safety infrastructure and committees
-   - Assess leadership engagement in safety
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-2. **Design Event Reporting System**:
-   - Define reportable events and severity classification
-   - Design reporting workflows and escalation paths
-   - Configure reporting tools and dashboards
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
 
-3. **Conduct Root Cause Analysis**:
-   - Assemble multidisciplinary RCA team
-   - Apply systems-based analysis (fishbone, 5 whys, timeline)
-   - Identify root causes and contributing factors at all levels
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
 
-4. **Develop Prevention Strategies**:
-   - Design system-level interventions (forcing functions, barriers)
-   - Apply hierarchy of effectiveness for interventions
-   - Create measurable action plans with accountability
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
 
-5. **Monitor and Sustain**:
-   - Define safety metrics and monitoring dashboards
-   - Implement spread plans for successful interventions
-   - Schedule follow-up assessments for sustainability
-
-## Tool Policy
-- Use `filesystem.read` to review safety data, protocols, and event reports
-- Use `filesystem.write` to produce safety protocols and RCA reports
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Systems-based approach applied (not individual blame)
-- All contributing factors at organizational, team, and individual levels
-- Recommendations are specific, measurable, and assigned
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- RCA focusing on individual blame instead of systems
-- Missing organizational-level contributing factors
-- Recommendations that are vague or unmeasurable
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- Root cause analysis for medication error
-- Patient safety protocol for fall prevention
-- Sentinel event review and action plan
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for patient safety protocols help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- AHRQ Patient Safety Network: https://psnet.ahrq.gov/
-- Joint Commission Sentinel Event Alerts
-- Reference: ref.github.healthcare.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

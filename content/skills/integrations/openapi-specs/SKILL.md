@@ -2,7 +2,7 @@
 id: integrations.openapi-specs
 name: OpenAPI Specifications
 version: 1.0.0
-domain: integrations
+domain: moramvenkatasatyajaswanth
 category: integrations.documentation
 purpose: Create and maintain OpenAPI 3.x specifications for REST APIs with proper schema definitions, examples, and validation.
 summary: Guides through writing OpenAPI specifications including paths, components, security schemes, and server definitions.
@@ -10,84 +10,123 @@ triggers:
   - create openapi spec
   - write swagger specification
   - openapi schema definition
+  - yes human task
+  - openapi specifications review
+  - openapi specifications checklist
+  - openapi specifications plan
 activation_triggers:
   - generate api specification
   - openapi yaml json
+  - help me with openapi specifications
 prerequisites:
-  - api endpoints defined
-  - understanding of openapi specification
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - api_endpoints
   - schema_definitions
   - security_requirements
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
 steps:
-  - Define info, servers, and tags sections
-  - Document all paths with operations, parameters, and request bodies
-  - Create reusable component schemas for request/response models
-  - Define security schemes (API key, OAuth2, HTTP bearer)
-  - Add examples for all request and response bodies
-  - Validate specification against OpenAPI 3.x schema
+  - Confirm the requested openapi specifications outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - openapi_specification
   - component_schemas
   - security_definitions
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - filesystem.write (OpenAPI YAML/JSON)
+  - filesystem.read
+  - filesystem.write
 quality_gates:
   - Specification validates against OpenAPI 3.x
   - All endpoints documented with examples
   - Schemas reusable and consistent
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Invalid OpenAPI syntax
   - Missing required fields in schemas
   - Inconsistent naming across components
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - integrations.api-documentation (for doc generation)
   - integrations.api-testing (for contract testing)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.integrations.2026-05-31
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - integrations.api-integration-specialist
   - integrations.api-gateway-architect
-allowed_workflows:
-  - integrations.api-integration-setup
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - Revert specification to previous version
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when creating or updating OpenAPI 3.x specifications for REST APIs.
+Use this skill when a task explicitly matches `integrations.openapi-specs` or when the user asks for openapi specifications support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- API endpoints implemented or designed
-- Understanding of OpenAPI specification structure
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Info and Servers**: Define API metadata, version, and server URLs.
-2. **Paths**: Document each endpoint with summary, parameters, request body, and responses.
-3. **Components**: Create reusable schemas for models, parameters, and responses.
-4. **Security**: Define security schemes and apply to operations.
-5. **Examples**: Add inline examples for all request and response bodies.
-6. **Validate**: Run specification through OpenAPI validator (spectral, swagger-editor).
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Specification passes OpenAPI 3.x validation
-- All paths have operations with complete documentation
-- Component schemas are reused consistently
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
 ## Rollback
-- Revert specification file to previous version
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Using any type instead of defining proper schemas
-- Missing response codes (only documenting 200)
-- Inconsistent naming between path parameters and schemas
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Examples
+**Example A:** A user asks for openapi specifications help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
+
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

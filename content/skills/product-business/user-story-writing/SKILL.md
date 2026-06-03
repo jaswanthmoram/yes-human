@@ -2,7 +2,7 @@
 id: product-business.user-story-writing
 name: User Story Writing
 version: 1.0.0
-domain: product-business
+domain: moramvenkatasatyajaswanth
 category: product-business.requirements
 purpose: Write well-structured user stories with acceptance criteria following industry-standard formats.
 summary: Guides through creating user stories using the As-a/I-want/So-that format with testable acceptance criteria.
@@ -11,92 +11,121 @@ triggers:
   - create user story
   - user story format
   - story with acceptance criteria
+  - yes human task
+  - user story writing review
+  - user story writing checklist
 activation_triggers:
   - write stories for
   - create user stories
   - story writing session
 prerequisites:
-  - understanding of feature or requirement scope
-  - knowledge of target user segments
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - feature_description
   - user_segment
   - acceptance_criteria (optional)
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
 steps:
-  - Identify the user persona and their goal
-  - Write the story using As-a/I-want/So-that format
-  - Define testable acceptance criteria using Given/When/Then
-  - Add story points or complexity estimate
-  - Identify dependencies and edge cases
-  - Review for INVEST criteria compliance
+  - Confirm the requested user story writing outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - user_stories
   - acceptance_criteria
   - story_map
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - filesystem.read
+  - filesystem.write
 quality_gates:
   - All stories follow INVEST criteria
   - Acceptance criteria are testable
   - Stories are independently deliverable
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Writing stories that are too large or vague
   - Missing acceptance criteria
   - Not considering edge cases
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - product-business.feature-prioritizer (for backlog ordering)
   - product-business.roadmap-planner (for timeline placement)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.product-business.2026-05-31
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - product-business.product-manager
   - product-business.master
-allowed_workflows:
-  - product-business.product-discovery
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - No state changes to rollback
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when writing user stories for features, epics, or product requirements.
+Use this skill when a task explicitly matches `product-business.user-story-writing` or when the user asks for user story writing support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Clear understanding of the feature or requirement
-- Knowledge of target user segments and personas
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Identify Persona**: Determine who the user is and what role they play.
-2. **Write Story**: Use the format: As a [persona], I want [goal], so that [benefit].
-3. **Define Acceptance Criteria**: Write Given/When/Then scenarios for each story.
-4. **Estimate Complexity**: Add story points or T-shirt sizing.
-5. **Identify Dependencies**: Note blockers and related stories.
-6. **INVEST Review**: Verify stories are Independent, Negotiable, Valuable, Estimable, Small, Testable.
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Each story passes INVEST criteria
-- Acceptance criteria are specific and testable
-- Stories can be independently delivered
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
 ## Rollback
-- No state changes; this is a planning skill
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Stories too large to fit in a sprint
-- Vague acceptance criteria that cannot be tested
-- Missing non-functional requirements
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
 ## Examples
-### Feature: User Authentication
-Story: As a registered user, I want to reset my password via email, so that I can regain access to my account.
-Acceptance Criteria:
-- Given I am on the login page, When I click "Forgot Password", Then I see the password reset form
-- Given I enter a valid email, When I submit, Then I receive a reset link within 5 minutes
+**Example A:** A user asks for user story writing help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

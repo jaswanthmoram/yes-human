@@ -2,7 +2,7 @@
 id: platform.observability-setup
 name: Monitoring and Logging Setup
 version: 1.0.0
-domain: platform
+domain: moramvenkatasatyajaswanth
 category: platform.observability
 purpose: Set up comprehensive monitoring, logging, and alerting for applications and infrastructure.
 summary: Guides through implementing observability including metrics, logs, traces, and alerting strategies.
@@ -12,27 +12,30 @@ triggers:
   - add observability to application
   - set up alerting system
   - implement distributed tracing
+  - yes human task
+  - monitoring and logging setup review
 activation_triggers:
   - monitoring setup
   - logging configuration
   - observability setup
 prerequisites:
-  - application deployed
-  - access to monitoring tools
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - application_type
   - infrastructure_platform
   - monitoring_requirements
   - existing_tools (optional)
+  - target_artifact
+  - requirements_or_context
 steps:
-  - Identify key metrics to monitor (RED, USE, Golden Signals)
-  - Set up metrics collection (Prometheus, Datadog, etc.)
-  - Configure structured logging
-  - Set up log aggregation (ELK, Loki, etc.)
-  - Implement distributed tracing (Jaeger, Zipkin, etc.)
-  - Create dashboards for key metrics
-  - Set up alerting rules and escalation
-  - Document observability setup
+  - Confirm the requested monitoring and logging setup outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - metrics_configuration
   - logging_configuration
@@ -43,125 +46,90 @@ outputs:
 tools:
   - shell.write (deploy configs)
   - filesystem.write (config files)
+  - filesystem.read
+  - filesystem.write
 quality_gates:
   - Key metrics collected
   - Logs aggregated and searchable
   - Traces working end-to-end
   - Alerts configured and tested
   - Dashboards created
+  - Inputs and assumptions are explicit
 failure_modes:
   - Missing critical metrics
   - Logs not structured (hard to search)
   - Traces not propagated across services
   - Alert fatigue (too many false positives)
   - No documentation
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
 handoffs:
   - platform.devops-engineer (for infrastructure setup)
   - platform.incident-responder (for incident response integration)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.observability-best-practices.2026-06-01
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - platform.devops-engineer
   - platform.observability-engineer
-allowed_workflows: []
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - Remove monitoring configs if they cause issues
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when setting up monitoring, logging, alerting, or distributed tracing for applications.
+Use this skill when a task explicitly matches `platform.observability-setup` or when the user asks for monitoring and logging setup support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Application deployed and running
-- Access to monitoring tools (Prometheus, Grafana, Datadog, etc.)
-- Understanding of application architecture
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Identify Key Metrics**:
-   - **RED Method** (for services): Rate, Errors, Duration
-   - **USE Method** (for infrastructure): Utilization, Saturation, Errors
-   - **Golden Signals**: Latency, Traffic, Errors, Saturation
-   - Business metrics: User signups, transactions, etc.
-2. **Set Up Metrics Collection**:
-   - Instrument application code (Prometheus client, StatsD, etc.)
-   - Configure metrics exporter
-   - Set up metrics storage (Prometheus, InfluxDB, etc.)
-   - Verify metrics are being collected
-3. **Configure Structured Logging**:
-   - Use JSON format for logs
-   - Include correlation IDs for request tracing
-   - Log at appropriate levels (INFO, WARN, ERROR)
-   - Avoid logging sensitive data
-   - Include context (user ID, request ID, etc.)
-4. **Set Up Log Aggregation**:
-   - Deploy log collector (Fluentd, Filebeat, etc.)
-   - Configure log shipping to central system
-   - Set up log storage (Elasticsearch, Loki, etc.)
-   - Create log search interface (Kibana, Grafana Loki)
-5. **Implement Distributed Tracing**:
-   - Add tracing library (OpenTelemetry, Jaeger client)
-   - Propagate trace context across services
-   - Set up trace storage (Jaeger, Zipkin)
-   - Verify traces are complete end-to-end
-6. **Create Dashboards**:
-   - Overview dashboard (high-level health)
-   - Service-specific dashboards (detailed metrics)
-   - Infrastructure dashboards (CPU, memory, disk, network)
-   - Business dashboards (user metrics, transactions)
-7. **Set Up Alerting**:
-   - Define alert conditions (thresholds, anomalies)
-   - Set up alert routing (PagerDuty, Slack, email)
-   - Configure escalation policies
-   - Test alerts to ensure they work
-   - Avoid alert fatigue (only alert on actionable issues)
-8. **Document**:
-   - Document all metrics and their meaning
-   - Create runbooks for common alerts
-   - Document how to use dashboards
-   - Create onboarding guide for new team members
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Metrics are being collected and visible in dashboards
-- Logs are searchable and include correlation IDs
-- Traces show complete request flows
-- Alerts fire correctly in test scenarios
-- Documentation is complete and accurate
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
 ## Rollback
-- Remove monitoring configs: `kubectl delete -f monitoring/`
-- Disable alerting rules
-- Stop log collectors
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Not instrumenting critical code paths
-- Logs without structure (hard to search/analyze)
-- Traces not propagated across service boundaries
-- Too many alerts leading to alert fatigue
-- No documentation (team doesn't know what metrics mean)
-- Not testing alerts (they don't work when needed)
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
 ## Examples
-### Setting Up Monitoring for a Web API
-Input: Node.js Express API deployed on Kubernetes
-Output:
-- Metrics: Request rate, error rate, latency (p50, p95, p99), active connections
-- Logging: JSON logs with request ID, user ID, endpoint, status code, duration
-- Tracing: OpenTelemetry with propagation to database and external APIs
-- Dashboards:
-  - Overview: Request rate, error rate, latency
-  - Detailed: Per-endpoint metrics, database query times
-  - Infrastructure: Pod CPU/memory, node utilization
-- Alerts:
-  - Error rate > 5% for 5 minutes → PagerDuty
-  - Latency p99 > 2s for 10 minutes → Slack
-  - Pod restarts > 3 in 1 hour → Email
-- Documentation: Runbooks for each alert, dashboard guide
+**Example A:** A user asks for monitoring and logging setup help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

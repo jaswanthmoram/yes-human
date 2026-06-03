@@ -2,7 +2,7 @@
 id: meta-system.performance-optimization
 name: Performance Optimization and Tuning
 version: 1.0.0
-domain: meta-system
+domain: moramvenkatasatyajaswanth
 category: meta-system.optimization
 purpose: Optimize system performance through token budget management, route table compression, and registry pruning.
 summary: Systematic approach to optimizing yes-human system performance while maintaining functionality.
@@ -12,99 +12,125 @@ triggers:
   - compress route table
   - prune registry entries
   - performance tuning pass
+  - yes human task
+  - performance optimization and tuning review
 activation_triggers:
   - performance optimization
   - token reduction
   - route table compression
 prerequisites:
-  - system metrics available
-  - baseline performance measured
-  - optimization targets identified
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - system_metrics
   - baseline_performance
   - optimization_targets
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
 steps:
-  - Measure current performance baseline
-  - Identify optimization opportunities
-  - Prioritize by impact and effort
-  - Design boot token reduction plan
-  - Plan route table compression
-  - Design registry pruning strategy
-  - Implement optimizations
-  - Measure post-optimization performance
-  - Compare to baseline
-  - Document results
+  - Confirm the requested performance optimization and tuning outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - optimization_plan
   - performance_comparison
   - implementation_log
   - results_documentation
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - filesystem.read (read metrics and registry data)
   - shell.readonly (run performance measurement scripts)
+  - filesystem.read
+  - filesystem.write
 quality_gates:
   - Baseline measured before changes
   - Optimizations prioritized by impact
   - Post-optimization metrics collected
   - No functionality regression
   - Results documented
+  - Inputs and assumptions are explicit
 failure_modes:
   - Optimizing without baseline measurement
   - Removing entries without impact analysis
   - Ignoring functionality regression
   - Not measuring post-optimization
   - Undocumented changes
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
 handoffs:
   - meta-system.system-optimizer (for optimization review)
   - meta-system.quality-assurance (for regression checks)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.meta-system.2026-05-31
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - meta-system.system-optimizer
   - meta-system.quality-assurance
-allowed_workflows: []
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - Revert optimization changes
   - Restore previous performance state
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when optimizing boot performance, reducing token usage, or tuning system performance.
+Use this skill when a task explicitly matches `meta-system.performance-optimization` or when the user asks for performance optimization and tuning support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- System metrics available
-- Baseline performance measured
-- Optimization targets identified
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Measure Baseline**: Record current performance metrics before any changes.
-2. **Identify Opportunities**: Find areas where optimization can improve performance.
-3. **Prioritize**: Rank opportunities by impact and effort.
-4. **Design Token Reduction**: Plan how to reduce boot token usage.
-5. **Plan Compression**: Design route table compression strategy.
-6. **Design Pruning**: Plan which registry entries can be pruned.
-7. **Implement**: Apply optimizations one at a time.
-8. **Measure Post**: Collect performance metrics after optimization.
-9. **Compare**: Compare post-optimization metrics to baseline.
-10. **Document**: Record all changes and results.
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- All quality gates passed
-- Baseline measured before changes
-- No functionality regression
-- Results documented
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
+
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Optimizing without measuring baseline first
-- Removing entries without impact analysis
-- Not checking for functionality regression
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Examples
+**Example A:** A user asks for performance optimization and tuning help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
+
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

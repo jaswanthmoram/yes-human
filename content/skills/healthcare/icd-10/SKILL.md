@@ -2,7 +2,7 @@
 id: healthcare.icd-10
 name: ICD-10 Coding Standards
 version: 1.0.0
-domain: healthcare
+domain: moramvenkatasatyajaswanth
 category: healthcare.coding
 purpose: Apply ICD-10-CM and ICD-10-PCS coding standards for diagnosis and procedure classification.
 summary: ICD-10 coding standards covering diagnosis codes (CM), procedure codes (PCS), conventions, and official guidelines.
@@ -12,103 +12,112 @@ triggers:
   - icd-10-cm review
   - icd-10-pcs coding
   - icd-10 guideline application
-aliases:
-  - icd-10
-  - icd coding
-negative_keywords:
-  - icd-9 migration
-  - software versioning
-  - product classification
+  - yes human task
+  - icd 10 coding standards review
+activation_triggers:
+  - help me with icd 10 coding standards
+  - review icd 10 coding standards work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - clinical_documentation
   - coding_scenario
   - guideline_version
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested icd 10 coding standards outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - code_assignment
   - guideline_application
   - documentation_gaps
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
-required_skills: []
-budget_band: standard
-max_context_tokens: 8000
+  - filesystem.write
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Uses outdated ICD-10 code set
   - Misses combination codes
   - Ignores laterality requirements
-verification:
-  - Current fiscal year code set used
-  - Combination codes applied where required
-  - Laterality and specificity documented
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.healthcare.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - Revert to previous code set if errors found
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Apply ICD-10-CM and ICD-10-PCS coding standards for accurate diagnosis and procedure classification.
+## Trigger
+Use this skill when a task explicitly matches `healthcare.icd-10` or when the user asks for icd 10 coding standards support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- When assigning ICD-10-CM diagnosis codes
-- When coding inpatient procedures with ICD-10-PCS
-- When reviewing coding accuracy and specificity
-- When applying official coding guidelines
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- For CPT procedure coding (use cpt-codes skill)
-- For HCPCS Level II coding (use medical-coding skill)
-- For clinical diagnosis (use clinical-decision-support)
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Review Documentation for Specificity**:
-   - Identify diagnosis to the highest level of specificity
-   - Check for laterality, episode of care, and sequela
-   - Verify combination codes where applicable
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-2. **Apply ICD-10-CM Conventions**:
-   - Follow excludes1 and excludes2 notes
-   - Apply code first and use additional code instructions
-   - Follow etiology/manifestation conventions
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
 
-3. **Apply Official Guidelines**:
-   - Apply chapter-specific guidelines
-   - Follow general coding conventions
-   - Apply sequencing rules for principal diagnosis
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
 
-4. **Code ICD-10-PCS Procedures** (inpatient):
-   - Identify root operation, body part, approach, device, qualifier
-   - Apply PCS conventions for multiple procedures
-   - Validate against operative report documentation
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
 
-5. **Validate and Document**:
-   - Cross-check codes against documentation
-   - Identify documentation improvement opportunities
-   - Flag any coding queries for provider clarification
-
-## Tool Policy
-- Use `filesystem.read` to review clinical documentation and coding references
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Current fiscal year ICD-10 code set applied
-- Combination codes used where required
-- Laterality and maximum specificity achieved
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Using outdated ICD-10 code sets
-- Missing combination codes that capture full clinical picture
-- Ignoring laterality requirements
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- ICD-10-CM coding for diabetes with complications
-- ICD-10-PCS coding for cardiac catheterization
-- Guideline application for COVID-19 diagnosis coding
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for icd 10 coding standards help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- CMS ICD-10-CM Guidelines: https://www.cms.gov/medicare/coding/icd10
-- AHA Coding Clinic
-- Reference: ref.github.healthcare.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

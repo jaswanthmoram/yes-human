@@ -2,7 +2,7 @@
 id: manufacturing.predictive-maintenance
 name: Predictive Maintenance
 version: 1.0.0
-domain: manufacturing
+domain: moramvenkatasatyajaswanth
 category: manufacturing.maintenance
 purpose: Implement condition-based and predictive maintenance using sensor data, analytics, and machine learning to anticipate failures.
 summary: Predictive maintenance covering condition monitoring, vibration analysis, oil analysis, thermography, and ML-based failure prediction.
@@ -12,113 +12,113 @@ triggers:
   - vibration analysis
   - predictive maintenance analytics
   - failure prediction model
-aliases:
-  - predictive maintenance
-  - PdM
-  - condition-based maintenance
-negative_keywords:
-  - financial audit
-  - code review
-  - legal review
+  - yes human task
+  - predictive maintenance review
+activation_triggers:
+  - help me with predictive maintenance
+  - review predictive maintenance work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - sensor_data
   - equipment_condition_data
   - failure_history
   - operating_parameters
+  - target_artifact
+  - requirements_or_context
+steps:
+  - Confirm the requested predictive maintenance outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - condition_assessment
   - failure_prediction_report
   - maintenance_recommendations
   - monitoring_system_design
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
-required_skills: []
-budget_band: standard
-max_context_tokens: 10000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Predictions without validated sensor data
   - Models not trained on actual failure events
   - Missing alarm thresholds and escalation paths
-verification:
-  - Sensor data validated for accuracy
-  - Models trained on labeled failure data
-  - Alarm thresholds defined with escalation paths
-  - False positive rate documented
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.manufacturing.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - Revert to preventive maintenance schedule if predictive system generates excessive false alarms
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Implement condition-based and predictive maintenance using sensor data, analytics, and machine learning to anticipate failures.
+## Trigger
+Use this skill when a task explicitly matches `manufacturing.predictive-maintenance` or when the user asks for predictive maintenance support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- When implementing condition monitoring systems
-- During vibration or oil analysis programs
-- When building predictive failure models
-- For transitioning from preventive to predictive maintenance
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- For routine PM scheduling (use preventive-maintenance skill)
-- For equipment design changes (use process engineering agent)
-- For safety system monitoring (use safety engineering agent)
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Assess Equipment Criticality**:
-   - Rank equipment by production impact and failure cost
-   - Identify candidates for predictive maintenance
-   - Prioritize high-criticality, high-cost assets
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-2. **Select Monitoring Technologies**:
-   - Match technology to failure mode (vibration, temperature, oil, ultrasonic)
-   - Define sensor placement and sampling frequency
-   - Establish baseline condition readings
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
 
-3. **Define Alarm Thresholds**:
-   - Set warning and alarm levels from baseline data
-   - Define escalation paths for each alert level
-   - Document acceptable false positive rates
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
 
-4. **Build Predictive Models**:
-   - Collect labeled failure data for training
-   - Select appropriate ML algorithms (regression, classification)
-   - Validate model accuracy against held-out data
-   - Deploy models with monitoring and retraining schedules
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
 
-5. **Integrate with Maintenance Workflow**:
-   - Connect alerts to work order system
-   - Define maintenance response protocols
-   - Track prediction accuracy over time
-   - Continuously improve models with new data
-
-## Tool Policy
-- Use `filesystem.read` to review sensor data, condition reports, and failure history
-- Use `filesystem.write` to produce assessments, monitoring designs, and prediction reports
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Sensor data validated for accuracy and completeness
-- Predictive models trained on labeled failure events
-- Alarm thresholds defined with escalation paths
-- False positive rate documented and acceptable
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Sensor data not validated before model training
-- Models trained without actual failure labels
-- Alarm thresholds too sensitive (excessive false alarms)
-- Predictions not integrated into maintenance workflow
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- Condition monitoring setup for rotating equipment
-- Vibration analysis for motor bearings
-- Predictive model for hydraulic system failures
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for predictive maintenance help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- Mobley, An Introduction to Predictive Maintenance
-- ISO 13373 Condition Monitoring and Diagnostics
-- Reference: ref.github.manufacturing.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

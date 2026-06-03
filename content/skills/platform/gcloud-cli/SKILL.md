@@ -2,9 +2,10 @@
 id: platform.gcloud-cli
 name: GCloud CLI Command Patterns
 version: 1.0.0
-domain: platform
+domain: moramvenkatasatyajaswanth
 category: platform.cloud
-description: Author and optimize gcloud CLI commands for GCP resource management, automation, and troubleshooting.
+purpose: Execute gcloud cli command patterns work with evidence, verification, and clear handoff rules.
+summary: GCloud CLI Command Patterns provides a repeatable operating procedure for task tasks. It defines inputs, checks, outputs, rollback behavior, and escalation paths so routed agents produce useful work rather than generic advice.
 triggers:
   - manage Cloud Run services with gcloud
   - gcloud CLI command patterns
@@ -13,106 +14,119 @@ triggers:
   - Google Cloud CLI scripting
   - GCP service configuration
   - gcloud resource troubleshooting
-aliases:
-  - gcloud commands
-  - gcp cli
-  - google cloud cli
-negative_keywords:
-  - aws cli
-  - azure cli
-  - terraform
-  - GCP console only
+activation_triggers:
+  - help me with gcloud cli command patterns
+  - review gcloud cli command patterns work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - gcp_project
   - service_type
   - resource_identifiers
   - iam_bindings
+  - target_artifact
+  - requirements_or_context
+steps:
+  - Confirm the requested gcloud cli command patterns outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - gcloud_commands
   - resource_status
   - automation_scripts
   - configuration_output
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - shell.readonly (gcloud describe, list)
   - shell.write (gcloud create, update, delete)
   - filesystem.read (configs, scripts)
   - filesystem.write (scripts, configs)
-required_skills: []
-budget_band: micro
-max_context_tokens: 4096
+  - filesystem.read
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Wrong project or configuration
   - IAM permission denied
   - API not enabled for service
   - Resource quota exceeded
-verification:
-  - Commands validated with --dry-run where available
-  - Output parsed and verified
-  - No unintended resource mutations
-source_references:
-  - ref.github.platform.2026-05-31
-quality_gate: staging
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - platform.terraform-modules (for IaC-managed resources)
   - platform.prometheus-alerts (for Cloud Monitoring alerts)
-source_refs:
-  - ref.github.platform.2026-05-31
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
+source_references:
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - platform.cloud-engineer
   - platform.devops-engineer
-allowed_workflows: []
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: micro
 rollback:
   - Reverse gcloud commands or restore from backup
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Provide reliable gcloud CLI command patterns for managing GCP resources, automation scripting, and operational tasks.
+## Trigger
+Use this skill when a task explicitly matches `platform.gcloud-cli` or when the user asks for gcloud cli command patterns support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- Managing GCP resources via CLI
-- Scripting GCP automation tasks
-- Querying resource state and configurations
-- Troubleshooting GCP service issues
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- Infrastructure provisioning that should be IaC (use Terraform)
-- One-time setup tasks (use GCP Console)
-- Non-GCP cloud providers
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Configure Project**: Set active project with `gcloud config set project <id>`
-2. **Enable APIs**: Ensure required APIs are enabled with `gcloud services enable`
-3. **Identify Resources**: Use `gcloud <service> list` and `describe` commands
-4. **Build Commands**: Construct commands with proper `--format` for output control
-5. **Use Filters**: Apply `--filter` expressions to narrow results
-6. **Validate Before Mutating**: Use `--dry-run` flags where available
-7. **Execute and Verify**: Run commands and verify expected state changes
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-## Tool Policy
-- Use `--project` flag explicitly for cross-project operations
-- Prefer `--format=json` for scripting, `--format=table` for human reading
-- Use `--filter` to narrow list results
-- Enable only required APIs to reduce attack surface
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Resource state matches expected configuration
-- No unexpected side effects from commands
-- IAM permissions sufficient for all operations
-- API quotas not exceeded
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Operating in wrong GCP project
-- Required API not enabled
-- Missing IAM roles for command execution
-- Not handling paginated results
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- "list all GKE clusters" → gcloud container clusters list
-- "create Cloud Run service" → gcloud run deploy with flags
-- "check Cloud Function logs" → gcloud functions logs read
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for gcloud cli command patterns help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-Based on Google Cloud CLI official documentation and GCP operations patterns. Referenced dossier: ref.github.platform.2026-05-31.
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

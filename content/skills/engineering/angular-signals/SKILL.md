@@ -2,9 +2,10 @@
 id: engineering.angular-signals
 name: Angular Signals and Reactivity
 version: 1.0.0
-domain: engineering
+domain: moramvenkatasatyajaswanth
 category: engineering.frameworks
-description: Guide Angular signals and reactivity patterns including signal, computed, effect, and integration with RxJS observables.
+purpose: Execute angular signals and reactivity work with evidence, verification, and clear handoff rules.
+summary: Angular Signals And Reactivity provides a repeatable operating procedure for task tasks. It defines inputs, checks, outputs, rollback behavior, and escalation paths so routed agents produce useful work rather than generic advice.
 triggers:
   - angular signals
   - angular reactivity
@@ -13,100 +14,111 @@ triggers:
   - angular signal input
   - angular rxjs signals
   - zoneless angular
-aliases:
-  - signals pattern
-  - angular reactivity
-  - signal-based components
-negative_keywords:
-  - zone.js
-  - rxjs only
-  - react
-  - vue
+activation_triggers:
+  - help me with angular signals and reactivity
+  - review angular signals and reactivity work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - component_requirements
   - angular_version
   - rxjs_integration (optional)
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested angular signals and reactivity outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - signal_component_code
   - reactivity_pattern_guide
   - rxjs_interop_code
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
-  - code_graph.query
-required_skills: []
-budget_band: standard
-max_context_tokens: 5000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Reading signals outside injection context
   - Circular computed dependencies
   - Effect side effects causing infinite loops
   - Mixing signals and RxJS without proper interop
-verification:
-  - Signals used within injection context
-  - No circular computed dependencies
-  - Effects properly cleaned up on destroy
-  - RxJS interop uses toSignal/toObservable
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.engineering.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - Revert to RxJS-only reactivity implementation
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Provide expert guidance on Angular signals and reactivity patterns, ensuring correct signal usage, proper computed dependencies, and seamless RxJS integration.
+## Trigger
+Use this skill when a task explicitly matches `engineering.angular-signals` or when the user asks for angular signals and reactivity support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- Building Angular 16+ applications with signals
-- Implementing fine-grained reactivity without Zone.js
-- Creating computed values and reactive effects
-- Migrating from RxJS-only patterns to signals
-- Building zoneless Angular applications
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- Angular versions below 16 (signals not available)
-- Projects fully committed to RxJS patterns without migration plans
-- Non-Angular frameworks
-- Simple template-driven forms without reactive state
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Define Signals**: Create writable signals with signal() for component state, apply initial values and type annotations.
-2. **Create Computed Signals**: Use computed() for derived values that automatically update when dependencies change.
-3. **Implement Effects**: Use effect() for side effects like logging, DOM updates, or synchronization with external systems.
-4. **Signal Inputs/Outputs**: Replace @Input() with signal inputs (input(), input.required()), use output() for event emitters.
-5. **RxJS Interop**: Convert observables to signals with toSignal() and signals to observables with toObservable().
-6. **Optimize Change Detection**: Use signal-based components with OnPush or zoneless change detection for performance.
-7. **Test Signals**: Test signal behavior with TestBed, verify computed updates, and mock signal values in unit tests.
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-## Tool Policy
-- Use `filesystem.read` to inspect existing Angular component code
-- Use `filesystem.write` to create or update signal-based components
-- Use `code_graph.query` to trace signal dependencies across the codebase
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Run `ng test` to verify signal-based component tests pass
-- Run `ng lint` to check for signal best practices
-- Verify no circular dependency errors in computed signals
-- Test change detection with Angular DevTools
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- **Injection Context**: Reading or writing signals outside injection context throws errors; use inject() or constructor
-- **Circular Computed**: Computed signals depending on each other create infinite loops; restructure dependency graph
-- **Effect Loops**: Effects that modify their own dependencies cause infinite loops; use untracked() for writes
-- **RxJS Mismatch**: Mixing signal and observable patterns without interop causes missed updates
-- **Zone Conflicts**: Using signals with Zone.js change detection can cause double updates; prefer zoneless or OnPush
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- `yes route "convert to angular signals"` -> engineering.angular-signals
-- `yes route "create computed signal"` -> engineering.angular-signals
-- `yes route "integrate rxjs with signals"` -> engineering.angular-signals
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for angular signals and reactivity help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- Angular Signals documentation: https://angular.dev/guide/signals
-- Angular GitHub repository: github.com/angular/angular (98k+ stars)
-- Angular RFC for signals proposal
-- Reference dossier: ref.github.engineering.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

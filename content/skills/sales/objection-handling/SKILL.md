@@ -2,7 +2,7 @@
 id: sales.objection-handling
 name: Objection Handling Framework
 version: 1.0.0
-domain: sales
+domain: moramvenkatasatyajaswanth
 category: sales.pipeline
 purpose: Equip sellers with structured responses to common buyer objections using evidence, reframing, and social proof.
 summary: Objection response frameworks with categorized objections, evidence-based rebuttals, and escalation paths.
@@ -14,89 +14,110 @@ triggers:
   - objection response guide
   - common objections framework
   - rebuttal creation
-  - objection handling training
-  - sales objection playbook
-aliases:
-  - objection handling
-  - rebuttals
-  - objection playbook
-negative_keywords:
-  - customer complaint resolution
-  - legal dispute
-  - product bug report
+activation_triggers:
+  - help me with objection handling framework
+  - review objection handling framework work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - objection_catalog
   - product_evidence
   - competitive_context
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested objection handling framework outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - objection_responses
   - evidence_library
   - escalation_guide
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
-required_skills: []
-budget_band: standard
-max_context_tokens: 8000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Creates responses without evidence
   - Treats all objections the same way
   - Skips escalation path for unresolvable objections
-verification:
-  - Responses backed by evidence or social proof
-  - Objections categorized by type
-  - Escalation path defined
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.sales.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - No state changes to rollback
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Equip sellers with structured, evidence-based responses to common buyer objections, categorized by type with escalation paths.
+## Trigger
+Use this skill when a task explicitly matches `sales.objection-handling` or when the user asks for objection handling framework support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- Creating objection handling guides for sellers
-- Preparing for deals with known objections
-- Training sellers on objection response techniques
-- Building objection playbooks for new market segments
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- Customer complaint resolution belongs to customer success
-- Legal disputes belong to legal-compliance
-- Product bug reports belong to engineering
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. Catalog common objections by category (price, timing, competitor, authority, need).
-2. For each objection, identify the underlying concern.
-3. Craft responses using evidence, social proof, or reframing.
-4. Define escalation paths for objections that require specialist input.
-5. Test responses against real deal outcomes.
-6. Update the catalog based on win/loss data.
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-## Tool Policy
-- Use `filesystem.read` to access win/loss data and competitive intelligence.
-- Use `filesystem.write` to save objection guides and response libraries.
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Each response backed by evidence, case study, or data
-- Objections categorized by type with underlying concern identified
-- Escalation path defined for unresolvable objections
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Generic responses without specific evidence
-- Treating all objections as price objections
-- No escalation path for complex or legal objections
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- "create objection responses for pricing pushback"
-- "build an objection playbook for competitor comparisons"
-- "design objection handling for enterprise procurement"
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for objection handling framework help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- LAER model: Listen, Acknowledge, Explore, Respond
-- Reference: ref.github.sales.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

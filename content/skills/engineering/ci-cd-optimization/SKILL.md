@@ -2,7 +2,7 @@
 id: engineering.ci-cd-optimization
 name: CI/CD Pipeline Optimization
 version: 1.0.0
-domain: engineering
+domain: moramvenkatasatyajaswanth
 category: engineering.devops
 purpose: Optimize CI/CD pipelines for speed, reliability, and cost efficiency through caching, parallelism, and smart job orchestration.
 summary: Systematic approach to diagnosing slow pipelines and applying optimizations like caching, parallelization, conditional jobs, and artifact reuse.
@@ -14,115 +14,115 @@ triggers:
   - CI/CD optimization
   - reduce build time
   - pipeline caching
-  - parallel jobs
-aliases:
-  - CI optimization
-  - pipeline speed
-  - build optimization
-negative_keywords:
-  - deployment strategy
-  - rollback
-  - incident response
+activation_triggers:
+  - help me with ci/cd pipeline optimization
+  - review ci/cd pipeline optimization work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - ci_platform (github_actions, gitlab_ci, circleci, jenkins)
   - current_pipeline_config
   - average_build_time
   - target_build_time (optional)
+  - target_artifact
+  - requirements_or_context
+steps:
+  - Confirm the requested ci/cd pipeline optimization outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - optimized_pipeline_config
   - performance_improvements
   - caching_strategy
   - cost_analysis
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - shell.readonly (analyze pipeline logs, measure timings)
   - filesystem.read (read pipeline configs)
   - filesystem.write (update pipeline configs)
-required_skills:
-  - engineering.git-workflow
-budget_band: standard
-max_context_tokens: 8000
+  - filesystem.read
+  - filesystem.write
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Cache corruption causing non-deterministic builds
   - Over-parallelization causing resource contention
   - Conditional jobs skipping critical steps
   - Artifact expiration causing downstream failures
-verification:
-  - Pipeline completes within target build time
-  - All tests pass with optimized configuration
-  - Cache hit rate is above 70% for stable branches
-  - No flaky tests introduced by parallelization
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.engineering.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - Revert pipeline configuration via version control
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Reduce CI/CD pipeline execution time and cost while maintaining or improving reliability, test coverage, and deployment safety.
+## Trigger
+Use this skill when a task explicitly matches `engineering.ci-cd-optimization` or when the user asks for ci/cd pipeline optimization support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- Pipeline execution time exceeds acceptable thresholds
-- CI costs are growing disproportionately with team size
-- Builds are frequently timing out or queuing
-- Team productivity is blocked by slow feedback loops from CI
-- Preparing for increased PR volume or team growth
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- Pipeline is already fast enough for team needs
-- The bottleneck is test execution time that cannot be parallelized
-- Build failures are caused by code issues, not pipeline configuration
-- The team has no CI/CD pipeline yet (set one up first)
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Profile Current Pipeline**: Measure each job's duration, identify the longest-running steps, and map the dependency graph between jobs.
-2. **Implement Caching**:
-   - Dependency caches: `node_modules`, `pip`, `go mod` caches
-   - Build caches: compiled artifacts, incremental build outputs
-   - Docker layer caching for container builds
-   - Platform-specific cache keys with fallback chains
-3. **Enable Parallelism**:
-   - Run independent jobs concurrently (lint, test, build in parallel)
-   - Split test suites across parallel runners (sharding)
-   - Use matrix builds for multi-platform/multi-version testing
-4. **Optimize Job Ordering**:
-   - Run fast-failing checks first (lint, type-check) before expensive builds
-   - Use conditional jobs to skip unnecessary steps (e.g., skip deploy on docs-only changes)
-   - Implement path-based filtering to build only affected components
-5. **Reduce Overhead**:
-   - Use smaller runner images or custom Docker images with pre-installed tools
-   - Minimize checkout depth (shallow clones for CI)
-   - Reduce artifact upload/download sizes
-6. **Monitor and Iterate**: Track pipeline metrics (duration, queue time, cache hit rate, failure rate) and set up alerts for regressions.
-7. **Document Optimizations**: Maintain a runbook of pipeline optimizations with before/after metrics.
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-## Tool Policy
-- Use `shell.readonly` for analyzing pipeline logs and measuring timings
-- Use `filesystem.read` to inspect current pipeline configurations
-- Use `filesystem.write` to update pipeline configuration files
-- Always test pipeline changes on a branch before merging to main
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Optimized pipeline completes all required checks
-- Build time is measurably reduced (compare before/after metrics)
-- Cache hit rate is tracked and above target threshold
-- No increase in flaky test rate after parallelization
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- **Cache poisoning**: Corrupted cache causes builds to pass locally but fail in CI. Mitigation: use content-addressable cache keys and periodic cache invalidation.
-- **Race conditions**: Parallel jobs writing to shared resources. Mitigation: use job isolation, separate workspaces, or resource locks.
-- **Skipped critical steps**: Conditional logic accidentally skips required checks. Mitigation: use required status checks in branch protection.
-- **Flaky parallel tests**: Tests that share state fail when run in parallel. Mitigation: identify and isolate stateful tests, run them sequentially.
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- "our GitHub Actions pipeline takes 25 minutes" -> Cache dependencies, parallelize lint/test/build, use path filters
-- "CI costs are too high" -> Reduce runner minutes with caching, smaller images, and conditional jobs
-- "builds keep timing out" -> Split large test suites, use sharding, increase timeout with root cause analysis
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for ci/cd pipeline optimization help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- Based on GitHub Actions, GitLab CI, and CircleCI optimization documentation
-- Patterns from high-throughput engineering teams' CI/CD playbooks
-- Reference: ref.github.engineering.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

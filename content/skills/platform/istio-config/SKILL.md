@@ -2,9 +2,10 @@
 id: platform.istio-config
 name: Istio Configuration Patterns
 version: 1.0.0
-domain: platform
+domain: moramvenkatasatyajaswanth
 category: platform.service-mesh
-description: Configure and manage Istio service mesh for traffic management, security, and observability.
+purpose: Execute istio configuration patterns work with evidence, verification, and clear handoff rules.
+summary: Istio Configuration Patterns provides a repeatable operating procedure for task tasks. It defines inputs, checks, outputs, rollback behavior, and escalation paths so routed agents produce useful work rather than generic advice.
 triggers:
   - Istio configuration patterns
   - service mesh setup
@@ -12,108 +13,121 @@ triggers:
   - Istio mTLS configuration
   - Istio virtual service routing
   - service mesh observability
-aliases:
-  - istio mesh
-  - sidecar config
-  - traffic splitting
-negative_keywords:
-  - linkerd
-  - consul connect
-  - raw kubernetes networking
-  - ingress without mesh
+  - yes human task
+activation_triggers:
+  - help me with istio configuration patterns
+  - review istio configuration patterns work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - mesh_topology
   - traffic_policies
   - security_requirements
   - observability_goals
+  - target_artifact
+  - requirements_or_context
+steps:
+  - Confirm the requested istio configuration patterns outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - virtual_services
   - destination_rules
   - gateway_configs
   - peer_authentications
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - shell.readonly (istioctl analyze, kubectl get)
   - shell.write (kubectl apply for Istio CRDs)
   - filesystem.read (Istio configs)
   - filesystem.write (Istio configs)
-required_skills:
-  - platform.kubectl-commands
-budget_band: standard
-max_context_tokens: 8192
+  - filesystem.read
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Conflicting virtual services
   - mTLS breaking non-mesh workloads
   - Sidecar injection failures
   - Gateway misconfiguration
-verification:
-  - istioctl analyze reports no issues
-  - Traffic routing verified with test requests
-  - mTLS enabled between mesh services
-  - Envoy sidecars healthy
-source_references:
-  - ref.github.platform.2026-05-31
-quality_gate: staging
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - platform.kubectl-commands (for underlying K8s operations)
   - platform.prometheus-alerts (for mesh metrics alerting)
-source_refs:
-  - ref.github.platform.2026-05-31
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
+source_references:
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - platform.kubernetes-operator
   - platform.devops-engineer
-allowed_workflows: []
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - kubectl delete -f istio-configs/
   - istioctl x uninstall
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Provide patterns for configuring Istio service mesh for traffic management, mutual TLS, and service observability.
+## Trigger
+Use this skill when a task explicitly matches `platform.istio-config` or when the user asks for istio configuration patterns support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- Setting up service mesh traffic management
-- Implementing mTLS between services
-- Canary deployments with traffic splitting
-- Adding observability to service-to-service communication
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- Simple service-to-service communication (use Kubernetes services)
-- Non-Kubernetes environments
-- When Linkerd or another mesh is already in use
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Verify Mesh Status**: Check Istio installation and sidecar injection with `istioctl proxy-status`
-2. **Configure Traffic Routing**: Create VirtualServices for routing rules (canary, mirroring, retries)
-3. **Set Destination Rules**: Define traffic policies, connection pools, and outlier detection
-4. **Enable mTLS**: Configure PeerAuthentication for strict mTLS between services
-5. **Set Up Gateways**: Configure Istio Gateway and VirtualService for external traffic
-6. **Validate Configuration**: Run `istioctl analyze` to check for conflicts and errors
-7. **Monitor Mesh**: Verify traffic flow, check Envoy stats, and review mesh metrics
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-## Tool Policy
-- Always run `istioctl analyze` before applying configurations
-- Use `istioctl proxy-config` to inspect sidecar configuration
-- Test traffic routing with small percentage before full cutover
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- `istioctl analyze` reports no errors or warnings
-- Traffic splitting verified with request sampling
-- mTLS confirmed via `istioctl authn tls-check`
-- Envoy sidecars reporting healthy status
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Conflicting VirtualServices causing routing ambiguity
-- mTLS strict mode breaking communication with non-mesh services
-- Sidecar injection not enabled on namespace
-- Gateway selector not matching any ingress gateway
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- "canary deployment with Istio" → VirtualService with traffic weights
-- "enable mTLS for namespace" → PeerAuthentication policy
-- "debug 503 errors in mesh" → Envoy logs + outlier detection config
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for istio configuration patterns help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-Based on Istio official documentation and production service mesh patterns. Referenced dossier: ref.github.platform.2026-05-31.
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

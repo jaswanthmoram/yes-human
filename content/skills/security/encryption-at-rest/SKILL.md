@@ -2,7 +2,7 @@
 id: security.encryption-at-rest
 name: Data Encryption at Rest
 version: 1.0.0
-domain: security
+domain: moramvenkatasatyajaswanth
 category: security.cryptography
 purpose: Implement and review encryption for data stored in databases, file systems, and storage services.
 summary: Encryption at rest review covering database encryption, file encryption, cloud storage encryption, and key management integration.
@@ -14,144 +14,114 @@ triggers:
   - implement database encryption
   - check data encryption in storage
   - encryption at rest audit
-  - configure disk encryption
-  - review cloud storage encryption
-  - sensitive data encryption review
-aliases:
-  - encryption review
-  - data at rest
-  - storage encryption
-negative_keywords:
-  - encryption in transit
-  - TLS configuration
-  - network encryption
+activation_triggers:
+  - help me with data encryption at rest
+  - review data encryption at rest work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - database_configuration
   - storage_configuration
   - encryption_keys
   - data_classification
+  - target_artifact
+  - requirements_or_context
+steps:
+  - Confirm the requested data encryption at rest outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - encryption_assessment
   - gap_analysis
   - implementation_plan
   - compliance_mapping
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
   - bash.exec
   - web.search
-required_skills:
-  - security.key-management
-budget_band: standard
-max_context_tokens: 10000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Encryption keys stored alongside encrypted data
   - Weak encryption algorithms
   - Not encrypting all sensitive data fields
   - Missing encryption on backups
-verification:
-  - All sensitive data encrypted with AES-256 or equivalent
-  - Encryption keys managed separately from data
-  - Backup encryption verified
-  - Encryption performance impact assessed
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.security.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - Decrypt data if encryption causes application failures
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Review and implement encryption at rest for sensitive data across databases, file systems, and cloud storage services to protect data confidentiality in case of storage compromise.
+## Trigger
+Use this skill when a task explicitly matches `security.encryption-at-rest` or when the user asks for data encryption at rest support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- When storing PII, financial data, or health records
-- During compliance audits (PCI-DSS, HIPAA, GDPR)
-- When configuring new databases or storage services
-- After data breach incidents to assess encryption gaps
-- When migrating data to new storage systems
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- For encryption in transit (use ssl-tls-config skill)
-- When only managing encryption keys (use key-management skill)
-- For public or non-sensitive data that doesn't require encryption
-- When encryption is handled entirely by the cloud provider with no configuration needed
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Classify Data Sensitivity**:
-   - Identify all data stores (databases, file systems, object storage)
-   - Classify data by sensitivity (PII, financial, health, credentials, public)
-   - Map data flow from creation to storage to deletion
-   - Document regulatory requirements for each data category
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-2. **Review Database Encryption**:
-   - Check transparent data encryption (TDE) for SQL databases
-   - Review application-level encryption for sensitive fields
-   - Verify column-level encryption for PII columns
-   - Check encryption of indexes on encrypted columns
-   - Review database backup encryption
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
 
-3. **Review File System Encryption**:
-   - Check full disk encryption (LUKS, BitLocker, FileVault)
-   - Review file-level encryption for sensitive documents
-   - Verify encryption of temporary files and swap space
-   - Check encryption of log files containing sensitive data
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
 
-4. **Review Cloud Storage Encryption**:
-   - Verify server-side encryption (SSE-S3, SSE-KMS, SSE-C)
-   - Check client-side encryption before upload
-   - Review encryption key management (AWS KMS, GCP KMS, Azure Key Vault)
-   - Verify encryption of storage snapshots and backups
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
 
-5. **Assess Algorithm and Key Strength**:
-   - Verify AES-256 or equivalent for symmetric encryption
-   - Check RSA-2048+ or ECC P-256+ for asymmetric encryption
-   - Verify proper IV/nonce generation (never reuse)
-   - Check for deprecated algorithms (DES, 3DES, RC4)
-
-6. **Review Key Management Integration**:
-   - Verify keys are not hardcoded or stored with data
-   - Check key rotation procedures
-   - Review key access controls and audit logging
-   - Verify key backup and recovery procedures
-
-7. **Test and Validate**:
-   - Verify encrypted data is unreadable without keys
-   - Test key rotation without data loss
-   - Verify application functionality with encryption enabled
-   - Performance test encryption overhead
-
-## Tool Policy
-- Use `filesystem.read` to review encryption configuration files
-- Use `bash.exec` to check encryption status (dmsetup, pg_encrypt)
-- Use `web.search` for encryption best practices and cloud provider docs
-- Use `filesystem.write` to produce assessment reports
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- All sensitive data encrypted with AES-256 or equivalent
-- Encryption keys managed in dedicated KMS or HSM
-- Backups and snapshots encrypted
-- Key rotation tested and documented
-- No sensitive data readable in storage without decryption
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Storing encryption keys in the same database as encrypted data
-- Using weak or deprecated encryption algorithms
-- Not encrypting database backups
-- IV/nonce reuse in encryption operations
-- Performance degradation causing application timeouts
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- PostgreSQL TDE configuration review
-- S3 bucket encryption verification (SSE-KMS)
-- Application-level PII field encryption in MongoDB
-- File system encryption on application servers
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for data encryption at rest help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- NIST SP 800-111: Guide to Storage Encryption Technologies
-- AWS KMS documentation
-- PCI-DSS Requirement 3: Protect Stored Data
-- Reference: ref.github.security.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

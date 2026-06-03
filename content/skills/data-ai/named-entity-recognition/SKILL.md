@@ -2,7 +2,7 @@
 id: data-ai.named-entity-recognition
 name: Named Entity Recognition
 version: 1.0.0
-domain: data-ai
+domain: moramvenkatasatyajaswanth
 category: data-ai.nlp
 purpose: Identify and classify named entities in text into predefined categories such as persons, organizations, and locations.
 summary: Systematic NER including annotation design, model selection, training, and evaluation with entity-level metrics.
@@ -12,91 +12,123 @@ triggers:
   - ner model
   - extract entities from text
   - entity classification
+  - yes human task
+  - named entity recognition review
 activation_triggers:
   - NER
   - entity extraction
   - named entity recognition
 prerequisites:
-  - annotated text dataset with entity labels
-  - entity taxonomy defined
-  - language identified
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - annotated_dataset
   - entity_types
   - language
   - accuracy_requirements
+  - target_artifact
+  - requirements_or_context
 steps:
-  - Review annotation guidelines and inter-annotator agreement
-  - Design preprocessing for NER (tokenization, sentence splitting)
-  - Select model (CRF, BiLSTM-CRF, transformer-based)
-  - Train with entity-level loss and appropriate evaluation
-  - Evaluate with entity-level F1 (strict and relaxed)
-  - Analyze error types (boundary, type, missed entities)
-  - Document performance and annotation quality issues
+  - Confirm the requested named entity recognition outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - trained_ner_model
   - evaluation_report
   - error_analysis
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - shell.readonly (training scripts)
   - filesystem.read (annotated data)
   - filesystem.write (model, report)
+  - filesystem.read
+  - filesystem.write
 quality_gates:
   - Annotation quality assessed
   - Entity-level F1 evaluated
   - Error types analyzed
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Inconsistent entity annotations
   - Ignoring nested or overlapping entities
   - Using token-level metrics instead of entity-level
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - data-ai.nlp-engineer (for advanced NLP)
   - data-ai.knowledge-graphs (for entity linking)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.data-ai.ner.2026-05-31
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - data-ai.nlp-engineer
   - data-ai.ml-engineer
-allowed_workflows: []
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - Revert to previous model version
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when building a named entity recognition model or extracting entities from text.
+Use this skill when a task explicitly matches `data-ai.named-entity-recognition` or when the user asks for named entity recognition support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Annotated text dataset with entity labels
-- Entity taxonomy defined (PER, ORG, LOC, etc.)
-- Target language identified
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Annotation Review**: Check inter-annotator agreement, entity boundary consistency.
-2. **Preprocessing**: Tokenization aligned with annotation, sentence splitting.
-3. **Model Selection**: CRF (baseline), BiLSTM-CRF (sequence), BERT-NER (state-of-art).
-4. **Train**: BIO/BIOES tagging, class-weighted loss for rare entities.
-5. **Evaluate**: Entity-level F1 (strict match), per-entity-type metrics.
-6. **Error Analysis**: Boundary errors, type confusion, missed entities.
-7. **Document**: Performance, annotation quality issues, and limitations.
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Annotation quality assessed (inter-annotator agreement)
-- Entity-level F1 evaluated on held-out set
-- Error types categorized and analyzed
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
 ## Rollback
-- Revert to previous model version
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Inconsistent entity boundary annotations
-- Ignoring nested entities (e.g., "Bank of America" as ORG containing LOC)
-- Using token-level accuracy instead of entity-level F1
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Examples
+**Example A:** A user asks for named entity recognition help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
+
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

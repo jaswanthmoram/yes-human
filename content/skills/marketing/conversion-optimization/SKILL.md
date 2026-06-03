@@ -2,7 +2,7 @@
 id: marketing.conversion-optimization
 name: Conversion Optimization
 version: 1.0.0
-domain: marketing
+domain: moramvenkatasatyajaswanth
 category: marketing.optimization
 purpose: Systematically improve conversion rates through heuristic analysis, user research, and data-driven testing.
 summary: CRO process covering heuristic analysis, user behavior review, hypothesis generation, and testing prioritization.
@@ -12,89 +12,113 @@ triggers:
   - cro audit
   - landing page conversion review
   - checkout optimization
-aliases:
-  - cro
-  - conversion rate optimization
-negative_keywords:
-  - traffic generation
-  - seo optimization
-  - brand awareness
+  - yes human task
+  - conversion optimization review
+activation_triggers:
+  - help me with conversion optimization
+  - review conversion optimization work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - page_or_funnel_url
   - conversion_data
   - user_behavior_data
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested conversion optimization outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - cro_audit
   - hypothesis_backlog
   - test_roadmap
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
   - web.search
-required_skills: []
-budget_band: micro
-max_context_tokens: 8000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Optimizing without baseline data
   - Focusing on micro-conversions only
   - Copying best practices without testing
-verification:
-  - Baseline metrics established
-  - Hypotheses prioritized by impact
-  - Test roadmap with timeline
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.marketing.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: micro
 rollback:
   - Revert changes if conversion rate decreases
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Improve conversion rates through systematic analysis, hypothesis generation, and data-driven experimentation.
+## Trigger
+Use this skill when a task explicitly matches `marketing.conversion-optimization` or when the user asks for conversion optimization support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- When conversion rates are below benchmarks
-- Before redesigning landing pages or funnels
-- During ongoing optimization programs
-- When analyzing user behavior data
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- For driving more traffic (use SEO or paid media skills)
-- For brand awareness campaigns (use brand-marketer agent)
-- For UX redesign without conversion focus (use design-content)
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Data Collection**: Gather analytics, heatmaps, session recordings, and user feedback.
-2. **Heuristic Analysis**: Evaluate pages using clarity, relevance, urgency, and distraction frameworks.
-3. **Hypothesis Generation**: Create testable hypotheses based on data insights.
-4. **Prioritization**: Score hypotheses by potential impact, ease, and confidence (PIE framework).
-5. **Test Planning**: Design A/B tests for top hypotheses.
-6. **Iteration**: Analyze results, document learnings, and plan next tests.
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-## Tool Policy
-- Use `filesystem.read` to review analytics and user data.
-- Use `web.search` for CRO best practices and benchmarks.
-- Use `filesystem.write` to produce audit reports and test plans.
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Baseline conversion rate documented
-- Hypotheses backed by data evidence
-- Test roadmap prioritized and scheduled
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Making changes without baseline measurement
-- Testing based on opinions instead of data
-- Ignoring mobile-specific conversion issues
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- `improve landing page conversion rate`
-- `CRO audit for checkout flow`
-- `optimize signup form conversions`
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for conversion optimization help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- CXL Institute CRO methodology
-- Baymard Institute UX research
-- Reference: ref.github.marketing.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

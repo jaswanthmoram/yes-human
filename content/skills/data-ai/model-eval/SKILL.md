@@ -2,7 +2,7 @@
 id: data-ai.model-eval
 name: ML Model Evaluation
 version: 1.0.0
-domain: data-ai
+domain: moramvenkatasatyajaswanth
 category: data-ai.evaluation
 purpose: Evaluate machine learning models using appropriate metrics and validation strategies.
 summary: Systematic approach to assessing model performance including metric selection, validation, and comparison.
@@ -12,189 +12,125 @@ triggers:
   - assess model performance and accuracy
   - test model accuracy and F1 score
   - model evaluation with cross-validation
+  - yes human task
+  - ml model evaluation review
 activation_triggers:
   - ML model eval
   - machine learning performance evaluation
   - model accuracy and cross-validation testing
 prerequisites:
-  - trained model
-  - test dataset
-  - understanding of task requirements
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - model
   - test_dataset
   - evaluation_metrics
   - baseline_model (optional)
+  - target_artifact
+  - requirements_or_context
 steps:
-  - Select appropriate evaluation metrics for the task
-  - Prepare test dataset (ensure no leakage from training)
-  - Run model on test dataset
-  - Calculate all selected metrics
-  - Perform cross-validation if applicable
-  - Compare against baseline model
-  - Analyze errors and failure cases
-  - Assess model fairness and bias
-  - Document results and recommendations
+  - Confirm the requested ml model evaluation outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - evaluation_metrics_results
   - comparison_to_baseline
   - error_analysis
   - fairness_assessment
   - evaluation_report
+  - review_or_analysis_report
 tools:
   - shell.readonly (run evaluation scripts)
   - filesystem.read (model, test data)
   - filesystem.write (evaluation report)
+  - filesystem.read
+  - filesystem.write
 quality_gates:
   - Appropriate metrics selected
   - Test set is independent
   - Results are statistically significant
   - Errors analyzed
   - Fairness assessed
+  - Inputs and assumptions are explicit
 failure_modes:
   - Using wrong metrics for the task
   - Data leakage (test set in training)
   - Not comparing to baseline
   - Ignoring error analysis
   - Not assessing fairness
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
 handoffs:
   - data-ai.ml-engineer (for model improvements)
   - data-ai.dataset-profiling (for dataset issues)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.ml-evaluation-best-practices.2026-06-01
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - data-ai.ml-engineer
   - data-ai.eval-engineer
-allowed_workflows: []
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - No state changes to rollback
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when evaluating a machine learning model's performance, comparing models, or assessing model quality.
+Use this skill when a task explicitly matches `data-ai.model-eval` or when the user asks for ml model evaluation support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Trained model ready for evaluation
-- Test dataset (separate from training data)
-- Understanding of the task and requirements
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Select Evaluation Metrics**:
-   - **Classification**:
-     - Accuracy, Precision, Recall, F1-Score
-     - ROC-AUC, PR-AUC
-     - Confusion Matrix
-     - Log Loss
-   - **Regression**:
-     - MSE, RMSE, MAE
-     - R², Adjusted R²
-     - MAPE (Mean Absolute Percentage Error)
-   - **Ranking**:
-     - NDCG, MRR, MAP
-   - **Generation**:
-     - BLEU, ROUGE, BERTScore
-   - Choose metrics based on business requirements
-2. **Prepare Test Dataset**:
-   - Ensure test set is separate from training (no leakage)
-   - Verify test set is representative of real data
-   - Check test set size (statistically significant)
-   - Stratify if needed (for imbalanced classes)
-3. **Run Model on Test Set**:
-   - Generate predictions for all test samples
-   - Record prediction confidence/probabilities
-   - Measure inference time and resource usage
-   - Save predictions for analysis
-4. **Calculate Metrics**:
-   - Compute all selected metrics
-   - Calculate confidence intervals
-   - Check for statistical significance
-   - Compare to target thresholds
-5. **Perform Cross-Validation** (if applicable):
-   - K-fold cross-validation for small datasets
-   - Stratified K-fold for imbalanced data
-   - Report mean and std across folds
-6. **Compare to Baseline**:
-   - Compare to simple baseline (majority class, mean, etc.)
-   - Compare to previous model version
-   - Compare to state-of-the-art (if applicable)
-   - Calculate improvement percentage
-7. **Analyze Errors**:
-   - Identify misclassified samples
-   - Look for patterns in errors (specific classes, features)
-   - Check for systematic biases
-   - Prioritize error types by impact
-8. **Assess Fairness and Bias**:
-   - Check performance across demographic groups
-   - Measure disparate impact
-   - Identify proxy variables
-   - Assess equal opportunity
-9. **Document Results**:
-   - Summary of all metrics
-   - Comparison to baseline and targets
-   - Error analysis findings
-   - Fairness assessment
-   - Recommendations for improvement
-   - Confidence in results
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Appropriate metrics selected for the task
-- Test set is independent (no leakage)
-- Results are statistically significant
-- Errors thoroughly analyzed
-- Fairness assessed
-- Documentation complete
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
 ## Rollback
-- No state changes; this is an evaluation skill
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Using accuracy for imbalanced datasets (use F1, PR-AUC)
-- Data leakage (test set accidentally in training)
-- Not comparing to baseline (is the model actually useful?)
-- Ignoring error analysis (missing improvement opportunities)
-- Not assessing fairness (ethical and legal issues)
-- Small test set (results not statistically significant)
-- Overfitting to test set (using it for model selection)
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
 ## Examples
-### Evaluating a Churn Prediction Model
-Input: Binary classification model predicting customer churn
-Output:
-- **Metrics**:
-  - Accuracy: 0.82
-  - Precision: 0.71 (churned class)
-  - Recall: 0.68 (churned class)
-  - F1-Score: 0.69 (churned class)
-  - ROC-AUC: 0.85
-  - PR-AUC: 0.72
-- **Baseline Comparison**:
-  - Majority class baseline: 0.73 accuracy (predict all retained)
-  - Previous model: 0.78 accuracy, 0.65 F1
-  - Improvement: +4% accuracy, +4% F1 vs previous
-- **Error Analysis**:
-  - False negatives (missed churn): 32% of churned customers
-    - Pattern: Mostly new customers (< 6 months tenure)
-    - Impact: High (lost revenue)
-  - False positives (false alarms): 29% of predicted churn
-    - Pattern: High-value customers with recent complaints
-    - Impact: Medium (unnecessary retention offers)
-- **Fairness Assessment**:
-  - Performance by age group:
-    - 18-30: F1 = 0.72
-    - 31-50: F1 = 0.70
-    - 51+: F1 = 0.65 (lower performance)
-  - Disparate impact ratio: 0.90 (acceptable)
-- **Recommendations**:
-  1. Add features for new customer behavior (improve recall)
-  2. Adjust threshold to reduce false negatives (business priority)
-  3. Investigate lower performance for 51+ age group
-  4. Consider cost-sensitive learning (churn is more costly)
+**Example A:** A user asks for ml model evaluation help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

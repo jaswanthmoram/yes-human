@@ -2,7 +2,7 @@
 id: manufacturing.preventive-maintenance
 name: Preventive Maintenance
 version: 1.0.0
-domain: manufacturing
+domain: moramvenkatasatyajaswanth
 category: manufacturing.maintenance
 purpose: Design and optimize preventive maintenance schedules based on failure data, usage patterns, and manufacturer recommendations.
 summary: Preventive maintenance covering PM schedule design, task selection, interval optimization, and resource planning.
@@ -12,110 +12,113 @@ triggers:
   - PM task selection
   - maintenance resource planning
   - equipment PM review
-aliases:
-  - preventive maintenance
-  - PM planning
-negative_keywords:
-  - financial audit
-  - code review
-  - legal review
+  - yes human task
+  - preventive maintenance review
+activation_triggers:
+  - help me with preventive maintenance
+  - review preventive maintenance work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - equipment_data
   - failure_history
   - usage_patterns
   - manufacturer_recommendations
+  - target_artifact
+  - requirements_or_context
+steps:
+  - Confirm the requested preventive maintenance outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - pm_schedule
   - task_list
   - interval_optimization_report
   - resource_plan
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
-required_skills: []
-budget_band: standard
-max_context_tokens: 8000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - PM schedule without failure data analysis
   - Intervals not optimized for actual usage
   - Missing resource and spare parts planning
-verification:
-  - Failure modes mapped to PM tasks
-  - Intervals based on data, not just calendar
-  - Resource requirements documented
-  - Spare parts list included
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.manufacturing.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - Revert to previous PM schedule if new intervals cause increased failures
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Design and optimize preventive maintenance schedules based on failure data, usage patterns, and manufacturer recommendations.
+## Trigger
+Use this skill when a task explicitly matches `manufacturing.preventive-maintenance` or when the user asks for preventive maintenance support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- When creating PM schedules for new equipment
-- During PM interval optimization reviews
-- When planning maintenance resources and spare parts
-- For PM program effectiveness assessments
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- For predictive maintenance (use predictive-maintenance skill)
-- For breakdown maintenance (use maintenance engineering agent)
-- For equipment replacement decisions (use industrial engineering agent)
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Analyze Failure Data**:
-   - Review failure history and MTBF data
-   - Identify dominant failure modes by equipment
-   - Classify failures by P-F interval
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-2. **Select PM Tasks**:
-   - Match tasks to failure modes (inspection, replacement, overhaul)
-   - Eliminate tasks that don't prevent or detect failures
-   - Prioritize safety-critical PM tasks
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
 
-3. **Optimize Intervals**:
-   - Base intervals on failure data and usage patterns
-   - Adjust for operating environment and duty cycle
-   - Balance PM cost against failure cost
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
 
-4. **Plan Resources**:
-   - Estimate labor hours by skill type
-   - List required spare parts and tools
-   - Schedule PM windows around production
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
 
-5. **Document and Validate**:
-   - Create PM task sheets with step-by-step instructions
-   - Validate against manufacturer recommendations
-   - Obtain maintenance manager approval
-
-## Tool Policy
-- Use `filesystem.read` to review equipment data, failure history, and usage logs
-- Use `filesystem.write` to produce PM schedules and resource plans
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- All dominant failure modes have corresponding PM tasks
-- Intervals based on failure data and usage patterns
-- Resource requirements (labor, parts, tools) documented
-- PM windows coordinated with production schedule
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- PM tasks not linked to actual failure modes
-- Calendar-based intervals ignoring usage variation
-- Missing spare parts causing PM delays
-- PM schedule conflicting with production
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- Design PM schedule for CNC machining center
-- Optimize PM intervals for conveyor system
-- Resource plan for annual shutdown maintenance
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for preventive maintenance help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- Moubray, Reliability-Centered Maintenance
-- Smith & Hinchcliffe, RCM: Gateway to World Class Maintenance
-- Reference: ref.github.manufacturing.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

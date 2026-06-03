@@ -2,9 +2,10 @@
 id: engineering.nextjs-app-router
 name: Next.js App Router Patterns
 version: 1.0.0
-domain: engineering
+domain: moramvenkatasatyajaswanth
 category: engineering.frameworks
-description: Guide Next.js App Router patterns including server components, server actions, layouts, loading states, and data fetching strategies.
+purpose: Execute next js app router patterns work with evidence, verification, and clear handoff rules.
+summary: Next Js App Router Patterns provides a repeatable operating procedure for task tasks. It defines inputs, checks, outputs, rollback behavior, and escalation paths so routed agents produce useful work rather than generic advice.
 triggers:
   - implement server action with input validation
   - nextjs app router
@@ -13,101 +14,111 @@ triggers:
   - server actions
   - nextjs layout
   - nextjs data fetching
-  - app router patterns
-aliases:
-  - next.js 14 patterns
-  - app directory
-  - rsc patterns
-negative_keywords:
-  - pages router
-  - getServerSideProps
-  - getStaticProps
-  - next.js 12
+activation_triggers:
+  - help me with next js app router patterns
+  - review next js app router patterns work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - route_requirements
   - data_fetching_strategy
   - nextjs_version (optional)
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested next js app router patterns outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - route_structure
   - server_component_code
   - data_fetching_implementation
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
-  - code_graph.query
-required_skills: []
-budget_band: standard
-max_context_tokens: 5000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Client component boundary misplacement
   - Missing Suspense boundaries for streaming
   - Server action security vulnerabilities
   - Incorrect cache invalidation
-verification:
-  - All server/client boundaries are explicit
-  - Loading and error states defined for routes
-  - Server actions validate inputs
-  - No sensitive data exposed to client components
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.engineering.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - Revert to pages router implementation if needed
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Provide expert guidance on Next.js App Router patterns, ensuring correct server/client component boundaries, efficient data fetching, and proper use of server actions and streaming.
+## Trigger
+Use this skill when a task explicitly matches `engineering.nextjs-app-router` or when the user asks for next js app router patterns support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- Building Next.js 13+ applications with App Router
-- Implementing server components and server actions
-- Designing route layouts, loading states, and error boundaries
-- Optimizing data fetching with caching and revalidation
-- Migrating from Pages Router to App Router
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- Next.js projects using Pages Router (use getServerSideProps/getStaticProps)
-- Non-Next.js React applications
-- Static sites without server-side features
-- Next.js versions below 13
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Plan Route Structure**: Design the app directory hierarchy with route groups, dynamic segments, and parallel routes.
-2. **Define Component Boundaries**: Mark client components with 'use client' directive only when needed (interactivity, browser APIs, state).
-3. **Implement Data Fetching**: Use async server components for data fetching, apply fetch() with cache and revalidation options.
-4. **Create Layouts**: Build nested layouts for shared UI, use templates for per-navigation state reset.
-5. **Add Loading and Error States**: Create loading.tsx for Suspense boundaries and error.tsx for error boundaries at route level.
-6. **Implement Server Actions**: Create server actions with 'use server' directive, validate inputs, and handle mutations.
-7. **Optimize Performance**: Apply streaming with Suspense, use parallel routes for independent loading, implement partial prerendering.
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-## Tool Policy
-- Use `filesystem.read` to inspect existing Next.js route code
-- Use `filesystem.write` to create or update route implementations
-- Use `code_graph.query` to trace component boundaries and data flow
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Run `next build` to verify production build succeeds
-- Run `next lint` to check for App Router best practices
-- Test streaming and loading states in development
-- Verify server actions handle errors gracefully
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- **Client Boundary Issues**: Forgetting 'use client' on interactive components or over-marking components as client
-- **Missing Suspense**: No loading.tsx causing full-page loading states instead of streaming
-- **Server Action Security**: Not validating inputs in server actions, leading to injection vulnerabilities
-- **Cache Staleness**: Not revalidating cached data after mutations; use revalidatePath/revalidateTag
-- **Bundle Bloat**: Importing heavy libraries in server components that get sent to client
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- `yes route "create nextjs app router layout"` -> engineering.nextjs-app-router
-- `yes route "implement server action for form"` -> engineering.nextjs-app-router
-- `yes route "add streaming to nextjs page"` -> engineering.nextjs-app-router
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for next js app router patterns help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- Next.js App Router documentation: https://nextjs.org/docs/app
-- Next.js GitHub repository: github.com/vercel/next.js (128k+ stars)
-- Vercel blog posts on App Router patterns
-- Reference dossier: ref.github.engineering.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

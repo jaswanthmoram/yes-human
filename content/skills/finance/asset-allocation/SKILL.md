@@ -2,7 +2,7 @@
 id: finance.asset-allocation
 name: Asset Allocation
 version: 1.0.0
-domain: finance
+domain: moramvenkatasatyajaswanth
 category: finance.investment
 purpose: Design asset allocation strategies based on investment objectives, risk tolerance, and time horizon.
 summary: Asset allocation design with strategic and tactical approaches, diversification analysis, and policy statements.
@@ -12,82 +12,112 @@ triggers:
   - tactical allocation adjustment
   - diversification analysis
   - investment policy design
-aliases:
-  - asset allocation
-  - allocation strategy
-negative_keywords:
-  - tax filing
-  - code review
-  - marketing campaign
+  - yes human task
+  - asset allocation review
+activation_triggers:
+  - help me with asset allocation
+  - review asset allocation work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - investment_objectives
   - risk_tolerance
   - time_horizon
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested asset allocation outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - allocation_strategy
   - diversification_analysis
   - policy_statement
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
-required_skills: []
-budget_band: standard
-max_context_tokens: 8000
+  - filesystem.write
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Ignores correlation analysis
   - Omits rebalancing triggers
   - Fails to match allocation to objectives
-verification:
-  - Allocation matches objectives
-  - Diversification analyzed
-  - Rebalancing triggers defined
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.finance.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - No state changes to rollback
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Design asset allocation strategies based on investment objectives, risk tolerance, and time horizon for decision support.
+## Trigger
+Use this skill when a task explicitly matches `finance.asset-allocation` or when the user asks for asset allocation support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- Designing asset allocation strategies
-- Reviewing strategic allocation
-- Analyzing diversification
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- Individual security selection belongs to investment-analyst
-- Tax-efficient allocation belongs to tax-specialist
-- Portfolio optimization belongs to portfolio-optimization skill
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. Define investment objectives and constraints.
-2. Assess risk tolerance and time horizon.
-3. Analyze asset class characteristics and correlations.
-4. Design strategic allocation targeting long-term objectives.
-5. Define tactical bands and rebalancing triggers.
-6. Document allocation policy statement.
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-## Tool Policy
-- Use `filesystem.read` to access investment data and objective inputs.
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Allocation matches stated objectives
-- Diversification analyzed across asset classes
-- Rebalancing triggers defined
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Ignoring correlation analysis
-- Omitting rebalancing triggers
-- Failing to match allocation to objectives
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- "design asset allocation strategy"
-- "strategic allocation review"
-- "diversification analysis"
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for asset allocation help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- Reference: ref.github.finance.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

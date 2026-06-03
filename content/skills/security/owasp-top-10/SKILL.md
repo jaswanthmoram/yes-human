@@ -2,7 +2,7 @@
 id: security.owasp-top-10
 name: OWASP Top 10 Vulnerability Review
 version: 1.0.0
-domain: security
+domain: moramvenkatasatyajaswanth
 category: security.application-security
 purpose: Identify and remediate OWASP Top 10 vulnerabilities in web applications through systematic code review and testing.
 summary: Comprehensive review against the OWASP Top 10 risk categories with detection patterns and remediation guidance.
@@ -14,159 +14,114 @@ triggers:
   - security review against OWASP categories
   - web application OWASP assessment
   - OWASP Top 10 checklist review
-aliases:
-  - owasp review
-  - owasp audit
-  - top 10 check
-negative_keywords:
-  - mobile only
-  - network pentest
-  - physical security
+activation_triggers:
+  - help me with owasp top 10 vulnerability review
+  - review owasp top 10 vulnerability review work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - source_code
   - architecture_diagram
   - dependency_list
   - existing_scan_results
+  - target_artifact
+  - requirements_or_context
+steps:
+  - Confirm the requested owasp top 10 vulnerability review outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - vulnerability_report
   - risk_matrix
   - remediation_plan
   - owasp_checklist_status
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
   - web.search
   - code.grep
-required_skills: []
-budget_band: standard
-max_context_tokens: 12000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Incomplete code coverage during review
   - False positive findings without validation
   - Missing framework-specific mitigations
   - Outdated OWASP version reference
-verification:
-  - All 10 OWASP categories assessed
-  - Each finding has severity, location, and remediation
-  - Remediation plan addresses all critical and high findings
-  - Re-review confirms fixes applied
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.security.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - No state changes to rollback
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Systematically review application code and architecture against the OWASP Top 10 (2021 edition) to identify vulnerabilities, assess risk, and produce actionable remediation plans.
+## Trigger
+Use this skill when a task explicitly matches `security.owasp-top-10` or when the user asks for owasp top 10 vulnerability review support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- Before releasing a web application to production
-- During periodic security audits
-- When onboarding a new codebase for security review
-- After a security incident to identify related weaknesses
-- As part of a compliance review requiring OWASP alignment
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- Mobile-only applications without web components (use MASVS instead)
-- Pure network penetration testing (use network-scanning skill)
-- Physical security assessments
-- When a full pentest engagement is required (use professional pentesters)
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Map Application Surface**:
-   - Identify all entry points (routes, APIs, forms, file uploads)
-   - Document authentication and authorization boundaries
-   - List external integrations and data stores
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-2. **A01 - Broken Access Control**:
-   - Check for missing authorization checks on endpoints
-   - Verify CORS configuration
-   - Test for IDOR (Insecure Direct Object References)
-   - Check path traversal protections
-   - Verify principle of least privilege
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
 
-3. **A02 - Cryptographic Failures**:
-   - Identify sensitive data in transit without TLS
-   - Check for weak algorithms (MD5, SHA1, DES)
-   - Verify proper key management
-   - Check for hardcoded secrets and credentials
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
 
-4. **A03 - Injection**:
-   - Search for raw SQL queries and string concatenation
-   - Check for NoSQL injection vectors
-   - Review template rendering for SSTI
-   - Check command injection in system calls
-   - Verify LDAP and header injection protections
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
 
-5. **A04 - Insecure Design**:
-   - Review threat model coverage
-   - Check for missing rate limiting
-   - Verify input validation at trust boundaries
-   - Assess business logic for abuse cases
-
-6. **A05 - Security Misconfiguration**:
-   - Check default credentials and accounts
-   - Verify security headers are set
-   - Check for verbose error messages
-   - Review cloud storage permissions
-   - Verify framework security features enabled
-
-7. **A06 - Vulnerable and Outdated Components**:
-   - Run dependency audit (npm audit, pip audit, etc.)
-   - Check for known CVEs in dependencies
-   - Verify update policies and processes
-
-8. **A07 - Identification and Authentication Failures**:
-   - Check password policy enforcement
-   - Verify MFA implementation
-   - Test session management
-   - Check for credential stuffing protections
-
-9. **A08 - Software and Data Integrity Failures**:
-   - Review CI/CD pipeline security
-   - Check for unsigned updates or plugins
-   - Verify deserialization protections
-
-10. **A09 - Security Logging and Monitoring Failures**:
-    - Verify audit logging for security events
-    - Check log integrity and retention
-    - Verify alerting on suspicious activity
-
-11. **A10 - Server-Side Request Forgery (SSRF)**:
-    - Check URL validation on server-side requests
-    - Verify allowlists for outbound requests
-    - Test for metadata service access (cloud environments)
-
-## Tool Policy
-- Use `filesystem.read` to scan source code for vulnerability patterns
-- Use `code.grep` for pattern matching (e.g., raw SQL, eval, exec)
-- Use `web.search` for CVE lookups and remediation guidance
-- Use `filesystem.write` to produce the vulnerability report
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- All 10 OWASP categories have been assessed with findings or "not applicable"
-- Each finding includes: category, severity (Critical/High/Medium/Low), file location, code snippet, remediation
-- Remediation plan prioritizes Critical and High findings with timelines
-- Re-review after fixes confirms vulnerabilities are resolved
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Skipping categories assumed "not relevant" without evidence
-- Not checking framework-specific bypasses (e.g., Django ORM raw queries)
-- Reporting findings without reproducible proof
-- Missing server-side-only vulnerabilities by focusing on client code
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- `POST /api/users/:id` - check IDOR on user profile update
-- `GET /admin/reports` - check authorization bypass on admin endpoint
-- `POST /api/search` - check SQL injection in search parameter
-- `POST /api/upload` - check path traversal in file upload
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for owasp top 10 vulnerability review help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- OWASP Top 10 2021: https://owasp.org/www-project-top-ten/
-- OWASP Testing Guide v4.2
-- CWE/SANS Top 25 Most Dangerous Software Weaknesses
-- Reference: ref.github.security.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

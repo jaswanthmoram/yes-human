@@ -2,7 +2,7 @@
 id: engineering.refactor-planning
 name: Refactoring Strategy and Execution
 version: 1.0.0
-domain: engineering
+domain: moramvenkatasatyajaswanth
 category: engineering.refactoring
 purpose: Plan and execute code refactoring to improve maintainability without changing behavior.
 summary: Guides through identifying refactoring opportunities, planning safe refactoring steps, and verifying behavior preservation.
@@ -12,131 +12,122 @@ triggers:
   - code cleanup and refactoring
   - reduce technical debt in code
   - restructure code architecture
+  - yes human task
+  - refactoring strategy and execution review
 activation_triggers:
   - refactor this
   - clean up the code
   - make it cleaner
 prerequisites:
-  - comprehensive test suite
-  - understanding of current code structure
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - code_to_refactor
   - refactoring_goals
   - test_coverage_status
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
 steps:
-  - Identify code smells and refactoring opportunities
-  - Ensure adequate test coverage before refactoring
-  - Plan refactoring steps (small, incremental changes)
-  - Apply refactoring patterns (extract method, rename, etc.)
-  - Run tests after each refactoring step
-  - Verify behavior is preserved
-  - Document changes
+  - Confirm the requested refactoring strategy and execution outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - refactoring_plan
   - refactored_code
   - test_results
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - filesystem.read
   - filesystem.write
   - shell.readonly (run tests)
-  - code_graph.query
 quality_gates:
   - All tests pass after refactoring
   - No behavior changes
   - Code complexity reduced
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Changing behavior during refactoring
   - Not running tests after changes
   - Making too many changes at once
   - Not having adequate test coverage
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - engineering.testing-unit (to add tests if coverage is low)
   - engineering.code-reviewer (to review refactored code)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.refactoring-patterns.2026-06-01
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - engineering.refactoring
   - engineering.code-quality
-allowed_workflows:
-  - engineering.refactoring-campaign
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - Revert to previous version using version control
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when improving code structure, reducing technical debt, or cleaning up code without changing functionality.
+Use this skill when a task explicitly matches `engineering.refactor-planning` or when the user asks for refactoring strategy and execution support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Comprehensive test suite (or ability to add tests)
-- Version control for easy rollback
-- Understanding of current code structure
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Identify Code Smells**:
-   - Long methods (>50 lines)
-   - Large classes (>500 lines)
-   - Duplicated code
-   - Complex conditionals
-   - Poor naming
-   - High coupling
-2. **Ensure Test Coverage**:
-   - Run existing tests to establish baseline
-   - Add tests for uncovered critical paths
-   - Verify all tests pass before starting
-3. **Plan Refactoring Steps**:
-   - Break into small, incremental changes
-   - Each step should be independently testable
-   - Prioritize by impact and risk
-4. **Apply Refactoring Patterns**:
-   - Extract Method: Break long methods into smaller ones
-   - Rename: Improve variable/function names
-   - Extract Class: Split large classes
-   - Replace Conditional with Polymorphism
-   - Introduce Parameter Object
-5. **Test After Each Step**:
-   - Run full test suite after each refactoring
-   - Fix any failures immediately
-   - Do not proceed if tests fail
-6. **Verify Behavior**:
-   - Compare outputs before and after
-   - Run integration tests
-   - Manual testing for critical paths
-7. **Document Changes**:
-   - Update comments if structure changed significantly
-   - Document the "why" behind refactoring decisions
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- All tests pass
-- Code complexity metrics improved (cyclomatic complexity, lines of code)
-- No behavior changes (verified by tests)
-- Code review approved
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
 ## Rollback
-- Use version control to revert: `git revert <commit>`
-- Or checkout previous version: `git checkout HEAD~1 <file>`
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Refactoring without tests (can't verify behavior preservation)
-- Making too many changes at once (hard to debug if tests fail)
-- Changing behavior while refactoring (mixing refactoring with bug fixes)
-- Not running tests after each step
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
 ## Examples
-### Refactoring a Long Method
-Input: 200-line method with multiple responsibilities
-Output:
-- Extract validation logic into `validateInput()` method
-- Extract processing logic into `processData()` method
-- Extract formatting logic into `formatOutput()` method
-- Main method now orchestrates: validate → process → format
-- All tests still pass
-- Cyclomatic complexity reduced from 25 to 8
+**Example A:** A user asks for refactoring strategy and execution help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

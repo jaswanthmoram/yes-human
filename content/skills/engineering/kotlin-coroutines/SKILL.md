@@ -2,9 +2,10 @@
 id: engineering.kotlin-coroutines
 name: Kotlin Coroutines and Flow Patterns
 version: 1.0.0
-domain: engineering
+domain: moramvenkatasatyajaswanth
 category: engineering.frameworks
-description: Guide Kotlin coroutines and Flow patterns including structured concurrency, coroutine scopes, channels, and reactive streams.
+purpose: Execute kotlin coroutines and flow patterns work with evidence, verification, and clear handoff rules.
+summary: Kotlin Coroutines And Flow Patterns provides a repeatable operating procedure for task tasks. It defines inputs, checks, outputs, rollback behavior, and escalation paths so routed agents produce useful work rather than generic advice.
 triggers:
   - fix coroutine cancellation in long running loop
   - kotlin coroutines
@@ -13,102 +14,111 @@ triggers:
   - suspend function
   - kotlin async
   - kotlin channels
-  - structured concurrency
-aliases:
-  - coroutines patterns
-  - kotlin async
-  - flow patterns
-negative_keywords:
-  - java threads
-  - rxjava
-  - javascript promises
-  - go routines
+activation_triggers:
+  - help me with kotlin coroutines and flow patterns
+  - review kotlin coroutines and flow patterns work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - concurrency_requirements
   - kotlin_version
   - platform (JVM, Android, Multiplatform)
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested kotlin coroutines and flow patterns outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - coroutine_implementation
   - flow_pipeline_code
   - concurrency_pattern_guide
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
-  - code_graph.query
-required_skills: []
-budget_band: standard
-max_context_tokens: 5000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Coroutine leaks from unstructured launches
   - Deadlocks from improper dispatcher usage
   - Flow backpressure causing memory issues
   - Cancellation not propagating correctly
-verification:
-  - All coroutines launched within proper scopes
-  - No GlobalScope usage in production code
-  - Flow collection handles cancellation
-  - Exception handling with CoroutineExceptionHandler
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.engineering.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - Revert to callback-based implementation
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Provide expert guidance on Kotlin coroutines and Flow patterns, ensuring structured concurrency, proper dispatcher usage, and robust error handling in asynchronous code.
+## Trigger
+Use this skill when a task explicitly matches `engineering.kotlin-coroutines` or when the user asks for kotlin coroutines and flow patterns support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- Implementing asynchronous operations in Kotlin
-- Building reactive data pipelines with Flow
-- Managing concurrent tasks with structured concurrency
-- Replacing callbacks or RxJava with coroutines
-- Implementing Android ViewModel async operations
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- Java-only projects without Kotlin
-- Simple synchronous operations
-- Projects using RxJava with established patterns (unless migrating)
-- Non-Kotlin platforms
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Define Coroutine Scope**: Choose appropriate scope (viewModelScope, lifecycleScope, custom SupervisorJob) based on lifecycle requirements.
-2. **Select Dispatcher**: Use Dispatchers.IO for blocking I/O, Dispatchers.Default for CPU-intensive work, Dispatchers.Main for UI updates.
-3. **Implement Suspend Functions**: Write suspend functions for async operations, using withContext for dispatcher switching.
-4. **Build Flow Pipelines**: Create Flow producers with flow {}, apply operators (map, filter, debounce, combine), and collect with proper lifecycle awareness.
-5. **Handle Errors**: Apply try-catch in suspend functions, use catch {} operator on Flows, and configure CoroutineExceptionHandler for uncaught exceptions.
-6. **Manage Cancellation**: Ensure cooperative cancellation with isActive checks, use ensureActive() in long-running loops, and handle cleanup in finally blocks.
-7. **Test Coroutines**: Use runTest, TestDispatcher, and Turbine for testing coroutine and Flow behavior.
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-## Tool Policy
-- Use `filesystem.read` to inspect existing coroutine code
-- Use `filesystem.write` to create or update coroutine implementations
-- Use `code_graph.query` to trace coroutine scope usage across the codebase
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Run `./gradlew test` to verify coroutine tests pass
-- Use Kotlin coroutines debug mode (-Dkotlinx.coroutines.debug)
-- Check for GlobalScope usage with static analysis
-- Verify no coroutine leaks with LeakCanary (Android)
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- **Coroutine Leaks**: Launching coroutines without proper scope; always use structured concurrency
-- **Dispatcher Misuse**: Running blocking code on Main dispatcher causing ANR; use withContext(Dispatchers.IO)
-- **Cancellation Issues**: Not checking isActive in loops; use yield() or ensureActive()
-- **Flow Backpressure**: Unbounded buffer in Flow; use buffer() with capacity or conflate()
-- **Exception Swallowing**: Catching exceptions inside coroutine without rethrowing; use SupervisorJob for isolation
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- `yes route "implement kotlin flow pipeline"` -> engineering.kotlin-coroutines
-- `yes route "fix coroutine cancellation"` -> engineering.kotlin-coroutines
-- `yes route "replace callbacks with coroutines"` -> engineering.kotlin-coroutines
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for kotlin coroutines and flow patterns help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- Kotlin coroutines official guide: https://kotlinlang.org/docs/coroutines-guide.html
-- Kotlin Flow documentation: https://kotlinlang.org/docs/flow.html
-- Roman Elizarov's coroutine articles (Kotlin team lead)
-- github.com/Kotlin/kotlinx.coroutines (13k+ stars)
-- Reference dossier: ref.github.engineering.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

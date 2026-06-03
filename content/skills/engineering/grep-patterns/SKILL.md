@@ -2,7 +2,7 @@
 id: engineering.grep-patterns
 name: Advanced Grep and Search Patterns
 version: 1.0.0
-domain: engineering
+domain: moramvenkatasatyajaswanth
 category: engineering.search
 purpose: Use advanced grep, ripgrep, and search patterns to efficiently find code, patterns, and anomalies across large codebases.
 summary: Comprehensive guide to regex patterns, search tool selection, and multi-file search strategies for codebase exploration.
@@ -14,116 +14,114 @@ triggers:
   - regex search
   - ripgrep
   - code search
-  - find occurrences
-aliases:
-  - grep
-  - search
-  - find code
-negative_keywords:
-  - code generation
-  - refactoring
-  - documentation
+activation_triggers:
+  - help me with advanced grep and search patterns
+  - review advanced grep and search patterns work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - search_pattern
   - file_glob (optional)
   - search_scope (optional)
   - case_sensitivity (optional, default: smart)
+  - target_artifact
+  - requirements_or_context
+steps:
+  - Confirm the requested advanced grep and search patterns outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - matching_files_with_lines
   - match_count
   - pattern_analysis
   - suggested_refinements
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - shell.readonly (grep, rg, ag, find)
   - filesystem.read (inspect matched files)
-required_skills: []
-budget_band: micro
-max_context_tokens: 3000
+  - filesystem.read
+  - filesystem.write
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Overly broad patterns returning thousands of false positives
   - Missing matches due to incorrect regex escaping
   - Searching binary or generated files wasting time
   - Not scoping search to relevant file types
-verification:
-  - Search returns expected matches with correct line numbers
-  - Pattern matches known examples correctly
-  - No false negatives on test cases
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.engineering.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: micro
 rollback:
   - No state changes to rollback (read-only search)
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Provide efficient, precise codebase search using the right tool and pattern for the job, minimizing noise and maximizing relevant results.
+## Trigger
+Use this skill when a task explicitly matches `engineering.grep-patterns` or when the user asks for advanced grep and search patterns support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- Searching for specific code patterns, function calls, or variable usage
-- Finding all occurrences of a string, regex pattern, or anti-pattern
-- Exploring unfamiliar codebases to understand structure
-- Auditing code for security issues or deprecated API usage
-- Locating TODO/FIXME/HACK comments across a project
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- When you need to understand code semantics (use a code graph or IDE instead)
-- When searching for structural patterns like "all classes that extend X" (use AST tools)
-- When the codebase is small enough to browse manually
-- When you need cross-reference analysis beyond text matching
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Choose the Right Tool**:
-   - `rg` (ripgrep): Fastest, respects .gitignore, default for most searches
-   - `grep -r`: Universal fallback, available everywhere
-   - `ag` (The Silver Searcher): Good alternative to ripgrep
-   - `git grep`: Searches only tracked files, fast for git repos
-2. **Define the Pattern**:
-   - Literal search: `rg "functionName"` (fast, no regex)
-   - Regex search: `rg "fn\s+\w+\(.*\)"` (flexible, slower)
-   - Fixed string: `rg -F "exact.string.match"` (fastest for literals with dots)
-3. **Scope the Search**:
-   - File type: `rg -t js "pattern"` (JavaScript only)
-   - Glob: `rg -g "*.ts" "pattern"` (TypeScript files)
-   - Directory: `rg "pattern" src/` (specific directory)
-   - Exclude: `rg --glob "!node_modules" "pattern"`
-4. **Refine Results**:
-   - Context lines: `rg -C 3 "pattern"` (3 lines before/after)
-   - File names only: `rg -l "pattern"` (list matching files)
-   - Count: `rg -c "pattern"` (count matches per file)
-   - Case insensitive: `rg -i "pattern"`
-5. **Multi-Pattern Search**:
-   - OR patterns: `rg "pattern1|pattern2"`
-   - Multiple flags: `rg -e "pattern1" -e "pattern2"`
-   - AND (sequential): `rg "pattern1" | xargs rg "pattern2"`
-6. **Validate Results**: Spot-check matches to confirm the pattern is correct and not producing false positives.
-7. **Iterate**: Refine the pattern based on results, narrowing or broadening as needed.
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-## Tool Policy
-- Use `shell.readonly` for all search commands (grep, rg, ag, git grep)
-- Use `filesystem.read` to inspect matched files for context
-- Never modify files during a search operation
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Pattern matches known test cases (positive and negative)
-- Results are scoped to relevant files (no binary, generated, or vendor files)
-- Match count is reasonable for the expected pattern frequency
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- **Catastrophic backtracking**: Complex regex patterns can hang. Mitigation: use simple patterns first, test regex on small input.
-- **Encoding issues**: Binary files or non-UTF-8 files may cause errors. Mitigation: use `--text` flag or exclude binary files.
-- **Symlink loops**: Following symlinks can cause infinite recursion. Mitigation: use `--no-follow` or ripgrep's default behavior.
-- **Too many results**: Broad patterns flood output. Mitigation: scope by file type, directory, or use `-l` for file list first.
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- "find all uses of deprecated API" -> `rg "oldFunction\(" -t js` with context lines
-- "where is this config value used" -> `rg -F "CONFIG_KEY" -l` then inspect each file
-- "find all TODO comments" -> `rg "TODO|FIXME|HACK" -t ts -t js` with file grouping
-- "search for potential SQL injection" -> `rg "query\(.*\+.*\)" -t py` with context
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for advanced grep and search patterns help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- Patterns based on ripgrep and GNU grep documentation
-- Search strategies adapted from engineering codebase exploration workflows
-- Reference: ref.github.engineering.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

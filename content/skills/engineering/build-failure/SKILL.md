@@ -2,7 +2,7 @@
 id: engineering.build-failure
 name: Build Error Diagnosis and Fix
 version: 1.0.0
-domain: engineering
+domain: moramvenkatasatyajaswanth
 category: engineering.build-resolver
 purpose: Diagnose and fix build errors by analyzing error messages, dependencies, and configuration issues.
 summary: Systematic approach to identifying root causes of build failures and applying targeted fixes.
@@ -12,114 +12,125 @@ triggers:
   - compilation error
   - build is broken
   - fix build
+  - yes human task
+  - build error diagnosis and fix review
 activation_triggers:
   - build is failing
   - can't build
   - build error message
 prerequisites:
-  - access to build logs
-  - ability to run build commands
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - build_error_output
   - build_command
   - recent_changes (optional)
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
 steps:
-  - Capture and analyze full build error output
-  - Identify error category (syntax, dependency, configuration, environment)
-  - Check recent changes that might have caused the failure
-  - Search for similar errors in project history or documentation
-  - Apply targeted fix based on error category
-  - Verify fix by running build again
-  - Document the issue and solution
+  - Confirm the requested build error diagnosis and fix outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - error_diagnosis
   - root_cause
   - fix_applied
   - verification_result
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - shell.readonly (run build, check logs)
   - filesystem.read (check configs, dependencies)
   - filesystem.write (apply fixes)
+  - filesystem.read
+  - filesystem.write
 quality_gates:
   - Build succeeds after fix
   - Root cause identified and documented
   - No new warnings introduced
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Misdiagnosing the error category
   - Applying a fix that masks the real problem
   - Not verifying the fix works
   - Ignoring warnings that indicate deeper issues
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - engineering.dependency-upgrade (if dependency issue)
   - platform.ci-triage (if CI/CD pipeline issue)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.build-troubleshooting.2026-06-01
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - engineering.build-resolver
   - engineering.dev-workflow
-allowed_workflows: []
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - Revert changes using version control
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when builds are failing, compilation errors occur, or build commands return errors.
+Use this skill when a task explicitly matches `engineering.build-failure` or when the user asks for build error diagnosis and fix support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Access to full build error output
-- Ability to run build commands locally
-- Version control for rollback
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Capture Error Output**: Run the build command and capture the full error output, including stack traces.
-2. **Categorize the Error**:
-   - **Syntax Errors**: Code syntax issues (missing semicolons, typos)
-   - **Dependency Errors**: Missing packages, version conflicts
-   - **Configuration Errors**: Incorrect build config, environment variables
-   - **Environment Errors**: Wrong Node/Python version, missing tools
-   - **Resource Errors**: Out of memory, disk space issues
-3. **Check Recent Changes**: Review git log for recent commits that might have introduced the issue.
-4. **Search for Solutions**:
-   - Check project documentation for known issues
-   - Search error message in project issue tracker
-   - Look for similar errors in build logs history
-5. **Apply Targeted Fix**:
-   - Syntax: Fix the code error
-   - Dependency: Install missing package or resolve version conflict
-   - Configuration: Update build config or environment variables
-   - Environment: Install correct tool versions
-6. **Verify Fix**: Run the build command again to confirm it succeeds.
-7. **Document**: Add to troubleshooting guide or create issue if it's a recurring problem.
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Build command succeeds with exit code 0
-- No new warnings introduced
-- Application runs correctly after build
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
 ## Rollback
-- Revert changes: `git checkout HEAD~1 <file>`
-- Or reset to last known good state: `git reset --hard HEAD~1`
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Only reading the last error line (missing context from earlier errors)
-- Applying a workaround instead of fixing the root cause
-- Not checking if the fix works in CI/CD environment
-- Ignoring deprecation warnings that will become errors
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
 ## Examples
-### Fixing a Dependency Error
-Input: `npm run build` fails with "Module not found: Can't resolve 'lodash'"
-Output:
-- Diagnosis: Missing dependency
-- Root cause: `lodash` not in package.json
-- Fix: `npm install lodash`
-- Verification: Build succeeds, tests pass
+**Example A:** A user asks for build error diagnosis and fix help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

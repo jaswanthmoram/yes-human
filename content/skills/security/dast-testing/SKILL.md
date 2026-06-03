@@ -2,7 +2,7 @@
 id: security.dast-testing
 name: Dynamic Application Security Testing
 version: 1.0.0
-domain: security
+domain: moramvenkatasatyajaswanth
 category: security.application-security
 purpose: Test running applications for security vulnerabilities through automated and manual dynamic testing.
 summary: DAST testing by interacting with live applications to identify runtime vulnerabilities including injection, auth bypass, and misconfigurations.
@@ -14,139 +14,114 @@ triggers:
   - automated web application pentest
   - runtime security testing
   - black-box security testing
-  - web vulnerability scanning
-aliases:
-  - DAST
-  - dynamic scan
-  - web pentest
-negative_keywords:
-  - source code review
-  - static analysis
-  - dependency audit
+activation_triggers:
+  - help me with dynamic application security testing
+  - review dynamic application security testing work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - application_url
   - authentication_credentials
   - api_specification
   - test_environment_config
+  - target_artifact
+  - requirements_or_context
+steps:
+  - Confirm the requested dynamic application security testing outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - vulnerability_report
   - proof_of_concept
   - risk_assessment
   - remediation_recommendations
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - bash.exec
   - web.search
   - filesystem.write
-required_skills: []
-budget_band: standard
-max_context_tokens: 12000
+  - filesystem.read
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Testing production without authorization
   - Missing authenticated endpoints
   - Incomplete crawl of application surface
   - Not testing API endpoints separately
-verification:
-  - All application endpoints discovered and tested
-  - Authenticated and unauthenticated paths tested
-  - Findings include proof of concept
-  - Critical findings have remediation verified by re-test
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.security.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - Clean up any test data created during scanning
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Perform dynamic application security testing against running applications to identify runtime vulnerabilities through automated scanning and targeted manual testing.
+## Trigger
+Use this skill when a task explicitly matches `security.dast-testing` or when the user asks for dynamic application security testing support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- Before production deployment of web applications
-- During periodic security assessments of live applications
-- After significant feature additions or changes
-- To validate SAST findings in a running environment
-- For compliance requirements mandating dynamic testing
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- Against production systems without explicit authorization
-- When source code is available and SAST is more appropriate (use sast-analysis)
-- For API-only services without proper test environment
-- When application is not in a testable state (under maintenance)
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Define Test Scope and Authorization**:
-   - Obtain written authorization for testing
-   - Define in-scope URLs, endpoints, and parameters
-   - Identify out-of-scope systems (third-party integrations)
-   - Set up dedicated test environment when possible
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-2. **Discover Application Surface**:
-   - Crawl application to discover all pages and forms
-   - Map API endpoints from OpenAPI/Swagger specs
-   - Identify authentication mechanisms and session handling
-   - Document input parameters for each endpoint
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
 
-3. **Test Authentication and Authorization**:
-   - Test for default credentials
-   - Check session management (fixation, hijacking)
-   - Test horizontal and vertical privilege escalation
-   - Verify logout functionality and session invalidation
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
 
-4. **Test for Injection Vulnerabilities**:
-   - SQL injection on all database-backed inputs
-   - XSS (reflected, stored, DOM-based)
-   - Command injection on system call parameters
-   - LDAP, XML, and header injection testing
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
 
-5. **Test Configuration and Information Disclosure**:
-   - Check for verbose error messages
-   - Test for directory listing and file disclosure
-   - Verify security headers presence
-   - Check for backup files and debug endpoints
-
-6. **Analyze and Validate Findings**:
-   - Confirm each finding with proof of concept
-   - Eliminate false positives through manual verification
-   - Assess real-world exploitability
-   - Calculate risk based on impact and likelihood
-
-7. **Report and Verify Remediation**:
-   - Document findings with reproduction steps
-   - Provide specific remediation guidance
-   - Re-test after fixes are applied
-   - Track finding closure
-
-## Tool Policy
-- Use `bash.exec` to run DAST tools (OWASP ZAP, Burp Suite, Nikto)
-- Use `web.search` for vulnerability research and exploit references
-- Use `filesystem.write` to produce detailed test reports
-- Never use tools against unauthorized systems
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- All discovered endpoints tested (minimum 95% coverage)
-- Both authenticated and unauthenticated testing completed
-- Each finding has proof of concept and reproduction steps
-- Re-test confirms critical findings are resolved
-- Report delivered to stakeholders
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Testing without proper authorization
-- Missing authenticated test scenarios
-- Incomplete application crawl missing hidden endpoints
-- Not testing file upload functionality
-- Ignoring business logic vulnerabilities
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- `POST /login` - test for SQL injection in credentials
-- `GET /api/users/:id` - test for IDOR on user data
-- `POST /api/search` - test for XSS in search results
-- `GET /admin/*` - test for authorization bypass on admin routes
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for dynamic application security testing help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- OWASP ZAP: https://www.zaproxy.org/
-- OWASP Testing Guide v4.2
-- Burp Suite: https://portswigger.net/burp
-- Reference: ref.github.security.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

@@ -2,7 +2,7 @@
 id: platform.deploy-rollback
 name: Safe Deployment Rollback
 version: 1.0.0
-domain: platform
+domain: moramvenkatasatyajaswanth
 category: platform.release-engineering
 purpose: Safely rollback failed deployments while minimizing downtime and data loss.
 summary: Systematic approach to rolling back deployments including verification, data considerations, and communication.
@@ -13,154 +13,124 @@ triggers:
   - deployment failed
   - undo release
   - emergency rollback
+  - yes human task
 activation_triggers:
   - rollback
   - revert release
   - undo deploy
 prerequisites:
-  - access to deployment system
-  - rollback procedure documented
-  - backup or previous version available
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - current_deployment
   - previous_stable_version
   - rollback_reason
   - data_changes_since_deploy (optional)
+  - target_artifact
+  - requirements_or_context
 steps:
-  - Verify rollback is necessary (check monitoring, logs, user reports)
-  - Identify the last known good version
-  - Check for data migrations or changes since deployment
-  - Prepare rollback plan (steps, timing, communication)
-  - Notify stakeholders of rollback
-  - Execute rollback procedure
-  - Verify rollback success
-  - Monitor for issues post-rollback
-  - Document rollback and root cause
+  - Confirm the requested safe deployment rollback outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - rollback_plan
   - rollback_execution_log
   - verification_results
   - post_rollback_report
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - shell.readonly (check status, logs)
   - shell.write (execute rollback commands)
   - filesystem.read (configs, logs)
+  - filesystem.read
+  - filesystem.write
 quality_gates:
   - Rollback reason verified
   - Data impact assessed
   - Rollback successful
   - System stable post-rollback
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
 failure_modes:
   - Rolling back without verifying it's necessary
   - Not considering data migrations
   - Incomplete rollback (partial state)
   - Not monitoring after rollback
   - Not documenting root cause
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
 handoffs:
   - platform.incident-responder (if rollback due to incident)
   - platform.devops-engineer (for infrastructure rollback)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.deployment-rollback-best-practices.2026-06-01
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - platform.release-manager
   - platform.devops-engineer
-allowed_workflows: []
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - Re-deploy the rolled-back version if rollback itself failed
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when a deployment has failed and needs to be rolled back to a previous stable version.
+Use this skill when a task explicitly matches `platform.deploy-rollback` or when the user asks for safe deployment rollback support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Access to deployment system (Kubernetes, AWS, etc.)
-- Previous stable version identified
-- Rollback procedure documented
-- Monitoring in place to verify rollback
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Verify Rollback is Necessary**:
-   - Check monitoring dashboards (error rates, latency, etc.)
-   - Review application logs for errors
-   - Check user reports or support tickets
-   - Confirm the issue is deployment-related, not infrastructure
-2. **Identify Last Known Good Version**:
-   - Check deployment history
-   - Identify the last version that was stable
-   - Verify that version's artifacts are still available
-3. **Assess Data Impact**:
-   - Check if any database migrations ran since deployment
-   - Identify any data changes that might conflict with rollback
-   - Determine if data rollback is needed (rare, high-risk)
-   - Plan for data compatibility with old version
-4. **Prepare Rollback Plan**:
-   - Document exact rollback steps
-   - Estimate downtime
-   - Identify rollback window (low-traffic period if possible)
-   - Prepare communication plan
-5. **Notify Stakeholders**:
-   - Alert on-call team
-   - Notify product/engineering leads
-   - Update status page if customer-facing
-   - Set expectations for downtime
-6. **Execute Rollback**:
-   - Follow documented rollback procedure
-   - Use deployment system's rollback feature if available
-   - Or manually deploy previous version
-   - Monitor progress during rollback
-7. **Verify Rollback Success**:
-   - Check monitoring returns to normal
-   - Verify application logs show no errors
-   - Test critical user flows
-   - Confirm data integrity
-8. **Monitor Post-Rollback**:
-   - Watch for delayed issues
-   - Monitor for increased error rates
-   - Check for performance degradation
-   - Verify all services are healthy
-9. **Document**:
-   - Record rollback reason and timeline
-   - Document root cause of failed deployment
-   - Update runbook with lessons learned
-   - Create post-mortem if significant impact
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Monitoring metrics return to baseline
-- No errors in application logs
-- Critical user flows work correctly
-- Data integrity verified
-- All services healthy
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Rollback (of the rollback)
-- If rollback itself fails, re-deploy the failed version
-- Investigate why rollback failed
-- Consider manual intervention or infrastructure reset
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Rolling back without verifying it's necessary (issue might be elsewhere)
-- Not checking for data migrations (old code with new schema)
-- Incomplete rollback (some services rolled back, others not)
-- Not monitoring after rollback (delayed issues)
-- Not documenting root cause (same issue will recur)
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
 ## Examples
-### Rolling Back a Failed Kubernetes Deployment
-Input: New deployment causing 500 errors
-Output:
-- Verification: Error rate spiked from 0.1% to 15% after deployment
-- Last good version: v1.2.3 (deployed 2 days ago, stable)
-- Data impact: No migrations, safe to rollback
-- Rollback plan: `kubectl rollout undo deployment/app`
-- Execution: Rolled back at 14:30 UTC
-- Verification: Error rate returned to 0.1% within 2 minutes
-- Monitoring: Stable for 30 minutes post-rollback
-- Documentation: Root cause was memory leak in new caching logic
+**Example A:** A user asks for safe deployment rollback help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

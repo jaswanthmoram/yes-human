@@ -2,7 +2,7 @@
 id: platform.ci-triage
 name: CI Failure Diagnosis
 version: 1.0.0
-domain: platform
+domain: moramvenkatasatyajaswanth
 category: platform.ci-cd
 purpose: Diagnose and resolve CI/CD pipeline failures by analyzing logs, identifying root causes, and applying targeted fixes.
 summary: Systematic approach to troubleshooting CI failures including build errors, test failures, and infrastructure issues.
@@ -12,135 +12,126 @@ triggers:
   - build failed in CI/CD pipeline
   - GitHub Actions workflow failed
   - Jenkins CI build failed
+  - yes human task
+  - ci failure diagnosis review
 activation_triggers:
   - CI pipeline is broken
   - CI/CD pipeline error
   - CI build pipeline failed
 prerequisites:
-  - access to CI logs
-  - ability to run builds locally
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - ci_logs
   - pipeline_configuration
   - recent_changes
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
 steps:
-  - Access and analyze CI failure logs
-  - Identify failure stage (build, test, deploy)
-  - Categorize failure type (code, config, infrastructure, flaky)
-  - Check for recent changes that might have caused failure
-  - Reproduce failure locally if possible
-  - Apply targeted fix based on failure type
-  - Verify fix by re-running pipeline
-  - Document common failure patterns
+  - Confirm the requested ci failure diagnosis outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - failure_diagnosis
   - root_cause
   - fix_applied
   - prevention_recommendations
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - shell.readonly (run builds, check logs)
   - filesystem.read (pipeline configs)
   - filesystem.write (fixes)
+  - filesystem.read
+  - filesystem.write
 quality_gates:
   - Root cause identified
   - Fix verified in CI
   - Prevention measures documented
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Misidentifying failure category
   - Not checking recent changes
   - Applying temporary workaround instead of fix
   - Not verifying fix in CI environment
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - engineering.build-resolver (for build errors)
   - engineering.test-triage (for test failures)
   - platform.devops-engineer (for infrastructure issues)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.ci-cd-troubleshooting.2026-06-01
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - platform.ci-cd-engineer
   - platform.devops-engineer
-allowed_workflows:
-  - platform.ci-failure-triage
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - Revert changes using version control
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when CI/CD pipelines are failing, builds are broken in CI, or deployment pipelines have errors.
+Use this skill when a task explicitly matches `platform.ci-triage` or when the user asks for ci failure diagnosis support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Access to CI system logs (GitHub Actions, Jenkins, GitLab CI, etc.)
-- Ability to run builds locally
-- Knowledge of the CI/CD pipeline configuration
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Access CI Logs**:
-   - Navigate to failed pipeline run
-   - Download or view full logs
-   - Identify the failed stage (build, test, deploy, etc.)
-2. **Categorize Failure**:
-   - **Code Issues**: Compilation errors, linting failures, test failures
-   - **Configuration Issues**: Wrong environment variables, missing secrets, incorrect paths
-   - **Infrastructure Issues**: Runner out of disk space, network timeouts, service unavailable
-   - **Flaky Tests**: Intermittent failures, timing issues, external service dependencies
-   - **Dependency Issues**: Package installation failures, version conflicts
-3. **Check Recent Changes**:
-   - Review commits since last successful build
-   - Check if pipeline configuration changed
-   - Look for dependency updates
-4. **Reproduce Locally**:
-   - Run the same commands locally
-   - Use same environment (Docker, Node version, etc.)
-   - Compare local vs CI output
-5. **Apply Targeted Fix**:
-   - Code issues: Fix the code error
-   - Config issues: Update pipeline configuration
-   - Infrastructure: Contact DevOps or adjust resource limits
-   - Flaky tests: Add retries, fix timing issues, mock external services
-   - Dependencies: Pin versions, update lockfile
-6. **Verify Fix**:
-   - Push fix and re-run pipeline
-   - Verify all stages pass
-   - Check for new warnings or issues
-7. **Document**:
-   - Add to troubleshooting guide
-   - Create issue if it's a recurring problem
-   - Update pipeline documentation
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- CI pipeline passes all stages
-- No new warnings introduced
-- Fix is permanent (not a workaround)
-- Documentation updated
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
 ## Rollback
-- Revert changes: `git checkout HEAD~1 <file>`
-- Re-run pipeline to confirm rollback works
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Only looking at the last error (missing context from earlier stages)
-- Not checking if the failure is flaky vs consistent
-- Applying a workaround instead of fixing root cause
-- Not verifying the fix works in CI environment
-- Ignoring warnings that indicate deeper issues
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
 ## Examples
-### Diagnosing a Test Failure in CI
-Input: GitHub Actions pipeline fails at test stage
-Output:
-- Failure: `npm test` exits with code 1
-- Logs show: `FAIL src/auth.test.js - timeout exceeded`
-- Diagnosis: Flaky test due to slow database query
-- Root cause: Test database not indexed, query takes >5s
-- Fix: Add database index, increase test timeout to 10s
-- Verification: Pipeline passes, test completes in 2s
-- Prevention: Add database migration to CI setup
+**Example A:** A user asks for ci failure diagnosis help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

@@ -2,7 +2,7 @@
 id: engineering.api-design
 name: REST/GraphQL API Design Patterns
 version: 1.0.0
-domain: engineering
+domain: moramvenkatasatyajaswanth
 category: engineering.architecture
 purpose: Design APIs following REST or GraphQL best practices for consistency, usability, and maintainability.
 summary: Guides through API design decisions including resource naming, HTTP methods, status codes, pagination, and error handling.
@@ -12,130 +12,123 @@ triggers:
   - API design
   - REST API
   - GraphQL schema
+  - yes human task
+  - rest/graphql api design patterns review
 activation_triggers:
   - design an API
   - create an endpoint
   - API structure
 prerequisites:
-  - understanding of requirements
-  - knowledge of REST/GraphQL principles
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - requirements
   - api_type (REST or GraphQL)
   - existing_apis (optional)
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
 steps:
-  - Identify resources and their relationships
-  - Choose appropriate HTTP methods (REST) or operations (GraphQL)
-  - Design consistent naming conventions
-  - Plan pagination and filtering strategies
-  - Define error handling and status codes
-  - Design authentication and authorization
-  - Create API documentation structure
+  - Confirm the requested rest/graphql api design patterns outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - api_specification (OpenAPI/Swagger or GraphQL schema)
   - resource_model
   - endpoint_list
   - error_codes
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - filesystem.write (API spec files)
+  - filesystem.read
+  - filesystem.write
 quality_gates:
   - Consistent naming conventions
   - Proper HTTP method usage
   - Comprehensive error handling
   - Pagination for large datasets
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
 failure_modes:
   - Inconsistent naming (camelCase vs snake_case)
   - Using GET for state-changing operations
   - Missing pagination for list endpoints
   - Poor error messages
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - engineering.backend-api (for implementation)
   - security.auth-review (for auth design)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.api-design-best-practices.2026-06-01
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - engineering.architect
   - engineering.backend-api
-allowed_workflows:
-  - engineering.backend-api-implementation
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - No state changes to rollback
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when designing new APIs, creating API specifications, or reviewing API designs.
+Use this skill when a task explicitly matches `engineering.api-design` or when the user asks for rest/graphql api design patterns support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Clear understanding of the resources and operations needed
-- Knowledge of REST or GraphQL principles
-- Awareness of existing APIs in the project
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Identify Resources**: List all entities/resources (users, orders, products, etc.) and their relationships.
-2. **Choose API Type**:
-   - REST: For simple CRUD operations, cacheable responses
-   - GraphQL: For complex queries, multiple resource fetching, client-driven queries
-3. **Design Endpoints/Operations**:
-   - REST: Use nouns for resources, HTTP verbs for actions
-     - GET /users (list)
-     - POST /users (create)
-     - GET /users/:id (read)
-     - PUT /users/:id (update)
-     - DELETE /users/:id (delete)
-   - GraphQL: Define types, queries, mutations
-4. **Naming Conventions**:
-   - Use plural nouns for collections: `/users` not `/user`
-   - Use kebab-case for URLs: `/user-profiles` not `/userProfiles`
-   - Be consistent across all endpoints
-5. **Pagination and Filtering**:
-   - Use cursor-based pagination for large datasets
-   - Support filtering via query parameters: `?status=active&sort=created_at`
-   - Include total count in response metadata
-6. **Error Handling**:
-   - Use standard HTTP status codes (200, 201, 400, 401, 403, 404, 500)
-   - Provide detailed error messages in response body
-   - Include error codes for programmatic handling
-7. **Authentication**:
-   - Use standard methods (OAuth2, JWT, API keys)
-   - Document required scopes/permissions
-8. **Documentation**:
-   - Create OpenAPI/Swagger spec for REST
-   - Create GraphQL schema with descriptions
-   - Include examples for all endpoints
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- API spec validates against OpenAPI/GraphQL standards
-- All endpoints have examples
-- Error cases are documented
-- Authentication requirements are clear
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
 ## Rollback
-- No state changes; this is a design skill
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Using GET for operations that change state
-- Inconsistent naming (mixing camelCase and snake_case)
-- Missing pagination for list endpoints
-- Poor error messages ("Something went wrong")
-- Not versioning the API
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
 ## Examples
-### REST API Design
-Input: Design API for blog posts
-Output:
-- GET /posts - List posts (with pagination)
-- POST /posts - Create post
-- GET /posts/:id - Get post
-- PUT /posts/:id - Update post
-- DELETE /posts/:id - Delete post
-- GET /posts/:id/comments - List comments for post
-- POST /posts/:id/comments - Add comment
+**Example A:** A user asks for rest/graphql api design patterns help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

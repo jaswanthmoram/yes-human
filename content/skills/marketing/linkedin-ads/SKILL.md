@@ -2,7 +2,7 @@
 id: marketing.linkedin-ads
 name: LinkedIn Ads
 version: 1.0.0
-domain: marketing
+domain: moramvenkatasatyajaswanth
 category: marketing.paid-media
 purpose: Design B2B advertising campaigns on LinkedIn with professional targeting, sponsored content, and lead gen forms.
 summary: LinkedIn Ads campaign setup covering professional audience targeting, ad formats, bidding, and lead generation.
@@ -12,89 +12,113 @@ triggers:
   - b2b advertising on linkedin
   - linkedin sponsored content
   - linkedin lead gen forms
-aliases:
-  - linkedin ads
-  - linkedin advertising
-negative_keywords:
-  - facebook ads
-  - google ads
-  - consumer advertising
+  - yes human task
+  - linkedin ads review
+activation_triggers:
+  - help me with linkedin ads
+  - review linkedin ads work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - b2b_objective
   - target_professionals
   - budget_range
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested linkedin ads outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - campaign_plan
   - audience_targeting
   - ad_creative_brief
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
   - web.search
-required_skills: []
-budget_band: micro
-max_context_tokens: 8000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Targeting too narrow with high CPMs
   - Using consumer creative for B2B audience
   - Ignoring LinkedIn's unique ad formats
-verification:
-  - Professional targeting validated
-  - Ad format appropriate for objective
-  - Lead gen or conversion tracking configured
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.marketing.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: micro
 rollback:
   - Pause campaigns if CPL exceeds threshold
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Design and optimize LinkedIn advertising campaigns that reach professional audiences and generate B2B leads.
+## Trigger
+Use this skill when a task explicitly matches `marketing.linkedin-ads` or when the user asks for linkedin ads support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- When setting up B2B advertising campaigns
-- When targeting specific professional audiences
-- For LinkedIn lead generation form campaigns
-- During sponsored content planning
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- For consumer advertising (use facebook-ads)
-- For search advertising (use google-ads)
-- For organic LinkedIn content (use social-media-strategy)
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Objective Selection**: Choose awareness, consideration, or conversion objective.
-2. **Audience Targeting**: Define by job title, function, seniority, company size, and industry.
-3. **Ad Format Selection**: Choose sponsored content, message ads, text ads, or dynamic ads.
-4. **Creative Strategy**: Develop professional messaging and creative assets.
-5. **Bidding and Budget**: Set bid strategy and daily/total budget.
-6. **Lead Gen Setup**: Configure lead generation forms and CRM integration.
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-## Tool Policy
-- Use `filesystem.read` to review campaign data.
-- Use `web.search` for LinkedIn advertising best practices.
-- Use `filesystem.write` to produce campaign plans.
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Professional audience properly segmented
-- Ad format matches campaign objective
-- Lead quality tracking configured
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Over-targeting leading to high CPMs
-- Generic creative not suited for LinkedIn feed
-- Ignoring matched audience and account targeting
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- `set up LinkedIn ads for B2B SaaS`
-- `create LinkedIn lead gen campaign`
-- `optimize LinkedIn sponsored content`
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for linkedin ads help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- LinkedIn Marketing Solutions documentation
-- LinkedIn advertising best practices guides
-- Reference: ref.github.marketing.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

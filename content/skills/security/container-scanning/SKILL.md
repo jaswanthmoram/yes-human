@@ -2,7 +2,7 @@
 id: security.container-scanning
 name: Container Image Scanning
 version: 1.0.0
-domain: security
+domain: moramvenkatasatyajaswanth
 category: security.infrastructure-security
 purpose: Scan container images for vulnerabilities, misconfigurations, and compliance issues.
 summary: Container image scanning to detect CVEs in base images, layer vulnerabilities, and security misconfigurations in Dockerfiles.
@@ -14,143 +14,114 @@ triggers:
   - check base image for CVEs
   - container security assessment
   - Dockerfile security review
-  - scan kubernetes pod images
-  - container compliance check
-aliases:
-  - container scan
-  - image scan
-  - docker scan
-negative_keywords:
-  - runtime container monitoring
-  - container orchestration
-  - container deployment
+activation_triggers:
+  - help me with container image scanning
+  - review container image scanning work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - container_image
   - dockerfile
   - image_registry
   - compliance_requirements
+  - target_artifact
+  - requirements_or_context
+steps:
+  - Confirm the requested container image scanning outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - vulnerability_report
   - layer_analysis
   - dockerfile_findings
   - remediation_plan
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - bash.exec
   - filesystem.read
   - filesystem.write
   - web.search
-required_skills: []
-budget_band: micro
-max_context_tokens: 8000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Not scanning all layers including base images
   - Missing vulnerabilities in application dependencies inside container
   - Ignoring Dockerfile misconfigurations
   - Not checking for secrets baked into image layers
-verification:
-  - All image layers scanned for CVEs
-  - Dockerfile reviewed for security best practices
-  - No critical or high vulnerabilities in production images
-  - Image size optimized with minimal attack surface
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.security.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: micro
 rollback:
   - Revert to previous known-good image if scan blocks deployment
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Scan container images for vulnerabilities in base images and application layers, review Dockerfiles for security misconfigurations, and ensure container security compliance.
+## Trigger
+Use this skill when a task explicitly matches `security.container-scanning` or when the user asks for container image scanning support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- Before deploying container images to production
-- During CI/CD pipeline as a security gate
-- When updating base images or adding new dependencies
-- During compliance audits requiring container security evidence
-- When reviewing Dockerfiles for security best practices
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- For runtime container monitoring (use Falco or runtime security agents)
-- For container orchestration security (use kubernetes security tools)
-- When only checking application dependencies (use dependency-audit)
-- For VM or bare-metal server scanning
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Identify Images to Scan**:
-   - List all container images in registry
-   - Identify base images and their versions
-   - Map images to services and environments
-   - Prioritize production images
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-2. **Scan Image Layers**:
-   - Run vulnerability scanner (Trivy, Grype, Snyk Container)
-   - Scan each layer for OS package CVEs
-   - Check application dependencies within image
-   - Identify secrets or sensitive files in layers
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
 
-3. **Review Dockerfile Security**:
-   - Check for root user execution (missing USER directive)
-   - Verify minimal base image usage (distroless, Alpine)
-   - Check for unnecessary packages installed
-   - Verify COPY vs ADD usage (ADD can extract archives)
-   - Check for exposed secrets in build arguments
-   - Verify .dockerignore is properly configured
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
 
-4. **Assess Image Configuration**:
-   - Check for excessive capabilities (CAP_SYS_ADMIN)
-   - Verify read-only filesystem where possible
-   - Check network configuration and exposed ports
-   - Review environment variables for sensitive data
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
 
-5. **Check Compliance**:
-   - Verify CIS Docker Benchmark compliance
-   - Check for signed images (Docker Content Trust, Cosign)
-   - Verify image provenance and SBOM availability
-   - Check for approved base image policy compliance
-
-6. **Remediate Findings**:
-   - Update base images to patched versions
-   - Remove unnecessary packages and files
-   - Fix Dockerfile misconfigurations
-   - Rebuild images with minimal layers
-
-7. **Integrate into Pipeline**:
-   - Add scanning to CI/CD as blocking gate
-   - Set severity thresholds for deployment blocking
-   - Configure notifications for new vulnerabilities
-   - Track vulnerability trends over time
-
-## Tool Policy
-- Use `bash.exec` to run Trivy, Grype, or Snyk Container
-- Use `filesystem.read` to review Dockerfiles and docker-compose files
-- Use `web.search` for CVE details and base image advisories
-- Use `filesystem.write` to produce scan reports
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- All production images scanned with zero critical vulnerabilities
-- Dockerfiles follow security best practices
-- Images use minimal, approved base images
-- Scanning integrated into CI/CD pipeline
-- SBOM generated for each image
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Only scanning the final layer, missing base image vulnerabilities
-- Not updating scanner vulnerability databases
-- Ignoring Dockerfile security misconfigurations
-- Deploying images with known critical CVEs
-- Not scanning sidecar and init container images
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- Scan `Dockerfile` for security misconfigurations before build
-- Scan `myapp:latest` image for CVEs before deployment
-- Check `node:18-alpine` base image for known vulnerabilities
-- Review `docker-compose.yml` for security configurations
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for container image scanning help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- Trivy: https://github.com/aquasecurity/trivy
-- Grype: https://github.com/anchore/grype
-- CIS Docker Benchmark
-- Reference: ref.github.security.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

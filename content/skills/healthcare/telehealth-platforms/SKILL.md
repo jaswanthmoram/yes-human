@@ -2,7 +2,7 @@
 id: healthcare.telehealth-platforms
 name: Telehealth Platform Implementation
 version: 1.0.0
-domain: healthcare
+domain: moramvenkatasatyajaswanth
 category: healthcare.telehealth
 purpose: Design and evaluate telehealth platform implementations including video visits, remote monitoring, and virtual care workflows.
 summary: Telehealth platform implementation covering video visit platforms, remote patient monitoring, store-and-forward, and mobile health.
@@ -12,105 +12,112 @@ triggers:
   - remote patient monitoring
   - virtual care workflow
   - telehealth platform selection
-aliases:
-  - telehealth
-  - virtual care platform
-negative_keywords:
-  - general video conferencing
-  - marketing webinars
-  - internal meetings
+  - yes human task
+  - telehealth platform implementation review
+activation_triggers:
+  - help me with telehealth platform implementation
+  - review telehealth platform implementation work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - clinical_requirements
   - platform_options
   - regulatory_constraints
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested telehealth platform implementation outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - platform_assessment
   - implementation_plan
   - workflow_design
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
-required_skills: []
-budget_band: standard
-max_context_tokens: 10000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Selects platform without HIPAA compliance verification
   - Ignores multi-state licensure requirements
   - Skips patient accessibility assessment
-verification:
-  - HIPAA compliance verified for platform
-  - Licensure requirements addressed
-  - Patient accessibility assessed
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.healthcare.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - Revert platform changes if clinical workflow is disrupted
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Design and evaluate telehealth platform implementations including video visits, remote monitoring, and virtual care workflows.
+## Trigger
+Use this skill when a task explicitly matches `healthcare.telehealth-platforms` or when the user asks for telehealth platform implementation support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- When selecting and implementing telehealth platforms
-- When designing virtual care workflows
-- When implementing remote patient monitoring programs
-- When evaluating telehealth platform options
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- For general video conferencing tools (not healthcare-specific)
-- For in-person clinical workflow design (use ehr-systems)
-- For marketing webinars or internal meetings
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Assess Clinical Requirements**:
-   - Define visit types and clinical workflows
-   - Identify required integrations (EHR, scheduling, billing)
-   - Document clinical decision support needs
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-2. **Evaluate Platform Options**:
-   - Verify HIPAA compliance and BAA availability
-   - Assess video quality and reliability features
-   - Review patient and provider user experience
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
 
-3. **Address Regulatory Requirements**:
-   - Map multi-state licensure requirements
-   - Verify prescribing regulations for telehealth
-   - Address informed consent requirements
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
 
-4. **Design Patient Access**:
-   - Assess broadband and device accessibility
-   - Design language access and ADA compliance
-   - Create patient onboarding workflows
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
 
-5. **Implement and Monitor**:
-   - Configure platform with clinical workflows
-   - Train providers and staff
-   - Monitor quality metrics and patient satisfaction
-
-## Tool Policy
-- Use `filesystem.read` to review platform specs and regulatory requirements
-- Use `filesystem.write` to produce implementation plans and workflow designs
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- HIPAA compliance verified with BAA in place
-- Multi-state licensure requirements addressed
-- Patient accessibility and digital divide assessed
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Selecting platform without verifying HIPAA compliance
-- Ignoring multi-state licensure requirements
-- Skipping patient accessibility assessment
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- Video visit platform selection for primary care practice
-- Remote patient monitoring for chronic disease management
-- Store-and-forward telehealth for dermatology consultations
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for telehealth platform implementation help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- ATA Telehealth Standards
-- CMS Telehealth Policies
-- Reference: ref.github.healthcare.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

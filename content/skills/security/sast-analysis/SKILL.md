@@ -2,7 +2,7 @@
 id: security.sast-analysis
 name: Static Application Security Testing
 version: 1.0.0
-domain: security
+domain: moramvenkatasatyajaswanth
 category: security.application-security
 purpose: Perform static analysis of source code to detect security vulnerabilities without executing the application.
 summary: SAST analysis using pattern matching, data flow analysis, and taint tracking to find security flaws in source code.
@@ -14,141 +14,114 @@ triggers:
   - find security flaws in source code
   - static code analysis for injection
   - taint analysis on user input
-  - code security pattern review
-  - automated security linting
-aliases:
-  - SAST
-  - static analysis
-  - code scan
-negative_keywords:
-  - runtime testing
-  - dynamic analysis
-  - penetration testing
+activation_triggers:
+  - help me with static application security testing
+  - review static application security testing work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - source_code
   - build_configuration
   - rule_sets
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested static application security testing outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - vulnerability_findings
   - data_flow_report
   - false_positive_list
   - remediation_plan
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
   - code.grep
   - bash.exec
-required_skills: []
-budget_band: standard
-max_context_tokens: 12000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - High false positive rate
   - Missing framework-specific patterns
   - Incomplete data flow tracking
   - Not analyzing generated code
-verification:
-  - All source files included in scan scope
-  - Findings triaged into true/false positives
-  - True positives have remediation guidance
-  - Critical findings addressed before release
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.security.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - No state changes to rollback
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Perform static application security testing by analyzing source code patterns, data flows, and taint propagation to identify security vulnerabilities without executing the application.
+## Trigger
+Use this skill when a task explicitly matches `security.sast-analysis` or when the user asks for static application security testing support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- During code review for security-sensitive changes
-- As part of CI/CD pipeline security gates
-- When onboarding new codebases for security review
-- Before third-party security audits
-- During refactoring of security-critical code paths
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- For runtime behavior analysis (use dast-testing)
-- For infrastructure configuration review (use container-scanning or network-scanning)
-- When only checking dependencies (use dependency-audit)
-- For compiled binaries without source access
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Configure Scan Scope**:
-   - Identify all source files, including generated code
-   - Configure language-specific rule sets
-   - Set up custom rules for project-specific patterns
-   - Exclude test files and vendor directories from critical findings
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-2. **Run Pattern-Based Analysis**:
-   - Detect dangerous function calls (eval, exec, system)
-   - Find SQL query construction without parameterization
-   - Identify hardcoded credentials and secrets
-   - Check for insecure random number generation
-   - Detect use of weak cryptographic algorithms
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
 
-3. **Perform Data Flow Analysis**:
-   - Trace user input from entry points to sinks
-   - Identify taint propagation paths
-   - Check for missing sanitization between source and sink
-   - Map authorization checks on data access paths
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
 
-4. **Analyze Framework-Specific Patterns**:
-   - Check ORM usage for raw query injection
-   - Verify template engine auto-escaping
-   - Review middleware security configurations
-   - Check framework-specific authentication patterns
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
 
-5. **Triage Findings**:
-   - Classify each finding as true positive, false positive, or needs-review
-   - Assign severity based on exploitability and impact
-   - Group related findings by vulnerability type
-   - Identify systemic issues vs one-off mistakes
-
-6. **Produce Remediation Guidance**:
-   - Provide specific code fixes for each finding
-   - Reference secure coding standards
-   - Suggest framework-native mitigations
-   - Prioritize by risk score
-
-7. **Integrate into CI/CD**:
-   - Configure SAST as a pipeline stage
-   - Set quality gates (block on critical findings)
-   - Configure notification for new findings
-   - Track finding trends over time
-
-## Tool Policy
-- Use `code.grep` for regex-based vulnerability pattern detection
-- Use `bash.exec` to run SAST tools (Semgrep, CodeQL, Bandit, etc.)
-- Use `filesystem.read` to inspect flagged code paths
-- Use `filesystem.write` to produce analysis reports
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- All source files scanned with appropriate rule sets
-- Findings triaged with less than 10% unclassified
-- All critical and high true positives have remediation
-- SAST integrated into CI/CD pipeline
-- Finding count trending downward over time
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- High false positive rate causing alert fatigue
-- Missing vulnerabilities in dynamically generated code
-- Not updating rule sets for new vulnerability patterns
-- Scanning only application code, ignoring shared libraries
-- Not tracing data flow across module boundaries
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- `POST /api/users` - trace user input through validation to database query
-- `GET /api/reports/:id` - check authorization before data retrieval
-- `POST /api/upload` - analyze file path construction for traversal
-- Template rendering - verify auto-escaping in HTML output
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for static application security testing help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- Semgrep: https://semgrep.dev/
-- CodeQL: https://codeql.github.com/
-- OWASP Source Code Review Guide
-- Reference: ref.github.security.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

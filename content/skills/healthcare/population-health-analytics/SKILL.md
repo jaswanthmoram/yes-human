@@ -2,7 +2,7 @@
 id: healthcare.population-health-analytics
 name: Population Health Analytics
 version: 1.0.0
-domain: healthcare
+domain: moramvenkatasatyajaswanth
 category: healthcare.analytics
 purpose: Design and execute population health analytics for risk stratification, care gap closure, and value-based care performance.
 summary: Population health analytics covering risk stratification, care gap analysis, social determinants, and value-based care metrics.
@@ -12,105 +12,112 @@ triggers:
   - care gap analysis
   - value-based care reporting
   - population health dashboard
-aliases:
-  - pop health analytics
-  - population analytics
-negative_keywords:
-  - individual patient analytics
-  - marketing segmentation
-  - financial actuarial
+  - yes human task
+  - population health analytics review
+activation_triggers:
+  - help me with population health analytics
+  - review population health analytics work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - population_data
   - risk_model
   - care_objectives
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested population health analytics outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - risk_stratification
   - care_gap_report
   - performance_dashboard
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
-required_skills: []
-budget_band: standard
-max_context_tokens: 10000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Risk model does not account for social determinants
   - Care gaps not aligned with quality measures
   - Population segmentation lacks clinical validity
-verification:
-  - Social determinants included in risk model
-  - Care gaps mapped to quality measures
-  - Population segments clinically validated
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.healthcare.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - Revert risk models if clinical validity is not confirmed
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Design and execute population health analytics for risk stratification, care gap closure, and value-based care performance.
+## Trigger
+Use this skill when a task explicitly matches `healthcare.population-health-analytics` or when the user asks for population health analytics support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- When designing risk stratification models
-- When analyzing care gaps across populations
-- When reporting value-based care performance
-- When building population health dashboards
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- For individual patient analytics (use health-data-analytics)
-- For marketing segmentation (use marketing agents)
-- For financial actuarial analysis (use finance agents)
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Define Population and Objectives**:
-   - Identify target population and attribution rules
-   - Define care objectives and quality targets
-   - Select risk stratification methodology
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-2. **Build Risk Stratification Model**:
-   - Incorporate clinical, claims, and SDOH data
-   - Apply validated risk models (LACE, ACG, etc.)
-   - Segment population by risk tier
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
 
-3. **Analyze Care Gaps**:
-   - Map care gaps to HEDIS and quality measures
-   - Prioritize by impact and closability
-   - Identify barriers to gap closure
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
 
-4. **Report Performance**:
-   - Calculate value-based care metrics
-   - Benchmark against peers and targets
-   - Visualize trends and disparities
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
 
-5. **Drive Action**:
-   - Recommend targeted interventions by risk tier
-   - Design outreach and engagement strategies
-   - Monitor intervention effectiveness
-
-## Tool Policy
-- Use `filesystem.read` to review population data and risk models
-- Use `filesystem.write` to produce analytics reports and dashboards
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Social determinants of health included in risk model
-- Care gaps mapped to recognized quality measures
-- Population segments clinically validated
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Risk model not accounting for social determinants of health
-- Care gaps not aligned with quality measure specifications
-- Population segmentation lacking clinical validity
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- Risk stratification for ACO attributed population
-- Care gap analysis for diabetes management program
-- Value-based care performance dashboard for MSSP
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for population health analytics help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- CMS Innovation Center Models
-- NCQA Population Health Management
-- Reference: ref.github.healthcare.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

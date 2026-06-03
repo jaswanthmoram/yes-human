@@ -2,7 +2,7 @@
 id: security.secret-scanning
 name: Secret Detection and Scanning
 version: 1.0.0
-domain: security
+domain: moramvenkatasatyajaswanth
 category: security.credential-management
 purpose: Detect hardcoded secrets, API keys, tokens, and credentials in source code and configuration files.
 summary: Comprehensive secret scanning across codebases to identify exposed credentials and sensitive tokens.
@@ -14,137 +14,114 @@ triggers:
   - detect credentials in configuration files
   - check for leaked tokens and passwords
   - secret detection in git history
-  - audit for exposed credentials
-  - find sensitive data in code
-aliases:
-  - secret scan
-  - credential scan
-  - key detection
-negative_keywords:
-  - runtime secret injection
-  - vault management
-  - key rotation
+activation_triggers:
+  - help me with secret detection and scanning
+  - review secret detection and scanning work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - source_code
   - git_history
   - configuration_files
   - environment_files
+  - target_artifact
+  - requirements_or_context
+steps:
+  - Confirm the requested secret detection and scanning outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - secret_findings
   - severity_report
   - remediation_steps
   - gitignore_recommendations
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
   - code.grep
   - bash.exec
-required_skills: []
-budget_band: micro
-max_context_tokens: 8000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - False positives from test fixtures
   - Missing encoded or obfuscated secrets
   - Not scanning git history for removed secrets
   - Ignoring configuration management tools
-verification:
-  - All source files and config files scanned
-  - Git history checked for previously committed secrets
-  - Each finding validated as true positive or documented false positive
-  - Remediation applied or tracked
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.security.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: micro
 rollback:
   - No state changes to rollback
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Detect and report hardcoded secrets, API keys, tokens, and credentials across source code, configuration files, and git history to prevent credential exposure.
+## Trigger
+Use this skill when a task explicitly matches `security.secret-scanning` or when the user asks for secret detection and scanning support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- Before pushing code to public or shared repositories
-- During security audits of existing codebases
-- When onboarding new repositories to CI/CD pipelines
-- After suspected credential exposure incidents
-- As part of pre-commit hook setup
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- For runtime secret management (use vault solutions like HashiCorp Vault)
-- For key rotation procedures (use key-management skill)
-- When secrets are properly managed via environment variables or secret managers
-- For scanning binary files or compiled artifacts
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Define Scan Scope**:
-   - Identify all repositories and branches to scan
-   - Include configuration files, environment files, and scripts
-   - Determine if git history scanning is needed
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-2. **Run Pattern-Based Detection**:
-   - Search for common secret patterns (API keys, tokens, passwords)
-   - Check for AWS access keys, GCP service account keys
-   - Detect private keys (RSA, DSA, EC)
-   - Find database connection strings with credentials
-   - Check for OAuth tokens and JWT secrets
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
 
-3. **Scan Git History**:
-   - Use tools like `git-secrets`, `truffleHog`, or `gitleaks`
-   - Check all branches including deleted ones
-   - Identify secrets that were committed and later removed
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
 
-4. **Validate Findings**:
-   - Distinguish true positives from false positives
-   - Check if detected secrets are active or rotated
-   - Verify test fixtures and example values are not real credentials
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
 
-5. **Assess Exposure**:
-   - Determine if secrets were pushed to remote repositories
-   - Check if secrets are accessible in CI/CD logs
-   - Assess the blast radius of each exposed credential
-
-6. **Remediate**:
-   - Rotate all exposed credentials immediately
-   - Remove secrets from code and git history (BFG Repo-Cleaner)
-   - Add patterns to `.gitignore` and pre-commit hooks
-   - Migrate to environment variables or secret managers
-
-7. **Prevent Future Exposure**:
-   - Set up pre-commit hooks (gitleaks, detect-secrets)
-   - Configure CI/CD secret scanning
-   - Document secret management procedures
-
-## Tool Policy
-- Use `code.grep` for regex-based secret pattern matching
-- Use `bash.exec` to run gitleaks, truffleHog, or git-secrets
-- Use `filesystem.read` to inspect flagged files
-- Use `filesystem.write` to produce findings report
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- All source files, configs, and environment files scanned
-- Git history scanned for previously committed secrets
-- Each finding classified as true positive, false positive, or needs-review
-- All true positive secrets rotated and removed from code
-- Pre-commit hooks configured to prevent future exposure
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Missing base64-encoded or obfuscated secrets
-- Not scanning git history, only current HEAD
-- False positives overwhelming the review process
-- Not rotating credentials after finding exposed secrets
-- Ignoring secrets in CI/CD pipeline configurations
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- Scan `src/config/database.ts` for hardcoded connection strings
-- Check `.env` files committed to repository
-- Search git history for AWS access key patterns
-- Detect private key files (`.pem`, `.key`) in source tree
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for secret detection and scanning help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- gitleaks: https://github.com/gitleaks/gitleaks
-- truffleHog: https://github.com/trufflesecurity/trufflehog
-- detect-secrets: https://github.com/Yelp/detect-secrets
-- Reference: ref.github.security.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

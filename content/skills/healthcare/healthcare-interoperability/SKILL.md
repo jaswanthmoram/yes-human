@@ -2,7 +2,7 @@
 id: healthcare.healthcare-interoperability
 name: Healthcare Interoperability
 version: 1.0.0
-domain: healthcare
+domain: moramvenkatasatyajaswanth
 category: healthcare.interoperability
 purpose: Design and evaluate healthcare interoperability solutions spanning FHIR, HL7 v2, X12, DICOM, and IHE profiles.
 summary: Healthcare interoperability covering data exchange standards, interface design, interoperability testing, and information blocking compliance.
@@ -12,106 +12,112 @@ triggers:
   - interface design healthcare
   - interoperability testing
   - information blocking review
-aliases:
-  - interoperability
-  - health data exchange
-negative_keywords:
-  - general system integration
-  - non-healthcare apis
-  - web services
+  - yes human task
+  - healthcare interoperability review
+activation_triggers:
+  - help me with healthcare interoperability
+  - review healthcare interoperability work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - exchange_requirements
   - system_landscape
   - compliance_constraints
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested healthcare interoperability outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - interoperability_design
   - interface_specifications
   - testing_strategy
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
-required_skills: []
-budget_band: standard
-max_context_tokens: 10000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Ignores information blocking regulations
   - Uses incompatible standard versions
   - Skips semantic interoperability validation
-verification:
-  - Information blocking compliance addressed
-  - Standard versions compatible across systems
-  - Semantic interoperability validated
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.healthcare.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - Revert interface changes if data exchange errors occur
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Design and evaluate healthcare interoperability solutions spanning FHIR, HL7 v2, X12, DICOM, and IHE profiles.
+## Trigger
+Use this skill when a task explicitly matches `healthcare.healthcare-interoperability` or when the user asks for healthcare interoperability support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- When designing healthcare data exchange architecture
-- When selecting interoperability standards for a use case
-- When testing healthcare interfaces
-- When reviewing information blocking compliance
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- For general system integration without healthcare data (use engineering)
-- For non-healthcare API design (use engineering agents)
-- For web services without clinical data (use engineering agents)
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Assess Exchange Requirements**:
-   - Identify data types (clinical, claims, imaging, lab)
-   - Map stakeholders and their system capabilities
-   - Define exchange patterns (push, pull, query, subscribe)
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-2. **Select Standards**:
-   - Choose appropriate standards (FHIR, HL7 v2, X12, DICOM)
-   - Verify version compatibility across systems
-   - Apply IHE profiles for common use cases
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
 
-3. **Design Interfaces**:
-   - Create interface specifications and message maps
-   - Design transformation and routing logic
-   - Configure error handling and monitoring
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
 
-4. **Address Compliance**:
-   - Review information blocking regulations (21st Century Cures Act)
-   - Ensure API access requirements are met
-   - Address TEFCA and QHIN requirements if applicable
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
 
-5. **Test and Validate**:
-   - Design interoperability test cases
-   - Validate semantic interoperability (terminology mapping)
-   - Perform end-to-end integration testing
-
-## Tool Policy
-- Use `filesystem.read` to review interoperability specs and system documentation
-- Use `filesystem.write` to produce interface designs and testing strategies
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Information blocking compliance addressed per 21st Century Cures Act
-- Standard versions compatible across all participating systems
-- Semantic interoperability validated with terminology mapping
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Ignoring information blocking regulations in interface design
-- Using incompatible standard versions between systems
-- Skipping semantic interoperability validation
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- FHIR + HL7 v2 hybrid exchange for hospital-ambulatory integration
-- X12 270/271 eligibility verification interface
-- DICOM image exchange across health system
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for healthcare interoperability help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- ONC Interoperability: https://www.healthit.gov/topic/interoperability
-- IHE Profiles: https://www.ihe.net/
-- 21st Century Cures Act Information Blocking
-- Reference: ref.github.healthcare.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

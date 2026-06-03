@@ -2,7 +2,7 @@
 id: manufacturing.safety-protocols
 name: Safety Protocols
 version: 1.0.0
-domain: manufacturing
+domain: moramvenkatasatyajaswanth
 category: manufacturing.safety
 purpose: Design and maintain workplace safety protocols, hazard controls, and compliance programs for manufacturing environments.
 summary: Safety protocols covering hazard assessment, PPE requirements, lockout/tagout, emergency procedures, and OSHA compliance.
@@ -12,111 +12,113 @@ triggers:
   - lockout tagout procedure
   - emergency procedure review
   - OSHA compliance audit
-aliases:
-  - safety protocols
-  - EHS protocols
-negative_keywords:
-  - financial audit
-  - code review
-  - legal review
+  - yes human task
+  - safety protocols review
+activation_triggers:
+  - help me with safety protocols
+  - review safety protocols work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - hazard_inventory
   - regulatory_requirements
   - incident_history
   - equipment_specifications
+  - target_artifact
+  - requirements_or_context
+steps:
+  - Confirm the requested safety protocols outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - safety_protocol_document
   - hazard_control_plan
   - compliance_checklist
   - training_requirements
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
-required_skills: []
-budget_band: standard
-max_context_tokens: 8000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Protocols without hazard assessment
   - Missing PPE requirements
   - Emergency procedures not tested
-verification:
-  - All hazards assessed and controlled
-  - PPE requirements specified for each task
-  - Lockout/tagout procedures documented
-  - Emergency procedures tested and current
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.manufacturing.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - Revert to previous safety protocol if new protocol creates gaps
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
-requires_disclaimer: true
 ---
 
-## Mission
-Design and maintain workplace safety protocols, hazard controls, and compliance programs for manufacturing environments.
+## Trigger
+Use this skill when a task explicitly matches `manufacturing.safety-protocols` or when the user asks for safety protocols support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- When designing safety protocols for new processes or equipment
-- During hazard assessment or control reviews
-- For OSHA compliance preparation
-- When updating emergency procedures
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- For environmental compliance (use environmental engineering)
-- For product safety certification (use quality engineering agent)
-- For workers compensation (use HR)
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Conduct Hazard Assessment**:
-   - Inventory all hazards by area and task
-   - Classify by severity and likelihood
-   - Apply hierarchy of controls (eliminate, substitute, engineer, admin, PPE)
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-2. **Design Safety Protocols**:
-   - Write task-specific safety procedures
-   - Specify PPE requirements for each task
-   - Include lockout/tagout procedures for energy sources
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
 
-3. **Develop Emergency Procedures**:
-   - Create evacuation routes and assembly points
-   - Define roles for emergency response team
-   - Include first aid and medical response procedures
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
 
-4. **Ensure Regulatory Compliance**:
-   - Map protocols to OSHA, ANSI, and ISO requirements
-   - Create compliance checklist for audits
-   - Identify and close compliance gaps
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
 
-5. **Define Training Requirements**:
-   - List required training by role and task
-   - Set refresher frequencies
-   - Document competency verification methods
-
-## Tool Policy
-- Use `filesystem.read` to review hazard data, regulations, and incident records
-- Use `filesystem.write` to produce safety protocols and compliance documents
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- All identified hazards have corresponding controls
-- PPE requirements specified for each task
-- Lockout/tagout procedures documented for all energy sources
-- Emergency procedures current and tested
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Protocols created without hazard assessment
-- Missing PPE requirements for specific tasks
-- Emergency procedures not tested or outdated
-- Compliance gaps not identified
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- Safety protocol for new CNC equipment
-- Lockout/tagout procedure for press line
-- OSHA compliance checklist for warehouse
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for safety protocols help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- OSHA 29 CFR 1910 General Industry Standards
-- ANSI/ASSE Z590.3 Prevention through Design
-- Reference: ref.github.manufacturing.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

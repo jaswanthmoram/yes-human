@@ -2,7 +2,7 @@
 id: product-business.retention-analysis
 name: Retention Analysis
 version: 1.0.0
-domain: product-business
+domain: moramvenkatasatyajaswanth
 category: product-business.analytics
 purpose: Measure and improve user retention through lifecycle analysis, churn prediction, and intervention strategies.
 summary: Guides through retention measurement, churn analysis, and designing retention interventions.
@@ -11,93 +11,122 @@ triggers:
   - churn analysis
   - retention metrics
   - user retention strategy
+  - yes human task
+  - retention analysis review
+  - retention analysis checklist
 activation_triggers:
   - analyze retention
   - why are users churning
   - improve retention
 prerequisites:
-  - user activity data over time
-  - defined retention event and period
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - retention_event
   - time_period
   - segment_criteria (optional)
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
 steps:
-  - Define retention event and measurement period
-  - Calculate N-day, unbounded, and rolling retention
-  - Identify churn patterns and at-risk segments
-  - Analyze correlation between features and retention
-  - Design retention interventions for key segments
-  - Define measurement plan for interventions
+  - Confirm the requested retention analysis outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - retention_report
   - churn_analysis
   - intervention_plan
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - filesystem.read
+  - filesystem.write
 quality_gates:
   - Retention event is meaningful to product value
   - Multiple retention types measured
   - Interventions linked to specific churn causes
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Measuring retention on wrong event
   - Not distinguishing between new and existing user retention
   - Designing interventions without understanding churn cause
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - product-business.growth-manager (for experiment design)
   - product-business.product-analyst (for deeper analysis)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.product-business.2026-05-31
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - product-business.growth-manager
   - product-business.product-analyst
   - product-business.master
-allowed_workflows:
-  - product-business.product-discovery
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - No state changes to rollback
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when analyzing user retention or designing retention strategies.
+Use this skill when a task explicitly matches `product-business.retention-analysis` or when the user asks for retention analysis support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- User activity data over time
-- Defined retention event and period
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Define Retention**: Choose retention event (login, core action, value moment).
-2. **Measure**: Calculate N-day (D1, D7, D30), unbounded, and rolling retention.
-3. **Identify Churn**: Find at-risk segments and churn timing patterns.
-4. **Correlate**: Find features or behaviors correlated with retention.
-5. **Intervene**: Design targeted interventions (onboarding, re-engagement, value reinforcement).
-6. **Measure**: Set up tracking for intervention impact.
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Retention curves show clear trends
-- Churn causes are identified, not just symptoms
-- Interventions are testable hypotheses
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
 ## Rollback
-- No state changes; this is an analysis skill
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Optimizing vanity retention (login) instead of value retention
-- Not segmenting by user type or acquisition source
-- Treating all churn the same
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
 ## Examples
-### Retention Analysis
-Retention Event: Created first project
-D1: 45%, D7: 30%, D30: 20%
-Finding: Users who invite a teammate in first session have 2x D30 retention
-Intervention: Add teammate invite prompt to onboarding
+**Example A:** A user asks for retention analysis help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

@@ -2,7 +2,7 @@
 id: data-ai.data-warehousing
 name: Data Warehousing
 version: 1.0.0
-domain: data-ai
+domain: moramvenkatasatyajaswanth
 category: data-ai.engineering
 purpose: Design and optimize data warehouse schemas, storage strategies, and query performance for analytical workloads.
 summary: Systematic data warehouse design including dimensional modeling, partitioning, indexing, and query optimization.
@@ -12,94 +12,125 @@ triggers:
   - star schema design
   - warehouse optimization
   - analytical storage setup
+  - yes human task
+  - data warehousing review
 activation_triggers:
   - data warehousing
   - warehouse schema design
   - analytical storage
 prerequisites:
-  - analytical requirements defined
-  - data sources identified
-  - query patterns understood
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - analytical_requirements
   - data_sources
   - query_patterns
   - volume_estimates
+  - target_artifact
+  - requirements_or_context
 steps:
-  - Define dimensional model (star, snowflake, vault)
-  - Design fact and dimension tables
-  - Configure partitioning and indexing strategy
-  - Implement slowly changing dimensions (SCD)
-  - Optimize for query patterns
-  - Set up data retention and archival policies
-  - Document schema and lineage
+  - Confirm the requested data warehousing outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - warehouse_schema
   - partitioning_strategy
   - optimization_report
   - schema_documentation
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - shell.readonly (schema scripts)
   - filesystem.read (source schemas)
   - filesystem.write (warehouse configs)
+  - filesystem.read
+  - filesystem.write
 quality_gates:
   - Dimensional model appropriate
   - Partitioning strategy defined
   - Query performance tested
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Over-normalized schema hurting query performance
   - Missing partitioning for large tables
   - No SCD strategy for changing dimensions
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - data-ai.data-engineer (for ETL integration)
   - data-ai.bi-developer (for reporting layer)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.data-ai.data-warehousing.2026-05-31
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - data-ai.data-engineer
   - data-ai.bi-developer
-allowed_workflows: []
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: expanded
 rollback:
   - Revert schema changes
   - Restore from backup
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when designing or optimizing a data warehouse schema or analytical storage system.
+Use this skill when a task explicitly matches `data-ai.data-warehousing` or when the user asks for data warehousing support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Analytical requirements and query patterns understood
-- Data sources and volumes identified
-- Storage platform selected
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Dimensional Model**: Star, snowflake, or data vault based on requirements.
-2. **Fact and Dimension Tables**: Define grain, measures, and dimension attributes.
-3. **Partitioning**: Range, hash, or list partitioning based on query patterns.
-4. **SCD Strategy**: Type 1, 2, or 3 for slowly changing dimensions.
-5. **Optimize**: Indexing, materialized views, clustering for query performance.
-6. **Retention**: Define data lifecycle, archival, and purge policies.
-7. **Document**: Schema definitions, lineage, and operational procedures.
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Dimensional model matches analytical needs
-- Partitioning improves query performance
-- SCD strategy implemented correctly
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
 ## Rollback
-- Revert schema changes
-- Restore from backup
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Over-normalized schema (slow queries)
-- No partitioning for large fact tables
-- Missing SCD strategy (historical data loss)
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Examples
+**Example A:** A user asks for data warehousing help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
+
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

@@ -2,7 +2,7 @@
 id: security.security-headers
 name: HTTP Security Headers Configuration
 version: 1.0.0
-domain: security
+domain: moramvenkatasatyajaswanth
 category: security.application-security
 purpose: Configure and review HTTP security headers to protect web applications against common attacks.
 summary: Security headers review covering CSP, HSTS, X-Frame-Options, X-Content-Type-Options, and other protective HTTP headers.
@@ -14,145 +14,114 @@ triggers:
   - security headers audit
   - implement HSTS preload
   - review X-Frame-Options
-  - harden HTTP response headers
-aliases:
-  - headers review
-  - HTTP headers
-  - response headers
-negative_keywords:
-  - API-only services
-  - request headers
-  - custom headers
+activation_triggers:
+  - help me with http security headers configuration
+  - review http security headers configuration work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - server_configuration
   - web_application_url
   - current_headers
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested http security headers configuration outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - headers_assessment
   - missing_headers_list
   - configuration_guide
   - test_results
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - bash.exec
   - filesystem.read
   - filesystem.write
   - web.search
-required_skills: []
-budget_band: micro
-max_context_tokens: 6000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - CSP too restrictive breaking legitimate functionality
   - Missing HSTS on all subdomains
   - Conflicting header values
   - Not testing headers after deployment
-verification:
-  - All recommended security headers present
-  - CSP configured without unsafe-inline
-  - HSTS with preload and long max-age
-  - Headers verified with securityheaders.com scan
-  - No application functionality broken by headers
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.security.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: micro
 rollback:
   - Revert header changes if they break application functionality
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Configure and review HTTP security headers to protect web applications against XSS, clickjacking, MIME sniffing, and other client-side attacks.
+## Trigger
+Use this skill when a task explicitly matches `security.security-headers` or when the user asks for http security headers configuration support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- When deploying web applications to production
-- During security hardening of web servers
-- After security headers scan shows missing headers
-- When implementing Content Security Policy
-- During compliance reviews requiring header evidence
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- For API-only services without HTML responses
-- When only configuring CORS headers (different concern)
-- For internal-only services without browser clients
-- When headers are managed entirely by CDN/WAF with no customization
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Audit Current Headers**:
-   - Scan application with securityheaders.com or curl -I
-   - Document all current security headers and values
-   - Identify missing recommended headers
-   - Check for information-leaking headers (Server, X-Powered-By)
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-2. **Configure Content-Security-Policy (CSP)**:
-   - Start with report-only mode to identify violations
-   - Define script-src with nonce or hash-based allowlist
-   - Configure style-src, img-src, font-src, connect-src
-   - Remove unsafe-inline and unsafe-eval where possible
-   - Set report-uri or report-to for violation monitoring
-   - Enforce CSP after testing in report-only mode
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
 
-3. **Configure Transport Security**:
-   - Set Strict-Transport-Security with max-age >= 31536000
-   - Include includeSubDomains directive
-   - Submit to HSTS preload list (hstspreload.org)
-   - Verify all subdomains support HTTPS before preload
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
 
-4. **Configure Clickjacking Protection**:
-   - Set X-Frame-Options: DENY or SAMEORIGIN
-   - Alternatively use CSP frame-ancestors directive
-   - Verify framing protection on all pages
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
 
-5. **Configure Additional Security Headers**:
-   - X-Content-Type-Options: nosniff
-   - Referrer-Policy: strict-origin-when-cross-origin
-   - Permissions-Policy (formerly Feature-Policy)
-   - X-XSS-Protection: 0 (deprecated, rely on CSP)
-   - Cross-Origin-Opener-Policy: same-origin
-   - Cross-Origin-Resource-Policy: same-origin
-   - Cross-Origin-Embedder-Policy: require-corp (if needed)
-
-6. **Remove Information-Leaking Headers**:
-   - Remove Server header or minimize version info
-   - Remove X-Powered-By header
-   - Remove X-AspNet-Version if applicable
-   - Minimize error page information disclosure
-
-7. **Test and Monitor**:
-   - Test all pages with new headers for functionality
-   - Monitor CSP violation reports
-   - Verify headers with automated scanning
-   - Document header configuration decisions
-
-## Tool Policy
-- Use `bash.exec` to run curl -I or security header scanners
-- Use `filesystem.read` to review server configuration files
-- Use `web.search` for header best practices and CSP generators
-- Use `filesystem.write` to produce assessment reports
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- All recommended security headers present and correctly configured
-- CSP deployed in enforce mode without unsafe-inline
-- HSTS configured with preload eligibility
-- No information-leaking headers present
-- Application functionality verified with new headers
-- securityheaders.com grade A or above
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- CSP too restrictive breaking scripts, styles, or images
-- HSTS preload before all subdomains support HTTPS
-- Not testing in report-only mode before enforcing CSP
-- Conflicting X-Frame-Options and CSP frame-ancestors
-- Breaking third-party integrations with overly strict CSP
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- `https://app.example.com` - scan and review all security headers
-- nginx config - add security headers to server block
-- Express middleware - configure helmet.js with custom CSP
-- CDN configuration - set security headers at edge
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for http security headers configuration help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- OWASP Secure Headers Project: https://owasp.org/www-project-secure-headers/
-- Content Security Policy Reference: https://content-security-policy.com/
-- securityheaders.com: https://securityheaders.com/
-- Reference: ref.github.security.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

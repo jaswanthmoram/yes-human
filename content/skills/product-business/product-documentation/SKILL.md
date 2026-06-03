@@ -2,7 +2,7 @@
 id: product-business.product-documentation
 name: Product Documentation
 version: 1.0.0
-domain: product-business
+domain: moramvenkatasatyajaswanth
 category: product-business.communications
 purpose: Create and maintain product documentation that serves both internal teams and external users.
 summary: Guides through documentation strategy, information architecture, and content creation for product docs.
@@ -11,91 +11,122 @@ triggers:
   - help docs
   - user guide
   - knowledge base
+  - yes human task
+  - product documentation review
+  - product documentation checklist
 activation_triggers:
   - write documentation
   - create help docs
   - documentation strategy
 prerequisites:
-  - product features and workflows defined
-  - target audience identified
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - documentation_scope
   - target_audience
   - existing_content
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
 steps:
-  - Audit existing documentation for gaps and quality
-  - Define documentation types (tutorials, how-to, reference, explanation)
-  - Create information architecture and navigation structure
-  - Write content following Diataxis or similar framework
-  - Review for accuracy, clarity, and completeness
-  - Set up maintenance process and review cadence
+  - Confirm the requested product documentation outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - documentation_strategy
   - content_drafts
   - maintenance_plan
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - filesystem.read
+  - filesystem.write
 quality_gates:
   - Documentation follows consistent framework
   - Content is accurate and up-to-date
   - Maintenance process is defined
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Documentation that doesn't match current product
   - Mixing tutorial and reference content
   - No maintenance process leading to stale docs
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - product-business.product-writer (for content creation)
   - product-business.product-manager (for feature accuracy)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.product-business.2026-05-31
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - product-business.product-writer
   - product-business.product-manager
   - product-business.master
-allowed_workflows:
-  - product-business.product-launch
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - Version control allows reverting documentation changes
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when creating or improving product documentation.
+Use this skill when a task explicitly matches `product-business.product-documentation` or when the user asks for product documentation support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Product features and workflows defined
-- Target audience identified
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Audit**: Review existing docs for accuracy, gaps, and quality.
-2. **Types**: Separate into tutorials (learning), how-to (tasks), reference (specs), explanation (concepts).
-3. **Architecture**: Define navigation, search, and cross-linking structure.
-4. **Write**: Follow Diataxis framework; one topic per page, clear headings, code examples.
-5. **Review**: Technical accuracy check with engineering; clarity check with users.
-6. **Maintain**: Set review cadence (quarterly), assign owners, track staleness.
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Documentation matches current product behavior
-- Each page serves a single documentation type
-- Maintenance owners are assigned
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
 ## Rollback
-- Version control allows reverting changes
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Writing docs that mix learning and reference content
-- Not updating docs when product changes
-- No search or navigation making docs unfindable
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
 ## Examples
-### Documentation Structure
-Getting Started (Tutorial) → How-to Guides → API Reference → Concepts
-Each page: Title, Prerequisites, Steps, Expected Outcome, Related Links
+**Example A:** A user asks for product documentation help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

@@ -2,7 +2,7 @@
 id: integrations.rabbitmq-integration
 name: RabbitMQ Integration
 version: 1.0.0
-domain: integrations
+domain: moramvenkatasatyajaswanth
 category: integrations.messaging
 purpose: Implement RabbitMQ producers and consumers with proper exchange topology, routing, and message reliability.
 summary: Guides through building RabbitMQ integrations including exchange design, queue binding, and consumer patterns.
@@ -10,83 +10,122 @@ triggers:
   - rabbitmq setup
   - rabbitmq exchange design
   - rabbitmq consumer implementation
+  - yes human task
+  - rabbitmq integration review
+  - rabbitmq integration checklist
+  - rabbitmq integration plan
 activation_triggers:
   - implement rabbitmq messaging
   - configure message broker
+  - help me with rabbitmq integration
 prerequisites:
-  - rabbitmq instance available
-  - understanding of message patterns
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - exchange_topology
   - queue_configuration
   - routing_requirements
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
 steps:
-  - Design exchange topology (direct, topic, fanout, headers)
-  - Configure queues with durability and TTL settings
-  - Bind queues to exchanges with routing keys
-  - Implement producers with publisher confirms
-  - Implement consumers with manual acknowledgment
-  - Configure dead letter exchanges for failed messages
+  - Confirm the requested rabbitmq integration outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - exchange_topology_config
   - producer_implementation
   - consumer_implementation
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - filesystem.write (rabbitmq configuration)
+  - filesystem.read
+  - filesystem.write
 quality_gates:
   - Messages persisted when required
   - Acknowledgment patterns correct
   - Dead letter routing configured
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Message loss from auto-ack without processing
   - Unbounded queue growth without TTL
   - Missing publisher confirms for critical messages
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - integrations.message-queue-engineer (for architecture)
   - integrations.api-monitoring (for observability)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.integrations.2026-05-31
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - integrations.message-queue-engineer
-allowed_workflows:
-  - integrations.message-queue-setup
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - Revert exchange and queue configuration
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when implementing RabbitMQ producers, consumers, or exchange topology.
+Use this skill when a task explicitly matches `integrations.rabbitmq-integration` or when the user asks for rabbitmq integration support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- RabbitMQ instance provisioned
-- Message routing patterns understood
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Design Exchanges**: Choose exchange type based on routing requirements.
-2. **Configure Queues**: Set durable=true for persistent messages, configure TTL and max-length.
-3. **Bind Queues**: Create bindings with appropriate routing keys.
-4. **Implement Producers**: Use publisher confirms for guaranteed delivery.
-5. **Implement Consumers**: Use manual acknowledgment after successful processing.
-6. **Dead Letters**: Configure DLX for messages that fail processing.
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Messages survive broker restart when durable
-- Consumers acknowledge only after successful processing
-- Failed messages route to dead letter exchange
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
 ## Rollback
-- Revert exchange, queue, and binding configuration
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Using auto-ack and losing messages on consumer crash
-- Not setting queue TTL leading to unbounded growth
-- Missing publisher confirms for important messages
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Examples
+**Example A:** A user asks for rabbitmq integration help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
+
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

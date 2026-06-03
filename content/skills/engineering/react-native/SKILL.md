@@ -2,9 +2,10 @@
 id: engineering.react-native
 name: React Native Component Patterns
 version: 1.0.0
-domain: engineering
+domain: moramvenkatasatyajaswanth
 category: engineering.frameworks
-description: Guide React Native component patterns including native modules, navigation, performance optimization, and cross-platform styling.
+purpose: Execute react native component patterns work with evidence, verification, and clear handoff rules.
+summary: React Native Component Patterns provides a repeatable operating procedure for task tasks. It defines inputs, checks, outputs, rollback behavior, and escalation paths so routed agents produce useful work rather than generic advice.
 triggers:
   - react native
   - react native component
@@ -13,101 +14,111 @@ triggers:
   - expo
   - react native bridge
   - react native styling
-aliases:
-  - rn patterns
-  - react native ui
-  - expo patterns
-negative_keywords:
-  - flutter
-  - swiftui
-  - ionic
-  - web only react
+activation_triggers:
+  - help me with react native component patterns
+  - review react native component patterns work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - component_requirements
   - platform_targets (iOS, Android)
   - navigation_structure (optional)
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested react native component patterns outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - rn_component_code
   - navigation_implementation
   - performance_optimization_guide
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
-  - code_graph.query
-required_skills: []
-budget_band: standard
-max_context_tokens: 5000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Bridge overhead causing jank
   - Memory leaks from native module listeners
   - Navigation state not persisting correctly
   - Platform-specific code not properly separated
-verification:
-  - Components render at 60fps on target devices
-  - No memory leaks from event listeners
-  - Navigation works correctly on both platforms
-  - Platform-specific code properly guarded
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.engineering.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - Revert to previous component implementation
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Provide expert guidance on React Native component patterns, ensuring performant cross-platform UI, proper native module integration, and platform-adaptive behavior.
+## Trigger
+Use this skill when a task explicitly matches `engineering.react-native` or when the user asks for react native component patterns support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- Building React Native applications for iOS and Android
-- Implementing cross-platform components with platform-specific behavior
-- Setting up navigation with React Navigation or Expo Router
-- Optimizing React Native performance (bridge, new architecture)
-- Integrating native modules and APIs
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- Web-only React applications
-- Flutter or other cross-platform frameworks
-- Native-only iOS (SwiftUI) or Android (Kotlin) development
-- Server-side React rendering without mobile targets
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Design Component Architecture**: Create reusable components with platform-specific variants using Platform.select and .ios.tsx/.android.tsx files.
-2. **Implement Navigation**: Set up React Navigation or Expo Router with typed routes, deep linking, and state persistence.
-3. **Optimize Lists**: Use FlatList/SectionList with proper keyExtractor, getItemLayout, and windowSize for smooth scrolling.
-4. **Handle Native Modules**: Integrate native APIs through TurboModules (new architecture) or NativeModules bridge.
-5. **Style Cross-Platform**: Use StyleSheet with platform-specific styles, apply useWindowDimensions for responsive layouts.
-6. **Manage State**: Apply React hooks patterns adapted for mobile (useFocusEffect, useBackHandler).
-7. **Profile Performance**: Use Flipper, React DevTools Profiler, and systrace to identify and fix performance bottlenecks.
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-## Tool Policy
-- Use `filesystem.read` to inspect existing React Native component code
-- Use `filesystem.write` to create or update component implementations
-- Use `code_graph.query` to trace component and navigation structure
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Run `npx react-native run-ios` and `run-android` to verify both platforms
-- Run `npx jest` for component tests
-- Profile with Flipper for frame rate and memory usage
-- Test on physical devices for real-world performance
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- **Bridge Bottleneck**: Heavy JS-to-native communication causing frame drops; batch operations or use new architecture
-- **Memory Leaks**: Event listeners and timers not cleaned up on unmount; use useEffect cleanup
-- **Navigation Issues**: State not persisting across app restarts; implement state persistence with AsyncStorage
-- **Platform Bugs**: Code working on one platform but not the other; test both platforms in CI
-- **New Architecture Migration**: Fabric/TurboModules breaking existing native modules; plan gradual migration
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- `yes route "create react native component"` -> engineering.react-native
-- `yes route "set up react navigation"` -> engineering.react-native
-- `yes route "optimize react native list performance"` -> engineering.react-native
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for react native component patterns help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- React Native documentation: https://reactnative.dev/docs
-- React Navigation: https://reactnavigation.org/docs
-- React Native GitHub: github.com/facebook/react-native (122k+ stars)
-- Expo documentation: https://docs.expo.dev
-- Reference dossier: ref.github.engineering.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

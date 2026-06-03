@@ -2,7 +2,7 @@
 id: security.key-management
 name: Cryptographic Key Management
 version: 1.0.0
-domain: security
+domain: moramvenkatasatyajaswanth
 category: security.cryptography
 purpose: Implement secure cryptographic key lifecycle management including generation, storage, rotation, and destruction.
 summary: Key management review covering key generation, secure storage, rotation policies, access controls, and key destruction procedures.
@@ -14,145 +14,114 @@ triggers:
   - key management audit
   - secure key storage review
   - HSM key management
-  - KMS configuration review
-aliases:
-  - key mgmt
-  - key rotation
-  - KMS review
-negative_keywords:
-  - SSL certificate management
-  - API key management
-  - password management
+activation_triggers:
+  - help me with cryptographic key management
+  - review cryptographic key management work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - key_inventory
   - kms_configuration
   - key_policies
   - application_key_usage
+  - target_artifact
+  - requirements_or_context
+steps:
+  - Confirm the requested cryptographic key management outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - key_management_report
   - rotation_schedule
   - access_control_review
   - compliance_mapping
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
   - bash.exec
   - web.search
-required_skills: []
-budget_band: standard
-max_context_tokens: 10000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Keys stored in source code or config files
   - Missing key rotation procedures
   - Insufficient key access controls
   - No key destruction procedures
-verification:
-  - All keys inventoried with purpose and owner
-  - Keys stored in KMS or HSM (not in code)
-  - Rotation policy defined and automated
-  - Access controls follow least privilege
-  - Key destruction procedures documented and tested
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.security.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - Restore previous key version if rotation causes failures
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Implement and review secure cryptographic key lifecycle management including generation, distribution, storage, rotation, revocation, and destruction following NIST SP 800-57 guidelines.
+## Trigger
+Use this skill when a task explicitly matches `security.key-management` or when the user asks for cryptographic key management support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- When implementing encryption that requires key management
-- During security review of cryptographic implementations
-- When setting up KMS or HSM infrastructure
-- Before compliance audits requiring key management evidence
-- After key compromise incidents
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- For SSL/TLS certificate lifecycle management (use ssl-tls-config)
-- For API key or token management (use secret-scanning)
-- For password hashing and storage (use auth-review)
-- When keys are fully managed by cloud provider with no custom configuration
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Inventory All Cryptographic Keys**:
-   - List all encryption keys, signing keys, and HMAC keys
-   - Document key purpose, algorithm, length, and owner
-   - Map which applications and services use each key
-   - Identify key storage locations (KMS, HSM, files, env vars)
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-2. **Review Key Generation**:
-   - Verify cryptographically secure random number generators
-   - Check key length meets minimum requirements (AES-256, RSA-2048+)
-   - Verify key generation happens in secure environment
-   - Check for key derivation function usage (PBKDF2, HKDF, Argon2)
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
 
-3. **Assess Key Storage**:
-   - Verify keys are stored in KMS or HSM (not in code or config)
-   - Check encryption of key material at rest
-   - Review access controls on key storage
-   - Verify audit logging of key access
-   - Check for keys in environment variables (acceptable for some cases)
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
 
-4. **Review Key Distribution**:
-   - Verify secure key distribution mechanisms
-   - Check for key exchange protocols (Diffie-Hellman, ECDH)
-   - Review key wrapping and transport encryption
-   - Verify no keys transmitted over insecure channels
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
 
-5. **Implement Key Rotation**:
-   - Define rotation schedule based on key sensitivity
-   - Implement automated rotation where possible
-   - Test rotation procedures without service disruption
-   - Support multiple active key versions during rotation
-   - Document rotation procedures and responsibilities
-
-6. **Review Key Access Controls**:
-   - Verify least privilege access to key operations
-   - Check separation of duties (key custodians)
-   - Review IAM policies for KMS access
-   - Verify multi-factor authentication for key operations
-   - Check audit trail for all key usage
-
-7. **Implement Key Destruction**:
-   - Define key destruction procedures
-   - Verify secure deletion of key material
-   - Check crypto-shredding for data destruction
-   - Document key lifecycle end procedures
-   - Verify destruction is auditable
-
-## Tool Policy
-- Use `filesystem.read` to review key management configuration
-- Use `bash.exec` to check KMS status and key policies
-- Use `web.search` for key management best practices and NIST guidelines
-- Use `filesystem.write` to produce key management reports
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Complete key inventory with purpose, owner, and storage location
-- All keys stored in KMS/HSM with no keys in source code
-- Rotation policy defined, automated, and tested
-- Access controls follow least privilege with audit logging
-- Key destruction procedures documented and tested
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Keys hardcoded in source code or configuration files
-- No key rotation leading to long-lived compromised keys
-- Insufficient access controls allowing unauthorized key access
-- Missing audit trail for key usage
-- No key destruction procedures leaving orphaned keys
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- AWS KMS key policy review and rotation configuration
-- HashiCorp Vault key management setup
-- Application encryption key rotation procedure
-- HSM key generation and storage review
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for cryptographic key management help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- NIST SP 800-57: Recommendation for Key Management
-- AWS KMS Best Practices
-- HashiCorp Vault documentation
-- Reference: ref.github.security.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

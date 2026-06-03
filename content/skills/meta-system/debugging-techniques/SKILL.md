@@ -2,7 +2,7 @@
 id: meta-system.debugging-techniques
 name: Debugging Techniques and Methodologies
 version: 1.0.0
-domain: meta-system
+domain: moramvenkatasatyajaswanth
 category: meta-system.reliability
 purpose: Apply systematic debugging techniques to diagnose issues in agents, skills, and workflows.
 summary: Systematic approach to debugging yes-human system issues using proven methodologies.
@@ -12,99 +12,125 @@ triggers:
   - troubleshoot workflow error
   - systematic debugging
   - root cause analysis
+  - yes human task
+  - debugging techniques and methodologies review
 activation_triggers:
   - debugging session
   - issue diagnosis
   - root cause analysis
 prerequisites:
-  - issue reproducible or described
-  - system logs available
-  - debugging tools accessible
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - issue_description
   - system_logs
   - debugging_tools
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
 steps:
-  - Reproduce or clarify the issue
-  - Gather relevant logs and metrics
-  - Form initial hypotheses
-  - Design tests to validate hypotheses
-  - Execute diagnostic tests
-  - Narrow down root cause
-  - Verify root cause with evidence
-  - Design fix or workaround
-  - Implement and test fix
-  - Document findings and resolution
+  - Confirm the requested debugging techniques and methodologies outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - root_cause_analysis
   - diagnostic_test_results
   - fix_or_workaround
   - debugging_documentation
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - filesystem.read (read logs and artifacts)
   - shell.readonly (run diagnostic commands)
+  - filesystem.read
+  - filesystem.write
 quality_gates:
   - Issue reproduced or clarified
   - Hypotheses tested systematically
   - Root cause verified with evidence
   - Fix tested and working
   - Findings documented
+  - Inputs and assumptions are explicit
 failure_modes:
   - Jumping to conclusions without evidence
   - Not reproducing the issue
   - Skipping hypothesis testing
   - Fixing symptoms not root cause
   - Undocumented findings
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
 handoffs:
   - meta-system.error-handling (for error handling improvements)
   - meta-system.logging-strategies (for logging improvements)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.meta-system.2026-05-31
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - meta-system.quality-assurance
   - meta-system.system-architect
-allowed_workflows: []
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - Revert debugging changes
   - Restore system to pre-debug state
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when debugging agent issues, diagnosing skill failures, or troubleshooting workflow errors.
+Use this skill when a task explicitly matches `meta-system.debugging-techniques` or when the user asks for debugging techniques and methodologies support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Issue reproducible or described
-- System logs available
-- Debugging tools accessible
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Reproduce Issue**: Reproduce the issue or clarify its description.
-2. **Gather Data**: Collect relevant logs, metrics, and artifacts.
-3. **Form Hypotheses**: Generate possible explanations for the issue.
-4. **Design Tests**: Create tests to validate or invalidate each hypothesis.
-5. **Execute Tests**: Run diagnostic tests systematically.
-6. **Narrow Cause**: Eliminate hypotheses based on test results.
-7. **Verify Root Cause**: Confirm root cause with evidence.
-8. **Design Fix**: Create a fix or workaround for the root cause.
-9. **Test Fix**: Implement and verify the fix resolves the issue.
-10. **Document**: Record findings, root cause, and resolution.
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- All quality gates passed
-- Root cause verified with evidence
-- Fix tested and working
-- Findings documented
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
+
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Jumping to conclusions without evidence
-- Not reproducing the issue first
-- Fixing symptoms instead of root cause
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Examples
+**Example A:** A user asks for debugging techniques and methodologies help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
+
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

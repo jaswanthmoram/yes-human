@@ -2,7 +2,7 @@
 id: marketing.email-campaigns
 name: Email Campaigns
 version: 1.0.0
-domain: marketing
+domain: moramvenkatasatyajaswanth
 category: marketing.email
 purpose: Design and execute email marketing campaigns with segmentation, personalization, and deliverability optimization.
 summary: Email campaign creation covering list segmentation, subject lines, body copy, automation triggers, and deliverability.
@@ -12,87 +12,112 @@ triggers:
   - email sequence design
   - newsletter campaign plan
   - drip campaign setup
-aliases:
-  - email campaign
-  - email marketing campaign
-negative_keywords:
-  - transactional email
-  - sms marketing
-  - push notifications
+  - yes human task
+  - email campaigns review
+activation_triggers:
+  - help me with email campaigns
+  - review email campaigns work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - campaign_goal
   - audience_segments
   - content_theme
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested email campaigns outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - campaign_brief
   - email_copy_drafts
   - segmentation_plan
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
-required_skills: []
-budget_band: micro
-max_context_tokens: 8000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Sending without list segmentation
   - Ignoring deliverability and sender reputation
   - Missing unsubscribe and consent handling
-verification:
-  - Segmentation strategy defined
-  - Deliverability best practices followed
-  - Compliance requirements met
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.marketing.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: micro
 rollback:
   - Pause campaign if bounce rate exceeds threshold
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Design email campaigns that reach the inbox, engage subscribers, and drive measurable conversions with full compliance.
+## Trigger
+Use this skill when a task explicitly matches `marketing.email-campaigns` or when the user asks for email campaigns support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- When creating new email marketing campaigns
-- When designing drip or nurture sequences
-- During newsletter planning
-- For email list segmentation strategy
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- For transactional emails (password resets, receipts)
-- For marketing automation workflows (use marketing-automation)
-- For deliverability troubleshooting (use email-marketer agent)
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Goal and Audience**: Define campaign objective and target segments.
-2. **Segmentation**: Split list by behavior, demographics, or engagement level.
-3. **Subject Line**: Write compelling subject lines with A/B test variants.
-4. **Body Copy**: Draft email content with clear value proposition and CTA.
-5. **Design**: Plan responsive layout with mobile-first approach.
-6. **Deliverability**: Check sender reputation, authentication (SPF/DKIM/DMARC), and list hygiene.
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-## Tool Policy
-- Use `filesystem.read` to review subscriber data and past campaign performance.
-- Use `filesystem.write` to produce campaign briefs and copy.
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Segmentation strategy documented
-- Subject lines A/B tested
-- Compliance (CAN-SPAM, GDPR) verified
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Sending to unsegmented lists
-- Ignoring mobile rendering
-- Missing plain-text fallback
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- `create email campaign for product launch`
-- `design drip sequence for new subscribers`
-- `plan newsletter campaign for Q3`
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for email campaigns help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- Mailchimp email marketing guides
-- Litmus email best practices
-- Reference: ref.github.marketing.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

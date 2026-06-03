@@ -2,7 +2,7 @@
 id: security.secret-scan-triage
 name: Secret Detection and False Positive Filtering
 version: 1.0.0
-domain: security
+domain: moramvenkatasatyajaswanth
 category: security.secret-scanning
 purpose: Detect hardcoded secrets in code and triage findings to distinguish real secrets from false positives.
 summary: Systematic approach to scanning for secrets, validating findings, and remediating exposed credentials.
@@ -12,135 +12,124 @@ triggers:
   - secret detection
   - check for API keys
   - credential leak
+  - yes human task
+  - secret detection and false positive filtering review
 activation_triggers:
   - scan secrets
   - find API keys
   - check credentials
 prerequisites:
-  - access to codebase
-  - secret scanning tool (git-secrets, truffleHog, etc.)
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - codebase_path
   - scan_results
   - known_false_positives (optional)
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
 steps:
-  - Run secret scanning tool on codebase
-  - Review all findings
-  - Categorize findings (real secret, false positive, test data)
-  - Validate real secrets by checking if they're active
-  - Prioritize by severity (production vs dev, high-privilege vs low)
-  - Create remediation plan
-  - Rotate exposed secrets
-  - Remove secrets from code and history
+  - Confirm the requested secret detection and false positive filtering outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - secret_findings (categorized)
   - validation_results
   - remediation_plan
   - rotated_secrets_list
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - shell.readonly (run scanning tools)
   - filesystem.read
   - filesystem.write (remove secrets)
+  - filesystem.write
 quality_gates:
   - All findings reviewed
   - Real secrets identified and rotated
   - False positives documented
   - Secrets removed from code
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
 failure_modes:
   - Missing secrets due to tool limitations
   - Not rotating exposed secrets
   - Leaving secrets in git history
   - Not checking if secrets are still active
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - security.dependency-risk-agent (if secrets in dependencies)
   - platform.incident-responder (if production secrets exposed)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.secret-scanning-best-practices.2026-06-01
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - security.secret-scan-agent
   - security.security-reviewer
-allowed_workflows: []
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - Revert code changes if secret removal breaks functionality
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when scanning for hardcoded secrets, reviewing secret detection results, or responding to credential leaks.
+Use this skill when a task explicitly matches `security.secret-scan-triage` or when the user asks for secret detection and false positive filtering support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Access to the codebase
-- Secret scanning tool installed (git-secrets, truffleHog, detect-secrets, etc.)
-- Permissions to rotate secrets if found
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Run Secret Scan**:
-   - Execute scanning tool: `git-secrets --scan` or `truffleHog --regex --entropy=False`
-   - Scan entire repository including git history
-   - Export results to file for review
-2. **Review Findings**:
-   - Examine each finding
-   - Check context (is it in code, config, or test?)
-   - Identify the type of secret (API key, password, token, etc.)
-3. **Categorize Findings**:
-   - **Real Secret**: Active credential that should not be in code
-   - **False Positive**: Looks like a secret but isn't (e.g., "password" in variable name)
-   - **Test Data**: Secrets used only in tests (should still be removed)
-   - **Example/Documentation**: Placeholders in docs (acceptable if clearly marked)
-4. **Validate Real Secrets**:
-   - Check if the secret is still active (try to use it in a safe way)
-   - Determine if it's production or development
-   - Identify what service/system it belongs to
-5. **Prioritize by Severity**:
-   - Critical: Production secrets with high privileges
-   - High: Production secrets with limited access
-   - Medium: Development/staging secrets
-   - Low: Test/example secrets
-6. **Create Remediation Plan**:
-   - Rotate all exposed secrets immediately
-   - Remove secrets from code
-   - Use environment variables or secret managers
-   - Clean git history if necessary (BFG Repo-Cleaner)
-7. **Implement Fixes**:
-   - Replace hardcoded secrets with environment variables
-   - Update configuration to use secret manager
-   - Add pre-commit hooks to prevent future secrets
-8. **Verify**:
-   - Re-run scan to confirm secrets removed
-   - Test application still works with new secret management
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Secret scan returns no findings (or only documented false positives)
-- All real secrets rotated
-- Application works with new secret management
-- Pre-commit hooks prevent future secrets
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
 ## Rollback
-- If secret removal breaks functionality, temporarily restore and fix properly
-- Use version control to revert: `git checkout HEAD~1 <file>`
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Not scanning git history (secrets in old commits)
-- Assuming false positives without validation
-- Not rotating exposed secrets
-- Leaving secrets in git history after removal
-- Not adding pre-commit hooks to prevent recurrence
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
 ## Examples
-### Scanning and Remediating Secrets
-Input: `git-secrets --scan` finds 3 potential secrets
-Output:
-- Finding 1: `AWS_SECRET_ACCESS_KEY=AKIA...` in config.js → Real secret (production AWS)
-  - Action: Rotate AWS key, move to environment variable
-- Finding 2: `password = "test123"` in test file → Test data
-  - Action: Remove, use test fixtures
-- Finding 3: `const passwordField = "password"` in form component → False positive
-  - Action: Document as false positive
+**Example A:** A user asks for secret detection and false positive filtering help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

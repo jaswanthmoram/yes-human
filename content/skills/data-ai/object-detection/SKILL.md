@@ -2,7 +2,7 @@
 id: data-ai.object-detection
 name: Object Detection
 version: 1.0.0
-domain: data-ai
+domain: moramvenkatasatyajaswanth
 category: data-ai.computer-vision
 purpose: Build object detection models for localizing and classifying objects in images or video streams.
 summary: Systematic object detection including annotation strategy, model selection, training, and evaluation with mAP metrics.
@@ -12,90 +12,123 @@ triggers:
   - bounding box detection
   - object localization
   - video object detection
+  - yes human task
+  - object detection review
 activation_triggers:
   - object detection
   - bounding box model
   - object localization
 prerequisites:
-  - annotated image dataset with bounding boxes
-  - object classes defined
-  - compute resources available
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - annotated_dataset
   - object_classes
   - accuracy_and_latency_requirements
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
 steps:
-  - Review annotation quality and consistency
-  - Design data augmentation for detection (scale, occlusion)
-  - Select detection architecture (YOLO, Faster R-CNN, DETR)
-  - Train with appropriate loss functions and anchors
-  - Evaluate with mAP, per-class AP, and inference speed
-  - Analyze failure modes (missed detections, false positives)
-  - Document model performance and deployment considerations
+  - Confirm the requested object detection outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - trained_detector
   - evaluation_report
   - deployment_spec
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - shell.readonly (training scripts)
   - filesystem.read (images, annotations)
   - filesystem.write (model, report)
+  - filesystem.read
+  - filesystem.write
 quality_gates:
   - Annotation quality verified
   - mAP evaluated on held-out set
   - Inference speed measured
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Inconsistent annotations degrading model quality
   - Ignoring small object detection challenges
   - Not measuring inference speed for real-time requirements
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - data-ai.model-deployment (for serving)
   - data-ai.computer-vision-engineer (for system integration)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.data-ai.object-detection.2026-05-31
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - data-ai.computer-vision-engineer
   - data-ai.ml-engineer
-allowed_workflows: []
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: expanded
 rollback:
   - Revert to previous model version
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when building an object detection model for localizing and classifying objects.
+Use this skill when a task explicitly matches `data-ai.object-detection` or when the user asks for object detection support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Annotated dataset with bounding boxes available
-- Object classes clearly defined
-- Compute resources for training available
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Annotation Review**: Check consistency, completeness, and IoU thresholds.
-2. **Augmentation**: Scale variation, occlusion simulation, mosaic augmentation.
-3. **Model Selection**: YOLO (real-time), Faster R-CNN (accuracy), DETR (end-to-end).
-4. **Train**: Multi-scale training, focal loss for class imbalance, anchor tuning.
-5. **Evaluate**: mAP@0.5, mAP@0.5:0.95, per-class AP, FPS measurement.
-6. **Error Analysis**: Missed detections, false positives, localization errors.
-7. **Document**: Performance, deployment considerations, known limitations.
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Annotation quality verified
-- mAP evaluated on held-out set
-- Inference speed measured against requirements
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
 ## Rollback
-- Revert to previous model version
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Inconsistent bounding box annotations
-- Ignoring small object detection (low recall for small objects)
-- Not measuring inference speed for real-time use cases
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Examples
+**Example A:** A user asks for object detection help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
+
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

@@ -2,7 +2,7 @@
 id: engineering.code-review
 name: Systematic Code Review
 version: 1.0.0
-domain: engineering
+domain: moramvenkatasatyajaswanth
 category: engineering.code-quality
 purpose: Perform systematic code reviews following industry best practices to identify bugs, security issues, and maintainability concerns.
 summary: Guides through a structured code review process covering correctness, security, performance, and maintainability checks.
@@ -12,127 +12,121 @@ triggers:
   - review pull request
   - review PR
   - check code quality
+  - yes human task
+  - systematic code review review
 activation_triggers:
   - review this code
   - can you review
   - please review
-  - code looks good?
 prerequisites:
-  - access to code changes (diff or files)
-  - understanding of project conventions
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - code_diff_or_files
   - review_checklist (optional)
   - project_conventions (optional)
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
 steps:
-  - Understand the purpose and scope of the changes
-  - Check for correctness: logic errors, edge cases, off-by-one errors
-  - Review security: input validation, authentication, authorization, injection risks
-  - Assess performance: algorithmic complexity, unnecessary allocations, N+1 queries
-  - Evaluate maintainability: naming, structure, documentation, test coverage
-  - Verify error handling and logging
-  - Check for consistency with project conventions
-  - Provide actionable feedback with specific suggestions
+  - Confirm the requested systematic code review outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - review_findings (categorized by severity)
   - approval_or_changes_requested
   - specific_suggestions
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - filesystem.read
-  - code_graph.query
+  - filesystem.write
 quality_gates:
   - All critical issues identified and documented
   - Security vulnerabilities flagged
   - Actionable feedback provided
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Missing subtle logic bugs
   - Overlooking security vulnerabilities
   - Providing vague or non-actionable feedback
   - Not checking edge cases
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - engineering.security-reviewer (for security concerns)
   - engineering.testing-unit (for test coverage gaps)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.code-review-best-practices.2026-06-01
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - engineering.code-reviewer
   - engineering.master
-allowed_workflows:
-  - engineering.code-review-with-security
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - No state changes to rollback
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when reviewing code changes, pull requests, or when asked to check code quality.
+Use this skill when a task explicitly matches `engineering.code-review` or when the user asks for systematic code review support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Access to the code changes (diff, files, or PR link)
-- Understanding of the project's coding conventions and standards
-- Familiarity with the codebase architecture
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Understand Context**: Read the PR description, issue, or task to understand what the changes aim to accomplish.
-2. **Correctness Review**: 
-   - Trace through logic to verify correctness
-   - Check edge cases and boundary conditions
-   - Look for off-by-one errors, null pointer issues, race conditions
-3. **Security Review**:
-   - Validate all user inputs
-   - Check authentication and authorization
-   - Look for SQL injection, XSS, CSRF vulnerabilities
-   - Verify secrets are not hardcoded
-4. **Performance Review**:
-   - Analyze algorithmic complexity (O(n²) vs O(n log n))
-   - Check for unnecessary object allocations
-   - Look for N+1 query problems in database code
-   - Verify caching is used appropriately
-5. **Maintainability Review**:
-   - Check naming conventions (variables, functions, classes)
-   - Verify code structure and organization
-   - Ensure adequate documentation for complex logic
-   - Check test coverage for new code
-6. **Error Handling**:
-   - Verify errors are caught and handled appropriately
-   - Check logging is informative but not verbose
-   - Ensure error messages are user-friendly
-7. **Consistency Check**:
-   - Verify adherence to project style guide
-   - Check for consistency with existing code patterns
-8. **Provide Feedback**:
-   - Categorize findings (critical, major, minor, suggestion)
-   - Provide specific, actionable suggestions
-   - Explain the "why" behind each suggestion
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Run `npm test` to ensure all tests pass
-- Run linter to check style compliance
-- Manually test critical paths if applicable
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
 ## Rollback
-- No state changes; this is a review-only skill
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Missing subtle concurrency bugs or race conditions
-- Overlooking security vulnerabilities in input handling
-- Providing feedback that is too vague ("this looks wrong")
-- Not checking error paths and edge cases
-- Focusing only on style issues while missing logic bugs
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
 ## Examples
-### Reviewing a Pull Request
-Input: PR #123 adding user authentication
-Output: 
-- Critical: Password stored in plain text (line 45)
-- Major: Missing input validation on email field (line 23)
-- Minor: Variable name `usr` should be `user` for clarity (line 12)
-- Suggestion: Consider extracting auth logic to separate module
+**Example A:** A user asks for systematic code review help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

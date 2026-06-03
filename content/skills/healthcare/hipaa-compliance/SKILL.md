@@ -2,7 +2,7 @@
 id: healthcare.hipaa-compliance
 name: HIPAA Compliance Review
 version: 1.0.0
-domain: healthcare
+domain: moramvenkatasatyajaswanth
 category: healthcare.compliance
 purpose: Review systems, policies, and workflows for HIPAA Privacy Rule, Security Rule, and Breach Notification compliance.
 summary: HIPAA compliance review covering Privacy Rule, Security Rule, Breach Notification, and Business Associate requirements.
@@ -13,105 +13,111 @@ triggers:
   - breach notification review
   - business associate agreement review
   - phi handling audit
-aliases:
-  - hipaa review
-  - hipaa audit
-negative_keywords:
-  - general data privacy
-  - GDPR compliance
-  - financial compliance
+  - yes human task
+activation_triggers:
+  - help me with hipaa compliance review
+  - review hipaa compliance review work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - system_or_policy
   - phi_data_flows
   - security_controls
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested hipaa compliance review outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - compliance_assessment
   - gap_analysis
   - remediation_plan
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
-required_skills: []
-budget_band: standard
-max_context_tokens: 10000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Misses PHI in data flow analysis
   - Ignores Business Associate requirements
   - Overlooks state-specific privacy laws
-verification:
-  - All PHI data flows identified and assessed
-  - Administrative, physical, and technical safeguards reviewed
-  - Business Associate agreements validated
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.healthcare.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - Revert policy changes if compliance gaps are introduced
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Review systems, policies, and workflows for HIPAA Privacy Rule, Security Rule, and Breach Notification compliance.
+## Trigger
+Use this skill when a task explicitly matches `healthcare.hipaa-compliance` or when the user asks for hipaa compliance review support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- When reviewing systems that handle PHI
-- When designing new healthcare data workflows
-- When preparing for HIPAA audits
-- When reviewing Business Associate Agreements
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- For GDPR or international privacy compliance (different framework)
-- For general corporate privacy policies without PHI
-- For financial data compliance (use finance agents)
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Map PHI Data Flows**:
-   - Identify all systems that create, receive, maintain, or transmit PHI
-   - Document data flow diagrams with PHI touchpoints
-   - Identify Business Associates and their PHI access
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-2. **Assess Privacy Rule Compliance**:
-   - Review Notice of Privacy Practices
-   - Validate minimum necessary standard
-   - Check patient rights implementation (access, amendment, accounting)
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
 
-3. **Assess Security Rule Compliance**:
-   - Review administrative safeguards (risk analysis, training, policies)
-   - Review physical safeguards (facility access, workstation security)
-   - Review technical safeguards (access controls, audit logs, encryption)
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
 
-4. **Validate Breach Notification Readiness**:
-   - Review breach detection and reporting procedures
-   - Validate notification timelines and content requirements
-   - Test incident response procedures
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
 
-5. **Produce Remediation Plan**:
-   - Prioritize gaps by risk level
-   - Provide implementation guidance for each gap
-   - Define verification criteria for remediation
-
-## Tool Policy
-- Use `filesystem.read` to review policies, system configs, and data flow documentation
-- Use `filesystem.write` to produce compliance assessments and remediation plans
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- All PHI data flows identified with appropriate safeguards
-- Administrative, physical, and technical safeguards assessed
-- Business Associate agreements reviewed and validated
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Missing PHI in data flow analysis
-- Ignoring Business Associate requirements
-- Overlooking state-specific privacy laws that exceed HIPAA
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- HIPAA Security Rule assessment for new telehealth platform
-- Privacy Rule review of patient portal data sharing
-- Breach notification procedure validation
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for hipaa compliance review help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- HHS HIPAA: https://www.hhs.gov/hipaa/
-- NIST SP 800-66: Implementing HIPAA Security Rule
-- Reference: ref.github.healthcare.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

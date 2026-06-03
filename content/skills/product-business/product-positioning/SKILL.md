@@ -2,7 +2,7 @@
 id: product-business.product-positioning
 name: Product Positioning
 version: 1.0.0
-domain: product-business
+domain: moramvenkatasatyajaswanth
 category: product-business.strategy
 purpose: Define clear product positioning that differentiates from competitors and resonates with target customers.
 summary: Guides through positioning framework including market category, unique value, and proof points.
@@ -11,90 +11,122 @@ triggers:
   - positioning statement
   - positioning framework
   - market positioning
+  - yes human task
+  - product positioning review
+  - product positioning checklist
 activation_triggers:
   - define positioning
   - how should we position
   - positioning workshop
 prerequisites:
-  - target customer profile
-  - competitive landscape understanding
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - target_customer
   - competitive_context
   - product_capabilities
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
 steps:
-  - Define the market category you compete in
-  - Identify underserved customer needs
-  - Articulate unique value proposition
-  - List proof points that substantiate claims
-  - Create positioning statement using standard template
-  - Validate positioning with target customers
+  - Confirm the requested product positioning outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - positioning_statement
   - proof_points
   - validation_results
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - filesystem.read
+  - filesystem.write
 quality_gates:
   - Positioning is differentiated from competitors
   - Claims are backed by proof points
   - Validated with target customer feedback
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Generic positioning that could apply to any product
   - Claims without supporting evidence
   - Not testing positioning with real customers
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - product-business.product-marketer (for messaging)
   - product-business.competitive-analyst (for competitive context)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.product-business.2026-05-31
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - product-business.product-marketer
   - product-business.product-strategist
   - product-business.master
-allowed_workflows:
-  - product-business.competitive-analysis
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - No state changes to rollback
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when defining or refining product positioning.
+Use this skill when a task explicitly matches `product-business.product-positioning` or when the user asks for product positioning support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Target customer profile defined
-- Competitive landscape understood
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Market Category**: What category do you compete in? (e.g., "project management for remote teams")
-2. **Underserved Needs**: What do customers need that alternatives don't provide?
-3. **Unique Value**: What do you uniquely deliver? (only we can...)
-4. **Proof Points**: Evidence that substantiates your claims (case studies, metrics, testimonials).
-5. **Statement**: "For [target], [product] is the [category] that [unique value] because [proof]."
-6. **Validate**: Test positioning with 10+ target customers for resonance and clarity.
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Positioning passes the "so what?" test
-- Differentiated from top 3 competitors
-- Validated with target customer feedback
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
 ## Rollback
-- No state changes; this is a strategy skill
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Positioning as "better" without specifying how
-- Not anchoring in a market category customers understand
-- Skipping customer validation
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
 ## Examples
-### Positioning Statement
-For product teams at startups, Linear is the issue tracker that moves at the speed of thought because it's keyboard-first, real-time synced, and designed for makers not managers.
+**Example A:** A user asks for product positioning help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

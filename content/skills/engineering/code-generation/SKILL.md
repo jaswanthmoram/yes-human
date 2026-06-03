@@ -2,7 +2,7 @@
 id: engineering.code-generation
 name: Code Generation and Scaffolding
 version: 1.0.0
-domain: engineering
+domain: moramvenkatasatyajaswanth
 category: engineering.productivity
 purpose: Generate boilerplate code, scaffolding, and repetitive code structures using templates, generators, and code generation tools.
 summary: Systematic approach to code generation using templates, AST-based generators, and scaffolding tools to eliminate repetitive coding tasks.
@@ -14,111 +14,115 @@ triggers:
   - boilerplate
   - code template
   - create boilerplate
-  - generate CRUD
-  - scaffolding
-aliases:
-  - scaffold
-  - boilerplate
-  - code gen
-negative_keywords:
-  - AI code generation
-  - manual coding
-  - code review
+activation_triggers:
+  - help me with code generation and scaffolding
+  - review code generation and scaffolding work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - generation_type (project, module, component, CRUD, API)
   - framework (react, nextjs, express, django, etc.)
   - template_source (optional)
   - naming_convention (optional)
+  - target_artifact
+  - requirements_or_context
+steps:
+  - Confirm the requested code generation and scaffolding outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - generated_files
   - file_structure
   - setup_instructions
   - next_steps
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - shell.readonly (inspect project structure, check generators)
   - shell.write (run generators, install dependencies)
   - filesystem.read (read templates, existing code patterns)
   - filesystem.write (create generated files)
-required_skills: []
-budget_band: standard
-max_context_tokens: 6000
+  - filesystem.read
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Generated code not matching project conventions
   - Template drift causing outdated scaffolding
   - Over-generation creating unnecessary files
   - Generated code with hardcoded values or placeholders
-verification:
-  - Generated code compiles and passes linting
-  - File structure matches project conventions
-  - No hardcoded secrets, URLs, or placeholder values remain
-  - Generated tests pass
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.engineering.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - Delete generated files via version control (git clean or revert)
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Eliminate repetitive coding tasks by generating boilerplate, scaffolding, and structured code using templates and generators that follow project conventions.
+## Trigger
+Use this skill when a task explicitly matches `engineering.code-generation` or when the user asks for code generation and scaffolding support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- Starting a new project, module, or component that follows established patterns
-- Generating CRUD operations, API endpoints, or database models
-- Creating repetitive structures (forms, tables, routes) with consistent patterns
-- Bootstrapping test files that mirror source file structure
-- Setting up configuration files for new environments or services
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- When the code requires novel logic that cannot be templated
-- When the project has no established patterns to generate from
-- When hand-written code would be simpler and more maintainable
-- When generating code that requires deep domain-specific customization
-- For one-off scripts or throwaway code
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Analyze Existing Patterns**: Study the project's existing code structure, naming conventions, and file organization to ensure generated code is consistent.
-2. **Select Generation Approach**:
-   - **Template-based**: String templates with variable substitution (Handlebars, EJS, Jinja)
-   - **Generator tools**: Framework-specific generators (create-react-app, nest generate, rails generate)
-   - **AST-based**: Programmatic code generation using abstract syntax trees (jscodeshift, ts-morph)
-   - **Snippet-based**: IDE snippets for small, repeated code blocks
-3. **Define Template Variables**: Identify what needs to be parameterized (names, types, paths, configurations).
-4. **Generate Code**: Run the generator or apply templates, creating files in the correct locations.
-5. **Post-Process**: Replace placeholders, update imports, register new modules in index files, and wire up routing.
-6. **Validate Output**: Run linting, type checking, and tests on generated code to ensure correctness.
-7. **Document**: Record the generation command and any manual steps needed after generation.
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-## Tool Policy
-- Use `shell.readonly` to inspect project structure before generation
-- Use `shell.write` to run generators and install dependencies
-- Use `filesystem.read` to study existing patterns and templates
-- Use `filesystem.write` to create generated files
-- Always verify generated code compiles and passes tests
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Generated code passes `lint`, `typecheck`, and `test` commands
-- File structure follows project conventions
-- All imports resolve correctly
-- No TODO or placeholder comments remain in production code
-- Generated tests cover the generated code paths
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- **Convention mismatch**: Generated code uses different patterns than the rest of the project. Mitigation: study existing code before generating, use project-specific templates.
-- **Stale templates**: Templates produce outdated code after framework upgrades. Mitigation: version templates and update them with framework releases.
-- **Over-generation**: Creating files that are never used. Mitigation: generate only what is needed, delete unused generated files.
-- **Security issues**: Generated code includes hardcoded secrets or insecure defaults. Mitigation: use environment variables, never embed secrets in templates.
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- "scaffold a new Express API endpoint" -> Generate route, controller, validation, and test files following existing patterns
-- "create a React component with tests" -> Generate component file, styles, test file, and story file
-- "generate CRUD for a database model" -> Generate model, migration, controller, routes, validation, and tests
-- "set up a new microservice" -> Scaffold project structure with Dockerfile, CI config, health check, and README
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for code generation and scaffolding help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- Based on popular code generation tools (Yeoman, Plop, Hygen, Nest CLI)
-- Patterns from framework-specific generators (Rails, Django, Spring)
-- Reference: ref.github.engineering.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

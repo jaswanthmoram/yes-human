@@ -2,9 +2,10 @@
 id: platform.chaos-engineering
 name: Chaos Engineering Practices
 version: 1.0.0
-domain: platform
+domain: moramvenkatasatyajaswanth
 category: platform.reliability
-description: Design and execute chaos engineering experiments to validate system resilience and identify failure points.
+purpose: Execute chaos engineering practices work with evidence, verification, and clear handoff rules.
+summary: Chaos Engineering Practices provides a repeatable operating procedure for task tasks. It defines inputs, checks, outputs, rollback behavior, and escalation paths so routed agents produce useful work rather than generic advice.
 triggers:
   - chaos engineering practices
   - chaos experiment design
@@ -13,110 +14,120 @@ triggers:
   - chaos monkey setup
   - gameday planning
   - failure mode validation
-aliases:
-  - chaos testing
-  - fault injection
-  - resilience experiments
-negative_keywords:
-  - load testing
-  - penetration testing
-  - unit testing
-  - production incidents
+activation_triggers:
+  - help me with chaos engineering practices
+  - review chaos engineering practices work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - system_architecture
   - failure_hypotheses
   - blast_radius
   - rollback_procedures
+  - target_artifact
+  - requirements_or_context
+steps:
+  - Confirm the requested chaos engineering practices outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - experiment_plan
   - experiment_results
   - resilience_report
   - remediation_actions
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - shell.readonly (monitoring queries, status checks)
   - shell.write (fault injection tools)
   - filesystem.read (experiment plans)
   - filesystem.write (experiment reports)
-required_skills:
-  - platform.observability-setup
-budget_band: standard
-max_context_tokens: 8192
+  - filesystem.read
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Blast radius too large (experiment causes real outage)
   - Missing abort conditions
   - Not monitoring during experiment
   - No rollback procedure ready
-verification:
-  - Experiment abort conditions tested
-  - Monitoring confirms system behavior
-  - Results documented and actionable
-  - No unintended production impact
-source_references:
-  - ref.github.platform.2026-05-31
-quality_gate: staging
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - platform.incident-analysis (if experiment reveals real issues)
   - platform.prometheus-alerts (for monitoring during experiments)
-source_refs:
-  - ref.github.platform.2026-05-31
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
+source_references:
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - platform.reliability-engineer
   - platform.devops-engineer
-allowed_workflows: []
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - Abort experiment immediately
   - Restore system to pre-experiment state
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Provide patterns for designing and executing controlled chaos experiments that validate system resilience without causing real outages.
+## Trigger
+Use this skill when a task explicitly matches `platform.chaos-engineering` or when the user asks for chaos engineering practices support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- Validating system resilience to specific failure modes
-- Testing failover and recovery procedures
-- Running gamedays for on-call team readiness
-- Identifying hidden dependencies and single points of failure
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- Load or performance testing (use dedicated load testing tools)
-- Security penetration testing
-- When system is already unstable or during incidents
-- Without proper monitoring and abort mechanisms
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Define Hypothesis**: State expected system behavior under failure (e.g., "service X should failover within 30s")
-2. **Assess Blast Radius**: Determine scope of experiment and potential impact
-3. **Set Abort Conditions**: Define metrics thresholds that trigger automatic experiment termination
-4. **Prepare Monitoring**: Ensure dashboards and alerts are active for affected services
-5. **Execute Experiment**: Inject fault (kill pod, add latency, sever network) with controlled scope
-6. **Observe and Record**: Monitor system behavior, record metrics and timeline
-7. **Analyze and Remediate**: Compare results to hypothesis, create action items for gaps
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-## Tool Policy
-- Start with smallest blast radius (single pod, single instance)
-- Always have abort mechanism ready before starting
-- Use established tools: Litmus, Chaos Mesh, Gremlin, AWS FIS
-- Run experiments during business hours with team available
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- System behavior matches hypothesis or gaps are documented
-- Abort conditions tested and functional
-- No lasting production impact after experiment
-- Action items created for discovered weaknesses
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Experiment scope too broad causing real outage
-- Abort conditions not defined or not working
-- Team not available during experiment
-- Not documenting results and learnings
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- "kill random pod in staging" → Chaos Mesh pod-kill experiment
-- "add network latency to service" → traffic control experiment
-- "test database failover" → controlled primary termination
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for chaos engineering practices help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-Based on Principles of Chaos Engineering and production chaos experiment patterns. Referenced dossier: ref.github.platform.2026-05-31.
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

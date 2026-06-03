@@ -2,7 +2,7 @@
 id: healthcare.clinical-documentation
 name: Clinical Documentation Improvement
 version: 1.0.0
-domain: healthcare
+domain: moramvenkatasatyajaswanth
 category: healthcare.documentation
 purpose: Review and improve clinical documentation for accuracy, completeness, and compliance with coding and regulatory requirements.
 summary: Clinical documentation improvement covering CDI queries, documentation specificity, and regulatory compliance.
@@ -12,105 +12,112 @@ triggers:
   - documentation improvement
   - clinical note audit
   - documentation specificity check
-aliases:
-  - cdi
-  - clinical documentation
-negative_keywords:
-  - technical writing
-  - marketing copy
-  - software documentation
+  - yes human task
+  - clinical documentation improvement review
+activation_triggers:
+  - help me with clinical documentation improvement
+  - review clinical documentation improvement work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - clinical_notes
   - coding_requirements
   - regulatory_standards
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested clinical documentation improvement outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - documentation_assessment
   - cdi_queries
   - improvement_recommendations
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
-required_skills: []
-budget_band: standard
-max_context_tokens: 8000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Generates queries that lead to inaccurate documentation
   - Misses regulatory documentation requirements
   - Ignores clinical significance of conditions
-verification:
-  - Queries are non-leading and compliant
-  - Regulatory documentation requirements met
-  - Clinical significance captured
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.healthcare.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - Revert CDI queries if found to be non-compliant
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Review and improve clinical documentation for accuracy, completeness, and compliance with coding and regulatory requirements.
+## Trigger
+Use this skill when a task explicitly matches `healthcare.clinical-documentation` or when the user asks for clinical documentation improvement support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- When reviewing clinical notes for documentation quality
-- When generating CDI queries for provider clarification
-- When auditing documentation for regulatory compliance
-- When training providers on documentation improvement
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- For technical writing or software documentation (use engineering agents)
-- For marketing content (use marketing agents)
-- For clinical diagnosis (use clinical-decision-support)
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Review Clinical Documentation**:
-   - Assess completeness of history, assessment, and plan
-   - Identify documentation gaps affecting code assignment
-   - Check for conflicting or ambiguous documentation
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-2. **Generate CDI Queries**:
-   - Write compliant, non-leading queries for clarification
-   - Provide clinical indicators supporting the query
-   - Follow AHIMA/ACDIS query guidelines
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
 
-3. **Assess Regulatory Compliance**:
-   - Verify documentation meets CMS conditions of participation
-   - Check for required elements (attending physician, discharge summary)
-   - Validate authentication and timeliness
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
 
-4. **Recommend Improvements**:
-   - Suggest documentation templates and smart phrases
-   - Recommend provider education topics
-   - Identify opportunities for clinical validation
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
 
-5. **Measure Impact**:
-   - Track query response rates and agreement rates
-   - Monitor case mix index and severity of illness trends
-   - Report documentation quality metrics
-
-## Tool Policy
-- Use `filesystem.read` to review clinical notes and documentation standards
-- Use `filesystem.write` to produce CDI queries and improvement reports
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- All queries are non-leading and compliant with AHIMA guidelines
-- Regulatory documentation requirements met
-- Clinical significance of conditions captured
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Generating leading queries that bias provider responses
-- Missing regulatory documentation requirements
-- Ignoring clinical significance of comorbidities and complications
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- CDI query for heart failure specificity and acuity
-- Documentation review for sepsis clinical validation
-- Discharge summary completeness audit
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for clinical documentation improvement help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- AHIMA CDI Practice Brief
-- ACDIS CDI Tips and Guidelines
-- Reference: ref.github.healthcare.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

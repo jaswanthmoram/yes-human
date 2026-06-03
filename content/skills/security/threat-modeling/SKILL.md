@@ -2,7 +2,7 @@
 id: security.threat-modeling
 name: Threat Modeling Techniques
 version: 1.0.0
-domain: security
+domain: moramvenkatasatyajaswanth
 category: security.design-review
 purpose: Apply structured threat modeling methodologies to identify security threats and design mitigations.
 summary: Systematic threat modeling using STRIDE, PASTA, and attack trees to identify threats and design security controls.
@@ -14,138 +14,113 @@ triggers:
   - PASTA threat analysis
   - design security mitigations for architecture
   - threat model review for new feature
-  - LINDDUN privacy threat model
-aliases:
-  - threat model
-  - STRIDE analysis
-  - attack tree
-negative_keywords:
-  - penetration testing
-  - vulnerability scanning
-  - code review
+activation_triggers:
+  - help me with threat modeling techniques
+  - review threat modeling techniques work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - architecture_diagram
   - data_flow_diagram
   - asset_inventory
   - trust_boundaries
+  - target_artifact
+  - requirements_or_context
+steps:
+  - Confirm the requested threat modeling techniques outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - threat_catalog
   - risk_ratings
   - mitigation_plan
   - updated_data_flows
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
   - web.search
-required_skills: []
-budget_band: standard
-max_context_tokens: 14000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Incomplete system decomposition
   - Missing trust boundary identification
   - Threats identified without mitigations
   - Not considering insider threats
-verification:
-  - All trust boundaries identified and documented
-  - Each threat has STRIDE category, risk rating, and mitigation
-  - Mitigations mapped to existing or new controls
-  - Threat model reviewed by second party
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.security.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - No state changes to rollback
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Apply structured threat modeling methodologies (STRIDE, PASTA, attack trees, LINDDUN) to systematically identify security threats in system designs and produce actionable mitigation plans.
+## Trigger
+Use this skill when a task explicitly matches `security.threat-modeling` or when the user asks for threat modeling techniques support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- During design phase of new features or systems
-- Before implementing authentication or authorization changes
-- When integrating with external services or APIs
-- During architecture review boards
-- After a security incident to identify missed threats
-- When processing sensitive data in new ways
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- For simple UI-only changes with no data flow changes
-- When a full penetration test is needed (use dast-testing)
-- For reviewing existing code vulnerabilities (use owasp-top-10 or sast-analysis)
-- When the architecture is already frozen and changes are not possible
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Decompose the System**:
-   - Create or update data flow diagrams (DFDs)
-   - Identify all components, data stores, external entities
-   - Map trust boundaries between components
-   - Document data sensitivity classifications
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-2. **Apply STRIDE Methodology**:
-   - **Spoofing**: Can an attacker impersonate a user or system?
-   - **Tampering**: Can data be modified in transit or at rest?
-   - **Repudiation**: Can actions be denied due to lack of logging?
-   - **Information Disclosure**: Can sensitive data leak?
-   - **Denial of Service**: Can the system be overwhelmed?
-   - **Elevation of Privilege**: Can access controls be bypassed?
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
 
-3. **Build Attack Trees**:
-   - Define attacker goals (e.g., "steal user data")
-   - Enumerate attack paths to each goal
-   - Assess feasibility and impact of each path
-   - Identify the lowest-cost attack paths
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
 
-4. **Assess Privacy Threats (LINDDUN)**:
-   - Linkability, Identifiability, Non-repudiation
-   - Detectability, Disclosure of information
-   - Unawareness, Non-compliance
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
 
-5. **Rate Threats**:
-   - Use DREAD or custom risk scoring
-   - Consider likelihood (ease of exploitation, attacker skill)
-   - Consider impact (data sensitivity, business impact)
-
-6. **Design Mitigations**:
-   - Map each threat to existing controls
-   - Identify gaps where new controls are needed
-   - Prioritize mitigations by risk reduction
-   - Document residual risk acceptance
-
-7. **Validate and Review**:
-   - Cross-reference with OWASP Top 10
-   - Review with development and security teams
-   - Update threat model as architecture evolves
-
-## Tool Policy
-- Use `filesystem.read` to review architecture documents and design specs
-- Use `web.search` for threat intelligence and attack pattern references
-- Use `filesystem.write` to produce threat model documents and diagrams
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- All system components and trust boundaries documented
-- Each STRIDE category assessed for every trust boundary
-- Attack trees created for top 3 attacker goals
-- Every threat has a risk rating and mitigation (or accepted risk)
-- Threat model reviewed by at least one other team member
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Incomplete system decomposition missing key components
-- Focusing only on external threats, ignoring insider threats
-- Identifying threats without actionable mitigations
-- Not updating threat model after architecture changes
-- Over-engineering mitigations for low-risk threats
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- New payment processing service - model data flow through payment gateway
-- User-facing API with OAuth - model token theft and replay attacks
-- Microservice architecture - model inter-service authentication failures
-- File upload feature - model malicious file execution paths
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for threat modeling techniques help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- Microsoft STRIDE methodology
-- OWASP Threat Modeling guide
-- PASTA (Process for Attack Simulation and Threat Analysis)
-- Reference: ref.github.security.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

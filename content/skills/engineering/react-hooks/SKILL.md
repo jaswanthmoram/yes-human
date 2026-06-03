@@ -2,9 +2,10 @@
 id: engineering.react-hooks
 name: React Hooks Patterns
 version: 1.0.0
-domain: engineering
+domain: moramvenkatasatyajaswanth
 category: engineering.frameworks
-description: Guide React hooks patterns including useState, useEffect, useReducer, custom hooks, and performance optimization with useMemo and useCallback.
+purpose: Execute react hooks patterns work with evidence, verification, and clear handoff rules.
+summary: React Hooks Patterns provides a repeatable operating procedure for task tasks. It defines inputs, checks, outputs, rollback behavior, and escalation paths so routed agents produce useful work rather than generic advice.
 triggers:
   - fix stale closure in useEffect with async function
   - react hooks
@@ -13,101 +14,111 @@ triggers:
   - custom hook
   - useReducer
   - react performance hooks
-  - useMemo useCallback
-aliases:
-  - hooks patterns
-  - react hook best practices
-  - custom hooks
-negative_keywords:
-  - class components
-  - angular
-  - vue
-  - svelte
+activation_triggers:
+  - help me with react hooks patterns
+  - review react hooks patterns work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - component_code
   - hook_requirements
   - performance_constraints (optional)
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested react hooks patterns outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - hook_implementation
   - custom_hook_code
   - performance_recommendations
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
-  - code_graph.query
-required_skills: []
-budget_band: micro
-max_context_tokens: 4000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Stale closures in useEffect
   - Missing dependency array items
   - Infinite re-render loops
   - Overusing useMemo/useCallback prematurely
-verification:
-  - All hooks follow rules of hooks
-  - No ESLint exhaustive-deps warnings
-  - Component renders without infinite loops
-  - Custom hooks are testable in isolation
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.engineering.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: micro
 rollback:
   - Revert hook changes to previous implementation
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Provide expert guidance on React hooks patterns, ensuring correct usage of built-in hooks, well-designed custom hooks, and optimal performance through memoization strategies.
+## Trigger
+Use this skill when a task explicitly matches `engineering.react-hooks` or when the user asks for react hooks patterns support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- Building React functional components with state and side effects
-- Creating reusable custom hooks for shared logic
-- Optimizing component re-renders with useMemo and useCallback
-- Migrating class component lifecycle to hooks
-- Debugging stale closures or infinite render loops
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- Working with class components (use lifecycle methods instead)
-- Non-React frameworks (Vue, Angular, Svelte)
-- Server-side only code without React components
-- Simple presentational components that need no state
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Analyze Requirements**: Identify state needs, side effects, and shared logic that could be extracted into custom hooks.
-2. **Select Hook Strategy**: Choose between useState for simple state, useReducer for complex state transitions, and useContext for shared state.
-3. **Implement Side Effects**: Write useEffect with proper dependency arrays and cleanup functions. Avoid common pitfalls like stale closures.
-4. **Extract Custom Hooks**: Create custom hooks following the `use` prefix convention, encapsulating related state and effects.
-5. **Optimize Performance**: Apply useMemo for expensive computations and useCallback for stable function references passed to child components.
-6. **Handle Edge Cases**: Address race conditions in async effects, implement abort controllers, and handle component unmounting.
-7. **Verify Correctness**: Run ESLint with exhaustive-deps rule, test for infinite loops, and validate hook behavior under re-renders.
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-## Tool Policy
-- Use `filesystem.read` to inspect existing component code
-- Use `filesystem.write` to create or update hook implementations
-- Use `code_graph.query` to trace hook usage across the codebase
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Run `npx eslint --ext .jsx,.tsx` to check for hooks rule violations
-- Run `npm test` to verify component behavior
-- Manually test component mounting, updating, and unmounting
-- Check React DevTools Profiler for unnecessary re-renders
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- **Stale Closures**: useEffect captures outdated variable references; fix by adding dependencies or using functional updates
-- **Missing Dependencies**: ESLint exhaustive-deps warnings indicate incomplete dependency arrays
-- **Infinite Loops**: useEffect that sets state triggering itself; fix by adding conditions or using useRef
-- **Premature Optimization**: Wrapping everything in useMemo/useCallback adds overhead; profile first
-- **Rules of Hooks Violations**: Calling hooks conditionally or in loops; always call at top level
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- `yes route "implement useReducer for form state"` -> engineering.react-hooks
-- `yes route "create custom useFetch hook"` -> engineering.react-hooks
-- `yes route "fix infinite re-render in useEffect"` -> engineering.react-hooks
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for react hooks patterns help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- React official documentation: https://react.dev/reference/react/hooks
-- Patterns from react-hooks/exhaustive-deps ESLint plugin
-- Community patterns from github.com/streamich/react-use (19k+ stars)
-- Reference dossier: ref.github.engineering.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

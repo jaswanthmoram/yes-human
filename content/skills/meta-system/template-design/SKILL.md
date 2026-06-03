@@ -2,7 +2,7 @@
 id: meta-system.template-design
 name: Template Design for Registry Artifacts
 version: 1.0.0
-domain: meta-system
+domain: moramvenkatasatyajaswanth
 category: meta-system.authoring
 purpose: Design reusable templates for agents, skills, workflows, and dossiers.
 summary: Systematic approach to creating templates that standardize artifact creation across the yes-human registry.
@@ -12,100 +12,126 @@ triggers:
   - build workflow template
   - template standardization
   - artifact template design
+  - yes human task
+  - template design for registry artifacts review
 activation_triggers:
   - template design
   - template standardization
   - artifact template creation
 prerequisites:
-  - artifact types identified
-  - existing patterns reviewed
-  - standardization requirements defined
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - artifact_types
   - existing_patterns
   - standardization_requirements
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
 steps:
-  - Review existing artifact patterns
-  - Identify common elements across artifacts
-  - Design template structure
-  - Define required fields and sections
-  - Create placeholder patterns
-  - Add validation rules
-  - Design template variants
-  - Test template with sample artifacts
-  - Refine based on testing
-  - Document template usage
+  - Confirm the requested template design for registry artifacts outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - template_set
   - template_documentation
   - validation_rules
   - usage_examples
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - filesystem.read (read existing artifacts and patterns)
   - filesystem.write (write template files)
+  - filesystem.read
+  - filesystem.write
 quality_gates:
   - Common elements identified
   - Template structure defined
   - Required fields specified
   - Validation rules included
   - Templates tested
+  - Inputs and assumptions are explicit
 failure_modes:
   - Templates without validation rules
   - Missing common elements
   - Untested templates
   - Overly rigid templates
   - Undocumented usage
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
 handoffs:
   - meta-system.code-generation (to generate from templates)
   - meta-system.documentation-standards (for template documentation)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.meta-system.2026-05-31
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - meta-system.agent-designer
   - meta-system.skill-designer
   - meta-system.workflow-architect
-allowed_workflows: []
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - Revert template changes
   - Restore previous template versions
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when designing templates for registry artifacts, standardizing artifact formats, or creating reusable templates.
+Use this skill when a task explicitly matches `meta-system.template-design` or when the user asks for template design for registry artifacts support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Artifact types identified
-- Existing patterns reviewed
-- Standardization requirements defined
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Review Patterns**: Analyze existing artifacts for common patterns.
-2. **Identify Common Elements**: List elements shared across artifact types.
-3. **Design Structure**: Create the template structure.
-4. **Define Fields**: Specify required and optional fields.
-5. **Create Placeholders**: Design placeholder patterns for variable content.
-6. **Add Validation**: Define validation rules for template instances.
-7. **Design Variants**: Create template variants for different use cases.
-8. **Test**: Generate sample artifacts from templates.
-9. **Refine**: Improve templates based on testing results.
-10. **Document**: Write template usage documentation.
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- All quality gates passed
-- Templates tested with sample artifacts
-- Validation rules working
-- Usage documented
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
+
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Templates without validation rules
-- Not testing templates with real artifacts
-- Overly rigid templates that don't allow variation
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Examples
+**Example A:** A user asks for template design for registry artifacts help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
+
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

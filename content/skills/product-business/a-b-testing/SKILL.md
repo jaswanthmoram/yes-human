@@ -2,7 +2,7 @@
 id: product-business.a-b-testing
 name: A/B Testing
 version: 1.0.0
-domain: product-business
+domain: moramvenkatasatyajaswanth
 category: product-business.experimentation
 purpose: Design, execute, and analyze A/B tests to make data-driven product decisions with statistical rigor.
 summary: Guides through hypothesis formation, test design, sample size calculation, and statistical analysis of A/B tests.
@@ -11,92 +11,122 @@ triggers:
   - ab test
   - split test
   - experiment design
+  - yes human task
+  - a/b testing review
+  - a/b testing checklist
 activation_triggers:
   - run an experiment
   - test this change
   - a b test design
 prerequisites:
-  - measurable hypothesis
-  - sufficient traffic for statistical significance
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - hypothesis
   - primary_metric
   - traffic_estimate
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
 steps:
-  - Formulate testable hypothesis with expected impact
-  - Define primary and guardrail metrics
-  - Calculate required sample size and duration
-  - Design variant and control experiences
-  - Run test with proper randomization
-  - Analyze results with statistical significance testing
+  - Confirm the requested a/b testing outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - test_design
   - sample_size_calculation
   - results_analysis
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - filesystem.read
+  - filesystem.write
 quality_gates:
   - Hypothesis is specific and measurable
   - Sample size calculated before test starts
   - Results analyzed with appropriate statistical test
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Peeking at results before reaching sample size
   - Testing too many variants simultaneously
   - Ignoring guardrail metrics
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - product-business.product-analyst (for deep analysis)
   - product-business.growth-manager (for experiment pipeline)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.product-business.2026-05-31
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - product-business.product-analyst
   - product-business.growth-manager
   - product-business.master
-allowed_workflows:
-  - product-business.product-discovery
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - Revert to control variant
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when designing or analyzing A/B tests and product experiments.
+Use this skill when a task explicitly matches `product-business.a-b-testing` or when the user asks for a/b testing support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Measurable hypothesis
-- Sufficient traffic for statistical significance
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Hypothesis**: "Changing [X] will improve [metric] by [Y%] because [rationale]."
-2. **Metrics**: Define primary metric + 2-3 guardrail metrics.
-3. **Sample Size**: Calculate using MDE, alpha (0.05), power (0.80).
-4. **Design**: Create variant(s) and control with proper randomization.
-5. **Run**: Execute for calculated duration without peeking.
-6. **Analyze**: Use t-test or chi-squared; report p-value and confidence interval.
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Hypothesis stated before test begins
-- Sample size reached before analysis
-- Results include confidence intervals
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
 ## Rollback
-- Revert to control variant if test is negative
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Stopping test early due to "obvious" results
-- Not accounting for multiple comparisons
-- Ignoring novelty or seasonality effects
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
 ## Examples
-### Hypothesis
-"Changing the signup CTA from 'Get Started' to 'Start Free Trial' will increase signup conversion by 15% because it reduces perceived commitment."
-Primary Metric: Signup conversion rate
-Guardrail: Time to first action, D7 retention
+**Example A:** A user asks for a/b testing help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

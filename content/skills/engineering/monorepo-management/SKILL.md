@@ -2,7 +2,7 @@
 id: engineering.monorepo-management
 name: Monorepo Tooling and Patterns
 version: 1.0.0
-domain: engineering
+domain: moramvenkatasatyajaswanth
 category: engineering.architecture
 purpose: Design, implement, and maintain monorepo structures using modern tooling for scalable multi-package development.
 summary: Guide to monorepo architecture patterns, tooling selection (Turborepo, Nx, Bazel, Lerna), dependency management, and build orchestration.
@@ -14,114 +14,115 @@ triggers:
   - turborepo
   - nx workspace
   - bazel build
-  - multi-package repo
-  - workspace management
-aliases:
-  - monorepo
-  - workspace
-  - multi-package
-negative_keywords:
-  - microservices architecture
-  - single package
-  - deployment
+activation_triggers:
+  - help me with monorepo tooling and patterns
+  - review monorepo tooling and patterns work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - repo_structure (existing or planned)
   - package_count
   - build_system (npm, yarn, pnpm)
   - tooling_preference (optional)
+  - target_artifact
+  - requirements_or_context
+steps:
+  - Confirm the requested monorepo tooling and patterns outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - monorepo_structure
   - tooling_configuration
   - dependency_graph
   - build_pipeline
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - shell.readonly (inspect repo structure, run builds)
   - shell.write (install tooling, configure workspaces)
   - filesystem.read (read configs, package.json files)
   - filesystem.write (create configs, update workspaces)
-required_skills:
-  - engineering.git-workflow
-budget_band: standard
-max_context_tokens: 8000
+  - filesystem.read
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Circular dependencies between packages
   - Slow builds from not using incremental caching
   - Overly coupled packages defeating monorepo benefits
   - Tooling configuration drift across packages
-verification:
-  - All packages build successfully
-  - Dependency graph has no cycles
-  - Incremental builds skip unchanged packages
-  - CI pipeline builds only affected packages
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.engineering.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - Revert tooling configuration changes via version control
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Establish a well-structured, performant monorepo that enables independent package development with shared tooling, consistent builds, and efficient CI/CD.
+## Trigger
+Use this skill when a task explicitly matches `engineering.monorepo-management` or when the user asks for monorepo tooling and patterns support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- Setting up a new project with multiple related packages
-- Migrating multiple repositories into a single monorepo
-- Experiencing slow builds or inconsistent tooling across packages
-- Needing shared dependencies, configs, or utilities across packages
-- Scaling a team that works on interconnected libraries and applications
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- Single-package projects with no foreseeable multi-package needs
-- Packages with vastly different release cadences and no shared code
-- Teams that need fully independent deployment pipelines per service
-- When the organization mandates separate repositories for compliance
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Assess Current Structure**: Analyze existing packages, their dependencies, and build requirements to determine monorepo suitability.
-2. **Choose Tooling**:
-   - **Turborepo**: Lightweight, fast, great for npm/pnpm workspaces with incremental builds
-   - **Nx**: Feature-rich, supports multiple languages, powerful dependency graph and code generation
-   - **Bazel**: Best for very large repos with hermetic builds and multi-language support
-   - **Lerna**: Package publishing and versioning (often combined with Turborepo or Nx)
-3. **Define Workspace Structure**:
-   ```
-   packages/       # shared libraries
-   apps/           # applications
-   tools/          # build scripts, linters
-   configs/        # shared configs (tsconfig, eslint)
-   ```
-4. **Configure Workspaces**: Set up package manager workspaces (npm/yarn/pnpm) to link local packages.
-5. **Set Up Build Pipeline**: Configure task orchestration with dependency-aware build ordering and caching.
-6. **Establish Dependency Rules**: Define and enforce boundaries between packages (e.g., apps can depend on packages, but not vice versa).
-7. **Configure CI for Affected Builds**: Set up CI to build and test only packages affected by changes using tooling graph analysis.
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-## Tool Policy
-- Use `shell.readonly` for inspecting structure and running analysis
-- Use `shell.write` for installing tooling and configuring workspaces
-- Use `filesystem.read` and `filesystem.write` for configuration files
-- Always verify builds after configuration changes
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- `turbo build` (or equivalent) succeeds for all packages
-- `turbo build --filter=<package>` builds only the affected package and its dependencies
-- Dependency graph visualization shows no circular dependencies
-- CI pipeline completes in reasonable time with affected-only builds
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- **Circular dependencies**: Package A depends on B which depends on A. Mitigation: use dependency graph tools to detect and refactor.
-- **Build cache invalidation**: Stale caches cause incorrect builds. Mitigation: configure proper cache keys based on file hashes.
-- **Dependency hoisting issues**: Wrong versions hoisted to root. Mitigation: use pnpm for strict dependency isolation or configure nohoist.
-- **Slow CI**: Building all packages on every PR. Mitigation: use affected-only builds with proper change detection.
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- "set up a Turborepo for our React app and shared UI library" -> Turborepo with pnpm workspaces, shared tsconfig, and incremental builds
-- "migrate 5 repos into one monorepo" -> Nx workspace setup with package extraction, dependency remapping, and CI migration
-- "our monorepo builds take 30 minutes" -> Turborepo caching, affected-only CI, and parallel task execution
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for monorepo tooling and patterns help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- Based on official Turborepo, Nx, and Bazel documentation
-- Patterns from large-scale monorepo implementations (Google, Meta, Vercel)
-- Reference: ref.github.engineering.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

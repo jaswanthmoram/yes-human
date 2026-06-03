@@ -2,7 +2,7 @@
 id: security.zero-trust
 name: Zero Trust Architecture Review
 version: 1.0.0
-domain: security
+domain: moramvenkatasatyajaswanth
 category: security.architecture
 purpose: Review and implement zero trust security principles across network, identity, and access management.
 summary: Zero trust architecture review covering identity verification, least privilege, microsegmentation, and continuous validation.
@@ -14,141 +14,114 @@ triggers:
   - check identity-based access controls
   - microsegmentation review
   - beyondcorp implementation
-  - verify never trust always verify
-aliases:
-  - zero trust
-  - ZTA review
-  - beyondcorp
-negative_keywords:
-  - perimeter security
-  - VPN configuration
-  - firewall rules only
+activation_triggers:
+  - help me with zero trust architecture review
+  - review zero trust architecture review work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - network_architecture
   - identity_provider_config
   - access_policies
   - service_mesh_config
+  - target_artifact
+  - requirements_or_context
+steps:
+  - Confirm the requested zero trust architecture review outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - zero_trust_assessment
   - gap_analysis
   - implementation_roadmap
   - policy_recommendations
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
   - web.search
   - bash.exec
-required_skills: []
-budget_band: standard
-max_context_tokens: 12000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Implicit trust in internal network
   - Missing identity verification for service-to-service
   - Overly broad access policies
   - Not implementing continuous verification
-verification:
-  - All access decisions based on identity, not network location
-  - Least privilege enforced for all users and services
-  - Microsegmentation implemented between services
-  - Continuous verification of device and user posture
-  - All access logged and auditable
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.security.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - Revert to previous access policies if zero trust changes disrupt operations
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Review and implement zero trust architecture principles across the organization, ensuring no implicit trust is granted based on network location and all access is continuously verified.
+## Trigger
+Use this skill when a task explicitly matches `security.zero-trust` or when the user asks for zero trust architecture review support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- When designing new system architectures or network layouts
-- During migration from perimeter-based to identity-based security
-- When implementing service mesh or microservices communication
-- Before compliance audits requiring access control evidence
-- After security incidents involving lateral movement
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- For simple perimeter firewall configuration (use network-scanning)
-- When only configuring VPN access (different security model)
-- For small teams where full zero trust is disproportionate
-- When network segmentation is the only goal (use simpler segmentation)
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Assess Current Trust Model**:
-   - Map current network trust boundaries
-   - Identify implicit trust assumptions (internal network = trusted)
-   - Document current authentication and authorization mechanisms
-   - Identify lateral movement paths in current architecture
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-2. **Implement Identity as the Perimeter**:
-   - Deploy identity provider (IdP) as central trust anchor
-   - Implement SSO with MFA for all users
-   - Establish device identity and posture assessment
-   - Implement service identity for machine-to-machine auth
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
 
-3. **Enforce Least Privilege Access**:
-   - Define access policies based on user/service identity
-   - Implement just-in-time access for privileged operations
-   - Use attribute-based access control (ABAC) where appropriate
-   - Remove standing admin access, use break-glass procedures
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
 
-4. **Implement Microsegmentation**:
-   - Segment network at workload level, not just VLAN level
-   - Implement service mesh mTLS for service-to-service auth
-   - Define east-west traffic policies
-   - Implement workload identity for container/VM communication
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
 
-5. **Enable Continuous Verification**:
-   - Implement device posture checks before access
-   - Continuously verify user session validity
-   - Monitor for anomalous access patterns
-   - Implement risk-based adaptive authentication
-
-6. **Implement Comprehensive Logging**:
-   - Log all access decisions (allow and deny)
-   - Log authentication events with context
-   - Implement real-time monitoring and alerting
-   - Enable forensic analysis of access patterns
-
-7. **Create Migration Roadmap**:
-   - Prioritize high-value assets for zero trust first
-   - Plan phased migration from perimeter model
-   - Maintain backward compatibility during transition
-   - Measure and report zero trust maturity
-
-## Tool Policy
-- Use `filesystem.read` to review access policies and configurations
-- Use `bash.exec` to check identity provider and service mesh configs
-- Use `web.search` for zero trust frameworks (NIST 800-207, BeyondCorp)
-- Use `filesystem.write` to produce assessment and roadmap documents
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- No implicit trust based on network location
-- All access decisions based on verified identity and context
-- Microsegmentation prevents unauthorized lateral movement
-- Continuous verification of user and device posture
-- All access decisions logged and auditable
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Maintaining implicit trust for internal network traffic
-- Not implementing service-to-service authentication
-- Overly broad access policies defeating least privilege
-- Missing device posture verification
-- Incomplete logging preventing security monitoring
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- Service mesh mTLS configuration between microservices
-- Identity-aware proxy setup for internal applications
-- Just-in-time access implementation for production systems
-- Device trust verification before network access
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for zero trust architecture review help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- NIST SP 800-207: Zero Trust Architecture
-- Google BeyondCorp: https://cloud.google.com/beyondcorp
-- CISA Zero Trust Maturity Model
-- Reference: ref.github.security.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

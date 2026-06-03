@@ -2,9 +2,10 @@
 id: platform.grafana-dashboards
 name: Grafana Dashboard Design
 version: 1.0.0
-domain: platform
+domain: moramvenkatasatyajaswanth
 category: platform.observability
-description: Design and build Grafana dashboards for effective metrics visualization and operational awareness.
+purpose: Execute grafana dashboard design work with evidence, verification, and clear handoff rules.
+summary: Grafana Dashboard Design provides a repeatable operating procedure for task tasks. It defines inputs, checks, outputs, rollback behavior, and escalation paths so routed agents produce useful work rather than generic advice.
 triggers:
   - Grafana dashboard design
   - create Grafana dashboard
@@ -12,106 +13,120 @@ triggers:
   - Grafana panel configuration
   - dashboard as code
   - Grafana data source setup
-aliases:
-  - grafana panels
-  - metrics dashboard
-  - monitoring dashboard
-negative_keywords:
-  - prometheus alerts
-  - log analysis
-  - Kibana
-  - non-grafana visualization
+  - yes human task
+activation_triggers:
+  - help me with grafana dashboard design
+  - review grafana dashboard design work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - metrics_sources
   - dashboard_requirements
   - target_audience
   - visualization_goals
+  - target_artifact
+  - requirements_or_context
+steps:
+  - Confirm the requested grafana dashboard design outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - dashboard_json
   - panel_configurations
   - data_source_config
   - dashboard_documentation
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - shell.readonly (grafana-cli, API queries)
   - filesystem.read (dashboard JSON)
   - filesystem.write (dashboard JSON, provisioning)
-required_skills:
-  - platform.observability-setup
-budget_band: standard
-max_context_tokens: 8192
+  - filesystem.read
+  - filesystem.write
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Overloaded dashboards with too many panels
   - Wrong query time ranges
   - Missing variables for filtering
   - Not using dashboard-as-code approach
-verification:
-  - Dashboard JSON validates
-  - All panels render data correctly
-  - Variables and filters work
-  - Dashboard provisioned successfully
-source_references:
-  - ref.github.platform.2026-05-31
-quality_gate: staging
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - platform.prometheus-alerts (for alert-linked dashboards)
   - platform.observability-setup (for data source setup)
-source_refs:
-  - ref.github.platform.2026-05-31
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
+source_references:
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - platform.observability-engineer
   - platform.devops-engineer
-allowed_workflows: []
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - Restore previous dashboard version from JSON
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Provide patterns for designing clear, actionable Grafana dashboards that surface the right metrics for operational decision-making.
+## Trigger
+Use this skill when a task explicitly matches `platform.grafana-dashboards` or when the user asks for grafana dashboard design support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- Creating operational dashboards for on-call teams
-- Building executive overview dashboards
-- Designing service-level indicator (SLI) dashboards
-- Implementing dashboard-as-code workflows
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- Alert rule creation (use platform.prometheus-alerts)
-- Log analysis dashboards (use platform.elk-stack)
-- Non-metrics visualization
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Define Audience and Goals**: Identify who will use the dashboard and what decisions it supports
-2. **Select Data Sources**: Configure Prometheus, Loki, or other data sources
-3. **Design Layout**: Organize panels top-down: overview → service → instance detail
-4. **Build Panels**: Create time series, gauges, tables, and stat panels with appropriate queries
-5. **Add Variables**: Template dashboard with environment, service, and instance selectors
-6. **Set Thresholds and Alerts**: Configure panel thresholds and link to alerting rules
-7. **Export and Provision**: Export dashboard JSON and set up provisioning for dashboard-as-code
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-## Tool Policy
-- Use dashboard-as-code (JSON in version control) for all production dashboards
-- Use Grafana provisioning for data sources and dashboard auto-loading
-- Leverage Grafonnet or similar libraries for complex dashboards
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- All panels display data from correct sources
-- Variables filter panels correctly
-- Dashboard loads within acceptable time
-- Provisioning applies dashboard without errors
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Too many panels on one dashboard (cognitive overload)
-- Queries too expensive (slow dashboard load)
-- Missing time range context on panels
-- Hardcoded values instead of template variables
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- "create SRE overview dashboard" → golden signals + SLI panels
-- "build Kubernetes cluster dashboard" → node, pod, container metrics
-- "export dashboard as code" → JSON export + provisioning config
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for grafana dashboard design help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-Based on Grafana official documentation and dashboard design best practices. Referenced dossier: ref.github.platform.2026-05-31.
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

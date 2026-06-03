@@ -2,7 +2,7 @@
 id: engineering.dependency-upgrade
 name: Safe Dependency Update Workflow
 version: 1.0.0
-domain: engineering
+domain: moramvenkatasatyajaswanth
 category: engineering.dev-workflow
 purpose: Safely update project dependencies while minimizing risk of breaking changes and security vulnerabilities.
 summary: Guides through dependency updates with security scanning, compatibility checks, and rollback planning.
@@ -12,114 +12,125 @@ triggers:
   - fix security vulnerability in dependency
   - update outdated dependencies
   - dependency version upgrade
+  - yes human task
+  - safe dependency update workflow review
 activation_triggers:
   - update npm packages
   - upgrade pip packages
   - fix security vulnerabilities
 prerequisites:
-  - access to package manager (npm, pip, cargo, etc.)
-  - ability to run tests
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - current_dependencies
   - update_scope (all, security-only, specific-package)
   - test_suite_available
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
 steps:
-  - Audit current dependencies for known vulnerabilities
-  - Check for outdated packages and breaking changes
-  - Create update plan with rollback strategy
-  - Update dependencies incrementally
-  - Run full test suite after each update
-  - Verify no security vulnerabilities remain
-  - Document changes and update lockfile
+  - Confirm the requested safe dependency update workflow outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - vulnerability_report
   - update_plan
   - updated_dependencies
   - test_results
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - shell.readonly (npm audit, npm outdated)
   - filesystem.read
   - filesystem.write (package.json, lockfile)
+  - filesystem.write
 quality_gates:
   - All critical vulnerabilities addressed
   - All tests pass after updates
   - No breaking changes without migration plan
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Introducing breaking changes without testing
   - Missing transitive dependency vulnerabilities
   - Not updating lockfile
   - Skipping test suite after updates
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - security.dependency-risk-agent (for security review)
   - engineering.testing-unit (for test verification)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.dependency-management-best-practices.2026-06-01
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - engineering.dev-workflow
   - engineering.master
-allowed_workflows: []
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - Revert package.json and lockfile to previous version
   - Reinstall dependencies from lockfile
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when updating project dependencies, fixing security vulnerabilities, or performing dependency audits.
+Use this skill when a task explicitly matches `engineering.dependency-upgrade` or when the user asks for safe dependency update workflow support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Access to package manager (npm, pip, cargo, maven, etc.)
-- Ability to run the full test suite
-- Backup or version control for rollback
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Audit Dependencies**: Run security audit (e.g., `npm audit`, `pip-audit`) to identify vulnerabilities.
-2. **Check for Updates**: Run outdated check (e.g., `npm outdated`) to see available updates.
-3. **Review Breaking Changes**: Check changelogs for major version updates to identify breaking changes.
-4. **Create Update Plan**:
-   - Prioritize security vulnerabilities (critical first)
-   - Group related updates together
-   - Plan rollback strategy for each group
-5. **Update Incrementally**:
-   - Update one package or group at a time
-   - Run full test suite after each update
-   - Fix any test failures before proceeding
-6. **Verify Security**: Re-run security audit to confirm vulnerabilities are resolved.
-7. **Update Lockfile**: Ensure lockfile is updated and committed.
-8. **Document Changes**: Update CHANGELOG or release notes with dependency changes.
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- `npm audit` (or equivalent) shows no critical vulnerabilities
-- Full test suite passes
-- Application runs without errors
-- Lockfile is updated and committed
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
 ## Rollback
-- Revert package.json to previous version: `git checkout HEAD~1 package.json`
-- Revert lockfile: `git checkout HEAD~1 package-lock.json`
-- Reinstall: `npm install` (or equivalent)
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Updating all dependencies at once without testing incrementally
-- Not checking for breaking changes in major version updates
-- Forgetting to update the lockfile
-- Not running the full test suite after updates
-- Missing transitive dependency vulnerabilities
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
 ## Examples
-### Security Update
-Input: `npm audit` shows 3 critical vulnerabilities
-Output:
-- Update `lodash` from 4.17.15 to 4.17.21 (fixes prototype pollution)
-- Update `axios` from 0.21.0 to 0.21.4 (fixes SSRF vulnerability)
-- Update `express` from 4.17.0 to 4.17.3 (fixes open redirect)
-- Run tests after each update
-- Verify `npm audit` shows 0 vulnerabilities
+**Example A:** A user asks for safe dependency update workflow help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

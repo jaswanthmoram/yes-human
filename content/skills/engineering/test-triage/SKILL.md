@@ -2,7 +2,7 @@
 id: engineering.test-triage
 name: Test Failure Analysis and Prioritization
 version: 1.0.0
-domain: engineering
+domain: moramvenkatasatyajaswanth
 category: engineering.testing-qa
 purpose: Analyze test failures, identify root causes, and prioritize fixes based on impact and severity.
 summary: Systematic approach to triaging test failures, distinguishing between flaky tests, real bugs, and test infrastructure issues.
@@ -12,111 +12,122 @@ triggers:
   - test is broken
   - why is test failing
   - triage test failures
+  - yes human task
+  - test failure analysis and prioritization review
 activation_triggers:
   - tests are failing
   - fix the tests
   - test suite broken
 prerequisites:
-  - access to test output and logs
-  - ability to run tests locally
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - test_output
   - failing_test_names
   - recent_changes (optional)
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
 steps:
-  - Collect and analyze test failure output
-  - Categorize failures (real bug, flaky test, infrastructure issue)
-  - Identify root cause for each failure
-  - Check if failures are related to recent changes
-  - Prioritize fixes by severity and impact
-  - Create actionable fix plan
+  - Confirm the requested test failure analysis and prioritization outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - failure_analysis (categorized)
   - root_causes
   - prioritized_fix_plan
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - shell.readonly (run tests)
   - filesystem.read
-  - code_graph.query
+  - filesystem.write
 quality_gates:
   - All failures categorized
   - Root causes identified
   - Fix plan is actionable
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Misidentifying flaky tests as real bugs
   - Missing the actual root cause
   - Not checking recent changes for correlation
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - engineering.testing-unit (for test fixes)
   - engineering.build-resolver (for infrastructure issues)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.test-triage-best-practices.2026-06-01
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - engineering.testing-unit
   - engineering.testing-integration
   - engineering.testing-e2e
-allowed_workflows:
-  - engineering.test-suite-expansion
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - No state changes to rollback
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when tests are failing and you need to analyze, categorize, and prioritize fixes.
+Use this skill when a task explicitly matches `engineering.test-triage` or when the user asks for test failure analysis and prioritization support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Access to test output (logs, error messages, stack traces)
-- Ability to run the test suite locally
-- Knowledge of recent code changes
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Collect Test Output**: Gather all failing test names, error messages, and stack traces.
-2. **Categorize Failures**:
-   - **Real Bugs**: Test correctly identifies broken functionality
-   - **Flaky Tests**: Test fails intermittently without code changes
-   - **Infrastructure Issues**: Test environment, dependencies, or configuration problems
-   - **Test Bugs**: Test itself is incorrect or outdated
-3. **Identify Root Causes**:
-   - For real bugs: trace back to the code change that broke it
-   - For flaky tests: identify timing, race conditions, or external dependencies
-   - For infrastructure: check dependencies, environment variables, network issues
-4. **Correlate with Recent Changes**: Check git log for recent commits that might have caused failures.
-5. **Prioritize Fixes**:
-   - Critical: Blocks core functionality
-   - High: Affects important features
-   - Medium: Minor functionality or edge cases
-   - Low: Flaky tests, cosmetic issues
-6. **Create Fix Plan**: Document specific actions for each failure with estimated effort.
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Run the test suite after fixes to confirm resolution
-- Verify no new failures introduced
-- Check that flaky tests are either fixed or documented
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
 ## Rollback
-- No state changes; this is an analysis skill
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Assuming all failures are real bugs without checking for flakiness
-- Not running tests in isolation to reproduce failures
-- Missing the correlation between test failures and recent changes
-- Prioritizing low-impact fixes over critical bugs
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
 ## Examples
-### Triaging a CI Failure
-Input: 5 tests failing in CI
-Output:
-- Critical: `test_user_login` - Real bug in auth logic (commit abc123)
-- High: `test_payment_processing` - Flaky due to timing issue
-- Medium: `test_email_notification` - Test outdated after API change
-- Low: `test_ui_rendering` - Flaky, needs retry logic
-- Infrastructure: `test_database_connection` - CI database not initialized
+**Example A:** A user asks for test failure analysis and prioritization help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

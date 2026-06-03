@@ -2,9 +2,10 @@
 id: platform.helm-charts
 name: Helm Chart Development
 version: 1.0.0
-domain: platform
+domain: moramvenkatasatyajaswanth
 category: platform.kubernetes
-description: Design, develop, and maintain Helm charts for Kubernetes application packaging and deployment.
+purpose: Execute helm chart development work with evidence, verification, and clear handoff rules.
+summary: Helm Chart Development provides a repeatable operating procedure for task tasks. It defines inputs, checks, outputs, rollback behavior, and escalation paths so routed agents produce useful work rather than generic advice.
 triggers:
   - Helm chart development
   - create Helm chart
@@ -13,105 +14,119 @@ triggers:
   - package Kubernetes app with Helm
   - Helm chart best practices
   - Helm release management
-aliases:
-  - helm packaging
-  - k8s chart
-  - helm deploy
-negative_keywords:
-  - raw kubectl
-  - terraform module
-  - docker-compose
-  - kustomize
+activation_triggers:
+  - help me with helm chart development
+  - review helm chart development work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - application_manifests
   - deployment_requirements
   - environment_values
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested helm chart development outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - helm_chart
   - values_yaml
   - chart_templates
   - release_notes
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - shell.readonly (helm lint, helm template)
   - shell.write (helm install, upgrade)
   - filesystem.read (chart files)
   - filesystem.write (chart scaffolding)
-required_skills:
-  - platform.kubectl-commands
-budget_band: standard
-max_context_tokens: 8192
+  - filesystem.read
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Template rendering errors
   - Values not properly overridden per environment
   - Missing resource limits in templates
   - Chart version not bumped on changes
-verification:
-  - helm lint passes with no errors
-  - helm template renders valid YAML
-  - helm install --dry-run succeeds
-source_references:
-  - ref.github.platform.2026-05-31
-quality_gate: staging
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - platform.argocd-apps (for GitOps deployment)
   - platform.kubectl-commands (for direct deployment)
-source_refs:
-  - ref.github.platform.2026-05-31
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
+source_references:
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - platform.kubernetes-operator
   - platform.devops-engineer
-allowed_workflows: []
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - helm rollback <release> <revision>
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Provide patterns for building, testing, and maintaining Helm charts that package Kubernetes applications for repeatable deployment.
+## Trigger
+Use this skill when a task explicitly matches `platform.helm-charts` or when the user asks for helm chart development support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- Packaging applications for Kubernetes deployment
-- Creating reusable chart templates across environments
-- Managing complex multi-service deployments
-- Templating configuration across staging/production
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- Simple single-resource deployments (use raw kubectl)
-- Infrastructure provisioning (use Terraform)
-- Local development environments (use docker-compose)
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Scaffold Chart**: Run `helm create <chart-name>` and review generated structure
-2. **Design Templates**: Create deployment, service, ingress, and configmap templates with proper helpers
-3. **Structure Values**: Organize values.yaml with sensible defaults, document each field
-4. **Add Conditionals**: Use `{{- if }}` for optional components (ingress, HPA, service accounts)
-5. **Test Rendering**: Run `helm template` and `helm lint` to validate output
-6. **Version and Package**: Bump chart version in Chart.yaml, run `helm package`
-7. **Deploy and Verify**: Use `helm install --dry-run` then actual install with environment-specific values
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-## Tool Policy
-- Always lint before packaging
-- Use `helm template` to inspect rendered output before deploying
-- Keep chart dependencies pinned to specific versions
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- `helm lint` passes cleanly
-- `helm template` renders valid Kubernetes YAML
-- `helm install --dry-run` succeeds
-- All resources created match expected state
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Template syntax errors causing render failures
-- Values override not applied (wrong file path or key)
-- Chart dependencies out of sync
-- Not bumping version before publishing
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- "create Helm chart for Node.js API" → scaffold + templates + values
-- "debug Helm template rendering error" → helm template + lint analysis
-- "add HPA to existing chart" → conditional HPA template + values
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for helm chart development help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-Based on Helm official documentation and production chart patterns. Referenced dossier: ref.github.platform.2026-05-31.
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

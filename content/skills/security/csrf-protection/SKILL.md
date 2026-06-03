@@ -2,7 +2,7 @@
 id: security.csrf-protection
 name: CSRF Protection Patterns
 version: 1.0.0
-domain: security
+domain: moramvenkatasatyajaswanth
 category: security.application-security
 purpose: Implement and review Cross-Site Request Forgery protection mechanisms across web applications.
 summary: CSRF protection review covering token-based defenses, SameSite cookies, and origin validation patterns.
@@ -14,142 +14,114 @@ triggers:
   - CSRF token validation review
   - SameSite cookie configuration
   - cross-site request forgery audit
-  - origin validation check
-aliases:
-  - CSRF review
-  - CSRF audit
-  - cross-site request check
-negative_keywords:
-  - XSS prevention
-  - CORS configuration
-  - clickjacking protection
+activation_triggers:
+  - help me with csrf protection patterns
+  - review csrf protection patterns work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - web_application_code
   - cookie_configuration
   - form_implementations
   - api_endpoints
+  - target_artifact
+  - requirements_or_context
+steps:
+  - Confirm the requested csrf protection patterns outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - csrf_assessment_report
   - protection_gaps
   - implementation_guide
   - test_cases
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
   - code.grep
   - web.search
-required_skills: []
-budget_band: micro
-max_context_tokens: 8000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Missing CSRF tokens on state-changing operations
   - Tokens not validated server-side
   - SameSite cookie not configured
   - GET requests performing state changes
-verification:
-  - All state-changing endpoints have CSRF protection
-  - CSRF tokens are unique, unpredictable, and tied to session
-  - SameSite attribute set on session cookies
-  - Origin/Referer header validation as defense-in-depth
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.security.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: micro
 rollback:
   - Revert CSRF library version if changes break form submissions
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Review and implement robust CSRF protection across web applications using token-based defenses, SameSite cookies, and origin validation to prevent unauthorized cross-site state changes.
+## Trigger
+Use this skill when a task explicitly matches `security.csrf-protection` or when the user asks for csrf protection patterns support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- When implementing forms or state-changing API endpoints
-- During security review of web applications
-- When configuring cookie security attributes
-- After CSRF vulnerability reports in dependencies
-- Before deploying applications that handle sensitive operations
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- For stateless APIs using Bearer tokens (not vulnerable to CSRF)
-- For CORS configuration review (different security concern)
-- When only addressing XSS (use xss-prevention skill)
-- For mobile-only APIs without browser clients
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Identify State-Changing Operations**:
-   - Map all POST, PUT, PATCH, DELETE endpoints
-   - Identify operations that modify user data or state
-   - Check for GET requests that perform state changes (anti-pattern)
-   - Document which endpoints require CSRF protection
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-2. **Review Token-Based Protection**:
-   - Verify CSRF tokens are generated for each session
-   - Check token randomness and length (minimum 128 bits)
-   - Verify tokens are validated server-side on every request
-   - Check for token leakage in URLs or logs
-   - Verify double-submit cookie pattern if used
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
 
-3. **Assess SameSite Cookie Configuration**:
-   - Verify SameSite=Lax or SameSite=Strict on session cookies
-   - Check for SameSite=None with Secure flag (cross-site use cases)
-   - Test browser compatibility for SameSite enforcement
-   - Verify __Host- and __Secure- cookie prefixes where applicable
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
 
-4. **Check Origin Validation**:
-   - Verify Origin header validation on state-changing requests
-   - Check Referer header validation as fallback
-   - Ensure validation is strict (exact match, not substring)
-   - Verify behavior when headers are missing
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
 
-5. **Review Framework-Specific Implementations**:
-   - Django: verify CsrfViewMiddleware is enabled
-   - Rails: verify protect_from_forgery is configured
-   - Express: verify csurf or similar middleware
-   - Spring: verify CSRF protection not disabled
-
-6. **Test for Bypasses**:
-   - Test CSRF token reuse across sessions
-   - Test missing token handling (should reject, not accept)
-   - Test token prediction or brute force
-   - Test subdomain-based bypass attempts
-   - Test multipart form bypass
-
-7. **Implement Defense-in-Depth**:
-   - Combine token-based + SameSite + origin validation
-   - Require re-authentication for sensitive operations
-   - Implement custom header requirement for APIs
-   - Set up monitoring for CSRF attack attempts
-
-## Tool Policy
-- Use `filesystem.read` to review CSRF implementation code
-- Use `code.grep` to find CSRF middleware and token usage
-- Use `web.search` for CSRF bypass techniques and framework updates
-- Use `filesystem.write` to produce assessment reports
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- All state-changing endpoints protected against CSRF
-- CSRF tokens are unique per session and validated server-side
-- SameSite attribute configured on all session cookies
-- Origin validation implemented as defense-in-depth
-- No CSRF bypass possible in testing
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Protecting only forms, not AJAX/API endpoints
-- Accepting requests when CSRF token is missing
-- Using predictable or static CSRF tokens
-- Not setting SameSite on session cookies
-- GET requests performing state changes without CSRF protection
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- `POST /api/transfer` - verify CSRF token on financial transaction
-- `PUT /api/profile` - check CSRF protection on profile update
-- `DELETE /api/account` - verify CSRF on account deletion
-- `POST /login` - check login CSRF protection
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for csrf protection patterns help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- OWASP CSRF Prevention Cheat Sheet
-- RFC 6265 (HTTP State Management / Cookies)
-- SameSite cookie specification
-- Reference: ref.github.security.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

@@ -2,7 +2,7 @@
 id: security.input-validation
 name: Input Validation Patterns
 version: 1.0.0
-domain: security
+domain: moramvenkatasatyajaswanth
 category: security.application-security
 purpose: Implement comprehensive input validation to prevent injection attacks, buffer overflows, and data integrity issues.
 summary: Input validation review covering allowlist/denylist patterns, type checking, length limits, and validation at trust boundaries.
@@ -14,144 +14,114 @@ triggers:
   - input validation audit
   - validate user input security
   - review form validation security
-  - API input sanitization review
-aliases:
-  - input validation
-  - input sanitization
-  - form validation
-negative_keywords:
-  - output encoding
-  - XSS prevention only
-  - SQL injection only
+activation_triggers:
+  - help me with input validation patterns
+  - review input validation patterns work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - api_endpoints
   - form_definitions
   - validation_middleware
   - data_models
+  - target_artifact
+  - requirements_or_context
+steps:
+  - Confirm the requested input validation patterns outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - validation_assessment
   - gap_analysis
   - validation_patterns_guide
   - test_cases
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
   - code.grep
   - web.search
-required_skills: []
-budget_band: micro
-max_context_tokens: 8000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Client-side validation only
   - Missing validation on file uploads
   - Not validating at trust boundaries
   - Inconsistent validation across entry points
-verification:
-  - All input validated server-side
-  - Allowlist validation used where possible
-  - Type, length, format, and range checks implemented
-  - File upload validation includes content type and size
-  - Validation errors handled without information leakage
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.security.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: micro
 rollback:
   - Relax validation rules if they break legitimate input
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Implement and review comprehensive input validation across all application entry points to prevent injection attacks, data corruption, and business logic abuse through malformed input.
+## Trigger
+Use this skill when a task explicitly matches `security.input-validation` or when the user asks for input validation patterns support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- When building or reviewing API endpoints and forms
-- During security review of data intake paths
-- When implementing file upload functionality
-- Before deploying applications that process user input
-- When migrating validation logic to shared middleware
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- When only addressing output encoding (use xss-prevention)
-- For SQL injection specifically (use sql-injection skill for deeper review)
-- When input is fully trusted (internal system-to-system with mTLS)
-- For output sanitization (different concern from input validation)
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Map All Input Entry Points**:
-   - Identify all API endpoints, forms, and file uploads
-   - Document expected input types, formats, and ranges
-   - Map input flow from client to processing logic
-   - Identify trust boundaries where validation should occur
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-2. **Implement Allowlist Validation**:
-   - Define allowed character sets for each input field
-   - Use allowlist patterns over denylist (blocklist) patterns
-   - Validate against known good formats (regex for email, phone, etc.)
-   - Use enum validation for fixed-choice fields
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
 
-3. **Enforce Type and Range Checks**:
-   - Verify data types (string, integer, boolean, date)
-   - Enforce minimum and maximum length for strings
-   - Check numeric ranges (positive, within business limits)
-   - Validate date formats and ranges
-   - Check array/collection size limits
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
 
-4. **Validate File Uploads**:
-   - Check file size limits
-   - Validate MIME type (not just extension)
-   - Scan file content for malware
-   - Verify file content matches declared type (magic bytes)
-   - Store uploads outside web root
-   - Use random filenames to prevent path traversal
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
 
-5. **Validate at Trust Boundaries**:
-   - Validate on server-side (never trust client-side only)
-   - Re-validate when data crosses service boundaries
-   - Validate deserialized data from untrusted sources
-   - Check input from third-party APIs and webhooks
-
-6. **Handle Validation Errors Securely**:
-   - Return generic error messages (don't reveal validation rules)
-   - Log validation failures for monitoring
-   - Don't expose internal data structures in error responses
-   - Implement consistent error response format
-
-7. **Implement Validation Middleware**:
-   - Centralize validation logic in middleware or decorators
-   - Use schema validation libraries (Zod, Joi, Pydantic, JSON Schema)
-   - Apply validation consistently across all endpoints
-   - Test validation with fuzzing and boundary values
-
-## Tool Policy
-- Use `filesystem.read` to review validation implementation code
-- Use `code.grep` to find unvalidated input paths
-- Use `web.search` for validation libraries and fuzzing techniques
-- Use `filesystem.write` to produce assessment reports
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- All input entry points have server-side validation
-- Allowlist validation used for structured input
-- File uploads validated for type, size, and content
-- Validation errors don't leak implementation details
-- Fuzzing testing confirms validation catches malformed input
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Relying solely on client-side validation
-- Not validating file upload content (only checking extension)
-- Missing validation on webhook and callback payloads
-- Inconsistent validation across microservices
-- Validation bypass through encoding tricks (double encoding, Unicode)
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- `POST /api/users` - validate registration form input
-- `POST /api/upload` - validate file type, size, and content
-- `GET /api/search?q=` - validate and sanitize search query
-- `POST /api/webhook` - validate webhook payload signature and structure
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for input validation patterns help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- OWASP Input Validation Cheat Sheet
-- CWE-20: Improper Input Validation
-- JSON Schema: https://json-schema.org/
-- Reference: ref.github.security.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

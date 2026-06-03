@@ -2,7 +2,7 @@
 id: security.network-scanning
 name: Network Vulnerability Scanning
 version: 1.0.0
-domain: security
+domain: moramvenkatasatyajaswanth
 category: security.infrastructure-security
 purpose: Scan network infrastructure for vulnerabilities, open ports, and misconfigurations.
 summary: Network vulnerability scanning using port scanning, service detection, and vulnerability assessment to identify infrastructure security issues.
@@ -14,141 +14,114 @@ triggers:
   - port scan infrastructure
   - network security assessment
   - check open ports and services
-  - infrastructure vulnerability scan
-  - network penetration test recon
-  - firewall rule audit
-aliases:
-  - network scan
-  - port scan
-  - infra scan
-negative_keywords:
-  - application security
-  - code review
-  - dependency audit
+activation_triggers:
+  - help me with network vulnerability scanning
+  - review network vulnerability scanning work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - target_networks
   - ip_ranges
   - network_topology
   - firewall_rules
+  - target_artifact
+  - requirements_or_context
+steps:
+  - Confirm the requested network vulnerability scanning outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - open_ports_report
   - service_inventory
   - vulnerability_findings
   - network_risk_assessment
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - bash.exec
   - filesystem.write
   - web.search
-required_skills: []
-budget_band: standard
-max_context_tokens: 10000
+  - filesystem.read
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Scanning without authorization
   - Missing segmented network zones
   - Not identifying shadow IT services
   - Incomplete service version detection
-verification:
-  - All in-scope networks and IP ranges scanned
-  - Open ports and services inventoried
-  - Vulnerabilities validated and prioritized
-  - Findings mapped to remediation actions
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.security.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - No state changes to rollback
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Perform network vulnerability scanning to identify open ports, running services, and infrastructure vulnerabilities across network segments with proper authorization.
+## Trigger
+Use this skill when a task explicitly matches `security.network-scanning` or when the user asks for network vulnerability scanning support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- During periodic infrastructure security assessments
-- Before onboarding new network segments
-- After network architecture changes
-- For compliance requirements (PCI-DSS network scanning)
-- During incident response to identify compromised services
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- Without explicit written authorization from network owners
-- For application-layer security testing (use dast-testing)
-- When only checking container security (use container-scanning)
-- For cloud-native service mesh security (use istio-config skill)
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Obtain Authorization and Define Scope**:
-   - Get written authorization for network scanning
-   - Define target IP ranges and network segments
-   - Identify sensitive systems requiring careful scanning
-   - Set scanning windows to minimize disruption
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-2. **Perform Port Scanning**:
-   - Run TCP SYN scan on common ports (1-65535)
-   - Run UDP scan on critical ports
-   - Identify open, filtered, and closed ports
-   - Document unexpected or unauthorized open ports
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
 
-3. **Service Detection and Fingerprinting**:
-   - Identify running services and versions
-   - Detect operating systems
-   - Map services to known vulnerabilities
-   - Identify non-standard services on unusual ports
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
 
-4. **Vulnerability Assessment**:
-   - Run vulnerability scans (Nessus, OpenVAS, Qualys)
-   - Check for known CVEs in detected service versions
-   - Test for common misconfigurations
-   - Check for default credentials on discovered services
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
 
-5. **Analyze Network Segmentation**:
-   - Verify network segmentation effectiveness
-   - Test firewall rules between segments
-   - Identify lateral movement paths
-   - Check for overly permissive firewall rules
-
-6. **Assess and Prioritize Findings**:
-   - Score vulnerabilities by CVSS and network exposure
-   - Prioritize internet-facing services
-   - Consider business criticality of affected systems
-   - Group findings by remediation approach
-
-7. **Report and Remediate**:
-   - Document all findings with evidence
-   - Provide specific remediation steps
-   - Recommend firewall rule changes
-   - Schedule re-scan after remediation
-
-## Tool Policy
-- Use `bash.exec` to run nmap, masscan, or vulnerability scanners
-- Use `web.search` for CVE details on discovered services
-- Use `filesystem.write` to produce scan reports
-- Never scan networks without explicit authorization
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- All authorized IP ranges scanned
-- Open ports and services fully inventoried
-- Vulnerabilities validated (no false positives in critical findings)
-- Remediation plan with timelines delivered
-- Re-scan confirms fixes
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Scanning without proper authorization
-- Missing network segments due to incomplete scope
-- Not scanning UDP ports (commonly missed)
-- Ignoring internal network scanning
-- Not updating scanner plugins before scanning
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- Scan 10.0.0.0/24 internal network for open ports
-- Scan DMZ servers for internet-facing vulnerabilities
-- Verify firewall rules between production and staging networks
-- Check for unauthorized services on database servers
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for network vulnerability scanning help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- Nmap: https://nmap.org/
-- Nessus: https://www.tenable.com/products/nessus
-- CIS Network Security Controls
-- Reference: ref.github.security.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

@@ -2,7 +2,7 @@
 id: security.supply-chain-review
 name: Dependency Supply Chain Risk Assessment
 version: 1.0.0
-domain: security
+domain: moramvenkatasatyajaswanth
 category: security.supply-chain
 purpose: Assess and mitigate supply chain risks in software dependencies.
 summary: Systematic review of dependencies for supply chain attacks, compromised packages, and trust issues.
@@ -13,145 +13,123 @@ triggers:
   - check dependencies for supply chain attacks
   - package supply chain security review
   - audit dependencies for security risks
+  - yes human task
 activation_triggers:
   - supply chain attack prevention
   - dependency security risk assessment
   - package supply chain security audit
 prerequisites:
-  - access to dependency list
-  - dependency scanning tools
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - dependency_list (package.json, requirements.txt, etc.)
   - lock_file
   - scan_results (optional)
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
 steps:
-  - Inventory all dependencies (direct and transitive)
-  - Check for known compromised packages
-  - Analyze package metadata (maintainers, downloads, age)
-  - Review package source code for suspicious patterns
-  - Check for typosquatting risks
-  - Verify package signatures and checksums
-  - Assess maintainer trust (bus factor, organization backing)
-  - Create risk mitigation plan
+  - Confirm the requested dependency supply chain risk assessment outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - dependency_inventory
   - risk_assessment
   - compromised_packages
   - mitigation_plan
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - shell.readonly (npm audit, pip-audit, etc.)
   - filesystem.read
   - web.search (check package reputation)
+  - filesystem.write
 quality_gates:
   - All dependencies inventoried
   - Known compromised packages identified
   - High-risk packages flagged
   - Mitigation plan documented
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
 failure_modes:
   - Missing transitive dependencies
   - Not checking for typosquatting
   - Ignoring package metadata
   - Not verifying package integrity
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - engineering.dependency-upgrade (for remediation)
   - security.vulnerability-assessment (for CVE analysis)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.supply-chain-security.2026-06-01
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - security.dependency-risk-agent
   - security.security-reviewer
-allowed_workflows: []
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - No state changes to rollback
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when assessing supply chain risks, auditing dependencies, or responding to supply chain attacks.
+Use this skill when a task explicitly matches `security.supply-chain-review` or when the user asks for dependency supply chain risk assessment support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Access to dependency files (package.json, requirements.txt, Cargo.toml, etc.)
-- Dependency scanning tools (npm audit, pip-audit, etc.)
-- Internet access to check package metadata
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Inventory Dependencies**:
-   - List all direct dependencies
-   - List all transitive dependencies (from lock file)
-   - Count total dependencies
-   - Identify critical dependencies (auth, crypto, etc.)
-2. **Check for Compromised Packages**:
-   - Run security audit: `npm audit`, `pip-audit`, `cargo audit`
-   - Check for known supply chain attacks (event-stream, ua-parser-js, etc.)
-   - Search for recent security advisories
-3. **Analyze Package Metadata**:
-   - **Maintainers**: How many? Are they active?
-   - **Downloads**: Is it widely used? (low downloads = higher risk)
-   - **Age**: How old is the package? (very new = higher risk)
-   - **Last Update**: When was it last updated? (abandoned = risk)
-   - **Repository**: Is source code available? Is it active?
-4. **Review for Suspicious Patterns**:
-   - Check for post-install scripts (potential malware vector)
-   - Look for obfuscated code
-   - Check for excessive permissions or network calls
-   - Review recent changes for suspicious additions
-5. **Check for Typosquatting**:
-   - Compare package names to popular packages
-   - Check for similar names (lodash vs 1odash, react vs raect)
-   - Verify correct package is installed
-6. **Verify Package Integrity**:
-   - Check package signatures (if available)
-   - Verify checksums in lock file
-   - Use integrity checking tools (npm verify, pip check)
-7. **Assess Maintainer Trust**:
-   - **Bus Factor**: How many maintainers? (1 = high risk)
-   - **Organization**: Backed by company or individual?
-   - **Reputation**: Known maintainer or anonymous?
-   - **Response Time**: How quickly are issues addressed?
-8. **Create Risk Mitigation Plan**:
-   - **High Risk**: Replace with alternative, vendor, or fork
-   - **Medium Risk**: Pin to specific version, monitor closely
-   - **Low Risk**: Regular updates, standard monitoring
-   - Document rationale for each decision
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- All dependencies inventoried and assessed
-- No known compromised packages in use
-- High-risk packages have mitigation plans
-- Package integrity verified
-- Regular monitoring in place
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
 ## Rollback
-- No state changes; this is an assessment skill
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Only checking direct dependencies (missing transitive risks)
-- Not checking for typosquatting
-- Ignoring package metadata (maintainers, downloads)
-- Not verifying package integrity
-- Assuming popular packages are always safe
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
 ## Examples
-### Auditing npm Dependencies
-Input: package.json with 50 dependencies
-Output:
-- Inventory: 50 direct, 847 transitive dependencies
-- Compromised: None found
-- High Risk:
-  - `small-package-123` (10 downloads, 1 maintainer, no updates in 2 years)
-    - Mitigation: Replace with `popular-alternative`
-  - `crypto-lib` (post-install script, obfuscated code)
-    - Mitigation: Replace with `well-known-crypto`
-- Medium Risk:
-  - `new-framework` (6 months old, 1000 downloads)
-    - Mitigation: Pin to v1.2.3, monitor for issues
-- Typosquatting: None detected
-- Integrity: All checksums verified
+**Example A:** A user asks for dependency supply chain risk assessment help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

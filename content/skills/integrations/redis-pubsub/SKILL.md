@@ -2,7 +2,7 @@
 id: integrations.redis-pubsub
 name: Redis Pub/Sub
 version: 1.0.0
-domain: integrations
+domain: moramvenkatasatyajaswanth
 category: integrations.messaging
 purpose: Implement Redis Pub/Sub for real-time messaging with proper channel design, subscriber management, and message persistence strategies.
 summary: Guides through building Redis Pub/Sub integrations including channel patterns, subscriber resilience, and Streams API usage.
@@ -10,83 +10,122 @@ triggers:
   - redis pubsub setup
   - redis channels implementation
   - redis streams configuration
+  - yes human task
+  - redis pub/sub review
+  - redis pub/sub checklist
+  - redis pub/sub plan
 activation_triggers:
   - implement real time messaging
   - redis pub sub
+  - help me with redis pub/sub
 prerequisites:
-  - redis instance available
-  - understanding of pub/sub patterns
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - channel_design
   - subscriber_requirements
   - persistence_needs
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
 steps:
-  - Design channel naming and subscription patterns
-  - Implement publishers with error handling
-  - Implement subscribers with reconnection logic
-  - Configure Redis Streams for persistent messaging if needed
-  - Add consumer groups for load balancing
-  - Monitor channel activity and subscriber health
+  - Confirm the requested redis pub/sub outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - publisher_implementation
   - subscriber_implementation
   - channel_configuration
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - filesystem.write (redis pub/sub code)
+  - filesystem.read
+  - filesystem.write
 quality_gates:
   - Subscribers reconnect on failure
   - Messages persisted when using Streams
   - Channel naming follows conventions
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Lost messages during subscriber disconnection (Pub/Sub)
   - No reconnection logic for subscribers
   - Channel naming collisions
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - integrations.message-queue-engineer (for durable messaging)
   - integrations.api-monitoring (for observability)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.integrations.2026-05-31
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - integrations.message-queue-engineer
-allowed_workflows:
-  - integrations.message-queue-setup
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - Revert channel and subscriber configuration
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when implementing Redis Pub/Sub or Redis Streams for real-time messaging.
+Use this skill when a task explicitly matches `integrations.redis-pubsub` or when the user asks for redis pub/sub support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Redis instance provisioned
-- Understanding of fire-and-forget vs. persistent messaging needs
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Design Channels**: Use namespaced channel names (e.g., app:events:orders).
-2. **Implement Publishers**: Publish with error handling and logging.
-3. **Implement Subscribers**: Add automatic reconnection with backoff.
-4. **Consider Streams**: Use Redis Streams when message persistence is required.
-5. **Consumer Groups**: Use consumer groups for load-balanced processing.
-6. **Monitor**: Track subscriber count, message rates, and lag.
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Subscribers receive published messages
-- Reconnection works after Redis restart
-- Streams consumers process all messages
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
 ## Rollback
-- Revert channel configuration and subscriber settings
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Using Pub/Sub when message persistence is required
-- No reconnection logic causing silent subscriber loss
-- Not using consumer groups for horizontal scaling
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Examples
+**Example A:** A user asks for redis pub/sub help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
+
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

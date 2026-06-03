@@ -2,7 +2,7 @@
 id: data-ai.embedding-index-review
 name: Vector Index Quality Review
 version: 1.0.0
-domain: data-ai
+domain: moramvenkatasatyajaswanth
 category: data-ai.vector-search
 purpose: Review and assess the quality of vector embeddings and similarity search indexes.
 summary: Systematic approach to evaluating embedding quality, index performance, and retrieval accuracy.
@@ -12,189 +12,125 @@ triggers:
   - embedding quality assessment for search
   - vector index performance evaluation
   - similarity search quality review
+  - yes human task
+  - vector index quality review review
 activation_triggers:
   - vector embedding review
   - vector index quality check
   - vector similarity search evaluation
 prerequisites:
-  - vector index built
-  - test queries available
-  - understanding of use case
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - vector_index
   - embedding_model
   - test_queries
   - ground_truth (optional)
+  - target_artifact
+  - requirements_or_context
 steps:
-  - Assess embedding quality (distribution, dimensionality)
-  - Evaluate index performance (latency, recall)
-  - Test retrieval accuracy with known queries
-  - Check for embedding biases
-  - Analyze failure cases
-  - Benchmark against alternatives
-  - Document findings and recommendations
+  - Confirm the requested vector index quality review outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - embedding_quality_report
   - index_performance_metrics
   - retrieval_accuracy
   - failure_analysis
   - recommendations
+  - review_or_analysis_report
 tools:
   - shell.readonly (run evaluation scripts)
   - filesystem.read (index, embeddings)
   - filesystem.write (report)
+  - filesystem.read
+  - filesystem.write
 quality_gates:
   - Embedding quality assessed
   - Index performance measured
   - Retrieval accuracy tested
   - Failures analyzed
   - Recommendations actionable
+  - Inputs and assumptions are explicit
 failure_modes:
   - Not checking embedding distribution
   - Ignoring index latency
   - Small test query set
   - Not analyzing failures
   - Not benchmarking alternatives
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
 handoffs:
   - data-ai.rag-engineer (for RAG improvements)
   - data-ai.ml-engineer (for embedding model improvements)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.vector-search-best-practices.2026-06-01
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - data-ai.rag-engineer
   - data-ai.ml-engineer
-allowed_workflows: []
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - No state changes to rollback
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when reviewing vector embedding quality, assessing similarity search indexes, or evaluating retrieval performance.
+Use this skill when a task explicitly matches `data-ai.embedding-index-review` or when the user asks for vector index quality review support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Vector index built and accessible
-- Test queries with expected results (if available)
-- Understanding of the use case (what the embeddings are used for)
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Assess Embedding Quality**:
-   - **Distribution Analysis**:
-     - Check embedding dimensions (are they appropriate?)
-     - Analyze value distributions (mean, std, range)
-     - Check for collapsed dimensions (all near zero)
-     - Verify normalization (if required)
-   - **Dimensionality Reduction**:
-     - Visualize with t-SNE or UMAP
-     - Check if similar items cluster together
-     - Look for outliers or anomalies
-   - **Semantic Quality**:
-     - Test with known similar/dissimilar pairs
-     - Check if distances reflect semantic similarity
-     - Verify nearest neighbors make sense
-2. **Evaluate Index Performance**:
-   - **Latency**:
-     - Measure query time (p50, p95, p99)
-     - Check scalability (how does it scale with index size?)
-     - Compare to requirements (real-time vs batch)
-   - **Recall**:
-     - Measure recall@K (are true matches in top K?)
-     - Check recall at different K values
-     - Compare to brute-force search (ground truth)
-   - **Resource Usage**:
-     - Memory footprint
-     - CPU usage during queries
-     - Disk I/O (if applicable)
-3. **Test Retrieval Accuracy**:
-   - Run test queries through the index
-   - Compare results to ground truth (if available)
-   - Calculate precision@K, recall@K, MRR
-   - Check for systematic errors
-4. **Check for Embedding Biases**:
-   - Analyze embedding distributions by category
-   - Check for demographic biases (if applicable)
-   - Look for domain-specific biases
-   - Test fairness across groups
-5. **Analyze Failure Cases**:
-   - Identify queries with poor results
-   - Categorize failure types:
-     - Embedding quality (poor semantic representation)
-     - Index issues (approximate search errors)
-     - Data issues (missing or incorrect data)
-   - Look for patterns in failures
-6. **Benchmark Against Alternatives**:
-   - Compare to other embedding models
-   - Test different index types (HNSW, IVF, etc.)
-   - Evaluate different distance metrics
-   - Compare to simple baselines (BM25, TF-IDF)
-7. **Document Findings**:
-   - Embedding quality assessment
-   - Index performance metrics
-   - Retrieval accuracy results
-   - Failure analysis
-   - Comparison to alternatives
-   - Specific recommendations
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Embedding quality thoroughly assessed
-- Index performance measured (latency, recall)
-- Retrieval accuracy tested with representative queries
-- Failures analyzed and categorized
-- Recommendations are specific and actionable
-- Documentation complete
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
 ## Rollback
-- No state changes; this is an evaluation skill
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Not checking embedding distribution (collapsed dimensions)
-- Ignoring index latency (too slow for real-time use)
-- Small test query set (not representative)
-- Not analyzing failures (missing improvement opportunities)
-- Not benchmarking alternatives (missing better options)
-- Not checking for biases (fairness issues)
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
 ## Examples
-### Reviewing a Product Search Embedding Index
-Input: Vector index with 100K product embeddings for search
-Output:
-- **Embedding Quality**:
-  - Dimensions: 768 (appropriate for the model)
-  - Distribution: Mean ≈ 0, Std ≈ 1 (well-normalized)
-  - Collapsed dimensions: None detected
-  - t-SNE visualization: Clear clusters by category
-  - Semantic quality: Nearest neighbors are semantically similar
-- **Index Performance**:
-  - Latency: p50 = 12ms, p95 = 25ms, p99 = 45ms (meets <50ms requirement)
-  - Recall@10: 0.94 (94% of true matches in top 10)
-  - Memory: 2.3 GB (acceptable)
-  - Scalability: Linear up to 500K items, then degrades
-- **Retrieval Accuracy**:
-  - Precision@5: 0.82
-  - Recall@10: 0.94
-  - MRR: 0.78
-- **Failure Analysis**:
-  - 6% of queries have recall < 0.5
-    - Pattern: Queries with typos or slang
-    - Cause: Embedding model not robust to variations
-  - 3% of queries return irrelevant results
-    - Pattern: Ambiguous product names
-    - Cause: Embeddings don't capture context
-- **Benchmark Comparison**:
-  - Current model (Sentence-BERT): Recall@10 = 0.94
-  - Alternative (OpenAI embeddings): Recall@10 = 0.96 (+2%)
-  - Baseline (BM25): Recall@10 = 0.71 (-23%)
-- **Recommendations**:
-  1. Add query preprocessing to handle typos
-  2. Consider fine-tuning embedding model on product data
-  3. Evaluate OpenAI embeddings for 2% recall improvement
-  4. Add hybrid search (combine vector + BM25) for ambiguous queries
-  5. Plan for index sharding when reaching 500K items
+**Example A:** A user asks for vector index quality review help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

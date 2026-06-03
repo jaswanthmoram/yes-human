@@ -2,7 +2,7 @@
 id: marketing.technical-seo
 name: Technical SEO
 version: 1.0.0
-domain: marketing
+domain: moramvenkatasatyajaswanth
 category: marketing.seo
 purpose: Address technical SEO issues including crawlability, indexation, site speed, and structured data implementation.
 summary: Technical SEO review covering crawl budget, indexation, Core Web Vitals, XML sitemaps, and site architecture.
@@ -13,89 +13,112 @@ triggers:
   - core web vitals optimization
   - xml sitemap review
   - site architecture seo
-aliases:
-  - technical seo
-  - site infrastructure seo
-negative_keywords:
-  - content writing
-  - keyword research
-  - link building
+  - yes human task
+activation_triggers:
+  - help me with technical seo
+  - review technical seo work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - site_url
   - crawl_data
   - performance_metrics
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested technical seo outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - technical_audit_report
   - fix_prioritization
   - implementation_guide
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
   - web.search
-required_skills: []
-budget_band: micro
-max_context_tokens: 8000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Ignores JavaScript rendering issues
   - Misses canonical tag conflicts
   - Overlooks international SEO signals
-verification:
-  - Crawl issues identified and prioritized
-  - Core Web Vitals assessed
-  - Structured data validated
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.marketing.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: micro
 rollback:
   - Revert robots.txt or sitemap changes if crawl issues arise
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Identify and resolve technical SEO issues that prevent search engines from efficiently crawling, indexing, and ranking site content.
+## Trigger
+Use this skill when a task explicitly matches `marketing.technical-seo` or when the user asks for technical seo support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- When diagnosing crawl or indexation problems
-- Before site migrations or redesigns
-- When optimizing Core Web Vitals
-- During technical SEO audits
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- For content optimization (use on-page-seo)
-- For keyword strategy (use keyword-research)
-- For backlink analysis (use seo-audits)
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Crawl Analysis**: Review robots.txt, crawl errors, and crawl budget efficiency.
-2. **Indexation Review**: Check index coverage, canonical tags, and duplicate content issues.
-3. **Site Speed**: Assess Core Web Vitals (LCP, FID, CLS) and performance bottlenecks.
-4. **Site Architecture**: Evaluate URL structure, internal linking depth, and navigation.
-5. **Structured Data**: Validate schema markup implementation and rich result eligibility.
-6. **JavaScript Rendering**: Check JS-heavy pages for crawlability and rendering issues.
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-## Tool Policy
-- Use `filesystem.read` to review site configuration and technical files.
-- Use `web.search` for technical SEO documentation and best practices.
-- Use `filesystem.write` to produce technical audit reports.
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Crawl errors identified and categorized
-- Core Web Vitals measured against thresholds
-- Canonical and hreflang tags validated
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Missing JavaScript rendering issues
-- Ignoring mobile-first indexing requirements
-- Overlooking pagination and faceted navigation
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- `technical SEO audit for e-commerce site`
-- `fix crawl and indexation issues`
-- `optimize Core Web Vitals scores`
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for technical seo help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- Google Search Central technical SEO documentation
-- web.dev performance guides
-- Reference: ref.github.marketing.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

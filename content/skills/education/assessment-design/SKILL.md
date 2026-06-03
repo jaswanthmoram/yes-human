@@ -2,9 +2,9 @@
 id: education.assessment-design
 name: Assessment Design
 version: 1.0.0
-domain: education
+domain: moramvenkatasatyajaswanth
 category: education.assessment
-purpose: Design valid and reliable assessments including formative checks, summative exams, and performance tasks aligned to learning objectives.
+purpose: Execute assessment design work with evidence, verification, and clear handoff rules.
 summary: Creating valid assessments aligned to objectives with clear scoring criteria, item specifications, and fairness considerations.
 triggers:
   - design an assessment
@@ -12,87 +12,112 @@ triggers:
   - formative assessment design
   - summative exam creation
   - performance task design
-aliases:
-  - assessment creation
-  - test design
-negative_keywords:
-  - survey design
-  - marketing quiz
-  - employee evaluation
+  - yes human task
+  - assessment design review
+activation_triggers:
+  - help me with assessment design
+  - review assessment design work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - learning_objectives
   - assessment_purpose
   - target_population
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested assessment design outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - assessment_blueprint
   - item_specifications
   - scoring_guide
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
-required_skills: []
-budget_band: standard
-max_context_tokens: 8000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Designs assessment without alignment to objectives
   - Omits scoring criteria or rubrics
   - Ignores accessibility and fairness in item design
-verification:
-  - Objectives mapped to items
-  - Scoring criteria defined
-  - Fairness review included
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.education.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - No state changes to rollback
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Design valid and reliable assessments including formative checks, summative exams, and performance tasks aligned to learning objectives with clear scoring criteria.
+## Trigger
+Use this skill when a task explicitly matches `education.assessment-design` or when the user asks for assessment design support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- Designing formative or summative assessments
-- Creating test blueprints and item specifications
-- Building performance-based assessment tasks
-- Developing scoring guides and answer keys
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- Rubric-only creation belongs to rubric-creation skill
-- Survey design belongs to research domain
-- Employee performance evaluation belongs to HR domain
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. Map each learning objective to assessment items or tasks.
-2. Create assessment blueprint with item distribution.
-3. Write item specifications including cognitive level targets.
-4. Develop scoring guides or rubrics for each item.
-5. Review items for bias, accessibility, and fairness.
-6. Pilot or review items before final deployment.
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-## Tool Policy
-- Use `filesystem.read` to access learning objectives and standards.
-- Use `filesystem.write` to save assessment blueprints and items.
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Every objective has at least one aligned assessment item
-- Scoring criteria defined for all items
-- Fairness and bias review documented
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Creating assessments that test untaught content
-- Omitting scoring criteria leading to inconsistent grading
-- Ignoring accessibility barriers in assessment design
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- "design an assessment for grade 8 history unit"
-- "create a test blueprint for biology final exam"
-- "performance task design for engineering course"
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for assessment design help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- AERA/APA/NCME Standards for Educational Testing
-- Webb's Depth of Knowledge alignment
-- Reference: ref.github.education.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

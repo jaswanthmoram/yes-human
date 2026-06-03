@@ -2,7 +2,7 @@
 id: healthcare.fda-regulations
 name: FDA Regulatory Compliance
 version: 1.0.0
-domain: healthcare
+domain: moramvenkatasatyajaswanth
 category: healthcare.regulatory
 purpose: Review and navigate FDA regulatory requirements for medical devices, drugs, biologics, and digital health products.
 summary: FDA regulatory compliance covering device classification, 510(k), PMA, drug approval, SaMD, and digital health regulations.
@@ -13,106 +13,111 @@ triggers:
   - pma application
   - digital health fda
   - fda compliance check
-aliases:
-  - fda regulations
-  - fda compliance
-negative_keywords:
-  - epa regulations
-  - consumer product safety
-  - general legal compliance
+  - yes human task
+activation_triggers:
+  - help me with fda regulatory compliance
+  - review fda regulatory compliance work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - product_description
   - regulatory_pathway
   - clinical_evidence
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested fda regulatory compliance outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - regulatory_strategy
   - submission_plan
   - compliance_assessment
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
-required_skills: []
-budget_band: standard
-max_context_tokens: 10000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Misidentifies regulatory classification
   - Skips predicate device analysis for 510(k)
   - Ignores post-market requirements
-verification:
-  - Regulatory classification correctly identified
-  - Predicate analysis complete for 510(k) pathways
-  - Post-market requirements addressed
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.healthcare.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - Halt submission activities if classification errors found
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Review and navigate FDA regulatory requirements for medical devices, drugs, biologics, and digital health products.
+## Trigger
+Use this skill when a task explicitly matches `healthcare.fda-regulations` or when the user asks for fda regulatory compliance support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- When determining FDA regulatory classification
-- When planning 510(k), PMA, or De Novo submissions
-- When reviewing digital health and SaMD regulations
-- When assessing post-market compliance
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- For EPA or environmental regulations (different agency)
-- For consumer product safety (CPSC jurisdiction)
-- For general legal compliance (use legal-compliance agents)
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Determine Product Classification**:
-   - Identify product type (device, drug, biologic, combination)
-   - Determine device class (I, II, III) if applicable
-   - Identify applicable product code and regulation number
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-2. **Select Regulatory Pathway**:
-   - Evaluate 510(k), De Novo, PMA, or HDE pathways
-   - Identify predicate devices for substantial equivalence
-   - Assess digital health and SaMD specific guidance
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
 
-3. **Plan Submission**:
-   - Define required testing (bench, animal, clinical)
-   - Compile submission content per FDA guidance
-   - Plan pre-submission meetings with FDA
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
 
-4. **Address Quality System Requirements**:
-   - Apply 21 CFR Part 820 (QSR) for devices
-   - Implement design controls per FDA requirements
-   - Address IEC 62304 for software devices
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
 
-5. **Plan Post-Market Compliance**:
-   - Design post-market surveillance plan
-   - Configure MDR reporting procedures
-   - Plan UDI implementation and labeling
-
-## Tool Policy
-- Use `filesystem.read` to review FDA guidance and product documentation
-- Use `filesystem.write` to produce regulatory strategies and submission plans
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Regulatory classification correctly identified with product code
-- Predicate analysis complete for 510(k) pathways
-- Post-market requirements addressed
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Misidentifying regulatory classification leading to wrong pathway
-- Skipping predicate device analysis for 510(k) submissions
-- Ignoring post-market surveillance and MDR requirements
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- 510(k) submission planning for Class II medical device
-- SaMD regulatory pathway for AI diagnostic tool
-- De Novo classification for novel digital health device
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for fda regulatory compliance help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- FDA: https://www.fda.gov/
-- 21 CFR Part 820 Quality System Regulation
-- FDA Digital Health: https://www.fda.gov/medical-devices/digital-health-center-excellence
-- Reference: ref.github.healthcare.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

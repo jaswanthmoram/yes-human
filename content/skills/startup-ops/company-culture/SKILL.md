@@ -2,7 +2,7 @@
 id: startup-ops.company-culture
 name: Company Culture Design
 version: 1.0.0
-domain: startup-ops
+domain: moramvenkatasatyajaswanth
 category: startup-ops.people
 purpose: Define and operationalize company culture through values, rituals, and hiring practices for early-stage startups.
 summary: Guides culture definition including values articulation, ritual design, and culture-aligned hiring and decision-making.
@@ -12,96 +12,121 @@ triggers:
   - culture design
   - team rituals
   - startup culture
+  - yes human task
+  - company culture design review
 activation_triggers:
   - company culture
   - values definition
   - culture design
-  - team rituals
-  - startup culture
 prerequisites:
-  - clear business context
-  - defined target customer or market
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - business_context
   - target_customer
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
 steps:
-  - Articulate core values with behavioral examples
-  - Design team rituals and cadences
-  - Define culture-aligned hiring criteria
-  - Create decision-making frameworks
-  - Build feedback and recognition systems
-  - Document culture handbook
-  - Plan culture scaling for growth
+  - Confirm the requested company culture design outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - culture_handbook
   - values_framework
   - rituals_guide
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - filesystem.write (output documents)
+  - filesystem.read
+  - filesystem.write
 quality_gates:
   - Evidence-based recommendations
   - Clear assumptions documented
   - Actionable next steps
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Defines values without behavioral examples
   - Skips ritual design for remote teams
   - Confuses perks with culture
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - startup-ops.hr-specialist
   - startup-ops.startup-mentor
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.startup-ops.2026-05-31
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - startup-ops.startup-strategist
   - startup-ops.business-model-designer
   - startup-ops.customer-development
-allowed_workflows:
-  - startup-ops.business-model-validation
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - No state changes to rollback
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when company culture or related tasks are needed.
+Use this skill when a task explicitly matches `startup-ops.company-culture` or when the user asks for company culture design support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Clear business context and defined target customer or market
-- Understanding of current company stage and goals
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Articulate core values with behavioral examples**: articulate core values with behavioral examples with evidence and documentation.
-2. **Design team rituals and cadences**: design team rituals and cadences with evidence and documentation.
-3. **Define culture-aligned hiring criteria**: define culture-aligned hiring criteria with evidence and documentation.
-4. **Create decision-making frameworks**: create decision-making frameworks with evidence and documentation.
-5. **Build feedback and recognition systems**: build feedback and recognition systems with evidence and documentation.
-6. **Document culture handbook**: document culture handbook with evidence and documentation.
-7. **Plan culture scaling for growth**: plan culture scaling for growth with evidence and documentation.
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- All outputs are evidence-based
-- Assumptions are explicitly documented
-- Next steps are actionable and prioritized
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
 ## Rollback
-- No state changes; this is a planning/analysis skill
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Defines values without behavioral examples
-- Skips ritual design for remote teams
-- Confuses perks with culture
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
 ## Examples
-### Company Culture Design Example
-Input: company culture for a B2B SaaS startup
-Output:
-- culture_handbook with evidence-based entries
-- values_framework with prioritized items
-- rituals_guide with clear next steps
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+**Example A:** A user asks for company culture design help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
+
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

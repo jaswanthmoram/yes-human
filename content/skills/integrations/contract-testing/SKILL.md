@@ -2,7 +2,7 @@
 id: integrations.contract-testing
 name: Contract Testing
 version: 1.0.0
-domain: integrations
+domain: moramvenkatasatyajaswanth
 category: integrations.testing
 purpose: Implement consumer-driven contract testing to verify API contracts between services without full integration testing.
 summary: Guides through building contract tests using Pact or similar frameworks to ensure API compatibility between providers and consumers.
@@ -10,84 +10,123 @@ triggers:
   - contract testing setup
   - pact testing implementation
   - api contract verification
+  - yes human task
+  - contract testing review
+  - contract testing checklist
+  - contract testing plan
 activation_triggers:
   - verify api contracts
   - consumer driven testing
+  - help me with contract testing
 prerequisites:
-  - api contracts defined
-  - provider and consumer services identified
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - contract_definitions
   - provider_service
   - consumer_expectations
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
 steps:
-  - Define consumer expectations as contract tests
-  - Generate contract files from consumer tests
-  - Verify provider implementation against contracts
-  - Publish contracts to broker for sharing
-  - Configure CI/CD to run contract tests
-  - Manage contract versions and compatibility
+  - Confirm the requested contract testing outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - consumer_contracts
   - provider_verification
   - contract_broker_config
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - filesystem.write (contract test files)
+  - filesystem.read
+  - filesystem.write
 quality_gates:
   - All consumer expectations verified by provider
   - Contracts versioned and published
   - Breaking changes detected before deployment
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Contracts out of sync with actual API behavior
   - Not running provider verification in CI
   - Ignoring contract version compatibility
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - integrations.api-testing (for broader testing)
   - integrations.integration-testing (for e2e testing)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.integrations.2026-05-31
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - integrations.microservices-integrator
   - integrations.api-integration-specialist
-allowed_workflows:
-  - integrations.microservices-integration
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - Revert contract definitions to previous version
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when implementing consumer-driven contract testing between microservices.
+Use this skill when a task explicitly matches `integrations.contract-testing` or when the user asks for contract testing support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- API contracts defined (OpenAPI, GraphQL schema, or custom)
-- Provider and consumer services identified
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Consumer Tests**: Write tests expressing what the consumer expects from the provider.
-2. **Generate Contracts**: Produce contract files (Pact files) from consumer test runs.
-3. **Provider Verification**: Run provider tests against consumer contracts.
-4. **Publish**: Upload contracts to a broker (Pact Broker) for team sharing.
-5. **CI/CD**: Run contract verification on every provider change.
-6. **Versioning**: Manage contract versions with backward compatibility checks.
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- All consumer contracts verified by provider
-- Breaking changes detected before deployment
-- Contract versions tracked and compatible
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
 ## Rollback
-- Revert contract definitions and re-verify
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Contracts that do not match actual API behavior
-- Not running provider verification in CI pipeline
-- Ignoring contract compatibility when evolving APIs
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Examples
+**Example A:** A user asks for contract testing help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
+
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

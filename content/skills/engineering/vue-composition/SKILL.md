@@ -2,9 +2,10 @@
 id: engineering.vue-composition
 name: Vue 3 Composition API Patterns
 version: 1.0.0
-domain: engineering
+domain: moramvenkatasatyajaswanth
 category: engineering.frameworks
-description: Guide Vue 3 Composition API patterns including ref, reactive, computed, watch, composables, and script setup syntax.
+purpose: Execute vue 3 composition api patterns work with evidence, verification, and clear handoff rules.
+summary: Vue 3 Composition API Patterns provides a repeatable operating procedure for task tasks. It defines inputs, checks, outputs, rollback behavior, and escalation paths so routed agents produce useful work rather than generic advice.
 triggers:
   - fix reactivity loss when destructuring reactive object
   - migrate this options API component to composition API
@@ -13,103 +14,111 @@ triggers:
   - vue 3 setup
   - composables
   - vue ref reactive
-  - script setup
-  - vue watch
-  - vue 3 patterns
-aliases:
-  - composition api
-  - vue3 patterns
-  - composables
-negative_keywords:
-  - vue 2
-  - options api
-  - react
-  - angular
+activation_triggers:
+  - help me with vue 3 composition api patterns
+  - review vue 3 composition api patterns work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - component_requirements
   - vue_version
   - state_complexity (optional)
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested vue 3 composition api patterns outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - composition_api_code
   - composable_functions
   - reactivity_pattern_guide
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
-  - code_graph.query
-required_skills: []
-budget_band: micro
-max_context_tokens: 4000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Losing reactivity by destructuring reactive objects
   - Forgetting to use .value with ref
   - Memory leaks from unmanaged watchers
   - Mixing Options API and Composition API inconsistently
-verification:
-  - All refs accessed with .value in script
-  - Reactivity maintained through destructuring with toRefs
-  - Watchers cleaned up on unmount
-  - Composables follow use prefix convention
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.engineering.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: micro
 rollback:
   - Revert to Options API implementation if needed
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Provide expert guidance on Vue 3 Composition API patterns, ensuring correct reactivity usage, well-structured composables, and idiomatic script setup syntax.
+## Trigger
+Use this skill when a task explicitly matches `engineering.vue-composition` or when the user asks for vue 3 composition api patterns support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- Building Vue 3 components with Composition API
-- Creating reusable composables for shared logic
-- Migrating from Options API to Composition API
-- Implementing complex reactive state management
-- Using script setup syntax for cleaner components
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- Vue 2 projects without Composition API plugin
-- Simple components better served by Options API
-- Non-Vue frameworks (React, Angular, Svelte)
-- Server-side only code without Vue components
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Assess State Needs**: Determine whether to use ref for primitives, reactive for objects, or computed for derived state.
-2. **Structure with Script Setup**: Use `<script setup>` syntax for concise component definitions with automatic imports.
-3. **Implement Reactivity**: Use ref() for primitive values and reactive() for objects. Apply toRefs() when destructuring reactive objects.
-4. **Create Composables**: Extract reusable logic into composable functions following the `use` prefix convention (e.g., useAuth, useFetch).
-5. **Handle Side Effects**: Use watch() and watchEffect() for reactive side effects with proper cleanup via onScopeDispose.
-6. **Manage Lifecycle**: Use onMounted, onUpdated, onUnmounted hooks for component lifecycle management.
-7. **Optimize Performance**: Apply shallowRef and shallowReactive for large data structures, use computed for cached derivations.
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-## Tool Policy
-- Use `filesystem.read` to inspect existing Vue component code
-- Use `filesystem.write` to create or update composables and components
-- Use `code_graph.query` to trace composable usage across the codebase
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Run `npx vue-tsc --noEmit` for type checking
-- Run `npm test` with Vue Test Utils to verify component behavior
-- Check Vue DevTools for reactivity tracking
-- Verify no reactivity loss warnings in console
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- **Reactivity Loss**: Destructuring reactive objects loses reactivity; use toRefs() or access properties directly
-- **Missing .value**: Forgetting .value when accessing ref in script (template auto-unwraps)
-- **Watcher Leaks**: Creating watchers without cleanup; use onScopeDispose or component-level watchers
-- **Circular Dependencies**: Composables importing each other creating circular references
-- **Over-composition**: Breaking simple logic into too many composables reducing readability
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- `yes route "create useAuth composable"` -> engineering.vue-composition
-- `yes route "migrate options api to composition api"` -> engineering.vue-composition
-- `yes route "fix reactivity loss in vue 3"` -> engineering.vue-composition
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for vue 3 composition api patterns help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- Vue 3 official documentation: https://vuejs.org/guide/extras/composition-api-faq.html
-- VueUse composables library: github.com/vueuse/vueuse (19k+ stars)
-- Vue 3 RFCs: github.com/vuejs/rfcs
-- Reference dossier: ref.github.engineering.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

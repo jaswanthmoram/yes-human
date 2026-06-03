@@ -2,7 +2,7 @@
 id: manufacturing.supply-chain-management
 name: Supply Chain Management
 version: 1.0.0
-domain: manufacturing
+domain: moramvenkatasatyajaswanth
 category: manufacturing.supply_chain
 purpose: Analyze and optimize end-to-end supply chain performance including sourcing, logistics, and supplier management.
 summary: Supply chain management covering supplier evaluation, logistics optimization, risk management, and network design.
@@ -12,110 +12,113 @@ triggers:
   - logistics network design
   - supply chain risk assessment
   - sourcing strategy review
-aliases:
-  - supply chain management
-  - SCM
-negative_keywords:
-  - financial audit
-  - code review
-  - legal review
+  - yes human task
+  - supply chain management review
+activation_triggers:
+  - help me with supply chain management
+  - review supply chain management work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - supply_chain_data
   - supplier_performance
   - logistics_metrics
   - demand_patterns
+  - target_artifact
+  - requirements_or_context
+steps:
+  - Confirm the requested supply chain management outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - supply_chain_analysis
   - supplier_scorecard
   - logistics_optimization_plan
   - risk_mitigation_strategy
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
-required_skills: []
-budget_band: standard
-max_context_tokens: 10000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Analysis without end-to-end visibility
   - Supplier evaluation without quantitative metrics
   - Risk assessment without mitigation actions
-verification:
-  - End-to-end supply chain mapped
-  - Supplier scorecards with quantitative metrics
-  - Risk mitigation actions defined and prioritized
-  - Logistics costs quantified by segment
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.manufacturing.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - Revert sourcing changes if supplier transitions cause disruptions
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Analyze and optimize end-to-end supply chain performance including sourcing, logistics, and supplier management.
+## Trigger
+Use this skill when a task explicitly matches `manufacturing.supply-chain-management` or when the user asks for supply chain management support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- When evaluating or qualifying suppliers
-- During logistics network design or optimization
-- For supply chain risk assessments
-- When developing sourcing strategies
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- For contract negotiations (use legal-compliance)
-- For inventory policy design (use inventory-optimization skill)
-- For production scheduling (use production-planning skill)
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Map Supply Chain Network**:
-   - Document tier-1 and tier-2 supplier relationships
-   - Map material flow from source to delivery
-   - Identify lead times and logistics corridors
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-2. **Evaluate Suppliers**:
-   - Create supplier scorecards (quality, delivery, cost, responsiveness)
-   - Benchmark against industry standards
-   - Identify single-source and sole-source risks
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
 
-3. **Optimize Logistics**:
-   - Analyze transportation costs by mode and lane
-   - Evaluate warehouse and distribution center placement
-   - Model total landed cost for sourcing alternatives
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
 
-4. **Assess Risks**:
-   - Identify geopolitical, natural disaster, and capacity risks
-   - Quantify probability and impact for each risk
-   - Develop mitigation strategies (dual sourcing, safety stock, etc.)
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
 
-5. **Develop Strategy**:
-   - Recommend sourcing and logistics improvements
-   - Prioritize by ROI and implementation complexity
-   - Create phased implementation roadmap
-
-## Tool Policy
-- Use `filesystem.read` to review supply chain data, supplier reports, and logistics metrics
-- Use `filesystem.write` to produce analyses, scorecards, and optimization plans
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Supply chain network mapped end-to-end
-- Supplier scorecards include quantitative metrics
-- Risk mitigation actions defined with owners
-- Logistics costs quantified by segment and mode
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Analysis without end-to-end supply chain visibility
-- Supplier evaluation based on qualitative impressions only
-- Risk assessment without actionable mitigation plans
-- Missing total landed cost analysis
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- Supplier evaluation for critical component
-- Logistics network optimization for North America
-- Supply chain risk assessment for semiconductor sourcing
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for supply chain management help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- Chopra & Meindl, Supply Chain Management
-- APICS CSCP Body of Knowledge
-- Reference: ref.github.manufacturing.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

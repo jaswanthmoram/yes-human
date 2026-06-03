@@ -2,7 +2,7 @@
 id: data-ai.rag-eval
 name: RAG System Evaluation
 version: 1.0.0
-domain: data-ai
+domain: moramvenkatasatyajaswanth
 category: data-ai.evaluation
 purpose: Evaluate Retrieval-Augmented Generation (RAG) systems for retrieval quality and generation accuracy.
 summary: Systematic approach to assessing RAG performance including retrieval metrics, generation quality, and end-to-end evaluation.
@@ -12,163 +12,125 @@ triggers:
   - assess retrieval augmented generation quality
   - test RAG pipeline performance
   - RAG performance evaluation and testing
+  - yes human task
+  - rag system evaluation review
 activation_triggers:
   - RAG eval
   - retrieval augmented generation evaluation
   - RAG system testing
 prerequisites:
-  - RAG system deployed
-  - test dataset available
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - rag_system
   - test_dataset
   - evaluation_metrics
   - baseline_results (optional)
+  - target_artifact
+  - requirements_or_context
 steps:
-  - Define evaluation metrics (retrieval and generation)
-  - Prepare test dataset with ground truth
-  - Evaluate retrieval quality (precision, recall, MRR, NDCG)
-  - Evaluate generation quality (faithfulness, relevance, coherence)
-  - Perform end-to-end evaluation
-  - Compare against baseline if available
-  - Identify failure cases and patterns
-  - Document findings and recommendations
+  - Confirm the requested rag system evaluation outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - retrieval_metrics
   - generation_metrics
   - end_to_end_results
   - failure_analysis
   - improvement_recommendations
+  - review_or_analysis_report
 tools:
   - shell.readonly (run evaluation scripts)
   - filesystem.read (test data, results)
   - filesystem.write (evaluation report)
+  - filesystem.read
+  - filesystem.write
 quality_gates:
   - All metrics calculated
   - Failure cases analyzed
   - Recommendations actionable
   - Results reproducible
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
 failure_modes:
   - Using inappropriate metrics
   - Test dataset not representative
   - Not evaluating retrieval and generation separately
   - Ignoring failure cases
   - Not comparing to baseline
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
 handoffs:
   - data-ai.rag-engineer (for improvements)
   - data-ai.dataset-profiling (for dataset issues)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.rag-evaluation-best-practices.2026-06-01
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - data-ai.rag-engineer
   - data-ai.eval-engineer
-allowed_workflows: []
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - No state changes to rollback
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when evaluating a RAG system's performance, assessing retrieval quality, or testing generation accuracy.
+Use this skill when a task explicitly matches `data-ai.rag-eval` or when the user asks for rag system evaluation support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- RAG system deployed and accessible
-- Test dataset with questions and ground truth answers
-- Understanding of RAG evaluation metrics
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Define Evaluation Metrics**:
-   - **Retrieval Metrics**:
-     - Precision@K: % of retrieved documents that are relevant
-     - Recall@K: % of relevant documents that are retrieved
-     - MRR (Mean Reciprocal Rank): Average rank of first relevant document
-     - NDCG (Normalized Discounted Cumulative Gain): Ranking quality
-   - **Generation Metrics**:
-     - Faithfulness: Does the answer stick to retrieved context?
-     - Relevance: Does the answer address the question?
-     - Coherence: Is the answer well-structured and logical?
-     - Correctness: Is the answer factually correct?
-2. **Prepare Test Dataset**:
-   - Collect diverse questions (simple, complex, multi-hop)
-   - Create ground truth answers
-   - Identify relevant documents for each question
-   - Include edge cases and failure scenarios
-   - Ensure dataset is representative of real usage
-3. **Evaluate Retrieval Quality**:
-   - Run all test queries through retriever
-   - Calculate Precision@K, Recall@K, MRR, NDCG
-   - Analyze retrieval failures (wrong docs, missing docs)
-   - Check for bias in retrieval (certain topics underrepresented)
-4. **Evaluate Generation Quality**:
-   - Generate answers for all test questions
-   - Use automated metrics (ROUGE, BLEU, BERTScore)
-   - Perform human evaluation (sample of results)
-   - Check for hallucinations (answers not in context)
-   - Assess faithfulness to retrieved context
-5. **End-to-End Evaluation**:
-   - Run complete RAG pipeline (retrieve + generate)
-   - Measure overall answer quality
-   - Compare to baseline (if available)
-   - Calculate success rate (% of acceptable answers)
-6. **Analyze Failures**:
-   - Categorize failure types:
-     - Retrieval failure (wrong/missing documents)
-     - Generation failure (hallucination, irrelevant answer)
-     - Combined failure (both retrieval and generation issues)
-   - Identify patterns in failures
-   - Prioritize by frequency and impact
-7. **Document Findings**:
-   - Summary of metrics
-   - Comparison to baseline
-   - Failure analysis
-   - Specific recommendations for improvement
-   - Confidence intervals and statistical significance
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- All metrics calculated correctly
-- Test dataset is representative
-- Failure cases thoroughly analyzed
-- Recommendations are specific and actionable
-- Results are reproducible
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
 ## Rollback
-- No state changes; this is an evaluation skill
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Using only automated metrics (need human evaluation too)
-- Test dataset not representative of real usage
-- Not evaluating retrieval and generation separately
-- Ignoring failure cases (only looking at averages)
-- Not comparing to baseline or previous version
-- Small test dataset (not statistically significant)
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
 ## Examples
-### Evaluating a Customer Support RAG System
-Input: RAG system for answering customer questions
-Output:
-- **Retrieval Metrics**:
-  - Precision@5: 0.82 (82% of top 5 docs are relevant)
-  - Recall@10: 0.91 (91% of relevant docs in top 10)
-  - MRR: 0.75 (first relevant doc at rank 1.33 on average)
-- **Generation Metrics**:
-  - Faithfulness: 0.88 (88% of answers stick to context)
-  - Relevance: 0.92 (92% of answers address the question)
-  - Correctness: 0.85 (85% of answers are factually correct)
-- **End-to-End**:
-  - Success rate: 78% (acceptable answers)
-  - Baseline comparison: +5% vs previous version
-- **Failure Analysis**:
-  - 12% retrieval failures (missing docs for new products)
-  - 10% generation failures (hallucinations about pricing)
-- **Recommendations**:
-  1. Update knowledge base with new product docs
-  2. Add pricing guardrails to prevent hallucinations
-  3. Improve retriever for product-specific queries
+**Example A:** A user asks for rag system evaluation help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

@@ -2,7 +2,7 @@
 id: data-ai.image-classification
 name: Image Classification
 version: 1.0.0
-domain: data-ai
+domain: moramvenkatasatyajaswanth
 category: data-ai.computer-vision
 purpose: Build image classification models using CNNs, Vision Transformers, or transfer learning approaches.
 summary: Systematic image classification including data preparation, model selection, training, and evaluation.
@@ -12,90 +12,123 @@ triggers:
   - image recognition
   - visual categorization
   - image tagging model
+  - yes human task
+  - image classification review
 activation_triggers:
   - image classification
   - visual recognition
   - image categorization
 prerequisites:
-  - labeled image dataset
-  - classification taxonomy defined
-  - compute resources available
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - image_dataset
   - class_labels
   - accuracy_requirements
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
 steps:
-  - Profile image dataset for quality and class balance
-  - Design data augmentation strategy
-  - Select model architecture (CNN, ViT, transfer learning)
-  - Train with appropriate learning rate schedule
-  - Evaluate on held-out test set
-  - Analyze confusion matrix and error cases
-  - Document model performance and limitations
+  - Confirm the requested image classification outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - trained_model
   - evaluation_report
   - augmentation_strategy
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - shell.readonly (training scripts)
   - filesystem.read (images, labels)
   - filesystem.write (model, report)
+  - filesystem.read
+  - filesystem.write
 quality_gates:
   - Class imbalance addressed
   - Augmentation strategy documented
   - Test set evaluation complete
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Training without adequate augmentation
   - Ignoring class imbalance
   - Not analyzing confusion matrix
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - data-ai.model-deployment (for serving)
   - data-ai.computer-vision-engineer (for advanced CV)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.data-ai.image-classification.2026-05-31
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - data-ai.computer-vision-engineer
   - data-ai.ml-engineer
-allowed_workflows: []
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: expanded
 rollback:
   - Revert to previous model version
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when building an image classification model or visual categorization system.
+Use this skill when a task explicitly matches `data-ai.image-classification` or when the user asks for image classification support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Labeled image dataset available
-- Classification taxonomy defined
-- Compute resources for training available
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Profile Dataset**: Check image quality, resolution distribution, class balance.
-2. **Augmentation**: Design strategy (flip, rotate, crop, color jitter, mixup).
-3. **Model Selection**: CNN (ResNet, EfficientNet), ViT, or transfer learning based on dataset size.
-4. **Train**: Use learning rate warmup, cosine decay, mixed precision.
-5. **Evaluate**: Test set metrics (accuracy, per-class F1), confusion matrix.
-6. **Error Analysis**: Identify systematic failures, ambiguous samples.
-7. **Document**: Performance, augmentation, and known limitations.
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Class imbalance addressed with oversampling or weighting
-- Augmentation strategy documented and applied
-- Test set evaluation complete with confusion matrix
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
 ## Rollback
-- Revert to previous model version
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Insufficient augmentation causing overfitting
-- Ignoring class imbalance (poor minority class performance)
-- Not analyzing confusion matrix (missing systematic errors)
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Examples
+**Example A:** A user asks for image classification help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
+
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

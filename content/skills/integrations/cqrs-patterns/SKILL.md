@@ -2,7 +2,7 @@
 id: integrations.cqrs-patterns
 name: CQRS Patterns
 version: 1.0.0
-domain: integrations
+domain: moramvenkatasatyajaswanth
 category: integrations.patterns
 purpose: Implement Command Query Responsibility Segregation with separate read and write models for optimized performance and scalability.
 summary: Guides through implementing CQRS including command handlers, query handlers, and read model synchronization.
@@ -10,84 +10,123 @@ triggers:
   - implement cqrs
   - command query separation
   - read write model split
+  - yes human task
+  - cqrs patterns review
+  - cqrs patterns checklist
+  - cqrs patterns plan
 activation_triggers:
   - separate read and write paths
   - optimize query performance
+  - help me with cqrs patterns
 prerequisites:
-  - domain model understanding
-  - separate read and write requirements
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - command_definitions
   - query_requirements
   - synchronization_strategy
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
 steps:
-  - Identify commands (writes) and queries (reads) in the domain
-  - Design command handlers with validation and business rules
-  - Design query handlers with optimized read models
-  - Implement read model synchronization from write side
-  - Configure eventual consistency handling
-  - Add monitoring for sync lag and consistency
+  - Confirm the requested cqrs patterns outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - command_handlers
   - query_handlers
   - synchronization_config
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - filesystem.write (CQRS implementation)
+  - filesystem.read
+  - filesystem.write
 quality_gates:
   - Commands and queries fully separated
   - Read models eventually consistent
   - No direct database reads from command side
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Leaking write model into query handlers
   - Read model sync failures without recovery
   - Stale reads without consistency guarantees
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - integrations.event-sourcing (for event-driven CQRS)
   - integrations.microservices-integrator (for service boundaries)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.integrations.2026-05-31
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - integrations.microservices-integrator
   - integrations.event-streaming-architect
-allowed_workflows:
-  - integrations.microservices-integration
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - Rebuild read models from write side
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when implementing CQRS patterns for separating read and write operations.
+Use this skill when a task explicitly matches `integrations.cqrs-patterns` or when the user asks for cqrs patterns support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Domain model with distinct read and write patterns
-- Understanding of consistency requirements
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Separate Concerns**: Identify which operations are commands vs. queries.
-2. **Command Handlers**: Implement with full validation and business rule enforcement.
-3. **Query Handlers**: Build optimized read models (denormalized views, materialized views).
-4. **Synchronize**: Use events or change data capture to update read models.
-5. **Handle Consistency**: Document and implement eventual consistency patterns.
-6. **Monitor**: Track sync lag and consistency drift.
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Commands never read from query models
-- Read models reflect write side within acceptable lag
-- Sync failures trigger alerts and recovery
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
 ## Rollback
-- Rebuild read models from the write-side event stream
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Mixing read and write concerns in handlers
-- Not handling read model synchronization failures
-- Assuming strong consistency when using eventual consistency
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Examples
+**Example A:** A user asks for cqrs patterns help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
+
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

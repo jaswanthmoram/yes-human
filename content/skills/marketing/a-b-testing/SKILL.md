@@ -2,7 +2,7 @@
 id: marketing.a-b-testing
 name: A/B Testing
 version: 1.0.0
-domain: marketing
+domain: moramvenkatasatyajaswanth
 category: marketing.optimization
 purpose: Design and analyze A/B tests for marketing assets with proper statistical methodology and significance thresholds.
 summary: A/B testing process covering hypothesis formation, test design, sample size calculation, and result analysis.
@@ -13,87 +13,111 @@ triggers:
   - split test analysis
   - experiment design for marketing
   - test result interpretation
-aliases:
-  - a/b test
-  - split testing
-negative_keywords:
-  - multivariate testing
-  - engineering load test
-  - unit testing
+  - yes human task
+activation_triggers:
+  - help me with a/b testing
+  - review a/b testing work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - test_hypothesis
   - current_variant
   - success_metric
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested a/b testing outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - test_plan
   - sample_size_calculation
   - analysis_report
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
-required_skills: []
-budget_band: micro
-max_context_tokens: 8000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Running tests without significance threshold
   - Peeking at results and stopping early
   - Testing multiple variables simultaneously
-verification:
-  - Hypothesis clearly stated
-  - Sample size calculated
-  - Statistical significance defined
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.marketing.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: micro
 rollback:
   - Revert to control variant if test variant underperforms
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Design statistically valid A/B tests that produce reliable insights for marketing optimization decisions.
+## Trigger
+Use this skill when a task explicitly matches `marketing.a-b-testing` or when the user asks for a/b testing support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- When testing landing page variations
-- During email subject line optimization
-- For ad creative testing
-- When validating marketing hypotheses
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- For multivariate testing with many variables
-- For engineering performance testing
-- For product feature experiments (use product-business)
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Hypothesis Formation**: State clear hypothesis with expected outcome and rationale.
-2. **Variable Isolation**: Test one variable at a time (headline, CTA, image, layout).
-3. **Sample Size**: Calculate required sample size for statistical significance.
-4. **Test Duration**: Set minimum test duration accounting for traffic patterns.
-5. **Analysis**: Evaluate results with confidence intervals and significance tests.
-6. **Documentation**: Record results, learnings, and next test hypothesis.
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-## Tool Policy
-- Use `filesystem.read` to review test data and historical results.
-- Use `filesystem.write` to produce test plans and analysis reports.
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Single variable isolated per test
-- Sample size sufficient for significance
-- Results documented with confidence level
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Stopping tests before reaching significance
-- Testing too many variables at once
-- Ignoring segment-level differences in results
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- `design A/B test for landing page headline`
-- `analyze email subject line split test`
-- `calculate sample size for conversion test`
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for a/b testing help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- CXL Institute A/B testing methodology
-- Optimizely experimentation guides
-- Reference: ref.github.marketing.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

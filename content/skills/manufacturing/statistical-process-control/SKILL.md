@@ -2,7 +2,7 @@
 id: manufacturing.statistical-process-control
 name: Statistical Process Control
 version: 1.0.0
-domain: manufacturing
+domain: moramvenkatasatyajaswanth
 category: manufacturing.quality
 purpose: Implement and maintain statistical process control systems using control charts, capability analysis, and variation reduction.
 summary: SPC covering control chart selection, process capability studies, variation analysis, and out-of-control action plans.
@@ -12,109 +12,113 @@ triggers:
   - process capability study
   - variation analysis
   - out of control investigation
-aliases:
-  - SPC
-  - statistical process control
-negative_keywords:
-  - financial analysis
-  - code review
-  - legal review
+  - yes human task
+  - statistical process control review
+activation_triggers:
+  - help me with statistical process control
+  - review statistical process control work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - process_data
   - specification_limits
   - measurement_system_data
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested statistical process control outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - control_chart_setup
   - capability_report
   - variation_analysis
   - ooc_action_plan
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
-required_skills: []
-budget_band: standard
-max_context_tokens: 8000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Control charts without measurement system validation
   - Capability indices without normality check
   - Missing out-of-control reaction plan
-verification:
-  - Measurement system validated (GR&R)
-  - Control chart type justified by data type
-  - Capability indices reported with confidence intervals
-  - Out-of-control reaction plan documented
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.manufacturing.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - Revert to previous control limits if new limits are statistically unjustified
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Implement and maintain statistical process control systems using control charts, capability analysis, and variation reduction.
+## Trigger
+Use this skill when a task explicitly matches `manufacturing.statistical-process-control` or when the user asks for statistical process control support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- When establishing SPC for a new process
-- During process capability studies
-- When investigating out-of-control conditions
-- For variation reduction projects
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- For acceptance sampling (use quality-control skill)
-- For designed experiments (use six-sigma skill)
-- For non-statistical quality reviews
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Validate Measurement System**:
-   - Conduct GR&R study for each measurement
-   - Confirm measurement resolution and repeatability
-   - Document measurement system capability
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-2. **Select Control Chart Type**:
-   - Match chart type to data type (variable vs attribute)
-   - Choose subgroup size and sampling frequency
-   - Calculate initial control limits from baseline data
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
 
-3. **Conduct Capability Study**:
-   - Verify process stability before capability analysis
-   - Check normality assumptions
-   - Calculate Cp, Cpk, Pp, Ppk with confidence intervals
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
 
-4. **Analyze Variation Sources**:
-   - Decompose total variation into components
-   - Identify common vs special cause variation
-   - Prioritize variation reduction opportunities
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
 
-5. **Create Out-of-Control Action Plan**:
-   - Define rules for detecting out-of-control conditions
-   - Document immediate containment actions
-   - Establish root cause investigation protocol
-
-## Tool Policy
-- Use `filesystem.read` to review process data, specifications, and measurement records
-- Use `filesystem.write` to produce control chart setups and capability reports
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Measurement system GR&R completed and acceptable
-- Control chart type matches data characteristics
-- Capability indices reported with confidence intervals
-- Out-of-control reaction plan documented and actionable
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Using control charts without validated measurement systems
-- Reporting capability indices for unstable processes
-- Missing out-of-control reaction plans
-- Not checking normality before capability analysis
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- Set up X-bar R charts for machining process
-- Process capability study for assembly torque
-- Investigate out-of-control signal on coating thickness
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for statistical process control help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- AIAG SPC Manual
-- Montgomery, Introduction to Statistical Quality Control
-- Reference: ref.github.manufacturing.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

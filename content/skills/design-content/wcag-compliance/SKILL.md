@@ -2,7 +2,7 @@
 id: design-content.wcag-compliance
 name: WCAG Compliance
 version: 1.0.0
-domain: design-content
+domain: moramvenkatasatyajaswanth
 category: design-content.accessibility
 purpose: Audit and remediate WCAG 2.2 compliance issues across digital products.
 summary: Systematic WCAG 2.2 AA audit with criterion-by-criterion assessment and remediation guidance.
@@ -12,71 +12,112 @@ triggers:
   - accessibility compliance check
   - wcag remediation plan
   - wcag conformance review
-aliases:
-  - wcag audit
-  - wcag check
-negative_keywords:
-  - visual design only
-  - performance optimization
-  - security audit
+  - yes human task
+  - wcag compliance review
+activation_triggers:
+  - help me with wcag compliance
+  - review wcag compliance work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - product_surface
   - wcag_target_level
   - existing_audit_results
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested wcag compliance outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - wcag_audit_report
   - remediation_plan
   - conformance_score
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
-required_skills: []
-budget_band: standard
-max_context_tokens: 10000
+  - filesystem.write
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Missing WCAG criteria in audit
   - Findings without specific criterion citation
   - Remediation without priority ordering
-verification:
-  - All applicable WCAG criteria assessed
-  - Each finding cites specific criterion
-  - Remediation prioritized by impact
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.design-content.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - No state changes to rollback
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Audit and remediate WCAG 2.2 compliance issues across digital products.
+## Trigger
+Use this skill when a task explicitly matches `design-content.wcag-compliance` or when the user asks for wcag compliance support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- Before releasing a product to production
-- During periodic accessibility audits
-- When addressing accessibility complaints
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- Visual design only (use figma-design skill)
-- Performance optimization (use engineering domain)
-- Security audit (use security domain)
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. Map product surface to applicable WCAG criteria.
-2. Assess each criterion with pass/fail/not-applicable.
-3. Document findings with specific criterion citation.
-4. Prioritize remediation by user impact.
-5. Produce conformance score and roadmap.
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-## Tool Policy
-- Use `filesystem.read` to review product surfaces and code.
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- All applicable WCAG criteria assessed
-- Each finding cites specific criterion
-- Remediation prioritized by impact
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
+
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
+
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for wcag compliance help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-W3C WCAG 2.2, WAI-ARIA Authoring Practices, Deque axe-core rules. Reference: ref.github.design-content.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

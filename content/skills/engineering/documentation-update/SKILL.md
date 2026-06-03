@@ -2,7 +2,7 @@
 id: engineering.documentation-update
 name: Documentation Sync with Code
 version: 1.0.0
-domain: engineering
+domain: moramvenkatasatyajaswanth
 category: engineering.docs
 purpose: Keep documentation synchronized with code changes to ensure accuracy and completeness.
 summary: Identifies documentation gaps after code changes and updates docs to reflect current implementation.
@@ -12,30 +12,36 @@ triggers:
   - sync docs with code
   - documentation needs update
   - update README
+  - yes human task
+  - documentation sync with code review
 activation_triggers:
   - update the docs
   - documentation is wrong
   - fix the docs
 prerequisites:
-  - access to code changes
-  - existing documentation structure
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - code_changes
   - existing_documentation
   - documentation_format (markdown, jsdoc, etc.)
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
 steps:
-  - Identify code changes that affect documentation
-  - Review existing documentation for affected areas
-  - Update API documentation (parameters, return values, examples)
-  - Update README if setup or usage changed
-  - Update inline code comments for complex logic
-  - Add or update code examples
-  - Verify all links and references are valid
-  - Run documentation linter if available
+  - Confirm the requested documentation sync with code outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - updated_documentation
   - documentation_diff
   - validation_results
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - filesystem.read
   - filesystem.write
@@ -45,99 +51,83 @@ quality_gates:
   - Examples are accurate and runnable
   - No broken links
   - Consistent terminology
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
 failure_modes:
   - Missing documentation for new features
   - Outdated examples that don't work
   - Inconsistent terminology
   - Broken links or references
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
 handoffs:
   - engineering.code-reviewer (to review doc changes)
   - design-content.technical-writer (for major doc rewrites)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.documentation-best-practices.2026-06-01
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - engineering.docs-updater
   - engineering.dev-workflow
-allowed_workflows:
-  - engineering.docs-update
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - Revert documentation changes using version control
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when code changes require documentation updates, or when documentation is reported as outdated.
+Use this skill when a task explicitly matches `engineering.documentation-update` or when the user asks for documentation sync with code support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Access to recent code changes (git diff, PR, or commit list)
-- Existing documentation structure
-- Understanding of documentation format (Markdown, JSDoc, etc.)
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Identify Affected Documentation**:
-   - Check git diff for changed files
-   - Identify public APIs that changed
-   - Check for new features or breaking changes
-   - Review CHANGELOG for recent updates
-2. **Review Existing Docs**:
-   - Read current documentation for affected areas
-   - Check for outdated examples
-   - Verify parameter descriptions match implementation
-3. **Update API Documentation**:
-   - Update function signatures if changed
-   - Add new parameters with descriptions
-   - Update return value descriptions
-   - Add or update JSDoc/TSDoc comments
-4. **Update README**:
-   - Update installation instructions if dependencies changed
-   - Update usage examples if API changed
-   - Add new features to feature list
-   - Update configuration options
-5. **Update Inline Comments**:
-   - Add comments for complex logic
-   - Update comments that no longer match code
-   - Remove obsolete comments
-6. **Add/Update Examples**:
-   - Ensure examples are runnable
-   - Add examples for new features
-   - Update examples for changed APIs
-7. **Validate Documentation**:
-   - Check all links are valid
-   - Run documentation linter (if available)
-   - Verify code examples compile/run
-8. **Review and Commit**:
-   - Review changes for clarity and completeness
-   - Commit with descriptive message
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- Documentation linter passes (if available)
-- All links are valid (404 check)
-- Code examples are runnable
-- Peer review approved
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
 ## Rollback
-- Revert documentation changes: `git checkout HEAD~1 <doc-file>`
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Forgetting to update examples after API changes
-- Not checking if code examples still work
-- Using inconsistent terminology
-- Missing documentation for edge cases
-- Broken links to external resources
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
 ## Examples
-### Updating API Documentation
-Input: Function signature changed from `getUser(id)` to `getUser(id, options)`
-Output:
-- Update JSDoc: Add `options` parameter with description
-- Update README: Add example showing options usage
-- Update API reference: Document all option fields
-- Add example: `getUser(123, { includePosts: true })`
+**Example A:** A user asks for documentation sync with code help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

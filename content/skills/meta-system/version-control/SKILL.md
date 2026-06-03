@@ -2,7 +2,7 @@
 id: meta-system.version-control
 name: Version Control for Registry Artifacts
 version: 1.0.0
-domain: meta-system
+domain: moramvenkatasatyajaswanth
 category: meta-system.operations
 purpose: Manage version control for agents, skills, workflows, and dossiers ensuring traceability and rollback capability.
 summary: Systematic approach to versioning registry artifacts with proper semantic versioning and change tracking.
@@ -12,99 +12,125 @@ triggers:
   - semantic version management
   - change tracking setup
   - version rollback plan
+  - yes human task
+  - version control for registry artifacts review
 activation_triggers:
   - version control
   - artifact versioning
   - version management
 prerequisites:
-  - registry artifacts identified
-  - versioning scheme defined
-  - change tracking configured
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - registry_artifacts
   - versioning_scheme
   - change_tracking_config
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
 steps:
-  - Review current artifact versions
-  - Apply semantic versioning rules
-  - Track changes per version
-  - Design version compatibility matrix
-  - Plan rollback procedures
-  - Implement version tagging
-  - Validate version consistency
-  - Document version history
-  - Test rollback procedures
-  - Publish version guide
+  - Confirm the requested version control for registry artifacts outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - version_registry
   - change_log
   - compatibility_matrix
   - rollback_procedures
+  - review_or_analysis_report
+  - actionable_next_steps
 tools:
   - filesystem.read (read artifact versions)
   - shell.readonly (run version inspection commands)
+  - filesystem.read
+  - filesystem.write
 quality_gates:
   - Semantic versioning applied
   - Changes tracked per version
   - Compatibility matrix defined
   - Rollback procedures tested
   - Version history documented
+  - Inputs and assumptions are explicit
 failure_modes:
   - Versioning without semantic rules
   - Missing change tracking
   - Untested rollback procedures
   - Inconsistent versions across artifacts
   - Undocumented version history
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
 handoffs:
   - meta-system.quality-assurance (for version consistency checks)
   - meta-system.system-monitoring (for version health monitoring)
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.meta-system.2026-05-31
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
 allowed_agents:
   - meta-system.quality-assurance
   - meta-system.system-optimizer
-allowed_workflows: []
+  - moramvenkatasatyajaswanth.master
 status: active
 budget_band: standard
 rollback:
   - Revert to previous artifact version
   - Restore version registry state
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
 ## Trigger
-Use this skill when managing artifact versions, setting up version control, or planning version rollbacks.
+Use this skill when a task explicitly matches `meta-system.version-control` or when the user asks for version control for registry artifacts support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
 ## Prerequisites
-- Registry artifacts identified
-- Versioning scheme defined
-- Change tracking configured
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
 ## Steps
-1. **Review Versions**: Check current versions of all artifacts.
-2. **Apply SemVer**: Use semantic versioning (major.minor.patch).
-3. **Track Changes**: Record what changed in each version.
-4. **Design Compatibility**: Map which versions work together.
-5. **Plan Rollback**: Define how to revert to previous versions.
-6. **Implement Tagging**: Apply version tags to artifacts.
-7. **Validate Consistency**: Check versions are consistent across registry.
-8. **Document History**: Write version history for each artifact.
-9. **Test Rollback**: Verify rollback procedures work.
-10. **Publish Guide**: Create a version management guide.
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
+
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
+
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- All quality gates passed
-- Semantic versioning applied consistently
-- Rollback procedures tested
-- Version history documented
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
+
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
 ## Common Failures
-- Versioning without semantic rules
-- Missing change tracking between versions
-- Not testing rollback procedures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
 
-## Procedure
-1. Clarify inputs
-2. Apply dossier patterns
-3. Verify outputs
+## Examples
+**Example A:** A user asks for version control for registry artifacts help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
+
+## Source Notes
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

@@ -2,7 +2,7 @@
 id: design-content.color-contrast
 name: Color Contrast
 version: 1.0.0
-domain: design-content
+domain: moramvenkatasatyajaswanth
 category: design-content.accessibility
 purpose: Audit and fix color contrast issues to meet WCAG AA and AAA standards.
 summary: Color contrast analysis with ratio calculations, palette adjustments, and accessible color pairings.
@@ -12,71 +12,112 @@ triggers:
   - accessible color palette
   - color contrast fix
   - wcag color compliance
-aliases:
-  - color contrast
-  - contrast check
-negative_keywords:
-  - typography only
-  - layout design
-  - backend implementation
+  - yes human task
+  - color contrast review
+activation_triggers:
+  - help me with color contrast
+  - review color contrast work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - color_palette
   - contrast_target_level
   - usage_contexts
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested color contrast outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - contrast_audit_report
   - accessible_pairings
   - remediation_suggestions
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
-required_skills: []
-budget_band: standard
-max_context_tokens: 6000
+  - filesystem.write
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Missing contrast ratio calculations
   - Only checks text, ignores UI components
   - Suggests fixes without brand alignment
-verification:
-  - All color pairs have ratio calculations
-  - UI component colors assessed
-  - Fixes align with brand palette
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.design-content.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - No state changes to rollback
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Audit and fix color contrast issues to meet WCAG AA and AAA standards.
+## Trigger
+Use this skill when a task explicitly matches `design-content.color-contrast` or when the user asks for color contrast support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- Auditing color palette for accessibility
-- Fixing contrast issues in existing designs
-- Creating accessible color pairings
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- Typography only (use style-guides skill)
-- Layout design (use figma-design skill)
-- Backend implementation (use engineering domain)
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. Extract all color pairs from the palette and usage contexts.
-2. Calculate contrast ratios for each pair (normal and large text).
-3. Assess against WCAG AA (4.5:1 normal, 3:1 large) and AAA (7:1 normal, 4.5:1 large).
-4. Check UI component colors (borders, icons, focus indicators).
-5. Suggest accessible alternatives that align with brand palette.
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-## Tool Policy
-- Use `filesystem.read` to review color palette and design files.
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
+
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
+
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
+
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- All color pairs have ratio calculations
-- UI component colors assessed
-- Fixes align with brand palette
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
+
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
+
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for color contrast help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-WCAG 2.2 SC 1.4.3 and 1.4.6, WebAIM contrast checker, APCA contrast algorithm. Reference: ref.github.design-content.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.

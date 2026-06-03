@@ -2,7 +2,7 @@
 id: healthcare.clinical-decision-support
 name: Clinical Decision Support Design
 version: 1.0.0
-domain: healthcare
+domain: moramvenkatasatyajaswanth
 category: healthcare.clinical
 purpose: Design and evaluate clinical decision support systems including alerts, order sets, and evidence-based recommendations.
 summary: Clinical decision support design covering CDS Five Rights, alert design, order sets, and clinical reasoning logic.
@@ -12,107 +12,112 @@ triggers:
   - order set design
   - clinical reasoning logic
   - cds intervention evaluation
-aliases:
-  - cds
-  - clinical decision support
-negative_keywords:
-  - business decision support
-  - general analytics
-  - marketing automation
+  - yes human task
+  - clinical decision support design review
+activation_triggers:
+  - help me with clinical decision support design
+  - review clinical decision support design work
+prerequisites:
+  - Concrete task artifact or context is available
+  - User goal, scope, and success criteria are stated
+  - Relevant project constraints are known
 inputs:
   - clinical_scenario
   - evidence_base
   - workflow_context
+  - target_artifact
+  - requirements_or_context
+  - constraints_and_risks
+steps:
+  - Confirm the requested clinical decision support design outcome, scope, owner, and success criteria
+  - Collect relevant task evidence from local project files, user-provided context, or approved sources
+  - Compare the evidence against the skill quality gates and domain-specific risk checklist
+  - Draft the requested artifact with assumptions, risks, and next actions separated clearly
+  - Verify the output against validators, failure modes, and rollback expectations
+  - Hand off cross-domain issues to the listed agents or mark human review requirements
 outputs:
   - cds_design
   - alert_specifications
   - evaluation_plan
-allowed_tools:
+  - review_or_analysis_report
+  - actionable_next_steps
+tools:
   - filesystem.read
   - filesystem.write
-required_skills: []
-budget_band: standard
-max_context_tokens: 10000
+quality_gates:
+  - Inputs and assumptions are explicit
+  - Recommendations are tied to evidence
+  - Output is scoped and actionable
 failure_modes:
   - Designs CDS without considering alert fatigue
   - Ignores evidence quality grading
   - Skips workflow integration assessment
-verification:
-  - CDS Five Rights addressed
-  - Evidence quality graded
-  - Alert fatigue mitigation planned
+  - Missing source context leads to generic output
+  - Recommendations are not backed by evidence
+  - Cross-domain risk is not escalated
+handoffs:
+  - moramvenkatasatyajaswanth.master (for cross-domain or ambiguous task work)
 source_references:
-  - ref.github.healthcare.2026-05-31
-quality_gate: staging
+  - https://github.com/microsoft/graphrag
+  - https://github.com/lastmile-ai/mcp-agent
+allowed_agents:
+  - moramvenkatasatyajaswanth.master
 status: active
+budget_band: standard
 rollback:
   - Disable CDS interventions if safety concerns arise
+  - Discard generated artifact or revert file changes in git
 validators:
   - skill.validator
 ---
 
-## Mission
-Design and evaluate clinical decision support systems including alerts, order sets, and evidence-based recommendations.
+## Trigger
+Use this skill when a task explicitly matches `healthcare.clinical-decision-support` or when the user asks for clinical decision support design support. It is designed for bounded task work where the agent needs concrete inputs, a repeatable procedure, and verification before handoff.
 
-## When To Use
-- When designing CDS alerts and interventions
-- When creating or reviewing order sets
-- When evaluating CDS effectiveness
-- When implementing clinical reasoning logic
+## Prerequisites
+- Confirm the user goal, scope, owner, and deadline.
+- Locate the relevant source artifact, policy, dataset, code path, or business context before producing recommendations.
+- Identify whether the task touches regulated or high-stakes decisions.
 
-## When Not To Use
-- For business decision support systems (use analytics agents)
-- For general analytics without clinical context (use health-data-analytics)
-- For marketing automation rules (use marketing agents)
+## Steps
+### 1. Confirm Scope
+Restate the requested outcome, exclusions, and success criteria. If core inputs are missing, list assumptions explicitly and keep the output marked as draft.
 
-## Procedure
-1. **Define Clinical Problem**:
-   - Identify the clinical gap or opportunity
-   - Define target users and workflow context
-   - Specify desired clinical outcomes
+### 2. Inventory Evidence
+Collect the relevant files, records, metrics, examples, or policies. Prefer project-local sources and cite external patterns only as implementation guidance.
 
-2. **Apply CDS Five Rights**:
-   - Right information: evidence-based content
-   - Right person: target clinician or patient
-   - Right format: alert, order set, reference info
-   - Right channel: EHR, mobile, pager
-   - Right time: point of decision
+### 3. Apply Domain Checks
+Evaluate the work against the key task criteria for this skill: completeness, correctness, risk, maintainability, and user impact. Separate observed facts from inferred recommendations.
 
-3. **Design CDS Intervention**:
-   - Create alert logic and firing criteria
-   - Design order sets with evidence-based defaults
-   - Build clinical reasoning rules and pathways
+### 4. Produce the Artifact
+Create the requested report, plan, checklist, implementation notes, or review output in a structure that can be acted on by the owning team. Include owners and next steps when the result implies follow-up work.
 
-4. **Mitigate Alert Fatigue**:
-   - Apply tiered alert severity
-   - Design override reasons and documentation
-   - Set appropriate sensitivity and specificity targets
+### 5. Verify Quality
+Run the validators listed in frontmatter, check each quality gate, and review failure modes before finalizing. High-stakes outputs must include a disclaimer and human review gate.
 
-5. **Evaluate Effectiveness**:
-   - Define process and outcome measures
-   - Design pre/post evaluation methodology
-   - Monitor for unintended consequences
-
-## Tool Policy
-- Use `filesystem.read` to review clinical evidence and CDS specifications
-- Use `filesystem.write` to produce CDS designs and evaluation plans
+### 6. Handoff or Escalate
+Route cross-domain issues to the listed handoff agents. Escalate when the task requires professional judgment, credentials, live system access, or destructive changes outside this skill's scope.
 
 ## Verification
-- CDS Five Rights addressed in design
-- Evidence quality graded using recognized framework
-- Alert fatigue mitigation strategies planned
+- [ ] Inputs, assumptions, and exclusions are stated.
+- [ ] At least two source references or local evidence points are reflected in the output.
+- [ ] All quality gates in frontmatter have been checked.
+- [ ] Rollback or no-write behavior is clear.
+- [ ] Human review is marked when domain risk requires it.
 
-## Failure Modes
-- Designing CDS without considering alert fatigue impact
-- Ignoring evidence quality grading for recommendations
-- Skipping workflow integration assessment
+## Rollback
+This skill should default to no direct production mutation. Revert generated artifacts through git or discard the draft output; if any external state was changed by a paired workflow, record the changed system, owner, timestamp, and restoration step.
 
-## Example Routes
-- Drug-drug interaction alert design with tiered severity
-- Sepsis screening order set with evidence-based bundles
-- VTE prophylaxis CDS for hospitalized patients
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Generic advice | Missing artifact or context | Ask for the concrete source, then rerun the checks |
+| Unsupported recommendation | Evidence was not separated from inference | Add citations, confidence, and assumptions |
+| Scope drift | Task spans multiple domains | Handoff to the appropriate domain master or workflow |
+
+## Examples
+**Example A:** A user asks for clinical decision support design help with a specific file or dataset; apply the six-step procedure and return a concise, evidence-backed artifact.
+**Example B:** A user asks for a broad strategy without inputs; produce a scoped checklist, identify missing evidence, and mark recommendations as assumptions until reviewed.
 
 ## Source Notes
-- Osheroff CDS Five Rights
-- AMIA CDS Guidelines
-- Reference: ref.github.healthcare.2026-05-31
+Reference patterns are drawn from https://github.com/microsoft/graphrag and https://github.com/lastmile-ai/mcp-agent. Use them for process patterns only; do not copy code or policy text unless license and project policy explicitly allow it.
