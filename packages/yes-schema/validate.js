@@ -15,7 +15,19 @@ addFormats(ajv);
 
 const schemasDir = path.join(__dirname, 'schemas');
 const schemaFiles = fs.readdirSync(schemasDir).filter((f) => f.endsWith('.json'));
-const registryIndexNames = ['agents', 'skills', 'workflows', 'tools', 'mcps', 'categories', 'aliases', 'commands', 'bundles', 'category-packs', 'adapter-packs'];
+const registryIndexNames = [
+  'agents',
+  'skills',
+  'workflows',
+  'tools',
+  'mcps',
+  'categories',
+  'aliases',
+  'commands',
+  'bundles',
+  'category-packs',
+  'adapter-packs'
+];
 const highStakesWorkflowDomains = new Set(['finance', 'legal-compliance', 'healthcare', 'hr']);
 
 for (const file of schemaFiles) {
@@ -286,7 +298,9 @@ function validateWorkflowDossiersAndPolicies() {
           ok = false;
         } else {
           if (dossier.workflow_id !== workflow.id) {
-            console.error(`✗ Workflow dossier id mismatch in ${dossierPath}: expected '${workflow.id}', got '${dossier.workflow_id}'`);
+            console.error(
+              `✗ Workflow dossier id mismatch in ${dossierPath}: expected '${workflow.id}', got '${dossier.workflow_id}'`
+            );
             ok = false;
           }
           if (dossier.promotion_decision === 'draft') {
@@ -336,7 +350,9 @@ function validateWorkflowDossiersAndPolicies() {
         .map((agentId) => agentById.get(agentId))
         .some((agent) => agent?.requires_disclaimer && agent?.human_review_gate);
       if (!hasDisclaimerAgent) {
-        console.error(`✗ High-stakes workflow '${workflow.id}' must include an agent with requires_disclaimer and human_review_gate`);
+        console.error(
+          `✗ High-stakes workflow '${workflow.id}' must include an agent with requires_disclaimer and human_review_gate`
+        );
         ok = false;
       }
     }
@@ -364,11 +380,11 @@ for (const name of registryIndexNames) {
 // Detailed validation of individual items within the registry indices
 console.log('\n--- Registry item-level validation ---');
 const detailedSchemaMapping = {
-  'agents': 'agent',
-  'skills': 'skill',
-  'workflows': 'workflow',
-  'mcps': 'mcp',
-  'categories': 'category',
+  agents: 'agent',
+  skills: 'skill',
+  workflows: 'workflow',
+  mcps: 'mcp',
+  categories: 'category',
   'category-packs': 'category-pack',
   'adapter-packs': 'adapter-pack'
 };
@@ -386,7 +402,10 @@ for (const [registryName, schemaName] of Object.entries(detailedSchemaMapping)) 
     let itemsOk = true;
     for (let i = 0; i < content.items.length; i++) {
       if (!validate(content.items[i])) {
-        console.error(`✗ Validation failed for item in ${registryPath} at index ${i} (${content.items[i].id}):`, validate.errors);
+        console.error(
+          `✗ Validation failed for item in ${registryPath} at index ${i} (${content.items[i].id}):`,
+          validate.errors
+        );
         itemsOk = false;
         success = false;
       }
@@ -398,9 +417,9 @@ for (const [registryName, schemaName] of Object.entries(detailedSchemaMapping)) 
 }
 
 // Validate source dossiers for staging/production agents
-  const licenseRegistry = fileExists('registry/license-registry.json')
-    ? readJson('registry/license-registry.json').content
-    : { allowed: [], forbidden: [], restricted: [] };
+const licenseRegistry = fileExists('registry/license-registry.json')
+  ? readJson('registry/license-registry.json').content
+  : { allowed: [], forbidden: [], restricted: [] };
 console.log('\n--- Source dossier verification ---');
 const agentsRegistryPath = 'registry/agents.json';
 if (fileExists(agentsRegistryPath)) {
@@ -411,7 +430,7 @@ if (fileExists(agentsRegistryPath)) {
       const mainCategory = agent.id.split('.')[0];
       const agentSubId = agent.id.split('.').slice(1).join('.');
       const dossierPath = `references/${mainCategory}/${agentSubId}.sources.json`;
-      
+
       if (!fileExists(dossierPath)) {
         console.error(`✗ Agent '${agent.id}' requires a source dossier but it is missing at: ${dossierPath}`);
         dossiersOk = false;
@@ -431,12 +450,16 @@ if (fileExists(agentsRegistryPath)) {
           success = false;
         } else {
           if (dossier.agent_id !== agent.id) {
-            console.error(`✗ Dossier agent_id mismatch in ${dossierPath}: expected '${agent.id}', got '${dossier.agent_id}'`);
+            console.error(
+              `✗ Dossier agent_id mismatch in ${dossierPath}: expected '${agent.id}', got '${dossier.agent_id}'`
+            );
             dossiersOk = false;
             success = false;
           }
           if (dossier.promotion_decision !== agent.quality_gate) {
-            console.error(`✗ Dossier promotion decision ('${dossier.promotion_decision}') does not match agent quality gate ('${agent.quality_gate}') in ${dossierPath}`);
+            console.error(
+              `✗ Dossier promotion decision ('${dossier.promotion_decision}') does not match agent quality gate ('${agent.quality_gate}') in ${dossierPath}`
+            );
             dossiersOk = false;
             success = false;
           }
@@ -461,10 +484,12 @@ if (fileExists(agentsRegistryPath)) {
 console.log('\n--- Workflow dossier verification ---');
 if (!validateWorkflowDossiersAndPolicies()) success = false;
 
-console.log('\n--- Phase 9 config validation ---');
+console.log('\n--- OSS runtime policy validation ---');
 if (!validateAgainst('registry/learning-policy.json', 'learning-policy')) success = false;
 if (!validateAgainst('registry/team-mode.json', 'team-mode')) success = false;
 if (!validateAgainst('registry/offline-mode.json', 'offline-mode')) success = false;
+if (!validateAgainst('registry/rbac.json', 'rbac-policy')) success = false;
+if (!validateAgainst('registry/retention-policy.json', 'retention-policy')) success = false;
 
 console.log('\n--- Manifest and path validation ---');
 if (!validateManifestPaths()) success = false;
@@ -512,7 +537,7 @@ if (fileExists('hooks/hook-registry.json')) {
 console.log('\n--- Phase 3: Rules validation ---');
 const rulesDir = path.join(repoRoot, 'rules');
 if (fs.existsSync(rulesDir)) {
-  const ruleFiles = fs.readdirSync(rulesDir).filter(f => f.endsWith('.rules.json'));
+  const ruleFiles = fs.readdirSync(rulesDir).filter((f) => f.endsWith('.rules.json'));
   let rulesOk = true;
   for (const ruleFile of ruleFiles) {
     const rulePath = `rules/${ruleFile}`;
@@ -531,7 +556,7 @@ if (fs.existsSync(rulesDir)) {
 console.log('\n--- Phase 3: Policies validation ---');
 const policiesDir = path.join(repoRoot, 'policies');
 if (fs.existsSync(policiesDir)) {
-  const policyFiles = fs.readdirSync(policiesDir).filter(f => f.endsWith('.policy.json'));
+  const policyFiles = fs.readdirSync(policiesDir).filter((f) => f.endsWith('.policy.json'));
   let policiesOk = true;
   for (const policyFile of policyFiles) {
     const policyPath = `policies/${policyFile}`;

@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { COMBINED_SECRET_REGEX } from './secrets.js';
 
 export {
   evaluatePromotion,
@@ -23,15 +24,54 @@ export {
  */
 export class PolicyEvaluator {
   constructor(config = {}) {
-    this.rulesDir = config.rulesDir || 'rules';
-    this.policiesDir = config.policiesDir || 'policies';
-    this.contractsDir = config.contractsDir || 'contracts';
-    this.costPolicyPath = config.costPolicyPath || 'registry/cost-policy.json';
+    const isString = typeof config === 'string';
+    this.rulesDir = (!isString && config.rulesDir) || 'rules';
+    this.policiesDir = (!isString && config.policiesDir) || 'policies';
+    this.contractsDir = (!isString && config.contractsDir) || 'contracts';
+    this.costPolicyPath = (isString ? config : config.costPolicyPath) || 'registry/cost-policy.json';
     
-    this.rules = this.loadRules();
-    this.policies = this.loadPolicies();
-    this.contracts = this.loadContracts();
-    this.costPolicy = this.loadCostPolicy();
+    this._rules = null;
+    this._policies = null;
+    this._contracts = null;
+    this._costPolicy = null;
+  }
+
+  get rules() {
+    if (!this._rules) this._rules = this.loadRules();
+    return this._rules;
+  }
+
+  set rules(val) {
+    this._rules = val;
+    this._rulesByAction = null;
+  }
+
+  get policies() {
+    if (!this._policies) this._policies = this.loadPolicies();
+    return this._policies;
+  }
+
+  set policies(val) {
+    this._policies = val;
+    this._policiesByAction = null;
+  }
+
+  get contracts() {
+    if (!this._contracts) this._contracts = this.loadContracts();
+    return this._contracts;
+  }
+
+  set contracts(val) {
+    this._contracts = val;
+  }
+
+  get costPolicy() {
+    if (!this._costPolicy) this._costPolicy = this.loadCostPolicy();
+    return this._costPolicy;
+  }
+
+  set costPolicy(val) {
+    this._costPolicy = val;
   }
 
   /**
@@ -145,11 +185,36 @@ export class PolicyEvaluator {
     if (context.path !== undefined && context.filePath === undefined) context.filePath = context.path;
     const { action } = context;
 
-    // 1. Check rules (action-specific conditional logic)
-    for (const [ruleId, rule] of Object.entries(this.rules)) {
-      if (!rule.applies_to || !rule.applies_to.includes(action)) {
-        continue;
+    // Index rules by action on demand
+    if (!this._rulesByAction) {
+      this._rulesByAction = new Map();
+      for (const [ruleId, rule] of Object.entries(this.rules)) {
+        for (const act of rule.applies_to || []) {
+          if (!this._rulesByAction.has(act)) {
+            this._rulesByAction.set(act, []);
+          }
+          this._rulesByAction.get(act).push({ ruleId, rule });
+        }
       }
+    }
+
+    // Index policies by action on demand
+    if (!this._policiesByAction) {
+      this._policiesByAction = new Map();
+      for (const [policyId, policy] of Object.entries(this.policies)) {
+        const applies = policy.applies_to || [];
+        for (const act of applies) {
+          if (!this._policiesByAction.has(act)) {
+            this._policiesByAction.set(act, []);
+          }
+          this._policiesByAction.get(act).push({ policyId, policy });
+        }
+      }
+    }
+
+    // 1. Check rules (action-specific conditional logic)
+    const applicableRules = this._rulesByAction.get(action) || [];
+    for (const { ruleId, rule } of applicableRules) {
       for (const r of rule.rules) {
         if (this.matchCondition(r.when, context)) {
           const allowed = r.then !== 'deny';
@@ -164,10 +229,8 @@ export class PolicyEvaluator {
     }
 
     // 2. Check policies (access control and security)
-    for (const [policyId, policy] of Object.entries(this.policies)) {
-      if (policy.applies_to && !policy.applies_to.includes(action)) {
-        continue;
-      }
+    const applicablePolicies = this._policiesByAction.get(action) || [];
+    for (const { policyId, policy } of applicablePolicies) {
       for (const r of policy.rules) {
         if (this.matchCondition(r.match, context)) {
           const allowed = r.decision === 'allow';
@@ -358,7 +421,7 @@ export class PolicyEvaluator {
     }
     if (invariant.startsWith('no_secrets')) {
       const content = context.content || '';
-      return !/(sk-[a-zA-Z0-9]{20,}|ghp_[a-zA-Z0-9]{36}|AKIA[0-9A-Z]{16})/.test(content);
+      return !COMBINED_SECRET_REGEX.test(content);
     }
     return true;
   }

@@ -5,7 +5,7 @@
 [![Node](https://img.shields.io/badge/node-%3E%3D20-blue.svg)](https://nodejs.org)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/jaswanthmoram/yes-human/blob/master/CONTRIBUTING.md)
 
-Yes-human is a portable, low-token routing and orchestration layer for AI assistant hosts. It keeps startup context tiny, deterministically routes natural-language tasks to provenance-gated agents, skills, and workflows, then exports the same canonical content to multiple host formats. It is not an LLM, a hosted SaaS, or a replacement for professional judgment in regulated domains.
+Yes-human is a portable, low-token routing and orchestration layer for AI assistant hosts. It keeps startup context tiny, deterministically routes natural-language tasks to provenance-gated agents, skills, and workflows, then exports the same canonical content to multiple host formats. It is an open-source control plane, not an LLM or a replacement for professional judgment in regulated domains.
 
 ## Production Scope
 
@@ -19,6 +19,7 @@ Yes-human is a portable, low-token routing and orchestration layer for AI assist
 | High-stakes work | Finance, legal, HR, and healthcare routes require disclaimer and human review gates |
 | Host bundles | Claude, Codex, OpenCode, MCP, Cursor, Windsurf, VS Code, Sourcegraph, and Generic |
 | Security baseline | Env-var secret references, CI secret scan, pre-commit gitleaks hook |
+| OSS runtime primitives | Semantic fallback, fan-out plans, RBAC, tenant/project trace isolation, retention, connector protocol, signed manifest verification |
 
 ## Install
 
@@ -40,6 +41,18 @@ npm run yes -- persona set developer
 npm run yes -- build cursor
 ```
 
+## Open-Source Scope
+
+The repository is intended to be fully open source at the code and architecture level. Public scope includes:
+
+- routing, registries, schemas, validation, and promotion gates
+- agent, skill, workflow, and adapter generation logic
+- deterministic semantic fallback, fan-out workflow planning, RBAC primitives, and connector adapter protocol
+- tenant/project trace isolation, private-trace redaction, retention rules, graph build/query, and document-to-Markdown conversion
+- signed generic host manifests and validation checks for generated host bundles
+
+Hosted offerings, if published later, are deployment layers around the open repository rather than hidden core logic. Kept as future deployment work only: hosted login/invites/org administration, billing, customer-managed retention operations, managed connector operations, hosted sandbox execution at scale, rollout/eval infrastructure for hosted semantic routing, and paid parallel execution quotas/cost controls.
+
 Run the full local gate before publishing changes:
 
 ```bash
@@ -56,8 +69,8 @@ node packages/yes-cli/index.js build all
 
 1. The host loads `YES_BOOT.md`, a tiny boot contract pointing at the router.
 2. `hooks/pre-route.js` applies budget, safety, signal-word, loop-prevention, and persona gates.
-3. `packages/yes-runtime/router.js` resolves exact phrases, aliases, phrase-trie matches, workflow cache hits, and fallback routes.
-4. The selected route lazy-loads the target domain master, agent, skills, workflow, and optional graph context.
+3. `packages/yes-runtime/router.js` resolves exact phrases, aliases, phrase-trie matches, code-graph assist, deterministic semantic fallback, and fallback routes.
+4. The selected route lazy-loads the target domain master, agent, skills, workflow, optional graph context, and connector hints.
 5. `hooks/post-route.js` records route metadata without mutating production registries.
 6. `yes run --trace` writes structured per-invocation trace JSON to stderr and `staging/traces/<date>.jsonl`.
 
@@ -138,6 +151,7 @@ get `{ markdown, images, hasImages }` instead of a string.
 | `registry/routes.json` | Full route definitions (lazy-loaded) |
 | `registry/*.json` | Agent, skill, workflow, connector, and category-pack indexes |
 | `packages/yes-schema/` | JSON schemas and validator |
+| `packages/yes-connectors/` | Generic OSS connector adapter protocol over `registry/mcps.json` and connector profiles |
 | `yes-human.plugin.json` | Plugin manifest |
 | `reports/phase8-acceptance.md` | Generated Phase 8 acceptance summary |
 | `reports/phase9-acceptance.md` | Phase 9 learning/team/offline/adapter acceptance summary |
@@ -145,17 +159,17 @@ get `{ markdown, images, hasImages }` instead of a string.
 
 ## Documentation
 
-### Planning & Strategy
-- `YES-HUMAN_DEVELOPMENT_PLAN.md` — Phased engineering roadmap with ECC source map integration
-- `YES-HUMAN_REVIEW_AND_AGENT_CREATION_PLAN.md` — Review findings, blockers, and agent creation strategy
+### Current OSS Core
+- `YES-HUMAN_DEVELOPMENT_PLAN.md` — Current OSS core status, contributor validation gate, and concise future hosted deployment section
+- `yes-human-agentic-system-architecture.md` — Architecture reference for the public control plane
+- `CONTRIBUTING.md` — Contributor workflow, source dossier expectations, route fixture rules, and validation gate
+
+### Provenance And Research
 - `YES-HUMAN_SOURCE_MAP.md` — Validated source registry for agent/workflow creation
-
-### Architecture
-- `yes-human-agentic-system-architecture.md` — Complete system architecture (5,600+ lines)
-
-### Research
 - `reports/ECC-SKILL-SOURCE-MAP-DEEP-RESEARCH.md` — Deep research: 180+ repos, 14 architecture patterns, 8 categories
 - `reports/COMPETITOR-ANALYSIS.md` — Direct competitor analysis: 5 closest projects, 20 adoption patterns, competitive positioning matrix
+
+Historical phase plans and prompt-only task files were removed once their work was reflected in code, schemas, tests, docs, reports, or source provenance.
 
 ## Architecture Highlights
 
@@ -201,7 +215,7 @@ Feedback, workflow suggestions, and trainer output are staging/report artifacts 
 4. Promote agents only via dossier + `quality_gate: production` checks (`npm run audit:promotion`).
 5. Optional non-deterministic hints: set `routing_hints.enabled: true` in `registry/learning-policy.json` (default `false`).
 
-Semantic graph routing is stubbed behind `semantic_fallback` in `registry/graph-routing.json` (default `false`).
+Semantic fallback is implemented in `packages/yes-runtime/router.js` and enabled by `registry/graph-routing.json`. It uses deterministic local token-overlap scoring over public route keywords/aliases after exact, alias, trie, and code-graph assist stages.
 
 ### OSS absorb
 
@@ -219,6 +233,8 @@ npm run yes -- run "review code"              # route plan only
 npm run yes -- run "review code" --execute    # dry-run execution card
 npm run yes -- run "review code" --execute --local  # read-only local agent load
 ```
+
+Runtime traces are tenant/project scoped under `graph/memory/tenants/<tenant-hash>/projects/<project-hash>/`, redacted before write, and annotated with retention metadata from `registry/retention-policy.json`. RBAC primitives live in `registry/rbac.json` and `packages/yes-core/rbac.js`; workflow execution checks these primitives before non-dry-run orchestration.
 
 ### MCP connector profiles
 

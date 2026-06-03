@@ -40,7 +40,8 @@
       "negative_keywords": [
         "performance optimization",
         "code deployment",
-        "financial forecast"
+        "financial forecast",
+        "revenue forecasting"
       ]
     },
     "target": {
@@ -73,7 +74,8 @@
       "negative_keywords": [
         "code implementation",
         "model training",
-        "legal contract"
+        "legal contract",
+        "contract review"
       ]
     },
     "target": {
@@ -106,7 +108,8 @@
       "negative_keywords": [
         "production deployment",
         "business analytics",
-        "legal review"
+        "legal review",
+        "contract review"
       ]
     },
     "target": {
@@ -138,7 +141,12 @@
       "aliases": [
         "analytics-engineer"
       ],
-      "negative_keywords": []
+      "negative_keywords": [
+        "model training",
+        "frontend design",
+        "legal review",
+        "financial forecast"
+      ]
     },
     "target": {
       "domain_master": "data-ai.master",
@@ -170,7 +178,8 @@
       "negative_keywords": [
         "model training",
         "data pipeline engineering",
-        "legal review"
+        "legal review",
+        "contract review"
       ]
     },
     "target": {
@@ -203,7 +212,8 @@
       "negative_keywords": [
         "text processing",
         "audio analysis",
-        "financial modeling"
+        "financial modeling",
+        "contract review"
       ]
     },
     "target": {
@@ -236,7 +246,8 @@
       "negative_keywords": [
         "model training",
         "data pipeline engineering",
-        "legal review"
+        "legal review",
+        "contract review"
       ]
     },
     "target": {
@@ -269,7 +280,8 @@
       "negative_keywords": [
         "model training",
         "frontend design",
-        "legal review"
+        "legal review",
+        "contract review"
       ]
     },
     "target": {
@@ -302,7 +314,8 @@
       "negative_keywords": [
         "product review",
         "financial audit",
-        "legal contract"
+        "legal contract",
+        "contract review"
       ]
     },
     "target": {
@@ -335,7 +348,8 @@
       "negative_keywords": [
         "performance review",
         "product review",
-        "financial audit"
+        "financial audit",
+        "contract review"
       ]
     },
     "target": {
@@ -368,7 +382,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "contract review"
+        "contract review",
+        "revenue forecasting"
       ]
     },
     "target": {
@@ -401,7 +416,8 @@
       "negative_keywords": [
         "data pipeline",
         "frontend design",
-        "legal review"
+        "legal review",
+        "contract review"
       ]
     },
     "target": {
@@ -437,7 +453,8 @@
       "negative_keywords": [
         "business analytics",
         "financial analysis",
-        "market research"
+        "market research",
+        "contract review"
       ]
     },
     "target": {
@@ -470,7 +487,8 @@
       "negative_keywords": [
         "product review",
         "performance review",
-        "financial forecast"
+        "financial forecast",
+        "contract review"
       ]
     },
     "target": {
@@ -503,7 +521,8 @@
       "negative_keywords": [
         "frontend design",
         "legal review",
-        "financial audit"
+        "financial audit",
+        "contract review"
       ]
     },
     "target": {
@@ -536,7 +555,8 @@
       "negative_keywords": [
         "image processing",
         "audio analysis",
-        "financial audit"
+        "financial audit",
+        "contract review"
       ]
     },
     "target": {
@@ -569,7 +589,8 @@
       "negative_keywords": [
         "model training",
         "data pipeline",
-        "frontend design"
+        "frontend design",
+        "contract review"
       ]
     },
     "target": {
@@ -602,7 +623,8 @@
       "negative_keywords": [
         "product roadmap",
         "code review",
-        "financial forecast"
+        "financial forecast",
+        "contract review"
       ]
     },
     "target": {
@@ -636,7 +658,8 @@
       "negative_keywords": [
         "image classification",
         "legal review",
-        "financial audit"
+        "financial audit",
+        "contract review"
       ]
     },
     "target": {
@@ -1199,16 +1222,11 @@
         "interface layout design",
         "component visual design",
         "screen design system",
-        "ui kit creation",
-        "ui ux design",
-        "ui/ux",
-        "interface design"
+        "ui kit creation"
       ],
       "aliases": [
         "ui design",
-        "interface designer",
-        "ui-ux-designer",
-        "ui ux designer"
+        "interface designer"
       ],
       "negative_keywords": [
         "backend architecture",
@@ -1239,11 +1257,14 @@
         "user interface design",
         "ux research and design",
         "product design",
-        "interface design"
+        "interface design",
+        "ui/ux"
       ],
       "aliases": [
         "ui ux",
-        "product design"
+        "product design",
+        "ui-ux-designer",
+        "ui ux designer"
       ],
       "negative_keywords": [
         "code review",

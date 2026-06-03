@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "enabled": true,
   "default_tenant": "local",
+  "default_project": "default",
   "tenant_source_order": ["context.tenant_id", "YES_TENANT_ID", "default"],
+  "project_source_order": ["context.project_id", "YES_PROJECT_ID", "default"],
   "isolation": {
     "base_dir": "graph/memory/tenants",
     "trace_file": "traces.jsonl",
     "hash_tenant_ids": true,
-    "deny_cross_tenant_reads": true
+    "hash_project_ids": true,
+    "deny_cross_tenant_reads": true,
+    "project_scoped_traces": true
   },
   "redaction": {
     "enabled": true,

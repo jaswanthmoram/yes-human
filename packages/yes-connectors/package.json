@@ -1,0 +1,10 @@
+{
+  "name": "@yes-human/connectors",
+  "version": "1.0.0",
+  "description": "OSS connector adapter protocol for Yes-human MCP, shell, and HTTP connectors",
+  "type": "module",
+  "main": "index.js",
+  "engines": {
+    "node": ">=20"
+  }
+}

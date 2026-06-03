@@ -1,0 +1,36 @@
+{
+  "id": "yes-human.rbac",
+  "version": "1.0.0",
+  "default_role": "maintainer",
+  "roles": {
+    "viewer": {
+      "description": "Read routes, plans, and generated public artifacts.",
+      "permissions": ["route:read", "workflow:read", "trace:read:own"]
+    },
+    "contributor": {
+      "description": "Create local traces and staged proposals without mutating production registries.",
+      "extends": ["viewer"],
+      "permissions": ["trace:create", "feedback:stage", "workflow:dry-run", "connector:read"]
+    },
+    "operator": {
+      "description": "Run local/self-hosted workflows and connector reads under policy.",
+      "extends": ["contributor"],
+      "permissions": ["workflow:execute", "connector:execute", "graph:build", "graph:query"]
+    },
+    "maintainer": {
+      "description": "Promote validated public content and build host bundles.",
+      "extends": ["operator"],
+      "permissions": ["content:promote", "content:rollback", "adapter:build", "manifest:verify"]
+    }
+  },
+  "deny": [
+    {
+      "permission": "production:mutate:feedback",
+      "reason": "Feedback promotion is staging-only and never mutates production directly."
+    },
+    {
+      "permission": "secret:read",
+      "reason": "Secrets must be referenced by environment variable names only."
+    }
+  ]
+}

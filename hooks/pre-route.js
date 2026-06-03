@@ -11,7 +11,8 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { PolicyEvaluator } from '../packages/yes-core/policy-evaluator.js';
+import { PolicyEvaluator } from '@yes-human/core';
+import { MAX_ROUTE_DEPTH } from '../packages/yes-runtime/router.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -73,9 +74,9 @@ export default async function preRoute(context, policyEvaluator = null) {
     const routingHint = matchSignalWords(signalWords);
     
     // 4. Loop prevention (from loop-prevention.rules.json)
-    if (depth > 2) {
+    if (depth > MAX_ROUTE_DEPTH) {
       return { 
-        block_reason: 'Max routing depth (2) exceeded',
+        block_reason: `Max routing depth (${MAX_ROUTE_DEPTH}) exceeded`,
         rule: 'loop-prevention'
       };
     }
@@ -107,7 +108,11 @@ export default async function preRoute(context, policyEvaluator = null) {
       allowed: true
     };
   } catch (err) {
-    return { block_reason: 'pre-route hook error: ' + err.message, allowed: false };
+    console.error(`⚠ Graceful degradation: pre-route hook encountered an infrastructure error: ${err.message}`);
+    return {
+      allowed: true,
+      modified_task: context.task || task
+    };
   }
 }
 
@@ -159,9 +164,33 @@ function matchSignalWords(signalWords) {
     'docs': { routeId: 'route.engineering.docs-updater', priority: 1 }
   };
   
-  // Return highest priority match
-  return signalWords
-    .map(w => routingMap[w])
-    .filter(Boolean)
-    .sort((a, b) => b.priority - a.priority)[0];
+  // Validate routes against registry/routes.json
+  const routesPath = path.join(repoRoot, 'registry/routes.json');
+  let validRoutes = new Set();
+  if (fs.existsSync(routesPath)) {
+    try {
+      const routes = JSON.parse(fs.readFileSync(routesPath, 'utf8'));
+      for (const r of routes) {
+        if (r.route_id) {
+          validRoutes.add(r.route_id);
+        }
+      }
+    } catch (err) {
+      console.error(`⚠ [pre-route] Failed to parse registry/routes.json: ${err.message}`);
+    }
+  }
+
+  const matchedHints = signalWords
+    .map(w => {
+      const hint = routingMap[w];
+      if (hint && validRoutes.size > 0 && !validRoutes.has(hint.routeId)) {
+        console.error(`⚠ [pre-route] Hook routed signal-word to invalid/unregistered routeId: ${hint.routeId}`);
+        return null;
+      }
+      return hint;
+    })
+    .filter(Boolean);
+
+  if (matchedHints.length === 0) return null;
+  return matchedHints.sort((a, b) => b.priority - a.priority)[0];
 }

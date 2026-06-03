@@ -41,7 +41,7 @@
     "min_repeats_for_candidate": 2
   },
   "routing_hints": {
-    "enabled": false,
-    "read_only": true
+    "enabled": true,
+    "read_only": false
   }
 }

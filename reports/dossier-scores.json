@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-03T09:09:33.535Z",
-  "total_dossiers": 766,
+  "generated_at": "2026-06-03T14:37:53.482Z",
+  "total_dossiers": 879,
   "self_ref_only": 0,
   "required_failures": 0,
   "results": [
@@ -3755,6 +3755,66 @@
       "blockers": []
     },
     {
+      "path": "references/skills/data-ai/a-b-testing-ml.sources.json",
+      "entity_id": "data-ai.a-b-testing-ml",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/data-ai/analytics-engineer.sources.json",
+      "entity_id": "data-ai.analytics-engineer",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/data-ai/collaborative-filtering.sources.json",
+      "entity_id": "data-ai.collaborative-filtering",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/data-ai/data-cleaning.sources.json",
+      "entity_id": "data-ai.data-cleaning",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/data-ai/data-pipelines.sources.json",
+      "entity_id": "data-ai.data-pipelines",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/data-ai/data-warehousing.sources.json",
+      "entity_id": "data-ai.data-warehousing",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
       "path": "references/skills/data-ai/dataset-profiling.sources.json",
       "entity_id": "data-ai.dataset-profiling",
       "self_ref_only": false,
@@ -3775,6 +3835,56 @@
       "blockers": []
     },
     {
+      "path": "references/skills/data-ai/etl-processes.sources.json",
+      "entity_id": "data-ai.etl-processes",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/data-ai/feature-engineering.sources.json",
+      "entity_id": "data-ai.feature-engineering",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/data-ai/hyperparameter-tuning.sources.json",
+      "entity_id": "data-ai.hyperparameter-tuning",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/data-ai/image-classification.sources.json",
+      "entity_id": "data-ai.image-classification",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/data-ai/model-deployment.sources.json",
+      "entity_id": "data-ai.model-deployment",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
       "path": "references/skills/data-ai/model-eval.sources.json",
       "entity_id": "data-ai.model-eval",
       "self_ref_only": false,
@@ -3785,8 +3895,68 @@
       "blockers": []
     },
     {
+      "path": "references/skills/data-ai/model-monitoring.sources.json",
+      "entity_id": "data-ai.model-monitoring",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/data-ai/model-selection.sources.json",
+      "entity_id": "data-ai.model-selection",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/data-ai/named-entity-recognition.sources.json",
+      "entity_id": "data-ai.named-entity-recognition",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/data-ai/object-detection.sources.json",
+      "entity_id": "data-ai.object-detection",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
       "path": "references/skills/data-ai/rag-eval.sources.json",
       "entity_id": "data-ai.rag-eval",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/data-ai/sentiment-analysis.sources.json",
+      "entity_id": "data-ai.sentiment-analysis",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/data-ai/text-classification.sources.json",
+      "entity_id": "data-ai.text-classification",
       "self_ref_only": false,
       "source_count": 11,
       "stored_total": 91,
@@ -3927,6 +4097,16 @@
     {
       "path": "references/skills/design-content/motion-principles.sources.json",
       "entity_id": "design-content.motion-principles",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/design-content/presentation-designer.sources.json",
+      "entity_id": "design-content.presentation-designer",
       "self_ref_only": false,
       "source_count": 11,
       "stored_total": 91,
@@ -4185,6 +4365,16 @@
       "blockers": []
     },
     {
+      "path": "references/skills/engineering/cpp-patterns.sources.json",
+      "entity_id": "engineering.cpp-patterns",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
       "path": "references/skills/engineering/dependency-upgrade.sources.json",
       "entity_id": "engineering.dependency-upgrade",
       "self_ref_only": false,
@@ -4197,6 +4387,16 @@
     {
       "path": "references/skills/engineering/documentation-update.sources.json",
       "entity_id": "engineering.documentation-update",
+      "self_ref_only": false,
+      "source_count": 12,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/engineering/e2e-testing.sources.json",
+      "entity_id": "engineering.e2e-testing",
       "self_ref_only": false,
       "source_count": 12,
       "stored_total": 91,
@@ -4245,6 +4445,16 @@
       "blockers": []
     },
     {
+      "path": "references/skills/engineering/golang-patterns.sources.json",
+      "entity_id": "engineering.golang-patterns",
+      "self_ref_only": false,
+      "source_count": 12,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
       "path": "references/skills/engineering/grep-patterns.sources.json",
       "entity_id": "engineering.grep-patterns",
       "self_ref_only": false,
@@ -4265,6 +4475,16 @@
       "blockers": []
     },
     {
+      "path": "references/skills/engineering/implementation-planning.sources.json",
+      "entity_id": "engineering.implementation-planning",
+      "self_ref_only": false,
+      "source_count": 10,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
       "path": "references/skills/engineering/index-optimization.sources.json",
       "entity_id": "engineering.index-optimization",
       "self_ref_only": false,
@@ -4275,8 +4495,28 @@
       "blockers": []
     },
     {
+      "path": "references/skills/engineering/java-patterns.sources.json",
+      "entity_id": "engineering.java-patterns",
+      "self_ref_only": false,
+      "source_count": 12,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
       "path": "references/skills/engineering/kotlin-coroutines.sources.json",
       "entity_id": "engineering.kotlin-coroutines",
+      "self_ref_only": false,
+      "source_count": 12,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/engineering/kotlin-patterns.sources.json",
+      "entity_id": "engineering.kotlin-patterns",
       "self_ref_only": false,
       "source_count": 12,
       "stored_total": 91,
@@ -4307,6 +4547,16 @@
     {
       "path": "references/skills/engineering/nextjs-app-router.sources.json",
       "entity_id": "engineering.nextjs-app-router",
+      "self_ref_only": false,
+      "source_count": 12,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/engineering/python-patterns.sources.json",
+      "entity_id": "engineering.python-patterns",
       "self_ref_only": false,
       "source_count": 12,
       "stored_total": 91,
@@ -4355,10 +4605,40 @@
       "blockers": []
     },
     {
+      "path": "references/skills/engineering/refactoring.sources.json",
+      "entity_id": "engineering.refactoring",
+      "self_ref_only": false,
+      "source_count": 12,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/engineering/rust-patterns.sources.json",
+      "entity_id": "engineering.rust-patterns",
+      "self_ref_only": false,
+      "source_count": 12,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
       "path": "references/skills/engineering/schema-migration.sources.json",
       "entity_id": "engineering.schema-migration",
       "self_ref_only": false,
       "source_count": 12,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/engineering/security-review-pr.sources.json",
+      "entity_id": "engineering.security-review-pr",
+      "self_ref_only": false,
+      "source_count": 11,
       "stored_total": 91,
       "computed_total": 91,
       "staging_allowed": true,
@@ -4379,6 +4659,16 @@
       "entity_id": "engineering.svelte-stores",
       "self_ref_only": false,
       "source_count": 10,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/engineering/swift-patterns.sources.json",
+      "entity_id": "engineering.swift-patterns",
+      "self_ref_only": false,
+      "source_count": 12,
       "stored_total": 91,
       "computed_total": 91,
       "staging_allowed": true,
@@ -4437,6 +4727,16 @@
     {
       "path": "references/skills/engineering/test-triage.sources.json",
       "entity_id": "engineering.test-triage",
+      "self_ref_only": false,
+      "source_count": 12,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/engineering/typescript-patterns.sources.json",
+      "entity_id": "engineering.typescript-patterns",
       "self_ref_only": false,
       "source_count": 12,
       "stored_total": 91,
@@ -4525,6 +4825,16 @@
       "blockers": []
     },
     {
+      "path": "references/skills/finance/expense-auditor.sources.json",
+      "entity_id": "finance.expense-auditor",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
       "path": "references/skills/finance/financial-forecasting.sources.json",
       "entity_id": "finance.financial-forecasting",
       "self_ref_only": false,
@@ -4557,6 +4867,16 @@
     {
       "path": "references/skills/finance/internal-controls.sources.json",
       "entity_id": "finance.internal-controls",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/finance/payroll-analyst.sources.json",
+      "entity_id": "finance.payroll-analyst",
       "self_ref_only": false,
       "source_count": 11,
       "stored_total": 91,
@@ -4935,6 +5255,16 @@
       "blockers": []
     },
     {
+      "path": "references/skills/hr/policy-drafter.sources.json",
+      "entity_id": "hr.policy-drafter",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
       "path": "references/skills/hr/succession-planning.sources.json",
       "entity_id": "hr.succession-planning",
       "self_ref_only": false,
@@ -4967,6 +5297,266 @@
     {
       "path": "references/skills/hr/workforce-analytics.sources.json",
       "entity_id": "hr.workforce-analytics",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/integrations/api-authentication.sources.json",
+      "entity_id": "integrations.api-authentication",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/integrations/api-documentation.sources.json",
+      "entity_id": "integrations.api-documentation",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/integrations/api-gateway-setup.sources.json",
+      "entity_id": "integrations.api-gateway-setup",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/integrations/api-monitoring.sources.json",
+      "entity_id": "integrations.api-monitoring",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/integrations/api-testing.sources.json",
+      "entity_id": "integrations.api-testing",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/integrations/api-versioning.sources.json",
+      "entity_id": "integrations.api-versioning",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/integrations/circuit-breaker.sources.json",
+      "entity_id": "integrations.circuit-breaker",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/integrations/contract-testing.sources.json",
+      "entity_id": "integrations.contract-testing",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/integrations/cqrs-patterns.sources.json",
+      "entity_id": "integrations.cqrs-patterns",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/integrations/event-sourcing.sources.json",
+      "entity_id": "integrations.event-sourcing",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/integrations/figma-integration.sources.json",
+      "entity_id": "integrations.figma-integration",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/integrations/graphql-integration.sources.json",
+      "entity_id": "integrations.graphql-integration",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/integrations/integration-testing.sources.json",
+      "entity_id": "integrations.integration-testing",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/integrations/kafka-integration.sources.json",
+      "entity_id": "integrations.kafka-integration",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/integrations/load-balancing.sources.json",
+      "entity_id": "integrations.load-balancing",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/integrations/mcp-connector-design.sources.json",
+      "entity_id": "integrations.mcp-connector-design",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/integrations/notion-integration.sources.json",
+      "entity_id": "integrations.notion-integration",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/integrations/openapi-specs.sources.json",
+      "entity_id": "integrations.openapi-specs",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/integrations/postman-collections.sources.json",
+      "entity_id": "integrations.postman-collections",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/integrations/rabbitmq-integration.sources.json",
+      "entity_id": "integrations.rabbitmq-integration",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/integrations/rate-limiting.sources.json",
+      "entity_id": "integrations.rate-limiting",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/integrations/redis-pubsub.sources.json",
+      "entity_id": "integrations.redis-pubsub",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/integrations/rest-api-integration.sources.json",
+      "entity_id": "integrations.rest-api-integration",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/integrations/retry-patterns.sources.json",
+      "entity_id": "integrations.retry-patterns",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/integrations/stripe-integration.sources.json",
+      "entity_id": "integrations.stripe-integration",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/integrations/webhook-implementation.sources.json",
+      "entity_id": "integrations.webhook-implementation",
       "self_ref_only": false,
       "source_count": 11,
       "stored_total": 91,
@@ -5095,6 +5685,16 @@
       "blockers": []
     },
     {
+      "path": "references/skills/legal-compliance/nda-reviewer.sources.json",
+      "entity_id": "legal-compliance.nda-reviewer",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
       "path": "references/skills/legal-compliance/patent-analysis.sources.json",
       "entity_id": "legal-compliance.patent-analysis",
       "self_ref_only": false,
@@ -5137,6 +5737,16 @@
     {
       "path": "references/skills/legal-compliance/risk-assessment.sources.json",
       "entity_id": "legal-compliance.risk-assessment",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/legal-compliance/terms-drafter.sources.json",
+      "entity_id": "legal-compliance.terms-drafter",
       "self_ref_only": false,
       "source_count": 11,
       "stored_total": 91,
@@ -5315,6 +5925,26 @@
       "blockers": []
     },
     {
+      "path": "references/skills/marketing/brand-management.sources.json",
+      "entity_id": "marketing.brand-management",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/marketing/campaign-analyst.sources.json",
+      "entity_id": "marketing.campaign-analyst",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
       "path": "references/skills/marketing/content-calendars.sources.json",
       "entity_id": "marketing.content-calendars",
       "self_ref_only": false,
@@ -5475,8 +6105,108 @@
       "blockers": []
     },
     {
+      "path": "references/skills/meta-system/adapter-generation.sources.json",
+      "entity_id": "meta-system.adapter-generation",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
       "path": "references/skills/meta-system/agent-absorption.sources.json",
       "entity_id": "meta-system.agent-absorption",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/meta-system/agent-architecture.sources.json",
+      "entity_id": "meta-system.agent-architecture",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/meta-system/code-generation.sources.json",
+      "entity_id": "meta-system.code-generation",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/meta-system/continuous-integration.sources.json",
+      "entity_id": "meta-system.continuous-integration",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/meta-system/cost-controlling.sources.json",
+      "entity_id": "meta-system.cost-controlling",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/meta-system/debugging-techniques.sources.json",
+      "entity_id": "meta-system.debugging-techniques",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/meta-system/documentation-standards.sources.json",
+      "entity_id": "meta-system.documentation-standards",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/meta-system/dossier-creation.sources.json",
+      "entity_id": "meta-system.dossier-creation",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/meta-system/error-handling.sources.json",
+      "entity_id": "meta-system.error-handling",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/meta-system/fixture-generation.sources.json",
+      "entity_id": "meta-system.fixture-generation",
       "self_ref_only": false,
       "source_count": 11,
       "stored_total": 91,
@@ -5495,8 +6225,118 @@
       "blockers": []
     },
     {
+      "path": "references/skills/meta-system/graph-building.sources.json",
+      "entity_id": "meta-system.graph-building",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/meta-system/logging-strategies.sources.json",
+      "entity_id": "meta-system.logging-strategies",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/meta-system/performance-optimization.sources.json",
+      "entity_id": "meta-system.performance-optimization",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/meta-system/quality-gates.sources.json",
+      "entity_id": "meta-system.quality-gates",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
       "path": "references/skills/meta-system/route-evaluation.sources.json",
       "entity_id": "meta-system.route-evaluation",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/meta-system/skill-authoring.sources.json",
+      "entity_id": "meta-system.skill-authoring",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/meta-system/system-monitoring.sources.json",
+      "entity_id": "meta-system.system-monitoring",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/meta-system/template-design.sources.json",
+      "entity_id": "meta-system.template-design",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/meta-system/validation-testing.sources.json",
+      "entity_id": "meta-system.validation-testing",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/meta-system/version-control.sources.json",
+      "entity_id": "meta-system.version-control",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/meta-system/workflow-design.sources.json",
+      "entity_id": "meta-system.workflow-design",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/meta-system/workflow-mining.sources.json",
+      "entity_id": "meta-system.workflow-mining",
       "self_ref_only": false,
       "source_count": 11,
       "stored_total": 91,
@@ -5557,6 +6397,16 @@
     {
       "path": "references/skills/platform/ci-triage.sources.json",
       "entity_id": "platform.ci-triage",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/platform/cloud-architect.sources.json",
+      "entity_id": "platform.cloud-architect",
       "self_ref_only": false,
       "source_count": 11,
       "stored_total": 91,
@@ -5695,6 +6545,16 @@
       "blockers": []
     },
     {
+      "path": "references/skills/platform/release-manager.sources.json",
+      "entity_id": "platform.release-manager",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 92,
+      "computed_total": 92,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
       "path": "references/skills/platform/terraform-modules.sources.json",
       "entity_id": "platform.terraform-modules",
       "self_ref_only": false,
@@ -5715,6 +6575,26 @@
       "blockers": []
     },
     {
+      "path": "references/skills/product-business/ceo-advisor.sources.json",
+      "entity_id": "product-business.ceo-advisor",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/product-business/cfo-advisory.sources.json",
+      "entity_id": "product-business.cfo-advisory",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
       "path": "references/skills/product-business/cohort-analysis.sources.json",
       "entity_id": "product-business.cohort-analysis",
       "self_ref_only": false,
@@ -5727,6 +6607,16 @@
     {
       "path": "references/skills/product-business/competitive-analysis.sources.json",
       "entity_id": "product-business.competitive-analysis",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/product-business/cto-advisor.sources.json",
+      "entity_id": "product-business.cto-advisor",
       "self_ref_only": false,
       "source_count": 11,
       "stored_total": 91,
@@ -5767,6 +6657,16 @@
     {
       "path": "references/skills/product-business/growth-experiments.sources.json",
       "entity_id": "product-business.growth-experiments",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/product-business/growth-marketing.sources.json",
+      "entity_id": "product-business.growth-marketing",
       "self_ref_only": false,
       "source_count": 11,
       "stored_total": 91,
@@ -5875,6 +6775,16 @@
       "blockers": []
     },
     {
+      "path": "references/skills/product-business/sales-operator.sources.json",
+      "entity_id": "product-business.sales-operator",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
       "path": "references/skills/product-business/usability-testing.sources.json",
       "entity_id": "product-business.usability-testing",
       "self_ref_only": false,
@@ -5897,6 +6807,216 @@
     {
       "path": "references/skills/product-business/user-story-writing.sources.json",
       "entity_id": "product-business.user-story-writing",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/research/academic-writing.sources.json",
+      "entity_id": "research.academic-writing",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/research/citation-management.sources.json",
+      "entity_id": "research.citation-management",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/research/data-collection.sources.json",
+      "entity_id": "research.data-collection",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/research/document-to-markdown.sources.json",
+      "entity_id": "research.document-to-markdown",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/research/grant-writing.sources.json",
+      "entity_id": "research.grant-writing",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/research/interview-techniques.sources.json",
+      "entity_id": "research.interview-techniques",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/research/literature-search.sources.json",
+      "entity_id": "research.literature-search",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/research/meta-analysis.sources.json",
+      "entity_id": "research.meta-analysis",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/research/peer-review.sources.json",
+      "entity_id": "research.peer-review",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/research/qualitative-analysis.sources.json",
+      "entity_id": "research.qualitative-analysis",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/research/quantitative-analysis.sources.json",
+      "entity_id": "research.quantitative-analysis",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/research/reproducibility.sources.json",
+      "entity_id": "research.reproducibility",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/research/research-collaboration.sources.json",
+      "entity_id": "research.research-collaboration",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/research/research-data-management.sources.json",
+      "entity_id": "research.research-data-management",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/research/research-dissemination.sources.json",
+      "entity_id": "research.research-dissemination",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/research/research-ethics.sources.json",
+      "entity_id": "research.research-ethics",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/research/research-proposals.sources.json",
+      "entity_id": "research.research-proposals",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/research/statistical-testing.sources.json",
+      "entity_id": "research.statistical-testing",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/research/survey-design.sources.json",
+      "entity_id": "research.survey-design",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/research/systematic-review.sources.json",
+      "entity_id": "research.systematic-review",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/sales/account-manager.sources.json",
+      "entity_id": "sales.account-manager",
       "self_ref_only": false,
       "source_count": 11,
       "stored_total": 91,
@@ -5987,6 +7107,16 @@
     {
       "path": "references/skills/sales/pipeline-management.sources.json",
       "entity_id": "sales.pipeline-management",
+      "self_ref_only": false,
+      "source_count": 11,
+      "stored_total": 91,
+      "computed_total": 91,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/skills/sales/pricing-strategist.sources.json",
+      "entity_id": "sales.pricing-strategist",
       "self_ref_only": false,
       "source_count": 11,
       "stored_total": 91,

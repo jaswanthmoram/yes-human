@@ -10,13 +10,11 @@ graph/snapshots/
 graph/memory/
 # generated host bundles — built by `yes build <host>`, not hand-maintained
 generated/
-staging/incoming/
-staging/normalized/
-staging/rejected/
-staging/reviewed/
-staging/promoted/
-staging/rollback/
+staging/
+reports/
+registry/ledger.jsonl
 
 *.log
 .env
 .env.*
+

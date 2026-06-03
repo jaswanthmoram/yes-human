@@ -1,9 +1,5 @@
-import crypto from 'crypto';
 import { writeGenerated } from '../index.js';
-
-function signPayload(payload) {
-  return crypto.createHash('sha256').update(JSON.stringify(payload)).digest('hex');
-}
+import { signManifest } from '../lib/manifest-signing.js';
 
 function manifest(ctx) {
   const payload = {
@@ -36,19 +32,20 @@ function manifest(ctx) {
 
   return {
     ...payload,
-    signature: {
-      algorithm: 'sha256',
-      value: signPayload(payload)
-    }
+    signature: signManifest(payload, ctx.privateKey)
   };
 }
 
 export async function generate(ctx) {
   writeGenerated('generic', 'manifest.json', manifest(ctx));
-  writeGenerated('generic', 'README.md', `# Yes-human Generic Adapter
+  writeGenerated(
+    'generic',
+    'README.md',
+    `# Yes-human Generic Adapter
 
 Zero-trust adapter pack. Load \`manifest.json\`, verify the SHA-256 signature, then route through \`graph/indexes/ROUTE_TABLE.min.json\`.
-`);
+`
+  );
   writeGenerated('generic', 'sandbox.policy.json', {
     default: 'deny',
     network: 'deny',
@@ -59,6 +56,10 @@ Zero-trust adapter pack. Load \`manifest.json\`, verify the SHA-256 signature, t
     production_mutation_from_feedback: false
   });
   writeGenerated('generic', 'audit.jsonl', '');
-  writeGenerated('generic', 'CANCEL.md', '# Cancellation\n\nSet host cancellation state and stop after the current checkpoint. Resume with `yes recover resume`.\n');
+  writeGenerated(
+    'generic',
+    'CANCEL.md',
+    '# Cancellation\n\nSet host cancellation state and stop after the current checkpoint. Resume with `yes recover resume`.\n'
+  );
   console.log('  ✓ generic bundle generated');
 }

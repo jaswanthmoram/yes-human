@@ -9,6 +9,8 @@
     "task_redacted": { "type": ["string", "null"] },
     "tenant_id": { "type": ["string", "null"] },
     "tenant_hash": { "type": ["string", "null"] },
+    "project_id": { "type": ["string", "null"] },
+    "project_hash": { "type": ["string", "null"] },
     "host": { "type": "string" },
     "route_id": { "type": "string" },
     "workflow_id": { "type": ["string", "null"] },
@@ -28,6 +30,19 @@
         "applied": { "type": "boolean" },
         "dropped_raw_task": { "type": "boolean" },
         "patterns": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "retention": {
+      "type": "object",
+      "properties": {
+        "policy_id": { "type": "string" },
+        "mode": { "type": "string" },
+        "private_trace": { "type": "boolean" },
+        "delete_after_days": { "type": "integer", "minimum": 1 },
+        "redact_before_write": { "type": "boolean" },
+        "delete_private_raw": { "type": "boolean" },
+        "expires_at": { "type": "string", "format": "date-time" }
       },
       "additionalProperties": false
     },

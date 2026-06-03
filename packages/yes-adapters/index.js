@@ -14,6 +14,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import crypto from 'crypto';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -60,6 +61,28 @@ export function loadBuildContext() {
   const offlineMode = readJSON('registry/offline-mode.json');
   const bootText   = readFile('YES_BOOT.md');
 
+  const resolveEnv = (val) => {
+    if (val && val.startsWith('{env:') && val.endsWith('}')) {
+      return process.env[val.slice(5, -1)];
+    }
+    return val;
+  };
+  let privateKey = resolveEnv(process.env.YES_PRIVATE_KEY) || null;
+  let publicKey = resolveEnv(process.env.YES_PUBLIC_KEY) || null;
+
+  if (!privateKey) {
+    try {
+      const { privateKey: ephemPriv, publicKey: ephemPub } = crypto.generateKeyPairSync('ed25519', {
+        privateKeyEncoding: { type: 'pkcs8', format: 'pem' },
+        publicKeyEncoding: { type: 'spki', format: 'pem' }
+      });
+      privateKey = ephemPriv;
+      publicKey = ephemPub;
+    } catch (err) {
+      console.error(`⚠ Failed to generate ephemeral keypair: ${err.message}`);
+    }
+  }
+
   return {
     plugin,
     agents: agents.items,
@@ -76,7 +99,9 @@ export function loadBuildContext() {
     offlineMode,
     bootText,
     version: plugin.version,
-    generatedAt: new Date().toISOString()
+    generatedAt: new Date().toISOString(),
+    privateKey,
+    publicKey
   };
 }
 

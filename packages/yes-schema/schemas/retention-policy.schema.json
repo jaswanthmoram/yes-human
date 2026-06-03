@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Yes-human Retention Policy",
+  "type": "object",
+  "required": ["id", "version", "default_mode", "policies"],
+  "properties": {
+    "id": { "type": "string" },
+    "version": { "type": "string" },
+    "default_mode": { "type": "string" },
+    "policies": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["trace_days", "private_trace_days", "redact_before_write", "delete_private_raw"],
+        "properties": {
+          "trace_days": { "type": "integer", "minimum": 1 },
+          "private_trace_days": { "type": "integer", "minimum": 1 },
+          "redact_before_write": { "type": "boolean" },
+          "delete_private_raw": { "type": "boolean" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

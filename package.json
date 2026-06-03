@@ -2,9 +2,7 @@
   "name": "yes-human",
   "version": "2.3.0",
   "private": true,
-  "publishConfig": {
-    "access": "restricted"
-  },
+  "license": "MIT",
   "type": "module",
   "workspaces": [
     "packages/*"

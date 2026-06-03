@@ -3,7 +3,20 @@ import path from 'path';
 import crypto from 'crypto';
 import { spawnSync } from 'child_process';
 import { MemoryManager } from './memory-manager.js';
-import { loadTeamMode, readJsonIfExists, redactObject, redactString, redactedTask, resolveTenant, tenantHash, tenantTracePath, hashValue } from './redaction.js';
+import {
+  loadTeamMode,
+  readJsonIfExists,
+  redactObject,
+  redactString,
+  redactedTask,
+  resolveTenant,
+  resolveProject,
+  tenantHash,
+  projectHash,
+  tenantTracePath,
+  hashValue
+} from './redaction.js';
+import { loadRetentionPolicy, retentionForTrace, withFileLockSync } from './retention.js';
 
 function ensureDirFor(filePath) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
@@ -11,12 +24,15 @@ function ensureDirFor(filePath) {
 
 function appendJsonl(filePath, entry) {
   ensureDirFor(filePath);
-  fs.appendFileSync(filePath, `${JSON.stringify(entry)}\n`);
+  withFileLockSync(filePath, () => {
+    fs.appendFileSync(filePath, `${JSON.stringify(entry)}\n`);
+  });
 }
 
 function readJsonl(filePath) {
   if (!fs.existsSync(filePath)) return [];
-  return fs.readFileSync(filePath, 'utf8')
+  return fs
+    .readFileSync(filePath, 'utf8')
     .split('\n')
     .filter(Boolean)
     .map((line) => JSON.parse(line));
@@ -38,27 +54,38 @@ export class LearningEngine {
     this.repoRoot = config.repoRoot || process.cwd();
     this.policy = config.policy || readJsonIfExists(path.join(this.repoRoot, 'registry/learning-policy.json'), {});
     this.teamMode = config.teamMode || loadTeamMode(this.repoRoot);
-    this.memory = config.memoryManager || new MemoryManager({
-      memoryDir: config.memoryDir || path.join(this.repoRoot, 'graph/memory')
-    });
-    this.learningDir = config.learningDir || path.join(this.repoRoot, this.policy.outcome_tracking?.state_dir || 'graph/memory/learning');
+    this.retentionPolicy = config.retentionPolicy || loadRetentionPolicy(this.repoRoot);
+    this.memory =
+      config.memoryManager ||
+      new MemoryManager({
+        memoryDir: config.memoryDir || path.join(this.repoRoot, 'graph/memory')
+      });
+    this.learningDir =
+      config.learningDir ||
+      path.join(this.repoRoot, this.policy.outcome_tracking?.state_dir || 'graph/memory/learning');
     this.outcomesFile = path.join(this.learningDir, 'outcomes.jsonl');
     this.routeStatsFile = path.join(this.learningDir, 'route-outcomes.json');
     this.feedbackDir = config.feedbackDir || path.join(this.repoRoot, 'staging/feedback');
-    this.mistakeGraphFile = config.mistakeGraphFile || path.join(this.repoRoot, this.policy.mistake_graph?.state_file || 'graph/memory/learning/mistake-graph.json');
+    this.mistakeGraphFile =
+      config.mistakeGraphFile ||
+      path.join(this.repoRoot, this.policy.mistake_graph?.state_file || 'graph/memory/learning/mistake-graph.json');
   }
 
   createTrace(context = {}) {
     const tenantId = resolveTenant(context, this.teamMode);
+    const projectId = resolveProject(context, this.teamMode);
     const route_id = routeIdFrom(context.route || context.route_id);
     const workflow_id = context.workflow_id || context.route?.target?.workflow || null;
     const task = context.task || '';
+    const retention = retentionForTrace(this.retentionPolicy, context);
     const trace = {
       trace_id: context.trace_id || crypto.randomBytes(16).toString('hex'),
       task_hash: hashValue(task || context.task_hash || 'empty', 24),
       task_redacted: redactedTask(task, this.teamMode),
       tenant_id: this.teamMode.isolation?.hash_tenant_ids === false ? tenantId : null,
       tenant_hash: tenantHash(tenantId, this.teamMode),
+      project_id: this.teamMode.isolation?.hash_project_ids === false ? projectId : null,
+      project_hash: projectHash(projectId, this.teamMode),
       host: context.host || process.env.YES_HOST || 'local',
       route_id,
       workflow_id,
@@ -77,6 +104,7 @@ export class LearningEngine {
         dropped_raw_task: this.teamMode.redaction?.drop_raw_task !== false,
         patterns: this.teamMode.redaction?.redact_patterns || []
       },
+      retention,
       verification: context.verification || undefined,
       learning_candidate: Boolean(context.learning_candidate),
       outcome: context.outcome || undefined,
@@ -90,7 +118,8 @@ export class LearningEngine {
   recordTrace(context = {}) {
     const trace = this.createTrace(context);
     const tenantId = resolveTenant(context, this.teamMode);
-    const tracePath = tenantTracePath(this.repoRoot, tenantId, this.teamMode);
+    const projectId = resolveProject(context, this.teamMode);
+    const tracePath = tenantTracePath(this.repoRoot, tenantId, this.teamMode, projectId);
     appendJsonl(tracePath, trace);
 
     this.memory.addEpisodicMemory('tasks', {
@@ -114,7 +143,7 @@ export class LearningEngine {
       route_id: outcome.route_id || 'route.meta-system.supreme-router',
       workflow_id: outcome.workflow_id || null,
       success: Boolean(outcome.success),
-      score: typeof outcome.score === 'number' ? Math.max(0, Math.min(1, outcome.score)) : (outcome.success ? 1 : 0),
+      score: typeof outcome.score === 'number' ? Math.max(0, Math.min(1, outcome.score)) : outcome.success ? 1 : 0,
       source: outcome.source || 'manual',
       feedback: outcome.feedback ? redactString(String(outcome.feedback).slice(0, 1000), this.teamMode) : null,
       failure_class: outcome.failure_class || null,
@@ -123,7 +152,11 @@ export class LearningEngine {
     };
 
     appendJsonl(this.outcomesFile, normalized);
-    const stats = readJsonIfExists(this.routeStatsFile, { version: '1.0.0', generated_at: new Date().toISOString(), routes: {} });
+    const stats = readJsonIfExists(this.routeStatsFile, {
+      version: '1.0.0',
+      generated_at: new Date().toISOString(),
+      routes: {}
+    });
     const decay = this.policy.outcome_tracking?.decay ?? 0.92;
     const current = stats.routes[normalized.route_id] || {
       route_id: normalized.route_id,
@@ -219,10 +252,10 @@ export class LearningEngine {
     return { node, graph_path: this.mistakeGraphFile };
   }
 
-
   listFeedback() {
     if (!fs.existsSync(this.feedbackDir)) return [];
-    return fs.readdirSync(this.feedbackDir)
+    return fs
+      .readdirSync(this.feedbackDir)
       .filter((name) => name.endsWith('.json'))
       .map((name) => {
         const filePath = path.join(this.feedbackDir, name);
@@ -257,7 +290,10 @@ export class LearningEngine {
     entry.reviewed_at = new Date().toISOString();
     entry.reviewer = opts.reviewer || 'cli';
     if (decision === 'accept' && opts.run_gate !== false) {
-      const gate = runEvalGate(this.repoRoot, this.policy.feedback_gate?.checks || ['route', 'workflow', 'skill', 'cost']);
+      const gate = runEvalGate(
+        this.repoRoot,
+        this.policy.feedback_gate?.checks || ['route', 'workflow', 'skill', 'cost']
+      );
       entry.eval_gate = { passed: gate.passed, report: gate.report, at: new Date().toISOString() };
       if (!gate.passed) {
         entry.status = 'rejected';
@@ -335,7 +371,10 @@ export class LearningEngine {
     if (!['reviewed', 'proposal_ready'].includes(found.status)) {
       throw new Error(`feedback not ready for promote (status: ${found.status})`);
     }
-    const gate = runEvalGate(this.repoRoot, this.policy.feedback_gate?.checks || ['route', 'workflow', 'skill', 'cost']);
+    const gate = runEvalGate(
+      this.repoRoot,
+      this.policy.feedback_gate?.checks || ['route', 'workflow', 'skill', 'cost']
+    );
     if (!gate.passed) throw new Error('eval gate failed; promotion blocked');
     const promotedDir = path.join(this.repoRoot, 'staging', 'promoted', 'feedback');
     fs.mkdirSync(promotedDir, { recursive: true });
@@ -434,7 +473,11 @@ export function runEvalGate(repoRoot = process.cwd(), checks = ['route', 'workfl
     ])
   ].join('\n');
   const reportPath = path.join(repoRoot, 'reports/phase9-feedback-gate.md');
-  writeJson(path.join(repoRoot, 'reports/phase9-feedback-gate.json'), { generated_at: new Date().toISOString(), passed, results });
+  writeJson(path.join(repoRoot, 'reports/phase9-feedback-gate.json'), {
+    generated_at: new Date().toISOString(),
+    passed,
+    results
+  });
   fs.writeFileSync(reportPath, report);
   return { passed, results, report: reportPath };
 }

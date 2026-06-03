@@ -111,7 +111,7 @@ function buildHookTrace(route) {
       },
       safety: {
         status: blocked && route._match?.blocked_by === 'safety' ? 'blocked' : 'allowed',
-        reason: blocked ? route._match?.reason ?? null : null
+        reason: blocked ? (route._match?.reason ?? null) : null
       },
       signal_words: {
         status: combined.routing_hint ? 'hinted' : 'none',
@@ -185,7 +185,10 @@ async function cmdRoute(args) {
   const showHints = args.includes('--hints');
   const showPlan = args.includes('--plan');
   const ROUTE_FLAGS = new Set(['--dry-run', '--hints', '--plan']);
-  const task = args.filter((a) => !ROUTE_FLAGS.has(a)).join(' ').trim();
+  const task = args
+    .filter((a) => !ROUTE_FLAGS.has(a))
+    .join(' ')
+    .trim();
   if (!task) {
     console.error('Usage: yes route <task> [--dry-run] [--hints] [--plan]');
     return 1;
@@ -204,7 +207,9 @@ async function cmdRoute(args) {
     try {
       const costPolicy = readJSON('registry/cost-policy.json');
       maxTokens = costPolicy.bands?.[band]?.max_context_tokens ?? null;
-    } catch { /* ignore */ }
+    } catch {
+      /* ignore */
+    }
     const match = route._match || {};
     const card = {
       task,
@@ -244,17 +249,24 @@ function cmdDoctor() {
 
   // Python + MarkItDown
   const venvPython = path.join(repoRoot, '.venv', 'bin', 'python');
-  const python = process.env.YES_PYTHON && fs.existsSync(process.env.YES_PYTHON)
-    ? process.env.YES_PYTHON
-    : (fs.existsSync(venvPython) ? venvPython : 'python3');
+  const python =
+    process.env.YES_PYTHON && fs.existsSync(process.env.YES_PYTHON)
+      ? process.env.YES_PYTHON
+      : fs.existsSync(venvPython)
+        ? venvPython
+        : 'python3';
   const mk = spawnSync(python, ['-c', 'import markitdown'], { encoding: 'utf8' });
   add(mk.status === 0, 'MarkItDown installed', mk.status === 0 ? python : `not importable for ${python}`);
 
   // Schemas load
   let schemaCount = 0;
   try {
-    schemaCount = fs.readdirSync(path.join(repoRoot, 'packages/yes-schema/schemas')).filter((f) => f.endsWith('.json')).length;
-  } catch { /* ignore */ }
+    schemaCount = fs
+      .readdirSync(path.join(repoRoot, 'packages/yes-schema/schemas'))
+      .filter((f) => f.endsWith('.json')).length;
+  } catch {
+    /* ignore */
+  }
   add(schemaCount > 0, 'Schemas present', `${schemaCount} schema files`);
 
   // Route table resolves to routes.json
@@ -266,7 +278,9 @@ function cmdDoctor() {
     const ids = new Set(routes.map((r) => r.route_id));
     const missing = Object.values(table.routes).filter((id) => !ids.has(id));
     routesOk = missing.length === 0 && ids.has(table.fallback);
-    routeDetail = routesOk ? `${Object.keys(table.routes).length} hot routes resolve` : `unresolved: ${missing.join(', ') || table.fallback}`;
+    routeDetail = routesOk
+      ? `${Object.keys(table.routes).length} hot routes resolve`
+      : `unresolved: ${missing.join(', ') || table.fallback}`;
   } catch (e) {
     routeDetail = e.message;
   }
@@ -292,7 +306,7 @@ function cmdDoctor() {
   try {
     const grCfg = readGraphRoutingConfig(repoRoot);
     const stale = isGraphStale(repoRoot, grCfg);
-    add(!stale.stale, 'Code graph fresh', stale.stale ? (stale.reason || 'stale') : `built ${stale.built_at || 'ok'}`);
+    add(!stale.stale, 'Code graph fresh', stale.stale ? stale.reason || 'stale' : `built ${stale.built_at || 'ok'}`);
   } catch (e) {
     add(false, 'Code graph check', e.message);
   }
@@ -309,9 +323,33 @@ function cmdDoctor() {
       if (enableSet.size && !enableSet.has(item.id)) continue;
       if (!process.env[item.env_var]) missing.push(item.env_var);
     }
-    add(missing.length === 0, `MCP env vars (profile: ${profileName})`, missing.length ? `missing: ${missing.join(', ')}` : 'all set for profile');
+    add(
+      missing.length === 0,
+      `MCP env vars (profile: ${profileName})`,
+      missing.length ? `missing: ${missing.join(', ')}` : 'all set for profile'
+    );
   } catch (e) {
     add(false, 'MCP env check', e.message);
+  }
+
+  // RBAC policy
+  try {
+    const rbac = readJSON('registry/rbac.json');
+    add(Boolean(rbac.default_role && rbac.roles), 'RBAC policy', `default_role: ${rbac.default_role || 'none'}`);
+  } catch (e) {
+    add(false, 'RBAC policy', e.message);
+  }
+
+  // Retention policy
+  try {
+    const retention = readJSON('registry/retention-policy.json');
+    add(
+      Boolean(retention.default_mode && retention.policies),
+      'Retention policy',
+      `mode: ${retention.default_mode || 'none'}`
+    );
+  } catch (e) {
+    add(false, 'Retention policy', e.message);
   }
 
   try {
@@ -359,27 +397,27 @@ function cmdPromote(args) {
 async function cmdDream(args) {
   const memory = new MemoryManager();
   const dream = new DreamCycle({ memoryManager: memory });
-  
+
   console.log('Starting dream cycle...\n');
-  
+
   try {
     const result = await dream.run();
-    
+
     console.log(`\n✓ Dream cycle complete`);
     console.log(`  Candidates staged: ${result.candidates.length}`);
     console.log(`  Report: ${result.report}`);
-    
+
     // Show summary by type
     const byType = {};
     for (const candidate of result.candidates) {
       byType[candidate.type] = (byType[candidate.type] || 0) + 1;
     }
-    
+
     console.log('\n  Summary:');
     for (const [type, count] of Object.entries(byType)) {
       console.log(`    ${type}: ${count}`);
     }
-    
+
     return 0;
   } catch (error) {
     console.error(`✗ Dream cycle failed: ${error.message}`);
@@ -390,7 +428,7 @@ async function cmdDream(args) {
 function cmdMemory(args) {
   const subcommand = args[0];
   const memory = new MemoryManager();
-  
+
   if (subcommand === 'status') {
     let stats;
     try {
@@ -399,39 +437,39 @@ function cmdMemory(args) {
       console.error(`✗ Memory stats failed: ${err.message}`);
       return 1;
     }
-    
+
     console.log('Memory Status\n');
     console.log(`  Working memory:`);
     console.log(`    Files: ${stats.working.count}`);
     console.log(`    Size: ${formatBytes(stats.working.size)}`);
-    
+
     console.log(`\n  Episodic memory:`);
     console.log(`    Entries: ${stats.episodic.count}`);
     console.log(`    Size: ${formatBytes(stats.episodic.size)}`);
-    
+
     console.log(`\n  Semantic memory:`);
     console.log(`    Lessons: ${stats.semantic.count}`);
     console.log(`    Size: ${formatBytes(stats.semantic.size)}`);
-    
+
     console.log(`\n  Personal memory:`);
     console.log(`    Preferences: ${stats.personal.count}`);
     console.log(`    Size: ${formatBytes(stats.personal.size)}`);
-    
+
     const totalSize = stats.working.size + stats.episodic.size + stats.semantic.size + stats.personal.size;
     console.log(`\n  Total: ${formatBytes(totalSize)}`);
-    
+
     return 0;
   }
-  
+
   if (subcommand === 'clear') {
     const confirm = args.includes('--confirm');
-    
+
     if (!confirm) {
       console.error('Usage: yes memory clear --confirm');
       console.error('Warning: This will delete all memory files!');
       return 1;
     }
-    
+
     try {
       memory.clearAll();
     } catch (err) {
@@ -441,7 +479,7 @@ function cmdMemory(args) {
     console.log('✓ All memory cleared');
     return 0;
   }
-  
+
   if (subcommand === 'archive') {
     let archived;
     try {
@@ -453,7 +491,7 @@ function cmdMemory(args) {
     console.log(`✓ Archived ${archived} working memory entries to episodic`);
     return 0;
   }
-  
+
   console.error('Usage: yes memory <status|clear|archive>');
   return 1;
 }
@@ -473,7 +511,15 @@ function cmdEvaluator(args) {
   }
 
   if (sub === 'trace') {
-    const task = flagValue(args, '--task', args.slice(1).filter((a) => !a.startsWith('--')).join(' ').trim());
+    const task = flagValue(
+      args,
+      '--task',
+      args
+        .slice(1)
+        .filter((a) => !a.startsWith('--'))
+        .join(' ')
+        .trim()
+    );
     const routeId = flagValue(args, '--route', 'route.meta-system.supreme-router');
     const success = boolFlag(args, '--success', true);
     let result;
@@ -525,7 +571,10 @@ function cmdEvaluator(args) {
   }
 
   if (sub === 'gate') {
-    const checks = flagValue(args, '--checks', 'route,workflow,skill,cost').split(',').map((s) => s.trim()).filter(Boolean);
+    const checks = flagValue(args, '--checks', 'route,workflow,skill,cost')
+      .split(',')
+      .map((s) => s.trim())
+      .filter(Boolean);
     let result;
     try {
       result = evaluator.gate(checks);
@@ -588,7 +637,7 @@ function cmdFeedback(args) {
 
   if (sub === 'review') {
     const id = flagValue(args, '--id', null);
-    const decision = flagValue(args, '--accept', null) ? 'accept' : (flagValue(args, '--reject', null) ? 'reject' : null);
+    const decision = flagValue(args, '--accept', null) ? 'accept' : flagValue(args, '--reject', null) ? 'reject' : null;
     if (!id || !decision) {
       console.error('Usage: yes feedback review --id <id> --accept|--reject [--skip-gate]');
       return 1;
@@ -681,7 +730,7 @@ async function cmdWorkflow(args) {
       console.error('Usage: yes workflow run <workflow-id> [--dry-run] [--execute]');
       return 1;
     }
-    const orchestrator = new WorkflowOrchestrator({ repoRoot });
+    const orchestrator = new WorkflowOrchestrator({ repoRoot, role: process.env.YES_ROLE || null });
     try {
       const result = await orchestrator.run(workflowId, { dryRun });
       console.log(JSON.stringify(result, null, 2));
@@ -709,15 +758,30 @@ function cmdTeam(args) {
     return 1;
   }
   const tenant = flagValue(args, '--tenant', process.env.YES_TENANT_ID || config.default_tenant);
+  const project = flagValue(args, '--project', process.env.YES_PROJECT_ID || config.default_project || 'default');
   const evaluator = new YesEvaluator({ repoRoot });
-  const trace = evaluator.engine.createTrace({ task: 'tenant status probe', tenant_id: tenant, route_id: 'route.meta-system.supreme-router', success: true });
-  console.log(JSON.stringify({
-    enabled: config.enabled,
-    tenant_hash: trace.tenant_hash,
-    raw_tenant_stored: config.isolation?.hash_tenant_ids === false,
-    trace_base_dir: config.isolation?.base_dir,
-    redaction: config.redaction
-  }, null, 2));
+  const trace = evaluator.engine.createTrace({
+    task: 'tenant status probe',
+    tenant_id: tenant,
+    project_id: project,
+    route_id: 'route.meta-system.supreme-router',
+    success: true
+  });
+  console.log(
+    JSON.stringify(
+      {
+        enabled: config.enabled,
+        tenant_hash: trace.tenant_hash,
+        project_hash: trace.project_hash,
+        raw_tenant_stored: config.isolation?.hash_tenant_ids === false,
+        raw_project_stored: config.isolation?.hash_project_ids === false,
+        trace_base_dir: config.isolation?.base_dir,
+        redaction: config.redaction
+      },
+      null,
+      2
+    )
+  );
   return 0;
 }
 
@@ -770,25 +834,38 @@ function formatBytes(bytes) {
   const k = 1024;
   const sizes = ['B', 'KB', 'MB', 'GB'];
   const i = Math.floor(Math.log(bytes) / Math.log(k));
-  return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+  return Math.round((bytes / Math.pow(k, i)) * 100) / 100 + ' ' + sizes[i];
 }
 
 // ── yes status ────────────────────────────────────────────────────────────────
 
 function cmdStatus() {
-  const j = (rel) => { try { return JSON.parse(fs.readFileSync(path.join(repoRoot, rel), 'utf8')); } catch { return null; } };
-  const agents    = j('registry/agents.json');
-  const skills    = j('registry/skills.json');
+  const j = (rel) => {
+    try {
+      return JSON.parse(fs.readFileSync(path.join(repoRoot, rel), 'utf8'));
+    } catch {
+      return null;
+    }
+  };
+  const agents = j('registry/agents.json');
+  const skills = j('registry/skills.json');
   const workflows = j('registry/workflows.json');
-  const mcps      = j('registry/mcps.json');
-  const boot      = j('packages/yes-schema/eval-cost.js') ? (() => {
-    try { return fs.readFileSync(path.join(repoRoot, 'YES_BOOT.md'), 'utf8').trim().split(/\s+/).length; } catch { return '?'; }
-  })() : '?';
+  const mcps = j('registry/mcps.json');
+  const boot = fs.existsSync(path.join(repoRoot, 'packages/yes-schema/eval-cost.js'))
+    ? (() => {
+        try {
+          return fs.readFileSync(path.join(repoRoot, 'YES_BOOT.md'), 'utf8').trim().split(/\s+/).length;
+        } catch {
+          return '?';
+        }
+      })()
+    : '?';
   const sqliteExists = fs.existsSync(path.join(repoRoot, 'graph/indexes/yes.sqlite'));
   const personaFile = path.join(process.cwd(), '.yes-human-persona');
   const activePersona = fs.existsSync(personaFile) ? fs.readFileSync(personaFile, 'utf8').trim() : '(none)';
-  const adaptersBuilt = ['claude','codex','opencode','mcp','cursor','windsurf','generic']
-    .filter(h => fs.existsSync(path.join(repoRoot, 'generated', h)));
+  const adaptersBuilt = ['claude', 'codex', 'opencode', 'mcp', 'cursor', 'windsurf', 'generic'].filter((h) =>
+    fs.existsSync(path.join(repoRoot, 'generated', h))
+  );
 
   console.log('yes-human status\n');
   console.log(`  Node           : ${process.versions.node}`);
@@ -799,8 +876,17 @@ function cmdStatus() {
   console.log(`  Skills         : ${skills?.count ?? '?'}`);
   console.log(`  Workflows      : ${workflows?.count ?? '?'}`);
   console.log(`  Connectors     : ${mcps?.count ?? '?'}`);
-  console.log(`  Adapter packs  : ${adaptersBuilt.length > 0 ? adaptersBuilt.join(', ') : '(none built — run: yes build all)'}`);
+  console.log(
+    `  Adapter packs  : ${adaptersBuilt.length > 0 ? adaptersBuilt.join(', ') : '(none built — run: yes build all)'}`
+  );
   return 0;
+}
+
+// ── yes agent ──────────────────────────────────────────────────────────────────
+
+async function cmdAgent(args) {
+  const { cmdAgent: delegate } = await import('./commands/agent.js');
+  return await delegate(args, repoRoot);
 }
 
 // ── yes run ───────────────────────────────────────────────────────────────────
@@ -829,7 +915,9 @@ async function cmdRun(args) {
   try {
     const cp = readJSON('registry/cost-policy.json');
     maxTokens = cp.bands?.[band]?.max_context_tokens ?? null;
-  } catch { /* ignore */ }
+  } catch {
+    /* ignore */
+  }
 
   // Load agent body for context size estimate
   const agentTokens = target.agent ? estimateAgentTokens(target.agent) : 0;
@@ -843,7 +931,9 @@ async function cmdRun(args) {
   console.log('yes run — routing + context plan\n');
   console.log(`  Task           : ${task}`);
   console.log(`  Route          : ${route.route_id}`);
-  console.log(`  Match stage    : ${route._match?.stage ?? 'unknown'} (confidence: ${route._match?.confidence ?? '?'})`);
+  console.log(
+    `  Match stage    : ${route._match?.stage ?? 'unknown'} (confidence: ${route._match?.confidence ?? '?'})`
+  );
   console.log(`  Domain master  : ${target.domain_master ?? '(none)'}`);
   console.log(`  Agent          : ${target.agent ?? '(none)'} (~${agentTokens} tokens)`);
   console.log(`  Workflow       : ${target.workflow ?? '(none)'}`);
@@ -859,7 +949,7 @@ async function cmdRun(args) {
   }
 
   if (execute || localExec || localTools) {
-    const mode = localTools ? 'local-tools' : (localExec ? 'local' : 'dry-run');
+    const mode = localTools ? 'local-tools' : localExec ? 'local' : 'dry-run';
     const result = await runPlan({ task, route, mode, repoRoot });
     console.log('\n  Execution (' + mode + '):');
     console.log(JSON.stringify(result, null, 2));
@@ -873,17 +963,23 @@ function cmdPersona(args) {
   const sub = args[0];
   const personaFile = path.join(process.cwd(), '.yes-human-persona');
   const reg = (() => {
-    try { return JSON.parse(fs.readFileSync(path.join(repoRoot, 'registry', 'personas.json'), 'utf8')); }
-    catch { return { items: [] }; }
+    try {
+      return JSON.parse(fs.readFileSync(path.join(repoRoot, 'registry', 'personas.json'), 'utf8'));
+    } catch {
+      return { items: [] };
+    }
   })();
 
   if (sub === 'set') {
     const personaId = args[1];
-    if (!personaId) { console.error('Usage: yes persona set <persona-id>'); return 1; }
-    const found = reg.items.find(p => p.persona_id === personaId);
+    if (!personaId) {
+      console.error('Usage: yes persona set <persona-id>');
+      return 1;
+    }
+    const found = reg.items.find((p) => p.persona_id === personaId);
     if (!found) {
       console.error(`Unknown persona: ${personaId}`);
-      console.error(`Available: ${reg.items.map(p => p.persona_id).join(', ')}`);
+      console.error(`Available: ${reg.items.map((p) => p.persona_id).join(', ')}`);
       return 1;
     }
     try {
@@ -943,31 +1039,43 @@ function cmdVersion(args) {
 
   if (!sub || sub === 'list') {
     const artifactId = args[1];
-    const entries = artifactId
-      ? ledger.entries.filter(e => e.artifact_id === artifactId)
-      : ledger.entries.slice(-20);
+    const entries = artifactId ? ledger.entries.filter((e) => e.artifact_id === artifactId) : ledger.entries.slice(-20);
     if (entries.length === 0) {
-      console.log(artifactId ? `No version history for: ${artifactId}` : 'Version ledger is empty. Run `yes compile` to populate.');
+      console.log(
+        artifactId ? `No version history for: ${artifactId}` : 'Version ledger is empty. Run `yes compile` to populate.'
+      );
       return 0;
     }
     console.log(artifactId ? `Version history: ${artifactId}\n` : `Recent artifact versions (${entries.length}):\n`);
     for (const e of entries) {
-      console.log(`  ${e.artifact_id.padEnd(40)} v${e.artifact_version}  ${e.artifact_type.padEnd(8)}  ${e.hash.slice(0,8)}  ${e.recorded_at.slice(0,10)}`);
+      console.log(
+        `  ${e.artifact_id.padEnd(40)} v${e.artifact_version}  ${e.artifact_type.padEnd(8)}  ${e.hash.slice(0, 8)}  ${e.recorded_at.slice(0, 10)}`
+      );
     }
     return 0;
   }
 
   if (sub === 'diff') {
     const artifactId = args[1];
-    if (!artifactId) { console.error('Usage: yes version diff <artifact-id> <v1> <v2>'); return 1; }
-    const v1 = args[2], v2 = args[3];
-    const entries = ledger.entries.filter(e => e.artifact_id === artifactId);
-    const e1 = entries.find(e => e.artifact_version === v1);
-    const e2 = entries.find(e => e.artifact_version === v2);
-    if (!e1) { console.error(`Version ${v1} not found for ${artifactId}`); return 1; }
-    if (!e2) { console.error(`Version ${v2} not found for ${artifactId}`); return 1; }
-    console.log(`Diff ${artifactId}: v${v1} (${e1.hash.slice(0,8)}) → v${v2} (${e2.hash.slice(0,8)})`);
-    console.log(`  Recorded: ${e1.recorded_at.slice(0,16)} → ${e2.recorded_at.slice(0,16)}`);
+    if (!artifactId) {
+      console.error('Usage: yes version diff <artifact-id> <v1> <v2>');
+      return 1;
+    }
+    const v1 = args[2],
+      v2 = args[3];
+    const entries = ledger.entries.filter((e) => e.artifact_id === artifactId);
+    const e1 = entries.find((e) => e.artifact_version === v1);
+    const e2 = entries.find((e) => e.artifact_version === v2);
+    if (!e1) {
+      console.error(`Version ${v1} not found for ${artifactId}`);
+      return 1;
+    }
+    if (!e2) {
+      console.error(`Version ${v2} not found for ${artifactId}`);
+      return 1;
+    }
+    console.log(`Diff ${artifactId}: v${v1} (${e1.hash.slice(0, 8)}) → v${v2} (${e2.hash.slice(0, 8)})`);
+    console.log(`  Recorded: ${e1.recorded_at.slice(0, 16)} → ${e2.recorded_at.slice(0, 16)}`);
     if (e1.hash === e2.hash) console.log('  (no content change)');
     else console.log('  Content changed (hashes differ).');
     return 0;
@@ -975,7 +1083,10 @@ function cmdVersion(args) {
 
   if (sub === 'copy-skills') {
     const slug = args[1];
-    if (!slug) { console.error('Usage: yes absorb copy-skills <slug> [--domain meta-system]'); return 1; }
+    if (!slug) {
+      console.error('Usage: yes absorb copy-skills <slug> [--domain meta-system]');
+      return 1;
+    }
     const domainIdx = args.indexOf('--domain');
     const domain = domainIdx >= 0 ? args[domainIdx + 1] : 'meta-system';
     const changeIdx = args.indexOf('--change-id');
@@ -992,20 +1103,27 @@ function cmdVersion(args) {
   }
 
   if (sub === 'rollback') {
-    const artifactId = args[1], version = args[2];
+    const artifactId = args[1],
+      version = args[2];
     const confirm = args.includes('--confirm');
-    if (!artifactId || !version) { console.error('Usage: yes version rollback <artifact-id> <version> [--confirm]'); return 1; }
+    if (!artifactId || !version) {
+      console.error('Usage: yes version rollback <artifact-id> <version> [--confirm]');
+      return 1;
+    }
     if (!confirm) {
       console.log(`Would rollback ${artifactId} to v${version}. Add --confirm to apply.`);
       console.log('This writes a rollback record to staging/rollback/.');
       return 0;
     }
     const rollback = {
-      change_id: `version-rollback-${artifactId.replace(/\./g,'-')}-${version}-${Date.now()}`,
+      change_id: `version-rollback-${artifactId.replace(/\./g, '-')}-${version}-${Date.now()}`,
       created_at: new Date().toISOString(),
       reason: `version rollback ${artifactId} to v${version}`,
-      files_added: [], files_modified: [], registry_entries_added: [],
-      graph_edges_added: [], previous_hashes: {},
+      files_added: [],
+      files_modified: [],
+      registry_entries_added: [],
+      graph_edges_added: [],
+      previous_hashes: {},
       rollback_command: `yes version rollback ${artifactId} ${version} --confirm`,
       safe_to_auto_rollback: false
     };
@@ -1022,7 +1140,6 @@ function cmdVersion(args) {
 }
 
 // ── yes contribute ────────────────────────────────────────────────────────────
-
 
 function cmdLearning(args) {
   const sub = args[0];
@@ -1051,12 +1168,15 @@ function cmdLearning(args) {
 function cmdContribute(args) {
   const kind = args[0]; // agent | skill
   const filePath = args[1];
-  if (!kind || !filePath || !['agent','skill'].includes(kind)) {
+  if (!kind || !filePath || !['agent', 'skill'].includes(kind)) {
     console.error('Usage: yes contribute agent <path> | yes contribute skill <path>');
     return 1;
   }
   const absPath = path.resolve(filePath);
-  if (!fs.existsSync(absPath)) { console.error(`File not found: ${absPath}`); return 1; }
+  if (!fs.existsSync(absPath)) {
+    console.error(`File not found: ${absPath}`);
+    return 1;
+  }
 
   let content;
   try {
@@ -1086,14 +1206,20 @@ function cmdContribute(args) {
   }
 
   const manifest = {
-    kind, slug,
+    kind,
+    slug,
     source_file: path.relative(repoRoot, absPath),
     staged_at: new Date().toISOString(),
     validation_issues: issues,
     decision: issues.length === 0 ? 'pending_review' : 'needs_fixes',
-    next_steps: issues.length === 0
-      ? [`Create references/<domain>/${slug}.sources.json dossier`, 'Run: yes dossier validate <agent-id>', 'Submit PR for human review']
-      : issues.map(i => `Fix: ${i}`)
+    next_steps:
+      issues.length === 0
+        ? [
+            `Create references/<domain>/${slug}.sources.json dossier`,
+            'Run: yes dossier validate <agent-id>',
+            'Submit PR for human review'
+          ]
+        : issues.map((i) => `Fix: ${i}`)
   };
   fs.writeFileSync(path.join(stagingDir, 'manifest.json'), JSON.stringify(manifest, null, 2));
 
@@ -1127,9 +1253,16 @@ function cmdDossier(args) {
   }
   let total = null;
   try {
-    const p = path.join(repoRoot, 'references', agentId.split('.')[0], `${agentId.split('.').slice(1).join('.')}.sources.json`);
+    const p = path.join(
+      repoRoot,
+      'references',
+      agentId.split('.')[0],
+      `${agentId.split('.').slice(1).join('.')}.sources.json`
+    );
     total = JSON.parse(fs.readFileSync(p, 'utf8')).scores?.total ?? null;
-  } catch { /* ignore */ }
+  } catch {
+    /* ignore */
+  }
   console.log(`dossier: ${agentId} (gate: ${targetGate})`);
   if (total !== null) console.log(`score: ${total}/100`);
   for (const w of result.warnings) console.log(`⚠ ${w}`);
@@ -1149,18 +1282,47 @@ const DEFAULT_GRAPH_DB = 'graph/indexes/yes.sqlite';
 
 function countCandidateFiles(repoPath) {
   const SKIP = new Set([
-    'node_modules', '.git', '.venv', 'venv', '__pycache__',
-    'dist', 'build', 'target', '.next', '.nuxt',
-    'coverage', '.cache', 'generated'
+    'node_modules',
+    '.git',
+    '.venv',
+    'venv',
+    '__pycache__',
+    'dist',
+    'build',
+    'target',
+    '.next',
+    '.nuxt',
+    'coverage',
+    '.cache',
+    'generated'
   ]);
   const KNOWN_EXT = new Set([
-    '.js', '.mjs', '.cjs', '.ts', '.tsx', '.jsx', '.py', '.go',
-    '.rs', '.java', '.rb', '.md', '.json', '.yaml', '.yml', '.toml', '.sql'
+    '.js',
+    '.mjs',
+    '.cjs',
+    '.ts',
+    '.tsx',
+    '.jsx',
+    '.py',
+    '.go',
+    '.rs',
+    '.java',
+    '.rb',
+    '.md',
+    '.json',
+    '.yaml',
+    '.yml',
+    '.toml',
+    '.sql'
   ]);
   let n = 0;
   (function walk(dir) {
     let entries;
-    try { entries = fs.readdirSync(dir, { withFileTypes: true }); } catch { return; }
+    try {
+      entries = fs.readdirSync(dir, { withFileTypes: true });
+    } catch {
+      return;
+    }
     for (const e of entries) {
       if (SKIP.has(e.name) || e.name.startsWith('.git')) continue;
       const full = path.join(dir, e.name);
@@ -1181,7 +1343,9 @@ async function cmdGraph(args) {
 
     const candidateCount = countCandidateFiles(target);
     if (candidateCount > LARGE_REPO_FILE_THRESHOLD && !force) {
-      console.error(`✗ Large repo detected (${candidateCount} candidate files > ${LARGE_REPO_FILE_THRESHOLD} threshold).`);
+      console.error(
+        `✗ Large repo detected (${candidateCount} candidate files > ${LARGE_REPO_FILE_THRESHOLD} threshold).`
+      );
       console.error(`  Re-run with --yes to confirm: yes graph build ${target} --yes`);
       return 1;
     }
@@ -1200,7 +1364,9 @@ async function cmdGraph(args) {
     }
     process.stderr.write('\n');
     const dt = ((Date.now() - t0) / 1000).toFixed(2);
-    console.log(`✓ Indexed ${result.filesIndexed} files, ${result.symbols} symbols, ${result.imports} imports in ${dt}s`);
+    console.log(
+      `✓ Indexed ${result.filesIndexed} files, ${result.symbols} symbols, ${result.imports} imports in ${dt}s`
+    );
     return 0;
   }
 
@@ -1270,8 +1436,12 @@ async function cmdAbsorb(args) {
   if (!sub || sub === 'help') {
     console.error('Usage:');
     console.error('  yes absorb stage <github-url | local-path>   Stage a source through the license gate');
-    console.error('  yes absorb apply <slug> [--promote]            Promote staged source; --promote copies into content/');
-    console.error('  yes absorb list                              Show staged / promoted / rejected / rollback records');
+    console.error(
+      '  yes absorb apply <slug> [--promote]            Promote staged source; --promote copies into content/'
+    );
+    console.error(
+      '  yes absorb list                              Show staged / promoted / rejected / rollback records'
+    );
     console.error('  yes absorb copy-skills <slug> [--domain D]   Copy staged SKILL.md files into content/skills/');
     console.error('  yes absorb rollback <change-id>              Revert a promotion');
     return 1;
@@ -1279,7 +1449,10 @@ async function cmdAbsorb(args) {
 
   if (sub === 'stage') {
     const input = args[1];
-    if (!input) { console.error('Usage: yes absorb stage <url-or-path>'); return 1; }
+    if (!input) {
+      console.error('Usage: yes absorb stage <url-or-path>');
+      return 1;
+    }
     console.log(`Staging: ${input}\n`);
     try {
       const r = await absorber.stage(input);
@@ -1288,10 +1461,18 @@ async function cmdAbsorb(args) {
       console.log(`  source       : ${m.source.kind} ${m.source.origin_url}`);
       console.log(`  commit/ver   : ${m.source.commit_or_version}`);
       console.log(`  license      : ${m.license.spdx ?? '(unknown)'} → ${m.license.decision}`);
-      console.log(`  classification: ${m.classification.total_files} files (agents:${m.classification.agents}, skills:${m.classification.skills}, workflows:${m.classification.workflows}, commands:${m.classification.commands}, hooks:${m.classification.hooks})`);
-      console.log(`  duplicates   : ${m.duplicates.exact_overlap_count} exact, ${m.duplicates.slug_collision_count} slug collisions`);
+      console.log(
+        `  classification: ${m.classification.total_files} files (agents:${m.classification.agents}, skills:${m.classification.skills}, workflows:${m.classification.workflows}, commands:${m.classification.commands}, hooks:${m.classification.hooks})`
+      );
+      console.log(
+        `  duplicates   : ${m.duplicates.exact_overlap_count} exact, ${m.duplicates.slug_collision_count} slug collisions`
+      );
       console.log(`  manifest     : ${r.manifestPath}`);
-      console.log(r.decision === 'staged' ? `\n✓ Staged. Review then run: yes absorb apply ${r.slug}` : `\n✗ Rejected: ${m.reason}`);
+      console.log(
+        r.decision === 'staged'
+          ? `\n✓ Staged. Review then run: yes absorb apply ${r.slug}`
+          : `\n✗ Rejected: ${m.reason}`
+      );
       return r.decision === 'staged' ? 0 : 1;
     } catch (e) {
       console.error(`✗ ${e.message}`);
@@ -1303,7 +1484,10 @@ async function cmdAbsorb(args) {
     const slug = args[1];
     const promote = args.includes('--promote');
     const domainArg = args.find((a, i) => args[i - 1] === '--domain');
-    if (!slug || slug.startsWith('--')) { console.error('Usage: yes absorb apply <slug> [--promote] [--domain D]'); return 1; }
+    if (!slug || slug.startsWith('--')) {
+      console.error('Usage: yes absorb apply <slug> [--promote] [--domain D]');
+      return 1;
+    }
     try {
       const r = await absorber.apply(slug, { promote, domain: domainArg });
       console.log(`✓ Promoted ${slug}${promote ? ' (content copied)' : ''}`);
@@ -1312,7 +1496,9 @@ async function cmdAbsorb(args) {
       console.log(`  rollback  : ${r.rollbackPath}`);
       if (r.promote) {
         console.log(`  files     : ${r.promote.files_added.length} added`);
-        console.log(`  agents    : ${r.promote.promoted.agents.length}, skills: ${r.promote.promoted.skills.length}, workflows: ${r.promote.promoted.workflows.length}`);
+        console.log(
+          `  agents    : ${r.promote.promoted.agents.length}, skills: ${r.promote.promoted.skills.length}, workflows: ${r.promote.promoted.workflows.length}`
+        );
       }
       return 0;
     } catch (e) {
@@ -1323,7 +1509,10 @@ async function cmdAbsorb(args) {
 
   if (sub === 'rollback') {
     const changeId = args[1];
-    if (!changeId) { console.error('Usage: yes absorb rollback <change-id>'); return 1; }
+    if (!changeId) {
+      console.error('Usage: yes absorb rollback <change-id>');
+      return 1;
+    }
     try {
       const r = await absorber.rollback(changeId);
       console.log(`✓ Rolled back ${r.changeId}`);
@@ -1386,7 +1575,10 @@ async function cmdBuild(args) {
 
   let allOk = true;
   try {
-    const hostsBuilt = host === 'all' ? ['claude', 'codex', 'opencode', 'mcp', 'cursor', 'windsurf', 'vscode', 'sourcegraph', 'generic'] : [host];
+    const hostsBuilt =
+      host === 'all'
+        ? ['claude', 'codex', 'opencode', 'mcp', 'cursor', 'windsurf', 'vscode', 'sourcegraph', 'generic']
+        : [host];
     for (const h of hostsBuilt) {
       const dir = path.join(repoRoot, 'generated', h);
       const { ok, checks } = validateHostBundle(h, dir);
@@ -1462,7 +1654,9 @@ async function main() {
       if (rest[0] === 'route') return runScript('packages/yes-schema/eval-route.js');
       if (rest[0] === 'workflow') return runScript('packages/yes-schema/eval-workflow.js');
       if (rest[0] === 'skill') return runScript('packages/yes-schema/eval-skill.js');
-      console.error(`Unknown eval subcommand: ${rest[0] ?? ''}. Try: yes eval cost | yes eval route | yes eval workflow | yes eval skill`);
+      console.error(
+        `Unknown eval subcommand: ${rest[0] ?? ''}. Try: yes eval cost | yes eval route | yes eval workflow | yes eval skill`
+      );
       return 1;
     case 'evaluator':
       return cmdEvaluator(rest);
@@ -1494,6 +1688,8 @@ async function main() {
       return await cmdAbsorb(rest);
     case 'status':
       return cmdStatus();
+    case 'agent':
+      return await cmdAgent(rest);
     case 'run':
       return await cmdRun(rest);
     case 'persona':
@@ -1526,7 +1722,9 @@ async function main() {
   }
 }
 
-main().then((code) => process.exit(code ?? 0)).catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+main()
+  .then((code) => process.exit(code ?? 0))
+  .catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });

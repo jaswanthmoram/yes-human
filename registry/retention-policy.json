@@ -1,0 +1,19 @@
+{
+  "id": "yes-human.retention",
+  "version": "1.0.0",
+  "default_mode": "local",
+  "policies": {
+    "local": {
+      "trace_days": 30,
+      "private_trace_days": 7,
+      "redact_before_write": true,
+      "delete_private_raw": true
+    },
+    "self-hosted": {
+      "trace_days": 90,
+      "private_trace_days": 14,
+      "redact_before_write": true,
+      "delete_private_raw": true
+    }
+  }
+}

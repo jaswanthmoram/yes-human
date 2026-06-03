@@ -4,7 +4,10 @@
   "db_path": "graph/indexes/yes.sqlite",
   "max_context_items": 8,
   "stale_after_days": 14,
-  "semantic_fallback": false,
+  "semantic_fallback": true,
+  "semantic_min_score": 0.42,
+  "semantic_min_overlap": 2,
+  "semantic_min_query_tokens": 2,
   "route_boost": {
     "packages/yes-runtime/": "route.engineering.code-reviewer",
     "packages/yes-graph/": "route.meta-system.supreme-router"

@@ -1,19 +1,19 @@
 # Yes-human Agentic System Architecture
 
-**Version:** 2.0 complete architecture draft  
+**Version:** 2.4 OSS core architecture  
 **Date:** 2026-05-28  
-**Last Updated:** 2026-05-29 (ECC deep research integration)  
-**Status:** v2 architecture complete, implementation plan pending  
-**Goal:** build a universal, open-source, low-token agentic operating system that can run across Claude, Codex, CLI, IDEs, MCP hosts, and future agent runtimes.
+**Last Updated:** 2026-06-03 (OSS core reconciliation)  
+**Status:** public OSS control-plane architecture; hosted deployment layers are future work only  
+**Goal:** maintain a universal, open-source, low-token agentic control plane that runs locally or self-hosted across Claude, Codex, CLI, IDEs, MCP hosts, and future agent runtimes.
 
 **Companion artifacts:**
 
-- `YES-HUMAN_DEVELOPMENT_PLAN.md`: Phased engineering roadmap with ECC source map integration
-- `YES-HUMAN_REVIEW_AND_AGENT_CREATION_PLAN.md`: Review findings, blockers, and agent creation strategy
-- `YES-HUMAN_SOURCE_MAP.md`: Validated category-level source seed registry for agent/workflow creation
-- `reports/ECC-SKILL-SOURCE-MAP-DEEP-RESEARCH.md`: Deep research report mapping 180+ GitHub repositories across 8 ECC skill categories with 14 critical architecture patterns
+- `README.md`: current public quickstart, OSS scope, and validation commands
+- `CONTRIBUTING.md`: contributor workflow, source dossier, route fixture, and validation rules
+- `YES-HUMAN_SOURCE_MAP.md`: validated category-level source seed registry for agent/workflow creation
+- `reports/ECC-SKILL-SOURCE-MAP-DEEP-RESEARCH.md`: research provenance mapping 180+ GitHub repositories across 8 ECC skill categories with 14 critical architecture patterns
 
-**Document Purpose:** This is the comprehensive architecture reference. For execution details, see the development plan. For review findings, see the review plan. For source references, see the source map.
+**Document Purpose:** This is the comprehensive architecture reference for the public OSS core. Core routing, orchestration, adapters, RBAC, tenant/project isolation, redaction, retention, connectors, manifest validation, graph assist, absorption, validation gates, and document conversion are public repository concerns. Hosted auth, billing, managed customer operations, large-scale hosted sandboxes, hosted rollout infrastructure, and quota/cost control planes remain deployment-only future work.
 
 ---
 
@@ -29,6 +29,7 @@ It should be a portable agent control plane:
 - low-token routing
 - self-improving workflows
 - safe plugin absorption from GitHub and local folders
+- RBAC primitives, tenant/project trace isolation, redaction, retention, and signed manifests
 - adapters for Claude, Codex, AGENT.md-compatible tools, MCP, and CLI
 
 The key design rule is simple:
@@ -3011,99 +3012,24 @@ That combination is the product.
 
 ---
 
-## 23. Implementation plan
+## 23. Public implementation model
 
-### Phase -1: Review, source map, and vertical-slice gate
+Implementation work now follows public vertical slices instead of private phase plans:
 
-- use `YES-HUMAN_REVIEW_AND_AGENT_CREATION_PLAN.md` as the execution gate before full v2 implementation
-- use `YES-HUMAN_SOURCE_MAP.md` as the seed source registry for all category and agent dossiers
-- do not generate long-tail agents before schemas, validators, source dossiers, route fixtures, and cost checks exist
-- prove one vertical slice first: source dossier -> category master -> specialist agent -> workflow -> route fixture -> context pack -> host export check
-- all production agents and skills are authored and validated in this repo; external imports use the absorber staging lane only
+1. update the canonical source (`content/`, `registry/`, `packages/`, `policies/`, `rules/`, `hooks/`, or `validators/`)
+2. add or update schemas and focused tests for changed behavior
+3. run route, cost, drift, promotion, skill, and host-bundle validation as appropriate
+4. keep generated host bundles derived from the canonical source
+5. stage external imports through the absorber lane with license, provenance, dedupe, promotion, and rollback records
 
-### Phase 1: Bootstrap Yes-human repo
+Current OSS core status:
 
-- create repo structure
-- create schemas
-- create CLI skeleton
-- create docs
-- create adapter spec
-- create canonical `rules/`, `hooks/`, `policies/`, and `validators/`
-- create runtime lifecycle state machines
-
-### Phase 2: Grow content via absorber
-
-- stage external repos and local folders under `staging/`
-- normalize metadata and license/provenance
-- promote selectively into `content/` after dossier and route gates
-- compile registries and generate absorption reports
-
-### Phase 3: Build graph router
-
-- exact registry route
-- alias route
-- local search
-- graph route
-- semantic fallback
-- budget checks
-
-### Phase 4: Build adapters
-
-- CLI adapter first
-- Codex adapter second
-- Claude adapter third
-- MCP server bundle fourth
-- AGENT.md/OpenCode generator fifth
-- host-specific hook/rule/policy compilation
-- host bundle validation
-
-### Phase 4B: Optional adapter packs
-
-- Cursor adapter
-- Windsurf adapter
-- VS Code adapter
-- Sourcegraph adapter
-- Generic adapter (stdio/HTTP/file-drop protocol with signed manifest, scoped permissions, sandbox, audit log, cancellation)
-- optional adapter packs cannot block core v2 release
-
-### Phase 5: Build absorber
-
-- GitHub fetch
-- local folder import
-- license/provenance extraction
-- dedupe
-- staging promotion
-- rollback
-
-### Phase 6: Integrate graph context
-
-- local code graph
-- Sourcegraph adapter
-- GraphRAG optional indexer
-- graph snapshot cache
-
-### Phase 7: Workflow learning
-
-- trace schema
-- workflow miner
-- workflow suggester
-- approval flow
-- eval runner
-- mistake graph promotion rules
-- workflow candidate validation
-
-### Phase 8: Extended content pack
-
-- import ECC into staging
-- promote only quality items
-- create category packs
-- run routing tests
-
-Implementation status on 2026-06-03 (v2.3.0 OSS-core):
-
-- Wave 4 specialist coverage is complete on the 74-agent baseline.
-- Wave 5 workflow expansion is complete with canonical workflows, workflow dossiers, workflow eval fixtures, and generated category packs.
-- Core adapters (CLI, Codex, Claude, OpenCode, MCP) were completed earlier; optional adapter packs remain out of scope for this phase.
+- production agents, skills, workflows, route fixtures, and source dossiers are public repository assets
+- exact, alias, phrase-trie, code-graph assist, semantic fallback, and fallback routing are public runtime paths
+- workflow orchestration includes dry-run plans, read-only execution records, rollback metadata, and fan-out planning for parallel workflow routes
+- RBAC, tenant/project isolation, trace redaction, private-trace retention metadata, connector protocol helpers, and signed manifest validation are implemented in public packages and registries
+- graph build/query, route assist, absorber promotion/rollback, validation gates, and document-to-Markdown conversion are part of the OSS core
+- future hosted work is limited to deployment concerns listed in Section 24.1
 
 ---
 
@@ -3139,7 +3065,7 @@ The architecture is ready when:
 - user persona system biases routing correctly for non-technical users
 - feedback loop processes accept/reject/partial feedback, stages route-weight changes, and promotes only after eval gates pass
 - artifact versioning tracks all agents, skills, workflows, rules, and policies
-- multi-user team support with role-based access control, tenant/project isolation, private traces, secret redaction, and retention policy
+- local and self-hosted team mode supports role-based access control primitives, tenant/project isolation, redacted traces, and retention policy rules
 - offline mode works for all local operations
 - crash recovery resumes workflows from checkpoints
 - latency targets met for all operation types
@@ -3150,6 +3076,17 @@ The architecture is ready when:
 - high-stakes domains have mandatory disclaimers and policy gates
 - eval thresholds include minimum fixture counts per category and per domain
 - Generic adapter requires signed manifests, scoped permissions, sandboxing, audit logs, and cancellation support
+
+### 24.1 Future hosted release work
+
+The following items are not hidden core logic; they are optional hosted deployment layers that may be released later around the public OSS core:
+
+- hosted login, invites, org management, billing, and account administration
+- customer-specific managed trace retention operations and managed storage
+- managed connector operations for customer third-party SaaS accounts
+- hosted sandbox execution for untrusted runs at scale
+- production semantic-routing rollouts gated by hosted eval infrastructure
+- paid parallel-execution control planes with quota and cost enforcement
 
 ---
 

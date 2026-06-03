@@ -1,6 +1,7 @@
 import crypto from 'crypto';
 import fs from 'fs';
 import path from 'path';
+import { SECRET_PATTERNS } from '../yes-core/secrets.js';
 
 const DEFAULT_REDACT_FIELDS = new Set([
   'password',
@@ -12,17 +13,14 @@ const DEFAULT_REDACT_FIELDS = new Set([
   'cookie'
 ]);
 
-const PATTERNS = {
-  email: /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gi,
-  openai_key: /\bsk-[A-Za-z0-9]{20,}\b/g,
-  github_token: /\bghp_[A-Za-z0-9]{20,}\b/g,
-  aws_key: /\bAKIA[0-9A-Z]{16}\b/g,
-  ssn: /\b\d{3}-\d{2}-\d{4}\b/g,
-  credit_card: /\b\d{4}[- ]?\d{4}[- ]?\d{4}[- ]?\d{4}\b/g
-};
+const PATTERNS = SECRET_PATTERNS;
 
 export function hashValue(value, length = 16) {
-  return crypto.createHash('sha256').update(String(value ?? '')).digest('hex').slice(0, length);
+  return crypto
+    .createHash('sha256')
+    .update(String(value ?? ''))
+    .digest('hex')
+    .slice(0, length);
 }
 
 export function readJsonIfExists(filePath, fallback = null) {
@@ -38,10 +36,14 @@ export function loadTeamMode(repoRoot = process.cwd()) {
   return readJsonIfExists(path.join(repoRoot, 'registry/team-mode.json'), {
     enabled: true,
     default_tenant: 'local',
+    default_project: 'default',
     isolation: {
       base_dir: 'graph/memory/tenants',
       trace_file: 'traces.jsonl',
-      hash_tenant_ids: true
+      hash_tenant_ids: true,
+      hash_project_ids: true,
+      deny_cross_tenant_reads: true,
+      project_scoped_traces: true
     },
     redaction: {
       enabled: true,
@@ -57,8 +59,20 @@ export function resolveTenant(context = {}, teamMode = loadTeamMode()) {
   return context.tenant_id || process.env.YES_TENANT_ID || teamMode.default_tenant || 'local';
 }
 
+export function resolveProject(context = {}, teamMode = loadTeamMode()) {
+  return context.project_id || process.env.YES_PROJECT_ID || teamMode.default_project || 'default';
+}
+
 export function tenantHash(tenantId, teamMode = loadTeamMode()) {
-  return teamMode.isolation?.hash_tenant_ids === false ? String(tenantId || 'local') : hashValue(`tenant:${tenantId || 'local'}`, 24);
+  return teamMode.isolation?.hash_tenant_ids === false
+    ? String(tenantId || 'local')
+    : hashValue(`tenant:${tenantId || 'local'}`, 24);
+}
+
+export function projectHash(projectId, teamMode = loadTeamMode()) {
+  return teamMode.isolation?.hash_project_ids === false
+    ? String(projectId || 'default')
+    : hashValue(`project:${projectId || 'default'}`, 24);
 }
 
 export function redactString(value, teamMode = loadTeamMode()) {
@@ -102,7 +116,23 @@ export function redactedTask(task, teamMode = loadTeamMode()) {
   return redactString(String(task).slice(0, 500), teamMode);
 }
 
-export function tenantTracePath(repoRoot, tenantId, teamMode = loadTeamMode(repoRoot)) {
+export function tenantTracePath(repoRoot, tenantId, teamMode = loadTeamMode(repoRoot), projectId = 'default') {
   const hash = tenantHash(tenantId, teamMode);
-  return path.join(repoRoot, teamMode.isolation?.base_dir || 'graph/memory/tenants', hash, teamMode.isolation?.trace_file || 'traces.jsonl');
+  const project = projectHash(projectId, teamMode);
+  if (teamMode.isolation?.project_scoped_traces === false) {
+    return path.join(
+      repoRoot,
+      teamMode.isolation?.base_dir || 'graph/memory/tenants',
+      hash,
+      teamMode.isolation?.trace_file || 'traces.jsonl'
+    );
+  }
+  return path.join(
+    repoRoot,
+    teamMode.isolation?.base_dir || 'graph/memory/tenants',
+    hash,
+    'projects',
+    project,
+    teamMode.isolation?.trace_file || 'traces.jsonl'
+  );
 }

@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url';
 
 import { loadBuildContext, buildHost, buildAll, repoRoot } from '../../packages/yes-adapters/index.js';
 import { validateHostBundle } from '../../validators/host-bundle.validator.js';
+import { verifyManifest } from '../../packages/yes-adapters/lib/manifest-signing.js';
 
 const generatedRoot = path.join(repoRoot, 'generated');
 
@@ -28,12 +29,22 @@ for (const host of ['claude', 'codex', 'opencode', 'mcp', 'cursor', 'windsurf', 
   test(`${host} bundle passes validation`, () => {
     const dir = path.join(generatedRoot, host);
     const { ok, checks } = validateHostBundle(host, dir);
-    const failures = checks.filter(c => !c.passed).map(c => `${c.label}: ${c.detail}`);
+    const failures = checks.filter((c) => !c.passed).map((c) => `${c.label}: ${c.detail}`);
     assert.ok(ok, `${host} bundle failed: ${failures.join('; ')}`);
   });
 
   test(`${host} boot file is under 300 token cap`, () => {
-    const bootFiles = { claude: 'CLAUDE.md', codex: 'AGENTS.md', opencode: 'AGENTS.md', mcp: null, cursor: 'AGENTS.md', windsurf: 'AGENTS.md', vscode: 'AGENTS.md', sourcegraph: 'AGENTS.md', generic: 'README.md' };
+    const bootFiles = {
+      claude: 'CLAUDE.md',
+      codex: 'AGENTS.md',
+      opencode: 'AGENTS.md',
+      mcp: null,
+      cursor: 'AGENTS.md',
+      windsurf: 'AGENTS.md',
+      vscode: 'AGENTS.md',
+      sourcegraph: 'AGENTS.md',
+      generic: 'README.md'
+    };
     const bootFile = bootFiles[host];
     if (!bootFile) return; // MCP skips prose token check
     const p = path.join(generatedRoot, host, bootFile);
@@ -74,7 +85,10 @@ test('opencode opencode.json references YES_BOOT.md', () => {
 
 test('mcp manifest has yes_route tool', () => {
   const mf = JSON.parse(fs.readFileSync(path.join(generatedRoot, 'mcp', 'mcp-manifest.json'), 'utf8'));
-  assert.ok(mf.tools?.some(t => t.name === 'yes_route'), 'yes_route tool present');
+  assert.ok(
+    mf.tools?.some((t) => t.name === 'yes_route'),
+    'yes_route tool present'
+  );
 });
 
 test('generic adapter has zero-trust manifest, sandbox, audit, and cancellation files', () => {
@@ -83,6 +97,7 @@ test('generic adapter has zero-trust manifest, sandbox, audit, and cancellation 
   const sandbox = JSON.parse(fs.readFileSync(path.join(dir, 'sandbox.policy.json'), 'utf8'));
   assert.equal(manifest.trust_model, 'zero-trust');
   assert.ok(manifest.signature?.value);
+  assert.ok(verifyManifest(manifest), 'manifest signature verifies');
   assert.equal(manifest.permissions.production_mutation_from_feedback, false);
   assert.equal(sandbox.default, 'deny');
   assert.ok(fs.existsSync(path.join(dir, 'audit.jsonl')));

@@ -18,6 +18,20 @@
       }
     },
     {
+      "id": "hook.pre-route.llm-assist",
+      "event": "pre-route",
+      "runtime": "node",
+      "entry": "hooks/pre-route-llm-assist.js",
+      "inputs": ["task", "routerConfidence"],
+      "outputs": ["routing_hint"],
+      "policy_dependencies": [],
+      "host_support": {
+        "cli": "native",
+        "mcp": "wrapper",
+        "cursor": "wrapper"
+      }
+    },
+    {
       "id": "hook.pre-tool.permission-strategy",
       "event": "pre-tool",
       "runtime": "node",

@@ -10,6 +10,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import { verifyManifest } from '../packages/yes-adapters/lib/manifest-signing.js';
 
 const TOKEN_HARD_CAP = 300;
 const KEY_PATTERNS = [/fc-[a-zA-Z0-9]{20,}/, /f922[a-zA-Z0-9-]{20,}/, /sk-[a-zA-Z0-9]{20,}/, /ghp_[a-zA-Z0-9]{20,}/];
@@ -28,29 +29,29 @@ function scanForLiteralKeys(filePath) {
 }
 
 const HOST_REQUIRED_FILES = {
-  claude:   ['CLAUDE.md', 'plugin.json', 'settings.json'],
-  codex:    ['AGENTS.md', 'config.toml'],
+  claude: ['CLAUDE.md', 'plugin.json', 'settings.json'],
+  codex: ['AGENTS.md', 'config.toml'],
   opencode: ['AGENTS.md', 'opencode.json'],
-  mcp:      ['mcp-manifest.json'],
-  cursor:   ['AGENTS.md', '.cursor/rules/yes-human.mdc'],
+  mcp: ['mcp-manifest.json'],
+  cursor: ['AGENTS.md', '.cursor/rules/yes-human.mdc'],
   windsurf: ['AGENTS.md', '.windsurfrules'],
-  vscode:   ['AGENTS.md', '.vscode/settings.json', '.vscode/mcp.json'],
+  vscode: ['AGENTS.md', '.vscode/settings.json', '.vscode/mcp.json'],
   sourcegraph: ['AGENTS.md', 'sourcegraph.json'],
-  generic:  ['manifest.json', 'README.md', 'sandbox.policy.json', 'audit.jsonl', 'CANCEL.md']
+  generic: ['manifest.json', 'README.md', 'sandbox.policy.json', 'audit.jsonl', 'CANCEL.md']
 };
 
 // The "boot file" for token-cap purposes: the file loaded at host startup.
 // For MCP, the manifest is JSON (not prose) so we skip the token check.
 const HOST_BOOT_FILE = {
-  claude:   'CLAUDE.md',
-  codex:    'AGENTS.md',
+  claude: 'CLAUDE.md',
+  codex: 'AGENTS.md',
   opencode: 'AGENTS.md',
-  mcp:      null,
-  cursor:   'AGENTS.md',
+  mcp: null,
+  cursor: 'AGENTS.md',
   windsurf: 'AGENTS.md',
-  vscode:   'AGENTS.md',
+  vscode: 'AGENTS.md',
   sourcegraph: 'AGENTS.md',
-  generic:  'README.md'
+  generic: 'README.md'
 };
 
 /**
@@ -92,7 +93,9 @@ export function validateHostBundle(host, generatedRoot, registryRoutes = []) {
       const full = path.join(dir, entry.name);
       if (entry.isDirectory()) scanDir(full);
       else if (entry.isFile()) {
-        if (scanForLiteralKeys(full)) { keyLeak = true; }
+        if (scanForLiteralKeys(full)) {
+          keyLeak = true;
+        }
       }
     }
   }
@@ -142,7 +145,11 @@ export function validateHostBundle(host, generatedRoot, registryRoutes = []) {
       try {
         const mf = JSON.parse(fs.readFileSync(mfPath, 'utf8'));
         add('mcp manifest has tools', Array.isArray(mf.tools) && mf.tools.length > 0, `${mf.tools?.length} tools`);
-        add('mcp manifest has resources', Array.isArray(mf.resources) && mf.resources.length > 0, `${mf.resources?.length} resources`);
+        add(
+          'mcp manifest has resources',
+          Array.isArray(mf.resources) && mf.resources.length > 0,
+          `${mf.resources?.length} resources`
+        );
       } catch (e) {
         add('mcp-manifest.json is valid JSON', false, e.message);
       }
@@ -159,7 +166,10 @@ export function validateHostBundle(host, generatedRoot, registryRoutes = []) {
   if (host === 'windsurf') {
     const rulesPath = path.join(generatedRoot, '.windsurfrules');
     if (fs.existsSync(rulesPath)) {
-      add('windsurf rules mention staging-only feedback', fs.readFileSync(rulesPath, 'utf8').includes('Stage feedback'));
+      add(
+        'windsurf rules mention staging-only feedback',
+        fs.readFileSync(rulesPath, 'utf8').includes('Stage feedback')
+      );
     }
   }
 
@@ -196,6 +206,7 @@ export function validateHostBundle(host, generatedRoot, registryRoutes = []) {
       try {
         const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
         add('generic manifest has signature', !!manifest.signature?.value);
+        add('generic manifest signature verifies', verifyManifest(manifest));
         add('generic feedback is staging-only', manifest.permissions?.production_mutation_from_feedback === false);
         add('generic supports cancellation', manifest.cancellation?.supported === true);
         add('generic CANCEL.md present', fs.existsSync(path.join(generatedRoot, 'CANCEL.md')));
@@ -214,6 +225,6 @@ export function validateHostBundle(host, generatedRoot, registryRoutes = []) {
     }
   }
 
-  const ok = checks.every(c => c.passed);
+  const ok = checks.every((c) => c.passed);
   return { ok, checks };
 }

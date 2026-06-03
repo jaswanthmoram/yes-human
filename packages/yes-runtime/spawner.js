@@ -30,7 +30,16 @@ function executeLocalTool(tool, args, repoRoot) {
     const rel = args?.path || '.';
     if (!pattern) return { success: false, error: 'grep requires pattern' };
     const r = spawnSync('rg', ['-n', '--max-count', '20', pattern, rel], { cwd: repoRoot, encoding: 'utf8' });
-    return { success: r.status === 0 || r.status === 1, result: { lines: (r.stdout || '').split('\n').filter(Boolean).slice(0, 20) } };
+    if (r.error) {
+      if (r.error.code === 'ENOENT') {
+        return { success: false, error: 'ripgrep (rg) is not installed on this system. Please install it or configure PATH.' };
+      }
+      return { success: false, error: `ripgrep execution failed: ${r.error.message}` };
+    }
+    return {
+      success: r.status === 0 || r.status === 1,
+      result: { lines: (r.stdout || '').split('\n').filter(Boolean).slice(0, 20) }
+    };
   }
   if (tool === 'convertToMarkdown') {
     const rel = args?.path;
@@ -62,8 +71,15 @@ export async function runPlan({ task, route, mode = 'dry-run', repoRoot = proces
     if (!agentId) {
       return { ...base, executed: false, blocked: true, reason: 'no agent on route' };
     }
+    if (agentId.includes('..') || agentId.split('.').includes('')) {
+      return { ...base, executed: false, blocked: true, reason: 'malformed agent id' };
+    }
     const [domain, ...rest] = agentId.split('.');
-    const agentFile = path.join(repoRoot, 'content/agents', domain, `${rest.join('.')}.md`);
+    const agentsDir = path.resolve(repoRoot, 'content/agents');
+    const agentFile = path.resolve(agentsDir, domain, `${rest.join('.')}.md`);
+    if (!agentFile.startsWith(agentsDir)) {
+      return { ...base, executed: false, blocked: true, reason: 'path traversal attempt' };
+    }
     if (!fs.existsSync(agentFile)) {
       return { ...base, executed: false, blocked: true, reason: 'agent file missing' };
     }
@@ -88,7 +104,7 @@ export async function runPlan({ task, route, mode = 'dry-run', repoRoot = proces
 
     if (route.target?.workflow) {
       try {
-        const orchestrator = new WorkflowOrchestrator({ repoRoot });
+        const orchestrator = new WorkflowOrchestrator({ repoRoot, role: process.env.YES_ROLE || null });
         const wfPlan = await orchestrator.run(route.target.workflow, { dryRun: true });
         toolResults.push({ tool: 'workflow_plan', success: true, result: { steps: wfPlan.steps?.length ?? 0 } });
       } catch (err) {
@@ -96,10 +112,61 @@ export async function runPlan({ task, route, mode = 'dry-run', repoRoot = proces
       }
     }
 
+    let readFileTarget = 'README.md';
+    let grepPattern = 'route';
+    let grepPath = 'packages/yes-runtime';
+
+    // Heuristically extract filename from task
+    const fileMatch = task.match(/\b([\w-]+\.[a-z0-9]{2,4})\b/i);
+    if (fileMatch) {
+      const candidatePath = fileMatch[1];
+      if (fs.existsSync(path.join(repoRoot, candidatePath))) {
+        readFileTarget = candidatePath;
+      } else {
+        // Try searching for the file in the repo recursively (limit depth for speed)
+        const findFile = (dir, name, depth = 0) => {
+          if (depth > 2) return null;
+          try {
+            const entries = fs.readdirSync(dir, { withFileTypes: true });
+            for (const entry of entries) {
+              if (entry.isDirectory() && !entry.name.startsWith('.') && entry.name !== 'node_modules') {
+                const res = findFile(path.join(dir, entry.name), name, depth + 1);
+                if (res) return res;
+              } else if (entry.isFile() && entry.name === name) {
+                return path.relative(repoRoot, path.join(dir, entry.name));
+              }
+            }
+          } catch (e) {
+            // ignore
+          }
+          return null;
+        };
+        const found = findFile(repoRoot, candidatePath);
+        if (found) {
+          readFileTarget = found;
+        }
+      }
+    }
+
+    // Heuristically extract query pattern
+    const patternMatch = task.match(/(?:"([^"]+)"|'([^']+)')/);
+    if (patternMatch) {
+      grepPattern = patternMatch[1] || patternMatch[2];
+    } else {
+      // Use the last non-stop-word word or key action
+      const words = task.split(/\s+/).filter(w => w.length > 3 && !LOCAL_TOOL_ALLOWLIST.has(w));
+      if (words.length > 0) {
+        grepPattern = words[words.length - 1].replace(/[^\w-]/g, '');
+      }
+    }
+
+    // Match path for grep
+    if (readFileTarget !== 'README.md') {
+      grepPath = path.dirname(readFileTarget) || '.';
+    }
+
     for (const tool of ['readFile', 'grep']) {
-      const args = tool === 'readFile'
-        ? { path: 'README.md' }
-        : { pattern: 'route', path: 'packages/yes-runtime' };
+      const args = tool === 'readFile' ? { path: readFileTarget } : { pattern: grepPattern, path: grepPath };
       const direct = executeLocalTool(tool, args, repoRoot);
       if (direct.success) {
         toolResults.push({ tool, success: true, result: direct.result });

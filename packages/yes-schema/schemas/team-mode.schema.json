@@ -8,7 +8,9 @@
     "version": { "type": "string" },
     "enabled": { "type": "boolean" },
     "default_tenant": { "type": "string" },
+    "default_project": { "type": "string" },
     "tenant_source_order": { "type": "array", "items": { "type": "string" } },
+    "project_source_order": { "type": "array", "items": { "type": "string" } },
     "isolation": {
       "type": "object",
       "required": ["base_dir", "trace_file", "hash_tenant_ids", "deny_cross_tenant_reads"],
@@ -16,7 +18,9 @@
         "base_dir": { "type": "string" },
         "trace_file": { "type": "string" },
         "hash_tenant_ids": { "type": "boolean" },
-        "deny_cross_tenant_reads": { "type": "boolean" }
+        "hash_project_ids": { "type": "boolean" },
+        "deny_cross_tenant_reads": { "type": "boolean" },
+        "project_scoped_traces": { "type": "boolean" }
       },
       "additionalProperties": false
     },

@@ -186,7 +186,7 @@ function getArchitectureAliasExtensions(compiledAgents) {
     { route_id: 'route.engineering.refactoring', agent: 'engineering.refactoring', keywords: ['refactor code', 'clean up code', 'code cleanup'], aliases: ['refactor-cleaner', 'refactor cleaner'] },
     { route_id: 'route.security.security-reviewer', agent: 'security.security-reviewer', keywords: ['security code review', 'review security'], aliases: ['security-reviewer'] },
     { route_id: 'route.integrations.browser-auto', agent: 'integrations.browser-auto', keywords: ['browser automation', 'playwright automation', 'web automation'], aliases: ['browser-automation-agent', 'browser automation agent'] },
-    { route_id: 'route.design-content.ui-designer', agent: 'design-content.ui-designer', keywords: ['ui ux design', 'ui/ux', 'interface design'], aliases: ['ui-ux-designer', 'ui ux designer'] },
+    { route_id: 'route.design-content.ui-ux-designer', agent: 'design-content.ui-ux-designer', keywords: ['ui ux design', 'ui/ux', 'interface design'], aliases: ['ui-ux-designer', 'ui ux designer'] },
     { route_id: 'route.finance.cfo-advisor', agent: 'finance.cfo-advisor', keywords: ['cfo advice', 'chief financial officer'], aliases: ['cfo-advisor'] },
     { route_id: 'route.marketing.brand-marketer', agent: 'marketing.brand-marketer', keywords: ['brand manager', 'brand management'], aliases: ['brand-manager'] },
     { route_id: 'route.marketing.growth-marketer', agent: 'marketing.growth-marketer', keywords: ['growth marketer', 'growth marketing'], aliases: ['growth-marketer'] }

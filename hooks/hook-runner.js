@@ -9,11 +9,17 @@ import { PolicyEvaluator } from '../packages/yes-core/policy-evaluator.js';
  * Supports blocking hooks (return block_reason to stop execution).
  * Passes PolicyEvaluator to hooks for policy checking.
  */
+const registryCache = {
+  data: null,
+  mtime: 0
+};
+
 export class HookRunner {
   constructor(hooksDir = 'hooks', policyEvaluator = null) {
     this.hooksDir = hooksDir;
     this.policyEvaluator = policyEvaluator || new PolicyEvaluator();
     this.hooks = this.loadHooks();
+    this.hookCache = new Map();
   }
 
   /**
@@ -28,21 +34,36 @@ export class HookRunner {
     }
     
     try {
-      const registry = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
-      const hooks = {};
+      const stats = fs.statSync(registryPath);
+      const mtime = stats.mtimeMs;
       
-      for (const hook of registry.hooks || []) {
-        if (!hooks[hook.event]) {
-          hooks[hook.event] = [];
-        }
-        hooks[hook.event].push(hook);
+      if (registryCache.data && registryCache.mtime === mtime) {
+        return this.parseRegistry(registryCache.data);
       }
       
-      return hooks;
+      const registry = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
+      registryCache.data = registry;
+      registryCache.mtime = mtime;
+      
+      return this.parseRegistry(registry);
     } catch (error) {
       console.error(`[HookRunner] Failed to load hook registry:`, error.message);
+      if (registryCache.data) {
+        return this.parseRegistry(registryCache.data);
+      }
       return {};
     }
+  }
+
+  parseRegistry(registry) {
+    const hooks = {};
+    for (const hook of registry.hooks || []) {
+      if (!hooks[hook.event]) {
+        hooks[hook.event] = [];
+      }
+      hooks[hook.event].push(hook);
+    }
+    return hooks;
   }
 
   /**
@@ -67,9 +88,13 @@ export class HookRunner {
           continue;
         }
         
-        // Import hook module
-        const hookModule = await import(hookPath);
-        const hookFn = hookModule.default || hookModule;
+        // Import hook module with caching
+        let hookFn = this.hookCache.get(hookPath);
+        if (!hookFn) {
+          const hookModule = await import(hookPath);
+          hookFn = hookModule.default || hookModule;
+          this.hookCache.set(hookPath, hookFn);
+        }
         
         if (typeof hookFn !== 'function') {
           console.warn(`[HookRunner] Hook ${hook.id} is not a function`);
@@ -77,10 +102,33 @@ export class HookRunner {
           continue;
         }
         
+        // Validate inputs against registry declaration
+        if (hook.inputs && process.env.YES_DEBUG_HOOKS === 'true') {
+          for (const input of hook.inputs) {
+            const hasInput = (input in context) || 
+                             (input === 'task' && context.task !== undefined) ||
+                             (input === 'estimatedTokens' && context.estimatedTokens !== undefined) ||
+                             (input === 'routerConfidence' && context.routerConfidence !== undefined);
+            if (!hasInput) {
+              console.warn(`⚠ [HookRunner] Hook ${hook.id} expects input "${input}", but it was missing from context.`);
+            }
+          }
+        }
+
         // Execute hook
         const result = await hookFn(context, this.policyEvaluator);
         results.push({ hook: hook.id, result });
         
+        // Validate outputs against registry declaration
+        if (hook.outputs && result && process.env.YES_DEBUG_HOOKS === 'true') {
+          for (const key of Object.keys(result)) {
+            if (key === 'allowed') continue;
+            if (!hook.outputs.includes(key)) {
+              console.warn(`⚠ [HookRunner] Hook ${hook.id} returned undeclared output property "${key}".`);
+            }
+          }
+        }
+
         // Check if hook blocked execution
         if (result?.block_reason) {
           return { 

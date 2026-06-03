@@ -1,6 +1,6 @@
 ## Learned User Preferences
 
-- Treat yes-human as an open-source developer project first (MIT); open core is acceptable, not hiding the router.
+- Treat yes-human as an open-source developer project first (MIT); keep the core public and documented.
 - Prefer wave-by-wave vertical slices; fix paths, registries, and validation before expanding runtime.
 - Bulk dossier uplift from source-map seeds plus hand-fixes for high-stakes domains.
 - Low-token startup and lazy-loaded routing over large upfront plugin bundles.
@@ -14,6 +14,6 @@
 - ECC full import is out of scope; selective OSS absorb via `yes absorb` / `packages/yes-absorber`.
 
 
-## OSS-core v2.3
+## OSS-core v2.4
 
-Architecture waves 12–20 complete. Open-core backlog: RBAC, tenants, CRM connectors, VM sandbox, production semantic routing, fan-out.
+The public OSS core includes deterministic semantic routing, fan-out workflow planning, RBAC primitives, tenant/project trace isolation, redaction, retention rules, signed manifest verification, absorber promotion/rollback, connector protocol helpers, graph build/query, and host bundle generation. Hosted SaaS concerns are deployment-only future work, not hidden core logic.

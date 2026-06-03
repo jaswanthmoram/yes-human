@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-06-03T11:37:21.827Z",
+  "generated_at": "2026-06-03T14:42:47.822Z",
   "count": 325,
   "items": [
     {
@@ -24,7 +24,8 @@
       "negative_keywords": [
         "performance optimization",
         "code deployment",
-        "financial forecast"
+        "financial forecast",
+        "revenue forecasting"
       ],
       "inputs": [
         "model_or_system_description",
@@ -78,7 +79,8 @@
       "negative_keywords": [
         "code implementation",
         "model training",
-        "legal contract"
+        "legal contract",
+        "contract review"
       ],
       "inputs": [
         "business_objectives",
@@ -132,7 +134,8 @@
       "negative_keywords": [
         "production deployment",
         "business analytics",
-        "legal review"
+        "legal review",
+        "contract review"
       ],
       "inputs": [
         "research_question",
@@ -185,12 +188,21 @@
       "aliases": [
         "analytics-engineer"
       ],
-      "negative_keywords": [],
+      "negative_keywords": [
+        "model training",
+        "frontend design",
+        "legal review",
+        "financial forecast"
+      ],
       "inputs": [
-        "task_context"
+        "source_tables",
+        "metric_definitions",
+        "freshness_sla"
       ],
       "outputs": [
-        "specialist_output"
+        "dbt_model_design",
+        "metrics_layer_spec",
+        "test_and_documentation_plan"
       ],
       "allowed_tools": [
         "filesystem.read"
@@ -198,10 +210,14 @@
       "budget_band": "standard",
       "max_context_tokens": 5000,
       "failure_modes": [
-        "scope drift"
+        "ships models without tests or documentation",
+        "duplicates metric definitions across models instead of a single source of truth",
+        "ignores incremental model strategy for large tables, causing full-refresh cost blowups"
       ],
       "verification": [
-        "output_matches_request"
+        "incremental_strategy_justified",
+        "tests_and_docs_present",
+        "metric_definitions_single_source"
       ],
       "source_references": [
         "ref.github.data-ai.analytics-engineer.2026-06-02"
@@ -229,7 +245,8 @@
       "negative_keywords": [
         "model training",
         "data pipeline engineering",
-        "legal review"
+        "legal review",
+        "contract review"
       ],
       "inputs": [
         "data_model",
@@ -283,7 +300,8 @@
       "negative_keywords": [
         "text processing",
         "audio analysis",
-        "financial modeling"
+        "financial modeling",
+        "contract review"
       ],
       "inputs": [
         "image_dataset_or_stream",
@@ -337,7 +355,8 @@
       "negative_keywords": [
         "model training",
         "data pipeline engineering",
-        "legal review"
+        "legal review",
+        "contract review"
       ],
       "inputs": [
         "data_source",
@@ -391,7 +410,8 @@
       "negative_keywords": [
         "model training",
         "frontend design",
-        "legal review"
+        "legal review",
+        "contract review"
       ],
       "inputs": [
         "data_sources",
@@ -445,7 +465,8 @@
       "negative_keywords": [
         "product review",
         "financial audit",
-        "legal contract"
+        "legal contract",
+        "contract review"
       ],
       "inputs": [
         "dataset",
@@ -499,7 +520,8 @@
       "negative_keywords": [
         "performance review",
         "product review",
-        "financial audit"
+        "financial audit",
+        "contract review"
       ],
       "inputs": [
         "target_capability",
@@ -554,7 +576,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "contract review"
+        "contract review",
+        "revenue forecasting"
       ],
       "inputs": [
         "corpus_description",
@@ -608,7 +631,8 @@
       "negative_keywords": [
         "data pipeline",
         "frontend design",
-        "legal review"
+        "legal review",
+        "contract review"
       ],
       "inputs": [
         "base_model",
@@ -665,7 +689,8 @@
       "negative_keywords": [
         "business analytics",
         "financial analysis",
-        "market research"
+        "market research",
+        "contract review"
       ],
       "inputs": [
         "prompt",
@@ -718,7 +743,8 @@
       "negative_keywords": [
         "product review",
         "performance review",
-        "financial forecast"
+        "financial forecast",
+        "contract review"
       ],
       "inputs": [
         "dataset_or_task",
@@ -772,7 +798,8 @@
       "negative_keywords": [
         "frontend design",
         "legal review",
-        "financial audit"
+        "financial audit",
+        "contract review"
       ],
       "inputs": [
         "model_artifacts",
@@ -826,7 +853,8 @@
       "negative_keywords": [
         "image processing",
         "audio analysis",
-        "financial audit"
+        "financial audit",
+        "contract review"
       ],
       "inputs": [
         "text_corpus",
@@ -880,7 +908,8 @@
       "negative_keywords": [
         "model training",
         "data pipeline",
-        "frontend design"
+        "frontend design",
+        "contract review"
       ],
       "inputs": [
         "task_description",
@@ -935,7 +964,8 @@
       "negative_keywords": [
         "product roadmap",
         "code review",
-        "financial forecast"
+        "financial forecast",
+        "contract review"
       ],
       "inputs": [
         "corpus_description",
@@ -989,7 +1019,8 @@
       "negative_keywords": [
         "image classification",
         "legal review",
-        "financial audit"
+        "financial audit",
+        "contract review"
       ],
       "inputs": [
         "user_item_interaction_data",
