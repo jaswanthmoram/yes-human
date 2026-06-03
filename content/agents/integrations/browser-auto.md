@@ -43,7 +43,7 @@ verification:
   - side_effect_risk_stated
 source_references:
   - ref.github.integrations-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Runs deterministic browser-driven task plans for screenshots, flow checks, and web interaction audits.

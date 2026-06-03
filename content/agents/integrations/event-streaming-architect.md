@@ -43,7 +43,7 @@ verification:
   - backpressure_handling
 source_references:
   - ref.github.integrations.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs event streaming architectures using Kafka, Kinesis, or Pulsar with proper partitioning, schema evolution, and exactly-once semantics.

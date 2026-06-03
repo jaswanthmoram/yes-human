@@ -41,7 +41,7 @@ verification:
   - rollback_path_named
 source_references:
   - ref.github.integrations-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Inspects Vercel deployments, build logs, previews, and project configuration with deployment-safety gates.

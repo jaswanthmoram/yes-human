@@ -41,7 +41,7 @@ verification:
   - references_linked
 source_references:
   - ref.github.integrations.sourcegraph-context.2026-06-01
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Retrieves and structures code context from Sourcegraph or similar code intelligence platforms for downstream agent consumption.

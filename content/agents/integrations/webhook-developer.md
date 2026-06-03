@@ -43,7 +43,7 @@ verification:
   - timeout_handling_configured
 source_references:
   - ref.github.integrations.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Implements webhook receivers and senders with signature verification, retry logic, and idempotency guarantees.

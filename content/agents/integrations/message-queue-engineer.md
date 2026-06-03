@@ -43,7 +43,7 @@ verification:
   - ordering_semantics_defined
 source_references:
   - ref.github.integrations.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs and implements message queue integrations using RabbitMQ, Kafka, or Redis with proper ordering, delivery guarantees, and dead letter handling.

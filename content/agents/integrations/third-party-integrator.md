@@ -43,7 +43,7 @@ verification:
   - error_categories_defined
 source_references:
   - ref.github.integrations.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Integrates third-party services like Stripe, Twilio, SendGrid, and Slack with proper SDK usage, error handling, and fallback strategies.

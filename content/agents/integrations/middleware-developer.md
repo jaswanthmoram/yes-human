@@ -43,7 +43,7 @@ verification:
   - sensitive_data_filtered
 source_references:
   - ref.github.integrations.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Develops middleware layers for request transformation, authentication, logging, and cross-cutting concerns in API pipelines.

@@ -43,7 +43,7 @@ verification:
   - auth_enforcement_confirmed
 source_references:
   - ref.github.integrations.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs and configures API gateways with routing rules, rate limiting, authentication, and observability for microservices architectures.

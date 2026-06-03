@@ -41,7 +41,7 @@ verification:
   - mutating_action_acknowledged
 source_references:
   - ref.github.integrations-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Executes GitHub repository, issue, pull-request, and workflow operations through approved bindings with explicit scope control.

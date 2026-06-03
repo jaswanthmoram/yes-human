@@ -40,7 +40,7 @@ verification:
   - fallback_chain_documented
 source_references:
   - ref.github.ecc.2026-05-29
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs new MCP server bindings from scratch — tool schemas, auth, fallback, and policy wiring.

@@ -43,7 +43,7 @@ verification:
   - resilience_patterns_included
 source_references:
   - ref.github.integrations.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs inter-service communication patterns including synchronous REST, async messaging, and event-driven integration for microservices architectures.

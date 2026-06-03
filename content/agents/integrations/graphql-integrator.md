@@ -43,7 +43,7 @@ verification:
   - complexity_limits_set
 source_references:
   - ref.github.integrations.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Implements GraphQL federation, schema stitching, and resolver optimization for integrating multiple GraphQL services.

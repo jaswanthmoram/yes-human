@@ -43,7 +43,7 @@ verification:
   - error_handling_defined
 source_references:
   - ref.github.integrations.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs and implements REST and GraphQL API integrations with proper authentication, error handling, and data transformation.

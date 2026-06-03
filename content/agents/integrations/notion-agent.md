@@ -39,7 +39,7 @@ verification:
   - sync_diff_reviewed
 source_references:
   - ref.github.ecc.2026-05-29
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Integrates with Notion API for database queries, page creation, and knowledge-base sync workflows.
