@@ -1,39 +1,113 @@
 # Yes-human
 
-Portable, low-token agentic control plane (v2.0.0). Routes tasks through a tiny boot surface and lazy-loads only the agents, skills, and workflows a task needs.
+[![CI](https://github.com/jaswanthmoram/yes-human/actions/workflows/ci.yml/badge.svg)](https://github.com/jaswanthmoram/yes-human/actions/workflows/ci.yml)
 
-## Status
+Yes-human is a portable, low-token routing and orchestration layer for AI assistant hosts. It keeps startup context tiny, deterministically routes natural-language tasks to provenance-gated agents, skills, and workflows, then exports the same canonical content to multiple host formats. It is not an LLM, a hosted SaaS, or a replacement for professional judgment in regulated domains.
 
-**Phase 8 complete (7A–7H):** longtail expansion, routing eval scale, knowledge packs, hook bindings, and acceptance freeze.
+## Production Scope
 
-**Phase 9 implemented:** lightweight learning/evaluator/trainer surface, tenant-scoped redacted traces, outcome tracking with exponential decay, staged feedback, workflow suggestions, mistake graph, offline/crash recovery checkpoints, and optional adapter packs.
+| Capability | Current status |
+|---|---|
+| Agents | 325 registered agents across 18 domains |
+| Skills | 389 registered skills with stub detection in CI |
+| Workflows | 119 deterministic workflow entries |
+| Routes | 445 route definitions and 2,526 hot-route phrases |
+| Startup budget | `YES_BOOT.md` held under the 180 token target |
+| High-stakes work | Finance, legal, HR, and healthcare routes require disclaimer and human review gates |
+| Host bundles | Claude, Codex, OpenCode, MCP, Cursor, Windsurf, VS Code, Sourcegraph, and Generic |
+| Security baseline | Env-var secret references, CI secret scan, pre-commit gitleaks hook |
 
-**Key achievements:**
-- **318** agents, **366** skills, **119** workflows across 18 domains
-- **1503** route fixtures; routing eval **≥95%** top-1 (see `reports/phase8-acceptance.md`)
-- **18** domain knowledge packs (`registry/knowledge-packs.json`, `content/knowledge/`)
-- **30** connectors (7 enabled, 23 declared disabled until creds)
-- Hook bindings (`registry/hook-bindings.json`) wired to `hooks/hook-registry.json`
-- `npm run validate`, route/skill/workflow evals, and host bundles (`npm run build:hosts`) passing
-- Architecture §32.4 specialists added; hybrid aliases merge into canonical routes (no duplicate CFO/browser routes)
-- Phase 9 optional bundles: Cursor, Windsurf, VS Code, Sourcegraph, and zero-trust Generic
-
-**Out of scope for this checkpoint:** Agent Lightning-style heavy trainer, automatic production route mutation, production quality-gate rewrites, and jas-human migration.
-
-## Quick start
+## Install
 
 ```bash
-npm install
-npm run validate     # schemas, registries, routes, dossiers
-npm test             # unit tests (router, promotion gate, markitdown)
-npm run eval:cost    # startup token budget
-node packages/yes-cli/index.js eval workflow   # workflow routing accuracy
-npm run report:phase8                          # regenerate reports/phase8-acceptance.md
-npm run build:hosts                            # Claude, Codex, OpenCode, MCP + optional bundles
-npm run phase9:gate                            # eval-gated feedback checks
-npm run phase9:trainer                         # learning/trainer summary report
-node packages/yes-cli/index.js doctor          # environment + project health
+npm ci
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
 ```
+
+Node 20 or newer is required. CI runs Node 22 and 24.
+
+## Quickstart
+
+```bash
+npm run yes -- status
+npm run yes -- route "review code" --dry-run
+npm run yes -- run "expense audit" --trace
+npm run yes -- persona set developer
+npm run yes -- build cursor
+```
+
+Run the full local gate before publishing changes:
+
+```bash
+npm run detect:skill-stubs
+npm run validate
+npm test
+node packages/yes-cli/index.js eval route
+npm run eval:cost
+npm run doctor
+node packages/yes-cli/index.js build all
+```
+
+## How Routing Works
+
+1. The host loads `YES_BOOT.md`, a tiny boot contract pointing at the router.
+2. `hooks/pre-route.js` applies budget, safety, signal-word, loop-prevention, and persona gates.
+3. `packages/yes-runtime/router.js` resolves exact phrases, aliases, phrase-trie matches, workflow cache hits, and fallback routes.
+4. The selected route lazy-loads the target domain master, agent, skills, workflow, and optional graph context.
+5. `hooks/post-route.js` records route metadata without mutating production registries.
+6. `yes run --trace` writes structured per-invocation trace JSON to stderr and `staging/traces/<date>.jsonl`.
+
+## Supported Hosts
+
+| Host | Build command | Output |
+|---|---|---|
+| Claude | `npm run yes -- build claude` | `generated/claude/` |
+| Codex | `npm run yes -- build codex` | `generated/codex/` |
+| OpenCode | `npm run yes -- build opencode` | `generated/opencode/` |
+| MCP | `npm run yes -- build mcp` | `generated/mcp/` |
+| Cursor | `npm run yes -- build cursor` | `generated/cursor/` |
+| Windsurf | `npm run yes -- build windsurf` | `generated/windsurf/` |
+| VS Code | `npm run yes -- build vscode` | `generated/vscode/` |
+| Sourcegraph | `npm run yes -- build sourcegraph` | `generated/sourcegraph/` |
+| Generic | `npm run yes -- build generic` | `generated/generic/` |
+
+## Domains
+
+| Domain | Scope |
+|---|---|
+| `data-ai` | Analytics engineering, ML systems, evaluations, experimentation |
+| `design-content` | UX, UI, presentations, copy, content systems |
+| `education` | Curriculum, assessment, tutoring, learning operations |
+| `engineering` | Architecture, testing, review, refactoring, language patterns |
+| `finance` | Informational finance analysis, expense, payroll, FP&A |
+| `healthcare` | Informational healthcare workflows with human review gates |
+| `hr` | Hiring, policies, performance, people operations |
+| `integrations` | Figma, Notion, Stripe, MCP, connector design |
+| `legal-compliance` | Informational contract, privacy, policy, compliance workflows |
+| `manufacturing` | Operations, quality, supply chain, reliability |
+| `marketing` | Growth, campaigns, brand, lifecycle, channels |
+| `meta-system` | Routing, graph building, adapter generation, cost control |
+| `platform` | Cloud, release, SRE, container, infrastructure operations |
+| `product-business` | Product strategy, CEO/CTO/CFO advisory, pricing, growth |
+| `research` | Market, technical, academic, and evidence synthesis |
+| `sales` | Account, deal, pricing, forecast, and follow-up workflows |
+| `security` | Threat modeling, review, detection, incident workflows |
+| `startup-ops` | Fundraising, pitch, operations, planning |
+
+## Adding Agents And Skills
+
+1. Add or edit content under `content/agents/<domain>/` or `content/skills/<domain>/`.
+2. Include triggers, negative keywords where needed, verification, rollback, and permissively licensed source references.
+3. Add or update routing fixtures under `tests/routing/`.
+4. Stage external contributions with `npm run yes -- contribute agent <path>` or `npm run yes -- contribute skill <path>`.
+5. Run the full local gate before opening a PR.
+
+## Security And Secrets
+
+Committed secrets are not allowed. Use env-var references such as `{env:EXA_API_KEY}` or `{env:OPENAI_API_KEY}` in configs and generated host bundles. CI runs gitleaks, and contributors should enable the pre-commit hook from `.pre-commit-config.yaml`.
+
+High-stakes domains are informational only. Finance, legal-compliance, HR, and healthcare agents carry disclaimer and human-review gates; users remain responsible for professional review.
 
 ## Document conversion (MarkItDown)
 
@@ -64,6 +138,7 @@ get `{ markdown, images, hasImages }` instead of a string.
 | `yes-human.plugin.json` | Plugin manifest |
 | `reports/phase8-acceptance.md` | Generated Phase 8 acceptance summary |
 | `reports/phase9-acceptance.md` | Phase 9 learning/team/offline/adapter acceptance summary |
+| `staging/traces/` | Local `yes run --trace` JSONL output |
 
 ## Documentation
 
@@ -90,7 +165,7 @@ get `{ markdown, images, hasImages }` instead of a string.
 2. `yes-runtime` — Execution, spawner, traces
 3. `yes-graph` — Multi-tiered routing (Trie, SQLite, semantic fallback)
 4. `yes-workflows` — Composable orchestration patterns
-5. `yes-adapters` — Host bundles (Claude, Codex, OpenCode, MCP) plus optional adapter packs (Cursor, Windsurf, VS Code, Sourcegraph, Generic)
+5. `yes-adapters` — Host bundles for Claude, Codex, OpenCode, MCP, Cursor, Windsurf, VS Code, Sourcegraph, and Generic
 
 ## Phase 9 CLI
 
