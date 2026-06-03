@@ -5,6 +5,8 @@ import { fileURLToPath } from 'url';
 import { scoreDossier } from '../packages/yes-schema/dossier-scorer.js';
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const domainArg = process.argv.find((a, i) => process.argv[i - 1] === '--domain');
+const force = process.argv.includes('--force');
 const seeds = JSON.parse(fs.readFileSync(path.join(repoRoot, 'registry/source-map-seeds.json'), 'utf8'));
 const HIGH_STAKES = new Set(['finance', 'legal-compliance', 'hr', 'healthcare']);
 const SELF = 'github.com/yes-human/yes-human';
@@ -77,7 +79,7 @@ function needsUplift(dossier) {
 
 function upliftFile(filePath) {
   const dossier = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-  if (!needsUplift(dossier)) return false;
+  if (!force && !needsUplift(dossier)) return false;
   const entityId = dossier.agent_id || dossier.workflow_id || dossier.skill_id || filePath;
   const domain = dossier.domain || String(entityId).split('.')[0];
   const sub = String(entityId).split('.').slice(1).join('.') || 'specialist';
@@ -107,6 +109,10 @@ function upliftFile(filePath) {
 
 let n = 0;
 for (const f of walk(path.join(repoRoot, 'references'))) {
+  if (domainArg) {
+    const rel = path.relative(path.join(repoRoot, 'references'), f);
+    if (!rel.startsWith(domainArg + path.sep)) continue;
+  }
   if (upliftFile(f)) n++;
 }
 console.log(`Uplifted ${n} dossier files`);

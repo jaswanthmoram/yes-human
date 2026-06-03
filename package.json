@@ -1,7 +1,10 @@
 {
   "name": "yes-human",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "private": true,
+  "publishConfig": {
+    "access": "restricted"
+  },
   "type": "module",
   "workspaces": [
     "packages/*"
@@ -27,6 +30,27 @@
     "report:phase9": "npm run phase9:gate && npm run phase9:trainer && node packages/yes-schema/generate-phase9-acceptance.js",
     "report:phase10": "node packages/yes-schema/generate-phase10-acceptance.js",
     "audit:route-dedup": "node scripts/dedup-hot-routes.mjs",
-    "detect:skill-stubs": "node scripts/detect-skill-stubs.mjs"
+    "detect:skill-stubs": "node scripts/detect-skill-stubs.mjs",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test:coverage": "c8 --reporter=text --reporter=lcov node --test 'tests/**/*.test.js'",
+    "bench:routing": "node benchmarks/routing.bench.js",
+    "bench:build": "node benchmarks/build.bench.js",
+    "promote:check": "node scripts/promote-all-agents.mjs --check",
+    "promote:apply": "node scripts/promote-all-agents.mjs --apply",
+    "uplift:dossiers": "node scripts/uplift-dossiers.mjs --force",
+    "gap:32-4": "node scripts/section-32-4-gap.mjs",
+    "sync:dossiers": "node scripts/sync-dossier-promotion-decision.mjs",
+    "high-stakes:dossiers": "node scripts/high-stakes-authoritative.mjs",
+    "report:phase11": "node packages/yes-schema/generate-phase11-acceptance.js",
+    "absorb:copy-skills": "node scripts/absorb-skills-from-staging.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "c8": "11.0.0",
+    "eslint": "10.4.1",
+    "prettier": "3.8.3"
   }
 }
