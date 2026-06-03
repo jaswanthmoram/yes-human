@@ -39,7 +39,7 @@ verification:
   - approval_gate_passed_for_large_repos
 source_references:
   - ref.github.ecc.2026-05-29
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Manages the yes-human code graph build pipeline — approval-gated for large repos, stale-hash detection.

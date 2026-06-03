@@ -41,7 +41,7 @@ verification:
   - budget_respected
 source_references:
   - ref.github.meta-system.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Optimizes system performance including boot token reduction, route table compression, registry pruning, and context budget management.

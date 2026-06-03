@@ -42,7 +42,7 @@ verification:
   - dedupe_check_run
 source_references:
   - ref.github.ecc.2026-05-29
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Stages external harnesses, plugins, or connector bundles into the absorber pipeline with explicit license and dedupe handling.

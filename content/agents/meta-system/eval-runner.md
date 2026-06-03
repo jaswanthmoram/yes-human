@@ -41,7 +41,7 @@ verification:
   - blockers_listed
 source_references:
   - ref.github.ecc.2026-05-29
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Runs routing, quality, and promotion evaluations against registry changes before they are considered stable.

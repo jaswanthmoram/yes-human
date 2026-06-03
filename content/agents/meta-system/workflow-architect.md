@@ -41,7 +41,7 @@ verification:
   - rollback_tested
 source_references:
   - ref.github.meta-system.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs and reviews workflow definitions ensuring proper step sequencing, agent routing, gates, and rollback strategies.

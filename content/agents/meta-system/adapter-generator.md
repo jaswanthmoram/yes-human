@@ -40,7 +40,7 @@ verification:
   - host_capability_flags_included
 source_references:
   - ref.github.ecc.2026-05-29
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Generates host-specific adapter bundles (Claude, Codex, OpenCode, MCP) from canonical yes-human source.

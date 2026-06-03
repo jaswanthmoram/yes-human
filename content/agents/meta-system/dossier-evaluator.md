@@ -41,7 +41,7 @@ verification:
   - threshold_respected
 source_references:
   - ref.github.meta-system.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Evaluates dossier quality scores, validates source provenance, and ensures dossiers meet staging thresholds before promotion.

@@ -42,7 +42,7 @@ verification:
   - format_correct
 source_references:
   - ref.github.meta-system.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Engineers test fixtures for routing, skill, and workflow validation with proper coverage, edge cases, and threshold alignment.

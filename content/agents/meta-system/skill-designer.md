@@ -41,7 +41,7 @@ verification:
   - overlap_checked
 source_references:
   - ref.github.meta-system.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs and reviews skill definitions with proper triggers, steps, quality gates, and handoff chains for the yes-human registry.

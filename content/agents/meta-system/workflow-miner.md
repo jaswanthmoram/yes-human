@@ -39,7 +39,7 @@ verification:
   - candidate_list_reviewed_by_human
 source_references:
   - ref.github.ecc.2026-05-29
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Detects recurring task patterns from traces and proposes them as reusable workflow candidates.

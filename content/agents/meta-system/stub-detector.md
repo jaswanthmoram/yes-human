@@ -40,7 +40,7 @@ verification:
   - remediation_prioritized
 source_references:
   - ref.github.meta-system.stub-detector.2026-06-01
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Identifies low-quality agent stubs, incomplete workflows, and thin dossiers using completeness scoring heuristics.

@@ -40,7 +40,7 @@ verification:
   - cost_projection_uses_correct_token_type
 source_references:
   - ref.github.ecc.2026-05-29
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Monitors and enforces token budgets, context-pack costs, and budget-band compliance across agents.

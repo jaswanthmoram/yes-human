@@ -41,7 +41,7 @@ verification:
   - primary_sources_prioritized
 source_references:
   - ref.github.ecc.2026-05-29
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Builds source packs for new agents and workflows with provenance, license, and suitability checks before promotion.

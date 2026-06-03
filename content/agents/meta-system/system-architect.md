@@ -41,7 +41,7 @@ verification:
   - dependency_cycles_checked
 source_references:
   - ref.github.meta-system.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs and reviews system architecture for the yes-human control plane, ensuring modularity, scalability, and low-token boot compliance.

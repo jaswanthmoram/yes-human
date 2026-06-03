@@ -41,7 +41,7 @@ verification:
   - overlap_checked
 source_references:
   - ref.github.meta-system.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs new agents with proper frontmatter, triggers, verification gates, and dossier alignment for the yes-human registry.

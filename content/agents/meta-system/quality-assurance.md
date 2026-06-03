@@ -41,7 +41,7 @@ verification:
   - gates_verified
 source_references:
   - ref.github.meta-system.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Runs quality assurance checks across agents, skills, and workflows ensuring registry consistency, format compliance, and gate passage.

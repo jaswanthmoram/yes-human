@@ -40,7 +40,7 @@ verification:
   - merge_recommendations_listed
 source_references:
   - ref.github.meta-system.deduplicator.2026-06-01
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Detects and resolves duplicate agents, skills, and workflows using semantic similarity and trigger overlap analysis.
