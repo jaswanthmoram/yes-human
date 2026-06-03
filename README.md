@@ -1,6 +1,9 @@
 # Yes-human
 
 [![CI](https://github.com/jaswanthmoram/yes-human/actions/workflows/ci.yml/badge.svg)](https://github.com/jaswanthmoram/yes-human/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node](https://img.shields.io/badge/node-%3E%3D20-blue.svg)](https://nodejs.org)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/jaswanthmoram/yes-human/blob/master/CONTRIBUTING.md)
 
 Yes-human is a portable, low-token routing and orchestration layer for AI assistant hosts. It keeps startup context tiny, deterministically routes natural-language tasks to provenance-gated agents, skills, and workflows, then exports the same canonical content to multiple host formats. It is not an LLM, a hosted SaaS, or a replacement for professional judgment in regulated domains.
 
@@ -189,6 +192,38 @@ Feedback, workflow suggestions, and trainer output are staging/report artifacts 
 - 6 team topologies (`harness`) for workflow coordination hints
 - Anti-rationalization tables (`agent-skills`) for skill contracts
 - Goal-first DAG decomposition (`open-multi-agent`) for runtime routing
+
+### Learning loop (operator)
+
+1. Capture outcomes with `yes evaluator trace` / `yes evaluator outcome`.
+2. File proposals with `yes feedback wrong-agent` (or other failure classes).
+3. Review staging reports and run `yes evaluator gate` before any promotion.
+4. Promote agents only via dossier + `quality_gate: production` checks (`npm run audit:promotion`).
+5. Optional non-deterministic hints: set `routing_hints.enabled: true` in `registry/learning-policy.json` (default `false`).
+
+Semantic graph routing is stubbed behind `semantic_fallback` in `registry/graph-routing.json` (default `false`).
+
+### OSS absorb
+
+```bash
+npm run yes -- absorb stage <github-url>
+npm run yes -- absorb apply <slug>          # provenance + rollback record
+npm run yes -- absorb copy-skills <slug>    # copy SKILL.md trees into content/skills/
+npm run yes -- absorb rollback <change-id>
+```
+
+### Runtime execution
+
+```bash
+npm run yes -- run "review code"              # route plan only
+npm run yes -- run "review code" --execute    # dry-run execution card
+npm run yes -- run "review code" --execute --local  # read-only local agent load
+```
+
+### MCP connector profiles
+
+Set `YES_CONNECTOR_PROFILE` to `minimal` (default), `research`, or `enterprise` (see `registry/connector-profiles.json`). `npm run doctor` only checks env vars for MCPs listed in the active profile's `enable` array. Copy keys from `.env.example`; keep optional MCPs disabled in `registry/mcps.json` until you opt in.
+
 
 ## License
 

@@ -2,6 +2,23 @@
 
 All notable changes to this project are documented here. This project uses conventional commits for release notes.
 
+## v2.2.0 - 2026-06-02
+
+### Added
+
+- **325/325 agents** at `quality_gate: production` with `npm run audit:promotion` and `audit:dossiers:strict` in CI.
+- Promotion tooling: `promote-all-agents.mjs`, `section-32-4-gap.mjs`, `sync-dossier-promotion-decision.mjs`, bulk `uplift-dossiers.mjs --domain`.
+- `yes absorb copy-skills` and `scripts/absorb-skills-from-staging.mjs` for staging → `content/skills/` copy with ledger + rollback updates.
+- Runtime **spawner** (`packages/yes-runtime/spawner.js`) and `yes run --execute` / `--local` modes.
+- Semantic routing flag stub (`registry/graph-routing.json` `semantic_fallback: false`).
+- `YES_CONNECTOR_PROFILE`-scoped `yes doctor` MCP env checks.
+- Phase 11 acceptance report (`npm run report:phase11`).
+
+### Changed
+
+- README documents learning ops, OSS absorb, runtime execution, and connector profiles.
+- Phase 9 acceptance generator uses correct skill eval accuracy regex.
+
 ## v2.1.0 - 2026-06-03
 
 ### Added
