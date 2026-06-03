@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: sales.pipeline-management
 name: Pipeline Management Framework
 version: 1.0.0

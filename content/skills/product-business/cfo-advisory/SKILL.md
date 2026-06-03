@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: product-business.cfo-advisory
 name: CFO Advisory and Financial Strategy
 version: 1.0.0

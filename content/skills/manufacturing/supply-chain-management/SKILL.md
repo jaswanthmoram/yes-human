@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: manufacturing.supply-chain-management
 name: Supply Chain Management
 version: 1.0.0

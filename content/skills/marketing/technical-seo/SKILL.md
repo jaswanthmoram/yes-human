@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: marketing.technical-seo
 name: Technical SEO
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - site architecture seo
   - yes human task
 activation_triggers:
+  - optimize core web vitals scores
+  - fix crawl and indexation issues
   - help me with technical seo
   - review technical seo work
 prerequisites:

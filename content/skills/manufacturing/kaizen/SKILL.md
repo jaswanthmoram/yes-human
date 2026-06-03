@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: manufacturing.kaizen
 name: Kaizen
 version: 1.0.0

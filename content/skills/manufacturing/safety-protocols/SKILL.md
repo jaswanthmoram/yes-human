@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: manufacturing.safety-protocols
 name: Safety Protocols
 version: 1.0.0

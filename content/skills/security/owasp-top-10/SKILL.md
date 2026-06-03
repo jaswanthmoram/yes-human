@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: security.owasp-top-10
 name: OWASP Top 10 Vulnerability Review
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - web application OWASP assessment
   - OWASP Top 10 checklist review
 activation_triggers:
+  - check application against OWASP risk categories
+  - perform OWASP compliance audit on web app
   - help me with owasp top 10 vulnerability review
   - review owasp top 10 vulnerability review work
 prerequisites:

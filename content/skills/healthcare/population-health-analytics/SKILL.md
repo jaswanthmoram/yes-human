@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: healthcare.population-health-analytics
 name: Population Health Analytics
 version: 1.0.0

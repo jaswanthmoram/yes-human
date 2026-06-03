@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: education.student-engagement
 name: Student Engagement Strategies
 version: 1.0.0

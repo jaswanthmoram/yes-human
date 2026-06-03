@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: integrations.event-sourcing
 name: Event Sourcing
 version: 1.0.0

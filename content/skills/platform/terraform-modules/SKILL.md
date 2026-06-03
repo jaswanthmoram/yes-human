@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: platform.terraform-modules
 name: Terraform Module Design
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - Terraform module refactoring
   - Terraform provider configuration
 activation_triggers:
+  - infrastructure as code patterns with Terraform
+  - design Terraform module for VPC
   - help me with terraform module design
   - review terraform module design work
 prerequisites:

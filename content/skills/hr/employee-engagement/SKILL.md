@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: hr.employee-engagement
 name: Employee Engagement
 version: 1.0.0

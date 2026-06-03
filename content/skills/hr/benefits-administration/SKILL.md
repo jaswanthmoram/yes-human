@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: hr.benefits-administration
 name: Benefits Administration
 version: 1.0.0

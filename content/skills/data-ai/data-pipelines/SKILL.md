@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: data-ai.data-pipelines
 name: Data Pipelines
 version: 1.0.0

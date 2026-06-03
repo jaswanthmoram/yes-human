@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: product-business.growth-experiments
 name: Growth Experiments
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - growth experiments review
   - growth experiments checklist
 activation_triggers:
+  - growth experiment backlog prioritization
+  - test growth idea for activation
+  - design a growth experiment for referrals
   - design a growth experiment
   - test growth idea
   - growth experiment backlog

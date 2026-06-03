@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: startup-ops.hiring-processes
 name: Hiring Process Design
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - hiring process design review
   - hiring process design checklist
 activation_triggers:
+  - run hiring process process
+  - interview design analysis
+  - hiring process for B2B SaaS startup
   - hiring process
   - interview design
   - hiring scorecard

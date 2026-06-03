@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: marketing.google-ads
 name: Google Ads
 version: 1.0.0

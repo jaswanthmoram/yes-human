@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: manufacturing.inventory-optimization
 name: Inventory Optimization
 version: 1.0.0

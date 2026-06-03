@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: product-business.usability-testing
 name: Usability Testing
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - usability testing review
   - usability testing checklist
 activation_triggers:
+  - validate signup flow with users
+  - run a usability test on mobile app
+  - test usability of new checkout flow
   - test usability
   - run a usability test
   - validate with users

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: finance.risk-assessment
 name: Financial Risk Assessment
 version: 1.0.0

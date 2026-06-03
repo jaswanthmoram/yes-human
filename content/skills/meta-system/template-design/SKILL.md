@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: meta-system.template-design
 name: Template Design for Registry Artifacts
 version: 1.0.0

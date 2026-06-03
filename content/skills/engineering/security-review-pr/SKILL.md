@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.security-review-pr
 name: PR Security Review Checklist
 version: 1.0.0

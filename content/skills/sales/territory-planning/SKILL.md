@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: sales.territory-planning
 name: Territory Planning Framework
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - account tiering design
   - territory realignment
 activation_triggers:
+  - review territory assignments for balance issues
+  - design territory plan for West Coast enterprise team
   - help me with territory planning framework
   - review territory planning framework work
 prerequisites:

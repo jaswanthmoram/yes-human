@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.refactoring
 name: Structured Code Refactoring
 version: 1.0.0

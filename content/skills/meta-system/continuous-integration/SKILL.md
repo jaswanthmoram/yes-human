@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: meta-system.continuous-integration
 name: Continuous Integration for Registry Validation
 version: 1.0.0

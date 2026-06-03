@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: product-business.competitive-analysis
 name: Competitive Analysis
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - competitive analysis review
   - competitive analysis checklist
 activation_triggers:
+  - competitive positioning for mid-market
+  - who are our top competitors and how do they compare
+  - analyze competitors in project management
   - analyze competitors
   - who are our competitors
   - competitive positioning

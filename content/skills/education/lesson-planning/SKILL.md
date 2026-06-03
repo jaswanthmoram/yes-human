@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: education.lesson-planning
 name: Lesson Planning
 version: 1.0.0

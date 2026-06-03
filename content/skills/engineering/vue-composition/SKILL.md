@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.vue-composition
 name: Vue 3 Composition API Patterns
 version: 1.0.0

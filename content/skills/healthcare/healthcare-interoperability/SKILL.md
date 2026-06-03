@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: healthcare.healthcare-interoperability
 name: Healthcare Interoperability
 version: 1.0.0

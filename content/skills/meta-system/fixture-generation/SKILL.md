@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: meta-system.fixture-generation
 name: Test Fixture Generation and Validation
 version: 1.0.0

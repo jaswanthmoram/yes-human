@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: startup-ops.financial-projections
 name: Financial Projections
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - yes human task
   - financial projections review
 activation_triggers:
+  - run financial projections process
+  - financial projections for B2B SaaS startup
   - financial projections
   - revenue forecast
   - financial forecast startup

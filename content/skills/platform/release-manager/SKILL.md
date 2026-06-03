@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: platform.release-manager
 name: Release Management
 version: 1.0.0

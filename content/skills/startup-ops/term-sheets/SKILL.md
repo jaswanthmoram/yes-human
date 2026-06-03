@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: startup-ops.term-sheets
 name: Term Sheet Analysis
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - yes human task
   - term sheet analysis review
 activation_triggers:
+  - run term sheet process
+  - term sheet analysis analysis
+  - term sheet for B2B SaaS startup
   - term sheet
   - term sheet analysis
   - valuation negotiation

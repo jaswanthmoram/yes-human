@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: integrations.stripe-integration
 name: Stripe Integration
 version: 1.0.0

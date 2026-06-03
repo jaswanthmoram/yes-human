@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: finance.budget-creation
 name: Budget Creation
 version: 1.0.0

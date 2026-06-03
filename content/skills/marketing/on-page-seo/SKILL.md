@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: marketing.on-page-seo
 name: On-Page SEO
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - yes human task
   - on page seo review
 activation_triggers:
+  - review on-page seo for blog post
+  - optimize landing page for target keyword
   - help me with on page seo
   - review on page seo work
 prerequisites:

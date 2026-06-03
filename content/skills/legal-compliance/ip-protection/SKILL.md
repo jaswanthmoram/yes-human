@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: legal-compliance.ip-protection
 name: IP Protection
 version: 1.0.0

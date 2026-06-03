@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.test-architecture
 name: Test Architecture Design
 version: 1.0.0
@@ -13,6 +14,9 @@ triggers:
   - test organization
   - testing strategy design
 activation_triggers:
+  - restructure the test directory to follow the testing pyramid
+  - design a testing strategy for our microservices
+  - how should we organize our test suite
   - our tests are too slow and we don't know where to put new ones
   - what testing strategy should we use
 prerequisites:

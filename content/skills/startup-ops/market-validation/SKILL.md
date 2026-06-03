@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: startup-ops.market-validation
 name: Market Validation
 version: 1.0.0
@@ -15,6 +16,7 @@ triggers:
   - market opportunity
   - yes human task
 activation_triggers:
+  - market validation for B2B SaaS startup
   - market validation
   - market sizing
   - TAM SAM SOM

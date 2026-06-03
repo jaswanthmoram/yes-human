@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: marketing.campaign-analyst
 name: Campaign Performance Analysis
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: manufacturing.quality-control
 name: Quality Control
 version: 1.0.0

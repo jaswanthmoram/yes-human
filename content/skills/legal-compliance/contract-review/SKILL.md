@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: legal-compliance.contract-review
 name: Contract Review
 version: 1.0.0

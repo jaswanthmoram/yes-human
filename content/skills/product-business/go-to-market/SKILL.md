@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: product-business.go-to-market
 name: Go to Market
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - go to market review
   - go to market checklist
 activation_triggers:
+  - market entry strategy for europe
+  - gtm for new feature targeting enterprise
+  - plan the launch gtm for api product
   - plan the launch
   - gtm for new feature
   - market entry strategy

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: marketing.conversion-optimization
 name: Conversion Optimization
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - yes human task
   - conversion optimization review
 activation_triggers:
+  - cro audit for checkout flow
+  - improve landing page conversion rate
   - help me with conversion optimization
   - review conversion optimization work
 prerequisites:

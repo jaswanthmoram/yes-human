@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: meta-system.dossier-creation
 name: Dossier Creation and Source Assembly
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: product-business.jobs-to-be-done
 name: Jobs to Be Done Framework
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - jobs to be done framework review
   - jobs to be done framework checklist
 activation_triggers:
+  - customer motivation analysis using jobs
+  - what job are they hiring our product for
+  - apply jtbd framework to onboarding
   - apply jtbd
   - what job are they hiring
   - customer motivation analysis

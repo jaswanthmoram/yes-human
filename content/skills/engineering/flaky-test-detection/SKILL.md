@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.flaky-test-detection
 name: Flaky Test Detection and Elimination
 version: 1.0.0
@@ -13,6 +14,9 @@ triggers:
   - test quarantine
   - fix flaky test
 activation_triggers:
+  - fix the non-deterministic test failure
+  - find all flaky tests in the test suite
+  - this test fails intermittently in CI
   - this test passes sometimes and fails sometimes
   - CI is unreliable because of flaky tests
 prerequisites:

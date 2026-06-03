@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: integrations.openapi-specs
 name: OpenAPI Specifications
 version: 1.0.0

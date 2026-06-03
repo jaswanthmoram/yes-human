@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.refactor-planning
 name: Refactoring Strategy and Execution
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - yes human task
   - refactoring strategy and execution review
 activation_triggers:
+  - clean up the code structure
+  - refactor this code
   - refactor this
   - clean up the code
   - make it cleaner

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: data-ai.etl-processes
 name: ETL Processes
 version: 1.0.0

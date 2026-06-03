@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: design-content.micro-interactions
 name: Micro-Interactions
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - notification animation
   - yes human task
 activation_triggers:
+  - design notification animation for alerts
+  - design micro-interaction for the like button
   - help me with micro interactions
   - review micro interactions work
 prerequisites:

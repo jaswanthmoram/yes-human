@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: security.input-validation
 name: Input Validation Patterns
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - validate user input security
   - review form validation security
 activation_triggers:
+  - implement allowlist validation for user input
+  - review input validation on all API endpoints
   - help me with input validation patterns
   - review input validation patterns work
 prerequisites:

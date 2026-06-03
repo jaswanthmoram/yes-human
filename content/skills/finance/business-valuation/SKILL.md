@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: finance.business-valuation
 name: Business Valuation
 version: 1.0.0

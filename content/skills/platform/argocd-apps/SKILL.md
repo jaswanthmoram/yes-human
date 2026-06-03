@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: platform.argocd-apps
 name: ArgoCD Application Management
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - continuous delivery with ArgoCD
   - yes human task
 activation_triggers:
+  - GitOps deployment with ArgoCD ApplicationSet
+  - debug ArgoCD sync failure
+  - ArgoCD application management and sync
   - help me with argocd application management
   - review argocd application management work
 prerequisites:

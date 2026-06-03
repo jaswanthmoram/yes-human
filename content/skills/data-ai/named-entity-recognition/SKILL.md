@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: data-ai.named-entity-recognition
 name: Named Entity Recognition
 version: 1.0.0

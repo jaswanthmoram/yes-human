@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.cpp-patterns
 name: C++ Code Review Patterns
 version: 1.0.0

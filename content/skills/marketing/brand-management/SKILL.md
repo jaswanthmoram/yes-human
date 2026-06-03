@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: marketing.brand-management
 name: Brand Management
 version: 1.0.0

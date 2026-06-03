@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: legal-compliance.case-analysis
 name: Case Analysis
 version: 1.0.0

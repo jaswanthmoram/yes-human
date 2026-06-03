@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: sales.account-planning
 name: Account Planning Framework
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - account risk assessment
   - strategic account review
 activation_triggers:
+  - map stakeholder relationships for strategic account
+  - create account plan for top enterprise customer
   - help me with account planning framework
   - review account planning framework work
 prerequisites:

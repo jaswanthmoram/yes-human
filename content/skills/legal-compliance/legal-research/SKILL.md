@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: legal-compliance.legal-research
 name: Legal Research
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: integrations.api-monitoring
 name: API Monitoring
 version: 1.0.0

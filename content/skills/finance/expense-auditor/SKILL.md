@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: finance.expense-auditor
 name: Expense Policy Audit
 version: 1.0.0

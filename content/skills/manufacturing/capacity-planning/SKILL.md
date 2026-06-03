@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: manufacturing.capacity-planning
 name: Capacity Planning
 version: 1.0.0

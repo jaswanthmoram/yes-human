@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.typescript-patterns
 name: TypeScript Code Review Patterns
 version: 1.0.0

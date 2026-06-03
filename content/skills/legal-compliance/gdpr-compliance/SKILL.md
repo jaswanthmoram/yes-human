@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: legal-compliance.gdpr-compliance
 name: GDPR Compliance
 version: 1.0.0

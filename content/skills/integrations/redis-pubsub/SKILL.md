@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: integrations.redis-pubsub
 name: Redis Pub/Sub
 version: 1.0.0

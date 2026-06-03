@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: education.accessibility-education
 name: Accessibility in Education
 version: 1.0.0

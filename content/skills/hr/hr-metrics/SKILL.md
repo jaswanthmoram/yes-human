@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: hr.hr-metrics
 name: HR Metrics
 version: 1.0.0

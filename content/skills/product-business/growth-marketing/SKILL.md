@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: product-business.growth-marketing
 name: Growth Marketing and Experimentation
 version: 1.0.0

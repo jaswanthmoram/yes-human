@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.contract-testing
 name: Contract Testing with Pact
 version: 1.0.0
@@ -13,6 +14,9 @@ triggers:
   - api contract verification
   - provider contract test
 activation_triggers:
+  - add consumer driven contracts for the payment API
+  - verify API compatibility with pact
+  - set up contract testing between user and order service
   - our integration tests are flaky
   - how do I test the API without a live service
 prerequisites:

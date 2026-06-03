@@ -232,7 +232,7 @@
       "category": "legal-compliance"
     },
     {
-      "prompt": "format legal citations",
+      "prompt": "draft legal brief in plain language",
       "expected_skill": "legal-compliance.legal-writing",
       "category": "legal-compliance"
     },

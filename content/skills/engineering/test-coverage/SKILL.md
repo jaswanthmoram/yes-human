@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.test-coverage
 name: Test Coverage Analysis and Improvement
 version: 1.0.0
@@ -13,6 +14,9 @@ triggers:
   - untested code paths
   - coverage gap analysis
 activation_triggers:
+  - improve coverage for the payment module
+  - what code paths are not tested
+  - analyze our test coverage report
   - our coverage is dropping below the threshold
   - which code paths are untested
 prerequisites:

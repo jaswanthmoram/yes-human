@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: platform.aws-cli
 name: AWS CLI Command Patterns
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - AWS resource troubleshooting
   - yes human task
 activation_triggers:
+  - AWS CLI automation scripting with JMESPath
+  - manage S3 buckets with AWS CLI
+  - AWS CLI command patterns for EC2 management
   - help me with aws cli command patterns
   - review aws cli command patterns work
 prerequisites:

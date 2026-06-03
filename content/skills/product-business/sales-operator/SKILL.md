@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: product-business.sales-operator
 name: Sales Operations
 version: 1.0.0

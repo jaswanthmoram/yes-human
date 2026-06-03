@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: legal-compliance.legal-writing
 name: Legal Writing
 version: 1.0.0
@@ -7,8 +8,8 @@ category: legal-compliance.legal-writing
 purpose: Draft legal documents with proper structure, citation format, and plain-language clarity for attorney review.
 summary: Legal document drafting, citation formatting, and plain-language legal writing.
 triggers:
+  - draft legal brief in plain language
   - draft legal document
-  - format legal citations
   - write legal memo
   - legal document structure
   - plain language legal writing

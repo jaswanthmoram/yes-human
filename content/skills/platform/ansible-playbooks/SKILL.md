@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: platform.ansible-playbooks
 name: Ansible Playbook Patterns
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - Ansible automation workflows
   - yes human task
 activation_triggers:
+  - configuration management with Ansible inventory
+  - Ansible role development and idempotency
+  - write Ansible playbook for server hardening
   - help me with ansible playbook patterns
   - review ansible playbook patterns work
 prerequisites:

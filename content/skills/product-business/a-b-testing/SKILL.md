@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: product-business.a-b-testing
 name: A/B Testing
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - a/b testing review
   - a/b testing checklist
 activation_triggers:
+  - a b test design for email subject lines
+  - test this change to the cta button
+  - run an experiment on pricing page
   - run an experiment
   - test this change
   - a b test design

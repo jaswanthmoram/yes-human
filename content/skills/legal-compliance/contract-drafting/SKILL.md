@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: legal-compliance.contract-drafting
 name: Contract Drafting
 version: 1.0.0

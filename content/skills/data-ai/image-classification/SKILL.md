@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: data-ai.image-classification
 name: Image Classification
 version: 1.0.0

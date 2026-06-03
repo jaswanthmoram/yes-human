@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: meta-system.debugging-techniques
 name: Debugging Techniques and Methodologies
 version: 1.0.0

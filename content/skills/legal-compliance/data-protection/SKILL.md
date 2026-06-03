@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: legal-compliance.data-protection
 name: Data Protection
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.query-analysis
 name: Database Query Analysis and Optimization
 version: 1.0.0
@@ -13,6 +14,9 @@ triggers:
   - database performance
   - index missing
 activation_triggers:
+  - optimize the reporting dashboard query
+  - find N+1 queries in the repository layer
+  - analyze why this SQL query is slow
   - the API is slow and the database is the bottleneck
   - EXPLAIN ANALYZE shows a sequential scan
 prerequisites:

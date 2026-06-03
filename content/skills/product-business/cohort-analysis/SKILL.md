@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: product-business.cohort-analysis
 name: Cohort Analysis
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - cohort analysis review
   - cohort analysis checklist
 activation_triggers:
+  - cohort behavior comparison after redesign
+  - retention by cohort for mobile users
+  - analyze cohorts by signup month
   - analyze cohorts
   - retention by cohort
   - cohort behavior

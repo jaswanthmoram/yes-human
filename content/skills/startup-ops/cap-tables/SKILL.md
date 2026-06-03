@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: startup-ops.cap-tables
 name: Cap Table Management
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - yes human task
   - cap table management review
 activation_triggers:
+  - run cap table process
+  - capitalization table analysis
+  - cap table for B2B SaaS startup
   - cap table
   - capitalization table
   - equity tracking

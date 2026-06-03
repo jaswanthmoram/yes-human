@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: legal-compliance.nda-reviewer
 name: NDA Review Support
 version: 1.0.0

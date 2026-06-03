@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: platform.istio-config
 name: Istio Configuration Patterns
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - service mesh observability
   - yes human task
 activation_triggers:
+  - canary deployment with Istio virtual service
+  - enable mTLS between services with Istio
+  - Istio configuration for traffic management
   - help me with istio configuration patterns
   - review istio configuration patterns work
 prerequisites:

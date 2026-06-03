@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: design-content.design-tokens
 name: Design Tokens
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - design token audit
   - yes human task
 activation_triggers:
+  - audit design token naming conventions
+  - set up multi-platform token output
   - help me with design tokens
   - review design tokens work
 prerequisites:

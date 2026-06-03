@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: design-content.motion-principles
 name: Motion Principles
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - motion behavior system
   - yes human task
 activation_triggers:
+  - set up motion behavior guidelines
+  - create animation language documentation
   - help me with motion principles
   - review motion principles work
 prerequisites:

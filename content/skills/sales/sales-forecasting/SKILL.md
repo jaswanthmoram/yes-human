@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: sales.sales-forecasting
 name: Sales Forecasting Framework
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - revenue projection model
   - deal-level forecast assessment
 activation_triggers:
+  - analyze forecast accuracy for last quarter
+  - design forecast methodology for new sales team
   - help me with sales forecasting framework
   - review sales forecasting framework work
 prerequisites:

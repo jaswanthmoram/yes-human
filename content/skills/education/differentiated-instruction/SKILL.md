@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: education.differentiated-instruction
 name: Differentiated Instruction
 version: 1.0.0

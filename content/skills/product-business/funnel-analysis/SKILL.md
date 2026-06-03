@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: product-business.funnel-analysis
 name: Funnel Analysis
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - funnel analysis review
   - funnel analysis checklist
 activation_triggers:
+  - conversion analysis for purchase flow
+  - where are users dropping off in onboarding
+  - analyze the signup funnel drop off
   - analyze the funnel
   - where are users dropping off
   - conversion analysis

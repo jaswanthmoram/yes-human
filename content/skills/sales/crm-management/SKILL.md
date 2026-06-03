@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: sales.crm-management
 name: CRM Management Framework
 version: 1.0.0
@@ -15,6 +16,7 @@ triggers:
   - CRM reporting design
   - CRM configuration audit
 activation_triggers:
+  - design CRM workflow for enterprise sales process
   - help me with crm management framework
   - review crm management framework work
 prerequisites:

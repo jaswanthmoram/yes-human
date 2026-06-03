@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: research.reproducibility
 name: Reproducibility
 version: 1.0.0

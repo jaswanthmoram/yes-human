@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: hr.job-description-writing
 name: Job Description Writing
 version: 1.0.0

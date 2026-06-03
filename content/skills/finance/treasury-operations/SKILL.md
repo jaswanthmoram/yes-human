@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: finance.treasury-operations
 name: Treasury Operations
 version: 1.0.0

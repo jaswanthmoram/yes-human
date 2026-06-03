@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: integrations.rest-api-integration
 name: REST API Integration
 version: 1.0.0

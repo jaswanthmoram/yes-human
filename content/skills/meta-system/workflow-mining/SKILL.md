@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: meta-system.workflow-mining
 name: Workflow Mining
 version: 1.0.0

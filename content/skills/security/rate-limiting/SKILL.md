@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: security.rate-limiting
 name: Rate Limiting Implementation
 version: 1.0.0
@@ -15,6 +16,7 @@ triggers:
   - rate limiting audit
   - DDoS protection review
 activation_triggers:
+  - configure brute force protection on login endpoint
   - help me with rate limiting implementation
   - review rate limiting implementation work
 prerequisites:

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.dependency-upgrade
 name: Safe Dependency Update Workflow
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - yes human task
   - safe dependency update workflow review
 activation_triggers:
+  - fix security vulnerabilities in packages
+  - update dependencies
   - update npm packages
   - upgrade pip packages
   - fix security vulnerabilities

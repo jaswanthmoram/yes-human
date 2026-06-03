@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: healthcare.quality-metrics
 name: Healthcare Quality Metrics
 version: 1.0.0

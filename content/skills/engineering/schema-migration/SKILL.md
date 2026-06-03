@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.schema-migration
 name: Database Schema Migration Patterns
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - add column
   - database change
 activation_triggers:
+  - add a new column to the orders table
+  - migrate the users table schema
   - help me with database schema migration patterns
   - review database schema migration patterns work
 prerequisites:

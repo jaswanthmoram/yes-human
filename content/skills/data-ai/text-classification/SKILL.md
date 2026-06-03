@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: data-ai.text-classification
 name: Text Classification
 version: 1.0.0

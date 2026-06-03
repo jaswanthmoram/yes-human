@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: sales.closing-techniques
 name: Closing Techniques Framework
 version: 1.0.0
@@ -15,6 +16,7 @@ triggers:
   - urgency creation framework
   - close plan development
 activation_triggers:
+  - select closing technique for hesitant buyer
   - help me with closing techniques framework
   - review closing techniques framework work
 prerequisites:

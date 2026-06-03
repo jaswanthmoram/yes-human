@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: integrations.notion-integration
 name: Notion Integration
 version: 1.0.0

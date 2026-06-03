@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: hr.training-development
 name: Training and Development
 version: 1.0.0

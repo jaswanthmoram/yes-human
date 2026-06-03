@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: platform.gcloud-cli
 name: GCloud CLI Command Patterns
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - GCP service configuration
   - gcloud resource troubleshooting
 activation_triggers:
+  - GCP resource management with gcloud CLI
+  - gcloud CLI command patterns for GKE
   - help me with gcloud cli command patterns
   - review gcloud cli command patterns work
 prerequisites:

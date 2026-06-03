@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.code-generation
 name: Code Generation and Scaffolding
 version: 1.0.0
@@ -15,6 +16,7 @@ triggers:
   - code template
   - create boilerplate
 activation_triggers:
+  - generate boilerplate for a React component
   - help me with code generation and scaffolding
   - review code generation and scaffolding work
 prerequisites:

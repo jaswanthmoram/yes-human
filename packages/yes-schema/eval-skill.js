@@ -37,9 +37,10 @@ function domainHints(prompt) {
   const hints = [];
   if (/security|owasp|vulnerability|secret|auth|pci|gdpr|iam|penetration|threat|compliance officer|attack/.test(p)) hints.push('security');
   if (/payroll|expense|forecast|budget|financial|invoice|revenue/.test(p)) hints.push('finance');
+  if (/commercial risks|enterprise agreement|territory assignments|stakeholder relationships for strategic account/.test(p)) hints.push('sales');
   if (/legal|contract|nda|terms of service|privacy policy/.test(p)) hints.push('legal-compliance');
-  if (/startup|fundraising|founder|pmf|growth hack/.test(p)) hints.push('startup-ops');
-  if (/market sizing|product roadmap|prd/.test(p)) hints.push('product-business');
+  if (/startup|fundraising|founder|pmf|growth hack|market sizing/.test(p)) hints.push('startup-ops');
+  if (/product roadmap|prd/.test(p)) hints.push('product-business');
   return hints;
 }
 

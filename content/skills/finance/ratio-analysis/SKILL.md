@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: finance.ratio-analysis
 name: Financial Ratio Analysis
 version: 1.0.0

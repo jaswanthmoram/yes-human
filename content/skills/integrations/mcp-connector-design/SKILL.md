@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: integrations.mcp-connector-design
 name: MCP Connector Design
 version: 1.0.0

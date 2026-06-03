@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: startup-ops.growth-metrics
 name: Growth Metrics Framework
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - yes human task
   - growth metrics framework review
 activation_triggers:
+  - run growth metrics process
+  - AARRR analysis
+  - growth metrics for B2B SaaS startup
   - growth metrics
   - AARRR
   - pirate metrics

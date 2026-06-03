@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: education.online-course-design
 name: Online Course Design
 version: 1.0.0

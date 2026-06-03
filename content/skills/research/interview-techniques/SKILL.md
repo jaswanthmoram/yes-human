@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: research.interview-techniques
 name: Interview Techniques
 version: 1.0.0

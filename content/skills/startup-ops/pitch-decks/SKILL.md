@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: startup-ops.pitch-decks
 name: Pitch Deck Creation
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - pitch deck creation review
   - pitch deck creation checklist
 activation_triggers:
+  - run pitch deck process
+  - investor deck analysis
+  - pitch deck for B2B SaaS startup
   - pitch deck
   - investor deck
   - startup presentation

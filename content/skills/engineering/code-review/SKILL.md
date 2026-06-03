@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.code-review
 name: Systematic Code Review
 version: 1.0.0
@@ -15,6 +16,7 @@ triggers:
   - yes human task
   - systematic code review review
 activation_triggers:
+  - can you review my pull request
   - review this code
   - can you review
   - please review

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: research.survey-design
 name: Survey Design
 version: 1.0.0

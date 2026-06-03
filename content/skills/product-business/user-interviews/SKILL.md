@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: product-business.user-interviews
 name: User Interviews
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - user interviews review
   - user interviews checklist
 activation_triggers:
+  - talk to users about search experience
+  - interview script for onboarding research
+  - plan user interviews for dashboard feature
   - plan user interviews
   - interview script
   - talk to users

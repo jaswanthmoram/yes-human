@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.build-failure
 name: Build Error Diagnosis and Fix
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - yes human task
   - build error diagnosis and fix review
 activation_triggers:
+  - diagnose build error
+  - fix compilation error
   - build is failing
   - can't build
   - build error message

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: security.zero-trust
 name: Zero Trust Architecture Review
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - microsegmentation review
   - beyondcorp implementation
 activation_triggers:
+  - verify never trust always verify across services
+  - review zero trust architecture implementation
   - help me with zero trust architecture review
   - review zero trust architecture review work
 prerequisites:

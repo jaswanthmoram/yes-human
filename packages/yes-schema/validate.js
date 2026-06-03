@@ -581,3 +581,8 @@ if (!success) {
 }
 
 console.log('\n✓ All validations passed successfully.');
+
+if (process.argv.includes('--drift')) {
+  const { runDriftCheck } = await import('./validate-drift.js');
+  if (!runDriftCheck(repoRoot)) process.exit(1);
+}

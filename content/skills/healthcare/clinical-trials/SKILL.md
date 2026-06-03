@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: healthcare.clinical-trials
 name: Clinical Trials Operations
 version: 1.0.0

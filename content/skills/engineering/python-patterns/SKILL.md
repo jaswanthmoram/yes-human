@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.python-patterns
 name: Python Code Review Patterns
 version: 1.0.0

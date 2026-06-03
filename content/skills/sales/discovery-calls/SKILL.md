@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: sales.discovery-calls
 name: Discovery Call Design
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - discovery call preparation
   - pain identification questions
 activation_triggers:
+  - build a discovery framework for SMB segment
+  - design a discovery call for CFO persona
   - help me with discovery call design
   - review discovery call design work
 prerequisites:

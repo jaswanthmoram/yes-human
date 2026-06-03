@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: marketing.seo-audits
 name: SEO Audits
 version: 1.0.0
@@ -15,6 +16,7 @@ triggers:
   - seo technical audit
   - yes human task
 activation_triggers:
+  - perform comprehensive seo audit on main site
   - help me with seo audits
   - review seo audits work
 prerequisites:

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: research.document-to-markdown
 name: Document to Markdown Conversion
 version: 1.0.0

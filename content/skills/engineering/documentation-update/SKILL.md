@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.documentation-update
 name: Documentation Sync with Code
 version: 1.0.0

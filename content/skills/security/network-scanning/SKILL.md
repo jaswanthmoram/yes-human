@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: security.network-scanning
 name: Network Vulnerability Scanning
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: security.dependency-audit
 name: Dependency Vulnerability Auditing
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - license compliance check for dependencies
   - outdated dependency assessment
 activation_triggers:
+  - check project dependencies for license compliance
+  - audit npm dependencies for known CVEs
   - help me with dependency vulnerability auditing
   - review dependency vulnerability auditing work
 prerequisites:

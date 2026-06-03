@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: security.secret-scanning
 name: Secret Detection and Scanning
 version: 1.0.0
@@ -15,6 +16,7 @@ triggers:
   - check for leaked tokens and passwords
   - secret detection in git history
 activation_triggers:
+  - detect credentials leaked in git history
   - help me with secret detection and scanning
   - review secret detection and scanning work
 prerequisites:

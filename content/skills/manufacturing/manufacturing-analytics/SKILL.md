@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: manufacturing.manufacturing-analytics
 name: Manufacturing Analytics
 version: 1.0.0

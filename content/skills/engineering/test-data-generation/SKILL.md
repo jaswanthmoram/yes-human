@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.test-data-generation
 name: Test Data Generation with Faker
 version: 1.0.0
@@ -13,6 +14,9 @@ triggers:
   - generate test users
   - builder pattern test data
 activation_triggers:
+  - add property based tests for the pricing engine
+  - set up factory bot for our test suite
+  - generate test data for the user model
   - our test data is hard-coded and breaking tests
   - how do I generate realistic test data
 prerequisites:

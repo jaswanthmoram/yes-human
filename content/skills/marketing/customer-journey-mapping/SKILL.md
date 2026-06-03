@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: marketing.customer-journey-mapping
 name: Customer Journey Mapping
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - customer journey mapping review
   - customer journey mapping checklist
 activation_triggers:
+  - create customer journey for e-commerce
+  - analyze buyer journey touchpoint gaps
+  - map customer journey for B2B SaaS purchase
   - help me with customer journey mapping
   - review customer journey mapping work
 prerequisites:

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: security.threat-model
 name: STRIDE/DREAD Threat Modeling
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - DREAD scoring
   - yes human task
 activation_triggers:
+  - analyze attack vectors
+  - perform threat modeling
   - model threats
   - security threats
   - attack vectors

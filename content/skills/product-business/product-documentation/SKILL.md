@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: product-business.product-documentation
 name: Product Documentation
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - product documentation review
   - product documentation checklist
 activation_triggers:
+  - documentation strategy for developer portal
+  - create help docs for billing feature
+  - write documentation for api endpoints
   - write documentation
   - create help docs
   - documentation strategy

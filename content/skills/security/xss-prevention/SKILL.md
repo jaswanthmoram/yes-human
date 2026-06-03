@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: security.xss-prevention
 name: XSS Prevention Techniques
 version: 1.0.0
@@ -15,6 +16,7 @@ triggers:
   - check for XSS vulnerabilities
   - output encoding review
 activation_triggers:
+  - prevent XSS attacks with output encoding
   - help me with xss prevention techniques
   - review xss prevention techniques work
 prerequisites:

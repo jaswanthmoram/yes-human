@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: meta-system.agent-architecture
 name: Agent Architecture Design and Review
 version: 1.0.0

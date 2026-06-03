@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: finance.portfolio-optimization
 name: Portfolio Optimization
 version: 1.0.0

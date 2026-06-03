@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: meta-system.logging-strategies
 name: Logging Strategy Design and Implementation
 version: 1.0.0

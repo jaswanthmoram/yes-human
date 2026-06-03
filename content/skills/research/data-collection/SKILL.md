@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: research.data-collection
 name: Data Collection
 version: 1.0.0

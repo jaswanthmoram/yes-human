@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: research.literature-search
 name: Literature Search
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: research.meta-analysis
 name: Meta-Analysis
 version: 1.0.0

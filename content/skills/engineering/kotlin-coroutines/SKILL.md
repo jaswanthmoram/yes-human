@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.kotlin-coroutines
 name: Kotlin Coroutines and Flow Patterns
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - kotlin async
   - kotlin channels
 activation_triggers:
+  - replace callbacks with suspend functions
+  - implement a Flow pipeline with error handling in Kotlin
   - help me with kotlin coroutines and flow patterns
   - review kotlin coroutines and flow patterns work
 prerequisites:

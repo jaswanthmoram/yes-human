@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: platform.helm-charts
 name: Helm Chart Development
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - Helm chart best practices
   - Helm release management
 activation_triggers:
+  - Helm chart best practices and values structure
+  - debug Helm template rendering error
+  - create Helm chart for Node.js application
   - help me with helm chart development
   - review helm chart development work
 prerequisites:

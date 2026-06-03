@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: integrations.postman-collections
 name: Postman Collections
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: platform.jenkins-pipelines
 name: Jenkins Pipeline Design
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - Jenkins agent configuration
   - Jenkins plugin management
 activation_triggers:
+  - Jenkins pipeline optimization and parallel stages
+  - create Jenkinsfile with shared library
   - help me with jenkins pipeline design
   - review jenkins pipeline design work
 prerequisites:

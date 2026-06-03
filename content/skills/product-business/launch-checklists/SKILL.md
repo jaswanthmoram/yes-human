@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: product-business.launch-checklists
 name: Launch Checklists
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - launch checklists review
   - launch checklists checklist
 activation_triggers:
+  - launch preparation for mobile app
+  - are we ready to launch the new dashboard
+  - create launch checklist for v2 release
   - create launch checklist
   - are we ready to launch
   - launch preparation

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: sales.competitive-selling
 name: Competitive Selling Framework
 version: 1.0.0
@@ -15,6 +16,7 @@ triggers:
   - win loss analysis for selling
   - competitor comparison for buyer
 activation_triggers:
+  - create battle card for Competitor X
   - help me with competitive selling framework
   - review competitive selling framework work
 prerequisites:

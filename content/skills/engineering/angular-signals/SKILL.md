@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.angular-signals
 name: Angular Signals and Reactivity
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - angular rxjs signals
   - zoneless angular
 activation_triggers:
+  - fix circular dependency in Angular computed signals
+  - create computed signal from multiple signal inputs
+  - convert RxJS observable to Angular signal
   - help me with angular signals and reactivity
   - review angular signals and reactivity work
 prerequisites:

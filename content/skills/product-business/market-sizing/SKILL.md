@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: product-business.market-sizing
 name: Market Sizing
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - market sizing review
   - market sizing checklist
 activation_triggers:
+  - market opportunity for vertical saas
+  - how big is the addressable market for devtools
+  - size the market for hr tech saas
   - size the market
   - how big is the market
   - market opportunity

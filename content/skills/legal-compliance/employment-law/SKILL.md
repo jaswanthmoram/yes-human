@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: legal-compliance.employment-law
 name: Employment Law
 version: 1.0.0

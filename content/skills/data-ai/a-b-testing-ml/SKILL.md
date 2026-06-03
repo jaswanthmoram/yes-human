@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: data-ai.a-b-testing-ml
 name: A/B Testing for ML
 version: 1.0.0

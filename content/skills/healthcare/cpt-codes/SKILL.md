@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: healthcare.cpt-codes
 name: CPT Coding Standards
 version: 1.0.0

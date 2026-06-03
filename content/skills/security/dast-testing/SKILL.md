@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: security.dast-testing
 name: Dynamic Application Security Testing
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - runtime security testing
   - black-box security testing
 activation_triggers:
+  - automated black-box pentest on web application
+  - run dynamic security test on staging application
   - help me with dynamic application security testing
   - review dynamic application security testing work
 prerequisites:

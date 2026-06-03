@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: legal-compliance.legal-citations
 name: Legal Citations
 version: 1.0.0

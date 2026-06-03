@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: platform.cloud-architect
 name: Cloud Architecture Design
 version: 1.0.0

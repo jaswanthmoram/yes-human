@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: data-ai.model-monitoring
 name: Model Monitoring
 version: 1.0.0

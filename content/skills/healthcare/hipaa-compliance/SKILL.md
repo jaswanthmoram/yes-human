@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: healthcare.hipaa-compliance
 name: HIPAA Compliance Review
 version: 1.0.0

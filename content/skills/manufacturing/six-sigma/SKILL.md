@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: manufacturing.six-sigma
 name: Six Sigma
 version: 1.0.0

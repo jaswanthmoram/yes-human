@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: integrations.contract-testing
 name: Contract Testing
 version: 1.0.0

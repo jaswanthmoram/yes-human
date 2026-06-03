@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: integrations.webhook-implementation
 name: Webhook Implementation
 version: 1.0.0

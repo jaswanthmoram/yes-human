@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: security.csrf-protection
 name: CSRF Protection Patterns
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - SameSite cookie configuration
   - cross-site request forgery audit
 activation_triggers:
+  - check SameSite cookie attribute for CSRF defense
+  - implement CSRF token protection on forms
   - help me with csrf protection patterns
   - review csrf protection patterns work
 prerequisites:

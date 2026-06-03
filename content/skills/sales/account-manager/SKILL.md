@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: sales.account-manager
 name: Strategic Account Management
 version: 1.0.0

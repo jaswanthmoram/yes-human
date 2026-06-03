@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: design-content.content-calendars
 name: Content Calendars
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - content pipeline planning
   - yes human task
 activation_triggers:
+  - content scheduling plan for the blog
+  - create editorial calendar for q4
   - help me with content calendars
   - review content calendars work
 prerequisites:

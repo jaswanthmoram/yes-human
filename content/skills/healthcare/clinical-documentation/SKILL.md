@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: healthcare.clinical-documentation
 name: Clinical Documentation Improvement
 version: 1.0.0

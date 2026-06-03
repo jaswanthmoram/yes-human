@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.rust-patterns
 name: Rust Code Review Patterns
 version: 1.0.0

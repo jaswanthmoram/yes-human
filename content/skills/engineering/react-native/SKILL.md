@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.react-native
 name: React Native Component Patterns
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - react native bridge
   - react native styling
 activation_triggers:
+  - optimize FlatList performance in React Native
+  - set up React Navigation with deep linking
+  - create React Native component with platform specific behavior
   - help me with react native component patterns
   - review react native component patterns work
 prerequisites:

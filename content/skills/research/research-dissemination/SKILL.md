@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: research.research-dissemination
 name: Research Dissemination
 version: 1.0.0

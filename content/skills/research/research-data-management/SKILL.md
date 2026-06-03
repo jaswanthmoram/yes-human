@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: research.research-data-management
 name: Research Data Management
 version: 1.0.0

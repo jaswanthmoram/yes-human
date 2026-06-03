@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.e2e-testing
 name: End-to-End Testing with Playwright
 version: 1.0.0

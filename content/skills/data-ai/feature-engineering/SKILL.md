@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: data-ai.feature-engineering
 name: Feature Engineering
 version: 1.0.0

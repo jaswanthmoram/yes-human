@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: hr.hr-policies
 name: HR Policies
 version: 1.0.0

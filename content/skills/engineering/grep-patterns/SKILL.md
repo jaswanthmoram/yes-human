@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.grep-patterns
 name: Advanced Grep and Search Patterns
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - ripgrep
   - code search
 activation_triggers:
+  - grep for TODO comments across all files
+  - find deprecated API calls in the codebase
   - help me with advanced grep and search patterns
   - review advanced grep and search patterns work
 prerequisites:

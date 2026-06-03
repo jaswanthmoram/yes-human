@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: data-ai.object-detection
 name: Object Detection
 version: 1.0.0

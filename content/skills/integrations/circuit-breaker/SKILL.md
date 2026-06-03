@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: integrations.circuit-breaker
 name: Circuit Breaker
 version: 1.0.0

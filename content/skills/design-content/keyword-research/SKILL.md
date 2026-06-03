@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: design-content.keyword-research
 name: Keyword Research
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - search intent mapping
   - yes human task
 activation_triggers:
+  - keyword gap analysis against competitors
+  - search volume analysis for cloud keywords
   - help me with keyword research
   - review keyword research work
 prerequisites:

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: hr.candidate-assessment
 name: Candidate Assessment
 version: 1.0.0

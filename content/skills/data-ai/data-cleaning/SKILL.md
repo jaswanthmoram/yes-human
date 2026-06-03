@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: data-ai.data-cleaning
 name: Data Cleaning
 version: 1.0.0

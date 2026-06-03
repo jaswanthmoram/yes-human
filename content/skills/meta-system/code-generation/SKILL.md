@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: meta-system.code-generation
 name: Code Generation for Registry Artifacts
 version: 1.0.0

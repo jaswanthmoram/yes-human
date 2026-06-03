@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: integrations.figma-integration
 name: Figma Integration
 version: 1.0.0

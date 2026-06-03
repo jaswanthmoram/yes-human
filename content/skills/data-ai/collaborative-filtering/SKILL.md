@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: data-ai.collaborative-filtering
 name: Collaborative Filtering
 version: 1.0.0

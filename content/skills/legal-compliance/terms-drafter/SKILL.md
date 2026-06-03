@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: legal-compliance.terms-drafter
 name: Terms of Service Drafting Support
 version: 1.0.0

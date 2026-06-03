@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: security.auth-review
 name: Authentication Flow Security Review
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: finance.internal-controls
 name: Internal Controls
 version: 1.0.0

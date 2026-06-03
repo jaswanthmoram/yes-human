@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: healthcare.hl7-integration
 name: HL7 v2 Integration
 version: 1.0.0

@@ -164,3 +164,29 @@ export function checkAgentPromotion(repoRoot, agentId, opts = {}) {
   const dossier = JSON.parse(fs.readFileSync(dossierPath, 'utf8'));
   return evaluatePromotion(dossier, { ...opts, licenseRegistry });
 }
+
+
+export function dossierPathForSkill(repoRoot, skillId) {
+  const domain = skillId.split('.')[0];
+  const sub = skillId.split('.').slice(1).join('.');
+  return path.join(repoRoot, 'references', 'skills', domain, `${sub}.sources.json`);
+}
+
+export function checkSkillPromotion(repoRoot, skillId, opts = {}) {
+  const dossierPath = dossierPathForSkill(repoRoot, skillId);
+  if (!fs.existsSync(dossierPath)) {
+    return {
+      allowed: false,
+      blockers: [`missing dossier at references/skills/${skillId.split('.')[0]}/${skillId.split('.').slice(1).join('.')}.sources.json`],
+      warnings: []
+    };
+  }
+  let licenseRegistry = { allowed: [], forbidden: [], restricted: [] };
+  const licPath = path.join(repoRoot, 'registry', 'license-registry.json');
+  if (fs.existsSync(licPath)) {
+    licenseRegistry = JSON.parse(fs.readFileSync(licPath, 'utf8'));
+  }
+  const dossier = JSON.parse(fs.readFileSync(dossierPath, 'utf8'));
+  dossier.skill_id = dossier.skill_id || skillId;
+  return evaluatePromotion(dossier, { ...opts, licenseRegistry });
+}

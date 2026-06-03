@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: integrations.rate-limiting
 name: Rate Limiting
 version: 1.0.0

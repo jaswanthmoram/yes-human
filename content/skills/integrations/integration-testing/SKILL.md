@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: integrations.integration-testing
 name: Integration Testing
 version: 1.0.0

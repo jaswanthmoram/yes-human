@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: data-ai.model-deployment
 name: Model Deployment
 version: 1.0.0

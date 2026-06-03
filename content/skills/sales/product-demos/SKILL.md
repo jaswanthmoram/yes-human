@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: sales.product-demos
 name: Product Demo Design
 version: 1.0.0

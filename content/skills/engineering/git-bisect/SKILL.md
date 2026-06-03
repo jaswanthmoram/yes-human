@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.git-bisect
 name: Git Bisect Bug Hunting
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - binary search commits
   - locate breaking commit
 activation_triggers:
+  - use git bisect to locate the breaking change
+  - when did this regression happen
+  - find which commit introduced this bug
   - help me with git bisect bug hunting
   - review git bisect bug hunting work
 prerequisites:

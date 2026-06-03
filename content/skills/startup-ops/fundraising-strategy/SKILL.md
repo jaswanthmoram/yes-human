@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: startup-ops.fundraising-strategy
 name: Fundraising Strategy
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - fundraising strategy review
   - fundraising strategy checklist
 activation_triggers:
+  - run fundraising strategy process
+  - raise planning analysis
+  - fundraising strategy for B2B SaaS startup
   - fundraising strategy
   - raise planning
   - round planning

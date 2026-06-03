@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.tailwind-css
 name: Tailwind CSS Utility Patterns
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - tailwind dark mode
   - tailwind performance
 activation_triggers:
+  - extract Tailwind utility classes into reusable component
+  - configure Tailwind dark mode with custom strategy
+  - create responsive layout with Tailwind CSS breakpoints
   - help me with tailwind css utility patterns
   - review tailwind css utility patterns work
 prerequisites:

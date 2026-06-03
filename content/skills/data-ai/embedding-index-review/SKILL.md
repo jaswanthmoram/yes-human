@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: data-ai.embedding-index-review
 name: Vector Index Quality Review
 version: 1.0.0

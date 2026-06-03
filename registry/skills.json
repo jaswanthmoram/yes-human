@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-06-03T09:15:35.728Z",
+  "generated_at": "2026-06-03T11:37:21.827Z",
   "count": 389,
   "items": [
     {
@@ -602,6 +602,8 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "check for data quality issues",
+        "profile dataset quality",
         "data profiling",
         "dataset analysis",
         "quality check"
@@ -1800,6 +1802,7 @@
         "rag system evaluation review"
       ],
       "activation_triggers": [
+        "measure RAG faithfulness",
         "RAG eval",
         "retrieval augmented generation evaluation",
         "RAG system testing"
@@ -2099,6 +2102,9 @@
         "adobe xd design review"
       ],
       "activation_triggers": [
+        "prepare xd design handoff specs",
+        "set up xd auto animate prototype",
+        "create adobe xd component with responsive resize",
         "help me with adobe xd design",
         "review adobe xd design work"
       ],
@@ -2187,6 +2193,8 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "create duration scale for animations",
+        "specify animation timing for transitions",
         "help me with animation timing",
         "review animation timing work"
       ],
@@ -2275,6 +2283,8 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "design accessible dialog with aria",
+        "implement aria tab panel pattern",
         "help me with aria patterns",
         "review aria patterns work"
       ],
@@ -2363,6 +2373,8 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "document brand application rules for digital",
+        "design brand book with visual identity specs",
         "help me with brand guidelines",
         "review brand guidelines work"
       ],
@@ -2451,6 +2463,9 @@
         "color contrast review"
       ],
       "activation_triggers": [
+        "fix color contrast issues in the ui",
+        "check contrast ratios for text on backgrounds",
+        "audit color contrast for the brand palette",
         "help me with color contrast",
         "review color contrast work"
       ],
@@ -2539,6 +2554,9 @@
         "component libraries review"
       ],
       "activation_triggers": [
+        "audit component library documentation",
+        "design component api for the button",
+        "set up component library architecture",
         "help me with component libraries",
         "review component libraries work"
       ],
@@ -2627,6 +2645,9 @@
         "content audits review"
       ],
       "activation_triggers": [
+        "content gap analysis against competitors",
+        "content inventory review for the website",
+        "audit existing content for quality and relevance",
         "help me with content audits",
         "review content audits work"
       ],
@@ -2715,6 +2736,8 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "content scheduling plan for the blog",
+        "create editorial calendar for q4",
         "help me with content calendars",
         "review content calendars work"
       ],
@@ -2803,6 +2826,9 @@
         "content templates review"
       ],
       "activation_triggers": [
+        "create email template for newsletters",
+        "design landing page template structure",
+        "create blog post content template",
         "help me with content templates",
         "review content templates work"
       ],
@@ -2891,6 +2917,8 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "audit design token naming conventions",
+        "set up multi-platform token output",
         "help me with design tokens",
         "review design tokens work"
       ],
@@ -2979,6 +3007,9 @@
         "figma design review"
       ],
       "activation_triggers": [
+        "prepare figma design handoff documentation",
+        "set up figma design system file",
+        "create figma component with auto layout",
         "help me with figma design",
         "review figma design work"
       ],
@@ -3067,6 +3098,8 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "keyword gap analysis against competitors",
+        "search volume analysis for cloud keywords",
         "help me with keyword research",
         "review keyword research work"
       ],
@@ -3156,6 +3189,8 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "design notification animation for alerts",
+        "design micro-interaction for the like button",
         "help me with micro interactions",
         "review micro interactions work"
       ],
@@ -3244,6 +3279,8 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "set up motion behavior guidelines",
+        "create animation language documentation",
         "help me with motion principles",
         "review motion principles work"
       ],
@@ -3413,6 +3450,8 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "on-page seo audit for the blog post",
+        "seo optimization review for the landing page",
         "help me with seo optimization",
         "review seo optimization work"
       ],
@@ -3502,6 +3541,9 @@
         "sketch design review"
       ],
       "activation_triggers": [
+        "prepare sketch design handoff",
+        "set up sketch shared library",
+        "create sketch symbol with smart layout",
         "help me with sketch design",
         "review sketch design work"
       ],
@@ -3590,6 +3632,9 @@
         "style guides review"
       ],
       "activation_triggers": [
+        "update style guide with new brand voice",
+        "define writing standards and terminology",
+        "create content style guide for the team",
         "help me with style guides",
         "review style guides work"
       ],
@@ -3678,6 +3723,9 @@
         "wcag compliance review"
       ],
       "activation_triggers": [
+        "wcag remediation plan for the navigation",
+        "assess wcag conformance for the dashboard",
+        "run wcag 2.2 compliance audit on the app",
         "help me with wcag compliance",
         "review wcag compliance work"
       ],
@@ -4998,6 +5046,9 @@
         "zoneless angular"
       ],
       "activation_triggers": [
+        "fix circular dependency in Angular computed signals",
+        "create computed signal from multiple signal inputs",
+        "convert RxJS observable to Angular signal",
         "help me with angular signals and reactivity",
         "review angular signals and reactivity work"
       ],
@@ -5087,6 +5138,9 @@
         "rest/graphql api design patterns review"
       ],
       "activation_triggers": [
+        "design GraphQL schema",
+        "create API endpoints",
+        "design a REST API",
         "design an API",
         "create an endpoint",
         "API structure"
@@ -5186,6 +5240,8 @@
         "build error diagnosis and fix review"
       ],
       "activation_triggers": [
+        "diagnose build error",
+        "fix compilation error",
         "build is failing",
         "can't build",
         "build error message"
@@ -5287,6 +5343,8 @@
         "pipeline caching"
       ],
       "activation_triggers": [
+        "reduce build times in our pipeline",
+        "our CI pipeline is too slow",
         "help me with ci/cd pipeline optimization",
         "review ci/cd pipeline optimization work"
       ],
@@ -5380,6 +5438,7 @@
         "create boilerplate"
       ],
       "activation_triggers": [
+        "generate boilerplate for a React component",
         "help me with code generation and scaffolding",
         "review code generation and scaffolding work"
       ],
@@ -5473,6 +5532,7 @@
         "systematic code review review"
       ],
       "activation_triggers": [
+        "can you review my pull request",
         "review this code",
         "can you review",
         "please review"
@@ -5568,6 +5628,9 @@
         "provider contract test"
       ],
       "activation_triggers": [
+        "add consumer driven contracts for the payment API",
+        "verify API compatibility with pact",
+        "set up contract testing between user and order service",
         "our integration tests are flaky",
         "how do I test the API without a live service"
       ],
@@ -5726,6 +5789,8 @@
         "safe dependency update workflow review"
       ],
       "activation_triggers": [
+        "fix security vulnerabilities in packages",
+        "update dependencies",
         "update npm packages",
         "upgrade pip packages",
         "fix security vulnerabilities"
@@ -5998,6 +6063,9 @@
         "fix flaky test"
       ],
       "activation_triggers": [
+        "fix the non-deterministic test failure",
+        "find all flaky tests in the test suite",
+        "this test fails intermittently in CI",
         "this test passes sometimes and fails sometimes",
         "CI is unreliable because of flaky tests"
       ],
@@ -6079,6 +6147,7 @@
         "flutter provider"
       ],
       "activation_triggers": [
+        "create a Flutter responsive layout with LayoutBuilder",
         "help me with flutter widget patterns",
         "review flutter widget patterns work"
       ],
@@ -6168,6 +6237,9 @@
         "locate breaking commit"
       ],
       "activation_triggers": [
+        "use git bisect to locate the breaking change",
+        "when did this regression happen",
+        "find which commit introduced this bug",
         "help me with git bisect bug hunting",
         "review git bisect bug hunting work"
       ],
@@ -6260,6 +6332,7 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "set up git workflow",
         "how to branch",
         "commit convention",
         "git flow"
@@ -6435,6 +6508,8 @@
         "code search"
       ],
       "activation_triggers": [
+        "grep for TODO comments across all files",
+        "find deprecated API calls in the codebase",
         "help me with advanced grep and search patterns",
         "review advanced grep and search patterns work"
       ],
@@ -6527,6 +6602,8 @@
         "vim motions"
       ],
       "activation_triggers": [
+        "set up keyboard shortcuts for my IDE",
+        "what are the best VS Code shortcuts for navigation",
         "help me with ide productivity shortcuts",
         "review ide productivity shortcuts work"
       ],
@@ -6691,6 +6768,9 @@
         "covering index"
       ],
       "activation_triggers": [
+        "which columns should be indexed for this query pattern",
+        "optimize database indexes for the products table",
+        "this query is slow, should I add an index",
         "queries are slow and we need indexes",
         "our write performance is degrading"
       ],
@@ -6845,6 +6925,8 @@
         "kotlin channels"
       ],
       "activation_triggers": [
+        "replace callbacks with suspend functions",
+        "implement a Flow pipeline with error handling in Kotlin",
         "help me with kotlin coroutines and flow patterns",
         "review kotlin coroutines and flow patterns work"
       ],
@@ -7009,6 +7091,7 @@
         "bazel build"
       ],
       "activation_triggers": [
+        "configure turborepo for our workspace",
         "help me with monorepo tooling and patterns",
         "review monorepo tooling and patterns work"
       ],
@@ -7100,6 +7183,9 @@
         "kill mutants"
       ],
       "activation_triggers": [
+        "find surviving mutants in the billing service",
+        "how effective are our tests really",
+        "run mutation testing on the auth module",
         "our code coverage is 90% but bugs still slip through",
         "how effective is our test suite really"
       ],
@@ -7181,6 +7267,8 @@
         "nextjs data fetching"
       ],
       "activation_triggers": [
+        "migrate from pages router to app router",
+        "create a Next.js app router layout with streaming",
         "help me with next js app router patterns",
         "review next js app router patterns work"
       ],
@@ -7343,6 +7431,9 @@
         "index missing"
       ],
       "activation_triggers": [
+        "optimize the reporting dashboard query",
+        "find N+1 queries in the repository layer",
+        "analyze why this SQL query is slow",
         "the API is slow and the database is the bottleneck",
         "EXPLAIN ANALYZE shows a sequential scan"
       ],
@@ -7423,6 +7514,8 @@
         "react performance hooks"
       ],
       "activation_triggers": [
+        "when should I use useReducer instead of useState",
+        "create a custom useFetch hook with loading and error states",
         "help me with react hooks patterns",
         "review react hooks patterns work"
       ],
@@ -7512,6 +7605,9 @@
         "react native styling"
       ],
       "activation_triggers": [
+        "optimize FlatList performance in React Native",
+        "set up React Navigation with deep linking",
+        "create React Native component with platform specific behavior",
         "help me with react native component patterns",
         "review react native component patterns work"
       ],
@@ -7601,6 +7697,8 @@
         "refactoring strategy and execution review"
       ],
       "activation_triggers": [
+        "clean up the code structure",
+        "refactor this code",
         "refactor this",
         "clean up the code",
         "make it cleaner"
@@ -7849,6 +7947,8 @@
         "database change"
       ],
       "activation_triggers": [
+        "add a new column to the orders table",
+        "migrate the users table schema",
         "help me with database schema migration patterns",
         "review database schema migration patterns work"
       ],
@@ -8012,6 +8112,9 @@
         "snapshot regression test"
       ],
       "activation_triggers": [
+        "set up snapshot testing for API responses",
+        "the snapshot test failed after my refactor",
+        "add snapshot tests for the dashboard components",
         "how do I snapshot test a component",
         "snapshot tests keep failing after minor changes"
       ],
@@ -8092,6 +8195,7 @@
         "svelte 5 runes"
       ],
       "activation_triggers": [
+        "migrate Svelte 4 stores to Svelte 5 runes",
         "help me with svelte stores and reactivity",
         "review svelte stores and reactivity work"
       ],
@@ -8256,6 +8360,9 @@
         "swift component"
       ],
       "activation_triggers": [
+        "fix slow SwiftUI compilation from complex view body",
+        "create reusable SwiftUI card component with state",
+        "build a SwiftUI navigation stack with typed routes",
         "help me with swiftui component development",
         "review swiftui component development work"
       ],
@@ -8345,6 +8452,9 @@
         "tailwind performance"
       ],
       "activation_triggers": [
+        "extract Tailwind utility classes into reusable component",
+        "configure Tailwind dark mode with custom strategy",
+        "create responsive layout with Tailwind CSS breakpoints",
         "help me with tailwind css utility patterns",
         "review tailwind css utility patterns work"
       ],
@@ -8432,6 +8542,9 @@
         "testing strategy design"
       ],
       "activation_triggers": [
+        "restructure the test directory to follow the testing pyramid",
+        "design a testing strategy for our microservices",
+        "how should we organize our test suite",
         "our tests are too slow and we don't know where to put new ones",
         "what testing strategy should we use"
       ],
@@ -8510,6 +8623,9 @@
         "coverage gap analysis"
       ],
       "activation_triggers": [
+        "improve coverage for the payment module",
+        "what code paths are not tested",
+        "analyze our test coverage report",
         "our coverage is dropping below the threshold",
         "which code paths are untested"
       ],
@@ -8586,6 +8702,9 @@
         "builder pattern test data"
       ],
       "activation_triggers": [
+        "add property based tests for the pricing engine",
+        "set up factory bot for our test suite",
+        "generate test data for the user model",
         "our test data is hard-coded and breaking tests",
         "how do I generate realistic test data"
       ],
@@ -8664,6 +8783,8 @@
         "test failure analysis and prioritization review"
       ],
       "activation_triggers": [
+        "triage these test failures",
+        "why is the test suite broken",
         "tests are failing",
         "fix the tests",
         "test suite broken"
@@ -17228,8 +17349,8 @@
       "purpose": "Draft legal documents with proper structure, citation format, and plain-language clarity for attorney review.",
       "summary": "Legal document drafting, citation formatting, and plain-language legal writing.",
       "triggers": [
+        "draft legal brief in plain language",
         "draft legal document",
-        "format legal citations",
         "write legal memo",
         "legal document structure",
         "plain language legal writing",
@@ -19261,6 +19382,7 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "design a b test for landing page headline",
         "help me with a/b testing",
         "review a/b testing work"
       ],
@@ -19349,6 +19471,7 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "draft seo blog article for fintech audience",
         "help me with blog writing",
         "review blog writing work"
       ],
@@ -19620,6 +19743,8 @@
         "content calendars review"
       ],
       "activation_triggers": [
+        "structure content calendar around topic clusters",
+        "create Q3 content calendar for SaaS blog",
         "help me with content calendars",
         "review content calendars work"
       ],
@@ -19708,6 +19833,8 @@
         "conversion optimization review"
       ],
       "activation_triggers": [
+        "cro audit for checkout flow",
+        "improve landing page conversion rate",
         "help me with conversion optimization",
         "review conversion optimization work"
       ],
@@ -19797,6 +19924,9 @@
         "customer journey mapping checklist"
       ],
       "activation_triggers": [
+        "create customer journey for e-commerce",
+        "analyze buyer journey touchpoint gaps",
+        "map customer journey for B2B SaaS purchase",
         "help me with customer journey mapping",
         "review customer journey mapping work"
       ],
@@ -19886,6 +20016,8 @@
         "email campaigns review"
       ],
       "activation_triggers": [
+        "plan newsletter campaign for Q3",
+        "design drip sequence for new subscribers",
         "help me with email campaigns",
         "review email campaigns work"
       ],
@@ -19974,6 +20106,7 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "set up facebook ads for e-commerce",
         "help me with facebook ads",
         "review facebook ads work"
       ],
@@ -20152,6 +20285,7 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "keyword research for B2B SaaS topic",
         "help me with keyword research",
         "review keyword research work"
       ],
@@ -20241,6 +20375,7 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "refine mql qualification thresholds",
         "help me with lead scoring",
         "review lead scoring work"
       ],
@@ -20329,6 +20464,8 @@
         "linkedin ads review"
       ],
       "activation_triggers": [
+        "optimize linkedin sponsored content",
+        "create linkedin lead gen campaign",
         "help me with linkedin ads",
         "review linkedin ads work"
       ],
@@ -20507,6 +20644,8 @@
         "marketing automation review"
       ],
       "activation_triggers": [
+        "design lifecycle email automation",
+        "set up lead nurturing automation in hubspot",
         "help me with marketing automation",
         "review marketing automation work"
       ],
@@ -20684,6 +20823,8 @@
         "on page seo review"
       ],
       "activation_triggers": [
+        "review on-page seo for blog post",
+        "optimize landing page for target keyword",
         "help me with on page seo",
         "review on page seo work"
       ],
@@ -20772,6 +20913,7 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "perform comprehensive seo audit on main site",
         "help me with seo audits",
         "review seo audits work"
       ],
@@ -20861,6 +21003,7 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "audit current social media presence",
         "help me with social media strategy",
         "review social media strategy work"
       ],
@@ -20950,6 +21093,8 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "optimize core web vitals scores",
+        "fix crawl and indexation issues",
         "help me with technical seo",
         "review technical seo work"
       ],
@@ -21136,6 +21281,9 @@
         "absorb plugin"
       ],
       "activation_triggers": [
+        "integrate external plugin",
+        "import agent from repository",
+        "absorb this agent from GitHub",
         "absorb this agent",
         "import from repo",
         "add agent from"
@@ -23445,6 +23593,9 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "configuration management with Ansible inventory",
+        "Ansible role development and idempotency",
+        "write Ansible playbook for server hardening",
         "help me with ansible playbook patterns",
         "review ansible playbook patterns work"
       ],
@@ -23542,6 +23693,9 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "GitOps deployment with ArgoCD ApplicationSet",
+        "debug ArgoCD sync failure",
+        "ArgoCD application management and sync",
         "help me with argocd application management",
         "review argocd application management work"
       ],
@@ -23639,6 +23793,9 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "AWS CLI automation scripting with JMESPath",
+        "manage S3 buckets with AWS CLI",
+        "AWS CLI command patterns for EC2 management",
         "help me with aws cli command patterns",
         "review aws cli command patterns work"
       ],
@@ -23736,6 +23893,9 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "Azure resource automation with az CLI scripting",
+        "manage Azure VMs with az CLI",
+        "Azure CLI command patterns for AKS",
         "help me with azure cli command patterns",
         "review azure cli command patterns work"
       ],
@@ -23833,6 +23993,9 @@
         "failure mode validation"
       ],
       "activation_triggers": [
+        "resilience testing and gameday planning",
+        "fault injection testing with Chaos Mesh",
+        "chaos engineering experiment design for Kubernetes",
         "help me with chaos engineering practices",
         "review chaos engineering practices work"
       ],
@@ -24113,6 +24276,7 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "revert Kubernetes deployment",
         "rollback",
         "revert release",
         "undo deploy"
@@ -24214,6 +24378,9 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "Docker Compose networking and volumes",
+        "multi-container setup with Docker Compose",
+        "create docker-compose.yml for local development",
         "help me with docker compose patterns",
         "review docker compose patterns work"
       ],
@@ -24311,6 +24478,9 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "create Kibana dashboard for application logs",
+        "Elasticsearch index management and ILM policies",
+        "set up ELK stack for log aggregation",
         "help me with elk stack setup and queries",
         "review elk stack setup and queries work"
       ],
@@ -24409,6 +24579,8 @@
         "gcloud resource troubleshooting"
       ],
       "activation_triggers": [
+        "GCP resource management with gcloud CLI",
+        "gcloud CLI command patterns for GKE",
         "help me with gcloud cli command patterns",
         "review gcloud cli command patterns work"
       ],
@@ -24506,6 +24678,8 @@
         "GitHub Actions matrix strategy"
       ],
       "activation_triggers": [
+        "reusable workflow patterns in GitHub Actions",
+        "create GitHub Actions workflow for CI/CD",
         "help me with github actions workflow design",
         "review github actions workflow design work"
       ],
@@ -24604,6 +24778,9 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "export Grafana dashboard as code",
+        "design metrics visualization panels in Grafana",
+        "create Grafana dashboard for SRE metrics",
         "help me with grafana dashboard design",
         "review grafana dashboard design work"
       ],
@@ -24701,6 +24878,9 @@
         "Helm release management"
       ],
       "activation_triggers": [
+        "Helm chart best practices and values structure",
+        "debug Helm template rendering error",
+        "create Helm chart for Node.js application",
         "help me with helm chart development",
         "review helm chart development work"
       ],
@@ -24798,6 +24978,7 @@
         "root cause analysis"
       ],
       "activation_triggers": [
+        "write incident postmortem",
         "postmortem",
         "incident analysis",
         "RCA"
@@ -24898,6 +25079,9 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "canary deployment with Istio virtual service",
+        "enable mTLS between services with Istio",
+        "Istio configuration for traffic management",
         "help me with istio configuration patterns",
         "review istio configuration patterns work"
       ],
@@ -24996,6 +25180,8 @@
         "Jenkins plugin management"
       ],
       "activation_triggers": [
+        "Jenkins pipeline optimization and parallel stages",
+        "create Jenkinsfile with shared library",
         "help me with jenkins pipeline design",
         "review jenkins pipeline design work"
       ],
@@ -25094,6 +25280,9 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "inspect cluster resources and pod status",
+        "debug CrashLoopBackOff on pod",
+        "kubectl command patterns for managing deployments",
         "help me with kubectl command patterns",
         "review kubectl command patterns work"
       ],
@@ -25290,6 +25479,8 @@
         "Prometheus rule optimization"
       ],
       "activation_triggers": [
+        "PromQL alert expressions for monitoring",
+        "create Prometheus alerting rules for high error rate",
         "help me with prometheus alerting rules",
         "review prometheus alerting rules work"
       ],
@@ -25471,6 +25662,8 @@
         "Terraform provider configuration"
       ],
       "activation_triggers": [
+        "infrastructure as code patterns with Terraform",
+        "design Terraform module for VPC",
         "help me with terraform module design",
         "review terraform module design work"
       ],
@@ -25570,6 +25763,9 @@
         "a/b testing checklist"
       ],
       "activation_triggers": [
+        "a b test design for email subject lines",
+        "test this change to the cta button",
+        "run an experiment on pricing page",
         "run an experiment",
         "test this change",
         "a b test design"
@@ -25824,6 +26020,9 @@
         "cohort analysis checklist"
       ],
       "activation_triggers": [
+        "cohort behavior comparison after redesign",
+        "retention by cohort for mobile users",
+        "analyze cohorts by signup month",
         "analyze cohorts",
         "retention by cohort",
         "cohort behavior"
@@ -25921,6 +26120,9 @@
         "competitive analysis checklist"
       ],
       "activation_triggers": [
+        "competitive positioning for mid-market",
+        "who are our top competitors and how do they compare",
+        "analyze competitors in project management",
         "analyze competitors",
         "who are our competitors",
         "competitive positioning"
@@ -26097,6 +26299,9 @@
         "feature prioritization checklist"
       ],
       "activation_triggers": [
+        "feature ranking using rice framework",
+        "what should we build first this sprint",
+        "prioritize the backlog for q3",
         "prioritize the backlog",
         "what should we build first",
         "feature ranking"
@@ -26194,6 +26399,9 @@
         "funnel analysis checklist"
       ],
       "activation_triggers": [
+        "conversion analysis for purchase flow",
+        "where are users dropping off in onboarding",
+        "analyze the signup funnel drop off",
         "analyze the funnel",
         "where are users dropping off",
         "conversion analysis"
@@ -26291,6 +26499,9 @@
         "go to market checklist"
       ],
       "activation_triggers": [
+        "market entry strategy for europe",
+        "gtm for new feature targeting enterprise",
+        "plan the launch gtm for api product",
         "plan the launch",
         "gtm for new feature",
         "market entry strategy"
@@ -26388,6 +26599,9 @@
         "growth experiments checklist"
       ],
       "activation_triggers": [
+        "growth experiment backlog prioritization",
+        "test growth idea for activation",
+        "design a growth experiment for referrals",
         "design a growth experiment",
         "test growth idea",
         "growth experiment backlog"
@@ -26565,6 +26779,9 @@
         "jobs to be done framework checklist"
       ],
       "activation_triggers": [
+        "customer motivation analysis using jobs",
+        "what job are they hiring our product for",
+        "apply jtbd framework to onboarding",
         "apply jtbd",
         "what job are they hiring",
         "customer motivation analysis"
@@ -26662,6 +26879,9 @@
         "launch checklists checklist"
       ],
       "activation_triggers": [
+        "launch preparation for mobile app",
+        "are we ready to launch the new dashboard",
+        "create launch checklist for v2 release",
         "create launch checklist",
         "are we ready to launch",
         "launch preparation"
@@ -26759,6 +26979,9 @@
         "market sizing checklist"
       ],
       "activation_triggers": [
+        "market opportunity for vertical saas",
+        "how big is the addressable market for devtools",
+        "size the market for hr tech saas",
         "size the market",
         "how big is the market",
         "market opportunity"
@@ -26856,6 +27079,8 @@
         "pricing models review"
       ],
       "activation_triggers": [
+        "set pricing tiers for enterprise plan",
+        "design pricing for new product tier",
         "design pricing",
         "set pricing tiers",
         "pricing experimentation"
@@ -26953,6 +27178,9 @@
         "product analytics checklist"
       ],
       "activation_triggers": [
+        "product metrics dashboard for stakeholders",
+        "measure product health metrics",
+        "set up analytics for new feature",
         "set up analytics",
         "measure product health",
         "product metrics dashboard"
@@ -27050,6 +27278,9 @@
         "product documentation checklist"
       ],
       "activation_triggers": [
+        "documentation strategy for developer portal",
+        "create help docs for billing feature",
+        "write documentation for api endpoints",
         "write documentation",
         "create help docs",
         "documentation strategy"
@@ -27147,6 +27378,8 @@
         "product messaging review"
       ],
       "activation_triggers": [
+        "consistent product copy across channels",
+        "create messaging for product launch",
         "create messaging",
         "messaging for launch",
         "consistent product copy"
@@ -27244,6 +27477,9 @@
         "product positioning checklist"
       ],
       "activation_triggers": [
+        "positioning workshop for rebrand",
+        "how should we position against notion",
+        "define positioning for analytics product",
         "define positioning",
         "how should we position",
         "positioning workshop"
@@ -27341,6 +27577,9 @@
         "product roadmapping checklist"
       ],
       "activation_triggers": [
+        "strategic roadmap for enterprise expansion",
+        "roadmap for new product line",
+        "plan the roadmap for next quarter",
         "plan the roadmap",
         "roadmap for next quarter",
         "strategic roadmap"
@@ -27438,6 +27677,9 @@
         "retention analysis checklist"
       ],
       "activation_triggers": [
+        "improve retention for free tier users",
+        "why are users churning after trial",
+        "analyze retention for power users",
         "analyze retention",
         "why are users churning",
         "improve retention"
@@ -27614,6 +27856,9 @@
         "usability testing checklist"
       ],
       "activation_triggers": [
+        "validate signup flow with users",
+        "run a usability test on mobile app",
+        "test usability of new checkout flow",
         "test usability",
         "run a usability test",
         "validate with users"
@@ -27711,6 +27956,9 @@
         "user interviews checklist"
       ],
       "activation_triggers": [
+        "talk to users about search experience",
+        "interview script for onboarding research",
+        "plan user interviews for dashboard feature",
         "plan user interviews",
         "interview script",
         "talk to users"
@@ -27808,6 +28056,9 @@
         "user story writing checklist"
       ],
       "activation_triggers": [
+        "story writing session for payments epic",
+        "create user story with acceptance criteria",
+        "write user stories for login feature",
         "write stories for",
         "create user stories",
         "story writing session"
@@ -29624,6 +29875,8 @@
         "strategic account review"
       ],
       "activation_triggers": [
+        "map stakeholder relationships for strategic account",
+        "create account plan for top enterprise customer",
         "help me with account planning framework",
         "review account planning framework work"
       ],
@@ -29712,6 +29965,7 @@
         "close plan development"
       ],
       "activation_triggers": [
+        "select closing technique for hesitant buyer",
         "help me with closing techniques framework",
         "review closing techniques framework work"
       ],
@@ -29800,6 +30054,7 @@
         "competitor comparison for buyer"
       ],
       "activation_triggers": [
+        "create battle card for Competitor X",
         "help me with competitive selling framework",
         "review competitive selling framework work"
       ],
@@ -29976,6 +30231,7 @@
         "CRM configuration audit"
       ],
       "activation_triggers": [
+        "design CRM workflow for enterprise sales process",
         "help me with crm management framework",
         "review crm management framework work"
       ],
@@ -30064,6 +30320,8 @@
         "pain identification questions"
       ],
       "activation_triggers": [
+        "build a discovery framework for SMB segment",
+        "design a discovery call for CFO persona",
         "help me with discovery call design",
         "review discovery call design work"
       ],
@@ -30152,6 +30410,8 @@
         "commercial negotiation guide"
       ],
       "activation_triggers": [
+        "plan negotiation tactics for price-sensitive buyer",
+        "design negotiation strategy for enterprise deal",
         "help me with negotiation tactics framework",
         "review negotiation tactics framework work"
       ],
@@ -30586,6 +30846,8 @@
         "RFP response structure"
       ],
       "activation_triggers": [
+        "structure an RFP response for government buyer",
+        "write a proposal for enterprise analytics deal",
         "help me with proposal writing framework",
         "review proposal writing framework work"
       ],
@@ -30674,6 +30936,9 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "review rep productivity against team benchmarks",
+        "build sales metrics dashboard for leadership",
+        "analyze Q2 sales performance by segment",
         "help me with sales analytics framework",
         "review sales analytics framework work"
       ],
@@ -30762,6 +31027,8 @@
         "deal-level forecast assessment"
       ],
       "activation_triggers": [
+        "analyze forecast accuracy for last quarter",
+        "design forecast methodology for new sales team",
         "help me with sales forecasting framework",
         "review sales forecasting framework work"
       ],
@@ -30850,6 +31117,8 @@
         "deal qualification framework"
       ],
       "activation_triggers": [
+        "design qualification criteria for SMB segment",
+        "qualify this inbound lead using MEDDIC",
         "help me with sales qualification framework",
         "review sales qualification framework work"
       ],
@@ -30938,6 +31207,7 @@
         "pipeline report design"
       ],
       "activation_triggers": [
+        "design weekly sales report for VP of Sales",
         "help me with sales reporting framework",
         "review sales reporting framework work"
       ],
@@ -31026,6 +31296,9 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "map our platform capabilities to healthcare pain points",
+        "create needs analysis framework for enterprise deals",
+        "design solution selling approach for manufacturing buyer",
         "help me with solution selling framework",
         "review solution selling framework work"
       ],
@@ -31114,6 +31387,8 @@
         "territory realignment"
       ],
       "activation_triggers": [
+        "review territory assignments for balance issues",
+        "design territory plan for West Coast enterprise team",
         "help me with territory planning framework",
         "review territory planning framework work"
       ],
@@ -31202,6 +31477,7 @@
         "total cost of ownership analysis"
       ],
       "activation_triggers": [
+        "build business case for enterprise analytics deal",
         "help me with value selling framework",
         "review value selling framework work"
       ],
@@ -31389,6 +31665,7 @@
         "Dockerfile security review"
       ],
       "activation_triggers": [
+        "audit container image layers for security issues",
         "help me with container image scanning",
         "review container image scanning work"
       ],
@@ -31481,6 +31758,8 @@
         "cross-site request forgery audit"
       ],
       "activation_triggers": [
+        "check SameSite cookie attribute for CSRF defense",
+        "implement CSRF token protection on forms",
         "help me with csrf protection patterns",
         "review csrf protection patterns work"
       ],
@@ -31573,6 +31852,8 @@
         "black-box security testing"
       ],
       "activation_triggers": [
+        "automated black-box pentest on web application",
+        "run dynamic security test on staging application",
         "help me with dynamic application security testing",
         "review dynamic application security testing work"
       ],
@@ -31665,6 +31946,8 @@
         "outdated dependency assessment"
       ],
       "activation_triggers": [
+        "check project dependencies for license compliance",
+        "audit npm dependencies for known CVEs",
         "help me with dependency vulnerability auditing",
         "review dependency vulnerability auditing work"
       ],
@@ -31849,6 +32132,8 @@
         "review form validation security"
       ],
       "activation_triggers": [
+        "implement allowlist validation for user input",
+        "review input validation on all API endpoints",
         "help me with input validation patterns",
         "review input validation patterns work"
       ],
@@ -31941,6 +32226,8 @@
         "implement secure JWT validation"
       ],
       "activation_triggers": [
+        "check JWT implementation for algorithm confusion",
+        "validate JWT token signature and claims",
         "help me with jwt token validation",
         "review jwt token validation work"
       ],
@@ -32033,6 +32320,8 @@
         "HSM key management"
       ],
       "activation_triggers": [
+        "implement KMS key rotation policy",
+        "review cryptographic key management and rotation",
         "help me with cryptographic key management",
         "review cryptographic key management work"
       ],
@@ -32217,6 +32506,7 @@
         "review authorization code flow"
       ],
       "activation_triggers": [
+        "review OAuth 2.0 authorization code flow implementation",
         "help me with oauth 2 0 implementation review",
         "review oauth 2 0 implementation review work"
       ],
@@ -32309,6 +32599,8 @@
         "OWASP Top 10 checklist review"
       ],
       "activation_triggers": [
+        "check application against OWASP risk categories",
+        "perform OWASP compliance audit on web app",
         "help me with owasp top 10 vulnerability review",
         "review owasp top 10 vulnerability review work"
       ],
@@ -32401,6 +32693,8 @@
         "llm prompt injection detection review"
       ],
       "activation_triggers": [
+        "secure AI integration",
+        "review LLM security",
         "prompt injection attack",
         "LLM vulnerability",
         "AI security"
@@ -32500,6 +32794,7 @@
         "DDoS protection review"
       ],
       "activation_triggers": [
+        "configure brute force protection on login endpoint",
         "help me with rate limiting implementation",
         "review rate limiting implementation work"
       ],
@@ -32592,6 +32887,7 @@
         "taint analysis on user input"
       ],
       "activation_triggers": [
+        "run static security analysis on source code",
         "help me with static application security testing",
         "review static application security testing work"
       ],
@@ -32684,6 +32980,9 @@
         "secret detection and false positive filtering review"
       ],
       "activation_triggers": [
+        "check for credential leaks",
+        "find API keys in code",
+        "scan for hardcoded secrets",
         "scan secrets",
         "find API keys",
         "check credentials"
@@ -32784,6 +33083,7 @@
         "secret detection in git history"
       ],
       "activation_triggers": [
+        "detect credentials leaked in git history",
         "help me with secret detection and scanning",
         "review secret detection and scanning work"
       ],
@@ -32876,6 +33176,8 @@
         "review X-Frame-Options"
       ],
       "activation_triggers": [
+        "audit response headers with securityheaders.com",
+        "configure HTTP security headers including CSP and HSTS",
         "help me with http security headers configuration",
         "review http security headers configuration work"
       ],
@@ -32968,6 +33270,8 @@
         "check raw SQL queries"
       ],
       "activation_triggers": [
+        "check ORM usage for SQL injection bypass",
+        "prevent SQL injection with parameterized queries",
         "help me with sql injection prevention",
         "review sql injection prevention work"
       ],
@@ -33060,6 +33364,7 @@
         "fix SSL Labs rating"
       ],
       "activation_triggers": [
+        "check cipher suite configuration and certificate chain",
         "help me with ssl/tls configuration review",
         "review ssl/tls configuration review work"
       ],
@@ -33143,6 +33448,7 @@
       "purpose": "Assess and mitigate supply chain risks in software dependencies.",
       "summary": "Systematic review of dependencies for supply chain attacks, compromised packages, and trust issues.",
       "triggers": [
+        "audit dependencies for security",
         "assess supply chain risk",
         "supply chain security risk assessment",
         "dependency security audit for vulnerabilities",
@@ -33252,6 +33558,8 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "analyze attack vectors",
+        "perform threat modeling",
         "model threats",
         "security threats",
         "attack vectors"
@@ -33352,6 +33660,8 @@
         "threat model review for new feature"
       ],
       "activation_triggers": [
+        "run PASTA threat analysis on architecture",
+        "create attack tree for payment system",
         "help me with threat modeling techniques",
         "review threat modeling techniques work"
       ],
@@ -33434,6 +33744,7 @@
       "purpose": "Analyze CVEs and security vulnerabilities to prioritize remediation based on risk and impact.",
       "summary": "Systematic approach to assessing vulnerabilities, calculating risk scores, and creating prioritized remediation plans.",
       "triggers": [
+        "analyze CVE vulnerabilities",
         "analyze CVE vulnerabilities and risks",
         "vulnerability risk assessment and prioritization",
         "prioritize security vulnerabilities by risk score",
@@ -33544,6 +33855,7 @@
         "output encoding review"
       ],
       "activation_triggers": [
+        "prevent XSS attacks with output encoding",
         "help me with xss prevention techniques",
         "review xss prevention techniques work"
       ],
@@ -33636,6 +33948,8 @@
         "beyondcorp implementation"
       ],
       "activation_triggers": [
+        "verify never trust always verify across services",
+        "review zero trust architecture implementation",
         "help me with zero trust architecture review",
         "review zero trust architecture review work"
       ],
@@ -33728,6 +34042,9 @@
         "burn rate and runway review"
       ],
       "activation_triggers": [
+        "run burn rate process",
+        "runway calculation analysis",
+        "burn rate for B2B SaaS startup",
         "burn rate",
         "runway calculation",
         "cash runway"
@@ -33825,6 +34142,8 @@
         "business model canvas checklist"
       ],
       "activation_triggers": [
+        "BMC analysis",
+        "business model canvas for B2B SaaS startup",
         "business model canvas",
         "BMC",
         "osterwalder canvas"
@@ -33922,6 +34241,9 @@
         "cap table management review"
       ],
       "activation_triggers": [
+        "run cap table process",
+        "capitalization table analysis",
+        "cap table for B2B SaaS startup",
         "cap table",
         "capitalization table",
         "equity tracking"
@@ -34019,6 +34341,9 @@
         "company culture design review"
       ],
       "activation_triggers": [
+        "run company culture process",
+        "values definition analysis",
+        "company culture for B2B SaaS startup",
         "company culture",
         "values definition",
         "culture design"
@@ -34116,6 +34441,9 @@
         "customer interview framework plan"
       ],
       "activation_triggers": [
+        "run customer interview process",
+        "discovery interview analysis",
+        "customer interview for B2B SaaS startup",
         "customer interview",
         "discovery interview",
         "user interview startup"
@@ -34213,6 +34541,8 @@
         "financial projections review"
       ],
       "activation_triggers": [
+        "run financial projections process",
+        "financial projections for B2B SaaS startup",
         "financial projections",
         "revenue forecast",
         "financial forecast startup"
@@ -34310,6 +34640,9 @@
         "fundraising strategy checklist"
       ],
       "activation_triggers": [
+        "run fundraising strategy process",
+        "raise planning analysis",
+        "fundraising strategy for B2B SaaS startup",
         "fundraising strategy",
         "raise planning",
         "round planning"
@@ -34407,6 +34740,9 @@
         "growth metrics framework review"
       ],
       "activation_triggers": [
+        "run growth metrics process",
+        "AARRR analysis",
+        "growth metrics for B2B SaaS startup",
         "growth metrics",
         "AARRR",
         "pirate metrics"
@@ -34504,6 +34840,9 @@
         "hiring process design checklist"
       ],
       "activation_triggers": [
+        "run hiring process process",
+        "interview design analysis",
+        "hiring process for B2B SaaS startup",
         "hiring process",
         "interview design",
         "hiring scorecard"
@@ -34601,6 +34940,9 @@
         "investor outreach checklist"
       ],
       "activation_triggers": [
+        "run investor outreach process",
+        "investor email analysis",
+        "investor outreach for B2B SaaS startup",
         "investor outreach",
         "investor email",
         "warm intro"
@@ -34698,6 +35040,8 @@
         "lean canvas framework checklist"
       ],
       "activation_triggers": [
+        "run lean canvas process",
+        "lean canvas for B2B SaaS startup",
         "lean canvas",
         "one page business model",
         "lean startup canvas"
@@ -34795,6 +35139,7 @@
         "yes human task"
       ],
       "activation_triggers": [
+        "market validation for B2B SaaS startup",
         "market validation",
         "market sizing",
         "TAM SAM SOM"
@@ -34892,6 +35237,8 @@
         "mvp development planning review"
       ],
       "activation_triggers": [
+        "run MVP planning process",
+        "MVP planning for B2B SaaS startup",
         "MVP planning",
         "minimum viable product",
         "MVP scope"
@@ -34989,6 +35336,9 @@
         "pitch deck creation checklist"
       ],
       "activation_triggers": [
+        "run pitch deck process",
+        "investor deck analysis",
+        "pitch deck for B2B SaaS startup",
         "pitch deck",
         "investor deck",
         "startup presentation"
@@ -35086,6 +35436,9 @@
         "term sheet analysis review"
       ],
       "activation_triggers": [
+        "run term sheet process",
+        "term sheet analysis analysis",
+        "term sheet for B2B SaaS startup",
         "term sheet",
         "term sheet analysis",
         "valuation negotiation"
@@ -35183,6 +35536,9 @@
         "unit economics analysis review"
       ],
       "activation_triggers": [
+        "run unit economics process",
+        "CAC LTV analysis",
+        "unit economics for B2B SaaS startup",
         "unit economics",
         "CAC LTV",
         "payback period"
@@ -35280,6 +35636,9 @@
         "value proposition design plan"
       ],
       "activation_triggers": [
+        "run value proposition process",
+        "value prop design analysis",
+        "value proposition for B2B SaaS startup",
         "value proposition",
         "value prop design",
         "customer pain gain"

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.git-workflow
 name: Branch Strategy and Commit Discipline
 version: 1.0.0
@@ -15,6 +16,7 @@ triggers:
   - git best practices
   - yes human task
 activation_triggers:
+  - set up git workflow
   - how to branch
   - commit convention
   - git flow

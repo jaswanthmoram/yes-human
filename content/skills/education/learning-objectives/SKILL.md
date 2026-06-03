@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: education.learning-objectives
 name: Learning Objectives Design
 version: 1.0.0

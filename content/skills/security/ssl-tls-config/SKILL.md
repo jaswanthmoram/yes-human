@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: security.ssl-tls-config
 name: SSL/TLS Configuration Review
 version: 1.0.0
@@ -15,6 +16,7 @@ triggers:
   - TLS security audit
   - fix SSL Labs rating
 activation_triggers:
+  - check cipher suite configuration and certificate chain
   - help me with ssl/tls configuration review
   - review ssl/tls configuration review work
 prerequisites:

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: marketing.lead-scoring
 name: Lead Scoring
 version: 1.0.0
@@ -15,6 +16,7 @@ triggers:
   - lead score threshold review
   - yes human task
 activation_triggers:
+  - refine mql qualification thresholds
   - help me with lead scoring
   - review lead scoring work
 prerequisites:

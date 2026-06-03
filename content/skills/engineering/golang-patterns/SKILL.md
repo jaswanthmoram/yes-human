@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.golang-patterns
 name: Go Code Review Patterns
 version: 1.0.0

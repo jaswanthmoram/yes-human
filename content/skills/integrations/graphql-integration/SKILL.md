@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: integrations.graphql-integration
 name: GraphQL Integration
 version: 1.0.0

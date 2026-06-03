@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: finance.financial-forecasting
 name: Financial Forecasting
 version: 1.0.0

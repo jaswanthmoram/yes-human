@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: design-content.content-audits
 name: Content Audits
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - yes human task
   - content audits review
 activation_triggers:
+  - content gap analysis against competitors
+  - content inventory review for the website
+  - audit existing content for quality and relevance
   - help me with content audits
   - review content audits work
 prerequisites:

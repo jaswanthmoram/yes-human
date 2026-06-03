@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: platform.github-actions
 name: GitHub Actions Workflow Design
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - reusable workflow patterns
   - GitHub Actions matrix strategy
 activation_triggers:
+  - reusable workflow patterns in GitHub Actions
+  - create GitHub Actions workflow for CI/CD
   - help me with github actions workflow design
   - review github actions workflow design work
 prerequisites:

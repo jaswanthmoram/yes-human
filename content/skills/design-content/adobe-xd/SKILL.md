@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: design-content.adobe-xd
 name: Adobe XD Design
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - yes human task
   - adobe xd design review
 activation_triggers:
+  - prepare xd design handoff specs
+  - set up xd auto animate prototype
+  - create adobe xd component with responsive resize
   - help me with adobe xd design
   - review adobe xd design work
 prerequisites:

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: sales.contract-review
 name: Contract Review for Sales
 version: 1.0.0

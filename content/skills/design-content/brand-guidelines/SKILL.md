@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: design-content.brand-guidelines
 name: Brand Guidelines
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - brand standards guide
   - yes human task
 activation_triggers:
+  - document brand application rules for digital
+  - design brand book with visual identity specs
   - help me with brand guidelines
   - review brand guidelines work
 prerequisites:

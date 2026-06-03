@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: sales.objection-handling
 name: Objection Handling Framework
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: security.supply-chain-review
 name: Dependency Supply Chain Risk Assessment
 version: 1.0.0
@@ -7,6 +8,7 @@ category: security.supply-chain
 purpose: Assess and mitigate supply chain risks in software dependencies.
 summary: Systematic review of dependencies for supply chain attacks, compromised packages, and trust issues.
 triggers:
+  - audit dependencies for security
   - assess supply chain risk
   - supply chain security risk assessment
   - dependency security audit for vulnerabilities

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: meta-system.cost-controlling
 name: Cost Controlling
 version: 1.0.0

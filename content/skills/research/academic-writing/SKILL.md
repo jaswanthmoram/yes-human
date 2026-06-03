@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: research.academic-writing
 name: Academic Writing
 version: 1.0.0

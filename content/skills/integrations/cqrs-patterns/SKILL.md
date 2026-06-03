@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: integrations.cqrs-patterns
 name: CQRS Patterns
 version: 1.0.0

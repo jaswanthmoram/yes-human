@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: finance.tax-planning
 name: Tax Planning
 version: 1.0.0

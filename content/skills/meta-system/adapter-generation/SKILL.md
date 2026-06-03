@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: meta-system.adapter-generation
 name: Host Adapter Generation
 version: 1.0.0

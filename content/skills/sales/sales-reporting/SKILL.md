@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: sales.sales-reporting
 name: Sales Reporting Framework
 version: 1.0.0
@@ -15,6 +16,7 @@ triggers:
   - sales reporting structure
   - pipeline report design
 activation_triggers:
+  - design weekly sales report for VP of Sales
   - help me with sales reporting framework
   - review sales reporting framework work
 prerequisites:

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: integrations.load-balancing
 name: Load Balancing
 version: 1.0.0

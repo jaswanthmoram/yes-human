@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: data-ai.model-selection
 name: Model Selection
 version: 1.0.0

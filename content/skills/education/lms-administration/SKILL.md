@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: education.lms-administration
 name: LMS Administration
 version: 1.0.0

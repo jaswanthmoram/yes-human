@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: product-business.pricing-models
 name: Pricing Models
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - yes human task
   - pricing models review
 activation_triggers:
+  - set pricing tiers for enterprise plan
+  - design pricing for new product tier
   - design pricing
   - set pricing tiers
   - pricing experimentation

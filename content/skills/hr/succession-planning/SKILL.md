@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: hr.succession-planning
 name: Succession Planning
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: platform.deploy-rollback
 name: Safe Deployment Rollback
 version: 1.0.0
@@ -15,6 +16,7 @@ triggers:
   - emergency rollback
   - yes human task
 activation_triggers:
+  - revert Kubernetes deployment
   - rollback
   - revert release
   - undo deploy

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: finance.payroll-analyst
 name: Payroll Reconciliation Analysis
 version: 1.0.0

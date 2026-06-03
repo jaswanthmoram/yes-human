@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: design-content.style-guides
 name: Style Guides
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - yes human task
   - style guides review
 activation_triggers:
+  - update style guide with new brand voice
+  - define writing standards and terminology
+  - create content style guide for the team
   - help me with style guides
   - review style guides work
 prerequisites:

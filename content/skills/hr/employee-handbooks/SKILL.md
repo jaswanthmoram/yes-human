@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: hr.employee-handbooks
 name: Employee Handbooks
 version: 1.0.0

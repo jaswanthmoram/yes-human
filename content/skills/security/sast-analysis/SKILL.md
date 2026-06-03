@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: security.sast-analysis
 name: Static Application Security Testing
 version: 1.0.0
@@ -15,6 +16,7 @@ triggers:
   - static code analysis for injection
   - taint analysis on user input
 activation_triggers:
+  - run static security analysis on source code
   - help me with static application security testing
   - review static application security testing work
 prerequisites:

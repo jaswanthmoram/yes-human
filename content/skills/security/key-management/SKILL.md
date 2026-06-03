@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: security.key-management
 name: Cryptographic Key Management
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - secure key storage review
   - HSM key management
 activation_triggers:
+  - implement KMS key rotation policy
+  - review cryptographic key management and rotation
   - help me with cryptographic key management
   - review cryptographic key management work
 prerequisites:

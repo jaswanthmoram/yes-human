@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: security.security-headers
 name: HTTP Security Headers Configuration
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - implement HSTS preload
   - review X-Frame-Options
 activation_triggers:
+  - audit response headers with securityheaders.com
+  - configure HTTP security headers including CSP and HSTS
   - help me with http security headers configuration
   - review http security headers configuration work
 prerequisites:

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: finance.variance-analysis
 name: Variance Analysis
 version: 1.0.0

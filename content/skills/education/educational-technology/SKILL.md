@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: education.educational-technology
 name: Educational Technology Integration
 version: 1.0.0

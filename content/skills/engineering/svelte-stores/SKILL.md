@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.svelte-stores
 name: Svelte Stores and Reactivity
 version: 1.0.0
@@ -15,6 +16,7 @@ triggers:
   - svelte derived
   - svelte 5 runes
 activation_triggers:
+  - migrate Svelte 4 stores to Svelte 5 runes
   - help me with svelte stores and reactivity
   - review svelte stores and reactivity work
 prerequisites:

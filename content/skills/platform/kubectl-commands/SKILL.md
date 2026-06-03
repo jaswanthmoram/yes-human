@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: platform.kubectl-commands
 name: kubectl Command Patterns
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - kubectl port-forward and exec
   - yes human task
 activation_triggers:
+  - inspect cluster resources and pod status
+  - debug CrashLoopBackOff on pod
+  - kubectl command patterns for managing deployments
   - help me with kubectl command patterns
   - review kubectl command patterns work
 prerequisites:

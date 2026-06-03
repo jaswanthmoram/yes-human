@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: design-content.presentation-designer
 name: Presentation Design and Narrative
 version: 1.0.0

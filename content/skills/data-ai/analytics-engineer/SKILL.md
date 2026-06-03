@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: data-ai.analytics-engineer
 name: Analytics Engineering with dbt
 version: 1.0.0

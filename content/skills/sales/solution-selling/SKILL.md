@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: sales.solution-selling
 name: Solution Selling Framework
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - solution positioning design
   - yes human task
 activation_triggers:
+  - map our platform capabilities to healthcare pain points
+  - create needs analysis framework for enterprise deals
+  - design solution selling approach for manufacturing buyer
   - help me with solution selling framework
   - review solution selling framework work
 prerequisites:

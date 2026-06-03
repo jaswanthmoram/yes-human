@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: design-content.wcag-compliance
 name: WCAG Compliance
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - yes human task
   - wcag compliance review
 activation_triggers:
+  - wcag remediation plan for the navigation
+  - assess wcag conformance for the dashboard
+  - run wcag 2.2 compliance audit on the app
   - help me with wcag compliance
   - review wcag compliance work
 prerequisites:

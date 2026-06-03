@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: product-business.product-analytics
 name: Product Analytics
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - product analytics review
   - product analytics checklist
 activation_triggers:
+  - product metrics dashboard for stakeholders
+  - measure product health metrics
+  - set up analytics for new feature
   - set up analytics
   - measure product health
   - product metrics dashboard

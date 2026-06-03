@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: data-ai.data-warehousing
 name: Data Warehousing
 version: 1.0.0

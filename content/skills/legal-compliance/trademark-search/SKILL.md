@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: legal-compliance.trademark-search
 name: Trademark Search
 version: 1.0.0

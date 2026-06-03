@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: hr.policy-drafter
 name: HR Policy Drafting
 version: 1.0.0

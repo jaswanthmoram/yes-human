@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: product-business.cto-advisor
 name: CTO Advisory and Technology Strategy
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: finance.cash-flow-analysis
 name: Cash Flow Analysis
 version: 1.0.0

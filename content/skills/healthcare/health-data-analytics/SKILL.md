@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: healthcare.health-data-analytics
 name: Health Data Analytics
 version: 1.0.0

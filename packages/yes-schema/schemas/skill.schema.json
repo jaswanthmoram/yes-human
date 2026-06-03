@@ -3,83 +3,164 @@
   "title": "Yes-human Skill Schema",
   "type": "object",
   "required": [
-    "id", "name", "version", "category", "summary", "triggers", "prerequisites",
-    "steps", "outputs", "budget_band", "rollback", "validators", "source_references"
+    "id",
+    "name",
+    "version",
+    "category",
+    "summary",
+    "triggers",
+    "prerequisites",
+    "steps",
+    "outputs",
+    "budget_band",
+    "rollback",
+    "validators",
+    "source_references"
   ],
   "properties": {
-    "id": { "type": "string" },
-    "name": { "type": "string" },
-    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:-[0-9A-Za-z.-]+)?$" },
-    "domain": { "type": "string" },
-    "category": { "type": "string" },
-    "purpose": { "type": "string" },
-    "summary": { "type": "string" },
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:-[0-9A-Za-z.-]+)?$"
+    },
+    "domain": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
     "triggers": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
     "activation_triggers": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
     "prerequisites": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
     "inputs": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
     "steps": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
     "procedure": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
     "outputs": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
     "tools": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
     "quality_gates": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
     "failure_modes": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
     "handoffs": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
-    "budget_band": { "type": "string", "enum": ["micro", "standard", "expanded", "deep"] },
+    "budget_band": {
+      "type": "string",
+      "enum": [
+        "micro",
+        "standard",
+        "expanded",
+        "deep"
+      ]
+    },
     "rollback": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
     "validators": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
     "source_references": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
     "allowed_agents": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
     "allowed_workflows": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
-    "status": { "type": "string", "enum": ["active", "deprecated", "experimental"] }
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "deprecated",
+        "experimental"
+      ]
+    },
+    "quality_gate": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "staging",
+        "production"
+      ]
+    }
   },
   "additionalProperties": false
 }

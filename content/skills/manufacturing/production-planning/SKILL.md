@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: manufacturing.production-planning
 name: Production Planning
 version: 1.0.0

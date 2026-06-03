@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: manufacturing.production-scheduling
 name: Production Scheduling
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: platform.observability-setup
 name: Monitoring and Logging Setup
 version: 1.0.0

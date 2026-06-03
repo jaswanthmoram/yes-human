@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: platform.grafana-dashboards
 name: Grafana Dashboard Design
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - Grafana data source setup
   - yes human task
 activation_triggers:
+  - export Grafana dashboard as code
+  - design metrics visualization panels in Grafana
+  - create Grafana dashboard for SRE metrics
   - help me with grafana dashboard design
   - review grafana dashboard design work
 prerequisites:

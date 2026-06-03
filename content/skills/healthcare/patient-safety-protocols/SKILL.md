@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: healthcare.patient-safety-protocols
 name: Patient Safety Protocols
 version: 1.0.0

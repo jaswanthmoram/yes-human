@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.test-triage
 name: Test Failure Analysis and Prioritization
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - yes human task
   - test failure analysis and prioritization review
 activation_triggers:
+  - triage these test failures
+  - why is the test suite broken
   - tests are failing
   - fix the tests
   - test suite broken

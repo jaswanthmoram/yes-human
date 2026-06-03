@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: startup-ops.burn-rate-calculation
 name: Burn Rate and Runway
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - yes human task
   - burn rate and runway review
 activation_triggers:
+  - run burn rate process
+  - runway calculation analysis
+  - burn rate for B2B SaaS startup
   - burn rate
   - runway calculation
   - cash runway

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: security.encryption-at-rest
 name: Data Encryption at Rest
 version: 1.0.0

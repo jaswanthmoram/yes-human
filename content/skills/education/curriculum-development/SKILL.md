@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: education.curriculum-development
 name: Curriculum Development
 version: 1.0.0

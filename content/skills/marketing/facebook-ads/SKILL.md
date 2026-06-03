@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: marketing.facebook-ads
 name: Facebook Ads
 version: 1.0.0
@@ -15,6 +16,7 @@ triggers:
   - social ads optimization
   - yes human task
 activation_triggers:
+  - set up facebook ads for e-commerce
   - help me with facebook ads
   - review facebook ads work
 prerequisites:

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: platform.ci-triage
 name: CI Failure Diagnosis
 version: 1.0.0

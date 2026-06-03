@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: marketing.content-calendars
 name: Content Calendars
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - yes human task
   - content calendars review
 activation_triggers:
+  - structure content calendar around topic clusters
+  - create Q3 content calendar for SaaS blog
   - help me with content calendars
   - review content calendars work
 prerequisites:

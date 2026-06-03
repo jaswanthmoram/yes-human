@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.api-design
 name: REST/GraphQL API Design Patterns
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - yes human task
   - rest/graphql api design patterns review
 activation_triggers:
+  - design GraphQL schema
+  - create API endpoints
+  - design a REST API
   - design an API
   - create an endpoint
   - API structure

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: security.secret-scan-triage
 name: Secret Detection and False Positive Filtering
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - yes human task
   - secret detection and false positive filtering review
 activation_triggers:
+  - check for credential leaks
+  - find API keys in code
+  - scan for hardcoded secrets
   - scan secrets
   - find API keys
   - check credentials

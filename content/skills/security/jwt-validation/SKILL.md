@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: security.jwt-validation
 name: JWT Token Validation
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - fix JWT vulnerability
   - implement secure JWT validation
 activation_triggers:
+  - check JWT implementation for algorithm confusion
+  - validate JWT token signature and claims
   - help me with jwt token validation
   - review jwt token validation work
 prerequisites:

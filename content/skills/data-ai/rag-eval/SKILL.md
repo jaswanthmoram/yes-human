@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: data-ai.rag-eval
 name: RAG System Evaluation
 version: 1.0.0
@@ -15,6 +16,7 @@ triggers:
   - yes human task
   - rag system evaluation review
 activation_triggers:
+  - measure RAG faithfulness
   - RAG eval
   - retrieval augmented generation evaluation
   - RAG system testing

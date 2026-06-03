@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: manufacturing.lean-manufacturing
 name: Lean Manufacturing
 version: 1.0.0

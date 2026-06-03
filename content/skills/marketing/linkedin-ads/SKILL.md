@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: marketing.linkedin-ads
 name: LinkedIn Ads
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - yes human task
   - linkedin ads review
 activation_triggers:
+  - optimize linkedin sponsored content
+  - create linkedin lead gen campaign
   - help me with linkedin ads
   - review linkedin ads work
 prerequisites:

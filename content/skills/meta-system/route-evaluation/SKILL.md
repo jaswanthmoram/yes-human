@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: meta-system.route-evaluation
 name: Routing Accuracy Testing and Analysis
 version: 1.0.0

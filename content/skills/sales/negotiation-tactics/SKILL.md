@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: sales.negotiation-tactics
 name: Negotiation Tactics Framework
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - pricing negotiation framework
   - commercial negotiation guide
 activation_triggers:
+  - plan negotiation tactics for price-sensitive buyer
+  - design negotiation strategy for enterprise deal
   - help me with negotiation tactics framework
   - review negotiation tactics framework work
 prerequisites:

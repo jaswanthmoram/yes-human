@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: hr.performance-reviews
 name: Performance Reviews
 version: 1.0.0

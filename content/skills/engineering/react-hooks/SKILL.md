@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.react-hooks
 name: React Hooks Patterns
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - useReducer
   - react performance hooks
 activation_triggers:
+  - when should I use useReducer instead of useState
+  - create a custom useFetch hook with loading and error states
   - help me with react hooks patterns
   - review react hooks patterns work
 prerequisites:

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: legal-compliance.privacy-compliance
 name: Privacy Compliance
 version: 1.0.0

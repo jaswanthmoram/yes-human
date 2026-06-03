@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: integrations.api-versioning
 name: API Versioning
 version: 1.0.0

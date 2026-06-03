@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: research.quantitative-analysis
 name: Quantitative Analysis
 version: 1.0.0

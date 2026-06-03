@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: integrations.api-documentation
 name: API Documentation
 version: 1.0.0

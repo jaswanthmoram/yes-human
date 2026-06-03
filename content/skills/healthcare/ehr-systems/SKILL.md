@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: healthcare.ehr-systems
 name: EHR Systems Integration
 version: 1.0.0

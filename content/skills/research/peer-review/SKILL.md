@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: research.peer-review
 name: Peer Review
 version: 1.0.0

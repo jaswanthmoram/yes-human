@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.nextjs-app-router
 name: Next.js App Router Patterns
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - nextjs layout
   - nextjs data fetching
 activation_triggers:
+  - migrate from pages router to app router
+  - create a Next.js app router layout with streaming
   - help me with next js app router patterns
   - review next js app router patterns work
 prerequisites:

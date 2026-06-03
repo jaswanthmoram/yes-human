@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: finance.financial-statements
 name: Financial Statement Analysis
 version: 1.0.0

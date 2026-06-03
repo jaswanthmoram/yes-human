@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: legal-compliance.brief-writing
 name: Brief Writing
 version: 1.0.0

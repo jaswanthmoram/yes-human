@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: platform.azure-cli
 name: Azure CLI Command Patterns
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - Azure resource troubleshooting
   - yes human task
 activation_triggers:
+  - Azure resource automation with az CLI scripting
+  - manage Azure VMs with az CLI
+  - Azure CLI command patterns for AKS
   - help me with azure cli command patterns
   - review azure cli command patterns work
 prerequisites:

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: marketing.marketing-attribution
 name: Marketing Attribution
 version: 1.0.0

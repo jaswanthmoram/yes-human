@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: marketing.email-campaigns
 name: Email Campaigns
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - yes human task
   - email campaigns review
 activation_triggers:
+  - plan newsletter campaign for Q3
+  - design drip sequence for new subscribers
   - help me with email campaigns
   - review email campaigns work
 prerequisites:

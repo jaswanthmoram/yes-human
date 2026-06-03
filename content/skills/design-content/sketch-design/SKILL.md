@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: design-content.sketch-design
 name: Sketch Design
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - yes human task
   - sketch design review
 activation_triggers:
+  - prepare sketch design handoff
+  - set up sketch shared library
+  - create sketch symbol with smart layout
   - help me with sketch design
   - review sketch design work
 prerequisites:

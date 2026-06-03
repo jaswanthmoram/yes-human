@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: healthcare.icd-10
 name: ICD-10 Coding Standards
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: marketing.blog-writing
 name: Blog Writing
 version: 1.0.0
@@ -15,6 +16,7 @@ triggers:
   - long-form content draft
   - yes human task
 activation_triggers:
+  - draft seo blog article for fintech audience
   - help me with blog writing
   - review blog writing work
 prerequisites:

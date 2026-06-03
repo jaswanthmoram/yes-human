@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: startup-ops.company-culture
 name: Company Culture Design
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - yes human task
   - company culture design review
 activation_triggers:
+  - run company culture process
+  - values definition analysis
+  - company culture for B2B SaaS startup
   - company culture
   - values definition
   - culture design

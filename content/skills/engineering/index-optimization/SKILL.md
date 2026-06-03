@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.index-optimization
 name: Database Index Optimization
 version: 1.0.0
@@ -13,6 +14,9 @@ triggers:
   - index bloat
   - covering index
 activation_triggers:
+  - which columns should be indexed for this query pattern
+  - optimize database indexes for the products table
+  - this query is slow, should I add an index
   - queries are slow and we need indexes
   - our write performance is degrading
 prerequisites:

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: platform.elk-stack
 name: ELK Stack Setup and Queries
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - Elasticsearch index management
   - yes human task
 activation_triggers:
+  - create Kibana dashboard for application logs
+  - Elasticsearch index management and ILM policies
+  - set up ELK stack for log aggregation
   - help me with elk stack setup and queries
   - review elk stack setup and queries work
 prerequisites:

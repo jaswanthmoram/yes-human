@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: data-ai.dataset-profiling
 name: Dataset Quality Assessment
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - dataset statistics
   - yes human task
 activation_triggers:
+  - check for data quality issues
+  - profile dataset quality
   - data profiling
   - dataset analysis
   - quality check

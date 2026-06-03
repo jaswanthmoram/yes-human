@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: education.learning-analytics
 name: Learning Analytics
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.monorepo-management
 name: Monorepo Tooling and Patterns
 version: 1.0.0
@@ -15,6 +16,7 @@ triggers:
   - nx workspace
   - bazel build
 activation_triggers:
+  - configure turborepo for our workspace
   - help me with monorepo tooling and patterns
   - review monorepo tooling and patterns work
 prerequisites:

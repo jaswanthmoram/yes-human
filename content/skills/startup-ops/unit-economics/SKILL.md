@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: startup-ops.unit-economics
 name: Unit Economics Analysis
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - yes human task
   - unit economics analysis review
 activation_triggers:
+  - run unit economics process
+  - CAC LTV analysis
+  - unit economics for B2B SaaS startup
   - unit economics
   - CAC LTV
   - payback period

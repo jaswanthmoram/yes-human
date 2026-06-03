@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: hr.compensation-analysis
 name: Compensation Analysis
 version: 1.0.0

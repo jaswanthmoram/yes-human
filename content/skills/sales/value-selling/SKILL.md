@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: sales.value-selling
 name: Value Selling Framework
 version: 1.0.0
@@ -15,6 +16,7 @@ triggers:
   - value selling framework
   - total cost of ownership analysis
 activation_triggers:
+  - build business case for enterprise analytics deal
   - help me with value selling framework
   - review value selling framework work
 prerequisites:

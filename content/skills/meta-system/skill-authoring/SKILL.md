@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: meta-system.skill-authoring
 name: Skill Authoring and Specification
 version: 1.0.0

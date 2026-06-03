@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: security.sql-injection
 name: SQL Injection Prevention
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - review ORM query safety
   - check raw SQL queries
 activation_triggers:
+  - check ORM usage for SQL injection bypass
+  - prevent SQL injection with parameterized queries
   - help me with sql injection prevention
   - review sql injection prevention work
 prerequisites:

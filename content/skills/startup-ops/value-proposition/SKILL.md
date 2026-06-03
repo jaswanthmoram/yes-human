@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: startup-ops.value-proposition
 name: Value Proposition Design
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - value proposition design checklist
   - value proposition design plan
 activation_triggers:
+  - run value proposition process
+  - value prop design analysis
+  - value proposition for B2B SaaS startup
   - value proposition
   - value prop design
   - customer pain gain

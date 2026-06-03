@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: research.citation-management
 name: Citation Management
 version: 1.0.0

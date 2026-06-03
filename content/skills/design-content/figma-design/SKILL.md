@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: design-content.figma-design
 name: Figma Design
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - yes human task
   - figma design review
 activation_triggers:
+  - prepare figma design handoff documentation
+  - set up figma design system file
+  - create figma component with auto layout
   - help me with figma design
   - review figma design work
 prerequisites:

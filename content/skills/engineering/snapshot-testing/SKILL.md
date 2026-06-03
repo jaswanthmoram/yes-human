@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.snapshot-testing
 name: Snapshot Testing Best Practices
 version: 1.0.0
@@ -13,6 +14,9 @@ triggers:
   - toMatchSnapshot
   - snapshot regression test
 activation_triggers:
+  - set up snapshot testing for API responses
+  - the snapshot test failed after my refactor
+  - add snapshot tests for the dashboard components
   - how do I snapshot test a component
   - snapshot tests keep failing after minor changes
 prerequisites:

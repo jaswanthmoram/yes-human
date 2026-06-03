@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: data-ai.hyperparameter-tuning
 name: Hyperparameter Tuning
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: design-content.seo-optimization
 name: SEO Optimization
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - seo structure review
   - yes human task
 activation_triggers:
+  - on-page seo audit for the blog post
+  - seo optimization review for the landing page
   - help me with seo optimization
   - review seo optimization work
 prerequisites:

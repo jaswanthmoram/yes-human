@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: design-content.component-libraries
 name: Component Libraries
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - yes human task
   - component libraries review
 activation_triggers:
+  - audit component library documentation
+  - design component api for the button
+  - set up component library architecture
   - help me with component libraries
   - review component libraries work
 prerequisites:

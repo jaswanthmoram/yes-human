@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: meta-system.system-monitoring
 name: System Monitoring and Health Checks
 version: 1.0.0

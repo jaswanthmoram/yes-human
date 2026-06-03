@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: meta-system.documentation-standards
 name: Documentation Standards and Guidelines
 version: 1.0.0

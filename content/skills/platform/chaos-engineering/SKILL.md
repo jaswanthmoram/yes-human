@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: platform.chaos-engineering
 name: Chaos Engineering Practices
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - gameday planning
   - failure mode validation
 activation_triggers:
+  - resilience testing and gameday planning
+  - fault injection testing with Chaos Mesh
+  - chaos engineering experiment design for Kubernetes
   - help me with chaos engineering practices
   - review chaos engineering practices work
 prerequisites:

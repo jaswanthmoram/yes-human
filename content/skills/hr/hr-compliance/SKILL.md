@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: hr.hr-compliance
 name: HR Compliance
 version: 1.0.0

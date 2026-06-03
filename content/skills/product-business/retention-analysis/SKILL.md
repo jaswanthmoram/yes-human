@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: product-business.retention-analysis
 name: Retention Analysis
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - retention analysis review
   - retention analysis checklist
 activation_triggers:
+  - improve retention for free tier users
+  - why are users churning after trial
+  - analyze retention for power users
   - analyze retention
   - why are users churning
   - improve retention

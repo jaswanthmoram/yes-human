@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: startup-ops.investor-outreach
 name: Investor Outreach
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - investor outreach review
   - investor outreach checklist
 activation_triggers:
+  - run investor outreach process
+  - investor email analysis
+  - investor outreach for B2B SaaS startup
   - investor outreach
   - investor email
   - warm intro

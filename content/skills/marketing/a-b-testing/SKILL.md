@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: marketing.a-b-testing
 name: A/B Testing
 version: 1.0.0
@@ -15,6 +16,7 @@ triggers:
   - test result interpretation
   - yes human task
 activation_triggers:
+  - design a b test for landing page headline
   - help me with a/b testing
   - review a/b testing work
 prerequisites:

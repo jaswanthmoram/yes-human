@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: sales.sales-qualification
 name: Sales Qualification Framework
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - lead qualification check
   - deal qualification framework
 activation_triggers:
+  - design qualification criteria for SMB segment
+  - qualify this inbound lead using MEDDIC
   - help me with sales qualification framework
   - review sales qualification framework work
 prerequisites:

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.flutter-widgets
 name: Flutter Widget Patterns
 version: 1.0.0
@@ -15,6 +16,7 @@ triggers:
   - statefulwidget
   - flutter provider
 activation_triggers:
+  - create a Flutter responsive layout with LayoutBuilder
   - help me with flutter widget patterns
   - review flutter widget patterns work
 prerequisites:

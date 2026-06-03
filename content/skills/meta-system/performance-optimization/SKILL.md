@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: meta-system.performance-optimization
 name: Performance Optimization and Tuning
 version: 1.0.0

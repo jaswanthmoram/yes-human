@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.kotlin-patterns
 name: Kotlin Code Review Patterns
 version: 1.0.0

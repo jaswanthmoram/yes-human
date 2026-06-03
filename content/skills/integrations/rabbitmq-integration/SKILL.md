@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: integrations.rabbitmq-integration
 name: RabbitMQ Integration
 version: 1.0.0

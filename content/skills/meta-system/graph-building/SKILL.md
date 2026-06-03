@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: meta-system.graph-building
 name: Graph Building
 version: 1.0.0

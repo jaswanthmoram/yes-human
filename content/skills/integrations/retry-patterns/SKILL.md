@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: integrations.retry-patterns
 name: Retry Patterns
 version: 1.0.0

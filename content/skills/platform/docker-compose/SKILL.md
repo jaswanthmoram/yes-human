@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: platform.docker-compose
 name: Docker Compose Patterns
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - local development environment
   - yes human task
 activation_triggers:
+  - Docker Compose networking and volumes
+  - multi-container setup with Docker Compose
+  - create docker-compose.yml for local development
   - help me with docker compose patterns
   - review docker compose patterns work
 prerequisites:

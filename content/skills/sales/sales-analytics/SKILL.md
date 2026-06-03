@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: sales.sales-analytics
 name: Sales Analytics Framework
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - sales trend report
   - yes human task
 activation_triggers:
+  - review rep productivity against team benchmarks
+  - build sales metrics dashboard for leadership
+  - analyze Q2 sales performance by segment
   - help me with sales analytics framework
   - review sales analytics framework work
 prerequisites:

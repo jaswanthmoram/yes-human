@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: design-content.color-contrast
 name: Color Contrast
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - yes human task
   - color contrast review
 activation_triggers:
+  - fix color contrast issues in the ui
+  - check contrast ratios for text on backgrounds
+  - audit color contrast for the brand palette
   - help me with color contrast
   - review color contrast work
 prerequisites:

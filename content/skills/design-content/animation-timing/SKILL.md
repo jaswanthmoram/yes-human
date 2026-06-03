@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: design-content.animation-timing
 name: Animation Timing
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - motion timing system
   - yes human task
 activation_triggers:
+  - create duration scale for animations
+  - specify animation timing for transitions
   - help me with animation timing
   - review animation timing work
 prerequisites:

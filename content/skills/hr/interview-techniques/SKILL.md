@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: hr.interview-techniques
 name: Interview Techniques
 version: 1.0.0

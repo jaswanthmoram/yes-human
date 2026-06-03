@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: healthcare.medical-coding
 name: Medical Coding Review
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: startup-ops.business-model-canvas
 name: Business Model Canvas
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - business model canvas review
   - business model canvas checklist
 activation_triggers:
+  - BMC analysis
+  - business model canvas for B2B SaaS startup
   - business model canvas
   - BMC
   - osterwalder canvas

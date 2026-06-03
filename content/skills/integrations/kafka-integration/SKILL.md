@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: integrations.kafka-integration
 name: Kafka Integration
 version: 1.0.0

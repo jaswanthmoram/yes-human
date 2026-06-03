@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: product-business.feature-prioritization
 name: Feature Prioritization
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - feature prioritization review
   - feature prioritization checklist
 activation_triggers:
+  - feature ranking using rice framework
+  - what should we build first this sprint
+  - prioritize the backlog for q3
   - prioritize the backlog
   - what should we build first
   - feature ranking

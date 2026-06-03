@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: hr.talent-management
 name: Talent Management
 version: 1.0.0

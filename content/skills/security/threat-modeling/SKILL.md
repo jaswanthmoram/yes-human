@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: security.threat-modeling
 name: Threat Modeling Techniques
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - design security mitigations for architecture
   - threat model review for new feature
 activation_triggers:
+  - run PASTA threat analysis on architecture
+  - create attack tree for payment system
   - help me with threat modeling techniques
   - review threat modeling techniques work
 prerequisites:

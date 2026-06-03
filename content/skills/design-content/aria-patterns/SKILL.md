@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: design-content.aria-patterns
 name: ARIA Patterns
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - accessible widget pattern
   - yes human task
 activation_triggers:
+  - design accessible dialog with aria
+  - implement aria tab panel pattern
   - help me with aria patterns
   - review aria patterns work
 prerequisites:

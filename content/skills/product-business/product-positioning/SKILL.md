@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: product-business.product-positioning
 name: Product Positioning
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - product positioning review
   - product positioning checklist
 activation_triggers:
+  - positioning workshop for rebrand
+  - how should we position against notion
+  - define positioning for analytics product
   - define positioning
   - how should we position
   - positioning workshop

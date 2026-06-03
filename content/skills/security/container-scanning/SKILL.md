@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: security.container-scanning
 name: Container Image Scanning
 version: 1.0.0
@@ -15,6 +16,7 @@ triggers:
   - container security assessment
   - Dockerfile security review
 activation_triggers:
+  - audit container image layers for security issues
   - help me with container image scanning
   - review container image scanning work
 prerequisites:

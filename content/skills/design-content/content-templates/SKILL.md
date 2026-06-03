@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: design-content.content-templates
 name: Content Templates
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - yes human task
   - content templates review
 activation_triggers:
+  - create email template for newsletters
+  - design landing page template structure
+  - create blog post content template
   - help me with content templates
   - review content templates work
 prerequisites:

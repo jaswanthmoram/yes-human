@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: product-business.product-roadmapping
 name: Product Roadmapping
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - product roadmapping review
   - product roadmapping checklist
 activation_triggers:
+  - strategic roadmap for enterprise expansion
+  - roadmap for new product line
+  - plan the roadmap for next quarter
   - plan the roadmap
   - roadmap for next quarter
   - strategic roadmap

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.ci-cd-optimization
 name: CI/CD Pipeline Optimization
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - reduce build time
   - pipeline caching
 activation_triggers:
+  - reduce build times in our pipeline
+  - our CI pipeline is too slow
   - help me with ci/cd pipeline optimization
   - review ci/cd pipeline optimization work
 prerequisites:

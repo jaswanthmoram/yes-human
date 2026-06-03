@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: manufacturing.statistical-process-control
 name: Statistical Process Control
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: platform.prometheus-alerts
 name: Prometheus Alerting Rules
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - monitoring alert thresholds
   - Prometheus rule optimization
 activation_triggers:
+  - PromQL alert expressions for monitoring
+  - create Prometheus alerting rules for high error rate
   - help me with prometheus alerting rules
   - review prometheus alerting rules work
 prerequisites:

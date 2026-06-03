@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: finance.audit-procedures
 name: Audit Procedures
 version: 1.0.0

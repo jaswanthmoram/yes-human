@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: startup-ops.customer-interviews
 name: Customer Interview Framework
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - customer interview framework checklist
   - customer interview framework plan
 activation_triggers:
+  - run customer interview process
+  - discovery interview analysis
+  - customer interview for B2B SaaS startup
   - customer interview
   - discovery interview
   - user interview startup

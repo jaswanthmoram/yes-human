@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: integrations.api-gateway-setup
 name: API Gateway Setup
 version: 1.0.0

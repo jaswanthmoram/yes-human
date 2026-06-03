@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: startup-ops.mvp-development
 name: MVP Development Planning
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - yes human task
   - mvp development planning review
 activation_triggers:
+  - run MVP planning process
+  - MVP planning for B2B SaaS startup
   - MVP planning
   - minimum viable product
   - MVP scope

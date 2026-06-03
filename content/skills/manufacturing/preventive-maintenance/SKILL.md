@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: manufacturing.preventive-maintenance
 name: Preventive Maintenance
 version: 1.0.0

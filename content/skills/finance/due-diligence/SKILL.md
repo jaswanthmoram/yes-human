@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: finance.due-diligence
 name: Due Diligence
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: meta-system.fixture-writing
 name: Route and Workflow Fixture Creation
 version: 1.0.0

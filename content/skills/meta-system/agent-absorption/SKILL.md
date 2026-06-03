@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: meta-system.agent-absorption
 name: Safe Agent Absorption from External Sources
 version: 1.0.0
@@ -13,6 +14,9 @@ triggers:
   - integrate agent from GitHub
   - absorb plugin
 activation_triggers:
+  - integrate external plugin
+  - import agent from repository
+  - absorb this agent from GitHub
   - absorb this agent
   - import from repo
   - add agent from

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: legal-compliance.regulatory-compliance
 name: Regulatory Compliance
 version: 1.0.0

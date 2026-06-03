@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: product-business.ceo-advisor
 name: CEO Advisory and Company Strategy
 version: 1.0.0

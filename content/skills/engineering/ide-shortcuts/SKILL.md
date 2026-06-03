@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.ide-shortcuts
 name: IDE Productivity Shortcuts
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - editor productivity
   - vim motions
 activation_triggers:
+  - set up keyboard shortcuts for my IDE
+  - what are the best VS Code shortcuts for navigation
   - help me with ide productivity shortcuts
   - review ide productivity shortcuts work
 prerequisites:

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: sales.proposal-writing
 name: Proposal Writing Framework
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - proposal compliance check
   - RFP response structure
 activation_triggers:
+  - structure an RFP response for government buyer
+  - write a proposal for enterprise analytics deal
   - help me with proposal writing framework
   - review proposal writing framework work
 prerequisites:

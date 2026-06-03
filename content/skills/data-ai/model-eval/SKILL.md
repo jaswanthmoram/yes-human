@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: data-ai.model-eval
 name: ML Model Evaluation
 version: 1.0.0

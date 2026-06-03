@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.swift-ui
 name: SwiftUI Component Development
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - swiftui animation
   - swift component
 activation_triggers:
+  - fix slow SwiftUI compilation from complex view body
+  - create reusable SwiftUI card component with state
+  - build a SwiftUI navigation stack with typed routes
   - help me with swiftui component development
   - review swiftui component development work
 prerequisites:

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: security.oauth2-flows
 name: OAuth 2.0 Implementation Review
 version: 1.0.0
@@ -15,6 +16,7 @@ triggers:
   - OAuth security audit
   - review authorization code flow
 activation_triggers:
+  - review OAuth 2.0 authorization code flow implementation
   - help me with oauth 2 0 implementation review
   - review oauth 2 0 implementation review work
 prerequisites:

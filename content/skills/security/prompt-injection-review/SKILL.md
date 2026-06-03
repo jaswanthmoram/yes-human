@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: security.prompt-injection-review
 name: LLM Prompt Injection Detection
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - yes human task
   - llm prompt injection detection review
 activation_triggers:
+  - secure AI integration
+  - review LLM security
   - prompt injection attack
   - LLM vulnerability
   - AI security

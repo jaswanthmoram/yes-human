@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: startup-ops.lean-canvas
 name: Lean Canvas Framework
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - lean canvas framework review
   - lean canvas framework checklist
 activation_triggers:
+  - run lean canvas process
+  - lean canvas for B2B SaaS startup
   - lean canvas
   - one page business model
   - lean startup canvas

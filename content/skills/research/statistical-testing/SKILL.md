@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: research.statistical-testing
 name: Statistical Testing
 version: 1.0.0

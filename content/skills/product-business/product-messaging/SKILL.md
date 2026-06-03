@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: product-business.product-messaging
 name: Product Messaging
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - yes human task
   - product messaging review
 activation_triggers:
+  - consistent product copy across channels
+  - create messaging for product launch
   - create messaging
   - messaging for launch
   - consistent product copy

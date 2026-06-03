@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: finance.working-capital
 name: Working Capital Management
 version: 1.0.0

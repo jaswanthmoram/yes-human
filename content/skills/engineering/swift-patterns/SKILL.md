@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.swift-patterns
 name: Swift Code Review Patterns
 version: 1.0.0

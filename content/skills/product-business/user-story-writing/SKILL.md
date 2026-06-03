@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: product-business.user-story-writing
 name: User Story Writing
 version: 1.0.0
@@ -15,6 +16,9 @@ triggers:
   - user story writing review
   - user story writing checklist
 activation_triggers:
+  - story writing session for payments epic
+  - create user story with acceptance criteria
+  - write user stories for login feature
   - write stories for
   - create user stories
   - story writing session

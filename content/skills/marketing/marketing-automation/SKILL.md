@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: marketing.marketing-automation
 name: Marketing Automation
 version: 1.0.0
@@ -15,6 +16,8 @@ triggers:
   - yes human task
   - marketing automation review
 activation_triggers:
+  - design lifecycle email automation
+  - set up lead nurturing automation in hubspot
   - help me with marketing automation
   - review marketing automation work
 prerequisites:

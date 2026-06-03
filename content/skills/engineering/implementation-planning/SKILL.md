@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.implementation-planning
 name: Implementation Planning
 version: 1.0.0

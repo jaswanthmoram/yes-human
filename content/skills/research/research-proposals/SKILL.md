@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: research.research-proposals
 name: Research Proposals
 version: 1.0.0

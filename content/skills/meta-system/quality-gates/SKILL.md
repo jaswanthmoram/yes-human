@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: meta-system.quality-gates
 name: Quality Gate Design and Enforcement
 version: 1.0.0

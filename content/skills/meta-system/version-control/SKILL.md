@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: meta-system.version-control
 name: Version Control for Registry Artifacts
 version: 1.0.0

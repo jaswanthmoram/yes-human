@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: healthcare.clinical-decision-support
 name: Clinical Decision Support Design
 version: 1.0.0

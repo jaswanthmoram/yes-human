@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: education.education-standards
 name: Education Standards Alignment
 version: 1.0.0

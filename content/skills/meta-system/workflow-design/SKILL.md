@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: meta-system.workflow-design
 name: Workflow Design and Orchestration
 version: 1.0.0

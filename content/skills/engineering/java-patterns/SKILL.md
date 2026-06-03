@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.java-patterns
 name: Java Code Review Patterns
 version: 1.0.0

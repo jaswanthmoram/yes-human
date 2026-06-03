@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: finance.dcf-modeling
 name: DCF Modeling
 version: 1.0.0

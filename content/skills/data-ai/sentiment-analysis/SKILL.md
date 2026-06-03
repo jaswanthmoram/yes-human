@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: data-ai.sentiment-analysis
 name: Sentiment Analysis
 version: 1.0.0

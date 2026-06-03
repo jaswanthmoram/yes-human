@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: research.research-ethics
 name: Research Ethics
 version: 1.0.0

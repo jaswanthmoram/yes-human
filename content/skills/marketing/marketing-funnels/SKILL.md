@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: marketing.marketing-funnels
 name: Marketing Funnels
 version: 1.0.0

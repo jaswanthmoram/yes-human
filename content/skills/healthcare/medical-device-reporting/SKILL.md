@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: healthcare.medical-device-reporting
 name: Medical Device Reporting
 version: 1.0.0

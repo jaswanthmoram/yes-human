@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: research.grant-writing
 name: Grant Writing
 version: 1.0.0

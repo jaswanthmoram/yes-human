@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: research.research-collaboration
 name: Research Collaboration
 version: 1.0.0

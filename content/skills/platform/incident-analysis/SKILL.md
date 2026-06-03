@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: platform.incident-analysis
 name: Incident Postmortem and Analysis
 version: 1.0.0
@@ -15,6 +16,7 @@ triggers:
   - post-incident analysis
   - root cause analysis
 activation_triggers:
+  - write incident postmortem
   - postmortem
   - incident analysis
   - RCA

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: marketing.keyword-research
 name: Keyword Research
 version: 1.0.0
@@ -15,6 +16,7 @@ triggers:
   - search volume analysis
   - yes human task
 activation_triggers:
+  - keyword research for B2B SaaS topic
   - help me with keyword research
   - review keyword research work
 prerequisites:

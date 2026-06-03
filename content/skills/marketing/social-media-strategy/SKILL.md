@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: marketing.social-media-strategy
 name: Social Media Strategy
 version: 1.0.0
@@ -15,6 +16,7 @@ triggers:
   - social media audit
   - yes human task
 activation_triggers:
+  - audit current social media presence
   - help me with social media strategy
   - review social media strategy work
 prerequisites:

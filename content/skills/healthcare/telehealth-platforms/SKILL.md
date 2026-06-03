@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: healthcare.telehealth-platforms
 name: Telehealth Platform Implementation
 version: 1.0.0

@@ -1,4 +1,5 @@
 ---
+quality_gate: production
 id: engineering.mutation-testing
 name: Mutation Testing with Stryker
 version: 1.0.0
@@ -13,6 +14,9 @@ triggers:
   - mutation score report
   - kill mutants
 activation_triggers:
+  - find surviving mutants in the billing service
+  - how effective are our tests really
+  - run mutation testing on the auth module
   - our code coverage is 90% but bugs still slip through
   - how effective is our test suite really
 prerequisites:
