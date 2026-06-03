@@ -1,106 +1,107 @@
 ---
 id: engineering.query-analysis
-name: SQL Query Analysis and Optimization
-description: Analyze SQL queries for performance issues, identify anti-patterns, and recommend optimized query structures.
+name: Database Query Analysis and Optimization
+version: 1.0.0
+domain: engineering
+category: engineering.data
+purpose: Identify and fix slow or inefficient database queries using EXPLAIN analysis and indexing strategy.
+summary: Systematic query optimization: capture slow queries from logs, run EXPLAIN ANALYZE, identify sequential scans and missing indexes, apply fixes incrementally, and measure improvement. Covers PostgreSQL, MySQL, and SQLite patterns.
 triggers:
-  - optimize the reporting dashboard query
-  - find N+1 queries in the repository layer
-  - analyze why this SQL query is slow
-  - analyze query
-  - slow SQL
-  - query optimization
-  - N+1 query
-  - query performance
-  - explain plan
-  - optimize SQL
-aliases:
-  - sql tuning
-  - query review
-  - sql analysis
-negative_keywords:
-  - ORM configuration
-  - database design
-  - schema design
-  - connection pooling
+  - slow database query
+  - query analysis
+  - explain analyze
+  - database performance
+  - index missing
+activation_triggers:
+  - the API is slow and the database is the bottleneck
+  - EXPLAIN ANALYZE shows a sequential scan
+prerequisites:
+  - database query logging enabled (log_min_duration_statement)
+  - ability to run EXPLAIN ANALYZE in a non-production environment
+  - query to optimize identified
 inputs:
-  - sql_queries
-  - query_plans (optional)
-  - table_schemas (optional)
-  - performance_metrics (optional)
+  - slow_query
+  - explain_output
+steps:
+  - Enable slow query logging (log_min_duration_statement = 100 for PG) and identify top queries by total time
+  - Run EXPLAIN ANALYZE on the query — read cost estimates and actual times; look for Seq Scan on large tables
+  - Identify the bottleneck: missing index, N+1 query, full table scan, missing join condition, or bad statistics
+  - For missing indexes: create a covering index on the most selective column(s) in the WHERE/ORDER BY clause
+  - For N+1: rewrite with JOIN or use dataloader batching pattern; never loop and query inside a loop
+  - Measure the improvement: compare query time before and after; only keep the index if it reduces time ≥30%
 outputs:
-  - query_analysis_report
-  - anti_patterns_found
-  - optimized_queries
-  - performance_recommendations
-allowed_tools:
+  - explain_analysis_report
+  - index_migration
+  - query_rewrite
+tools:
   - filesystem.read
   - shell.readonly
-  - code_graph.query
-required_skills: []
-budget_band: standard
-max_context_tokens: 8000
+quality_gates:
+  - Query time reduced ≥30% in staging environment
+  - No full-table sequential scans on tables >10K rows
+  - Index added via migration (not manual ALTER TABLE in production)
 failure_modes:
-  - Missing N+1 queries hidden in ORM abstractions
-  - Recommending denormalization without considering consistency
-  - Overlooking implicit type conversions in WHERE clauses
-  - Ignoring query parameter sniffing issues
-verification:
-  - Optimized query produces identical results
-  - EXPLAIN plan shows measurable improvement
-  - No regression in concurrent query performance
-  - Application tests pass with optimized queries
+  - Index created on wrong column — check cardinality first
+  - EXPLAIN without ANALYZE — no actual timing data
+  - Index added in production without CONCURRENTLY — table locks
+handoffs:
+  - engineering.architect (for schema redesign decisions)
 source_references:
-  - ref.github.engineering.2026-05-31
-quality_gate: staging
+  - https://github.com/prisma/prisma
+  - https://github.com/pganalyze/pganalyze-collector
+allowed_agents:
+  - engineering.build-resolver
+  - engineering.architect
+status: active
+budget_band: standard
+rollback:
+  - DROP INDEX CONCURRENTLY if new index degrades write performance
+  - Revert query rewrite via git
+validators:
+  - skill.validator
 ---
+## Trigger
+Use when API response times are high and database is identified as the bottleneck through profiling.
 
-## Mission
-Systematically analyze SQL queries to identify performance anti-patterns, recommend optimizations, and verify improvements through execution plan analysis.
+## Prerequisites
+- Access to slow query log or query profiler
+- EXPLAIN ANALYZE available in a non-production DB
 
-## When To Use
-- Specific queries are identified as slow or resource-intensive
-- N+1 query problems suspected in ORM-generated SQL
-- Query review before deploying to production
-- Investigating database CPU or I/O spikes
-- Optimizing report-generation or analytics queries
+## Steps
 
-## When Not To Use
-- Schema design or normalization decisions
-- Database connection pool tuning
-- ORM framework configuration
-- Full-text search query optimization
+### 1. Find Slow Queries
+Enable `log_min_duration_statement = 100` (100ms). Check `pg_stat_statements` for queries by total time.
 
-## Procedure
-1. **Collect Target Queries**: Gather slow query logs, ORM-generated SQL, or manually specified queries. Capture execution times and frequency.
-2. **Analyze Query Structure**: Break down each query's SELECT, FROM, WHERE, JOIN, GROUP BY, HAVING, and ORDER BY clauses. Identify subqueries and CTEs.
-3. **Identify Anti-Patterns**: Check for N+1 queries, SELECT *, implicit type conversions, functions on indexed columns in WHERE, correlated subqueries, and missing JOIN conditions.
-4. **Review Execution Plans**: Run EXPLAIN ANALYZE on each query. Identify sequential scans, nested loop joins on large sets, and sort operations.
-5. **Generate Optimized Queries**: Rewrite queries to eliminate anti-patterns. Replace correlated subqueries with JOINs. Add appropriate WHERE clause filters. Use CTEs for readability.
-6. **Validate Results**: Execute optimized queries and compare results with originals. Run EXPLAIN ANALYZE on optimized versions.
-7. **Document Recommendations**: Provide before/after query comparisons with execution plan improvements. Include index recommendations if applicable.
+### 2. Run EXPLAIN ANALYZE
+Run the exact query with `EXPLAIN (ANALYZE, BUFFERS, FORMAT TEXT)`. Read: Seq Scan = bad on large tables. Look at "actual time" vs "cost".
 
-## Tool Policy
-- Use shell.readonly for EXPLAIN ANALYZE and query execution
-- Use filesystem.read to inspect ORM query builders and repository code
-- Use code_graph.query to trace query generation paths
-- Never execute write queries (UPDATE, DELETE, DROP) during analysis
+### 3. Identify Root Cause
+Missing index (Seq Scan with filter), N+1 (query in loop), missing JOIN condition (cartesian product), or stale statistics (ANALYZE table).
+
+### 4. Add Index
+`CREATE INDEX CONCURRENTLY idx_users_email ON users(email)`. Use CONCURRENTLY to avoid locks. Use partial indexes for filtered queries.
+
+### 5. Rewrite if Needed
+Replace N+1 loops with JOIN. Replace `SELECT *` with explicit columns. Use `LIMIT` on large result sets.
+
+### 6. Measure Improvement
+Run the original query before and after. Log both timings. Only keep changes that show ≥30% improvement.
 
 ## Verification
-- Optimized query returns identical result set to original
-- EXPLAIN ANALYZE shows improved cost estimate and execution time
-- No new anti-patterns introduced by optimization
-- Application integration tests pass with optimized queries
+- [ ] Query time reduced ≥30%
+- [ ] No Seq Scan on large tables
+- [ ] Index added via CONCURRENTLY migration
 
-## Failure Modes
-- Optimizing a query that is already fast enough, wasting effort
-- Rewriting ORM queries that are regenerated on each deploy
-- Missing parameterized query issues leading to SQL injection risk
-- Recommending query changes that break application-level assumptions
+## Rollback
+`DROP INDEX CONCURRENTLY idx_name;` to remove index. Revert query changes via git.
 
-## Example Routes
-- `this SQL query is slow` -> engineering.query-analysis
-- `find N+1 queries in the codebase` -> engineering.query-analysis
-- `optimize the reporting query` -> engineering.query-analysis
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Index not used | Low cardinality column | Use composite index or different column |
+| Writes become slow | Too many indexes | Remove unused indexes |
+| EXPLAIN shows different plan in prod | Different stats | Run ANALYZE on prod table |
 
-## Source Notes
-SQL optimization patterns from PostgreSQL EXPLAIN documentation, MySQL performance schema guides, and Use The Index Luke. N+1 detection patterns from ORM community best practices. Reference dossier: `ref.github.engineering.2026-05-31`.
+## Examples
+**Example A:** `SELECT * FROM orders WHERE user_id = ?` does Seq Scan — add index on user_id.
+**Example B:** Loading posts with comments does 100 queries (N+1) — rewrite with JOIN and GROUP.

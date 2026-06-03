@@ -177,6 +177,82 @@ function validateRegistryCounts() {
   return ok;
 }
 
+function walkSkillFiles(dir, acc = []) {
+  if (!fs.existsSync(dir)) return acc;
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      walkSkillFiles(fullPath, acc);
+    } else if (entry.name === 'SKILL.md') {
+      acc.push(fullPath);
+    }
+  }
+  return acc;
+}
+
+function extractFrontmatter(text) {
+  const match = text.match(/^---\r?\n([\s\S]+?)\r?\n---\r?\n/);
+  return match ? match[1] : '';
+}
+
+function extractScalarFrontmatterValue(frontmatter, key) {
+  const match = frontmatter.match(new RegExp(`^${key}:\\s*(.+)$`, 'm'));
+  return match ? match[1].trim().replace(/^['"]|['"]$/g, '') : null;
+}
+
+function validateSkillContentIntegrity() {
+  const skillsDir = path.join(repoRoot, 'content/skills');
+  const skillFiles = walkSkillFiles(skillsDir);
+  const { content: skillsRegistry } = readJson('registry/skills.json');
+  const registeredSkillIds = new Set(skillsRegistry.items.map((skill) => skill.id));
+  let ok = true;
+
+  for (const skillFile of skillFiles) {
+    const relativePath = path.relative(repoRoot, skillFile);
+    const frontmatter = extractFrontmatter(fs.readFileSync(skillFile, 'utf8'));
+    if (!frontmatter) {
+      console.error(`✗ Skill file missing frontmatter: ${relativePath}`);
+      ok = false;
+      continue;
+    }
+
+    const id = extractScalarFrontmatterValue(frontmatter, 'id');
+    if (!id) {
+      console.error(`✗ Skill file missing id: ${relativePath}`);
+      ok = false;
+    } else if (!registeredSkillIds.has(id)) {
+      console.error(`✗ Skill file is not registered in registry/skills.json: ${id} (${relativePath})`);
+      ok = false;
+    }
+
+    if (/^source_references:\s*\r?\n(?:^[ \t]+.*\r?\n)*?^[ \t]+-\s+(url|license|used_for):/m.test(frontmatter)) {
+      console.error(`✗ Skill source_references must be scalar strings, not nested objects: ${relativePath}`);
+      ok = false;
+    }
+  }
+
+  for (const skill of skillsRegistry.items) {
+    const sourceRefs = skill.source_references || [];
+    for (const sourceRef of sourceRefs) {
+      if (typeof sourceRef !== 'string' || !sourceRef.trim()) {
+        console.error(`✗ Skill '${skill.id}' has an empty or non-string source reference`);
+        ok = false;
+      } else if (/^(url|license|used_for):\s*/.test(sourceRef)) {
+        console.error(`✗ Skill '${skill.id}' has malformed source reference '${sourceRef}'`);
+        ok = false;
+      } else if (/(allowed_agents|allowed_workflows|status|budget_band|rollback|validators):/.test(sourceRef)) {
+        console.error(`✗ Skill '${skill.id}' has source reference containing frontmatter key text '${sourceRef}'`);
+        ok = false;
+      }
+    }
+  }
+
+  if (ok) {
+    console.log(`✓ All ${skillFiles.length} skill files are registered and use scalar source references`);
+  }
+  return ok;
+}
+
 function validateWorkflowDossiersAndPolicies() {
   const workflowsRegistryPath = 'registry/workflows.json';
   if (!fileExists(workflowsRegistryPath)) {
@@ -398,6 +474,9 @@ if (!validateRouteTableConsistency()) success = false;
 
 console.log('\n--- Registry integrity ---');
 if (!validateRegistryCounts()) success = false;
+
+console.log('\n--- Skill content integrity ---');
+if (!validateSkillContentIntegrity()) success = false;
 
 // Phase 3: Validate hooks, rules, and policies
 console.log('\n--- Phase 3: Hooks validation ---');

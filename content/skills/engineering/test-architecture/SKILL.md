@@ -1,105 +1,108 @@
 ---
 id: engineering.test-architecture
-name: Test Suite Architecture and Organization
-description: Design and organize test suites following testing pyramid principles with clear boundaries between unit, integration, and E2E tests.
+name: Test Architecture Design
+version: 1.0.0
+domain: engineering
+category: engineering.testing
+purpose: Design a sustainable test suite structure that balances speed, reliability, and coverage using the testing pyramid.
+summary: Applies the testing pyramid (many unit, fewer integration, fewest E2E) to a real codebase. Covers test file organization, shared fixture strategy, test data management, and the seams where each layer lives.
 triggers:
-  - design a testing strategy for our microservices
-  - how should we organize our test suite
-  - test architecture
-  - test organization
-  - test structure
+  - design test architecture
   - testing pyramid
-  - test suite design
-  - test strategy
-  - organize tests
-aliases:
   - test suite structure
-  - testing strategy
-  - test pyramid
-negative_keywords:
-  - test coverage
-  - flaky tests
-  - test data
-  - mutation testing
+  - test organization
+  - testing strategy design
+activation_triggers:
+  - our tests are too slow and we don't know where to put new ones
+  - what testing strategy should we use
+prerequisites:
+  - codebase structure understood
+  - at least one test framework chosen
 inputs:
-  - project_structure
-  - existing_tests
-  - application_architecture
-  - team_conventions (optional)
+  - codebase_overview
+  - existing_test_suite
+steps:
+  - Audit existing tests by layer — count unit vs integration vs E2E; identify if inverted pyramid
+  - Define test boundaries: unit (single module, all deps mocked), integration (real deps, external mocked), E2E (real browser/API, no mocks)
+  - Establish shared fixture strategy — factory functions or builder pattern, not copy-pasted objects
+  - Design test file co-location — tests next to source files, or separate tests/ directory with mirrored structure
+  - Define naming convention and tagging for slow tests (--testPathPattern=integration tag)
+  - Set CI split — fast unit tests on every commit; integration on PR; E2E on main/deploy
 outputs:
-  - test_architecture_plan
-  - directory_structure
-  - test_boundaries
-  - migration_plan (if restructuring)
-allowed_tools:
+  - test_architecture_doc
+  - fixture_strategy
+  - ci_test_split_config
+tools:
   - filesystem.read
-  - shell.readonly
-  - code_graph.query
-required_skills: []
-budget_band: standard
-max_context_tokens: 8000
+  - filesystem.write
+quality_gates:
+  - Unit tests run in under 30 seconds
+  - Integration tests isolated from external network
+  - E2E tests cover the 3-5 most critical user journeys only
 failure_modes:
-  - Over-investment in E2E tests at expense of unit tests
-  - Unclear boundaries between test types cause duplication
-  - Test suite too slow for developer feedback loop
-  - Test organization doesn't match application architecture
-verification:
-  - Test pyramid ratios are appropriate for the project
-  - Test boundaries are clearly defined and documented
-  - Test suite runs within acceptable time limits
-  - New tests are placed in correct category by convention
+  - All tests at integration level — slow and fragile
+  - No test data management — tests depend on real production data
+  - E2E tests for every feature — suite takes 30 minutes
+handoffs:
+  - engineering.tdd-guide (for implementing the strategy)
+  - platform.ci-cd-engineer (for CI split configuration)
 source_references:
-  - ref.github.engineering.2026-05-31
-quality_gate: staging
+  - https://github.com/testcontainers/testcontainers-node
+  - https://github.com/goldbergyoni/nodebestpractices
+allowed_agents:
+  - engineering.tdd-guide
+  - engineering.e2e-runner
+status: active
+budget_band: standard
+rollback:
+  - Revert test reorganization if it breaks CI
+  - Restore previous test locations before migration is complete
+validators:
+  - skill.validator
 ---
+## Trigger
+Use when starting a new project, when a test suite has become slow/unreliable, or when onboarding engineers ask where to put tests.
 
-## Mission
-Design scalable test suite architecture that balances test types according to the testing pyramid, maintains fast feedback loops, and scales with application growth.
+## Prerequisites
+- Test framework chosen
+- Codebase structure understood
 
-## When To Use
-- Setting up test infrastructure for a new project
-- Restructuring an existing test suite that has grown organically
-- Test suite is too slow or too brittle to maintain
-- Team needs clear guidelines on where to place different test types
-- Evaluating test strategy for a microservices architecture
+## Steps
 
-## When Not To Use
-- Writing individual test cases (hand off to specific test skills)
-- Test coverage analysis (use engineering.test-coverage)
-- Fixing flaky tests (use engineering.flaky-test-detection)
-- Setting up CI/CD pipeline (use platform skills)
+### 1. Audit Current State
+Run `find . -name "*.test.*" | wc -l`. Categorize: unit (mocked deps), integration (real DB), E2E (browser). Identify the current pyramid shape.
 
-## Procedure
-1. **Assess Current State**: Inventory existing tests by type, location, and runtime. Map test distribution against the testing pyramid. Identify pain points: slow suites, duplication, gaps.
-2. **Define Test Categories**: Establish clear definitions for unit, integration, and E2E tests in the project context. Define what each category tests and what it mocks.
-3. **Design Directory Structure**: Create a test directory layout that matches application architecture. Separate test types into distinct directories or co-locate with source.
-4. **Set Test Boundaries**: Define rules for each test type: what can be imported, what must be mocked, maximum test runtime, and dependency access rules.
-5. **Establish Conventions**: Document naming conventions, file organization, setup/teardown patterns, and shared test utilities. Create templates for each test type.
-6. **Optimize Test Runtime**: Configure parallel test execution. Set up test sharding for CI. Implement test selection for PR builds vs full suite on main.
-7. **Plan Migration**: If restructuring, create incremental migration plan. Move tests category by category. Maintain test coverage during transition.
+### 2. Define Layer Boundaries
+Unit: one module, all external dependencies mocked. Integration: real database/cache, external services mocked. E2E: real browser, real API, test data seeded.
 
-## Tool Policy
-- Use filesystem.read to analyze project structure and existing test organization
-- Use shell.readonly to measure test runtimes and suite composition
-- Use code_graph.query to understand application module boundaries
-- Never restructure tests without running the full suite before and after
+### 3. Establish Fixture Strategy
+Create factory functions: `buildUser({ role: 'admin' })`. Use Builder pattern for complex objects. Never hard-code test data.
+
+### 4. Organize Files
+Co-locate unit tests with source (`src/auth/auth.test.ts`). Put integration tests in `tests/integration/`. Put E2E in `tests/e2e/`. Mirror the source structure.
+
+### 5. Tag and Split
+Tag slow tests: `describe.skip` for E2E in unit CI. Use Jest projects or `--testPathPattern` to run subsets.
+
+### 6. Document the Decision
+Write a one-page testing guide explaining each layer, where to put new tests, and how to run each layer.
 
 ## Verification
-- Test pyramid ratios are documented and measurable
-- Each test category has clear, enforced boundaries
-- Full test suite completes within defined time budget
-- New team members can determine correct test placement from documentation
+- [ ] Unit tests complete in <30s
+- [ ] Integration tests don't hit real external services
+- [ ] E2E tests cover top 3-5 user journeys only
+- [ ] Testing guide exists
 
-## Failure Modes
-- Creating an "ice cream cone" anti-pattern with too many E2E tests
-- Test boundaries so strict that integration gaps emerge
-- Shared test utilities that create hidden coupling between test categories
-- Test architecture that doesn't evolve with application architecture changes
+## Rollback
+Revert file moves via git if CI breaks during reorganization.
 
-## Example Routes
-- `how should we organize our tests` -> engineering.test-architecture
-- `design test strategy for microservices` -> engineering.test-architecture
-- `restructure the test suite` -> engineering.test-architecture
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| All tests in one file | No architecture defined | Apply pyramid and split |
+| Unit tests hit database | Missing DB mock | Add test double at repository layer |
+| E2E suite takes 1 hour | Too many E2E tests | Move scenarios to integration or unit |
 
-## Source Notes
-Test architecture patterns from Google Testing Blog testing pyramid, Martin Fowler's testing strategy articles, and Kent C. Dodds' testing trophy. Reference dossier: `ref.github.engineering.2026-05-31`.
+## Examples
+**Example A:** E-commerce app: 500 unit tests, 50 integration, 10 E2E for checkout, login, order history.
+**Example B:** Microservice: 200 unit tests, 20 integration (real Postgres in Docker), 0 E2E (covered by consumer contracts).

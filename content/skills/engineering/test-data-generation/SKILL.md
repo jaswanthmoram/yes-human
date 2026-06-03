@@ -1,106 +1,112 @@
 ---
 id: engineering.test-data-generation
-name: Test Data Generation Strategies
-description: Design and implement test data generation approaches including factories, fixtures, fuzzing, and property-based testing.
+name: Test Data Generation with Faker
+version: 1.0.0
+domain: engineering
+category: engineering.testing
+purpose: Generate realistic, deterministic test data using factory functions and Faker to avoid brittle hard-coded fixtures.
+summary: Realistic test data improves test reliability and readability. This skill covers: Faker.js for realistic values, factory functions for domain objects, seeded randomness for determinism, and builder patterns for complex test scenarios.
 triggers:
-  - set up factory bot for our test suite
-  - generate test data for the user model
-  - test data
-  - generate test data
-  - test fixtures
-  - test factories
-  - mock data
-  - seed data for tests
-  - property based testing
-aliases:
-  - test data setup
-  - fixture generation
-  - test data factory
-negative_keywords:
-  - production data
-  - data migration
-  - database seeding
-  - ETL
+  - test data generation
+  - faker test data
+  - test fixture factory
+  - generate test users
+  - builder pattern test data
+activation_triggers:
+  - our test data is hard-coded and breaking tests
+  - how do I generate realistic test data
+prerequisites:
+  - @faker-js/faker installed (or equivalent)
+  - test objects/domain models defined
 inputs:
-  - data_models
-  - test_requirements
-  - existing_fixtures (optional)
-  - data_constraints (optional)
+  - domain_model
+  - test_scenarios
+steps:
+  - Install @faker-js/faker and seed for determinism (faker.seed(12345))
+  - Create factory functions per domain entity — buildUser(), buildOrder(), buildProduct()
+  - Use Faker for realistic values — faker.internet.email(), faker.commerce.price()
+  - Implement builder pattern for complex objects — allow overrides per test
+  - Add factories to a central __fixtures__ or __factories__ directory
+  - Document factory defaults and override patterns for the team
 outputs:
-  - data_generation_strategy
-  - factory_definitions
-  - fixture_files
-  - sample_datasets
-allowed_tools:
+  - factory_functions
+  - seeded_test_data
+  - fixtures_directory
+tools:
   - filesystem.read
   - filesystem.write
-  - shell.readonly
-  - code_graph.query
-required_skills: []
-budget_band: standard
-max_context_tokens: 8000
+quality_gates:
+  - All factories support partial overrides
+  - faker.seed() called at the start of test suites that need determinism
+  - No hard-coded test values that could conflict (email: "test@test.com")
 failure_modes:
-  - Generated data violates domain constraints
-  - Test data leaks between test cases
-  - Factories produce unrealistic data distributions
-  - Fixture maintenance burden grows with schema changes
-verification:
-  - Generated data passes all model validations
-  - Tests are isolated with no data leakage
-  - Factories produce valid data across schema versions
-  - Property-based tests find real edge cases
+  - Non-deterministic faker values cause flaky snapshot tests — use faker.seed()
+  - Factory defaults produce invalid data (negative prices) — add validation
+  - Too many factory variants — use a single factory with sensible defaults
+handoffs:
+  - engineering.tdd-guide (for integration with TDD workflow)
 source_references:
-  - ref.github.engineering.2026-05-31
-quality_gate: staging
+  - https://github.com/faker-js/faker
+  - https://github.com/thoughtbot/fishery
+allowed_agents:
+  - engineering.tdd-guide
+  - engineering.e2e-runner
+status: active
+budget_band: micro
+rollback:
+  - Remove factory functions if they introduce test complexity
+validators:
+  - skill.validator
 ---
+## Trigger
+Use when tests have hard-coded data that causes conflicts, or when you need realistic-looking data for UI tests or seeding.
 
-## Mission
-Design and implement robust test data generation strategies using factories, fixtures, fuzzing, and property-based testing to ensure comprehensive and maintainable test coverage.
+## Prerequisites
+- `npm install @faker-js/faker` or `yarn add @faker-js/faker`
 
-## When To Use
-- Tests need realistic but controlled data sets
-- Setting up test data factories for a new project
-- Replacing hardcoded test data with dynamic generators
-- Implementing property-based testing for complex invariants
-- Creating seed data for integration or E2E tests
+## Steps
 
-## When Not To Use
-- Production data anonymization or masking
-- Database seeding for development environments
-- ETL pipeline data generation
-- Performance test data at scale (use dedicated load generators)
+### 1. Install and Configure
+Install faker. Add a global beforeAll that calls `faker.seed(12345)` for snapshot tests that need determinism.
 
-## Procedure
-1. **Analyze Data Models**: Review entity schemas, relationships, and constraints. Identify required fields, validations, and domain invariants that test data must satisfy.
-2. **Choose Generation Strategy**: Select the right approach per context: factories for unit tests, fixtures for integration tests, fuzzing for edge cases, property-based for invariant verification.
-3. **Implement Factories**: Create factory definitions with sensible defaults and trait overrides. Support associations and nested data. Use libraries like Factory Bot, Faker, or Hypothesis.
-4. **Create Fixtures**: Define reusable fixture sets for integration tests. Ensure fixtures are isolated per test case. Version fixtures alongside schema changes.
-5. **Add Property-Based Tests**: Define properties and invariants that must hold for all valid inputs. Use generators that respect domain constraints. Configure shrinking for debuggable failures.
-6. **Validate Data Quality**: Verify generated data passes all model validations. Check for realistic distributions. Ensure no data leaks between test cases.
-7. **Document and Maintain**: Document factory traits and fixture purposes. Set up automated checks for fixture validity after schema changes.
+### 2. Create Factory Functions
+```ts
+export const buildUser = (overrides = {}) => ({
+  id: faker.string.uuid(),
+  email: faker.internet.email(),
+  name: faker.person.fullName(),
+  role: 'viewer',
+  ...overrides,
+});
+```
 
-## Tool Policy
-- Use filesystem.read/write for creating factory and fixture files
-- Use shell.readonly to validate generated data against model validations
-- Use code_graph.query to trace data model relationships
-- Follow project conventions for factory/fixture file locations
+### 3. Use Realistic Values
+Use faker's categories: faker.internet.email(), faker.commerce.price(), faker.phone.number(), faker.date.past(). Match the domain.
+
+### 4. Support Overrides
+Every factory must accept partial overrides. Tests that need specific values override just those fields: `buildUser({ role: 'admin' })`.
+
+### 5. Centralize Factories
+Place all factories in `src/__factories__/` or `tests/factories/`. Export from an index file.
+
+### 6. Document Defaults
+Add a README to the factories directory explaining what each factory produces and common override patterns.
 
 ## Verification
-- All generated data passes model validations and constraints
-- Tests using generated data are deterministic and isolated
-- Factories support all required test scenarios via traits
-- Property-based tests discover at least one edge case during development
+- [ ] All entities have factories
+- [ ] Factories support overrides
+- [ ] No hard-coded emails/names in test files
 
-## Failure Modes
-- Factory defaults violate new constraints after schema changes
-- Test data from one test leaks into another via shared database state
-- Faker-generated data doesn't match domain-specific formats
-- Property-based test generators produce too many invalid inputs, slowing tests
+## Rollback
+Replace factory calls with simple static objects if factory complexity exceeds its value.
 
-## Example Routes
-- `generate test data for user model` -> engineering.test-data-generation
-- `set up test factories` -> engineering.test-data-generation
-- `add property based tests for pricing` -> engineering.test-data-generation
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Snapshot tests fail after seed change | Seed not fixed | Use faker.seed(constant) |
+| Factory generates invalid domain objects | No domain rules in factory | Add post-create validation |
+| Tests slow from factory overhead | Factory too complex | Profile and simplify |
 
-## Source Notes
-Test data strategies from Factory Bot, Faker.js, Hypothesis (Python), and fast-check (TypeScript) documentation. Property-based testing patterns from QuickCheck and Hypothesis. Reference dossier: `ref.github.engineering.2026-05-31`.
+## Examples
+**Example A:** E-commerce: `buildProduct({ price: 0 })` tests free product edge case.
+**Example B:** Auth: `buildUser({ emailVerified: false })` tests unverified user flow.

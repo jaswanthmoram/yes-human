@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-06-02T10:25:21.672Z",
-  "count": 366,
+  "generated_at": "2026-06-03T07:55:05.369Z",
+  "count": 389,
   "items": [
     {
       "id": "data-ai.a-b-testing-ml",
@@ -86,44 +86,82 @@
     },
     {
       "id": "data-ai.analytics-engineer",
-      "name": "analytics-engineer",
+      "name": "Analytics Engineering with dbt",
       "version": "1.0.0",
       "domain": "data-ai",
-      "category": "data-ai.analytics-engineer",
-      "purpose": "Builds analytics pipelines and metrics layers.",
-      "summary": "Builds analytics pipelines and metrics layers.",
+      "category": "data-ai.analytics",
+      "purpose": "Design and build analytics data models using dbt that transform raw data into reliable business metrics.",
+      "summary": "Analytics engineering bridges data engineering and business intelligence. This skill covers dbt model design, metrics layer definition, data freshness SLAs, lineage documentation, and SQL quality review for performance.",
       "triggers": [
         "analytics engineering",
-        "dbt pipeline",
-        "analytics engineer task"
+        "dbt model design",
+        "analytics pipeline",
+        "build metrics layer",
+        "data transformation dbt"
       ],
-      "activation_triggers": [],
+      "activation_triggers": [
+        "our analytics data is unreliable",
+        "we need a metrics layer"
+      ],
       "prerequisites": [
-        "task_context"
+        "dbt installed and connected to data warehouse",
+        "raw source tables identified",
+        "business metrics defined by stakeholders"
       ],
-      "inputs": [],
+      "inputs": [
+        "raw_source_tables",
+        "business_metric_definitions",
+        "existing_dbt_project"
+      ],
       "steps": [
-        "Execute procedure"
+        "Audit existing sources and models in dbt project — check for documentation coverage and test coverage",
+        "Design the layer structure: sources (raw) → staging (cleaned/typed) → intermediate → marts (business-facing)",
+        "Write staging models: rename columns to consistent snake_case, cast types explicitly, add NOT NULL tests",
+        "Define metrics in dbt metrics layer or dbt_metrics package — one metric per business concept",
+        "Add freshness checks on source tables (freshness: warn_after: 24 hours, error_after: 48 hours)",
+        "Run dbt test and dbt docs generate — all tests must pass; documentation coverage ≥80%"
       ],
       "procedure": [],
       "outputs": [
-        "skill_output"
+        "dbt_models",
+        "metrics_definitions",
+        "freshness_config",
+        "test_suite"
       ],
-      "tools": [],
-      "quality_gates": [],
-      "failure_modes": [],
-      "handoffs": [],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write",
+        "shell.readonly"
+      ],
+      "quality_gates": [
+        "All staging models have not_null and unique tests on primary keys",
+        "Source freshness checks configured",
+        "dbt docs generated with ≥80% column documentation"
+      ],
+      "failure_modes": [
+        "Business logic in staging models — put it in intermediate or mart layer",
+        "Missing unique tests on mart primary keys — causes duplicate metrics",
+        "No freshness checks — silent stale data"
+      ],
+      "handoffs": [
+        "data-ai.ml-engineer (for feature engineering from analytics models)"
+      ],
       "budget_band": "standard",
       "rollback": [
-        "revert"
+        "dbt run --select previous_model_version",
+        "Revert model SQL via git"
       ],
       "validators": [
-        "outputs_complete"
+        "skill.validator"
       ],
       "source_references": [
-        "ref.github.data-ai.analytics-engineer.2026-06-02"
+        "https://github.com/dbt-labs/dbt-core",
+        "https://github.com/great-expectations/great_expectations"
       ],
-      "allowed_agents": [],
+      "allowed_agents": [
+        "data-ai.data-analyst",
+        "data-ai.data-engineer"
+      ],
       "allowed_workflows": [],
       "status": "active"
     },
@@ -2492,43 +2530,82 @@
     },
     {
       "id": "design-content.presentation-designer",
-      "name": "presentation-designer",
+      "name": "Presentation Design and Narrative",
       "version": "1.0.0",
       "domain": "design-content",
-      "category": "design-content.presentation-designer",
-      "purpose": "Designs slide decks and narratives.",
-      "summary": "Designs slide decks and narratives.",
+      "category": "design-content.presentation",
+      "purpose": "Design clear slide narratives, visual hierarchy, layout systems, and speaker-ready presentation structure.",
+      "summary": "Presentation design turns raw content into a deck with a coherent storyline, scannable slides, consistent visual system, and clear audience action.",
       "triggers": [
         "presentation design",
-        "presentation designer task"
+        "presentation designer task",
+        "pitch deck design",
+        "slide deck redesign",
+        "investor deck structure"
       ],
-      "activation_triggers": [],
+      "activation_triggers": [
+        "design this deck",
+        "improve these slides"
+      ],
       "prerequisites": [
-        "task_context"
+        "Audience and presentation goal are known",
+        "Source content or outline is available",
+        "Brand assets or visual constraints are available when applicable"
       ],
-      "inputs": [],
+      "inputs": [
+        "slide_outline",
+        "audience_context",
+        "brand_assets",
+        "delivery_format"
+      ],
       "steps": [
-        "Execute procedure"
+        "Define audience, objective, time limit, and desired decision or action.",
+        "Build a storyline with one idea per slide and a clear arc: context, tension, answer, proof, ask.",
+        "Convert dense content into slide-level headlines, supporting evidence, and visuals.",
+        "Apply layout hierarchy: title, key visual, data, annotation, and footer metadata.",
+        "Check consistency of typography, spacing, color, chart labels, and image treatment.",
+        "Produce speaker notes or talk track where needed."
       ],
       "procedure": [],
       "outputs": [
-        "skill_output"
+        "deck_structure",
+        "slide_redesign_notes",
+        "visual_system_guidance",
+        "speaker_notes"
       ],
-      "tools": [],
-      "quality_gates": [],
-      "failure_modes": [],
-      "handoffs": [],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Every slide has one main message",
+        "Visual hierarchy supports scanning",
+        "Charts and claims are labeled with source or assumption"
+      ],
+      "failure_modes": [
+        "Making decorative slides without narrative logic",
+        "Overloading slides with text",
+        "Using charts without clear takeaway"
+      ],
+      "handoffs": [
+        "design-content.presentation-designer",
+        "design-content.brand-designer"
+      ],
       "budget_band": "standard",
       "rollback": [
-        "revert"
+        "Revert deck notes or generated slide artifacts"
       ],
       "validators": [
-        "outputs_complete"
+        "skill.validator",
+        "slide_message_check"
       ],
       "source_references": [
-        "ref.github.design-content.presentation-designer.2026-06-02"
+        "ref.github.design-content.presentation-designer.2026-06-02",
+        "https://github.com/Slidevjs/slidev"
       ],
-      "allowed_agents": [],
+      "allowed_agents": [
+        "design-content.presentation-designer"
+      ],
       "allowed_workflows": [],
       "status": "active"
     },
@@ -3954,61 +4031,157 @@
     },
     {
       "id": "engineering.contract-testing",
-      "name": "API Contract Testing",
+      "name": "Contract Testing with Pact",
       "version": "1.0.0",
       "domain": "engineering",
-      "category": "engineering.contract-testing",
-      "summary": "API Contract Testing",
+      "category": "engineering.testing",
+      "purpose": "Verify that API consumers and providers agree on the interface without requiring a live integration environment.",
+      "summary": "Consumer-driven contract testing using Pact. Consumers define expectations as contracts; providers verify against them. Prevents breaking API changes and eliminates flaky integration tests.",
       "triggers": [
-        "contract testing",
-        "API contract",
-        "pact testing",
+        "write contract tests",
+        "pact contract test",
         "consumer driven contract",
-        "API compatibility",
-        "contract test",
-        "service integration test"
+        "api contract verification",
+        "provider contract test"
       ],
-      "activation_triggers": [],
+      "activation_triggers": [
+        "our integration tests are flaky",
+        "how do I test the API without a live service"
+      ],
       "prerequisites": [
-        "Task matches this skill scope"
+        "consumer and provider codebases identified",
+        "pact broker or pactflow account (or local pact files)",
+        "test framework configured (Jest, Mocha, or equivalent)"
       ],
       "inputs": [
-        "api_specifications",
-        "consumer_expectations",
-        "provider_implementations",
-        "pact_broker_config (optional)"
+        "consumer_codebase",
+        "provider_codebase",
+        "existing_api_spec (optional)"
       ],
       "steps": [
-        "Follow the skill procedure in SKILL.md body."
+        "Write consumer test that defines expectations using Pact DSL — capture the exact request shape and expected response",
+        "Run consumer test to generate a pact file (JSON contract)",
+        "Publish pact file to broker or commit to shared path",
+        "Run provider verification test pointing at the pact file; provider must satisfy all consumer expectations",
+        "Add pact verification to CI pipeline on both consumer and provider repos",
+        "Configure can-i-deploy check before any deployment to block breaking changes"
       ],
       "procedure": [],
       "outputs": [
-        "contract_definitions",
-        "consumer_tests",
-        "provider_verification_results",
-        "compatibility_report"
+        "pact_contract_file",
+        "verification_report",
+        "can_i_deploy_result"
       ],
-      "tools": [],
-      "quality_gates": [],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write",
+        "shell.readonly"
+      ],
+      "quality_gates": [
+        "Consumer pact file generated and published to broker",
+        "Provider verification passes against current consumer contracts",
+        "can-i-deploy returns green before any deploy"
+      ],
       "failure_modes": [
-        "Contract drift between consumer and provider without detection",
-        "Overly strict contracts prevent provider evolution",
-        "Missing contracts for error response scenarios",
-        "Pact broker becomes single point of failure"
+        "Provider adds a required field the consumer doesn't send — triggers verification failure",
+        "Pact broker not configured — use local file sharing temporarily",
+        "Consumer tests pass but provider never runs verification — add to provider CI"
       ],
-      "handoffs": [],
+      "handoffs": [
+        "engineering.code-reviewer (for contract test code review)",
+        "platform.ci-cd-engineer (for pipeline wiring)"
+      ],
       "budget_band": "standard",
       "rollback": [
-        "Revert partial outputs and re-run with narrower scope"
+        "Remove generated pact files",
+        "Unpublish contract from broker if published"
       ],
       "validators": [
-        "outputs_complete",
-        "policy_safe"
+        "skill.validator"
       ],
       "source_references": [
-        "ref.github.engineering.2026-05-31"
+        "https://github.com/pact-foundation/pact-js",
+        "https://github.com/pact-foundation/pact-broker"
       ],
-      "allowed_agents": [],
+      "allowed_agents": [
+        "engineering.tdd-guide",
+        "engineering.e2e-runner"
+      ],
+      "allowed_workflows": [],
+      "status": "active"
+    },
+    {
+      "id": "engineering.cpp-patterns",
+      "name": "C++ Code Review Patterns",
+      "version": "1.0.0",
+      "domain": "engineering",
+      "category": "engineering.engineering",
+      "purpose": "Review C++ code for memory safety, undefined behavior risks, and modern C++ idioms.",
+      "summary": "C++ Code Review Patterns skill providing systematic guidance grounded in real open-source patterns.",
+      "triggers": [
+        "c++ review",
+        "cpp review",
+        "review cpp",
+        "c plus plus review",
+        "cpp code audit"
+      ],
+      "activation_triggers": [
+        "how do I c++ review",
+        "help me with cpp review"
+      ],
+      "prerequisites": [
+        "Relevant codebase or artifact accessible",
+        "Context of the task is clear"
+      ],
+      "inputs": [
+        "target_artifact",
+        "requirements_or_context"
+      ],
+      "steps": [
+        "Check for raw owning pointers — prefer unique_ptr/shared_ptr; raw new/delete should be rare and documented",
+        "Review RAII compliance — resources must be managed by destructors; no raw resource handles",
+        "Check for undefined behavior — signed integer overflow, out-of-bounds access, use-after-free",
+        "Review virtual destructor — any class with virtual methods needs a virtual destructor",
+        "Check const correctness — member functions that don't modify state must be const",
+        "Review move semantics — large objects should be moved, not copied; check for missing move constructors"
+      ],
+      "procedure": [],
+      "outputs": [
+        "completed_output",
+        "review_or_analysis_report"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Output addresses all required criteria",
+        "Sources cited where patterns were drawn from",
+        "No hallucinated APIs or non-existent patterns"
+      ],
+      "failure_modes": [
+        "Raw new/delete without ownership documentation",
+        "Missing virtual destructor on polymorphic class",
+        "Signed integer overflow in arithmetic"
+      ],
+      "handoffs": [
+        "engineering.code-reviewer (for review)",
+        "engineering.architect (for design decisions)"
+      ],
+      "budget_band": "standard",
+      "rollback": [
+        "No writes — read-only review"
+      ],
+      "validators": [
+        "skill.validator"
+      ],
+      "source_references": [
+        "https://github.com/isocpp/CppCoreGuidelines",
+        "https://github.com/llvm/llvm-project"
+      ],
+      "allowed_agents": [
+        "engineering.master"
+      ],
       "allowed_workflows": [],
       "status": "active"
     },
@@ -4181,62 +4354,156 @@
       "status": "active"
     },
     {
-      "id": "engineering.flaky-test-detection",
-      "name": "Flaky Test Identification and Fixing",
+      "id": "engineering.e2e-testing",
+      "name": "End-to-End Testing with Playwright",
       "version": "1.0.0",
       "domain": "engineering",
-      "category": "engineering.flaky-test-detection",
-      "summary": "Flaky Test Identification and Fixing",
+      "category": "engineering.engineering",
+      "purpose": "Write and run reliable end-to-end browser tests that verify critical user journeys.",
+      "summary": "End-to-End Testing with Playwright skill providing systematic guidance grounded in real open-source patterns.",
       "triggers": [
-        "flaky test",
-        "intermittent failure",
-        "test sometimes fails",
-        "non-deterministic test",
-        "test is unreliable",
-        "flaky test fix",
-        "test passes sometimes"
+        "write e2e tests",
+        "playwright test",
+        "end to end test",
+        "e2e test setup",
+        "browser test automation"
       ],
-      "activation_triggers": [],
+      "activation_triggers": [
+        "how do I write e2e tests",
+        "help me with playwright test"
+      ],
       "prerequisites": [
-        "Task matches this skill scope"
+        "Relevant codebase or artifact accessible",
+        "Context of the task is clear"
       ],
       "inputs": [
-        "test_results_history",
-        "failing_test_names",
-        "test_source_code",
-        "ci_logs (optional)"
+        "target_artifact",
+        "requirements_or_context"
       ],
       "steps": [
-        "Follow the skill procedure in SKILL.md body."
+        "Identify the top 3-5 critical user journeys that must not regress (login, checkout, core workflow)",
+        "Set up Playwright: npx playwright install, create playwright.config.ts with baseURL and retries:0",
+        "Use stable selectors: data-testid attributes preferred, then ARIA roles, never CSS classes",
+        "Use Page Object Model — one file per page that encapsulates selectors and actions",
+        "Add explicit waits with expect(locator).toBeVisible() — never page.waitForTimeout()",
+        "Run headless in CI with playwright test --reporter=html; review trace files on failures"
       ],
       "procedure": [],
       "outputs": [
-        "flaky_test_report",
-        "root_cause_analysis",
-        "fix_recommendations",
-        "quarantine_list"
+        "completed_output",
+        "review_or_analysis_report"
       ],
-      "tools": [],
-      "quality_gates": [],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Output addresses all required criteria",
+        "Sources cited where patterns were drawn from",
+        "No hallucinated APIs or non-existent patterns"
+      ],
       "failure_modes": [
-        "Misidentifying real bugs as flaky tests",
-        "Fixing symptoms instead of root cause",
-        "Quarantining tests without fixing them",
-        "Introducing new flakiness while fixing existing issues"
+        "Brittle CSS selectors that break on minor UI changes",
+        "Arbitrary sleeps causing flakiness",
+        "E2E tests for every feature instead of top journeys"
       ],
-      "handoffs": [],
+      "handoffs": [
+        "engineering.code-reviewer (for review)",
+        "engineering.architect (for design decisions)"
+      ],
       "budget_band": "standard",
       "rollback": [
-        "Revert partial outputs and re-run with narrower scope"
+        "Revert test files — no production changes from E2E tests"
       ],
       "validators": [
-        "outputs_complete",
-        "policy_safe"
+        "skill.validator"
       ],
       "source_references": [
-        "ref.github.engineering.2026-05-31"
+        "https://github.com/microsoft/playwright",
+        "https://github.com/vercel-labs/agent-browser"
       ],
-      "allowed_agents": [],
+      "allowed_agents": [
+        "engineering.master"
+      ],
+      "allowed_workflows": [],
+      "status": "active"
+    },
+    {
+      "id": "engineering.flaky-test-detection",
+      "name": "Flaky Test Detection and Elimination",
+      "version": "1.0.0",
+      "domain": "engineering",
+      "category": "engineering.testing",
+      "purpose": "Identify, classify, and permanently fix tests that non-deterministically pass or fail.",
+      "summary": "Systematic flaky test elimination: detect via re-run analysis, classify root cause (timing, ordering, external deps, randomness), apply the correct fix pattern, and add quarantine gates to prevent re-introduction.",
+      "triggers": [
+        "flaky test detection",
+        "test fails intermittently",
+        "non deterministic test",
+        "test quarantine",
+        "fix flaky test"
+      ],
+      "activation_triggers": [
+        "this test passes sometimes and fails sometimes",
+        "CI is unreliable because of flaky tests"
+      ],
+      "prerequisites": [
+        "test suite runs in CI",
+        "ability to re-run tests in isolation",
+        "access to CI run history"
+      ],
+      "inputs": [
+        "test_name_or_pattern",
+        "ci_run_history"
+      ],
+      "steps": [
+        "Run the suspect test 10 times in isolation to confirm flakiness (use --runInBand for Node, -count=10 for Go)",
+        "Classify the root cause: timing (async/race), state pollution (shared mutable state), external dependency (network/DB), randomness (uncontrolled random), or ordering dependency",
+        "For timing issues: replace sleeps with explicit awaits, polling with waitFor, or proper lifecycle hooks",
+        "For state pollution: add beforeEach/afterEach cleanup, use per-test fixtures, avoid global singletons in tests",
+        "For external dependencies: mock the dependency at the test level or use testcontainers for isolated real instances",
+        "Add a quarantine label/tag, fix, verify with 20 consecutive passes, then remove quarantine tag"
+      ],
+      "procedure": [],
+      "outputs": [
+        "root_cause_classification",
+        "fixed_test_file",
+        "consecutive_pass_count"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write",
+        "shell.readonly"
+      ],
+      "quality_gates": [
+        "Test passes 20 consecutive times without modification",
+        "Root cause documented in test comment or PR description",
+        "No sleeps/arbitrary timeouts in fixed test"
+      ],
+      "failure_modes": [
+        "Race condition masked by the fix but not eliminated — test still flaky under load",
+        "External service mocked incorrectly — test passes but doesn't reflect real behavior",
+        "Quarantine tag never removed — flaky tests accumulate"
+      ],
+      "handoffs": [
+        "engineering.code-reviewer (for fix review)"
+      ],
+      "budget_band": "standard",
+      "rollback": [
+        "Revert fixed test file if fix introduces regression",
+        "Re-add quarantine tag if flakiness returns"
+      ],
+      "validators": [
+        "skill.validator"
+      ],
+      "source_references": [
+        "https://github.com/goldbergyoni/nodebestpractices",
+        "https://github.com/testcontainers/testcontainers-node"
+      ],
+      "allowed_agents": [
+        "engineering.tdd-guide",
+        "engineering.build-resolver"
+      ],
       "allowed_workflows": [],
       "status": "active"
     },
@@ -4444,6 +4711,81 @@
       "status": "active"
     },
     {
+      "id": "engineering.golang-patterns",
+      "name": "Go Code Review Patterns",
+      "version": "1.0.0",
+      "domain": "engineering",
+      "category": "engineering.engineering",
+      "purpose": "Review Go code for idiomatic error handling, goroutine safety, and context propagation.",
+      "summary": "Go Code Review Patterns skill providing systematic guidance grounded in real open-source patterns.",
+      "triggers": [
+        "go review",
+        "golang review",
+        "review golang",
+        "go code audit",
+        "golang code review"
+      ],
+      "activation_triggers": [
+        "how do I go review",
+        "help me with golang review"
+      ],
+      "prerequisites": [
+        "Relevant codebase or artifact accessible",
+        "Context of the task is clear"
+      ],
+      "inputs": [
+        "target_artifact",
+        "requirements_or_context"
+      ],
+      "steps": [
+        "Check error handling — errors must be checked; _, err := f() with ignored err is a red flag",
+        "Review goroutine lifecycle — every goroutine must have a clear termination path; leaked goroutines cause memory leaks",
+        "Check context propagation — ctx must be the first parameter and passed through every call in the chain",
+        "Review defer usage — defer runs on function return, not block exit; be careful with defer in loops",
+        "Check for race conditions — run go test -race on the package; shared maps need sync.Map or mutex",
+        "Verify interface design — keep interfaces small (1-3 methods); accept interfaces, return structs"
+      ],
+      "procedure": [],
+      "outputs": [
+        "completed_output",
+        "review_or_analysis_report"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Output addresses all required criteria",
+        "Sources cited where patterns were drawn from",
+        "No hallucinated APIs or non-existent patterns"
+      ],
+      "failure_modes": [
+        "Ignored errors approved without justification",
+        "Missing context propagation in library code",
+        "Goroutines without cancel/done channel"
+      ],
+      "handoffs": [
+        "engineering.code-reviewer (for review)",
+        "engineering.architect (for design decisions)"
+      ],
+      "budget_band": "standard",
+      "rollback": [
+        "No writes — read-only review"
+      ],
+      "validators": [
+        "skill.validator"
+      ],
+      "source_references": [
+        "https://github.com/golang/go",
+        "https://github.com/golangci/golangci-lint"
+      ],
+      "allowed_agents": [
+        "engineering.master"
+      ],
+      "allowed_workflows": [],
+      "status": "active"
+    },
+    {
       "id": "engineering.grep-patterns",
       "name": "Advanced Grep and Search Patterns",
       "version": "1.0.0",
@@ -4564,64 +4906,229 @@
       "status": "active"
     },
     {
+      "id": "engineering.implementation-planning",
+      "name": "Implementation Planning",
+      "version": "1.0.0",
+      "domain": "engineering",
+      "category": "engineering.engineering",
+      "purpose": "Break a feature or task into a structured, sequenced implementation plan before writing any code.",
+      "summary": "Implementation Planning skill providing systematic guidance grounded in real open-source patterns.",
+      "triggers": [
+        "plan the implementation",
+        "create implementation plan",
+        "break down this task",
+        "task planning",
+        "implementation strategy"
+      ],
+      "activation_triggers": [
+        "how do I plan the implementation",
+        "help me with create implementation plan"
+      ],
+      "prerequisites": [
+        "Relevant codebase or artifact accessible",
+        "Context of the task is clear"
+      ],
+      "inputs": [
+        "target_artifact",
+        "requirements_or_context"
+      ],
+      "steps": [
+        "Understand the goal and constraints — clarify acceptance criteria and non-goals",
+        "Identify the smallest slice that delivers value — the walking skeleton",
+        "Break into sequential tasks with explicit dependencies",
+        "Identify risks and unknowns — flag them before coding begins",
+        "Estimate complexity (S/M/L) per task and identify which to prototype first",
+        "Document the plan in a PR description or task comment before opening any code files"
+      ],
+      "procedure": [],
+      "outputs": [
+        "completed_output",
+        "review_or_analysis_report"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Output addresses all required criteria",
+        "Sources cited where patterns were drawn from",
+        "No hallucinated APIs or non-existent patterns"
+      ],
+      "failure_modes": [
+        "Planning without understanding constraints",
+        "Tasks not sequenced by dependency",
+        "No risk identification before coding"
+      ],
+      "handoffs": [
+        "engineering.code-reviewer (for review)",
+        "engineering.architect (for design decisions)"
+      ],
+      "budget_band": "standard",
+      "rollback": [
+        "Plans are documents — no code to revert"
+      ],
+      "validators": [
+        "skill.validator"
+      ],
+      "source_references": [
+        "https://github.com/garrytan/gstack",
+        "https://github.com/eyaltoledano/claude-task-master"
+      ],
+      "allowed_agents": [
+        "engineering.master"
+      ],
+      "allowed_workflows": [],
+      "status": "active"
+    },
+    {
       "id": "engineering.index-optimization",
       "name": "Database Index Optimization",
       "version": "1.0.0",
       "domain": "engineering",
-      "category": "engineering.index-optimization",
-      "summary": "Database Index Optimization",
+      "category": "engineering.data",
+      "purpose": "Design and maintain a database index strategy that speeds reads without degrading write performance.",
+      "summary": "Covers index selection (B-tree, partial, covering, composite), index bloat detection, unused index removal, and the write-performance trade-off. Applies to PostgreSQL with patterns applicable to MySQL and SQLite.",
       "triggers": [
-        "which columns should be indexed for this query pattern",
-        "optimize database indexes for the products table",
-        "optimize index",
-        "slow query",
-        "add index",
-        "index optimization",
-        "database performance",
-        "query plan",
-        "missing index"
+        "database index optimization",
+        "add database index",
+        "remove unused index",
+        "index bloat",
+        "covering index"
       ],
-      "activation_triggers": [],
+      "activation_triggers": [
+        "queries are slow and we need indexes",
+        "our write performance is degrading"
+      ],
       "prerequisites": [
-        "Task matches this skill scope"
+        "Database accessible with query analysis permissions",
+        "pg_stat_user_indexes available (PostgreSQL)"
       ],
       "inputs": [
-        "slow_queries",
-        "table_schemas",
-        "query_patterns",
-        "database_engine (optional)"
+        "slow_query_pattern",
+        "existing_indexes"
       ],
       "steps": [
-        "Follow the skill procedure in SKILL.md body."
+        "Audit existing indexes using pg_stat_user_indexes — identify indexes with idx_scan = 0 (unused)",
+        "Remove unused indexes (after confirming with the team) — they slow writes with no benefit",
+        "For the target query, identify the highest-cardinality column in the WHERE clause first",
+        "Design the index: single-column for simple filters, composite for multi-column WHERE, partial for filtered subsets, covering for query-only access",
+        "Create index CONCURRENTLY to avoid write locks on production",
+        "Monitor write performance after adding — if INSERT/UPDATE slows >20%, reconsider"
       ],
       "procedure": [],
       "outputs": [
-        "index_recommendations",
-        "impact_analysis",
-        "create_index_statements",
-        "performance_estimates"
+        "index_audit_report",
+        "index_migration_sql",
+        "before_after_benchmark"
       ],
-      "tools": [],
-      "quality_gates": [],
+      "tools": [
+        "filesystem.read",
+        "shell.readonly"
+      ],
+      "quality_gates": [
+        "Unused indexes identified and scheduled for removal",
+        "New index reduces target query time ≥30%",
+        "Write performance degradation <20%"
+      ],
       "failure_modes": [
-        "Over-indexing increases write latency",
-        "Index on low-cardinality column wastes space",
-        "Missing composite index for multi-column queries",
-        "Index bloat from unused indexes"
+        "Index on low-cardinality column (boolean, status enum) — rarely helps",
+        "Too many indexes on a hot write table — degrades INSERT performance",
+        "Index added without CONCURRENTLY — production table locked"
       ],
-      "handoffs": [],
-      "budget_band": "micro",
+      "handoffs": [
+        "engineering.query-analysis (for query rewriting)"
+      ],
+      "budget_band": "standard",
       "rollback": [
-        "Revert partial outputs and re-run with narrower scope"
+        "DROP INDEX CONCURRENTLY if writes degrade",
+        "Keep old index until new one confirmed working"
       ],
       "validators": [
-        "outputs_complete",
-        "policy_safe"
+        "skill.validator"
       ],
       "source_references": [
-        "ref.github.engineering.2026-05-31"
+        "https://github.com/drizzle-team/drizzle-orm",
+        "https://github.com/prisma/prisma"
       ],
-      "allowed_agents": [],
+      "allowed_agents": [
+        "engineering.architect",
+        "engineering.build-resolver"
+      ],
+      "allowed_workflows": [],
+      "status": "active"
+    },
+    {
+      "id": "engineering.java-patterns",
+      "name": "Java Code Review Patterns",
+      "version": "1.0.0",
+      "domain": "engineering",
+      "category": "engineering.engineering",
+      "purpose": "Review Java code for modern idioms, thread safety, and common anti-patterns.",
+      "summary": "Java Code Review Patterns skill providing systematic guidance grounded in real open-source patterns.",
+      "triggers": [
+        "java review",
+        "java code review",
+        "review java",
+        "java code audit",
+        "java file review"
+      ],
+      "activation_triggers": [
+        "how do I java review",
+        "help me with java code review"
+      ],
+      "prerequisites": [
+        "Relevant codebase or artifact accessible",
+        "Context of the task is clear"
+      ],
+      "inputs": [
+        "target_artifact",
+        "requirements_or_context"
+      ],
+      "steps": [
+        "Check for null pointer risks — prefer Optional<T> over returning null; use @NonNull annotations",
+        "Review thread safety — shared mutable state requires synchronization or concurrent collections",
+        "Check exception handling — never catch(Exception e) {} silently; always log or rethrow",
+        "Review stream usage — avoid side effects in stream lambdas; prefer collect() over forEach for transformation",
+        "Check equals/hashCode contract — if you override equals, you must override hashCode",
+        "Review resource management — always use try-with-resources for Closeable objects"
+      ],
+      "procedure": [],
+      "outputs": [
+        "completed_output",
+        "review_or_analysis_report"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Output addresses all required criteria",
+        "Sources cited where patterns were drawn from",
+        "No hallucinated APIs or non-existent patterns"
+      ],
+      "failure_modes": [
+        "Approving null returns without Optional wrapper",
+        "Missing synchronized on shared state",
+        "Silent exception swallowing"
+      ],
+      "handoffs": [
+        "engineering.code-reviewer (for review)",
+        "engineering.architect (for design decisions)"
+      ],
+      "budget_band": "standard",
+      "rollback": [
+        "No writes — read-only review"
+      ],
+      "validators": [
+        "skill.validator"
+      ],
+      "source_references": [
+        "https://github.com/google/error-prone",
+        "https://github.com/checkstyle/checkstyle"
+      ],
+      "allowed_agents": [
+        "engineering.master"
+      ],
       "allowed_workflows": [],
       "status": "active"
     },
@@ -4680,6 +5187,81 @@
         "ref.github.engineering.2026-05-31"
       ],
       "allowed_agents": [],
+      "allowed_workflows": [],
+      "status": "active"
+    },
+    {
+      "id": "engineering.kotlin-patterns",
+      "name": "Kotlin Code Review Patterns",
+      "version": "1.0.0",
+      "domain": "engineering",
+      "category": "engineering.engineering",
+      "purpose": "Review Kotlin code for null safety, coroutine correctness, and idiomatic usage.",
+      "summary": "Kotlin Code Review Patterns skill providing systematic guidance grounded in real open-source patterns.",
+      "triggers": [
+        "kotlin review",
+        "kotlin code review",
+        "review kotlin",
+        "kotlin code audit",
+        "kotlin file review"
+      ],
+      "activation_triggers": [
+        "how do I kotlin review",
+        "help me with kotlin code review"
+      ],
+      "prerequisites": [
+        "Relevant codebase or artifact accessible",
+        "Context of the task is clear"
+      ],
+      "inputs": [
+        "target_artifact",
+        "requirements_or_context"
+      ],
+      "steps": [
+        "Check null safety — prefer non-nullable types; justify every !! with a comment",
+        "Review coroutine scope — coroutines must be launched in a scope that manages cancellation",
+        "Check sealed class exhaustiveness — when expressions on sealed classes should cover all cases",
+        "Review data class usage — data classes for value objects; check equals/hashCode implications",
+        "Check extension function placement — extension functions on third-party classes can be surprising; document why",
+        "Review Flow usage — cold flows don't execute until collected; hot flows (SharedFlow) need lifecycle management"
+      ],
+      "procedure": [],
+      "outputs": [
+        "completed_output",
+        "review_or_analysis_report"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Output addresses all required criteria",
+        "Sources cited where patterns were drawn from",
+        "No hallucinated APIs or non-existent patterns"
+      ],
+      "failure_modes": [
+        "!! operator approved without comment",
+        "Coroutines launched in GlobalScope",
+        "Non-exhaustive when expression"
+      ],
+      "handoffs": [
+        "engineering.code-reviewer (for review)",
+        "engineering.architect (for design decisions)"
+      ],
+      "budget_band": "standard",
+      "rollback": [
+        "No writes — read-only review"
+      ],
+      "validators": [
+        "skill.validator"
+      ],
+      "source_references": [
+        "https://github.com/JetBrains/kotlin",
+        "https://github.com/pinterest/ktlint"
+      ],
+      "allowed_agents": [
+        "engineering.master"
+      ],
       "allowed_workflows": [],
       "status": "active"
     },
@@ -4747,63 +5329,80 @@
     },
     {
       "id": "engineering.mutation-testing",
-      "name": "Mutation Testing for Test Quality",
+      "name": "Mutation Testing with Stryker",
       "version": "1.0.0",
       "domain": "engineering",
-      "category": "engineering.mutation-testing",
-      "summary": "Mutation Testing for Test Quality",
+      "category": "engineering.testing",
+      "purpose": "Measure test suite effectiveness by injecting code mutations and verifying tests catch them.",
+      "summary": "Stryker introduces small code changes (mutations) — flipping operators, removing conditionals, changing return values — and checks if your tests fail (killed the mutant). A mutation score above 80% indicates a strong test suite.",
       "triggers": [
-        "find surviving mutants in the billing service",
-        "how effective are our tests really",
         "mutation testing",
-        "mutation score",
-        "test quality",
-        "test effectiveness",
-        "kill mutants",
-        "mutation analysis",
-        "test suite quality"
+        "stryker mutation score",
+        "test suite quality check",
+        "mutation score report",
+        "kill mutants"
       ],
-      "activation_triggers": [],
+      "activation_triggers": [
+        "our code coverage is 90% but bugs still slip through",
+        "how effective is our test suite really"
+      ],
       "prerequisites": [
-        "Task matches this skill scope"
+        "test suite exists with >50% line coverage",
+        "stryker installed (npx stryker run)",
+        "build passes cleanly"
       ],
       "inputs": [
-        "source_code",
-        "test_suite",
-        "mutation_config (optional)",
-        "coverage_baseline (optional)"
+        "target_files",
+        "test_runner_config"
       ],
       "steps": [
-        "Follow the skill procedure in SKILL.md body."
+        "Install Stryker and initialize config (npx stryker init) — choose test runner (jest/mocha/karma)",
+        "Run Stryker on a focused module first (not the whole codebase) — set files to a single directory",
+        "Review HTML report: identify surviving mutants (mutations tests didn't catch)",
+        "For each survivor, write a test that would have killed it — the test is the specification",
+        "Re-run Stryker to confirm mutation score improved",
+        "Set a minimum mutation score threshold (80%) in stryker.config.js and add to CI"
       ],
       "procedure": [],
       "outputs": [
         "mutation_score_report",
-        "surviving_mutants",
-        "weak_test_areas",
-        "improvement_recommendations"
+        "surviving_mutants_list",
+        "new_test_cases"
       ],
-      "tools": [],
-      "quality_gates": [],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write",
+        "shell.readonly"
+      ],
+      "quality_gates": [
+        "Mutation score ≥80% on targeted module",
+        "All surviving mutants reviewed and either killed or documented as equivalent",
+        "Stryker threshold configured in CI"
+      ],
       "failure_modes": [
-        "Equivalent mutants inflate mutation score denominator",
-        "Mutation tool too slow for large codebases",
-        "Surviving mutants dismissed without analysis",
-        "Focusing on score without understanding context"
+        "Stryker takes too long — limit to one module at a time, use --concurrency flag",
+        "Many equivalent mutants — document as known-equivalent; don't write meaningless tests",
+        "Score drops after adding tests — check if new tests have assertions"
       ],
-      "handoffs": [],
+      "handoffs": [
+        "engineering.tdd-guide (for writing killing tests)"
+      ],
       "budget_band": "standard",
       "rollback": [
-        "Revert partial outputs and re-run with narrower scope"
+        "Remove Stryker config if it blocks CI",
+        "Lower threshold temporarily while improving score"
       ],
       "validators": [
-        "outputs_complete",
-        "policy_safe"
+        "skill.validator"
       ],
       "source_references": [
-        "ref.github.engineering.2026-05-31"
+        "https://github.com/stryker-mutator/stryker-js",
+        "https://github.com/stryker-mutator/stryker-mutator.github.io"
       ],
-      "allowed_agents": [],
+      "allowed_agents": [
+        "engineering.tdd-guide",
+        "engineering.code-reviewer"
+      ],
       "allowed_workflows": [],
       "status": "active"
     },
@@ -4866,65 +5465,155 @@
       "status": "active"
     },
     {
-      "id": "engineering.query-analysis",
-      "name": "SQL Query Analysis and Optimization",
+      "id": "engineering.python-patterns",
+      "name": "Python Code Review Patterns",
       "version": "1.0.0",
       "domain": "engineering",
-      "category": "engineering.query-analysis",
-      "summary": "SQL Query Analysis and Optimization",
+      "category": "engineering.engineering",
+      "purpose": "Review Python code for idiomatic usage, type hints, and common anti-patterns.",
+      "summary": "Python Code Review Patterns skill providing systematic guidance grounded in real open-source patterns.",
       "triggers": [
-        "optimize the reporting dashboard query",
-        "find N+1 queries in the repository layer",
-        "analyze why this SQL query is slow",
-        "analyze query",
-        "slow SQL",
-        "query optimization",
-        "N+1 query",
-        "query performance",
-        "explain plan",
-        "optimize SQL"
+        "python review",
+        "python code review",
+        "review python",
+        "python code audit",
+        "py file review"
       ],
-      "activation_triggers": [],
+      "activation_triggers": [
+        "how do I python review",
+        "help me with python code review"
+      ],
       "prerequisites": [
-        "Task matches this skill scope"
+        "Relevant codebase or artifact accessible",
+        "Context of the task is clear"
       ],
       "inputs": [
-        "sql_queries",
-        "query_plans (optional)",
-        "table_schemas (optional)",
-        "performance_metrics (optional)"
+        "target_artifact",
+        "requirements_or_context"
       ],
       "steps": [
-        "Follow the skill procedure in SKILL.md body."
+        "Check type hints on all public functions — PEP 484; use mypy or pyright for verification",
+        "Review mutable default arguments — def f(x=[]) is a classic Python gotcha; use None and assign in body",
+        "Check exception handling — bare except: catches everything including SystemExit; always except SpecificException",
+        "Review f-string usage — prefer over .format() and % formatting for readability",
+        "Check for resource management — file handles and connections must use context managers (with statement)",
+        "Verify async code — async functions must be awaited; never call asyncio.run() inside an async context"
       ],
       "procedure": [],
       "outputs": [
-        "query_analysis_report",
-        "anti_patterns_found",
-        "optimized_queries",
-        "performance_recommendations"
+        "completed_output",
+        "review_or_analysis_report"
       ],
-      "tools": [],
-      "quality_gates": [],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Output addresses all required criteria",
+        "Sources cited where patterns were drawn from",
+        "No hallucinated APIs or non-existent patterns"
+      ],
       "failure_modes": [
-        "Missing N+1 queries hidden in ORM abstractions",
-        "Recommending denormalization without considering consistency",
-        "Overlooking implicit type conversions in WHERE clauses",
-        "Ignoring query parameter sniffing issues"
+        "Mutable default arguments approved without comment",
+        "Bare except: blocks approved",
+        "Missing type hints on public API"
       ],
-      "handoffs": [],
+      "handoffs": [
+        "engineering.code-reviewer (for review)",
+        "engineering.architect (for design decisions)"
+      ],
       "budget_band": "standard",
       "rollback": [
-        "Revert partial outputs and re-run with narrower scope"
+        "No writes — read-only review"
       ],
       "validators": [
-        "outputs_complete",
-        "policy_safe"
+        "skill.validator"
       ],
       "source_references": [
-        "ref.github.engineering.2026-05-31"
+        "https://github.com/psf/black",
+        "https://github.com/PyCQA/flake8"
       ],
-      "allowed_agents": [],
+      "allowed_agents": [
+        "engineering.master"
+      ],
+      "allowed_workflows": [],
+      "status": "active"
+    },
+    {
+      "id": "engineering.query-analysis",
+      "name": "Database Query Analysis and Optimization",
+      "version": "1.0.0",
+      "domain": "engineering",
+      "category": "engineering.data",
+      "purpose": "Identify and fix slow or inefficient database queries using EXPLAIN analysis and indexing strategy.",
+      "summary": "Systematic query optimization: capture slow queries from logs, run EXPLAIN ANALYZE, identify sequential scans and missing indexes, apply fixes incrementally, and measure improvement. Covers PostgreSQL, MySQL, and SQLite patterns.",
+      "triggers": [
+        "slow database query",
+        "query analysis",
+        "explain analyze",
+        "database performance",
+        "index missing"
+      ],
+      "activation_triggers": [
+        "the API is slow and the database is the bottleneck",
+        "EXPLAIN ANALYZE shows a sequential scan"
+      ],
+      "prerequisites": [
+        "database query logging enabled (log_min_duration_statement)",
+        "ability to run EXPLAIN ANALYZE in a non-production environment",
+        "query to optimize identified"
+      ],
+      "inputs": [
+        "slow_query",
+        "explain_output"
+      ],
+      "steps": [
+        "Enable slow query logging (log_min_duration_statement = 100 for PG) and identify top queries by total time",
+        "Run EXPLAIN ANALYZE on the query — read cost estimates and actual times; look for Seq Scan on large tables",
+        "Identify the bottleneck: missing index, N+1 query, full table scan, missing join condition, or bad statistics",
+        "For missing indexes: create a covering index on the most selective column(s) in the WHERE/ORDER BY clause",
+        "For N+1: rewrite with JOIN or use dataloader batching pattern; never loop and query inside a loop",
+        "Measure the improvement: compare query time before and after; only keep the index if it reduces time ≥30%"
+      ],
+      "procedure": [],
+      "outputs": [
+        "explain_analysis_report",
+        "index_migration",
+        "query_rewrite"
+      ],
+      "tools": [
+        "filesystem.read",
+        "shell.readonly"
+      ],
+      "quality_gates": [
+        "Query time reduced ≥30% in staging environment",
+        "No full-table sequential scans on tables >10K rows",
+        "Index added via migration (not manual ALTER TABLE in production)"
+      ],
+      "failure_modes": [
+        "Index created on wrong column — check cardinality first",
+        "EXPLAIN without ANALYZE — no actual timing data",
+        "Index added in production without CONCURRENTLY — table locks"
+      ],
+      "handoffs": [
+        "engineering.architect (for schema redesign decisions)"
+      ],
+      "budget_band": "standard",
+      "rollback": [
+        "DROP INDEX CONCURRENTLY if new index degrades write performance",
+        "Revert query rewrite via git"
+      ],
+      "validators": [
+        "skill.validator"
+      ],
+      "source_references": [
+        "https://github.com/prisma/prisma",
+        "https://github.com/pganalyze/pganalyze-collector"
+      ],
+      "allowed_agents": [
+        "engineering.build-resolver",
+        "engineering.architect"
+      ],
       "allowed_workflows": [],
       "status": "active"
     },
@@ -5128,6 +5817,156 @@
       "status": "active"
     },
     {
+      "id": "engineering.refactoring",
+      "name": "Structured Code Refactoring",
+      "version": "1.0.0",
+      "domain": "engineering",
+      "category": "engineering.engineering",
+      "purpose": "Refactor code for clarity and reduced duplication without changing behavior, verified by the existing test suite.",
+      "summary": "Structured Code Refactoring skill providing systematic guidance grounded in real open-source patterns.",
+      "triggers": [
+        "refactor this code",
+        "clean up this module",
+        "reduce code duplication",
+        "simplify this function",
+        "improve code structure"
+      ],
+      "activation_triggers": [
+        "how do I refactor this code",
+        "help me with clean up this module"
+      ],
+      "prerequisites": [
+        "Relevant codebase or artifact accessible",
+        "Context of the task is clear"
+      ],
+      "inputs": [
+        "target_artifact",
+        "requirements_or_context"
+      ],
+      "steps": [
+        "Run the full test suite and confirm it is green before touching any code",
+        "Identify the refactoring target and the specific improvement (extract function, eliminate duplication, rename for clarity)",
+        "Apply the smallest safe transformation first — one change at a time",
+        "Run tests after each transformation — commit if green, revert if red",
+        "Repeat until refactoring goal achieved without behavior change",
+        "Write a PR description explaining what changed and confirming no behavior change"
+      ],
+      "procedure": [],
+      "outputs": [
+        "completed_output",
+        "review_or_analysis_report"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Output addresses all required criteria",
+        "Sources cited where patterns were drawn from",
+        "No hallucinated APIs or non-existent patterns"
+      ],
+      "failure_modes": [
+        "Changing behavior while claiming to refactor",
+        "No test run between changes",
+        "Creating new coupling while reducing local duplication"
+      ],
+      "handoffs": [
+        "engineering.code-reviewer (for review)",
+        "engineering.architect (for design decisions)"
+      ],
+      "budget_band": "standard",
+      "rollback": [
+        "git revert each incremental commit"
+      ],
+      "validators": [
+        "skill.validator"
+      ],
+      "source_references": [
+        "https://github.com/Aider-AI/aider",
+        "https://github.com/affaan-m/ECC"
+      ],
+      "allowed_agents": [
+        "engineering.master"
+      ],
+      "allowed_workflows": [],
+      "status": "active"
+    },
+    {
+      "id": "engineering.rust-patterns",
+      "name": "Rust Code Review Patterns",
+      "version": "1.0.0",
+      "domain": "engineering",
+      "category": "engineering.engineering",
+      "purpose": "Review Rust code for ownership correctness, lifetime safety, and unsafe block justification.",
+      "summary": "Rust Code Review Patterns skill providing systematic guidance grounded in real open-source patterns.",
+      "triggers": [
+        "rust review",
+        "rust code review",
+        "review rust",
+        "rust code audit",
+        "rust file review"
+      ],
+      "activation_triggers": [
+        "how do I rust review",
+        "help me with rust code review"
+      ],
+      "prerequisites": [
+        "Relevant codebase or artifact accessible",
+        "Context of the task is clear"
+      ],
+      "inputs": [
+        "target_artifact",
+        "requirements_or_context"
+      ],
+      "steps": [
+        "Check unsafe blocks — every unsafe must have a comment documenting the invariants being upheld",
+        "Review clone/copy usage — excessive .clone() may indicate a design issue; prefer borrows",
+        "Check error handling — use ? operator; avoid .unwrap() in library code (use in tests only)",
+        "Review lifetime annotations — elided lifetimes are fine; explicit lifetimes on public APIs need justification",
+        "Check for panic paths — .unwrap(), .expect(), index out of bounds — all must be justified or replaced",
+        "Verify async correctness — ensure Future is Send when used across threads; check for blocking in async context"
+      ],
+      "procedure": [],
+      "outputs": [
+        "completed_output",
+        "review_or_analysis_report"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Output addresses all required criteria",
+        "Sources cited where patterns were drawn from",
+        "No hallucinated APIs or non-existent patterns"
+      ],
+      "failure_modes": [
+        "Unsafe blocks without invariant documentation",
+        "Unwrap() in library code",
+        "Blocking calls inside async context"
+      ],
+      "handoffs": [
+        "engineering.code-reviewer (for review)",
+        "engineering.architect (for design decisions)"
+      ],
+      "budget_band": "standard",
+      "rollback": [
+        "No writes — read-only review"
+      ],
+      "validators": [
+        "skill.validator"
+      ],
+      "source_references": [
+        "https://github.com/rust-lang/rust",
+        "https://github.com/rust-lang/rustfmt"
+      ],
+      "allowed_agents": [
+        "engineering.master"
+      ],
+      "allowed_workflows": [],
+      "status": "active"
+    },
+    {
       "id": "engineering.schema-migration",
       "name": "Database Schema Migration Patterns",
       "version": "1.0.0",
@@ -5189,62 +6028,155 @@
       "status": "active"
     },
     {
-      "id": "engineering.snapshot-testing",
-      "name": "Snapshot Testing Patterns",
+      "id": "engineering.security-review-pr",
+      "name": "PR Security Review Checklist",
       "version": "1.0.0",
       "domain": "engineering",
-      "category": "engineering.snapshot-testing",
-      "summary": "Snapshot Testing Patterns",
+      "category": "engineering.engineering",
+      "purpose": "Perform a targeted security review on a pull request covering OWASP Top 10 risks relevant to the changed code.",
+      "summary": "PR Security Review Checklist skill providing systematic guidance grounded in real open-source patterns.",
       "triggers": [
-        "snapshot testing",
-        "snapshot test",
-        "visual regression",
-        "snapshot update",
-        "component snapshot",
-        "serialized output test",
-        "snapshot diff"
+        "security review pr",
+        "appsec code check",
+        "review for security vulnerabilities",
+        "code security scan",
+        "check injection vulnerabilities"
       ],
-      "activation_triggers": [],
+      "activation_triggers": [
+        "how do I security review pr",
+        "help me with appsec code check"
+      ],
       "prerequisites": [
-        "Task matches this skill scope"
+        "Relevant codebase or artifact accessible",
+        "Context of the task is clear"
       ],
       "inputs": [
-        "components_or_outputs",
-        "existing_snapshots (optional)",
-        "rendering_context (optional)",
-        "snapshot_config (optional)"
+        "target_artifact",
+        "requirements_or_context"
       ],
       "steps": [
-        "Follow the skill procedure in SKILL.md body."
+        "Run Semgrep or equivalent scanner on changed files — read scanner output before any manual review",
+        "Check all input entry points for validation: HTTP params, headers, body, file uploads",
+        "Review authentication and authorization: are endpoints protected, does the current user have rights",
+        "Inspect data flows for injection risks: SQL, command, XSS, SSRF",
+        "Check for secrets in code: API keys, tokens, credentials — run gitleaks if not in CI",
+        "Report with CVSS severity, file:line reference, and remediation suggestion"
       ],
       "procedure": [],
       "outputs": [
-        "snapshot_files",
-        "snapshot_test_cases",
-        "update_strategy",
-        "snapshot_health_report"
+        "completed_output",
+        "review_or_analysis_report"
       ],
-      "tools": [],
-      "quality_gates": [],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Output addresses all required criteria",
+        "Sources cited where patterns were drawn from",
+        "No hallucinated APIs or non-existent patterns"
+      ],
       "failure_modes": [
-        "Blindly updating snapshots without reviewing diffs",
-        "Snapshot tests that capture implementation details instead of behavior",
-        "Large snapshot files that are hard to review in PRs",
-        "Non-deterministic snapshots from dynamic content"
+        "LLM-only findings without scanner run",
+        "Missing evidence for a finding",
+        "Reporting style issues as security issues"
       ],
-      "handoffs": [],
-      "budget_band": "micro",
+      "handoffs": [
+        "engineering.code-reviewer (for review)",
+        "engineering.architect (for design decisions)"
+      ],
+      "budget_band": "standard",
       "rollback": [
-        "Revert partial outputs and re-run with narrower scope"
+        "No writes — read-only review skill"
       ],
       "validators": [
-        "outputs_complete",
-        "policy_safe"
+        "skill.validator"
       ],
       "source_references": [
-        "ref.github.engineering.2026-05-31"
+        "https://github.com/anthropics/claude-code-security-review",
+        "https://github.com/OWASP/CheatSheetSeries"
       ],
-      "allowed_agents": [],
+      "allowed_agents": [
+        "engineering.master"
+      ],
+      "allowed_workflows": [],
+      "status": "active"
+    },
+    {
+      "id": "engineering.snapshot-testing",
+      "name": "Snapshot Testing Best Practices",
+      "version": "1.0.0",
+      "domain": "engineering",
+      "category": "engineering.testing",
+      "purpose": "Use snapshot tests correctly — as regression detectors for stable output, not as lazy test shortcuts.",
+      "summary": "Snapshot testing captures rendered output (UI components, serialized objects, API responses) and fails when it changes unexpectedly. The skill covers when to use snapshots, how to write meaningful ones, and how to avoid the anti-patterns that make snapshot tests useless.",
+      "triggers": [
+        "snapshot test",
+        "jest snapshot",
+        "component snapshot",
+        "toMatchSnapshot",
+        "snapshot regression test"
+      ],
+      "activation_triggers": [
+        "how do I snapshot test a component",
+        "snapshot tests keep failing after minor changes"
+      ],
+      "prerequisites": [
+        "Jest or Vitest configured",
+        "component or output to snapshot is stable (not using Date.now() or random IDs)"
+      ],
+      "inputs": [
+        "component_or_function",
+        "test_framework"
+      ],
+      "steps": [
+        "Identify what deserves a snapshot — stable rendered output, not volatile data like dates or IDs",
+        "Use inline snapshots (toMatchInlineSnapshot) for small, readable outputs; file snapshots for large structures",
+        "Strip non-deterministic values before snapshotting (mock Date, replace UUIDs with stable placeholders)",
+        "Write a descriptive test name — the snapshot should be self-documenting",
+        "On snapshot failures, review the diff carefully — only update (--updateSnapshot) when the change is intentional",
+        "Commit snapshot files to version control; treat them as code not build artifacts"
+      ],
+      "procedure": [],
+      "outputs": [
+        "snapshot_file",
+        "updated_snapshot",
+        "diff_review_report"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write",
+        "shell.readonly"
+      ],
+      "quality_gates": [
+        "All snapshots are deterministic (no timestamps, random IDs)",
+        "Inline snapshots used for outputs under 20 lines",
+        "Snapshot update PRs include explicit description of what changed and why"
+      ],
+      "failure_modes": [
+        "Snapshots updated blindly with --updateSnapshot without reviewing diff",
+        "Snapshot files gitignored — defeating the regression purpose",
+        "Large complex snapshots that make diffs unreadable"
+      ],
+      "handoffs": [
+        "engineering.code-reviewer (to review snapshot updates)"
+      ],
+      "budget_band": "micro",
+      "rollback": [
+        "Revert snapshot file to previous committed version",
+        "Delete auto-generated snapshot file and regenerate from correct state"
+      ],
+      "validators": [
+        "skill.validator"
+      ],
+      "source_references": [
+        "https://github.com/facebook/jest",
+        "https://github.com/nicolo-ribaudo/jest-clean-console-reporter"
+      ],
+      "allowed_agents": [
+        "engineering.tdd-guide",
+        "engineering.code-reviewer"
+      ],
       "allowed_workflows": [],
       "status": "active"
     },
@@ -5304,6 +6236,81 @@
         "ref.github.engineering.2026-05-31"
       ],
       "allowed_agents": [],
+      "allowed_workflows": [],
+      "status": "active"
+    },
+    {
+      "id": "engineering.swift-patterns",
+      "name": "Swift Code Review Patterns",
+      "version": "1.0.0",
+      "domain": "engineering",
+      "category": "engineering.engineering",
+      "purpose": "Review Swift code for optional safety, actor isolation, and SwiftUI lifecycle correctness.",
+      "summary": "Swift Code Review Patterns skill providing systematic guidance grounded in real open-source patterns.",
+      "triggers": [
+        "swift review",
+        "swift code review",
+        "review swift",
+        "swift code audit",
+        "swiftui review"
+      ],
+      "activation_triggers": [
+        "how do I swift review",
+        "help me with swift code review"
+      ],
+      "prerequisites": [
+        "Relevant codebase or artifact accessible",
+        "Context of the task is clear"
+      ],
+      "inputs": [
+        "target_artifact",
+        "requirements_or_context"
+      ],
+      "steps": [
+        "Check optional handling — avoid force unwrap (!); use guard let or if let with meaningful fallback",
+        "Review actor isolation — Swift 6 strict concurrency requires explicit actor boundaries; check @MainActor usage",
+        "Check retain cycles — closures capturing self must use [weak self] or [unowned self] appropriately",
+        "Review SwiftUI view lifecycle — @StateObject for owned objects, @ObservedObject for injected; don't mix them",
+        "Check async/await usage — never call async functions in init() without Task {}; Task must be cancelled on disappear",
+        "Review Codable conformance — custom CodingKeys must cover all cases; missing keys cause runtime crashes"
+      ],
+      "procedure": [],
+      "outputs": [
+        "completed_output",
+        "review_or_analysis_report"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Output addresses all required criteria",
+        "Sources cited where patterns were drawn from",
+        "No hallucinated APIs or non-existent patterns"
+      ],
+      "failure_modes": [
+        "Force unwrap without justification",
+        "Missing [weak self] in closure capturing self",
+        "@StateObject used for injected objects"
+      ],
+      "handoffs": [
+        "engineering.code-reviewer (for review)",
+        "engineering.architect (for design decisions)"
+      ],
+      "budget_band": "standard",
+      "rollback": [
+        "No writes — read-only review"
+      ],
+      "validators": [
+        "skill.validator"
+      ],
+      "source_references": [
+        "https://github.com/apple/swift",
+        "https://github.com/nicklockwood/SwiftFormat"
+      ],
+      "allowed_agents": [
+        "engineering.master"
+      ],
       "allowed_workflows": [],
       "status": "active"
     },
@@ -5423,186 +6430,231 @@
     },
     {
       "id": "engineering.test-architecture",
-      "name": "Test Suite Architecture and Organization",
+      "name": "Test Architecture Design",
       "version": "1.0.0",
       "domain": "engineering",
-      "category": "engineering.test-architecture",
-      "summary": "Test Suite Architecture and Organization",
+      "category": "engineering.testing",
+      "purpose": "Design a sustainable test suite structure that balances speed, reliability, and coverage using the testing pyramid.",
+      "summary": "Applies the testing pyramid (many unit, fewer integration, fewest E2E) to a real codebase. Covers test file organization, shared fixture strategy, test data management, and the seams where each layer lives.",
       "triggers": [
-        "design a testing strategy for our microservices",
-        "how should we organize our test suite",
-        "test architecture",
-        "test organization",
-        "test structure",
+        "design test architecture",
         "testing pyramid",
-        "test suite design",
-        "test strategy",
-        "organize tests"
+        "test suite structure",
+        "test organization",
+        "testing strategy design"
       ],
-      "activation_triggers": [],
+      "activation_triggers": [
+        "our tests are too slow and we don't know where to put new ones",
+        "what testing strategy should we use"
+      ],
       "prerequisites": [
-        "Task matches this skill scope"
+        "codebase structure understood",
+        "at least one test framework chosen"
       ],
       "inputs": [
-        "project_structure",
-        "existing_tests",
-        "application_architecture",
-        "team_conventions (optional)"
+        "codebase_overview",
+        "existing_test_suite"
       ],
       "steps": [
-        "Follow the skill procedure in SKILL.md body."
+        "Audit existing tests by layer — count unit vs integration vs E2E; identify if inverted pyramid",
+        "Define test boundaries: unit (single module, all deps mocked), integration (real deps, external mocked), E2E (real browser/API, no mocks)",
+        "Establish shared fixture strategy — factory functions or builder pattern, not copy-pasted objects",
+        "Design test file co-location — tests next to source files, or separate tests/ directory with mirrored structure",
+        "Define naming convention and tagging for slow tests (--testPathPattern=integration tag)",
+        "Set CI split — fast unit tests on every commit; integration on PR; E2E on main/deploy"
       ],
       "procedure": [],
       "outputs": [
-        "test_architecture_plan",
-        "directory_structure",
-        "test_boundaries",
-        "migration_plan (if restructuring)"
+        "test_architecture_doc",
+        "fixture_strategy",
+        "ci_test_split_config"
       ],
-      "tools": [],
-      "quality_gates": [],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Unit tests run in under 30 seconds",
+        "Integration tests isolated from external network",
+        "E2E tests cover the 3-5 most critical user journeys only"
+      ],
       "failure_modes": [
-        "Over-investment in E2E tests at expense of unit tests",
-        "Unclear boundaries between test types cause duplication",
-        "Test suite too slow for developer feedback loop",
-        "Test organization doesn't match application architecture"
+        "All tests at integration level — slow and fragile",
+        "No test data management — tests depend on real production data",
+        "E2E tests for every feature — suite takes 30 minutes"
       ],
-      "handoffs": [],
+      "handoffs": [
+        "engineering.tdd-guide (for implementing the strategy)",
+        "platform.ci-cd-engineer (for CI split configuration)"
+      ],
       "budget_band": "standard",
       "rollback": [
-        "Revert partial outputs and re-run with narrower scope"
+        "Revert test reorganization if it breaks CI",
+        "Restore previous test locations before migration is complete"
       ],
       "validators": [
-        "outputs_complete",
-        "policy_safe"
+        "skill.validator"
       ],
       "source_references": [
-        "ref.github.engineering.2026-05-31"
+        "https://github.com/testcontainers/testcontainers-node",
+        "https://github.com/goldbergyoni/nodebestpractices"
       ],
-      "allowed_agents": [],
+      "allowed_agents": [
+        "engineering.tdd-guide",
+        "engineering.e2e-runner"
+      ],
       "allowed_workflows": [],
       "status": "active"
     },
     {
       "id": "engineering.test-coverage",
-      "name": "Test Coverage Analysis",
+      "name": "Test Coverage Analysis and Improvement",
       "version": "1.0.0",
       "domain": "engineering",
-      "category": "engineering.test-coverage",
-      "summary": "Test Coverage Analysis",
+      "category": "engineering.testing",
+      "purpose": "Measure and improve test coverage to an agreed threshold using line, branch, and function coverage metrics.",
+      "summary": "Coverage analysis identifies untested code paths. This skill covers generating coverage reports, interpreting branch vs line coverage, prioritizing which gaps matter most, and incrementally improving coverage with meaningful tests.",
       "triggers": [
-        "what code paths are not tested",
-        "test coverage",
-        "coverage report",
-        "coverage analysis",
-        "untested code",
+        "test coverage report",
         "improve coverage",
-        "coverage gap",
-        "code coverage"
+        "coverage threshold",
+        "untested code paths",
+        "coverage gap analysis"
       ],
-      "activation_triggers": [],
+      "activation_triggers": [
+        "our coverage is dropping below the threshold",
+        "which code paths are untested"
+      ],
       "prerequisites": [
-        "Task matches this skill scope"
+        "test suite running with coverage enabled (--coverage in Jest, -coverprofile in Go)",
+        "coverage thresholds defined per project"
       ],
       "inputs": [
         "coverage_report",
-        "source_files",
-        "test_files (optional)",
-        "critical_paths (optional)"
+        "threshold_targets"
       ],
       "steps": [
-        "Follow the skill procedure in SKILL.md body."
+        "Generate coverage report with branch coverage enabled (not just line coverage)",
+        "Focus on branch coverage gaps first — these represent untested conditional paths, the most bug-prone",
+        "Identify high-priority uncovered branches — business logic, error handlers, auth checks",
+        "Write tests for each uncovered branch by creating the exact condition that exercises it",
+        "Re-run coverage to verify the gap is closed",
+        "Set minimum thresholds in Jest config (coverageThreshold) and enforce in CI"
       ],
       "procedure": [],
       "outputs": [
-        "coverage_analysis",
-        "untested_critical_paths",
-        "recommended_tests",
-        "coverage_improvement_plan"
+        "coverage_report_html",
+        "gap_analysis",
+        "new_test_cases"
       ],
-      "tools": [],
-      "quality_gates": [],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write",
+        "shell.readonly"
+      ],
+      "quality_gates": [
+        "Branch coverage ≥80% on business-critical modules",
+        "Line coverage ≥70% overall",
+        "Coverage thresholds enforced in CI"
+      ],
       "failure_modes": [
-        "Chasing coverage percentage without testing meaningful behavior",
-        "Missing critical error-handling paths in coverage analysis",
-        "Recommending trivial tests that add coverage but not confidence",
-        "Ignoring integration coverage gaps while focusing on unit coverage"
+        "High line coverage with low branch coverage — tests don't exercise conditionals",
+        "Coverage inflated by trivial tests (getters/setters)",
+        "Coverage threshold met but critical paths untested"
       ],
-      "handoffs": [],
+      "handoffs": [
+        "engineering.tdd-guide (for writing gap-filling tests)"
+      ],
       "budget_band": "standard",
       "rollback": [
-        "Revert partial outputs and re-run with narrower scope"
+        "Remove or lower coverage threshold if blocking a legitimate release"
       ],
       "validators": [
-        "outputs_complete",
-        "policy_safe"
+        "skill.validator"
       ],
       "source_references": [
-        "ref.github.engineering.2026-05-31"
+        "https://github.com/istanbuljs/nyc",
+        "https://github.com/goldbergyoni/nodebestpractices"
       ],
-      "allowed_agents": [],
+      "allowed_agents": [
+        "engineering.tdd-guide"
+      ],
       "allowed_workflows": [],
       "status": "active"
     },
     {
       "id": "engineering.test-data-generation",
-      "name": "Test Data Generation Strategies",
+      "name": "Test Data Generation with Faker",
       "version": "1.0.0",
       "domain": "engineering",
-      "category": "engineering.test-data-generation",
-      "summary": "Test Data Generation Strategies",
+      "category": "engineering.testing",
+      "purpose": "Generate realistic, deterministic test data using factory functions and Faker to avoid brittle hard-coded fixtures.",
+      "summary": "Realistic test data improves test reliability and readability. This skill covers: Faker.js for realistic values, factory functions for domain objects, seeded randomness for determinism, and builder patterns for complex test scenarios.",
       "triggers": [
-        "set up factory bot for our test suite",
-        "generate test data for the user model",
-        "test data",
-        "generate test data",
-        "test fixtures",
-        "test factories",
-        "mock data",
-        "seed data for tests",
-        "property based testing"
+        "test data generation",
+        "faker test data",
+        "test fixture factory",
+        "generate test users",
+        "builder pattern test data"
       ],
-      "activation_triggers": [],
+      "activation_triggers": [
+        "our test data is hard-coded and breaking tests",
+        "how do I generate realistic test data"
+      ],
       "prerequisites": [
-        "Task matches this skill scope"
+        "@faker-js/faker installed (or equivalent)",
+        "test objects/domain models defined"
       ],
       "inputs": [
-        "data_models",
-        "test_requirements",
-        "existing_fixtures (optional)",
-        "data_constraints (optional)"
+        "domain_model",
+        "test_scenarios"
       ],
       "steps": [
-        "Follow the skill procedure in SKILL.md body."
+        "Install @faker-js/faker and seed for determinism (faker.seed(12345))",
+        "Create factory functions per domain entity — buildUser(), buildOrder(), buildProduct()",
+        "Use Faker for realistic values — faker.internet.email(), faker.commerce.price()",
+        "Implement builder pattern for complex objects — allow overrides per test",
+        "Add factories to a central __fixtures__ or __factories__ directory",
+        "Document factory defaults and override patterns for the team"
       ],
       "procedure": [],
       "outputs": [
-        "data_generation_strategy",
-        "factory_definitions",
-        "fixture_files",
-        "sample_datasets"
+        "factory_functions",
+        "seeded_test_data",
+        "fixtures_directory"
       ],
-      "tools": [],
-      "quality_gates": [],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "All factories support partial overrides",
+        "faker.seed() called at the start of test suites that need determinism",
+        "No hard-coded test values that could conflict (email: \"test@test.com\")"
+      ],
       "failure_modes": [
-        "Generated data violates domain constraints",
-        "Test data leaks between test cases",
-        "Factories produce unrealistic data distributions",
-        "Fixture maintenance burden grows with schema changes"
+        "Non-deterministic faker values cause flaky snapshot tests — use faker.seed()",
+        "Factory defaults produce invalid data (negative prices) — add validation",
+        "Too many factory variants — use a single factory with sensible defaults"
       ],
-      "handoffs": [],
-      "budget_band": "standard",
+      "handoffs": [
+        "engineering.tdd-guide (for integration with TDD workflow)"
+      ],
+      "budget_band": "micro",
       "rollback": [
-        "Revert partial outputs and re-run with narrower scope"
+        "Remove factory functions if they introduce test complexity"
       ],
       "validators": [
-        "outputs_complete",
-        "policy_safe"
+        "skill.validator"
       ],
       "source_references": [
-        "ref.github.engineering.2026-05-31"
+        "https://github.com/faker-js/faker",
+        "https://github.com/thoughtbot/fishery"
       ],
-      "allowed_agents": [],
+      "allowed_agents": [
+        "engineering.tdd-guide",
+        "engineering.e2e-runner"
+      ],
       "allowed_workflows": [],
       "status": "active"
     },
@@ -5686,6 +6738,81 @@
       "allowed_workflows": [
         "engineering.test-suite-expansion"
       ],
+      "status": "active"
+    },
+    {
+      "id": "engineering.typescript-patterns",
+      "name": "TypeScript Code Review Patterns",
+      "version": "1.0.0",
+      "domain": "engineering",
+      "category": "engineering.engineering",
+      "purpose": "Review TypeScript code for type safety, idiom correctness, and common anti-patterns.",
+      "summary": "TypeScript Code Review Patterns skill providing systematic guidance grounded in real open-source patterns.",
+      "triggers": [
+        "typescript review",
+        "ts code review",
+        "review typescript",
+        "typescript code audit",
+        "ts file review"
+      ],
+      "activation_triggers": [
+        "how do I typescript review",
+        "help me with ts code review"
+      ],
+      "prerequisites": [
+        "Relevant codebase or artifact accessible",
+        "Context of the task is clear"
+      ],
+      "inputs": [
+        "target_artifact",
+        "requirements_or_context"
+      ],
+      "steps": [
+        "Check strict mode is enabled (strict: true in tsconfig.json) — non-negotiable baseline",
+        "Review any/unknown usage — any is a type escape hatch that defeats TypeScript; use unknown with type guards",
+        "Check for non-null assertion operator (!) overuse — should be documented with a comment why it's safe",
+        "Review generic constraints — ensure T extends SomeInterface when the type must satisfy requirements",
+        "Check discriminated unions for exhaustiveness — switch statements on union types should have a default that asserts never",
+        "Verify import types (import type {Foo}) are used for type-only imports to avoid runtime overhead"
+      ],
+      "procedure": [],
+      "outputs": [
+        "completed_output",
+        "review_or_analysis_report"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Output addresses all required criteria",
+        "Sources cited where patterns were drawn from",
+        "No hallucinated APIs or non-existent patterns"
+      ],
+      "failure_modes": [
+        "Approving any casts without requiring justification",
+        "Missing exhaustiveness checks on discriminated unions",
+        "Accepting ! without documentation"
+      ],
+      "handoffs": [
+        "engineering.code-reviewer (for review)",
+        "engineering.architect (for design decisions)"
+      ],
+      "budget_band": "standard",
+      "rollback": [
+        "No writes — read-only review"
+      ],
+      "validators": [
+        "skill.validator"
+      ],
+      "source_references": [
+        "https://github.com/microsoft/TypeScript",
+        "https://github.com/total-typescript/ts-reset"
+      ],
+      "allowed_agents": [
+        "engineering.master"
+      ],
+      "allowed_workflows": [],
       "status": "active"
     },
     {
@@ -6135,43 +7262,82 @@
     },
     {
       "id": "finance.expense-auditor",
-      "name": "expense-auditor",
+      "name": "Expense Policy Audit",
       "version": "1.0.0",
       "domain": "finance",
-      "category": "finance.expense-auditor",
-      "purpose": "Audits expenses for policy compliance. Informational only.",
-      "summary": "Audits expenses for policy compliance. Informational only.",
+      "category": "finance.controls",
+      "purpose": "Review expenses for policy compliance, duplicate spend, missing evidence, and approval exceptions. Informational only.",
+      "summary": "Expense auditing checks transactions against policy, approval rules, receipts, vendor patterns, and exception handling without making legal or tax determinations.",
       "triggers": [
         "expense audit",
-        "expense auditor task"
+        "expense auditor task",
+        "review expenses",
+        "policy compliance audit",
+        "duplicate expense check"
       ],
-      "activation_triggers": [],
+      "activation_triggers": [
+        "audit these expenses",
+        "find expense policy issues"
+      ],
       "prerequisites": [
-        "task_context"
+        "Expense policy and approval matrix are available",
+        "Transaction export includes date, vendor, amount, category, employee, and approver",
+        "Receipt or evidence status is available"
       ],
-      "inputs": [],
+      "inputs": [
+        "expense_export",
+        "expense_policy",
+        "approval_matrix",
+        "receipt_status"
+      ],
       "steps": [
-        "Execute procedure"
+        "Normalize expense data and flag missing required fields.",
+        "Check each transaction against policy limits, categories, approval thresholds, and receipt requirements.",
+        "Detect duplicate patterns by employee, vendor, amount, date proximity, and receipt identifier.",
+        "Separate hard violations from review-needed exceptions.",
+        "Summarize root causes and process fixes.",
+        "Add disclaimer that outputs are operational controls support, not tax or legal advice."
       ],
       "procedure": [],
       "outputs": [
-        "skill_output"
+        "expense_audit_report",
+        "exception_list",
+        "duplicate_risk_list",
+        "control_improvement_recommendations"
       ],
-      "tools": [],
-      "quality_gates": [],
-      "failure_modes": [],
-      "handoffs": [],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Policy basis is cited for every violation",
+        "Exceptions are separated from confirmed issues",
+        "Disclaimer is included"
+      ],
+      "failure_modes": [
+        "Treating missing data as confirmed fraud",
+        "Applying the wrong approval threshold",
+        "Making tax or legal conclusions"
+      ],
+      "handoffs": [
+        "finance.audit-specialist",
+        "legal-compliance.compliance-checker"
+      ],
       "budget_band": "standard",
       "rollback": [
-        "revert"
+        "Revert audit report artifact"
       ],
       "validators": [
-        "outputs_complete"
+        "skill.validator",
+        "disclaimer_present"
       ],
       "source_references": [
-        "ref.github.finance.expense-auditor.2026-06-02"
+        "ref.github.finance.expense-auditor.2026-06-02",
+        "https://github.com/actualbudget/actual"
       ],
-      "allowed_agents": [],
+      "allowed_agents": [
+        "finance.expense-auditor"
+      ],
       "allowed_workflows": [],
       "status": "active"
     },
@@ -6397,43 +7563,82 @@
     },
     {
       "id": "finance.payroll-analyst",
-      "name": "payroll-analyst",
+      "name": "Payroll Reconciliation Analysis",
       "version": "1.0.0",
       "domain": "finance",
-      "category": "finance.payroll-analyst",
-      "purpose": "Supports payroll reconciliation. Informational only.",
-      "summary": "Supports payroll reconciliation. Informational only.",
+      "category": "finance.payroll",
+      "purpose": "Reconcile payroll records, headcount changes, deductions, taxes, and variance drivers. Informational only.",
+      "summary": "Payroll analysis compares payroll runs against HR rosters, compensation changes, benefits, deductions, and expected cash impact.",
       "triggers": [
         "payroll analysis",
-        "payroll analyst task"
+        "payroll analyst task",
+        "payroll reconciliation",
+        "payroll variance analysis",
+        "headcount payroll review"
       ],
-      "activation_triggers": [],
+      "activation_triggers": [
+        "reconcile payroll",
+        "explain payroll variance"
+      ],
       "prerequisites": [
-        "task_context"
+        "Payroll register and prior-period payroll are available",
+        "HR roster and compensation changes are available",
+        "Review period and entity scope are defined"
       ],
-      "inputs": [],
+      "inputs": [
+        "payroll_register",
+        "hr_roster",
+        "compensation_changes",
+        "prior_period_payroll"
+      ],
       "steps": [
-        "Execute procedure"
+        "Reconcile employee count, start dates, terminations, salary changes, and variable pay.",
+        "Compare gross pay, deductions, employer taxes, benefits, and net cash movement to prior period.",
+        "Flag anomalies by employee, department, pay type, or entity.",
+        "Separate expected variance from unresolved variance.",
+        "Document questions for payroll provider, HR, or finance controller.",
+        "Add disclaimer that payroll outputs require human payroll or finance review."
       ],
       "procedure": [],
       "outputs": [
-        "skill_output"
+        "payroll_reconciliation",
+        "variance_explanation",
+        "anomaly_list",
+        "review_questions"
       ],
-      "tools": [],
-      "quality_gates": [],
-      "failure_modes": [],
-      "handoffs": [],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Headcount and compensation changes reconcile to HR records",
+        "Variances are labeled expected or unresolved",
+        "Disclaimer and review gate are included"
+      ],
+      "failure_modes": [
+        "Missing terminated or newly hired employees",
+        "Treating tax withholding as advice",
+        "Combining different entities or pay periods"
+      ],
+      "handoffs": [
+        "finance.audit-specialist",
+        "hr.hr-operations"
+      ],
       "budget_band": "standard",
       "rollback": [
-        "revert"
+        "Revert payroll analysis artifact"
       ],
       "validators": [
-        "outputs_complete"
+        "skill.validator",
+        "disclaimer_present"
       ],
       "source_references": [
-        "ref.github.finance.payroll-analyst.2026-06-02"
+        "ref.github.finance.payroll-analyst.2026-06-02",
+        "https://github.com/actualbudget/actual"
       ],
-      "allowed_agents": [],
+      "allowed_agents": [
+        "finance.payroll-analyst"
+      ],
       "allowed_workflows": [],
       "status": "active"
     },
@@ -8480,43 +9685,82 @@
     },
     {
       "id": "hr.policy-drafter",
-      "name": "policy-drafter",
+      "name": "HR Policy Drafting",
       "version": "1.0.0",
       "domain": "hr",
-      "category": "hr.policy-drafter",
-      "purpose": "Drafts HR policies with review gates.",
-      "summary": "Drafts HR policies with review gates.",
+      "category": "hr.policy",
+      "purpose": "Draft HR policy structures with clear scope, employee-facing language, exception handling, and review gates.",
+      "summary": "HR policy drafting turns company requirements into readable policies while requiring legal, HR, and leadership review before publication.",
       "triggers": [
         "hr policy draft",
-        "policy drafter task"
+        "policy drafter task",
+        "employee handbook policy",
+        "draft workplace policy",
+        "revise HR policy"
       ],
-      "activation_triggers": [],
+      "activation_triggers": [
+        "draft an HR policy",
+        "update the handbook policy"
+      ],
       "prerequisites": [
-        "task_context"
+        "Policy objective and employee population are defined",
+        "Jurisdictions and review owners are identified",
+        "Existing handbook or policy template is available when applicable"
       ],
-      "inputs": [],
+      "inputs": [
+        "policy_objective",
+        "employee_population",
+        "jurisdiction_scope",
+        "existing_policy_template"
+      ],
       "steps": [
-        "Execute procedure"
+        "Define policy purpose, scope, eligibility, definitions, owner, and effective date.",
+        "Draft employee-facing rules in plain language with examples and non-examples.",
+        "Add exception path, escalation owner, recordkeeping notes, and review cadence.",
+        "Flag jurisdiction-sensitive or legal-risk sections for counsel review.",
+        "Check consistency with existing handbook language and company tone.",
+        "Produce a review checklist for HR, legal, finance, and leadership as needed."
       ],
       "procedure": [],
       "outputs": [
-        "skill_output"
+        "policy_draft",
+        "review_checklist",
+        "risk_notes",
+        "employee_faq"
       ],
-      "tools": [],
-      "quality_gates": [],
-      "failure_modes": [],
-      "handoffs": [],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Legal and HR review gate is explicit",
+        "Policy scope and effective date are clear",
+        "Employee-facing language is plain and enforceable"
+      ],
+      "failure_modes": [
+        "Presenting policy as legal advice",
+        "Missing jurisdiction-specific review",
+        "Drafting vague rules that cannot be applied consistently"
+      ],
+      "handoffs": [
+        "hr.hr-compliance",
+        "legal-compliance.employment-lawyer"
+      ],
       "budget_band": "standard",
       "rollback": [
-        "revert"
+        "Revert policy draft artifact"
       ],
       "validators": [
-        "outputs_complete"
+        "skill.validator",
+        "human_review_gate_present"
       ],
       "source_references": [
-        "ref.github.hr.policy-drafter.2026-06-02"
+        "ref.github.hr.policy-drafter.2026-06-02",
+        "https://github.com/hmrc/design-patterns"
       ],
-      "allowed_agents": [],
+      "allowed_agents": [
+        "hr.policy-drafter"
+      ],
       "allowed_workflows": [],
       "status": "active"
     },
@@ -9499,6 +10743,85 @@
       "status": "active"
     },
     {
+      "id": "integrations.figma-integration",
+      "name": "Figma Integration",
+      "version": "1.0.0",
+      "domain": "integrations",
+      "category": "integrations.design-tools",
+      "purpose": "Connect Figma context into agent workflows with scoped access, asset extraction, and design-to-code handoff rules.",
+      "summary": "Figma integration work defines how to read design files, extract tokens and assets, preserve provenance, and hand off implementation-ready context.",
+      "triggers": [
+        "figma integration",
+        "connect figma",
+        "figma design context",
+        "design to code integration",
+        "extract figma assets"
+      ],
+      "activation_triggers": [
+        "use Figma as a source",
+        "wire Figma into workflow"
+      ],
+      "prerequisites": [
+        "Figma file or node URL is available",
+        "Access permissions are confirmed",
+        "Desired output type is defined"
+      ],
+      "inputs": [
+        "figma_url",
+        "access_scope",
+        "target_output"
+      ],
+      "steps": [
+        "Validate access scope and avoid requesting broad workspace permissions when file scope is enough.",
+        "Identify frames, components, tokens, assets, and annotations required for the task.",
+        "Extract only bounded context needed for the route or workflow.",
+        "Preserve provenance by recording file, node, timestamp, and extraction method.",
+        "Hand off implementation notes to design-content or engineering agents as appropriate."
+      ],
+      "procedure": [],
+      "outputs": [
+        "figma_context_pack",
+        "asset_manifest",
+        "implementation_notes"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Access scope is minimal",
+        "Node/file provenance is recorded",
+        "Extracted context is bounded and task-specific"
+      ],
+      "failure_modes": [
+        "Pulling entire design files into context",
+        "Losing node-level provenance",
+        "Treating screenshots as exact specs without inspection"
+      ],
+      "handoffs": [
+        "design-content.ui-designer",
+        "engineering.frontend-react"
+      ],
+      "budget_band": "standard",
+      "rollback": [
+        "Delete generated Figma context pack"
+      ],
+      "validators": [
+        "skill.validator",
+        "provenance_recorded"
+      ],
+      "source_references": [
+        "ref.github.integrations.figma-integration.2026-06-03",
+        "https://github.com/figma/plugin-samples"
+      ],
+      "allowed_agents": [
+        "integrations.figma-agent",
+        "integrations.api-integration-specialist"
+      ],
+      "allowed_workflows": [],
+      "status": "active"
+    },
+    {
       "id": "integrations.graphql-integration",
       "name": "GraphQL Integration",
       "version": "1.0.0",
@@ -9800,6 +11123,168 @@
       "allowed_workflows": [
         "integrations.api-gateway-configuration"
       ],
+      "status": "active"
+    },
+    {
+      "id": "integrations.mcp-connector-design",
+      "name": "MCP Connector Design",
+      "version": "1.0.0",
+      "domain": "integrations",
+      "category": "integrations.mcp",
+      "purpose": "Design MCP connectors with minimal permissions, stable tool schemas, provenance, error handling, and safe host behavior.",
+      "summary": "MCP connector design defines tools, resources, authentication, capability boundaries, audit trails, and host-specific safety behavior for agent use.",
+      "triggers": [
+        "mcp connector design",
+        "design mcp connector",
+        "mcp server integration",
+        "connector tool schema",
+        "mcp capability design"
+      ],
+      "activation_triggers": [
+        "create an MCP connector",
+        "design connector tools"
+      ],
+      "prerequisites": [
+        "Target service API is known",
+        "Authentication model is understood",
+        "Required capabilities are scoped"
+      ],
+      "inputs": [
+        "service_api",
+        "auth_model",
+        "capability_scope",
+        "host_requirements"
+      ],
+      "steps": [
+        "Define connector purpose, trusted boundary, user data touched, and host assumptions.",
+        "Design small, stable tool schemas with explicit inputs, outputs, errors, and timeouts.",
+        "Separate read tools from write tools and require gates for destructive or external writes.",
+        "Add provenance, audit logging, retry behavior, and rate-limit handling.",
+        "Document install, env vars, scopes, and rollback procedure."
+      ],
+      "procedure": [],
+      "outputs": [
+        "mcp_connector_spec",
+        "tool_schema_set",
+        "permission_model",
+        "safety_and_audit_plan"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Tool schemas are bounded and typed",
+        "Permissions are minimal",
+        "Write actions have gates and rollback notes"
+      ],
+      "failure_modes": [
+        "Broad OAuth scopes without need",
+        "Tools returning unbounded payloads",
+        "No audit trail for external writes"
+      ],
+      "handoffs": [
+        "integrations.mcp-connector-designer",
+        "meta-system.adapter-generator"
+      ],
+      "budget_band": "standard",
+      "rollback": [
+        "Revert connector spec",
+        "Remove generated connector files"
+      ],
+      "validators": [
+        "skill.validator",
+        "permission_scope_check"
+      ],
+      "source_references": [
+        "ref.github.integrations.mcp-connector-design.2026-06-03",
+        "https://github.com/modelcontextprotocol/servers"
+      ],
+      "allowed_agents": [
+        "integrations.mcp-connector-designer",
+        "integrations.api-gateway-architect"
+      ],
+      "allowed_workflows": [],
+      "status": "active"
+    },
+    {
+      "id": "integrations.notion-integration",
+      "name": "Notion Integration",
+      "version": "1.0.0",
+      "domain": "integrations",
+      "category": "integrations.knowledge-tools",
+      "purpose": "Connect Notion pages and databases into workflows with scoped retrieval, metadata preservation, and update discipline.",
+      "summary": "Notion integration retrieves structured knowledge from pages or databases, preserves page provenance, and avoids broad workspace sync unless explicitly needed.",
+      "triggers": [
+        "notion integration",
+        "connect notion",
+        "notion database workflow",
+        "notion knowledge source",
+        "sync notion context"
+      ],
+      "activation_triggers": [
+        "use Notion as context",
+        "pull from Notion database"
+      ],
+      "prerequisites": [
+        "Page or database target is known",
+        "Access scope is approved",
+        "Read vs write behavior is specified"
+      ],
+      "inputs": [
+        "notion_target",
+        "access_scope",
+        "sync_mode"
+      ],
+      "steps": [
+        "Confirm whether the task needs page read, database query, comment read, or writeback.",
+        "Limit retrieval by page, database filter, status, owner, or date.",
+        "Normalize Notion blocks into compact markdown with page URL, title, owner, and last edited time.",
+        "Preserve database properties needed for routing or workflow decisions.",
+        "Use writeback only after explicit workflow gate and include rollback notes."
+      ],
+      "procedure": [],
+      "outputs": [
+        "notion_context_pack",
+        "database_property_map",
+        "writeback_plan"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Retrieval scope is bounded",
+        "Page/database provenance is included",
+        "Writeback plan has rollback path"
+      ],
+      "failure_modes": [
+        "Loading whole workspaces instead of filtered pages",
+        "Dropping database properties needed for decisions",
+        "Writing back without human review"
+      ],
+      "handoffs": [
+        "integrations.notion-agent",
+        "meta-system.source-miner"
+      ],
+      "budget_band": "standard",
+      "rollback": [
+        "Revert generated Notion context pack",
+        "Restore prior page content if writeback occurred"
+      ],
+      "validators": [
+        "skill.validator",
+        "bounded_retrieval_check"
+      ],
+      "source_references": [
+        "ref.github.integrations.notion-integration.2026-06-03",
+        "https://github.com/makenotion/notion-sdk-js"
+      ],
+      "allowed_agents": [
+        "integrations.notion-agent",
+        "integrations.api-integration-specialist"
+      ],
+      "allowed_workflows": [],
       "status": "active"
     },
     {
@@ -10330,6 +11815,88 @@
       "allowed_workflows": [
         "integrations.microservices-integration"
       ],
+      "status": "active"
+    },
+    {
+      "id": "integrations.stripe-integration",
+      "name": "Stripe Integration",
+      "version": "1.0.0",
+      "domain": "integrations",
+      "category": "integrations.payments",
+      "purpose": "Design Stripe payment, subscription, webhook, and reconciliation integration plans with secure handling of payment data.",
+      "summary": "Stripe integration covers product/pricing setup, checkout or billing flows, webhook verification, idempotency, customer mapping, and reconciliation.",
+      "triggers": [
+        "stripe integration",
+        "stripe checkout setup",
+        "stripe subscription workflow",
+        "stripe webhook design",
+        "payment integration"
+      ],
+      "activation_triggers": [
+        "integrate Stripe",
+        "design Stripe billing"
+      ],
+      "prerequisites": [
+        "Pricing model and billing flow are known",
+        "Payment data handling boundaries are defined",
+        "Webhook endpoint ownership is known"
+      ],
+      "inputs": [
+        "billing_requirements",
+        "product_pricing_model",
+        "customer_mapping",
+        "webhook_events"
+      ],
+      "steps": [
+        "Map billing model to Stripe objects: products, prices, customers, subscriptions, invoices, checkout sessions, and webhooks.",
+        "Define secure boundaries: never store raw card data; use Stripe-hosted or tokenized flows.",
+        "Design webhook verification, idempotency keys, retry behavior, and event ordering handling.",
+        "Plan reconciliation between app state, Stripe state, and finance records.",
+        "Add test-mode fixtures and failure scenarios before production rollout."
+      ],
+      "procedure": [],
+      "outputs": [
+        "stripe_integration_plan",
+        "webhook_event_map",
+        "reconciliation_plan",
+        "test_scenario_list"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Webhook signature verification is required",
+        "Idempotency and retries are specified",
+        "No raw payment data storage is introduced"
+      ],
+      "failure_modes": [
+        "Trusting webhook payloads without verification",
+        "Creating duplicate entitlements on retry",
+        "Failing to reconcile canceled or disputed payments"
+      ],
+      "handoffs": [
+        "integrations.stripe-agent",
+        "engineering.backend-api"
+      ],
+      "budget_band": "standard",
+      "rollback": [
+        "Revert integration plan artifact",
+        "Disable test webhook endpoint if created"
+      ],
+      "validators": [
+        "skill.validator",
+        "payment_safety_check"
+      ],
+      "source_references": [
+        "ref.github.integrations.stripe-integration.2026-06-03",
+        "https://github.com/stripe/stripe-node"
+      ],
+      "allowed_agents": [
+        "integrations.stripe-agent",
+        "integrations.api-integration-specialist"
+      ],
+      "allowed_workflows": [],
       "status": "active"
     },
     {
@@ -11069,43 +12636,82 @@
     },
     {
       "id": "legal-compliance.nda-reviewer",
-      "name": "nda-reviewer",
+      "name": "NDA Review Support",
       "version": "1.0.0",
       "domain": "legal-compliance",
-      "category": "legal-compliance.nda-reviewer",
-      "purpose": "Reviews NDAs; escalate to counsel.",
-      "summary": "Reviews NDAs; escalate to counsel.",
+      "category": "legal-compliance.contracts",
+      "purpose": "Review NDA structure, business risks, missing clauses, and negotiation questions. Not legal advice.",
+      "summary": "NDA review support highlights confidentiality scope, term, exclusions, residuals, return obligations, jurisdiction, and unusual obligations for counsel review.",
       "triggers": [
         "nda review",
-        "nda reviewer task"
+        "nda reviewer task",
+        "review confidentiality agreement",
+        "mutual nda check",
+        "unilateral nda review"
       ],
-      "activation_triggers": [],
+      "activation_triggers": [
+        "review this NDA",
+        "check this confidentiality agreement"
+      ],
       "prerequisites": [
-        "task_context"
+        "NDA text is available",
+        "Party roles and transaction context are known",
+        "Desired risk posture is defined"
       ],
-      "inputs": [],
+      "inputs": [
+        "nda_text",
+        "transaction_context",
+        "party_roles",
+        "risk_posture"
+      ],
       "steps": [
-        "Execute procedure"
+        "Identify NDA type, parties, purpose, effective date, governing law, and term.",
+        "Review confidential information definition, exclusions, use limits, disclosure permissions, and return or destruction obligations.",
+        "Flag business-sensitive terms: residuals, non-solicit, non-compete, IP ownership, injunctive relief, and unusual audit rights.",
+        "Check whether obligations are mutual, one-way, or mismatched to the transaction.",
+        "Produce issues table with clause, risk, business impact, and counsel question.",
+        "Add not-legal-advice disclaimer and require attorney review before signature."
       ],
       "procedure": [],
       "outputs": [
-        "skill_output"
+        "nda_review_notes",
+        "issue_table",
+        "negotiation_questions",
+        "counsel_review_summary"
       ],
-      "tools": [],
-      "quality_gates": [],
-      "failure_modes": [],
-      "handoffs": [],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Disclaimer and counsel review gate are present",
+        "Clause references are included for each issue",
+        "Business risks are separated from legal conclusions"
+      ],
+      "failure_modes": [
+        "Giving legal advice or signature recommendation",
+        "Missing one-way obligations in a mutual deal",
+        "Ignoring embedded non-compete or IP terms"
+      ],
+      "handoffs": [
+        "legal-compliance.contract-reviewer",
+        "legal-compliance.legal-researcher"
+      ],
       "budget_band": "standard",
       "rollback": [
-        "revert"
+        "Revert NDA review artifact"
       ],
       "validators": [
-        "outputs_complete"
+        "skill.validator",
+        "disclaimer_present"
       ],
       "source_references": [
-        "ref.github.legal-compliance.nda-reviewer.2026-06-02"
+        "ref.github.legal-compliance.nda-reviewer.2026-06-02",
+        "https://github.com/commonaccord/commonaccord"
       ],
-      "allowed_agents": [],
+      "allowed_agents": [
+        "legal-compliance.nda-reviewer"
+      ],
       "allowed_workflows": [],
       "status": "active"
     },
@@ -11386,43 +12992,82 @@
     },
     {
       "id": "legal-compliance.terms-drafter",
-      "name": "terms-drafter",
+      "name": "Terms of Service Drafting Support",
       "version": "1.0.0",
       "domain": "legal-compliance",
-      "category": "legal-compliance.terms-drafter",
-      "purpose": "Drafts terms structure; not legal advice.",
-      "summary": "Drafts terms structure; not legal advice.",
+      "category": "legal-compliance.contracts",
+      "purpose": "Draft terms-of-service structure, clause checklist, product-specific notes, and counsel review questions. Not legal advice.",
+      "summary": "Terms drafting support creates a structured first draft covering account rules, acceptable use, payment, IP, disclaimers, limits, termination, and dispute process for legal review.",
       "triggers": [
         "terms of service",
-        "terms drafter task"
+        "terms drafter task",
+        "draft terms",
+        "website terms draft",
+        "SaaS terms checklist"
       ],
-      "activation_triggers": [],
+      "activation_triggers": [
+        "draft terms of service",
+        "create website terms"
+      ],
       "prerequisites": [
-        "task_context"
+        "Product, users, jurisdictions, and monetization model are defined",
+        "Privacy policy and data processing context are available",
+        "Counsel review owner is identified"
       ],
-      "inputs": [],
+      "inputs": [
+        "product_description",
+        "user_types",
+        "monetization_model",
+        "jurisdiction_scope"
+      ],
       "steps": [
-        "Execute procedure"
+        "Define scope: product, users, accounts, eligibility, and incorporated policies.",
+        "Draft clause structure for acceptable use, user content, IP, payment, subscription, cancellation, termination, disclaimers, liability limits, and disputes.",
+        "Add product-specific sections for AI outputs, marketplace activity, user-generated content, or regulated content when applicable.",
+        "Mark jurisdiction-sensitive clauses for counsel review.",
+        "Create a counsel checklist and business decision list.",
+        "Add not-legal-advice disclaimer and require legal review before publication."
       ],
       "procedure": [],
       "outputs": [
-        "skill_output"
+        "terms_structure",
+        "draft_terms_sections",
+        "counsel_review_checklist",
+        "business_decision_list"
       ],
-      "tools": [],
-      "quality_gates": [],
-      "failure_modes": [],
-      "handoffs": [],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Disclaimer and legal review gate are present",
+        "Product-specific risks are called out",
+        "Business decisions are separated from legal drafting"
+      ],
+      "failure_modes": [
+        "Publishing draft terms without legal review",
+        "Copying generic clauses that do not match the product",
+        "Missing payment, cancellation, or user-content rules"
+      ],
+      "handoffs": [
+        "legal-compliance.terms-drafter",
+        "legal-compliance.privacy-advisor"
+      ],
       "budget_band": "standard",
       "rollback": [
-        "revert"
+        "Revert terms draft artifact"
       ],
       "validators": [
-        "outputs_complete"
+        "skill.validator",
+        "disclaimer_present"
       ],
       "source_references": [
-        "ref.github.legal-compliance.terms-drafter.2026-06-02"
+        "ref.github.legal-compliance.terms-drafter.2026-06-02",
+        "https://github.com/commonaccord/commonaccord"
       ],
-      "allowed_agents": [],
+      "allowed_agents": [
+        "legal-compliance.terms-drafter"
+      ],
       "allowed_workflows": [],
       "status": "active"
     },
@@ -12389,44 +14034,166 @@
       "status": "active"
     },
     {
-      "id": "marketing.campaign-analyst",
-      "name": "campaign-analyst",
+      "id": "marketing.brand-management",
+      "name": "Brand Management",
       "version": "1.0.0",
       "domain": "marketing",
-      "category": "marketing.campaign-analyst",
-      "purpose": "Analyzes campaign performance and attribution.",
-      "summary": "Analyzes campaign performance and attribution.",
+      "category": "marketing.brand",
+      "purpose": "Maintain brand consistency across messaging, campaigns, channels, and launch assets.",
+      "summary": "Brand management checks voice, positioning, claims, visual consistency, naming, and campaign fit so public-facing work reinforces the same market identity.",
       "triggers": [
-        "campaign analysis",
-        "campaign analyst task"
+        "brand management",
+        "brand consistency review",
+        "brand voice management",
+        "brand identity management",
+        "manage brand guidelines"
       ],
-      "activation_triggers": [],
+      "activation_triggers": [
+        "check brand consistency",
+        "create brand management checklist"
+      ],
       "prerequisites": [
-        "task_context"
+        "Brand guidelines or positioning notes are available",
+        "Target audience and channel are defined",
+        "Asset or campaign draft is available"
       ],
-      "inputs": [],
+      "inputs": [
+        "brand_guidelines",
+        "campaign_assets",
+        "audience_context",
+        "channel_requirements"
+      ],
       "steps": [
-        "Execute procedure"
+        "Extract the brand promise, audience, voice principles, visual rules, and prohibited claims.",
+        "Review each asset for message consistency, tone, naming, logo use, color, typography, and claim support.",
+        "Flag off-brand language, unsupported claims, inconsistent hierarchy, and channel-specific risks.",
+        "Create a correction table with issue, severity, fix, and owner.",
+        "Update reusable brand guidance when a repeated issue appears."
       ],
       "procedure": [],
       "outputs": [
-        "skill_output"
+        "brand_consistency_report",
+        "correction_table",
+        "updated_brand_guidance"
       ],
-      "tools": [],
-      "quality_gates": [],
-      "failure_modes": [],
-      "handoffs": [],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Brand promise and audience are stated",
+        "Claims are supported or flagged",
+        "Corrections are actionable and channel-aware"
+      ],
+      "failure_modes": [
+        "Treating personal style preference as brand rule",
+        "Ignoring channel constraints",
+        "Allowing unsupported claims in launch copy"
+      ],
+      "handoffs": [
+        "marketing.brand-marketer",
+        "design-content.brand-designer"
+      ],
       "budget_band": "standard",
       "rollback": [
-        "revert"
+        "Revert brand guidance artifact"
       ],
       "validators": [
-        "outputs_complete"
+        "skill.validator",
+        "claim_support_check"
       ],
       "source_references": [
-        "ref.github.marketing.campaign-analyst.2026-06-02"
+        "ref.github.marketing.brand-management.2026-06-03",
+        "https://github.com/makeplane/plane"
       ],
-      "allowed_agents": [],
+      "allowed_agents": [
+        "marketing.brand-manager",
+        "marketing.brand-marketer"
+      ],
+      "allowed_workflows": [],
+      "status": "active"
+    },
+    {
+      "id": "marketing.campaign-analyst",
+      "name": "Campaign Performance Analysis",
+      "version": "1.0.0",
+      "domain": "marketing",
+      "category": "marketing.analytics",
+      "purpose": "Analyze campaign performance, attribution quality, channel efficiency, and next-budget actions.",
+      "summary": "Campaign analysis turns spend, traffic, conversion, and revenue data into a clear read on what worked, what did not, and where to reallocate budget.",
+      "triggers": [
+        "campaign analysis",
+        "campaign performance review",
+        "marketing attribution analysis",
+        "channel performance report",
+        "campaign ROI analysis"
+      ],
+      "activation_triggers": [
+        "analyze this campaign",
+        "which channel performed best"
+      ],
+      "prerequisites": [
+        "Campaign objective and dates are known",
+        "Spend, traffic, conversion, and revenue data are available",
+        "Attribution model or source of truth is identified"
+      ],
+      "inputs": [
+        "campaign_metrics",
+        "spend_by_channel",
+        "conversion_events",
+        "attribution_model"
+      ],
+      "steps": [
+        "Confirm campaign goal, target audience, channels, flight dates, and primary KPI.",
+        "Normalize data by channel and date; separate paid, owned, organic, and partner traffic.",
+        "Calculate CAC, CPA, ROAS, conversion rate, funnel drop-off, and payback where revenue is available.",
+        "Check attribution quality: missing UTMs, duplicate campaigns, delayed conversions, and assisted conversions.",
+        "Compare each channel to baseline or previous campaigns instead of judging absolute values only.",
+        "Produce a decision table: scale, hold, fix, or stop for each channel with evidence."
+      ],
+      "procedure": [],
+      "outputs": [
+        "campaign_performance_report",
+        "attribution_quality_notes",
+        "budget_reallocation_recommendations",
+        "follow_up_experiment_list"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write",
+        "shell.readonly"
+      ],
+      "quality_gates": [
+        "Primary KPI matches the campaign objective",
+        "Spend and conversion windows are aligned",
+        "Recommendations separate data-backed findings from assumptions"
+      ],
+      "failure_modes": [
+        "Optimizing for vanity metrics instead of the declared KPI",
+        "Comparing channels with different attribution windows",
+        "Ignoring tracking gaps before making budget recommendations"
+      ],
+      "handoffs": [
+        "marketing.marketing-analyst",
+        "product-business.growth-marketer"
+      ],
+      "budget_band": "standard",
+      "rollback": [
+        "Revert generated report artifacts",
+        "Restore prior budget recommendation document"
+      ],
+      "validators": [
+        "skill.validator",
+        "attribution_window_checked"
+      ],
+      "source_references": [
+        "ref.github.marketing.campaign-analyst.2026-06-02",
+        "https://github.com/PostHog/posthog"
+      ],
+      "allowed_agents": [
+        "marketing.campaign-analyst",
+        "marketing.marketing-analyst"
+      ],
       "allowed_workflows": [],
       "status": "active"
     },
@@ -13322,6 +15089,86 @@
       "status": "active"
     },
     {
+      "id": "meta-system.adapter-generation",
+      "name": "Host Adapter Generation",
+      "version": "1.0.0",
+      "domain": "meta-system",
+      "category": "meta-system.adapters",
+      "purpose": "Generate host adapter bundles for supported environments with low-token boot files, env-var secrets, and validation.",
+      "summary": "Adapter generation builds Claude, Codex, OpenCode, MCP, Cursor, Windsurf, VS Code, Sourcegraph, and generic bundles from canonical registries.",
+      "triggers": [
+        "adapter generation",
+        "generate host adapter",
+        "build host bundles",
+        "export yes-human adapter",
+        "adapter pack generation"
+      ],
+      "activation_triggers": [
+        "build all adapters",
+        "export host bundle"
+      ],
+      "prerequisites": [
+        "Registries and route table validate",
+        "Target host is supported",
+        "Secrets are referenced by environment variables only"
+      ],
+      "inputs": [
+        "host_target",
+        "registry_snapshot",
+        "adapter_requirements"
+      ],
+      "steps": [
+        "Select target host or all supported hosts.",
+        "Generate bundle from canonical registries and route table.",
+        "Validate required files, boot token cap, env-var secret references, and host-specific safety rules.",
+        "Check no literal API keys or credentials are present.",
+        "Report generated files and validation results."
+      ],
+      "procedure": [],
+      "outputs": [
+        "host_bundle",
+        "adapter_validation_report",
+        "generated_file_list"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write",
+        "shell.readonly"
+      ],
+      "quality_gates": [
+        "Boot file stays under 300-token hard cap",
+        "No literal API keys are present",
+        "Host-specific required files validate"
+      ],
+      "failure_modes": [
+        "Hardcoding credentials into generated bundle",
+        "Diverging from canonical registries",
+        "Shipping an adapter without cancellation or safety policy"
+      ],
+      "handoffs": [
+        "meta-system.adapter-generator",
+        "integrations.mcp-connector-designer"
+      ],
+      "budget_band": "standard",
+      "rollback": [
+        "Delete generated adapter bundle",
+        "Restore previous adapter artifact from git"
+      ],
+      "validators": [
+        "skill.validator",
+        "host_bundle_validation"
+      ],
+      "source_references": [
+        "ref.github.meta-system.adapter-generation.2026-06-03",
+        "https://github.com/modelcontextprotocol/servers"
+      ],
+      "allowed_agents": [
+        "meta-system.adapter-generator"
+      ],
+      "allowed_workflows": [],
+      "status": "active"
+    },
+    {
       "id": "meta-system.agent-absorption",
       "name": "Safe Agent Absorption from External Sources",
       "version": "1.0.0",
@@ -13680,6 +15527,85 @@
       "allowed_agents": [
         "meta-system.quality-assurance",
         "meta-system.eval-runner"
+      ],
+      "allowed_workflows": [],
+      "status": "active"
+    },
+    {
+      "id": "meta-system.cost-controlling",
+      "name": "Cost Controlling",
+      "version": "1.0.0",
+      "domain": "meta-system",
+      "category": "meta-system.cost",
+      "purpose": "Control token, tool, connector, and graph-loading costs while preserving task quality.",
+      "summary": "Cost controlling reviews boot budget, route budget bands, tool fanout, connector calls, and context loading to keep yes-human low-token and lazy-loaded.",
+      "triggers": [
+        "cost controlling",
+        "token budget review",
+        "reduce agent cost",
+        "route cost audit",
+        "tool cost control"
+      ],
+      "activation_triggers": [
+        "lower token usage",
+        "audit routing cost"
+      ],
+      "prerequisites": [
+        "Cost policy and eval thresholds are available",
+        "Recent route or workflow data is available",
+        "Target budget is defined"
+      ],
+      "inputs": [
+        "cost_policy",
+        "eval_thresholds",
+        "route_or_workflow_trace"
+      ],
+      "steps": [
+        "Measure boot token estimate, route table size, budget bands, and tool call counts.",
+        "Identify eager-loaded content, repeated tool calls, broad connector fetches, and oversized context packs.",
+        "Recommend lazy-loading, route narrowing, cache eviction, or budget-band changes.",
+        "Preserve quality gates and high-stakes review requirements while reducing cost.",
+        "Run cost eval and route eval after changes."
+      ],
+      "procedure": [],
+      "outputs": [
+        "cost_audit_report",
+        "optimization_plan",
+        "budget_policy_updates"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write",
+        "shell.readonly"
+      ],
+      "quality_gates": [
+        "Boot file stays under hard cap",
+        "Route accuracy does not regress",
+        "High-stakes gates are preserved"
+      ],
+      "failure_modes": [
+        "Reducing cost by removing safety checks",
+        "Loading large registries at startup",
+        "Optimizing only one prompt instead of task family behavior"
+      ],
+      "handoffs": [
+        "meta-system.cost-controller",
+        "meta-system.eval-runner"
+      ],
+      "budget_band": "standard",
+      "rollback": [
+        "Restore previous cost policy or registry entry"
+      ],
+      "validators": [
+        "skill.validator",
+        "cost_eval_passed"
+      ],
+      "source_references": [
+        "ref.github.meta-system.cost-controlling.2026-06-03",
+        "https://github.com/BerriAI/litellm"
+      ],
+      "allowed_agents": [
+        "meta-system.cost-controller"
       ],
       "allowed_workflows": [],
       "status": "active"
@@ -14210,6 +16136,85 @@
       "allowed_agents": [
         "meta-system.eval-runner",
         "meta-system.source-miner"
+      ],
+      "allowed_workflows": [],
+      "status": "active"
+    },
+    {
+      "id": "meta-system.graph-building",
+      "name": "Graph Building",
+      "version": "1.0.0",
+      "domain": "meta-system",
+      "category": "meta-system.graph",
+      "purpose": "Build or refresh route, alias, workflow, code, and knowledge graphs without increasing startup token load.",
+      "summary": "Graph building compiles registries and indexes into compact route tables and optional retrieval graphs while preserving lazy loading.",
+      "triggers": [
+        "graph building",
+        "build route graph",
+        "rebuild yes graph",
+        "graph index refresh",
+        "code graph build"
+      ],
+      "activation_triggers": [
+        "rebuild graph indexes",
+        "refresh routing graph"
+      ],
+      "prerequisites": [
+        "Registry source files are valid",
+        "Compile command is available",
+        "Generated indexes are allowed to change"
+      ],
+      "inputs": [
+        "registry_sources",
+        "graph_targets",
+        "validation_requirements"
+      ],
+      "steps": [
+        "Identify target graph: hot route table, aliases, workflow cache, SQLite code graph, or knowledge graph.",
+        "Compile from canonical content and registry sources rather than hand-editing generated output.",
+        "Check collisions, stale route IDs, missing targets, and hot-route size limits.",
+        "Run validation and route fixtures after graph generation.",
+        "Report changed graph files and any collisions that were kept or rejected."
+      ],
+      "procedure": [],
+      "outputs": [
+        "graph_build_report",
+        "updated_graph_indexes",
+        "collision_notes"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write",
+        "shell.readonly"
+      ],
+      "quality_gates": [
+        "Generated graph references resolve",
+        "Hot route table remains under cap",
+        "Validation and route eval pass"
+      ],
+      "failure_modes": [
+        "Hand-editing generated indexes",
+        "Keeping stale route IDs",
+        "Increasing startup context by embedding full registries"
+      ],
+      "handoffs": [
+        "meta-system.graph-builder",
+        "meta-system.eval-runner"
+      ],
+      "budget_band": "standard",
+      "rollback": [
+        "Restore previous generated graph indexes from git"
+      ],
+      "validators": [
+        "skill.validator",
+        "graph_references_resolve"
+      ],
+      "source_references": [
+        "ref.github.meta-system.graph-building.2026-06-03",
+        "https://github.com/graphology/graphology"
+      ],
+      "allowed_agents": [
+        "meta-system.graph-builder"
       ],
       "allowed_workflows": [],
       "status": "active"
@@ -15105,6 +17110,85 @@
       "status": "active"
     },
     {
+      "id": "meta-system.workflow-mining",
+      "name": "Workflow Mining",
+      "version": "1.0.0",
+      "domain": "meta-system",
+      "category": "meta-system.learning",
+      "purpose": "Mine repeated traces and successful task patterns into staged workflow candidates without mutating production directly.",
+      "summary": "Workflow mining finds repeated routes, tool sequences, failures, and success patterns, then stages bounded workflow candidates for review.",
+      "triggers": [
+        "workflow mining",
+        "mine workflow",
+        "generate workflow candidate",
+        "repeated task pattern",
+        "workflow suggestion"
+      ],
+      "activation_triggers": [
+        "create workflow from repeated tasks",
+        "mine traces for workflow ideas"
+      ],
+      "prerequisites": [
+        "Trace or feedback data is available",
+        "Learning policy allows staging",
+        "Production mutation gate is enforced"
+      ],
+      "inputs": [
+        "trace_data",
+        "feedback_records",
+        "learning_policy"
+      ],
+      "steps": [
+        "Cluster repeated task patterns by route, inputs, tools, and outcome.",
+        "Identify stable successful sequences and common failure recoveries.",
+        "Draft workflow candidates with triggers, steps, tools, success criteria, rollback, and source references.",
+        "Stage candidates for human review instead of writing production registries directly.",
+        "Run workflow validation before promotion."
+      ],
+      "procedure": [],
+      "outputs": [
+        "workflow_candidate",
+        "mining_report",
+        "review_queue_entry"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write",
+        "shell.readonly"
+      ],
+      "quality_gates": [
+        "Candidate is staged, not auto-promoted",
+        "Inputs, outputs, rollback, and success criteria are present",
+        "Source traces are summarized without leaking raw sensitive text"
+      ],
+      "failure_modes": [
+        "Promoting noisy one-off traces",
+        "Capturing sensitive raw task text",
+        "Creating workflows without rollback"
+      ],
+      "handoffs": [
+        "meta-system.workflow-miner",
+        "meta-system.workflow-architect"
+      ],
+      "budget_band": "standard",
+      "rollback": [
+        "Delete staged workflow candidate"
+      ],
+      "validators": [
+        "skill.validator",
+        "staging_only_check"
+      ],
+      "source_references": [
+        "ref.github.meta-system.workflow-mining.2026-06-03",
+        "https://github.com/temporalio/samples-typescript"
+      ],
+      "allowed_agents": [
+        "meta-system.workflow-miner"
+      ],
+      "allowed_workflows": [],
+      "status": "active"
+    },
+    {
       "id": "platform.ansible-playbooks",
       "name": "Ansible Playbook Patterns",
       "version": "1.0.0",
@@ -15514,44 +17598,81 @@
     },
     {
       "id": "platform.cloud-architect",
-      "name": "cloud-architect",
+      "name": "Cloud Architecture Design",
       "version": "1.0.0",
       "domain": "platform",
-      "category": "platform.cloud-architect",
-      "purpose": "Designs multi-cloud architectures.",
-      "summary": "Designs multi-cloud architectures.",
+      "category": "platform.architecture",
+      "purpose": "Design cloud infrastructure that balances reliability, security, cost, and operational simplicity.",
+      "summary": "Cloud architecture decisions are expensive to reverse. This skill covers multi-region design, security zone separation, cost modeling (reserved vs on-demand vs spot), IaC review, and capacity planning with explicit trade-off documentation.",
       "triggers": [
-        "cloud architecture",
+        "cloud architecture design",
+        "cloud migration plan",
+        "cloud cost optimization strategy",
         "multi cloud design",
-        "cloud architect task"
+        "cloud native architecture"
       ],
-      "activation_triggers": [],
+      "activation_triggers": [
+        "we need to design our cloud infrastructure",
+        "how do we reduce our cloud spend"
+      ],
       "prerequisites": [
-        "task_context"
+        "Cloud provider chosen (AWS/GCP/Azure)",
+        "Workload characteristics defined (stateful/stateless, traffic pattern, compliance requirements)"
       ],
-      "inputs": [],
+      "inputs": [
+        "workload_requirements",
+        "compliance_constraints",
+        "budget_envelope"
+      ],
       "steps": [
-        "Execute procedure"
+        "Define availability requirements: RPO/RTO targets drive multi-AZ vs multi-region decisions",
+        "Design network topology: VPCs/VNETs, public vs private subnets, security groups, egress control",
+        "Choose compute strategy: serverless for bursty, containers for predictable, VMs for legacy or compliance",
+        "Model cost: use reserved instances for baseline, on-demand for overflow, spot for batch — estimate monthly cost",
+        "Design IAM: least privilege, no wildcards, separate roles per service, secrets in secret manager not env vars",
+        "Document as IaC (Terraform or CDK) with explicit resource tagging for cost allocation"
       ],
       "procedure": [],
       "outputs": [
-        "skill_output"
+        "architecture_diagram",
+        "cost_estimate",
+        "iac_skeleton",
+        "trade_off_document"
       ],
-      "tools": [],
-      "quality_gates": [],
-      "failure_modes": [],
-      "handoffs": [],
-      "budget_band": "standard",
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "All resources tagged for cost allocation",
+        "No public access without explicit justification",
+        "Estimated monthly cost documented",
+        "RPO/RTO targets addressed"
+      ],
+      "failure_modes": [
+        "Over-engineering for hypothetical scale",
+        "Under-investing in multi-AZ for production workloads",
+        "No cost estimate before provisioning"
+      ],
+      "handoffs": [
+        "platform.devops-engineer (for IaC implementation)"
+      ],
+      "budget_band": "expanded",
       "rollback": [
-        "revert"
+        "IaC changes are reversible via terraform destroy or CDK destroy",
+        "Rollback is costly for stateful resources — plan before applying"
       ],
       "validators": [
-        "outputs_complete"
+        "skill.validator"
       ],
       "source_references": [
-        "ref.github.platform.cloud-architect.2026-06-02"
+        "https://github.com/kubernetes/kubernetes",
+        "https://github.com/argoproj/argo-cd"
       ],
-      "allowed_agents": [],
+      "allowed_agents": [
+        "platform.devops-engineer",
+        "engineering.architect"
+      ],
       "allowed_workflows": [],
       "status": "active"
     },
@@ -16473,44 +18594,85 @@
     },
     {
       "id": "platform.release-manager",
-      "name": "release-manager",
+      "name": "Release Management",
       "version": "1.0.0",
       "domain": "platform",
-      "category": "platform.release-manager",
-      "purpose": "Owns release planning and rollbacks.",
-      "summary": "Owns release planning and rollbacks.",
+      "category": "platform.release",
+      "purpose": "Coordinate software releases with semantic versioning, changelog generation, feature flag gating, and post-release verification.",
+      "summary": "Reliable releases require: semantic versioning, automated changelog, feature flag rollout, deployment verification, and clear rollback triggers. This skill structures the release process from code freeze to post-release sign-off.",
       "triggers": [
         "release management",
         "release plan",
-        "release manager task"
+        "release coordination",
+        "ship this release",
+        "release readiness"
       ],
-      "activation_triggers": [],
+      "activation_triggers": [
+        "we need to ship this release",
+        "how do we do a safe deployment"
+      ],
       "prerequisites": [
-        "task_context"
+        "CI/CD pipeline passing on release branch",
+        "Semantic versioning adopted",
+        "Feature flags configured for new features"
       ],
-      "inputs": [],
+      "inputs": [
+        "release_candidate",
+        "changelog_entries",
+        "rollback_criteria"
+      ],
       "steps": [
-        "Execute procedure"
+        "Generate changelog from conventional commits (npx conventional-changelog-cli) — review and edit for clarity",
+        "Bump version with semantic-release or manually: MAJOR (breaking), MINOR (feature), PATCH (fix)",
+        "Run release readiness checklist: all tests green, feature flags configured, rollback plan documented",
+        "Deploy to staging with production-equivalent config — run smoke tests",
+        "Gradual rollout: 1% → 10% → 50% → 100% using feature flags or canary deployment",
+        "Monitor error rates and latency for 30 minutes post-rollout; document rollback trigger thresholds"
       ],
       "procedure": [],
       "outputs": [
-        "skill_output"
+        "changelog_md",
+        "version_tag",
+        "deployment_plan",
+        "post_release_report"
       ],
-      "tools": [],
-      "quality_gates": [],
-      "failure_modes": [],
-      "handoffs": [],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write",
+        "shell.readonly"
+      ],
+      "quality_gates": [
+        "All CI tests passing on release candidate",
+        "Changelog reviewed and approved by team lead",
+        "Rollback criteria documented before deployment starts",
+        "Smoke tests pass on staging"
+      ],
+      "failure_modes": [
+        "Releasing without a rollback plan",
+        "Skipping staging deployment",
+        "No error rate monitoring post-deploy"
+      ],
+      "handoffs": [
+        "platform.devops-engineer (for deployment execution)",
+        "platform.incident-responder (if rollback triggered)"
+      ],
       "budget_band": "standard",
       "rollback": [
-        "revert"
+        "Feature flag: disable new features immediately",
+        "Deployment: revert to previous image tag",
+        "Database: only if rollback migration prepared in advance"
       ],
       "validators": [
-        "outputs_complete"
+        "skill.validator"
       ],
       "source_references": [
-        "ref.github.platform.release-manager.2026-06-02"
+        "https://github.com/semantic-release/semantic-release",
+        "https://github.com/conventional-changelog/conventional-changelog"
       ],
-      "allowed_agents": [],
+      "allowed_agents": [
+        "platform.devops-engineer",
+        "startup-ops.release"
+      ],
       "allowed_workflows": [],
       "status": "active"
     },
@@ -16662,44 +18824,158 @@
     },
     {
       "id": "product-business.ceo-advisor",
-      "name": "ceo-advisor",
+      "name": "CEO Advisory and Company Strategy",
       "version": "1.0.0",
       "domain": "product-business",
-      "category": "product-business.ceo-advisor",
-      "purpose": "Advises CEOs on operating cadence and priorities.",
-      "summary": "Advises CEOs on operating cadence and priorities.",
+      "category": "product-business.strategy",
+      "purpose": "Provide CEO-level strategic guidance on company direction, resource allocation, board narrative, and investor communication.",
+      "summary": "CEO advisory work spans: setting company direction, reviewing OKRs, preparing board narratives, managing investor expectations, and making resource allocation decisions. This skill provides structured frameworks for each. Not financial advice.",
       "triggers": [
-        "ceo advisor",
-        "ceo briefing",
-        "ceo advisor task"
+        "ceo advisory session",
+        "company direction review",
+        "board narrative prep",
+        "investor update strategy",
+        "vision strategy"
       ],
-      "activation_triggers": [],
+      "activation_triggers": [
+        "I need help thinking through company direction",
+        "we have a board meeting next week"
+      ],
       "prerequisites": [
-        "task_context"
+        "Current company metrics and context available",
+        "Strategic questions or decisions to work through"
       ],
-      "inputs": [],
+      "inputs": [
+        "company_context",
+        "strategic_questions",
+        "metrics_snapshot"
+      ],
       "steps": [
-        "Execute procedure"
+        "Restate the strategic question clearly — vague questions produce vague answers",
+        "Gather the relevant data: current metrics, runway, team capacity, competitive landscape",
+        "Apply a strategic framework (Jobs to be Done, MECE analysis, opportunity matrix) appropriate to the decision",
+        "Identify 2-3 options with explicit trade-offs — never recommend without alternatives",
+        "State the recommended option with rationale anchored in data and stated assumptions",
+        "Prepare the communication artifact: board slide, investor update, or team memo"
       ],
       "procedure": [],
       "outputs": [
-        "skill_output"
+        "strategic_recommendation",
+        "board_narrative",
+        "investor_update_draft"
       ],
-      "tools": [],
-      "quality_gates": [],
-      "failure_modes": [],
-      "handoffs": [],
-      "budget_band": "standard",
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Recommendation anchored in data, not opinion",
+        "Alternatives considered and documented",
+        "Communication artifact audience-appropriate",
+        "Assumptions explicitly stated"
+      ],
+      "failure_modes": [
+        "Vague strategic advice without data anchor",
+        "Single recommendation without alternatives",
+        "Board narrative that confuses instead of informs"
+      ],
+      "handoffs": [
+        "finance.master (for financial modeling)",
+        "product-business.product-manager (for product roadmap execution)"
+      ],
+      "budget_band": "expanded",
       "rollback": [
-        "revert"
+        "Strategy documents are artifacts — no system changes to revert"
       ],
       "validators": [
-        "outputs_complete"
+        "skill.validator"
       ],
       "source_references": [
-        "ref.github.product-business.ceo-advisor.2026-06-02"
+        "https://github.com/garrytan/gstack",
+        "https://github.com/makeplane/plane"
       ],
-      "allowed_agents": [],
+      "allowed_agents": [
+        "product-business.master",
+        "startup-ops.master"
+      ],
+      "allowed_workflows": [],
+      "status": "active"
+    },
+    {
+      "id": "product-business.cfo-advisory",
+      "name": "CFO Advisory and Financial Strategy",
+      "version": "1.0.0",
+      "domain": "product-business",
+      "category": "product-business.finance",
+      "purpose": "Provide CFO-level financial strategy guidance on runway, burn rate, unit economics, and board financial narratives. Not financial advice.",
+      "summary": "CFO advisory work at a startup covers: runway extension strategies, burn rate analysis, unit economics (CAC/LTV), board financial narrative, and scenario modeling. All outputs carry a mandatory disclaimer and require human CFO or advisor review.",
+      "triggers": [
+        "cfo advisory session",
+        "financial strategy advice",
+        "board financial prep",
+        "investor financial model",
+        "runway strategy"
+      ],
+      "activation_triggers": [
+        "we need to think through our financial strategy",
+        "how do we present financials to the board"
+      ],
+      "prerequisites": [
+        "Current financials available (MRR, burn rate, headcount cost)",
+        "Planning horizon defined (3, 6, or 12 months)"
+      ],
+      "inputs": [
+        "financial_snapshot",
+        "planning_horizon",
+        "strategic_goals"
+      ],
+      "steps": [
+        "Restate the financial question and confirm the planning horizon and key constraints",
+        "Analyze current burn rate by category (headcount, infrastructure, marketing, G&A)",
+        "Calculate runway: cash balance ÷ monthly net burn = months of runway",
+        "Model unit economics: CAC (total sales+marketing spend ÷ new customers), LTV (ARPU × gross margin ÷ churn)",
+        "Build 3 scenarios: base (current trajectory), optimistic (10% above), conservative (20% below)",
+        "Prepare board-ready financial narrative: current state, key metrics, risks, ask"
+      ],
+      "procedure": [],
+      "outputs": [
+        "burn_rate_analysis",
+        "runway_calculation",
+        "scenario_model",
+        "board_financial_narrative"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Actuals clearly separated from estimates",
+        "All three scenarios modeled",
+        "Disclaimer attached to every financial output"
+      ],
+      "failure_modes": [
+        "Presenting estimates as actuals",
+        "Missing the disclaimer",
+        "Single scenario planning"
+      ],
+      "handoffs": [
+        "finance.master (for detailed accounting work)"
+      ],
+      "budget_band": "expanded",
+      "rollback": [
+        "Financial documents are artifacts — no system changes"
+      ],
+      "validators": [
+        "skill.validator"
+      ],
+      "source_references": [
+        "https://github.com/actualbudget/actual",
+        "https://github.com/garrytan/gstack"
+      ],
+      "allowed_agents": [
+        "product-business.cfo-advisor",
+        "finance.master"
+      ],
       "allowed_workflows": [],
       "status": "active"
     },
@@ -16863,44 +19139,80 @@
     },
     {
       "id": "product-business.cto-advisor",
-      "name": "cto-advisor",
+      "name": "CTO Advisory and Technology Strategy",
       "version": "1.0.0",
       "domain": "product-business",
-      "category": "product-business.cto-advisor",
-      "purpose": "Advises CTOs on technical strategy.",
-      "summary": "Advises CTOs on technical strategy.",
+      "category": "product-business.strategy",
+      "purpose": "Provide CTO-level guidance on technology strategy, engineering org design, build-vs-buy decisions, and technical debt prioritization.",
+      "summary": "CTO advisory covers: technology strategy alignment with business goals, engineering team structure, build-vs-buy decisions, technical debt prioritization, vendor assessment, and communicating technical risk to the board.",
       "triggers": [
-        "cto advisor",
-        "technical strategy advice",
-        "cto advisor task"
+        "cto advisory session",
+        "technology strategy",
+        "tech org design",
+        "engineering leadership strategy",
+        "technology roadmap"
       ],
-      "activation_triggers": [],
+      "activation_triggers": [
+        "we need to define our technology strategy",
+        "should we build or buy this"
+      ],
       "prerequisites": [
-        "task_context"
+        "Current technology stack and team structure understood",
+        "Business goals for the next 12-18 months defined"
       ],
-      "inputs": [],
+      "inputs": [
+        "technology_stack",
+        "team_structure",
+        "business_goals"
+      ],
       "steps": [
-        "Execute procedure"
+        "Align technology strategy to business goals — every major technical investment must map to a business outcome",
+        "Assess build-vs-buy: build for core differentiating capability, buy/integrate for commodity infrastructure",
+        "Audit technical debt: categorize by business risk (high-risk blocking growth vs low-risk tolerable)",
+        "Design engineering org: matrix vs functional vs product-aligned squads — match to product development stage",
+        "Define the technology north star: what does the ideal architecture look like in 2-3 years?",
+        "Prepare board communication on technical risks and investments"
       ],
       "procedure": [],
       "outputs": [
-        "skill_output"
+        "technology_strategy_doc",
+        "build_vs_buy_analysis",
+        "tech_debt_prioritization",
+        "org_design_recommendation"
       ],
-      "tools": [],
-      "quality_gates": [],
-      "failure_modes": [],
-      "handoffs": [],
-      "budget_band": "standard",
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Technology strategy tied to specific business outcomes",
+        "Build-vs-buy analysis includes TCO comparison",
+        "Tech debt items scored by business risk"
+      ],
+      "failure_modes": [
+        "Technology for its own sake — not tied to business outcome",
+        "Under-investing in platform when product-market fit is found",
+        "Over-investing in scalability before product-market fit"
+      ],
+      "handoffs": [
+        "engineering.architect (for architecture decisions)",
+        "platform.devops-engineer (for infrastructure execution)"
+      ],
+      "budget_band": "expanded",
       "rollback": [
-        "revert"
+        "Strategy documents — no system changes to revert"
       ],
       "validators": [
-        "outputs_complete"
+        "skill.validator"
       ],
       "source_references": [
-        "ref.github.product-business.cto-advisor.2026-06-02"
+        "https://github.com/garrytan/gstack",
+        "https://github.com/PostHog/posthog"
       ],
-      "allowed_agents": [],
+      "allowed_agents": [
+        "product-business.master",
+        "engineering.architect"
+      ],
       "allowed_workflows": [],
       "status": "active"
     },
@@ -17218,6 +19530,86 @@
       "allowed_workflows": [
         "product-business.product-discovery"
       ],
+      "status": "active"
+    },
+    {
+      "id": "product-business.growth-marketing",
+      "name": "Growth Marketing and Experimentation",
+      "version": "1.0.0",
+      "domain": "product-business",
+      "category": "product-business.growth",
+      "purpose": "Design and analyze growth experiments across the AARRR funnel with metric-backed hypotheses and pre-registered thresholds.",
+      "summary": "Growth marketing is hypothesis-driven experimentation across acquisition, activation, retention, referral, and revenue. This skill covers: hypothesis formation, experiment design, sample size calculation, analysis, and decision-making without threshold-fishing.",
+      "triggers": [
+        "growth marketing strategy",
+        "growth experiment design",
+        "user acquisition plan",
+        "viral growth loop",
+        "growth hacking"
+      ],
+      "activation_triggers": [
+        "how do we grow faster",
+        "we need a growth experiment"
+      ],
+      "prerequisites": [
+        "Analytics tool in place (PostHog, Mixpanel, Amplitude)",
+        "Baseline metrics available",
+        "Growth lever identified (acquisition, activation, retention, referral, or revenue)"
+      ],
+      "inputs": [
+        "current_funnel_metrics",
+        "growth_hypothesis",
+        "available_traffic"
+      ],
+      "steps": [
+        "Choose the growth lever based on the biggest funnel drop-off (measure before guessing)",
+        "Formulate a falsifiable hypothesis: \"By changing X, we expect Y to improve by Z% because of W",
+        "Calculate minimum detectable effect and required sample size before running the experiment",
+        "Pre-register the success metric and threshold — document before seeing results",
+        "Run the experiment for a full business cycle (min 2 weeks) without peeking or early stopping",
+        "Analyze results: did we hit the pre-registered threshold? Document learnings regardless of outcome"
+      ],
+      "procedure": [],
+      "outputs": [
+        "experiment_hypothesis",
+        "experiment_design",
+        "results_analysis",
+        "growth_playbook_entry"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Success metric and threshold pre-registered before experiment launch",
+        "Sample size calculated (not guessed)",
+        "Experiment runs for a full business cycle"
+      ],
+      "failure_modes": [
+        "Peeking at results before experiment ends",
+        "Changing success metric after seeing results",
+        "Running underpowered experiments"
+      ],
+      "handoffs": [
+        "product-business.product-manager (for feature roadmap impact)",
+        "marketing.master (for channel execution)"
+      ],
+      "budget_band": "standard",
+      "rollback": [
+        "Disable experiment feature flag",
+        "Revert landing page changes"
+      ],
+      "validators": [
+        "skill.validator"
+      ],
+      "source_references": [
+        "https://github.com/PostHog/posthog",
+        "https://github.com/withastro/astro"
+      ],
+      "allowed_agents": [
+        "product-business.growth-marketer"
+      ],
+      "allowed_workflows": [],
       "status": "active"
     },
     {
@@ -18014,44 +20406,80 @@
     },
     {
       "id": "product-business.sales-operator",
-      "name": "sales-operator",
+      "name": "Sales Operations",
       "version": "1.0.0",
       "domain": "product-business",
-      "category": "product-business.sales-operator",
-      "purpose": "Runs sales operations and CRM hygiene.",
-      "summary": "Runs sales operations and CRM hygiene.",
+      "category": "product-business.operations",
+      "purpose": "Design and optimize sales processes, pipeline velocity, CRM hygiene, and deal review cadence.",
+      "summary": "Sales operations bridges sales strategy and execution: process design, CRM hygiene, pipeline velocity metrics, deal review cadence, quota setting, and sales tool evaluation. Focused on repeatability and measurement.",
       "triggers": [
         "sales operations",
-        "sales ops",
-        "sales operator task"
+        "sales process design",
+        "crm hygiene",
+        "pipeline velocity",
+        "deal review cadence"
       ],
-      "activation_triggers": [],
+      "activation_triggers": [
+        "our sales process is inconsistent",
+        "we need to improve pipeline visibility"
+      ],
       "prerequisites": [
-        "task_context"
+        "CRM system in place (Salesforce, HubSpot, Twenty, etc.)",
+        "Sales team defined with quotas"
       ],
-      "inputs": [],
+      "inputs": [
+        "current_sales_process",
+        "crm_data",
+        "quota_targets"
+      ],
       "steps": [
-        "Execute procedure"
+        "Audit current CRM hygiene: deal stages defined, stage exit criteria documented, fields consistently populated",
+        "Define pipeline velocity formula: (# deals × avg deal size × win rate) ÷ sales cycle length",
+        "Set up pipeline review cadence: weekly deal reviews focused on at-risk and next-stage deals",
+        "Define deal stage exit criteria — specific, observable actions required to advance (not subjective \"good call\")",
+        "Build rep performance dashboard: pipeline coverage ratio (3x quota), conversion by stage, average sales cycle",
+        "Implement quota attainment tracking and identify coaching opportunities for below-target reps"
       ],
       "procedure": [],
       "outputs": [
-        "skill_output"
+        "sales_process_document",
+        "crm_hygiene_scorecard",
+        "pipeline_velocity_dashboard",
+        "deal_review_agenda"
       ],
-      "tools": [],
-      "quality_gates": [],
-      "failure_modes": [],
-      "handoffs": [],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Deal stage exit criteria documented for every stage",
+        "Pipeline coverage ratio ≥3x per rep",
+        "CRM data completeness ≥90% on required fields"
+      ],
+      "failure_modes": [
+        "Subjective stage advancement criteria",
+        "Pipeline reviews focused on status updates not problem-solving",
+        "CRM data ignored because it's incomplete"
+      ],
+      "handoffs": [
+        "sales.master (for deal-level guidance)",
+        "product-business.master (for GTM strategy)"
+      ],
       "budget_band": "standard",
       "rollback": [
-        "revert"
+        "Process documents are artifacts — no system changes unless CRM was modified"
       ],
       "validators": [
-        "outputs_complete"
+        "skill.validator"
       ],
       "source_references": [
-        "ref.github.product-business.sales-operator.2026-06-02"
+        "https://github.com/TwentyHQ/twenty",
+        "https://github.com/makeplane/plane"
       ],
-      "allowed_agents": [],
+      "allowed_agents": [
+        "sales.master",
+        "product-business.master"
+      ],
       "allowed_workflows": [],
       "status": "active"
     },
@@ -19292,43 +21720,83 @@
     },
     {
       "id": "sales.account-manager",
-      "name": "account-manager",
+      "name": "Strategic Account Management",
       "version": "1.0.0",
       "domain": "sales",
-      "category": "sales.account-manager",
-      "purpose": "Manages strategic accounts and renewals.",
-      "summary": "Manages strategic accounts and renewals.",
+      "category": "sales.account-management",
+      "purpose": "Manage customer accounts, renewal risk, expansion opportunities, and relationship plans.",
+      "summary": "Account management keeps existing customers healthy by tracking goals, stakeholders, adoption, renewal risk, and expansion paths.",
       "triggers": [
         "account management",
-        "account manager task"
+        "account plan",
+        "renewal risk review",
+        "customer expansion plan",
+        "strategic account review"
       ],
-      "activation_triggers": [],
+      "activation_triggers": [
+        "build an account plan",
+        "review this customer account"
+      ],
       "prerequisites": [
-        "task_context"
+        "Account history and contract terms are available",
+        "Current stakeholder map is known or can be inferred",
+        "Product usage or success signals are available"
       ],
-      "inputs": [],
+      "inputs": [
+        "account_profile",
+        "contract_terms",
+        "usage_signals",
+        "stakeholder_notes"
+      ],
       "steps": [
-        "Execute procedure"
+        "Summarize account context: segment, contract value, renewal date, products, and success criteria.",
+        "Map stakeholders by buyer, champion, admin, blocker, finance, and executive sponsor.",
+        "Assess health using adoption, support tickets, NPS or sentiment, value delivered, and engagement.",
+        "Identify renewal risks and expansion paths with evidence, not generic upsell language.",
+        "Create a 30-60-90 day account plan with meetings, value proof, risks, and next asks.",
+        "Define CRM updates required to keep the plan operational."
       ],
       "procedure": [],
       "outputs": [
-        "skill_output"
+        "account_plan",
+        "stakeholder_map",
+        "renewal_risk_assessment",
+        "expansion_opportunity_list"
       ],
-      "tools": [],
-      "quality_gates": [],
-      "failure_modes": [],
-      "handoffs": [],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Renewal date and contract context are explicit",
+        "Risks are tied to account evidence",
+        "Next steps include owner and timing"
+      ],
+      "failure_modes": [
+        "Treating account management as generic sales outreach",
+        "Missing economic buyer or renewal owner",
+        "Recommending expansion before adoption risk is handled"
+      ],
+      "handoffs": [
+        "sales.customer-success",
+        "sales.sales-forecasting"
+      ],
       "budget_band": "standard",
       "rollback": [
-        "revert"
+        "Revert account plan artifact",
+        "Restore prior CRM update proposal"
       ],
       "validators": [
-        "outputs_complete"
+        "skill.validator",
+        "account_context_complete"
       ],
       "source_references": [
-        "ref.github.sales.account-manager.2026-06-02"
+        "ref.github.sales.account-manager.2026-06-02",
+        "https://github.com/TwentyHQ/twenty"
       ],
-      "allowed_agents": [],
+      "allowed_agents": [
+        "sales.account-manager"
+      ],
       "allowed_workflows": [],
       "status": "active"
     },
@@ -19856,43 +22324,83 @@
     },
     {
       "id": "sales.pricing-strategist",
-      "name": "pricing-strategist",
+      "name": "Deal Pricing and Packaging Strategy",
       "version": "1.0.0",
       "domain": "sales",
-      "category": "sales.pricing-strategist",
-      "purpose": "Designs deal pricing and packaging.",
-      "summary": "Designs deal pricing and packaging.",
+      "category": "sales.pricing",
+      "purpose": "Design deal pricing, discount guardrails, packaging options, and commercial tradeoffs for sales opportunities.",
+      "summary": "Pricing strategy balances customer value, willingness to pay, margin, discount discipline, and renewal expansion potential.",
       "triggers": [
         "sales pricing",
-        "pricing strategist task"
+        "deal pricing strategy",
+        "discount strategy",
+        "pricing strategist task",
+        "package this deal"
       ],
-      "activation_triggers": [],
+      "activation_triggers": [
+        "what discount should we offer",
+        "design pricing for this customer"
+      ],
       "prerequisites": [
-        "task_context"
+        "Customer segment and use case are known",
+        "List price, margin constraints, and discount policy are available",
+        "Competitive or budget context is available when relevant"
       ],
-      "inputs": [],
+      "inputs": [
+        "deal_context",
+        "list_pricing",
+        "discount_policy",
+        "value_drivers"
+      ],
       "steps": [
-        "Execute procedure"
+        "Clarify buyer value, urgency, alternatives, budget signals, and procurement constraints.",
+        "Map package options from good, better, best using capability, usage, service level, and term length.",
+        "Calculate margin impact and ARR impact for each option.",
+        "Apply discount guardrails: trade discounts for term, scope, reference rights, upfront payment, or expansion commitment.",
+        "Identify renewal risk created by one-time discounting or over-custom packaging.",
+        "Produce a recommended offer with fallback positions and approval notes."
       ],
       "procedure": [],
       "outputs": [
-        "skill_output"
+        "pricing_options",
+        "discount_guardrails",
+        "commercial_tradeoff_analysis",
+        "recommended_offer"
       ],
-      "tools": [],
-      "quality_gates": [],
-      "failure_modes": [],
-      "handoffs": [],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "quality_gates": [
+        "Margin and ARR impact are stated",
+        "Discounts are exchanged for explicit customer commitments",
+        "Renewal and expansion consequences are considered"
+      ],
+      "failure_modes": [
+        "Discounting without a concession from the customer",
+        "Hiding margin risk behind ARR growth",
+        "Creating custom packages that cannot be renewed cleanly"
+      ],
+      "handoffs": [
+        "sales.sales-forecasting",
+        "finance.financial-analyst"
+      ],
       "budget_band": "standard",
       "rollback": [
-        "revert"
+        "Revert pricing memo",
+        "Restore previous offer table"
       ],
       "validators": [
-        "outputs_complete"
+        "skill.validator",
+        "pricing_guardrails_checked"
       ],
       "source_references": [
-        "ref.github.sales.pricing-strategist.2026-06-02"
+        "ref.github.sales.pricing-strategist.2026-06-02",
+        "https://github.com/TwentyHQ/twenty"
       ],
-      "allowed_agents": [],
+      "allowed_agents": [
+        "sales.pricing-strategist"
+      ],
       "allowed_workflows": [],
       "status": "active"
     },

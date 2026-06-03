@@ -1,105 +1,108 @@
 ---
 id: engineering.mutation-testing
-name: Mutation Testing for Test Quality
-description: Evaluate test suite effectiveness by introducing code mutations and measuring test detection rates to find weak spots.
+name: Mutation Testing with Stryker
+version: 1.0.0
+domain: engineering
+category: engineering.testing
+purpose: Measure test suite effectiveness by injecting code mutations and verifying tests catch them.
+summary: Stryker introduces small code changes (mutations) — flipping operators, removing conditionals, changing return values — and checks if your tests fail (killed the mutant). A mutation score above 80% indicates a strong test suite.
 triggers:
-  - find surviving mutants in the billing service
-  - how effective are our tests really
   - mutation testing
-  - mutation score
-  - test quality
-  - test effectiveness
+  - stryker mutation score
+  - test suite quality check
+  - mutation score report
   - kill mutants
-  - mutation analysis
-  - test suite quality
-aliases:
-  - mutant testing
-  - mutation analysis
-  - fault injection testing
-negative_keywords:
-  - fuzzing
-  - chaos engineering
-  - penetration testing
-  - snapshot testing
+activation_triggers:
+  - our code coverage is 90% but bugs still slip through
+  - how effective is our test suite really
+prerequisites:
+  - test suite exists with >50% line coverage
+  - stryker installed (npx stryker run)
+  - build passes cleanly
 inputs:
-  - source_code
-  - test_suite
-  - mutation_config (optional)
-  - coverage_baseline (optional)
+  - target_files
+  - test_runner_config
+steps:
+  - Install Stryker and initialize config (npx stryker init) — choose test runner (jest/mocha/karma)
+  - Run Stryker on a focused module first (not the whole codebase) — set files to a single directory
+  - Review HTML report: identify surviving mutants (mutations tests didn't catch)
+  - For each survivor, write a test that would have killed it — the test is the specification
+  - Re-run Stryker to confirm mutation score improved
+  - Set a minimum mutation score threshold (80%) in stryker.config.js and add to CI
 outputs:
   - mutation_score_report
-  - surviving_mutants
-  - weak_test_areas
-  - improvement_recommendations
-allowed_tools:
+  - surviving_mutants_list
+  - new_test_cases
+tools:
   - filesystem.read
+  - filesystem.write
   - shell.readonly
-  - code_graph.query
-required_skills: []
-budget_band: standard
-max_context_tokens: 8000
+quality_gates:
+  - Mutation score ≥80% on targeted module
+  - All surviving mutants reviewed and either killed or documented as equivalent
+  - Stryker threshold configured in CI
 failure_modes:
-  - Equivalent mutants inflate mutation score denominator
-  - Mutation tool too slow for large codebases
-  - Surviving mutants dismissed without analysis
-  - Focusing on score without understanding context
-verification:
-  - Mutation score is calculated for critical modules
-  - Surviving mutants are analyzed and categorized
-  - New tests added for high-risk surviving mutants
-  - Mutation score improves after targeted test additions
+  - Stryker takes too long — limit to one module at a time, use --concurrency flag
+  - Many equivalent mutants — document as known-equivalent; don't write meaningless tests
+  - Score drops after adding tests — check if new tests have assertions
+handoffs:
+  - engineering.tdd-guide (for writing killing tests)
 source_references:
-  - ref.github.engineering.2026-05-31
-quality_gate: staging
+  - https://github.com/stryker-mutator/stryker-js
+  - https://github.com/stryker-mutator/stryker-mutator.github.io
+allowed_agents:
+  - engineering.tdd-guide
+  - engineering.code-reviewer
+status: active
+budget_band: standard
+rollback:
+  - Remove Stryker config if it blocks CI
+  - Lower threshold temporarily while improving score
+validators:
+  - skill.validator
 ---
+## Trigger
+Use to measure real test suite effectiveness — not just coverage — especially before a major refactor or when bugs keep slipping through despite high coverage.
 
-## Mission
-Measure and improve test suite quality by introducing controlled code mutations and identifying tests that fail to detect real behavioral changes.
+## Prerequisites
+- Test suite passing cleanly
+- stryker-cli available (npx stryker)
 
-## When To Use
-- Evaluating whether high code coverage actually catches bugs
-- Finding weak spots in test suites where mutations survive
-- Prioritizing test improvements beyond coverage metrics
-- Pre-release quality audit for critical modules
-- Comparing test effectiveness across different modules
+## Steps
 
-## When Not To Use
-- Fuzzing or random input testing
-- Chaos engineering or infrastructure fault injection
-- Performance or load testing
-- Simple coverage measurement (use engineering.test-coverage)
+### 1. Install and Init
+`npx stryker init` generates stryker.config.js. Choose your test runner. Start with one module.
 
-## Procedure
-1. **Establish Baseline**: Run existing test suite and confirm all tests pass. Record current coverage metrics as baseline.
-2. **Configure Mutation Tool**: Set up mutation testing tool (Stryker, PIT, mutmut, cosmic-ray). Configure to target critical modules first. Set mutation operators and timeout.
-3. **Run Mutation Analysis**: Execute mutation testing on target modules. Collect mutation score: killed mutants / total non-equivalent mutants.
-4. **Analyze Surviving Mutants**: Categorize surviving mutants: equivalent mutants (no behavioral change), missing assertions, incomplete edge case coverage, or logic gaps.
-5. **Prioritize Improvements**: Rank surviving mutants by risk: business-critical code, security-relevant logic, complex algorithms. Skip equivalent mutants.
-6. **Write Targeted Tests**: Add or improve tests to kill high-risk surviving mutants. Focus on behavioral assertions, not just execution coverage.
-7. **Re-run and Validate**: Run mutation testing again to confirm score improvement. Document mutation score trends over time.
+### 2. Run Focused Mutation
+`npx stryker run --files src/payments/**` — limit scope to avoid hour-long runs.
 
-## Tool Policy
-- Use shell.readonly to run mutation testing tools and collect results
-- Use filesystem.read to analyze surviving mutants in source context
-- Use code_graph.query to understand mutation impact propagation
-- Never modify source code during mutation analysis (only test code for improvements)
+### 3. Review Survivors
+Open the HTML report. Each surviving mutant is a gap in your tests. Prioritize survivors in business-critical code.
+
+### 4. Kill Survivors
+Write a test that would detect each survivor. The test must fail when Stryker applies the mutation and pass on clean code.
+
+### 5. Verify Improvement
+Re-run Stryker. Score should rise. Repeat until ≥80%.
+
+### 6. Set CI Threshold
+Add `thresholds: { high: 80, low: 70, break: 65 }` to stryker.config.js. CI fails if score drops below break.
 
 ## Verification
-- Mutation score is calculated and documented for target modules
-- Surviving mutants are individually analyzed with disposition
-- New tests kill previously surviving high-risk mutants
-- Mutation score trend is tracked across iterations
+- [ ] Mutation score ≥80% on target module
+- [ ] Surviving mutants documented or killed
+- [ ] CI threshold configured
 
-## Failure Modes
-- Spending excessive time on equivalent mutants that cannot be killed
-- Running mutation testing on entire codebase instead of critical modules
-- Dismissing surviving mutants as "not important" without analysis
-- Mutation testing runtime too long for CI integration
+## Rollback
+Remove threshold from CI config if it blocks a legitimate release; re-add after fixing.
 
-## Example Routes
-- `run mutation testing on auth module` -> engineering.mutation-testing
-- `how good are our tests really` -> engineering.mutation-testing
-- `find weak tests with mutation analysis` -> engineering.mutation-testing
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Score 40% on class | Tests check behavior not implementation | Rewrite tests around public API |
+| Stryker times out | Too many files | Run per module |
+| Score drops after PR | New code without tests | Make mutation score a PR check |
 
-## Source Notes
-Mutation testing patterns from Stryker Mutator, PIT (Java), mutmut (Python), and cosmic-ray documentation. Mutation operator design from academic mutation testing research. Reference dossier: `ref.github.engineering.2026-05-31`.
+## Examples
+**Example A:** Payment module has 95% coverage but mutation score 55% — tests weren't asserting amounts. Fix: add amount assertions.
+**Example B:** Auth module survivors all on error paths — write tests for every error branch.

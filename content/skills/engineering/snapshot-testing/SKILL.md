@@ -1,104 +1,107 @@
 ---
 id: engineering.snapshot-testing
-name: Snapshot Testing Patterns
-description: Implement and maintain snapshot tests for UI components, serialized data, and API responses with effective update strategies.
+name: Snapshot Testing Best Practices
+version: 1.0.0
+domain: engineering
+category: engineering.testing
+purpose: Use snapshot tests correctly — as regression detectors for stable output, not as lazy test shortcuts.
+summary: Snapshot testing captures rendered output (UI components, serialized objects, API responses) and fails when it changes unexpectedly. The skill covers when to use snapshots, how to write meaningful ones, and how to avoid the anti-patterns that make snapshot tests useless.
 triggers:
-  - snapshot testing
   - snapshot test
-  - visual regression
-  - snapshot update
+  - jest snapshot
   - component snapshot
-  - serialized output test
-  - snapshot diff
-aliases:
-  - snapshot test
-  - visual snapshot
-  - output snapshot
-negative_keywords:
-  - visual testing
-  - screenshot testing
-  - pixel comparison
-  - e2e testing
+  - toMatchSnapshot
+  - snapshot regression test
+activation_triggers:
+  - how do I snapshot test a component
+  - snapshot tests keep failing after minor changes
+prerequisites:
+  - Jest or Vitest configured
+  - component or output to snapshot is stable (not using Date.now() or random IDs)
 inputs:
-  - components_or_outputs
-  - existing_snapshots (optional)
-  - rendering_context (optional)
-  - snapshot_config (optional)
+  - component_or_function
+  - test_framework
+steps:
+  - Identify what deserves a snapshot — stable rendered output, not volatile data like dates or IDs
+  - Use inline snapshots (toMatchInlineSnapshot) for small, readable outputs; file snapshots for large structures
+  - Strip non-deterministic values before snapshotting (mock Date, replace UUIDs with stable placeholders)
+  - Write a descriptive test name — the snapshot should be self-documenting
+  - On snapshot failures, review the diff carefully — only update (--updateSnapshot) when the change is intentional
+  - Commit snapshot files to version control; treat them as code not build artifacts
 outputs:
-  - snapshot_files
-  - snapshot_test_cases
-  - update_strategy
-  - snapshot_health_report
-allowed_tools:
+  - snapshot_file
+  - updated_snapshot
+  - diff_review_report
+tools:
   - filesystem.read
   - filesystem.write
   - shell.readonly
-  - code_graph.query
-required_skills: []
-budget_band: micro
-max_context_tokens: 6000
+quality_gates:
+  - All snapshots are deterministic (no timestamps, random IDs)
+  - Inline snapshots used for outputs under 20 lines
+  - Snapshot update PRs include explicit description of what changed and why
 failure_modes:
-  - Blindly updating snapshots without reviewing diffs
-  - Snapshot tests that capture implementation details instead of behavior
-  - Large snapshot files that are hard to review in PRs
-  - Non-deterministic snapshots from dynamic content
-verification:
-  - Snapshots are deterministic across runs
-  - Snapshot diffs in PRs are reviewed for unintended changes
-  - Snapshot size is reasonable for code review
-  - No dynamic content (timestamps, UUIDs) in snapshots
+  - Snapshots updated blindly with --updateSnapshot without reviewing diff
+  - Snapshot files gitignored — defeating the regression purpose
+  - Large complex snapshots that make diffs unreadable
+handoffs:
+  - engineering.code-reviewer (to review snapshot updates)
 source_references:
-  - ref.github.engineering.2026-05-31
-quality_gate: staging
+  - https://github.com/facebook/jest
+  - https://github.com/nicolo-ribaudo/jest-clean-console-reporter
+allowed_agents:
+  - engineering.tdd-guide
+  - engineering.code-reviewer
+status: active
+budget_band: micro
+rollback:
+  - Revert snapshot file to previous committed version
+  - Delete auto-generated snapshot file and regenerate from correct state
+validators:
+  - skill.validator
 ---
+## Trigger
+Use when you need to detect unintended changes in component rendering, serialized objects, or CLI output.
 
-## Mission
-Implement effective snapshot testing strategies that catch unintended changes while maintaining manageable snapshot files and clear update workflows.
+## Prerequisites
+- Jest/Vitest installed
+- Output is deterministic (no random values, timestamps, or UUIDs without mocking)
 
-## When To Use
-- Testing UI component rendering output
-- Verifying serialized data structures (JSON, XML) remain stable
-- Catching unintended changes in API response shapes
-- Testing complex string output (emails, reports, CLI output)
-- Regression testing for refactoring without changing behavior
+## Steps
 
-## When Not To Use
-- Visual/pixel-level screenshot comparison (use visual testing tools)
-- E2E testing of user flows
-- Testing highly dynamic content that changes every render
-- Performance benchmarking
+### 1. Choose Snapshot Target
+Good candidates: React component trees, serialized config objects, CLI help text, API response shapes (with IDs mocked). Bad candidates: anything with timestamps, random IDs, or dynamic data.
 
-## Procedure
-1. **Identify Snapshot Targets**: Determine which components, outputs, or data structures benefit from snapshot testing. Prioritize stable, complex outputs over simple ones.
-2. **Configure Snapshot Settings**: Set up snapshot serializer for clean output. Configure snapshot file location and naming. Set up custom serializers to exclude dynamic values.
-3. **Write Snapshot Tests**: Create tests that render or serialize the target and compare against stored snapshot. Use descriptive test names. Include setup context in test description.
-4. **Handle Dynamic Content**: Replace timestamps, UUIDs, and random values with stable placeholders. Use custom serializers for known dynamic fields.
-5. **Review Snapshot Diffs**: On snapshot update, review every line of the diff. Understand why each change occurred. Reject updates that capture unintended changes.
-6. **Manage Snapshot Size**: Use shallow rendering for component snapshots. Split large snapshots into focused sub-snapshots. Consider inline snapshots for small outputs.
-7. **Establish Update Workflow**: Require snapshot updates in PRs with diff review. Never auto-update snapshots in CI. Document snapshot update process for the team.
+### 2. Mock Non-Deterministic Values
+Mock `Date.now()`, `Math.random()`, UUID generators. Replace with fixed values before snapshotting.
 
-## Tool Policy
-- Use filesystem.read/write for snapshot files and test code
-- Use shell.readonly to run snapshot tests and generate diffs
-- Use code_graph.query to trace component dependencies affecting snapshots
-- Follow Jest/Vitest snapshot conventions for the project
+### 3. Write the Snapshot Test
+Use `toMatchInlineSnapshot()` for small outputs — they live in the test file and are always visible. Use file snapshots for large structures only.
+
+### 4. Review First Snapshot
+When creating for the first time, run once to generate, then read the snapshot. If it looks wrong, fix the component — don't accept a wrong snapshot.
+
+### 5. Handle Updates
+When the snapshot changes intentionally (new feature, design change), run `jest --updateSnapshot`, read the diff, write a meaningful commit message explaining the change.
+
+### 6. CI Configuration
+Never auto-update snapshots in CI. Fail on any snapshot mismatch. Updates must be explicit developer decisions.
 
 ## Verification
-- Snapshot tests are deterministic (same input produces same snapshot)
-- No dynamic content appears in snapshot files
-- Snapshot diffs are reviewed in every PR that modifies them
-- Snapshot file sizes are reasonable for code review
+- [ ] All snapshots deterministic
+- [ ] Snapshot files committed to git
+- [ ] No --updateSnapshot in CI config
 
-## Failure Modes
-- Running `--updateSnapshot` without reviewing the diff
-- Snapshots that capture internal state instead of rendered output
-- Non-deterministic snapshots from Date.now() or Math.random()
-- Snapshot files growing too large to review effectively
+## Rollback
+`git checkout -- src/__snapshots__/` to restore previous snapshots.
 
-## Example Routes
-- `add snapshot tests for components` -> engineering.snapshot-testing
-- `snapshot test failed, what changed` -> engineering.snapshot-testing
-- `set up snapshot testing` -> engineering.snapshot-testing
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Snapshots always fail in CI | Timestamps in output | Mock Date.now() |
+| 5000-line snapshot diffs | Snapshotting entire app tree | Use shallow rendering |
+| Snapshots updated without review | --updateSnapshot in CI | Remove from CI |
 
-## Source Notes
-Snapshot testing patterns from Jest documentation, Testing Library best practices, and component testing strategies. Serializer patterns from jest-serializer and custom serializer documentation. Reference dossier: `ref.github.engineering.2026-05-31`.
+## Examples
+**Example A:** Button component snapshot captures rendered HTML — fails when classname changes.
+**Example B:** Config serializer snapshot detects when a new required field is added to output.

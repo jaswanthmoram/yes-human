@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-02T10:05:54.299Z",
-  "total_dossiers": 759,
+  "generated_at": "2026-06-03T07:55:52.521Z",
+  "total_dossiers": 766,
   "self_ref_only": 0,
   "required_failures": 0,
   "results": [
@@ -420,6 +420,17 @@
       "blockers": []
     },
     {
+      "path": "references/design-content/ui-ux-designer.sources.json",
+      "entity_id": "design-content.ui-ux-designer",
+      "required": true,
+      "self_ref_only": false,
+      "source_count": 6,
+      "stored_total": 92,
+      "computed_total": 92,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
       "path": "references/design-content/ux-designer.sources.json",
       "entity_id": "design-content.ux-designer",
       "required": true,
@@ -726,6 +737,17 @@
       "blockers": []
     },
     {
+      "path": "references/engineering/e2e-runner.sources.json",
+      "entity_id": "engineering.e2e-runner",
+      "required": true,
+      "self_ref_only": false,
+      "source_count": 6,
+      "stored_total": 92,
+      "computed_total": 92,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
       "path": "references/engineering/frontend-react.sources.json",
       "entity_id": "engineering.frontend-react",
       "required": true,
@@ -847,6 +869,17 @@
       "blockers": []
     },
     {
+      "path": "references/engineering/refactor-cleaner.sources.json",
+      "entity_id": "engineering.refactor-cleaner",
+      "required": true,
+      "self_ref_only": false,
+      "source_count": 6,
+      "stored_total": 92,
+      "computed_total": 92,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
       "path": "references/engineering/refactoring.sources.json",
       "entity_id": "engineering.refactoring",
       "required": true,
@@ -865,6 +898,17 @@
       "source_count": 8,
       "stored_total": 87,
       "computed_total": 87,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/engineering/security-reviewer.sources.json",
+      "entity_id": "engineering.security-reviewer",
+      "required": true,
+      "self_ref_only": false,
+      "source_count": 6,
+      "stored_total": 92,
+      "computed_total": 92,
       "staging_allowed": true,
       "blockers": []
     },
@@ -2246,6 +2290,17 @@
       "blockers": []
     },
     {
+      "path": "references/marketing/brand-manager.sources.json",
+      "entity_id": "marketing.brand-manager",
+      "required": true,
+      "self_ref_only": false,
+      "source_count": 6,
+      "stored_total": 92,
+      "computed_total": 92,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
       "path": "references/marketing/brand-marketer.sources.json",
       "entity_id": "marketing.brand-marketer",
       "required": true,
@@ -2868,6 +2923,17 @@
       "blockers": []
     },
     {
+      "path": "references/product-business/cfo-advisor.sources.json",
+      "entity_id": "product-business.cfo-advisor",
+      "required": true,
+      "self_ref_only": false,
+      "source_count": 6,
+      "stored_total": 92,
+      "computed_total": 92,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
       "path": "references/product-business/competitive-analyst.sources.json",
       "entity_id": "product-business.competitive-analyst",
       "required": true,
@@ -2929,6 +2995,17 @@
       "source_count": 8,
       "stored_total": 87,
       "computed_total": 87,
+      "staging_allowed": true,
+      "blockers": []
+    },
+    {
+      "path": "references/product-business/growth-marketer.sources.json",
+      "entity_id": "product-business.growth-marketer",
+      "required": true,
+      "self_ref_only": false,
+      "source_count": 6,
+      "stored_total": 92,
+      "computed_total": 92,
       "staging_allowed": true,
       "blockers": []
     },

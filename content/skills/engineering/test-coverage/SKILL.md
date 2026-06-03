@@ -1,104 +1,105 @@
 ---
 id: engineering.test-coverage
-name: Test Coverage Analysis
-description: Analyze test coverage metrics, identify untested critical paths, and recommend targeted tests to improve meaningful coverage.
+name: Test Coverage Analysis and Improvement
+version: 1.0.0
+domain: engineering
+category: engineering.testing
+purpose: Measure and improve test coverage to an agreed threshold using line, branch, and function coverage metrics.
+summary: Coverage analysis identifies untested code paths. This skill covers generating coverage reports, interpreting branch vs line coverage, prioritizing which gaps matter most, and incrementally improving coverage with meaningful tests.
 triggers:
-  - what code paths are not tested
-  - test coverage
-  - coverage report
-  - coverage analysis
-  - untested code
+  - test coverage report
   - improve coverage
-  - coverage gap
-  - code coverage
-aliases:
-  - coverage review
-  - test gap analysis
-  - coverage metrics
-negative_keywords:
-  - mutation testing
-  - snapshot testing
-  - performance testing
-  - load testing
+  - coverage threshold
+  - untested code paths
+  - coverage gap analysis
+activation_triggers:
+  - our coverage is dropping below the threshold
+  - which code paths are untested
+prerequisites:
+  - test suite running with coverage enabled (--coverage in Jest, -coverprofile in Go)
+  - coverage thresholds defined per project
 inputs:
   - coverage_report
-  - source_files
-  - test_files (optional)
-  - critical_paths (optional)
+  - threshold_targets
+steps:
+  - Generate coverage report with branch coverage enabled (not just line coverage)
+  - Focus on branch coverage gaps first — these represent untested conditional paths, the most bug-prone
+  - Identify high-priority uncovered branches — business logic, error handlers, auth checks
+  - Write tests for each uncovered branch by creating the exact condition that exercises it
+  - Re-run coverage to verify the gap is closed
+  - Set minimum thresholds in Jest config (coverageThreshold) and enforce in CI
 outputs:
-  - coverage_analysis
-  - untested_critical_paths
-  - recommended_tests
-  - coverage_improvement_plan
-allowed_tools:
+  - coverage_report_html
+  - gap_analysis
+  - new_test_cases
+tools:
   - filesystem.read
+  - filesystem.write
   - shell.readonly
-  - code_graph.query
-required_skills: []
-budget_band: standard
-max_context_tokens: 8000
+quality_gates:
+  - Branch coverage ≥80% on business-critical modules
+  - Line coverage ≥70% overall
+  - Coverage thresholds enforced in CI
 failure_modes:
-  - Chasing coverage percentage without testing meaningful behavior
-  - Missing critical error-handling paths in coverage analysis
-  - Recommending trivial tests that add coverage but not confidence
-  - Ignoring integration coverage gaps while focusing on unit coverage
-verification:
-  - Coverage report shows measurable improvement after adding tests
-  - Recommended tests cover actual business logic, not just line execution
-  - Critical paths identified and prioritized correctly
-  - No false positives in untested path detection
+  - High line coverage with low branch coverage — tests don't exercise conditionals
+  - Coverage inflated by trivial tests (getters/setters)
+  - Coverage threshold met but critical paths untested
+handoffs:
+  - engineering.tdd-guide (for writing gap-filling tests)
 source_references:
-  - ref.github.engineering.2026-05-31
-quality_gate: staging
+  - https://github.com/istanbuljs/nyc
+  - https://github.com/goldbergyoni/nodebestpractices
+allowed_agents:
+  - engineering.tdd-guide
+status: active
+budget_band: standard
+rollback:
+  - Remove or lower coverage threshold if blocking a legitimate release
+validators:
+  - skill.validator
 ---
+## Trigger
+Use when coverage is dropping, before a major release, or when setting up a new project's quality baseline.
 
-## Mission
-Analyze test coverage beyond raw percentages to identify meaningful coverage gaps, prioritize testing of critical paths, and recommend high-value tests.
+## Prerequisites
+- `jest --coverage` or `go test -coverprofile` working
+- Team agreed on minimum branch/line thresholds
 
-## When To Use
-- Reviewing coverage reports to identify testing gaps
-- Prioritizing which untested code to write tests for
-- Setting or evaluating coverage targets for a project
-- Pre-release coverage audit for critical paths
-- Investigating why bugs escape despite high coverage numbers
+## Steps
 
-## When Not To Use
-- Mutation testing (use engineering.mutation-testing)
-- Snapshot or visual regression testing
-- Performance or load testing coverage
-- Writing the actual tests (hand off to test-writing skills)
+### 1. Generate Report with Branch Coverage
+`jest --coverage --coverageReporters=html,text-summary` — open the HTML report. Look at uncovered branches (shown as yellow), not just lines.
 
-## Procedure
-1. **Collect Coverage Data**: Run coverage tool (Istanbul, c8, coverage.py, go test -cover) and collect reports. Identify line, branch, and function coverage metrics.
-2. **Map Critical Paths**: Identify business-critical code paths: authentication, payments, data mutations, error handlers. Cross-reference with coverage data.
-3. **Identify Coverage Gaps**: Find uncovered branches, untested error paths, and missing edge case tests. Distinguish between trivial and critical gaps.
-4. **Analyze Coverage Quality**: Check if existing tests assert meaningful behavior or just execute code. Look for tests with no assertions or trivial assertions.
-5. **Prioritize Recommendations**: Rank untested areas by risk (frequency of change, business impact, complexity). Recommend specific test cases for highest-risk gaps.
-6. **Generate Improvement Plan**: Create a prioritized list of recommended tests with estimated effort and expected coverage gain.
-7. **Validate Impact**: After implementing recommended tests, verify coverage improvement and confirm tests catch real regressions.
+### 2. Prioritize by Business Risk
+Focus first on: auth/authz logic, payment processing, error handlers, data transformation. Ignore: generated code, migrations, test utilities.
 
-## Tool Policy
-- Use shell.readonly to run coverage tools and inspect reports
-- Use filesystem.read to analyze source and test files
-- Use code_graph.query to trace critical code paths and dependencies
-- Never modify source or test files during analysis
+### 3. Understand Each Branch
+For each uncovered branch, read the code to understand what condition triggers it. Don't write tests without understanding the behavior.
+
+### 4. Write Meaningful Tests
+Write one test per uncovered branch. The test should assert the correct outcome, not just execute the line.
+
+### 5. Verify Gap Closure
+Re-run with coverage. Confirm the branch is now green.
+
+### 6. Set and Enforce Threshold
+`coverageThreshold: { global: { branches: 80, lines: 80 } }` in jest.config.js. Add coverage report to CI artifacts.
 
 ## Verification
-- Coverage percentage increases after implementing recommended tests
-- New tests have meaningful assertions, not just code execution
-- Critical paths show branch coverage, not just line coverage
-- Bug detection rate improves with added tests
+- [ ] Branch coverage ≥80% on priority modules
+- [ ] CI enforces threshold
+- [ ] Coverage report committed or uploaded to CI artifacts
 
-## Failure Modes
-- Recommending tests for dead code or unreachable branches
-- Focusing on line coverage while missing branch and path coverage gaps
-- Not distinguishing between testable and untestable code (generated code, type definitions)
-- Suggesting tests that duplicate existing test behavior
+## Rollback
+Lower threshold temporarily with a PR comment explaining the plan to restore it.
 
-## Example Routes
-- `analyze test coverage` -> engineering.test-coverage
-- `what code is not tested` -> engineering.test-coverage
-- `improve coverage for auth module` -> engineering.test-coverage
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Line 100%, branch 40% | Not using branch mode | Add --coverage with branch reporting |
+| Coverage drops with every PR | No coverage CI gate | Add threshold to jest.config.js |
+| Tests only test happy path | Developers avoid error paths | Pair coverage review with code review |
 
-## Source Notes
-Coverage analysis patterns from Istanbul/nyc, c8, coverage.py, and Go testing documentation. Critical path testing strategies from testing literature. Reference dossier: `ref.github.engineering.2026-05-31`.
+## Examples
+**Example A:** Auth module has 95% line coverage but error handler branch uncovered — write test where JWT is expired.
+**Example B:** Payment processing has 60% branch coverage — write tests for declined card, insufficient funds, timeout.

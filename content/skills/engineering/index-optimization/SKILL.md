@@ -1,104 +1,106 @@
 ---
 id: engineering.index-optimization
 name: Database Index Optimization
-description: Analyze query patterns and recommend optimal database indexes to improve query performance while minimizing write overhead.
+version: 1.0.0
+domain: engineering
+category: engineering.data
+purpose: Design and maintain a database index strategy that speeds reads without degrading write performance.
+summary: Covers index selection (B-tree, partial, covering, composite), index bloat detection, unused index removal, and the write-performance trade-off. Applies to PostgreSQL with patterns applicable to MySQL and SQLite.
 triggers:
-  - which columns should be indexed for this query pattern
-  - optimize database indexes for the products table
-  - optimize index
-  - slow query
-  - add index
-  - index optimization
-  - database performance
-  - query plan
-  - missing index
-aliases:
-  - db indexing
-  - index tuning
-  - query optimization
-negative_keywords:
-  - full text search
-  - search engine
-  - caching
-  - denormalization
+  - database index optimization
+  - add database index
+  - remove unused index
+  - index bloat
+  - covering index
+activation_triggers:
+  - queries are slow and we need indexes
+  - our write performance is degrading
+prerequisites:
+  - Database accessible with query analysis permissions
+  - pg_stat_user_indexes available (PostgreSQL)
 inputs:
-  - slow_queries
-  - table_schemas
-  - query_patterns
-  - database_engine (optional)
+  - slow_query_pattern
+  - existing_indexes
+steps:
+  - Audit existing indexes using pg_stat_user_indexes — identify indexes with idx_scan = 0 (unused)
+  - Remove unused indexes (after confirming with the team) — they slow writes with no benefit
+  - For the target query, identify the highest-cardinality column in the WHERE clause first
+  - Design the index: single-column for simple filters, composite for multi-column WHERE, partial for filtered subsets, covering for query-only access
+  - Create index CONCURRENTLY to avoid write locks on production
+  - Monitor write performance after adding — if INSERT/UPDATE slows >20%, reconsider
 outputs:
-  - index_recommendations
-  - impact_analysis
-  - create_index_statements
-  - performance_estimates
-allowed_tools:
+  - index_audit_report
+  - index_migration_sql
+  - before_after_benchmark
+tools:
   - filesystem.read
   - shell.readonly
-  - code_graph.query
-required_skills: []
-budget_band: micro
-max_context_tokens: 6000
+quality_gates:
+  - Unused indexes identified and scheduled for removal
+  - New index reduces target query time ≥30%
+  - Write performance degradation <20%
 failure_modes:
-  - Over-indexing increases write latency
-  - Index on low-cardinality column wastes space
-  - Missing composite index for multi-column queries
-  - Index bloat from unused indexes
-verification:
-  - EXPLAIN ANALYZE shows improved query plan
-  - Write benchmarks show acceptable overhead
-  - Index usage statistics confirm utilization
-  - No duplicate or redundant indexes introduced
+  - Index on low-cardinality column (boolean, status enum) — rarely helps
+  - Too many indexes on a hot write table — degrades INSERT performance
+  - Index added without CONCURRENTLY — production table locked
+handoffs:
+  - engineering.query-analysis (for query rewriting)
 source_references:
-  - ref.github.engineering.2026-05-31
-quality_gate: staging
+  - https://github.com/drizzle-team/drizzle-orm
+  - https://github.com/prisma/prisma
+allowed_agents:
+  - engineering.architect
+  - engineering.build-resolver
+status: active
+budget_band: standard
+rollback:
+  - DROP INDEX CONCURRENTLY if writes degrade
+  - Keep old index until new one confirmed working
+validators:
+  - skill.validator
 ---
+## Trigger
+Use when query optimization analysis identifies a Seq Scan on a large table, or when conducting a periodic index health audit.
 
-## Mission
-Identify and recommend optimal database indexes based on query patterns, balancing read performance gains against write overhead and storage costs.
+## Prerequisites
+- Database administrator access (at least read access to pg_stat_user_indexes)
+- Slow query identified
 
-## When To Use
-- Queries are slow despite adequate hardware
-- EXPLAIN output shows sequential scans on large tables
-- Adding new features that introduce new query patterns
-- Periodic index audit for database health
-- Post-deployment performance regression investigation
+## Steps
 
-## When Not To Use
-- Full-text search optimization (use dedicated search engines)
-- Caching strategy design (use caching layers instead)
-- Data denormalization decisions
-- NoSQL document store optimization
+### 1. Audit Unused Indexes
+`SELECT indexname, idx_scan FROM pg_stat_user_indexes WHERE schemaname='public' ORDER BY idx_scan;` — idx_scan=0 means unused.
 
-## Procedure
-1. **Collect Query Patterns**: Gather slow query logs, identify top-N expensive queries. Extract WHERE, JOIN, ORDER BY, and GROUP BY clauses.
-2. **Analyze Existing Indexes**: Review current indexes on affected tables. Identify unused, duplicate, or redundant indexes.
-3. **Map Queries to Indexes**: For each query pattern, determine the ideal index structure. Consider composite indexes, covering indexes, and partial indexes.
-4. **Evaluate Trade-offs**: Assess write overhead for each proposed index. Check index cardinality and selectivity. Estimate storage impact.
-5. **Generate Recommendations**: Produce CREATE INDEX statements with rationale. Prioritize by expected performance gain vs write cost.
-6. **Validate with EXPLAIN**: Run EXPLAIN ANALYZE before and after index creation. Verify query plan improvement.
-7. **Monitor Post-Deployment**: Track index usage statistics. Remove unused indexes after observation period.
+### 2. Remove Dead Weight
+For idx_scan=0 indexes not recently created, `DROP INDEX CONCURRENTLY`. Coordinate with team — someone might be planning to use it.
 
-## Tool Policy
-- Use shell.readonly for EXPLAIN ANALYZE and index inspection queries
-- Use filesystem.read to analyze ORM model definitions and query code
-- Never auto-execute CREATE INDEX on production databases
+### 3. Choose Index Type
+B-tree (default) for equality and range. GIN for arrays and JSONB. Partial for `WHERE status='active'`. Covering for `INCLUDE (col)` to avoid heap fetch.
+
+### 4. Create CONCURRENTLY
+`CREATE INDEX CONCURRENTLY idx_orders_user_id ON orders(user_id)` — no table lock, slower to build but safe for production.
+
+### 5. Verify Usage
+Run `EXPLAIN ANALYZE` on the target query after index creation. Confirm Index Scan appears instead of Seq Scan.
+
+### 6. Monitor Writes
+Track INSERT/UPDATE times before/after. If writes degrade >20%, the index cost outweighs the read benefit.
 
 ## Verification
-- EXPLAIN ANALYZE shows index scan instead of sequential scan
-- Query execution time improves measurably
-- Write latency increase is within acceptable bounds
-- Index is actually used (pg_stat_user_indexes confirms)
+- [ ] Unused indexes identified and removed or documented
+- [ ] New index used by target query (Index Scan in EXPLAIN)
+- [ ] Write performance monitored
 
-## Failure Modes
-- Creating indexes on low-selectivity columns (boolean, enum) with no benefit
-- Over-indexing a write-heavy table degrades insert/update performance
-- Composite index column order doesn't match query filter patterns
-- Partial index predicate doesn't match actual query WHERE clauses
+## Rollback
+`DROP INDEX CONCURRENTLY idx_name;`
 
-## Example Routes
-- `slow query on users table` -> engineering.index-optimization
-- `add index for email lookup` -> engineering.index-optimization
-- `optimize database performance` -> engineering.index-optimization
+## Common Failures
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Index not used | Planner prefers Seq Scan for small table | Accept it — Seq Scan is faster for <1K rows |
+| Too many indexes | Historical accumulation | Regular audit with pg_stat_user_indexes |
+| Lock during creation | Forgot CONCURRENTLY | Always use CONCURRENTLY in production |
 
-## Source Notes
-Index optimization patterns from PostgreSQL, MySQL, and SQLite documentation. Covering index and partial index strategies from Use The Index Luke. Reference dossier: `ref.github.engineering.2026-05-31`.
+## Examples
+**Example A:** `orders.user_id` missing index — query does Seq Scan on 1M rows — add B-tree index.
+**Example B:** Partial index: `CREATE INDEX ON orders(created_at) WHERE status='pending'` — only indexes pending orders.
