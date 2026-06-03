@@ -41,7 +41,7 @@ verification:
   - privacy_security_assessed
 source_references:
   - ref.github.healthcare.2026-05-31
-quality_gate: staging
+quality_gate: production
 requires_disclaimer: true
 human_review_gate: true
 ---

@@ -40,7 +40,7 @@ verification:
   - safety_notes_present
 source_references:
   - ref.github.healthcare-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 requires_disclaimer: true
 human_review_gate: true
 ---
