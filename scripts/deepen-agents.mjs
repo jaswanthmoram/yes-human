@@ -260,6 +260,160 @@ const OVERRIDES = {
       'duplicates metric definitions across models instead of a single source of truth',
       'ignores incremental model strategy for large tables, causing full-refresh cost blowups'
     ]
+  },
+  'design-content.presentation-designer': {
+    negative_keywords: ['model training', 'financial audit', 'legal review', 'backend api design'],
+    inputs: ['audience_and_goal', 'content_outline', 'brand_guidelines'],
+    outputs: ['slide_structure', 'narrative_arc', 'visual_design_spec'],
+    verification: ['one_idea_per_slide', 'narrative_arc_present', 'accessibility_contrast_checked'],
+    failure_modes: [
+      'crams multiple ideas onto a single slide',
+      'builds slides without a narrative throughline',
+      'ignores color-contrast and font-size accessibility'
+    ]
+  },
+  'finance.expense-auditor': {
+    negative_keywords: ['software deployment', 'model training', 'marketing campaign', 'ui/ux design'],
+    inputs: ['expense_report', 'expense_policy', 'receipts_or_evidence'],
+    outputs: ['policy_exception_list', 'audit_findings', 'remediation_actions'],
+    verification: ['policy_thresholds_applied', 'duplicate_and_split_charges_checked', 'evidence_traced_to_each_line'],
+    failure_modes: [
+      'flags exceptions without citing the specific policy clause',
+      'misses duplicate or split transactions',
+      'accepts line items without supporting receipts'
+    ]
+  },
+  'finance.payroll-analyst': {
+    negative_keywords: ['software deployment', 'model training', 'marketing campaign', 'infrastructure provisioning'],
+    inputs: ['payroll_register', 'gl_or_bank_records', 'pay_period_parameters'],
+    outputs: ['reconciliation_summary', 'variance_list', 'correction_recommendations'],
+    verification: ['gross_to_net_reconciled', 'variances_explained_with_source', 'tax_and_deduction_totals_tied_out'],
+    failure_modes: [
+      'reports a balanced reconciliation without tracing variances to source',
+      'ignores off-cycle adjustments and retro pay',
+      'mismatches tax and deduction totals against filings'
+    ]
+  },
+  'hr.policy-drafter': {
+    negative_keywords: ['software deployment', 'model training', 'financial forecasting', 'marketing copy'],
+    inputs: ['policy_topic', 'jurisdiction_and_scope', 'existing_policy_context'],
+    outputs: ['policy_draft', 'review_checklist', 'rollout_communication'],
+    verification: ['jurisdiction_requirements_addressed', 'legal_review_gate_flagged', 'plain_language_used'],
+    failure_modes: [
+      'drafts policy without flagging jurisdiction-specific legal requirements',
+      'uses ambiguous language that invites disputes',
+      'skips the legal and leadership review gate before publication'
+    ]
+  },
+  'legal-compliance.nda-reviewer': {
+    negative_keywords: ['software deployment', 'model training', 'marketing campaign', 'ui/ux design'],
+    inputs: ['nda_text', 'party_role_and_direction', 'risk_tolerance'],
+    outputs: ['clause_risk_summary', 'redline_suggestions', 'escalation_decision'],
+    verification: ['mutual_vs_unilateral_identified', 'term_and_survival_checked', 'carveouts_and_residuals_reviewed'],
+    failure_modes: [
+      'reviews without identifying disclosing vs receiving party direction',
+      'misses missing standard carveouts such as public or independently developed information',
+      'treats an unbounded term or overbroad definition as standard'
+    ]
+  },
+  'legal-compliance.terms-drafter': {
+    negative_keywords: ['software deployment', 'model training', 'marketing campaign', 'infrastructure provisioning'],
+    inputs: ['service_description', 'liability_and_jurisdiction', 'required_clauses'],
+    outputs: ['terms_structure', 'clause_checklist', 'open_questions_for_counsel'],
+    verification: ['limitation_of_liability_present', 'governing_law_specified', 'termination_and_dispute_clauses_included'],
+    failure_modes: [
+      'drafts terms without a limitation-of-liability clause',
+      'omits governing law and dispute-resolution sections',
+      'presents a draft as legal advice instead of flagging counsel review'
+    ]
+  },
+  'marketing.campaign-analyst': {
+    negative_keywords: ['model training', 'database schema migration', 'legal contract review', 'infrastructure provisioning'],
+    inputs: ['campaign_data', 'attribution_model', 'business_objective'],
+    outputs: ['performance_report', 'attribution_analysis', 'optimization_recommendations'],
+    verification: ['attribution_window_stated', 'statistical_significance_checked', 'incrementality_vs_correlation_addressed'],
+    failure_modes: [
+      'credits conversions without stating the attribution model and window',
+      'reports lift without significance testing',
+      'confuses correlation with incremental impact'
+    ]
+  },
+  'platform.cloud-architect': {
+    negative_keywords: ['marketing copy', 'legal contract review', 'financial forecasting', 'brand design'],
+    inputs: ['workload_requirements', 'compliance_and_region_constraints', 'cost_and_sla_targets'],
+    outputs: ['architecture_design', 'iac_topology', 'cost_and_failover_plan'],
+    verification: ['failure_domains_isolated', 'least_privilege_iam_designed', 'cost_and_egress_estimated'],
+    failure_modes: [
+      'designs without multi-AZ or multi-region failure isolation',
+      'grants over-broad IAM instead of least privilege',
+      'ignores data-egress and cross-cloud cost'
+    ]
+  },
+  'platform.release-manager': {
+    negative_keywords: ['marketing copy', 'legal contract review', 'financial forecasting', 'clinical advice'],
+    inputs: ['release_scope', 'dependency_and_risk_map', 'rollback_requirements'],
+    outputs: ['release_plan', 'rollback_runbook', 'go_no_go_checklist'],
+    verification: ['rollback_path_tested', 'blast_radius_assessed', 'go_no_go_criteria_defined'],
+    failure_modes: [
+      'plans a release without a tested rollback path',
+      'ignores dependency ordering and blast radius',
+      'ships without explicit go/no-go criteria'
+    ]
+  },
+  'product-business.ceo-advisor': {
+    negative_keywords: ['model training', 'infrastructure provisioning', 'legal contract drafting', 'database schema migration'],
+    inputs: ['company_context', 'current_priorities', 'constraints_and_runway'],
+    outputs: ['priority_recommendations', 'operating_cadence_plan', 'risk_register'],
+    verification: ['recommendations_tied_to_constraints', 'tradeoffs_made_explicit', 'assumptions_stated'],
+    failure_modes: [
+      'gives generic advice not tied to the company constraints and runway',
+      'recommends without surfacing trade-offs',
+      'presents opinion as fact without stating assumptions'
+    ]
+  },
+  'product-business.cto-advisor': {
+    negative_keywords: ['model training', 'marketing copy', 'legal contract drafting', 'financial audit'],
+    inputs: ['tech_context', 'strategy_question', 'team_and_constraints'],
+    outputs: ['strategy_recommendation', 'build_vs_buy_analysis', 'risk_and_tradeoffs'],
+    verification: ['recommendation_grounded_in_constraints', 'build_vs_buy_justified', 'tradeoffs_made_explicit'],
+    failure_modes: [
+      'recommends technology without grounding in team and constraints',
+      'skips build-vs-buy reasoning',
+      'ignores maintenance and hiring cost of a choice'
+    ]
+  },
+  'product-business.sales-operator': {
+    negative_keywords: ['model training', 'infrastructure provisioning', 'legal contract drafting', 'clinical advice'],
+    inputs: ['crm_data', 'process_or_workflow', 'reporting_requirements'],
+    outputs: ['crm_hygiene_plan', 'process_recommendations', 'pipeline_report'],
+    verification: ['data_integrity_rules_defined', 'stage_definitions_consistent', 'single_source_of_truth_maintained'],
+    failure_modes: [
+      'reports pipeline on stale or duplicated CRM records',
+      'uses inconsistent stage definitions across teams',
+      'creates parallel trackers instead of one source of truth'
+    ]
+  },
+  'sales.account-manager': {
+    negative_keywords: ['model training', 'infrastructure provisioning', 'legal contract drafting', 'database schema migration'],
+    inputs: ['account_context', 'renewal_or_expansion_goal', 'stakeholder_map'],
+    outputs: ['account_plan', 'renewal_risk_assessment', 'expansion_recommendations'],
+    verification: ['renewal_risk_scored', 'stakeholders_mapped', 'next_steps_tied_to_signals'],
+    failure_modes: [
+      'plans renewals without scoring churn-risk signals',
+      'ignores multi-threading across stakeholders',
+      'proposes expansion without a value case'
+    ]
+  },
+  'sales.pricing-strategist': {
+    negative_keywords: ['model training', 'infrastructure provisioning', 'legal contract drafting', 'clinical advice'],
+    inputs: ['cost_and_margin_data', 'competitive_context', 'deal_or_package_goal'],
+    outputs: ['pricing_structure', 'packaging_recommendation', 'discount_guardrails'],
+    verification: ['margin_floor_respected', 'discount_guardrails_defined', 'value_metric_aligned'],
+    failure_modes: [
+      'sets price without respecting a margin floor',
+      'offers discounts without guardrails or approval tiers',
+      'prices on cost-plus while ignoring value and willingness-to-pay'
+    ]
   }
 };
 

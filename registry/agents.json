@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-06-03T14:42:47.822Z",
+  "generated_at": "2026-06-03T14:49:51.883Z",
   "count": 325,
   "items": [
     {
@@ -1080,7 +1080,8 @@
       "negative_keywords": [
         "market sizing",
         "cloud deploy",
-        "tax filing"
+        "tax filing",
+        "model training"
       ],
       "inputs": [
         "ui_surface",
@@ -1139,7 +1140,8 @@
       "negative_keywords": [
         "code implementation",
         "database schema",
-        "security review"
+        "security review",
+        "model training"
       ],
       "inputs": [
         "brand_strategy",
@@ -1193,7 +1195,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "contract review"
+        "contract review",
+        "model training"
       ],
       "inputs": [
         "brand_context",
@@ -1252,7 +1255,8 @@
       "negative_keywords": [
         "original content creation",
         "code review",
-        "security audit"
+        "security audit",
+        "model training"
       ],
       "inputs": [
         "draft_content",
@@ -1312,7 +1316,8 @@
       "negative_keywords": [
         "code review",
         "infrastructure design",
-        "security assessment"
+        "security assessment",
+        "model training"
       ],
       "inputs": [
         "business_objectives",
@@ -1371,7 +1376,8 @@
       "negative_keywords": [
         "technical documentation",
         "code generation",
-        "data analysis"
+        "data analysis",
+        "model training"
       ],
       "inputs": [
         "brand_voice",
@@ -1430,7 +1436,8 @@
       "negative_keywords": [
         "one-off mockup",
         "marketing campaign",
-        "financial report"
+        "financial report",
+        "model training"
       ],
       "inputs": [
         "product_ecosystem",
@@ -1484,7 +1491,8 @@
       "negative_keywords": [
         "database schema",
         "cash flow",
-        "contract redline"
+        "contract redline",
+        "model training"
       ],
       "inputs": [
         "ui_surface",
@@ -1543,7 +1551,8 @@
       "negative_keywords": [
         "static visual design",
         "backend logic",
-        "legal review"
+        "legal review",
+        "model training"
       ],
       "inputs": [
         "user_tasks",
@@ -1599,7 +1608,8 @@
       "negative_keywords": [
         "code review",
         "infrastructure design",
-        "legal document"
+        "legal document",
+        "model training"
       ],
       "inputs": [
         "prompt",
@@ -1658,7 +1668,8 @@
       "negative_keywords": [
         "static visual design",
         "backend implementation",
-        "legal review"
+        "legal review",
+        "model training"
       ],
       "inputs": [
         "brand_personality",
@@ -1710,12 +1721,21 @@
       "aliases": [
         "presentation-designer"
       ],
-      "negative_keywords": [],
+      "negative_keywords": [
+        "model training",
+        "financial audit",
+        "legal review",
+        "backend api design"
+      ],
       "inputs": [
-        "task_context"
+        "audience_and_goal",
+        "content_outline",
+        "brand_guidelines"
       ],
       "outputs": [
-        "specialist_output"
+        "slide_structure",
+        "narrative_arc",
+        "visual_design_spec"
       ],
       "allowed_tools": [
         "filesystem.read"
@@ -1723,10 +1743,14 @@
       "budget_band": "standard",
       "max_context_tokens": 5000,
       "failure_modes": [
-        "scope drift"
+        "crams multiple ideas onto a single slide",
+        "builds slides without a narrative throughline",
+        "ignores color-contrast and font-size accessibility"
       ],
       "verification": [
-        "output_matches_request"
+        "one_idea_per_slide",
+        "narrative_arc_present",
+        "accessibility_contrast_checked"
       ],
       "source_references": [
         "ref.github.design-content.presentation-designer.2026-06-02"
@@ -1760,7 +1784,8 @@
       "negative_keywords": [
         "paid advertising copy",
         "code implementation",
-        "database design"
+        "database design",
+        "model training"
       ],
       "inputs": [
         "target_keywords",
@@ -1824,7 +1849,8 @@
       "negative_keywords": [
         "marketing copy",
         "visual design",
-        "financial reporting"
+        "financial reporting",
+        "model training"
       ],
       "inputs": [
         "source_code_or_api",
@@ -1884,7 +1910,8 @@
       "negative_keywords": [
         "backend architecture",
         "database schema",
-        "security audit"
+        "security audit",
+        "model training"
       ],
       "inputs": [
         "design_brief",
@@ -1938,7 +1965,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "legal contract"
+        "legal contract",
+        "model training"
       ],
       "inputs": [
         "user_requirements",
@@ -1997,7 +2025,8 @@
       "negative_keywords": [
         "visual polish",
         "code implementation",
-        "financial analysis"
+        "financial analysis",
+        "model training"
       ],
       "inputs": [
         "user_research",
@@ -2056,7 +2085,8 @@
       "negative_keywords": [
         "code implementation",
         "database design",
-        "security review"
+        "security review",
+        "model training"
       ],
       "inputs": [
         "brand_identity",
@@ -2110,7 +2140,8 @@
       "negative_keywords": [
         "financial forecast",
         "contract review",
-        "deployment logs"
+        "deployment logs",
+        "production deployment"
       ],
       "inputs": [
         "student_profile",
@@ -2163,7 +2194,8 @@
       "negative_keywords": [
         "sales pipeline",
         "medical reasoning",
-        "terraform plan"
+        "terraform plan",
+        "production deployment"
       ],
       "inputs": [
         "learning_objectives",
@@ -2217,7 +2249,8 @@
       "negative_keywords": [
         "sales pipeline",
         "medical reasoning",
-        "terraform plan"
+        "terraform plan",
+        "production deployment"
       ],
       "inputs": [
         "assessment_purpose",
@@ -2270,7 +2303,8 @@
       "negative_keywords": [
         "financial forecast",
         "contract review",
-        "deployment logs"
+        "deployment logs",
+        "production deployment"
       ],
       "inputs": [
         "learner_level",
@@ -2324,7 +2358,8 @@
       "negative_keywords": [
         "financial forecast",
         "contract review",
-        "deployment logs"
+        "deployment logs",
+        "production deployment"
       ],
       "inputs": [
         "policy_document",
@@ -2378,7 +2413,8 @@
       "negative_keywords": [
         "financial forecast",
         "contract review",
-        "deployment logs"
+        "deployment logs",
+        "production deployment"
       ],
       "inputs": [
         "research_question",
@@ -2432,7 +2468,8 @@
       "negative_keywords": [
         "financial forecast",
         "contract review",
-        "deployment logs"
+        "deployment logs",
+        "production deployment"
       ],
       "inputs": [
         "institution_context",
@@ -2486,7 +2523,8 @@
       "negative_keywords": [
         "financial forecast",
         "contract review",
-        "deployment logs"
+        "deployment logs",
+        "production deployment"
       ],
       "inputs": [
         "learner_audience",
@@ -2540,7 +2578,8 @@
       "negative_keywords": [
         "financial forecast",
         "contract review",
-        "deployment logs"
+        "deployment logs",
+        "production deployment"
       ],
       "inputs": [
         "learner_data",
@@ -2595,7 +2634,8 @@
       "negative_keywords": [
         "technical writing",
         "training data",
-        "code review"
+        "code review",
+        "production deployment"
       ],
       "inputs": [
         "prompt",
@@ -2649,7 +2689,8 @@
       "negative_keywords": [
         "financial forecast",
         "contract review",
-        "deployment logs"
+        "deployment logs",
+        "production deployment"
       ],
       "inputs": [
         "course_format",
@@ -2703,7 +2744,8 @@
       "negative_keywords": [
         "financial forecast",
         "contract review",
-        "deployment logs"
+        "deployment logs",
+        "production deployment"
       ],
       "inputs": [
         "learner_needs_profile",
@@ -2757,7 +2799,8 @@
       "negative_keywords": [
         "financial forecast",
         "contract review",
-        "deployment logs"
+        "deployment logs",
+        "production deployment"
       ],
       "inputs": [
         "student_population",
@@ -2811,7 +2854,8 @@
       "negative_keywords": [
         "pricing proposal",
         "privacy contract",
-        "secret scan"
+        "secret scan",
+        "production deployment"
       ],
       "inputs": [
         "learner_profile",
@@ -2866,7 +2910,9 @@
       ],
       "negative_keywords": [
         "security review",
-        "code review"
+        "code review",
+        "financial forecasting",
+        "marketing copy"
       ],
       "inputs": [
         "requirements",
@@ -2927,7 +2973,8 @@
       "negative_keywords": [
         "frontend component",
         "mobile ui",
-        "css styling"
+        "css styling",
+        "legal contract review"
       ],
       "inputs": [
         "api_requirements",
@@ -2983,7 +3030,12 @@
       "aliases": [
         "build-resolver"
       ],
-      "negative_keywords": [],
+      "negative_keywords": [
+        "legal contract review",
+        "financial forecasting",
+        "marketing copy",
+        "payroll processing"
+      ],
       "inputs": [
         "build_log"
       ],
@@ -3096,7 +3148,9 @@
       ],
       "negative_keywords": [
         "legal review",
-        "tax review"
+        "tax review",
+        "financial forecasting",
+        "marketing copy"
       ],
       "inputs": [
         "changed_files"
@@ -3141,7 +3195,9 @@
       ],
       "negative_keywords": [
         "product roadmap",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "marketing copy"
       ],
       "inputs": [
         "changed_files",
@@ -3390,7 +3446,9 @@
       ],
       "negative_keywords": [
         "legal document",
-        "contract document"
+        "contract document",
+        "legal contract review",
+        "financial forecasting"
       ],
       "inputs": [
         "changed_files",
@@ -3440,7 +3498,8 @@
       "negative_keywords": [
         "unit test",
         "financial forecast",
-        "threat model"
+        "threat model",
+        "legal contract review"
       ],
       "inputs": [
         "user_flow_description",
@@ -3501,7 +3560,8 @@
       "negative_keywords": [
         "vue component",
         "angular template",
-        "backend api"
+        "backend api",
+        "legal contract review"
       ],
       "inputs": [
         "component_spec",
@@ -3568,7 +3628,8 @@
       "negative_keywords": [
         "react component",
         "angular template",
-        "backend api"
+        "backend api",
+        "legal contract review"
       ],
       "inputs": [
         "component_spec",
@@ -3626,7 +3687,9 @@
       ],
       "negative_keywords": [
         "product roadmap",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "marketing copy"
       ],
       "inputs": [
         "changed_files",
@@ -3675,7 +3738,9 @@
       ],
       "negative_keywords": [
         "product roadmap",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "marketing copy"
       ],
       "inputs": [
         "changed_files",
@@ -3724,7 +3789,9 @@
       ],
       "negative_keywords": [
         "product roadmap",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "marketing copy"
       ],
       "inputs": [
         "changed_files",
@@ -3768,7 +3835,12 @@
       "aliases": [
         "master"
       ],
-      "negative_keywords": [],
+      "negative_keywords": [
+        "legal contract review",
+        "financial forecasting",
+        "marketing copy",
+        "payroll processing"
+      ],
       "inputs": [
         "prompt"
       ],
@@ -3822,7 +3894,8 @@
       "negative_keywords": [
         "ios app",
         "swift code",
-        "web frontend"
+        "web frontend",
+        "legal contract review"
       ],
       "inputs": [
         "feature_spec",
@@ -3889,7 +3962,8 @@
       "negative_keywords": [
         "android app",
         "kotlin code",
-        "web frontend"
+        "web frontend",
+        "legal contract review"
       ],
       "inputs": [
         "feature_spec",
@@ -4012,7 +4086,9 @@
       ],
       "negative_keywords": [
         "product roadmap",
-        "financial forecast"
+        "financial forecast",
+        "legal contract review",
+        "financial forecasting"
       ],
       "inputs": [
         "changed_files",
@@ -4062,7 +4138,9 @@
       ],
       "negative_keywords": [
         "product roadmap",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "marketing copy"
       ],
       "inputs": [
         "changed_files",
@@ -4112,7 +4190,8 @@
       "negative_keywords": [
         "add new feature",
         "financial forecast",
-        "security audit"
+        "security audit",
+        "legal contract review"
       ],
       "inputs": [
         "target_file_or_module",
@@ -4233,7 +4312,9 @@
       ],
       "negative_keywords": [
         "product roadmap",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "marketing copy"
       ],
       "inputs": [
         "changed_files",
@@ -4284,7 +4365,8 @@
       "negative_keywords": [
         "threat model",
         "penetration test",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting"
       ],
       "inputs": [
         "changed_files",
@@ -4335,7 +4417,9 @@
       ],
       "negative_keywords": [
         "product roadmap",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "marketing copy"
       ],
       "inputs": [
         "changed_files",
@@ -4386,7 +4470,9 @@
       ],
       "negative_keywords": [
         "load test",
-        "penetration test"
+        "penetration test",
+        "legal contract review",
+        "financial forecasting"
       ],
       "inputs": [
         "task_description",
@@ -4642,7 +4728,9 @@
       ],
       "negative_keywords": [
         "product roadmap",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "marketing copy"
       ],
       "inputs": [
         "changed_files",
@@ -4698,7 +4786,8 @@
       "negative_keywords": [
         "code review",
         "security penetration test",
-        "marketing campaign"
+        "marketing campaign",
+        "software deployment"
       ],
       "inputs": [
         "audit_scope",
@@ -4725,12 +4814,12 @@
         "sampling_documented",
         "reviewer_handoff_marker_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.finance.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "finance.budget-planner",
@@ -4753,7 +4842,8 @@
       "negative_keywords": [
         "contract draft",
         "medical advice",
-        "design polish"
+        "design polish",
+        "software deployment"
       ],
       "inputs": [
         "planning_period",
@@ -4780,12 +4870,12 @@
         "assumptions_disclosed",
         "reviewer_handoff_marker_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.finance-master.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "finance.cash-flow-manager",
@@ -4808,7 +4898,8 @@
       "negative_keywords": [
         "proposal outline",
         "source pack",
-        "patient case"
+        "patient case",
+        "software deployment"
       ],
       "inputs": [
         "cash_snapshot",
@@ -4835,12 +4926,12 @@
         "source_numbers_labeled",
         "reviewer_handoff_marker_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.finance-master.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "finance.cfo-advisor",
@@ -4863,7 +4954,8 @@
       "negative_keywords": [
         "code review",
         "marketing campaign",
-        "contract review"
+        "contract review",
+        "software deployment"
       ],
       "inputs": [
         "financial_context",
@@ -4890,12 +4982,12 @@
         "scenarios_present",
         "reviewer_handoff_marker_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.finance.cfo-advisor.2026-06-01"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "finance.compliance-officer",
@@ -4924,7 +5016,8 @@
       "negative_keywords": [
         "code review",
         "security penetration test",
-        "marketing campaign"
+        "marketing campaign",
+        "software deployment"
       ],
       "inputs": [
         "regulatory_requirements",
@@ -4951,12 +5044,12 @@
         "regulatory_mapped",
         "reviewer_handoff_marker_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.finance.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "finance.credit-analyst",
@@ -4984,7 +5077,8 @@
       "negative_keywords": [
         "code review",
         "marketing campaign",
-        "hiring plan"
+        "hiring plan",
+        "software deployment"
       ],
       "inputs": [
         "borrower_data",
@@ -5011,12 +5105,12 @@
         "coverage_analyzed",
         "reviewer_handoff_marker_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.finance.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "finance.expense-auditor",
@@ -5038,12 +5132,21 @@
       "aliases": [
         "expense-auditor"
       ],
-      "negative_keywords": [],
+      "negative_keywords": [
+        "software deployment",
+        "model training",
+        "marketing campaign",
+        "ui/ux design"
+      ],
       "inputs": [
-        "task_context"
+        "expense_report",
+        "expense_policy",
+        "receipts_or_evidence"
       ],
       "outputs": [
-        "specialist_output"
+        "policy_exception_list",
+        "audit_findings",
+        "remediation_actions"
       ],
       "allowed_tools": [
         "filesystem.read"
@@ -5051,17 +5154,21 @@
       "budget_band": "standard",
       "max_context_tokens": 5000,
       "failure_modes": [
-        "scope drift"
+        "flags exceptions without citing the specific policy clause",
+        "misses duplicate or split transactions",
+        "accepts line items without supporting receipts"
       ],
       "verification": [
-        "output_matches_request"
+        "policy_thresholds_applied",
+        "duplicate_and_split_charges_checked",
+        "evidence_traced_to_each_line"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.finance.expense-auditor.2026-06-02"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "finance.financial-analyst",
@@ -5089,7 +5196,8 @@
       "negative_keywords": [
         "code review",
         "marketing campaign",
-        "legal compliance"
+        "legal compliance",
+        "software deployment"
       ],
       "inputs": [
         "financial_statements",
@@ -5116,12 +5224,12 @@
         "actuals_vs_estimates_labeled",
         "reviewer_handoff_marker_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.finance.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "finance.financial-modeler",
@@ -5150,7 +5258,8 @@
       "negative_keywords": [
         "code review",
         "marketing campaign",
-        "legal advice"
+        "legal advice",
+        "software deployment"
       ],
       "inputs": [
         "model_requirements",
@@ -5177,12 +5286,12 @@
         "assumptions_documented",
         "reviewer_handoff_marker_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.finance.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "finance.financial-planner",
@@ -5210,7 +5319,8 @@
       "negative_keywords": [
         "code review",
         "marketing campaign",
-        "legal advice"
+        "legal advice",
+        "software deployment"
       ],
       "inputs": [
         "financial_goals",
@@ -5237,12 +5347,12 @@
         "scenarios_present",
         "reviewer_handoff_marker_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.finance.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "finance.forecasting-analyst",
@@ -5265,7 +5375,8 @@
       "negative_keywords": [
         "legal advice",
         "ehr workflow",
-        "ux critique"
+        "ux critique",
+        "software deployment"
       ],
       "inputs": [
         "actuals_snapshot",
@@ -5292,12 +5403,12 @@
         "actuals_vs_estimates_labeled",
         "reviewer_handoff_marker_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.finance-master.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "finance.investment-analyst",
@@ -5325,7 +5436,8 @@
       "negative_keywords": [
         "code review",
         "marketing campaign",
-        "hiring plan"
+        "hiring plan",
+        "software deployment"
       ],
       "inputs": [
         "investment_data",
@@ -5352,12 +5464,12 @@
         "risk_analysis_present",
         "reviewer_handoff_marker_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.finance.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "finance.m-and-a-specialist",
@@ -5386,7 +5498,8 @@
       "negative_keywords": [
         "code review",
         "marketing campaign",
-        "hiring plan"
+        "hiring plan",
+        "software deployment"
       ],
       "inputs": [
         "deal_context",
@@ -5413,12 +5526,12 @@
         "synergy_analyzed",
         "reviewer_handoff_marker_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.finance.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "finance.master",
@@ -5444,7 +5557,8 @@
       "negative_keywords": [
         "product roadmap",
         "sales pipeline",
-        "marketing campaign"
+        "marketing campaign",
+        "software deployment"
       ],
       "inputs": [
         "prompt",
@@ -5471,12 +5585,12 @@
         "actuals_vs_estimates_labeled",
         "reviewer_handoff_marker_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.finance-master.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "finance.payroll-analyst",
@@ -5498,12 +5612,21 @@
       "aliases": [
         "payroll-analyst"
       ],
-      "negative_keywords": [],
+      "negative_keywords": [
+        "software deployment",
+        "model training",
+        "marketing campaign",
+        "infrastructure provisioning"
+      ],
       "inputs": [
-        "task_context"
+        "payroll_register",
+        "gl_or_bank_records",
+        "pay_period_parameters"
       ],
       "outputs": [
-        "specialist_output"
+        "reconciliation_summary",
+        "variance_list",
+        "correction_recommendations"
       ],
       "allowed_tools": [
         "filesystem.read"
@@ -5511,17 +5634,21 @@
       "budget_band": "standard",
       "max_context_tokens": 5000,
       "failure_modes": [
-        "scope drift"
+        "reports a balanced reconciliation without tracing variances to source",
+        "ignores off-cycle adjustments and retro pay",
+        "mismatches tax and deduction totals against filings"
       ],
       "verification": [
-        "output_matches_request"
+        "gross_to_net_reconciled",
+        "variances_explained_with_source",
+        "tax_and_deduction_totals_tied_out"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.finance.payroll-analyst.2026-06-02"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "finance.portfolio-manager",
@@ -5549,7 +5676,8 @@
       "negative_keywords": [
         "code review",
         "marketing campaign",
-        "hiring plan"
+        "hiring plan",
+        "software deployment"
       ],
       "inputs": [
         "portfolio_holdings",
@@ -5576,12 +5704,12 @@
         "diversification_analyzed",
         "reviewer_handoff_marker_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.finance.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "finance.risk-manager",
@@ -5609,7 +5737,8 @@
       "negative_keywords": [
         "code review",
         "security penetration test",
-        "marketing campaign"
+        "marketing campaign",
+        "software deployment"
       ],
       "inputs": [
         "risk_context",
@@ -5636,12 +5765,12 @@
         "risk_categorized",
         "reviewer_handoff_marker_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.finance.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "finance.tax-specialist",
@@ -5670,7 +5799,8 @@
       "negative_keywords": [
         "code review",
         "marketing campaign",
-        "investment recommendation"
+        "investment recommendation",
+        "software deployment"
       ],
       "inputs": [
         "tax_context",
@@ -5697,12 +5827,12 @@
         "jurisdiction_noted",
         "reviewer_handoff_marker_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.finance.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "finance.treasury-manager",
@@ -5731,7 +5861,8 @@
       "negative_keywords": [
         "code review",
         "marketing campaign",
-        "investment recommendation"
+        "investment recommendation",
+        "software deployment"
       ],
       "inputs": [
         "cash_position",
@@ -5758,12 +5889,12 @@
         "liquidity_analyzed",
         "reviewer_handoff_marker_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.finance.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "finance.valuation-expert",
@@ -5792,7 +5923,8 @@
       "negative_keywords": [
         "code review",
         "marketing campaign",
-        "legal advice"
+        "legal advice",
+        "software deployment"
       ],
       "inputs": [
         "valuation_subject",
@@ -5819,12 +5951,12 @@
         "methodology_justified",
         "reviewer_handoff_marker_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.finance.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "healthcare.clinical-decision-support",
@@ -5847,7 +5979,8 @@
       "negative_keywords": [
         "patient identifier",
         "sales quote",
-        "legal brief"
+        "legal brief",
+        "software deployment"
       ],
       "inputs": [
         "clinical_question",
@@ -5874,12 +6007,12 @@
         "diagnosis_not_claimed",
         "clinician_handoff_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.healthcare-master.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "healthcare.clinical-informatics",
@@ -5903,7 +6036,8 @@
       "negative_keywords": [
         "financial forecast",
         "marketing campaign",
-        "code refactor"
+        "code refactor",
+        "software deployment"
       ],
       "inputs": [
         "clinical_workflow_spec",
@@ -5930,12 +6064,12 @@
         "patient_safety_considered",
         "data_governance_included"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.healthcare.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "healthcare.clinical-research",
@@ -5959,7 +6093,8 @@
       "negative_keywords": [
         "basic science research",
         "market research",
-        "software testing"
+        "software testing",
+        "software deployment"
       ],
       "inputs": [
         "protocol_draft",
@@ -5986,12 +6121,12 @@
         "regulatory_requirements_mapped",
         "recruitment_feasibility_assessed"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.healthcare.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "healthcare.ehr-patterns",
@@ -6014,7 +6149,8 @@
       "negative_keywords": [
         "deploy infra",
         "budget forecast",
-        "seo metadata"
+        "seo metadata",
+        "software deployment"
       ],
       "inputs": [
         "workflow_goal",
@@ -6041,12 +6177,12 @@
         "roles_explicit",
         "safety_notes_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.healthcare-master.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "healthcare.health-data-analyst",
@@ -6069,7 +6205,8 @@
       "negative_keywords": [
         "marketing analytics",
         "financial reporting",
-        "code deployment"
+        "code deployment",
+        "software deployment"
       ],
       "inputs": [
         "dataset_description",
@@ -6096,12 +6233,12 @@
         "statistical_methods_stated",
         "data_quality_addressed"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.healthcare.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "healthcare.health-it",
@@ -6125,7 +6262,8 @@
       "negative_keywords": [
         "general software engineering",
         "web development",
-        "marketing automation"
+        "marketing automation",
+        "software deployment"
       ],
       "inputs": [
         "system_requirements",
@@ -6152,12 +6290,12 @@
         "interoperability_standards_applied",
         "clinical_workflow_impact_assessed"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.healthcare.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "healthcare.healthcare-compliance",
@@ -6181,7 +6319,8 @@
       "negative_keywords": [
         "software compliance",
         "marketing compliance",
-        "code review"
+        "code review",
+        "software deployment"
       ],
       "inputs": [
         "compliance_scope",
@@ -6208,12 +6347,12 @@
         "enforcement_trends_considered",
         "documentation_requirements_stated"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.healthcare.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "healthcare.healthcare-operations",
@@ -6237,7 +6376,8 @@
       "negative_keywords": [
         "software operations",
         "devops pipeline",
-        "marketing operations"
+        "marketing operations",
+        "software deployment"
       ],
       "inputs": [
         "operations_scope",
@@ -6264,12 +6404,12 @@
         "regulatory_constraints_addressed",
         "staff_workflow_assessed"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.healthcare.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "healthcare.master",
@@ -6295,7 +6435,8 @@
       "negative_keywords": [
         "code review",
         "product review",
-        "financial forecast"
+        "financial forecast",
+        "software deployment"
       ],
       "inputs": [
         "prompt",
@@ -6322,12 +6463,12 @@
         "phi_redacted_before_processing",
         "clinician_review_marker_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.healthcare-master.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "healthcare.medical-coder",
@@ -6351,7 +6492,8 @@
       "negative_keywords": [
         "software development",
         "marketing plan",
-        "financial audit"
+        "financial audit",
+        "software deployment"
       ],
       "inputs": [
         "clinical_documentation",
@@ -6378,12 +6520,12 @@
         "coding_guidelines_followed",
         "compliance_flags_checked"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.healthcare.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "healthcare.medical-device",
@@ -6407,7 +6549,8 @@
       "negative_keywords": [
         "general software engineering",
         "consumer product design",
-        "marketing plan"
+        "marketing plan",
+        "software deployment"
       ],
       "inputs": [
         "device_description",
@@ -6434,12 +6577,12 @@
         "clinical_evidence_requirements_stated",
         "post_market_obligations_addressed"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.healthcare.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "healthcare.patient-safety",
@@ -6463,7 +6606,8 @@
       "negative_keywords": [
         "software testing",
         "product safety",
-        "marketing review"
+        "marketing review",
+        "software deployment"
       ],
       "inputs": [
         "event_description",
@@ -6490,12 +6634,12 @@
         "reporting_requirements_addressed",
         "evidence_base_cited"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.healthcare.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "healthcare.phi-compliance",
@@ -6518,7 +6662,8 @@
       "negative_keywords": [
         "deal proposal",
         "feature roadmap",
-        "supply chain"
+        "supply chain",
+        "software deployment"
       ],
       "inputs": [
         "artifact_or_flow",
@@ -6545,12 +6690,12 @@
         "minimum_necessary_checked",
         "reviewer_handoff_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.healthcare-master.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "healthcare.population-health",
@@ -6574,7 +6719,8 @@
       "negative_keywords": [
         "individual patient care",
         "marketing analytics",
-        "financial modeling"
+        "financial modeling",
+        "software deployment"
       ],
       "inputs": [
         "population_data",
@@ -6601,12 +6747,12 @@
         "social_determinants_addressed",
         "care_coordination_defined"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.healthcare.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "healthcare.quality-improvement",
@@ -6630,7 +6776,8 @@
       "negative_keywords": [
         "software quality assurance",
         "code quality review",
-        "product testing"
+        "product testing",
+        "software deployment"
       ],
       "inputs": [
         "improvement_scope",
@@ -6657,12 +6804,12 @@
         "stakeholder_engagement_planned",
         "sustainability_addressed"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.healthcare.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "healthcare.telehealth-specialist",
@@ -6686,7 +6833,8 @@
       "negative_keywords": [
         "video conferencing setup",
         "general IT support",
-        "marketing campaign"
+        "marketing campaign",
+        "software deployment"
       ],
       "inputs": [
         "telehealth_requirements",
@@ -6713,12 +6861,12 @@
         "patient_access_considered",
         "privacy_security_assessed"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.healthcare.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "hr.compensation-analyst",
@@ -6741,7 +6889,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "contract review"
+        "contract review",
+        "software deployment"
       ],
       "inputs": [
         "role_data",
@@ -6768,12 +6917,12 @@
         "equity_analyzed",
         "total_rewards_considered"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.hr.compensation-analyst.2026-06-01"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "hr.diversity-specialist",
@@ -6797,7 +6946,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "product launch"
+        "product launch",
+        "software deployment"
       ],
       "inputs": [
         "organizational_context",
@@ -6824,12 +6974,12 @@
         "intersectionality_addressed",
         "accountability_included"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.hr.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "hr.employee-relations",
@@ -6853,7 +7003,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "product launch"
+        "product launch",
+        "software deployment"
       ],
       "inputs": [
         "workplace_context",
@@ -6880,12 +7031,12 @@
         "confidentiality_addressed",
         "employee_voice_included"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.hr.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "hr.hiring-manager",
@@ -6908,7 +7059,8 @@
       "negative_keywords": [
         "tax forecast",
         "legal memo",
-        "kubernetes deploy"
+        "kubernetes deploy",
+        "software deployment"
       ],
       "inputs": [
         "role_scope",
@@ -6935,12 +7087,12 @@
         "calibration_present",
         "human_review_marker_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.hr-master.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "hr.hr-analyst",
@@ -6964,7 +7116,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "product metrics"
+        "product metrics",
+        "software deployment"
       ],
       "inputs": [
         "hr_data_sources",
@@ -6991,12 +7144,12 @@
         "privacy_addressed",
         "recommendations_actionable"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.hr.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "hr.hr-business-partner",
@@ -7020,7 +7173,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "product roadmap"
+        "product roadmap",
+        "software deployment"
       ],
       "inputs": [
         "business_unit_context",
@@ -7047,12 +7201,12 @@
         "measurable_outcomes_defined",
         "human_review_marker_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.hr.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "hr.hr-compliance",
@@ -7076,7 +7230,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "product launch"
+        "product launch",
+        "software deployment"
       ],
       "inputs": [
         "regulatory_context",
@@ -7103,12 +7258,12 @@
         "documentation_requirements_defined",
         "human_review_marker_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.hr.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "hr.hr-operations",
@@ -7132,7 +7287,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "product launch"
+        "product launch",
+        "software deployment"
       ],
       "inputs": [
         "operational_context",
@@ -7159,12 +7315,12 @@
         "data_quality_defined",
         "service_levels_specified"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.hr.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "hr.learning-specialist",
@@ -7188,7 +7344,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "product roadmap"
+        "product roadmap",
+        "software deployment"
       ],
       "inputs": [
         "capability_gaps",
@@ -7215,12 +7372,12 @@
         "learner_diversity_addressed",
         "learning_outcomes_measurable"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.hr.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "hr.master",
@@ -7246,7 +7403,8 @@
       "negative_keywords": [
         "code review",
         "product roadmap",
-        "financial forecast"
+        "financial forecast",
+        "software deployment"
       ],
       "inputs": [
         "prompt",
@@ -7273,12 +7431,12 @@
         "employment_law_caution_attached",
         "human_review_marker_present_on_individual_outcomes"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.hr-master.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "hr.onboarding-coordinator",
@@ -7301,7 +7459,8 @@
       "negative_keywords": [
         "pricing strategy",
         "clinical evidence",
-        "source mining"
+        "source mining",
+        "software deployment"
       ],
       "inputs": [
         "role_scope",
@@ -7328,12 +7487,12 @@
         "owners_listed",
         "manager_handoff_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.hr-master.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "hr.organizational-development",
@@ -7357,7 +7516,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "product launch"
+        "product launch",
+        "software deployment"
       ],
       "inputs": [
         "organizational_context",
@@ -7384,12 +7544,12 @@
         "resistance_management_addressed",
         "success_metrics_defined"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.hr.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "hr.performance-reviewer",
@@ -7414,7 +7574,8 @@
       "negative_keywords": [
         "clinical review",
         "proposal draft",
-        "secrets audit"
+        "secrets audit",
+        "software deployment"
       ],
       "inputs": [
         "role_family",
@@ -7441,12 +7602,12 @@
         "calibration_notes_present",
         "human_review_marker_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.hr-master.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "hr.policy-drafter",
@@ -7468,12 +7629,21 @@
       "aliases": [
         "policy-drafter"
       ],
-      "negative_keywords": [],
+      "negative_keywords": [
+        "software deployment",
+        "model training",
+        "financial forecasting",
+        "marketing copy"
+      ],
       "inputs": [
-        "task_context"
+        "policy_topic",
+        "jurisdiction_and_scope",
+        "existing_policy_context"
       ],
       "outputs": [
-        "specialist_output"
+        "policy_draft",
+        "review_checklist",
+        "rollout_communication"
       ],
       "allowed_tools": [
         "filesystem.read"
@@ -7481,17 +7651,21 @@
       "budget_band": "standard",
       "max_context_tokens": 5000,
       "failure_modes": [
-        "scope drift"
+        "drafts policy without flagging jurisdiction-specific legal requirements",
+        "uses ambiguous language that invites disputes",
+        "skips the legal and leadership review gate before publication"
       ],
       "verification": [
-        "output_matches_request"
+        "jurisdiction_requirements_addressed",
+        "legal_review_gate_flagged",
+        "plain_language_used"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.hr.policy-drafter.2026-06-02"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "hr.talent-acquisition",
@@ -7515,7 +7689,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "product launch"
+        "product launch",
+        "software deployment"
       ],
       "inputs": [
         "role_requirements",
@@ -7542,12 +7717,12 @@
         "sourcing_channels_diverse",
         "candidate_experience_addressed"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.hr.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "hr.workforce-planner",
@@ -7571,7 +7746,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "product launch"
+        "product launch",
+        "software deployment"
       ],
       "inputs": [
         "business_forecast",
@@ -7598,12 +7774,12 @@
         "attrition_data_considered",
         "scenarios_modeled"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.hr.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "integrations.api-gateway-architect",
@@ -7627,7 +7803,8 @@
       "negative_keywords": [
         "service mesh configuration",
         "dns management",
-        "ssl certificate provisioning"
+        "ssl certificate provisioning",
+        "financial forecasting"
       ],
       "inputs": [
         "gateway_platform",
@@ -7683,7 +7860,8 @@
       "negative_keywords": [
         "api security audit",
         "performance benchmark",
-        "database migration"
+        "database migration",
+        "financial forecasting"
       ],
       "inputs": [
         "target_api",
@@ -7740,7 +7918,8 @@
       "negative_keywords": [
         "seo strategy",
         "security pentest",
-        "product roadmap"
+        "product roadmap",
+        "financial forecasting"
       ],
       "inputs": [
         "target_url",
@@ -7795,7 +7974,8 @@
       "negative_keywords": [
         "batch etl pipeline",
         "data warehouse design",
-        "frontend real time updates"
+        "frontend real time updates",
+        "financial forecasting"
       ],
       "inputs": [
         "streaming_platform",
@@ -7849,7 +8029,9 @@
       ],
       "negative_keywords": [
         "code review",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "legal contract review"
       ],
       "inputs": [
         "figma_file_url",
@@ -7902,7 +8084,8 @@
       "negative_keywords": [
         "code review",
         "tax review",
-        "clinical review"
+        "clinical review",
+        "financial forecasting"
       ],
       "inputs": [
         "repo_or_org",
@@ -7957,7 +8140,8 @@
       "negative_keywords": [
         "rest api design",
         "database query optimization",
-        "frontend graphql client"
+        "frontend graphql client",
+        "financial forecasting"
       ],
       "inputs": [
         "schema_sources",
@@ -8015,7 +8199,8 @@
       "negative_keywords": [
         "code review",
         "security audit",
-        "data pipeline"
+        "data pipeline",
+        "financial forecasting"
       ],
       "inputs": [
         "prompt",
@@ -8067,7 +8252,9 @@
       ],
       "negative_keywords": [
         "code review",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "legal contract review"
       ],
       "inputs": [
         "target_service_name",
@@ -8121,7 +8308,8 @@
       "negative_keywords": [
         "database optimization",
         "frontend state management",
-        "ci/cd pipeline"
+        "ci/cd pipeline",
+        "financial forecasting"
       ],
       "inputs": [
         "queue_system",
@@ -8177,7 +8365,8 @@
       "negative_keywords": [
         "monolith refactoring",
         "single service deployment",
-        "frontend api calls"
+        "frontend api calls",
+        "financial forecasting"
       ],
       "inputs": [
         "service_topology",
@@ -8233,7 +8422,8 @@
       "negative_keywords": [
         "database query optimization",
         "frontend component",
-        "deployment pipeline"
+        "deployment pipeline",
+        "financial forecasting"
       ],
       "inputs": [
         "middleware_type",
@@ -8287,7 +8477,9 @@
       ],
       "negative_keywords": [
         "code review",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "legal contract review"
       ],
       "inputs": [
         "notion_database_id",
@@ -8340,7 +8532,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "contract review"
+        "contract review",
+        "financial forecasting"
       ],
       "inputs": [
         "query_description",
@@ -8393,7 +8586,9 @@
       ],
       "negative_keywords": [
         "code review",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "legal contract review"
       ],
       "inputs": [
         "stripe_resource_type",
@@ -8420,12 +8615,12 @@
         "human_review_gate_passed",
         "webhook_signature_verified"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.ecc.2026-05-29"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "integrations.third-party-integrator",
@@ -8449,7 +8644,8 @@
       "negative_keywords": [
         "build custom payment system",
         "internal service design",
-        "database migration"
+        "database migration",
+        "financial forecasting"
       ],
       "inputs": [
         "service_name",
@@ -8504,7 +8700,8 @@
       "negative_keywords": [
         "terraform apply",
         "code review",
-        "legal review"
+        "legal review",
+        "financial forecasting"
       ],
       "inputs": [
         "project_name",
@@ -8559,7 +8756,8 @@
       "negative_keywords": [
         "api design review",
         "database schema",
-        "frontend component"
+        "frontend component",
+        "financial forecasting"
       ],
       "inputs": [
         "webhook_source",
@@ -8621,7 +8819,8 @@
       "negative_keywords": [
         "pricing review",
         "patient support",
-        "layout polish"
+        "layout polish",
+        "software deployment"
       ],
       "inputs": [
         "framework_scope",
@@ -8648,12 +8847,12 @@
         "evidence_set_cited",
         "owner_handoff_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.legal-compliance-master.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "legal-compliance.contract-reviewer",
@@ -8683,7 +8882,8 @@
       "negative_keywords": [
         "forecast model",
         "k8s deploy",
-        "curriculum design"
+        "curriculum design",
+        "software deployment"
       ],
       "inputs": [
         "document_type",
@@ -8710,12 +8910,12 @@
         "clause_flags_listed",
         "attorney_handoff_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.legal-compliance-master.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "legal-compliance.corporate-lawyer",
@@ -8738,7 +8938,8 @@
       "negative_keywords": [
         "frontend styling",
         "database migration",
-        "marketing campaign"
+        "marketing campaign",
+        "software deployment"
       ],
       "inputs": [
         "entity_type",
@@ -8765,12 +8966,12 @@
         "governance_analysis_listed",
         "compliance_handoff_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.legal-compliance.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "legal-compliance.due-diligence",
@@ -8793,7 +8994,8 @@
       "negative_keywords": [
         "performance testing",
         "content strategy",
-        "budget planning"
+        "budget planning",
+        "software deployment"
       ],
       "inputs": [
         "transaction_type",
@@ -8820,12 +9022,12 @@
         "risk_flags_listed",
         "attorney_handoff_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.legal-compliance.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "legal-compliance.employment-lawyer",
@@ -8849,7 +9051,8 @@
       "negative_keywords": [
         "cloud infrastructure",
         "product roadmap",
-        "financial modeling"
+        "financial modeling",
+        "software deployment"
       ],
       "inputs": [
         "agreement_type",
@@ -8876,12 +9079,12 @@
         "policy_analysis_listed",
         "hr_legal_handoff_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.legal-compliance.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "legal-compliance.ip-lawyer",
@@ -8905,7 +9108,8 @@
       "negative_keywords": [
         "server provisioning",
         "email campaign",
-        "budget forecasting"
+        "budget forecasting",
+        "software deployment"
       ],
       "inputs": [
         "ip_type",
@@ -8932,12 +9136,12 @@
         "portfolio_scope_listed",
         "attorney_handoff_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.legal-compliance.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "legal-compliance.legal-researcher",
@@ -8960,7 +9164,8 @@
       "negative_keywords": [
         "deployment strategy",
         "sales quota",
-        "UI wireframe"
+        "UI wireframe",
+        "software deployment"
       ],
       "inputs": [
         "research_question",
@@ -8987,12 +9192,12 @@
         "precedents_cited",
         "attorney_handoff_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.legal-compliance.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "legal-compliance.legal-writer",
@@ -9015,7 +9220,8 @@
       "negative_keywords": [
         "database optimization",
         "sales training",
-        "deployment automation"
+        "deployment automation",
+        "software deployment"
       ],
       "inputs": [
         "document_type",
@@ -9042,12 +9248,12 @@
         "document_structure_complete",
         "attorney_handoff_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.legal-compliance.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "legal-compliance.litigation-support",
@@ -9070,7 +9276,8 @@
       "negative_keywords": [
         "API development",
         "marketing analytics",
-        "cloud migration"
+        "cloud migration",
+        "software deployment"
       ],
       "inputs": [
         "case_type",
@@ -9097,12 +9304,12 @@
         "document_analysis_complete",
         "attorney_handoff_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.legal-compliance.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "legal-compliance.master",
@@ -9128,7 +9335,8 @@
       "negative_keywords": [
         "code review",
         "product roadmap",
-        "sales pipeline"
+        "sales pipeline",
+        "software deployment"
       ],
       "inputs": [
         "prompt",
@@ -9155,12 +9363,12 @@
         "jurisdiction_caveat_present",
         "attorney_handoff_marker_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.legal-compliance-master.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "legal-compliance.nda-reviewer",
@@ -9182,12 +9390,21 @@
       "aliases": [
         "nda-reviewer"
       ],
-      "negative_keywords": [],
+      "negative_keywords": [
+        "software deployment",
+        "model training",
+        "marketing campaign",
+        "ui/ux design"
+      ],
       "inputs": [
-        "task_context"
+        "nda_text",
+        "party_role_and_direction",
+        "risk_tolerance"
       ],
       "outputs": [
-        "specialist_output"
+        "clause_risk_summary",
+        "redline_suggestions",
+        "escalation_decision"
       ],
       "allowed_tools": [
         "filesystem.read"
@@ -9195,17 +9412,21 @@
       "budget_band": "standard",
       "max_context_tokens": 5000,
       "failure_modes": [
-        "scope drift"
+        "reviews without identifying disclosing vs receiving party direction",
+        "misses missing standard carveouts such as public or independently developed information",
+        "treats an unbounded term or overbroad definition as standard"
       ],
       "verification": [
-        "output_matches_request"
+        "mutual_vs_unilateral_identified",
+        "term_and_survival_checked",
+        "carveouts_and_residuals_reviewed"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.legal-compliance.nda-reviewer.2026-06-02"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "legal-compliance.policy-analyst",
@@ -9228,7 +9449,8 @@
       "negative_keywords": [
         "CI/CD pipeline",
         "revenue modeling",
-        "design system"
+        "design system",
+        "software deployment"
       ],
       "inputs": [
         "policy_domain",
@@ -9255,12 +9477,12 @@
         "impact_assessment_complete",
         "compliance_handoff_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.legal-compliance.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "legal-compliance.privacy-advisor",
@@ -9290,7 +9512,8 @@
       "negative_keywords": [
         "sales proposal",
         "medical diagnosis",
-        "release train"
+        "release train",
+        "software deployment"
       ],
       "inputs": [
         "data_flow",
@@ -9317,12 +9540,12 @@
         "risk_flags_listed",
         "owner_handoff_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.legal-compliance-master.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "legal-compliance.regulatory-affairs",
@@ -9345,7 +9568,8 @@
       "negative_keywords": [
         "test automation",
         "brand design",
-        "inventory management"
+        "inventory management",
+        "software deployment"
       ],
       "inputs": [
         "regulatory_domain",
@@ -9372,12 +9596,12 @@
         "obligation_map_complete",
         "compliance_handoff_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.legal-compliance.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "legal-compliance.risk-manager",
@@ -9400,7 +9624,8 @@
       "negative_keywords": [
         "code generation",
         "product launch",
-        "social media"
+        "social media",
+        "software deployment"
       ],
       "inputs": [
         "risk_domain",
@@ -9427,12 +9652,12 @@
         "risk_register_complete",
         "compliance_handoff_present"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.legal-compliance.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "legal-compliance.terms-drafter",
@@ -9453,12 +9678,21 @@
       "aliases": [
         "terms-drafter"
       ],
-      "negative_keywords": [],
+      "negative_keywords": [
+        "software deployment",
+        "model training",
+        "marketing campaign",
+        "infrastructure provisioning"
+      ],
       "inputs": [
-        "task_context"
+        "service_description",
+        "liability_and_jurisdiction",
+        "required_clauses"
       ],
       "outputs": [
-        "specialist_output"
+        "terms_structure",
+        "clause_checklist",
+        "open_questions_for_counsel"
       ],
       "allowed_tools": [
         "filesystem.read"
@@ -9466,17 +9700,21 @@
       "budget_band": "standard",
       "max_context_tokens": 5000,
       "failure_modes": [
-        "scope drift"
+        "drafts terms without a limitation-of-liability clause",
+        "omits governing law and dispute-resolution sections",
+        "presents a draft as legal advice instead of flagging counsel review"
       ],
       "verification": [
-        "output_matches_request"
+        "limitation_of_liability_present",
+        "governing_law_specified",
+        "termination_and_dispute_clauses_included"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.legal-compliance.terms-drafter.2026-06-02"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "manufacturing.demand-planner",
@@ -9499,7 +9737,8 @@
       "negative_keywords": [
         "privacy review",
         "bug bash",
-        "sales deck"
+        "sales deck",
+        "marketing copy"
       ],
       "inputs": [
         "demand_history",
@@ -9553,7 +9792,8 @@
       "negative_keywords": [
         "tax advice",
         "nda review",
-        "ux audit"
+        "ux audit",
+        "marketing copy"
       ],
       "inputs": [
         "facility_data",
@@ -9607,7 +9847,8 @@
       "negative_keywords": [
         "tax advice",
         "nda review",
-        "ux audit"
+        "ux audit",
+        "marketing copy"
       ],
       "inputs": [
         "inventory_data",
@@ -9660,7 +9901,8 @@
       "negative_keywords": [
         "tax advice",
         "nda review",
-        "ux audit"
+        "ux audit",
+        "marketing copy"
       ],
       "inputs": [
         "inventory_snapshot",
@@ -9714,7 +9956,8 @@
       "negative_keywords": [
         "tax advice",
         "nda review",
-        "ux audit"
+        "ux audit",
+        "marketing copy"
       ],
       "inputs": [
         "current_state_map",
@@ -9768,7 +10011,8 @@
       "negative_keywords": [
         "tax advice",
         "nda review",
-        "ux audit"
+        "ux audit",
+        "marketing copy"
       ],
       "inputs": [
         "equipment_data",
@@ -9822,7 +10066,8 @@
       "negative_keywords": [
         "tax advice",
         "nda review",
-        "ux audit"
+        "ux audit",
+        "marketing copy"
       ],
       "inputs": [
         "manufacturing_data",
@@ -9876,7 +10121,8 @@
       "negative_keywords": [
         "tax advice",
         "nda review",
-        "ux audit"
+        "ux audit",
+        "marketing copy"
       ],
       "inputs": [
         "production_schedule",
@@ -9932,7 +10178,8 @@
       "negative_keywords": [
         "code production",
         "production release",
-        "financial forecast"
+        "financial forecast",
+        "marketing copy"
       ],
       "inputs": [
         "prompt",
@@ -9985,7 +10232,8 @@
       "negative_keywords": [
         "tax advice",
         "nda review",
-        "ux audit"
+        "ux audit",
+        "marketing copy"
       ],
       "inputs": [
         "process_data",
@@ -10039,7 +10287,8 @@
       "negative_keywords": [
         "tax advice",
         "nda review",
-        "ux audit"
+        "ux audit",
+        "marketing copy"
       ],
       "inputs": [
         "production_data",
@@ -10093,7 +10342,8 @@
       "negative_keywords": [
         "tax advice",
         "nda review",
-        "ux audit"
+        "ux audit",
+        "marketing copy"
       ],
       "inputs": [
         "quality_data",
@@ -10146,7 +10396,8 @@
       "negative_keywords": [
         "growth strategy",
         "ehr workflow",
-        "code refactor"
+        "code refactor",
+        "marketing copy"
       ],
       "inputs": [
         "incident_scope",
@@ -10200,7 +10451,8 @@
       "negative_keywords": [
         "tax advice",
         "nda review",
-        "ux audit"
+        "ux audit",
+        "marketing copy"
       ],
       "inputs": [
         "safety_data",
@@ -10227,12 +10479,12 @@
         "ppe_requirements_listed",
         "compliance_gaps_identified"
       ],
+      "requires_disclaimer": true,
+      "human_review_gate": true,
       "source_references": [
         "ref.github.manufacturing.2026-05-31"
       ],
-      "quality_gate": "production",
-      "requires_disclaimer": true,
-      "human_review_gate": true
+      "quality_gate": "production"
     },
     {
       "id": "manufacturing.supply-chain-analyst",
@@ -10256,7 +10508,8 @@
       "negative_keywords": [
         "tax advice",
         "nda review",
-        "ux audit"
+        "ux audit",
+        "marketing copy"
       ],
       "inputs": [
         "supply_chain_data",
@@ -10309,7 +10562,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "legal contract"
+        "legal contract",
+        "model training"
       ],
       "inputs": [
         "brand_guidelines",
@@ -10362,7 +10616,8 @@
       "negative_keywords": [
         "performance marketing",
         "ppc campaign",
-        "technical seo"
+        "technical seo",
+        "model training"
       ],
       "inputs": [
         "brand_identity",
@@ -10414,12 +10669,21 @@
       "aliases": [
         "campaign-analyst"
       ],
-      "negative_keywords": [],
+      "negative_keywords": [
+        "model training",
+        "database schema migration",
+        "legal contract review",
+        "infrastructure provisioning"
+      ],
       "inputs": [
-        "task_context"
+        "campaign_data",
+        "attribution_model",
+        "business_objective"
       ],
       "outputs": [
-        "specialist_output"
+        "performance_report",
+        "attribution_analysis",
+        "optimization_recommendations"
       ],
       "allowed_tools": [
         "filesystem.read"
@@ -10427,10 +10691,14 @@
       "budget_band": "standard",
       "max_context_tokens": 5000,
       "failure_modes": [
-        "scope drift"
+        "credits conversions without stating the attribution model and window",
+        "reports lift without significance testing",
+        "confuses correlation with incremental impact"
       ],
       "verification": [
-        "output_matches_request"
+        "attribution_window_stated",
+        "statistical_significance_checked",
+        "incrementality_vs_correlation_addressed"
       ],
       "source_references": [
         "ref.github.marketing.campaign-analyst.2026-06-02"
@@ -10461,7 +10729,8 @@
       "negative_keywords": [
         "contract review",
         "employee performance",
-        "deploy rollback"
+        "deploy rollback",
+        "model training"
       ],
       "inputs": [
         "topic",
@@ -10519,7 +10788,8 @@
       "negative_keywords": [
         "brand redesign",
         "feature development",
-        "seo audit"
+        "seo audit",
+        "model training"
       ],
       "inputs": [
         "conversion_goal",
@@ -10575,7 +10845,8 @@
       "negative_keywords": [
         "contract review",
         "deploy rollback",
-        "financial forecast"
+        "financial forecast",
+        "model training"
       ],
       "inputs": [
         "business_goal",
@@ -10634,7 +10905,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "contract review"
+        "contract review",
+        "model training"
       ],
       "inputs": [
         "audience_segment",
@@ -10688,7 +10960,8 @@
       "negative_keywords": [
         "product roadmap",
         "software deployment",
-        "financial audit"
+        "financial audit",
+        "model training"
       ],
       "inputs": [
         "event_type",
@@ -10746,7 +11019,8 @@
       "negative_keywords": [
         "brand identity",
         "compliance audit",
-        "infrastructure deployment"
+        "infrastructure deployment",
+        "model training"
       ],
       "inputs": [
         "growth_metric",
@@ -10800,7 +11074,8 @@
       "negative_keywords": [
         "affiliate program",
         "paid search",
-        "email automation"
+        "email automation",
+        "model training"
       ],
       "inputs": [
         "brand_values",
@@ -10853,7 +11128,8 @@
       "negative_keywords": [
         "financial audit",
         "product telemetry",
-        "code profiling"
+        "code profiling",
+        "database schema migration"
       ],
       "inputs": [
         "campaign_data",
@@ -10907,7 +11183,8 @@
       "negative_keywords": [
         "manual outreach",
         "one-time email blast",
-        "social media posting"
+        "social media posting",
+        "model training"
       ],
       "inputs": [
         "automation_platform",
@@ -10960,7 +11237,8 @@
       "negative_keywords": [
         "proposal draft",
         "clinical review",
-        "compiler error"
+        "compiler error",
+        "model training"
       ],
       "inputs": [
         "offer",
@@ -11016,7 +11294,8 @@
       "negative_keywords": [
         "sales pipeline",
         "product roadmap",
-        "financial forecast"
+        "financial forecast",
+        "model training"
       ],
       "inputs": [
         "prompt",
@@ -11071,7 +11350,8 @@
       "negative_keywords": [
         "product roadmap",
         "engineering sprint",
-        "customer support"
+        "customer support",
+        "model training"
       ],
       "inputs": [
         "product_features",
@@ -11127,7 +11407,8 @@
       "negative_keywords": [
         "organic seo",
         "social media ads",
-        "display advertising"
+        "display advertising",
+        "model training"
       ],
       "inputs": [
         "campaign_objective",
@@ -11187,7 +11468,8 @@
       "negative_keywords": [
         "sales deck",
         "budget variance",
-        "hipaa"
+        "hipaa",
+        "model training"
       ],
       "inputs": [
         "site_or_page_set",
@@ -11244,7 +11526,8 @@
       "negative_keywords": [
         "paid search ads",
         "email deliverability",
-        "technical seo"
+        "technical seo",
+        "model training"
       ],
       "inputs": [
         "platform_set",
@@ -11297,7 +11580,9 @@
       ],
       "negative_keywords": [
         "code review",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "clinical advice"
       ],
       "inputs": [
         "target_host",
@@ -11351,7 +11636,8 @@
       "negative_keywords": [
         "workflow design",
         "skill authoring",
-        "code implementation"
+        "code implementation",
+        "financial forecasting"
       ],
       "inputs": [
         "agent_requirement",
@@ -11404,7 +11690,9 @@
       ],
       "negative_keywords": [
         "code review",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "clinical advice"
       ],
       "inputs": [
         "agent_id_or_all",
@@ -11457,7 +11745,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "contract review"
+        "contract review",
+        "financial forecasting"
       ],
       "inputs": [
         "registry_snapshot",
@@ -11511,7 +11800,8 @@
       "negative_keywords": [
         "create dossier",
         "mine sources",
-        "code review"
+        "code review",
+        "financial forecasting"
       ],
       "inputs": [
         "dossier_artifact",
@@ -11564,7 +11854,8 @@
       "negative_keywords": [
         "market research",
         "contract review",
-        "patient case"
+        "patient case",
+        "financial forecasting"
       ],
       "inputs": [
         "changed_surface",
@@ -11619,7 +11910,8 @@
       "negative_keywords": [
         "run tests",
         "code review",
-        "production deployment"
+        "production deployment",
+        "financial forecasting"
       ],
       "inputs": [
         "fixture_requirements",
@@ -11672,7 +11964,9 @@
       ],
       "negative_keywords": [
         "code review",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "clinical advice"
       ],
       "inputs": [
         "repo_root_path",
@@ -11717,6 +12011,12 @@
         "system route",
         "system compile"
       ],
+      "negative_keywords": [
+        "financial forecasting",
+        "clinical advice",
+        "legal contract review",
+        "marketing campaign"
+      ],
       "inputs": [
         "system_request"
       ],
@@ -11760,7 +12060,8 @@
       "negative_keywords": [
         "live deployment",
         "medical review",
-        "pricing strategy"
+        "pricing strategy",
+        "financial forecasting"
       ],
       "inputs": [
         "source_bundle",
@@ -11816,7 +12117,8 @@
       "negative_keywords": [
         "code testing",
         "security audit",
-        "performance testing"
+        "performance testing",
+        "financial forecasting"
       ],
       "inputs": [
         "registry_snapshot",
@@ -11870,7 +12172,8 @@
       "negative_keywords": [
         "agent design",
         "workflow design",
-        "code implementation"
+        "code implementation",
+        "financial forecasting"
       ],
       "inputs": [
         "skill_requirement",
@@ -11923,7 +12226,8 @@
       "negative_keywords": [
         "deploy app",
         "customer outreach",
-        "sales proposal"
+        "sales proposal",
+        "financial forecasting"
       ],
       "inputs": [
         "target_domain",
@@ -11977,7 +12281,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "contract review"
+        "contract review",
+        "financial forecasting"
       ],
       "inputs": [
         "registry_snapshot",
@@ -12031,7 +12336,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "UI design"
+        "UI design",
+        "financial forecasting"
       ],
       "inputs": [
         "architecture_request",
@@ -12085,7 +12391,8 @@
       "negative_keywords": [
         "code optimization",
         "database optimization",
-        "UI optimization"
+        "UI optimization",
+        "financial forecasting"
       ],
       "inputs": [
         "system_metrics",
@@ -12139,7 +12446,8 @@
       "negative_keywords": [
         "agent design",
         "skill authoring",
-        "code implementation"
+        "code implementation",
+        "financial forecasting"
       ],
       "inputs": [
         "workflow_requirement",
@@ -12191,7 +12499,9 @@
       ],
       "negative_keywords": [
         "code review",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "clinical advice"
       ],
       "inputs": [
         "trace_log_path",
@@ -12244,7 +12554,8 @@
       "negative_keywords": [
         "production scheduling",
         "code review",
-        "financial forecast"
+        "financial forecast",
+        "marketing copy"
       ],
       "inputs": [
         "repo_layout",
@@ -12300,7 +12611,8 @@
       "negative_keywords": [
         "infrastructure provisioning",
         "code review",
-        "financial forecast"
+        "financial forecast",
+        "marketing copy"
       ],
       "inputs": [
         "application_architecture",
@@ -12355,12 +12667,21 @@
       "aliases": [
         "cloud-architect"
       ],
-      "negative_keywords": [],
+      "negative_keywords": [
+        "marketing copy",
+        "legal contract review",
+        "financial forecasting",
+        "brand design"
+      ],
       "inputs": [
-        "task_context"
+        "workload_requirements",
+        "compliance_and_region_constraints",
+        "cost_and_sla_targets"
       ],
       "outputs": [
-        "specialist_output"
+        "architecture_design",
+        "iac_topology",
+        "cost_and_failover_plan"
       ],
       "allowed_tools": [
         "filesystem.read"
@@ -12368,10 +12689,14 @@
       "budget_band": "standard",
       "max_context_tokens": 5000,
       "failure_modes": [
-        "scope drift"
+        "designs without multi-AZ or multi-region failure isolation",
+        "grants over-broad IAM instead of least privilege",
+        "ignores data-egress and cross-cloud cost"
       ],
       "verification": [
-        "output_matches_request"
+        "failure_domains_isolated",
+        "least_privilege_iam_designed",
+        "cost_and_egress_estimated"
       ],
       "source_references": [
         "ref.github.platform.cloud-architect.2026-06-02"
@@ -12402,7 +12727,8 @@
       "negative_keywords": [
         "application code review",
         "financial accounting",
-        "contract negotiation"
+        "contract negotiation",
+        "marketing copy"
       ],
       "inputs": [
         "current_cloud_spend",
@@ -12460,7 +12786,8 @@
       "negative_keywords": [
         "application code review",
         "financial forecast",
-        "contract review"
+        "contract review",
+        "marketing copy"
       ],
       "inputs": [
         "container_images",
@@ -12516,7 +12843,8 @@
       "negative_keywords": [
         "software release",
         "code review",
-        "financial forecast"
+        "financial forecast",
+        "marketing copy"
       ],
       "inputs": [
         "target_environment",
@@ -12571,7 +12899,8 @@
       "negative_keywords": [
         "application code review",
         "financial forecast",
-        "marketing campaign"
+        "marketing campaign",
+        "marketing copy"
       ],
       "inputs": [
         "repository_structure",
@@ -12634,7 +12963,8 @@
       "negative_keywords": [
         "product review",
         "code review",
-        "financial forecast"
+        "financial forecast",
+        "marketing copy"
       ],
       "inputs": [
         "alert_or_signal",
@@ -12690,7 +13020,8 @@
       "negative_keywords": [
         "application unit testing",
         "code review",
-        "financial forecast"
+        "financial forecast",
+        "marketing copy"
       ],
       "inputs": [
         "infrastructure_code",
@@ -12749,7 +13080,8 @@
       "negative_keywords": [
         "application code review",
         "financial forecast",
-        "contract review"
+        "contract review",
+        "marketing copy"
       ],
       "inputs": [
         "cluster_topology",
@@ -12800,7 +13132,12 @@
       "aliases": [
         "master"
       ],
-      "negative_keywords": [],
+      "negative_keywords": [
+        "marketing copy",
+        "legal contract review",
+        "financial forecasting",
+        "clinical advice"
+      ],
       "inputs": [
         "deployment_manifests"
       ],
@@ -12847,7 +13184,8 @@
       "negative_keywords": [
         "application code review",
         "financial forecast",
-        "contract review"
+        "contract review",
+        "marketing copy"
       ],
       "inputs": [
         "service_inventory",
@@ -12903,7 +13241,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "contract review"
+        "contract review",
+        "marketing copy"
       ],
       "inputs": [
         "service_description",
@@ -12957,12 +13296,21 @@
       "aliases": [
         "release-manager"
       ],
-      "negative_keywords": [],
+      "negative_keywords": [
+        "marketing copy",
+        "legal contract review",
+        "financial forecasting",
+        "clinical advice"
+      ],
       "inputs": [
-        "task_context"
+        "release_scope",
+        "dependency_and_risk_map",
+        "rollback_requirements"
       ],
       "outputs": [
-        "specialist_output"
+        "release_plan",
+        "rollback_runbook",
+        "go_no_go_checklist"
       ],
       "allowed_tools": [
         "filesystem.read"
@@ -12970,10 +13318,14 @@
       "budget_band": "standard",
       "max_context_tokens": 5000,
       "failure_modes": [
-        "scope drift"
+        "plans a release without a tested rollback path",
+        "ignores dependency ordering and blast radius",
+        "ships without explicit go/no-go criteria"
       ],
       "verification": [
-        "output_matches_request"
+        "rollback_path_tested",
+        "blast_radius_assessed",
+        "go_no_go_criteria_defined"
       ],
       "source_references": [
         "ref.github.platform.release-manager.2026-06-02"
@@ -13003,7 +13355,8 @@
       "negative_keywords": [
         "application code review",
         "financial forecast",
-        "frontend design"
+        "frontend design",
+        "marketing copy"
       ],
       "inputs": [
         "service_topology",
@@ -13061,7 +13414,8 @@
       "negative_keywords": [
         "application code review",
         "financial forecast",
-        "marketing campaign"
+        "marketing campaign",
+        "marketing copy"
       ],
       "inputs": [
         "infrastructure_requirements",
@@ -13113,12 +13467,21 @@
       "aliases": [
         "ceo-advisor"
       ],
-      "negative_keywords": [],
+      "negative_keywords": [
+        "model training",
+        "infrastructure provisioning",
+        "legal contract drafting",
+        "database schema migration"
+      ],
       "inputs": [
-        "task_context"
+        "company_context",
+        "current_priorities",
+        "constraints_and_runway"
       ],
       "outputs": [
-        "specialist_output"
+        "priority_recommendations",
+        "operating_cadence_plan",
+        "risk_register"
       ],
       "allowed_tools": [
         "filesystem.read"
@@ -13126,10 +13489,14 @@
       "budget_band": "standard",
       "max_context_tokens": 5000,
       "failure_modes": [
-        "scope drift"
+        "gives generic advice not tied to the company constraints and runway",
+        "recommends without surfacing trade-offs",
+        "presents opinion as fact without stating assumptions"
       ],
       "verification": [
-        "output_matches_request"
+        "recommendations_tied_to_constraints",
+        "tradeoffs_made_explicit",
+        "assumptions_stated"
       ],
       "source_references": [
         "ref.github.product-business.ceo-advisor.2026-06-02"
@@ -13157,7 +13524,8 @@
       "negative_keywords": [
         "code review",
         "marketing campaign",
-        "hr policy"
+        "hr policy",
+        "infrastructure provisioning"
       ],
       "inputs": [
         "financial_context",
@@ -13210,7 +13578,8 @@
       "negative_keywords": [
         "code review",
         "financial audit",
-        "hr policy"
+        "hr policy",
+        "model training"
       ],
       "inputs": [
         "competitor_list",
@@ -13258,12 +13627,21 @@
       "aliases": [
         "cto-advisor"
       ],
-      "negative_keywords": [],
+      "negative_keywords": [
+        "model training",
+        "marketing copy",
+        "legal contract drafting",
+        "financial audit"
+      ],
       "inputs": [
-        "task_context"
+        "tech_context",
+        "strategy_question",
+        "team_and_constraints"
       ],
       "outputs": [
-        "specialist_output"
+        "strategy_recommendation",
+        "build_vs_buy_analysis",
+        "risk_and_tradeoffs"
       ],
       "allowed_tools": [
         "filesystem.read"
@@ -13271,10 +13649,14 @@
       "budget_band": "standard",
       "max_context_tokens": 5000,
       "failure_modes": [
-        "scope drift"
+        "recommends technology without grounding in team and constraints",
+        "skips build-vs-buy reasoning",
+        "ignores maintenance and hiring cost of a choice"
       ],
       "verification": [
-        "output_matches_request"
+        "recommendation_grounded_in_constraints",
+        "build_vs_buy_justified",
+        "tradeoffs_made_explicit"
       ],
       "source_references": [
         "ref.github.product-business.cto-advisor.2026-06-02"
@@ -13302,7 +13684,8 @@
       "negative_keywords": [
         "sales quote",
         "privacy review",
-        "budget forecast"
+        "budget forecast",
+        "model training"
       ],
       "inputs": [
         "customer_segment",
@@ -13355,7 +13738,8 @@
       "negative_keywords": [
         "code implementation",
         "financial audit",
-        "seo optimization"
+        "seo optimization",
+        "model training"
       ],
       "inputs": [
         "feature_list",
@@ -13408,7 +13792,8 @@
       "negative_keywords": [
         "paid campaign execution",
         "code review",
-        "financial audit"
+        "financial audit",
+        "model training"
       ],
       "inputs": [
         "growth_metric",
@@ -13461,7 +13846,8 @@
       "negative_keywords": [
         "financial forecast",
         "paid campaign execution",
-        "legal contract"
+        "legal contract",
+        "model training"
       ],
       "inputs": [
         "current_metrics",
@@ -13513,7 +13899,8 @@
       "negative_keywords": [
         "code deployment",
         "financial audit",
-        "hr policy"
+        "hr policy",
+        "model training"
       ],
       "inputs": [
         "market_question",
@@ -13569,7 +13956,8 @@
       "negative_keywords": [
         "financial forecast",
         "sales pipeline",
-        "marketing campaign"
+        "marketing campaign",
+        "model training"
       ],
       "inputs": [
         "prompt",
@@ -13621,7 +14009,8 @@
       "negative_keywords": [
         "market research",
         "clinical review",
-        "code security audit"
+        "code security audit",
+        "model training"
       ],
       "inputs": [
         "objective",
@@ -13674,7 +14063,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "contract review"
+        "contract review",
+        "model training"
       ],
       "inputs": [
         "partnership_goal",
@@ -13727,7 +14117,8 @@
       "negative_keywords": [
         "code deployment",
         "financial audit",
-        "hr compensation"
+        "hr compensation",
+        "infrastructure provisioning"
       ],
       "inputs": [
         "product_value_proposition",
@@ -13780,7 +14171,8 @@
       "negative_keywords": [
         "infrastructure monitoring",
         "sales pipeline",
-        "code review"
+        "code review",
+        "model training"
       ],
       "inputs": [
         "metric_definitions",
@@ -13833,7 +14225,8 @@
       "negative_keywords": [
         "backend api design",
         "financial modeling",
-        "seo optimization"
+        "seo optimization",
+        "model training"
       ],
       "inputs": [
         "user_needs",
@@ -13886,7 +14279,8 @@
       "negative_keywords": [
         "code deployment",
         "financial audit",
-        "hr onboarding"
+        "hr onboarding",
+        "model training"
       ],
       "inputs": [
         "launch_scope",
@@ -13939,7 +14333,8 @@
       "negative_keywords": [
         "seo strategy",
         "employment policy",
-        "contract review"
+        "contract review",
+        "model training"
       ],
       "inputs": [
         "problem_statement",
@@ -13992,7 +14387,8 @@
       "negative_keywords": [
         "paid ad execution",
         "code deployment",
-        "financial audit"
+        "financial audit",
+        "model training"
       ],
       "inputs": [
         "product_capabilities",
@@ -14045,7 +14441,8 @@
       "negative_keywords": [
         "code deployment",
         "financial audit",
-        "hr policy"
+        "hr policy",
+        "model training"
       ],
       "inputs": [
         "current_processes",
@@ -14098,7 +14495,8 @@
       "negative_keywords": [
         "code deployment",
         "financial audit",
-        "hr policy"
+        "hr policy",
+        "model training"
       ],
       "inputs": [
         "market_context",
@@ -14151,7 +14549,8 @@
       "negative_keywords": [
         "code documentation",
         "financial reporting",
-        "hr policy writing"
+        "hr policy writing",
+        "model training"
       ],
       "inputs": [
         "documentation_scope",
@@ -14204,7 +14603,8 @@
       "negative_keywords": [
         "code deployment",
         "financial audit",
-        "hr policy"
+        "hr policy",
+        "model training"
       ],
       "inputs": [
         "strategic_goals",
@@ -14257,12 +14657,21 @@
       "aliases": [
         "sales-operator"
       ],
-      "negative_keywords": [],
+      "negative_keywords": [
+        "model training",
+        "infrastructure provisioning",
+        "legal contract drafting",
+        "clinical advice"
+      ],
       "inputs": [
-        "task_context"
+        "crm_data",
+        "process_or_workflow",
+        "reporting_requirements"
       ],
       "outputs": [
-        "specialist_output"
+        "crm_hygiene_plan",
+        "process_recommendations",
+        "pipeline_report"
       ],
       "allowed_tools": [
         "filesystem.read"
@@ -14270,10 +14679,14 @@
       "budget_band": "standard",
       "max_context_tokens": 5000,
       "failure_modes": [
-        "scope drift"
+        "reports pipeline on stale or duplicated CRM records",
+        "uses inconsistent stage definitions across teams",
+        "creates parallel trackers instead of one source of truth"
       ],
       "verification": [
-        "output_matches_request"
+        "data_integrity_rules_defined",
+        "stage_definitions_consistent",
+        "single_source_of_truth_maintained"
       ],
       "source_references": [
         "ref.github.product-business.sales-operator.2026-06-02"
@@ -14301,7 +14714,8 @@
       "negative_keywords": [
         "code deployment",
         "financial forecast",
-        "seo audit"
+        "seo audit",
+        "model training"
       ],
       "inputs": [
         "research_question",
@@ -14354,7 +14768,8 @@
       "negative_keywords": [
         "sales proposal",
         "product roadmap",
-        "code deployment"
+        "code deployment",
+        "production deployment"
       ],
       "inputs": [
         "research_topic",
@@ -14408,7 +14823,8 @@
       "negative_keywords": [
         "code deployment",
         "product launch",
-        "sales forecast"
+        "sales forecast",
+        "production deployment"
       ],
       "inputs": [
         "data_requirement",
@@ -14462,7 +14878,8 @@
       "negative_keywords": [
         "crm cleanup",
         "contract redline",
-        "direct deploy"
+        "direct deploy",
+        "production deployment"
       ],
       "inputs": [
         "research_question",
@@ -14516,7 +14933,8 @@
       "negative_keywords": [
         "code migration",
         "security patch",
-        "sales pipeline"
+        "sales pipeline",
+        "production deployment"
       ],
       "inputs": [
         "review_scope",
@@ -14570,7 +14988,8 @@
       "negative_keywords": [
         "proposal draft",
         "account escalation",
-        "tax review"
+        "tax review",
+        "production deployment"
       ],
       "inputs": [
         "market_scope",
@@ -14624,7 +15043,8 @@
       "negative_keywords": [
         "code review",
         "security audit",
-        "financial audit"
+        "financial audit",
+        "production deployment"
       ],
       "inputs": [
         "market_question",
@@ -14681,7 +15101,8 @@
       "negative_keywords": [
         "code review",
         "security review",
-        "product roadmap"
+        "product roadmap",
+        "production deployment"
       ],
       "inputs": [
         "prompt",
@@ -14733,7 +15154,8 @@
       "negative_keywords": [
         "code refactoring",
         "deployment pipeline",
-        "account management"
+        "account management",
+        "production deployment"
       ],
       "inputs": [
         "dataset",
@@ -14787,7 +15209,8 @@
       "negative_keywords": [
         "code architecture",
         "system design",
-        "product spec"
+        "product spec",
+        "production deployment"
       ],
       "inputs": [
         "research_question",
@@ -14841,7 +15264,8 @@
       "negative_keywords": [
         "software sprint",
         "product launch",
-        "sales campaign"
+        "sales campaign",
+        "production deployment"
       ],
       "inputs": [
         "project_scope",
@@ -14895,7 +15319,8 @@
       "negative_keywords": [
         "sales proposal",
         "product roadmap",
-        "performance review"
+        "performance review",
+        "production deployment"
       ],
       "inputs": [
         "topic",
@@ -14949,7 +15374,8 @@
       "negative_keywords": [
         "marketing copy",
         "sales email",
-        "blog post"
+        "blog post",
+        "production deployment"
       ],
       "inputs": [
         "manuscript_type",
@@ -15003,7 +15429,8 @@
       "negative_keywords": [
         "code debugging",
         "infrastructure setup",
-        "sales analysis"
+        "sales analysis",
+        "production deployment"
       ],
       "inputs": [
         "research_hypothesis",
@@ -15058,7 +15485,8 @@
       "negative_keywords": [
         "marketing campaign",
         "customer support ticket",
-        "product roadmap"
+        "product roadmap",
+        "model training"
       ],
       "inputs": [
         "opportunity_details",
@@ -15110,12 +15538,21 @@
       "aliases": [
         "account-manager"
       ],
-      "negative_keywords": [],
+      "negative_keywords": [
+        "model training",
+        "infrastructure provisioning",
+        "legal contract drafting",
+        "database schema migration"
+      ],
       "inputs": [
-        "task_context"
+        "account_context",
+        "renewal_or_expansion_goal",
+        "stakeholder_map"
       ],
       "outputs": [
-        "specialist_output"
+        "account_plan",
+        "renewal_risk_assessment",
+        "expansion_recommendations"
       ],
       "allowed_tools": [
         "filesystem.read"
@@ -15123,10 +15560,14 @@
       "budget_band": "standard",
       "max_context_tokens": 5000,
       "failure_modes": [
-        "scope drift"
+        "plans renewals without scoring churn-risk signals",
+        "ignores multi-threading across stakeholders",
+        "proposes expansion without a value case"
       ],
       "verification": [
-        "output_matches_request"
+        "renewal_risk_scored",
+        "stakeholders_mapped",
+        "next_steps_tied_to_signals"
       ],
       "source_references": [
         "ref.github.sales.account-manager.2026-06-02"
@@ -15155,7 +15596,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "contract review"
+        "contract review",
+        "model training"
       ],
       "inputs": [
         "competitive_landscape",
@@ -15209,7 +15651,8 @@
       "negative_keywords": [
         "legal contract drafting",
         "compliance review",
-        "litigation advice"
+        "litigation advice",
+        "model training"
       ],
       "inputs": [
         "contract_terms",
@@ -15263,7 +15706,8 @@
       "negative_keywords": [
         "crm software development",
         "database administration",
-        "IT infrastructure"
+        "IT infrastructure",
+        "model training"
       ],
       "inputs": [
         "crm_schema",
@@ -15317,7 +15761,8 @@
       "negative_keywords": [
         "new logo acquisition",
         "cold outreach",
-        "product development"
+        "product development",
+        "model training"
       ],
       "inputs": [
         "customer_data",
@@ -15371,7 +15816,8 @@
       "negative_keywords": [
         "financial accounting",
         "legal contract review",
-        "product pricing strategy"
+        "product pricing strategy",
+        "model training"
       ],
       "inputs": [
         "deal_structure",
@@ -15427,7 +15873,8 @@
       "negative_keywords": [
         "marketing campaign",
         "product roadmap",
-        "financial forecast"
+        "financial forecast",
+        "model training"
       ],
       "inputs": [
         "prompt",
@@ -15480,7 +15927,8 @@
       "negative_keywords": [
         "employee onboarding",
         "contract clause",
-        "ux polish"
+        "ux polish",
+        "model training"
       ],
       "inputs": [
         "pipeline_snapshot",
@@ -15531,12 +15979,21 @@
       "aliases": [
         "pricing-strategist"
       ],
-      "negative_keywords": [],
+      "negative_keywords": [
+        "model training",
+        "infrastructure provisioning",
+        "legal contract drafting",
+        "clinical advice"
+      ],
       "inputs": [
-        "task_context"
+        "cost_and_margin_data",
+        "competitive_context",
+        "deal_or_package_goal"
       ],
       "outputs": [
-        "specialist_output"
+        "pricing_structure",
+        "packaging_recommendation",
+        "discount_guardrails"
       ],
       "allowed_tools": [
         "filesystem.read"
@@ -15544,10 +16001,14 @@
       "budget_band": "standard",
       "max_context_tokens": 5000,
       "failure_modes": [
-        "scope drift"
+        "sets price without respecting a margin floor",
+        "offers discounts without guardrails or approval tiers",
+        "prices on cost-plus while ignoring value and willingness-to-pay"
       ],
       "verification": [
-        "output_matches_request"
+        "margin_floor_respected",
+        "discount_guardrails_defined",
+        "value_metric_aligned"
       ],
       "source_references": [
         "ref.github.sales.pricing-strategist.2026-06-02"
@@ -15575,7 +16036,8 @@
       "negative_keywords": [
         "legal approval",
         "tax advice",
-        "security pentest"
+        "security pentest",
+        "model training"
       ],
       "inputs": [
         "deal_context",
@@ -15629,7 +16091,8 @@
       "negative_keywords": [
         "legal contract drafting",
         "marketing brochure",
-        "technical documentation"
+        "technical documentation",
+        "model training"
       ],
       "inputs": [
         "buyer_requirements",
@@ -15683,7 +16146,8 @@
       "negative_keywords": [
         "financial accounting",
         "marketing attribution",
-        "product analytics"
+        "product analytics",
+        "model training"
       ],
       "inputs": [
         "sales_data",
@@ -15738,7 +16202,8 @@
       "negative_keywords": [
         "closing deals",
         "contract negotiation",
-        "customer retention"
+        "customer retention",
+        "model training"
       ],
       "inputs": [
         "target_accounts",
@@ -15792,7 +16257,8 @@
       "negative_keywords": [
         "marketing content",
         "product documentation",
-        "training delivery"
+        "training delivery",
+        "model training"
       ],
       "inputs": [
         "sales_methodology",
@@ -15846,7 +16312,8 @@
       "negative_keywords": [
         "production deployment",
         "code implementation",
-        "infrastructure setup"
+        "infrastructure setup",
+        "model training"
       ],
       "inputs": [
         "deal_context",
@@ -15900,7 +16367,8 @@
       "negative_keywords": [
         "marketing automation",
         "product development",
-        "financial accounting"
+        "financial accounting",
+        "model training"
       ],
       "inputs": [
         "current_process",
@@ -15953,7 +16421,8 @@
       "negative_keywords": [
         "seo strategy",
         "medical advice",
-        "source mining"
+        "source mining",
+        "model training"
       ],
       "inputs": [
         "market_segment",
@@ -16007,7 +16476,8 @@
       "negative_keywords": [
         "product training",
         "technical training",
-        "HR compliance training"
+        "HR compliance training",
+        "infrastructure provisioning"
       ],
       "inputs": [
         "team_skill_data",
@@ -16061,7 +16531,8 @@
       "negative_keywords": [
         "marketing campaign",
         "product development",
-        "HR headcount planning"
+        "HR headcount planning",
+        "infrastructure provisioning"
       ],
       "inputs": [
         "market_data",
@@ -16121,7 +16592,8 @@
       "negative_keywords": [
         "infrastructure security",
         "network security",
-        "physical security"
+        "physical security",
+        "marketing copy"
       ],
       "inputs": [
         "application_code",
@@ -16186,7 +16658,8 @@
       "negative_keywords": [
         "cloud cost optimization",
         "cloud migration planning",
-        "multi-cloud strategy"
+        "multi-cloud strategy",
+        "marketing copy"
       ],
       "inputs": [
         "cloud_infrastructure_config",
@@ -16251,7 +16724,8 @@
       "negative_keywords": [
         "legal contract review",
         "financial compliance",
-        "tax compliance"
+        "tax compliance",
+        "marketing copy"
       ],
       "inputs": [
         "regulatory_requirements",
@@ -16315,7 +16789,8 @@
       "negative_keywords": [
         "cryptocurrency",
         "blockchain trading",
-        "financial modeling"
+        "financial modeling",
+        "marketing copy"
       ],
       "inputs": [
         "data_classification",
@@ -16372,7 +16847,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "contract review"
+        "contract review",
+        "marketing copy"
       ],
       "inputs": [
         "dependency_manifest",
@@ -16433,7 +16909,8 @@
       "negative_keywords": [
         "user interface design",
         "customer onboarding",
-        "marketing identity"
+        "marketing identity",
+        "marketing copy"
       ],
       "inputs": [
         "identity_architecture",
@@ -16497,7 +16974,8 @@
       "negative_keywords": [
         "performance incident",
         "outage management",
-        "customer support ticket"
+        "customer support ticket",
+        "marketing copy"
       ],
       "inputs": [
         "incident_report",
@@ -16552,7 +17030,12 @@
       "aliases": [
         "master"
       ],
-      "negative_keywords": [],
+      "negative_keywords": [
+        "marketing copy",
+        "financial forecasting",
+        "ui/ux design",
+        "payroll processing"
+      ],
       "inputs": [
         "source_code"
       ],
@@ -16603,7 +17086,8 @@
       "negative_keywords": [
         "network performance",
         "bandwidth optimization",
-        "CDN setup"
+        "CDN setup",
+        "marketing copy"
       ],
       "inputs": [
         "network_topology",
@@ -16668,7 +17152,8 @@
       "negative_keywords": [
         "performance test",
         "load test",
-        "code review"
+        "code review",
+        "marketing copy"
       ],
       "inputs": [
         "target_scope",
@@ -16725,7 +17210,8 @@
       "negative_keywords": [
         "performance review",
         "product review",
-        "code review"
+        "code review",
+        "marketing copy"
       ],
       "inputs": [
         "repo_or_path",
@@ -16786,7 +17272,8 @@
       "negative_keywords": [
         "financial audit",
         "code review",
-        "performance audit"
+        "performance audit",
+        "marketing copy"
       ],
       "inputs": [
         "audit_scope",
@@ -16843,7 +17330,8 @@
       "negative_keywords": [
         "financial audit",
         "product review",
-        "performance review"
+        "performance review",
+        "marketing copy"
       ],
       "inputs": [
         "changed_files",
@@ -16904,7 +17392,8 @@
       "negative_keywords": [
         "bug hunting",
         "feature discovery",
-        "market research"
+        "market research",
+        "marketing copy"
       ],
       "inputs": [
         "telemetry_data",
@@ -16962,7 +17451,8 @@
       "negative_keywords": [
         "product roadmap",
         "financial model",
-        "performance model"
+        "performance model",
+        "marketing copy"
       ],
       "inputs": [
         "architecture_diagram",
@@ -17022,7 +17512,8 @@
       "negative_keywords": [
         "feature request",
         "bug triage",
-        "release management"
+        "release management",
+        "marketing copy"
       ],
       "inputs": [
         "scan_results",
@@ -17083,7 +17574,8 @@
       "negative_keywords": [
         "financial audit",
         "tax planning",
-        "accounting"
+        "accounting",
+        "clinical advice"
       ],
       "inputs": [
         "value_proposition",
@@ -17136,7 +17628,8 @@
       "negative_keywords": [
         "tax filing",
         "clinical guideline",
-        "contract redline"
+        "contract redline",
+        "model training"
       ],
       "inputs": [
         "problem_statement",
@@ -17192,7 +17685,8 @@
       "negative_keywords": [
         "market research report",
         "focus group",
-        "survey design"
+        "survey design",
+        "model training"
       ],
       "inputs": [
         "target_customer",
@@ -17248,7 +17742,8 @@
       "negative_keywords": [
         "tax filing",
         "audit preparation",
-        "accounting reconciliation"
+        "accounting reconciliation",
+        "clinical advice"
       ],
       "inputs": [
         "revenue_assumptions",
@@ -17304,7 +17799,8 @@
       "negative_keywords": [
         "loan application",
         "banking compliance",
-        "IPO filing"
+        "IPO filing",
+        "model training"
       ],
       "inputs": [
         "company_stage",
@@ -17360,7 +17856,8 @@
       "negative_keywords": [
         "enterprise marketing",
         "brand campaign",
-        "TV advertising"
+        "TV advertising",
+        "model training"
       ],
       "inputs": [
         "growth_goal",
@@ -17416,7 +17913,8 @@
       "negative_keywords": [
         "enterprise HRIS",
         "union negotiations",
-        "benefits administration"
+        "benefits administration",
+        "model training"
       ],
       "inputs": [
         "hiring_needs",
@@ -17472,7 +17970,8 @@
       "negative_keywords": [
         "litigation strategy",
         "court filing",
-        "criminal defense"
+        "criminal defense",
+        "model training"
       ],
       "inputs": [
         "company_structure",
@@ -17528,7 +18027,8 @@
       "negative_keywords": [
         "corporate hr",
         "large enterprise",
-        "legal contract"
+        "legal contract",
+        "model training"
       ],
       "inputs": [
         "prompt",
@@ -17584,7 +18084,8 @@
       "negative_keywords": [
         "manufacturing floor",
         "warehouse management",
-        "logistics fleet"
+        "logistics fleet",
+        "model training"
       ],
       "inputs": [
         "process_scope",
@@ -17640,7 +18141,8 @@
       "negative_keywords": [
         "sales deck",
         "product demo",
-        "training slides"
+        "training slides",
+        "model training"
       ],
       "inputs": [
         "company_story",
@@ -17696,7 +18198,8 @@
       "negative_keywords": [
         "product roadmap",
         "feature prioritization",
-        "UX design"
+        "UX design",
+        "model training"
       ],
       "inputs": [
         "user_cohort_data",
@@ -17749,7 +18252,8 @@
       "negative_keywords": [
         "unit test only",
         "hr policy",
-        "seo strategy"
+        "seo strategy",
+        "model training"
       ],
       "inputs": [
         "target_surface",
@@ -17803,7 +18307,8 @@
       "negative_keywords": [
         "medical advice",
         "compensation review",
-        "contract signing"
+        "contract signing",
+        "model training"
       ],
       "inputs": [
         "release_scope",
@@ -17860,7 +18365,8 @@
       "negative_keywords": [
         "therapy",
         "life coaching",
-        "executive coaching enterprise"
+        "executive coaching enterprise",
+        "model training"
       ],
       "inputs": [
         "founder_challenge",
@@ -17916,7 +18422,8 @@
       "negative_keywords": [
         "enterprise strategy",
         "corporate planning",
-        "government policy"
+        "government policy",
+        "model training"
       ],
       "inputs": [
         "business_hypothesis",
