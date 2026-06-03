@@ -41,7 +41,7 @@ verification:
   - cognitive_load_addressed
 source_references:
   - ref.github.education.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs engaging learning experiences using evidence-based instructional strategies, multimedia principles, and learner-centered approaches.

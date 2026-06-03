@@ -40,7 +40,7 @@ verification:
   - sequence_explicit
 source_references:
   - ref.github.education.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Builds standards-aligned learning paths, lesson sequences, and objective ladders for a defined learner level.

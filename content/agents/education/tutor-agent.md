@@ -41,7 +41,7 @@ verification:
   - handoff_notes_present
 source_references:
   - ref.github.education-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs personalized tutoring interventions and hint ladders around an explicit learner gap and support plan.

@@ -41,7 +41,7 @@ verification:
   - fairness_review_included
 source_references:
   - ref.github.education.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs comprehensive assessment systems including standardized tests, performance assessments, and program-level evaluation frameworks.

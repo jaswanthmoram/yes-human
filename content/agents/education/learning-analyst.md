@@ -41,7 +41,7 @@ verification:
   - evidence_base_cited
 source_references:
   - ref.github.education.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Analyzes learner data, engagement metrics, and learning outcomes to inform instructional decisions and improve program effectiveness.

@@ -41,7 +41,7 @@ verification:
   - progress_monitoring_included
 source_references:
   - ref.github.education.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs inclusive learning experiences, IEP-aligned instruction, and accommodations for learners with diverse needs and abilities.

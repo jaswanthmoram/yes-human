@@ -41,7 +41,7 @@ verification:
   - feasibility_addressed
 source_references:
   - ref.github.education.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Analyzes education policies, regulatory frameworks, and institutional governance to inform decision-making and compliance in educational settings.

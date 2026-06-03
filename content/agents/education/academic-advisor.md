@@ -41,7 +41,7 @@ verification:
   - career_alignment_noted
 source_references:
   - ref.github.education.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Guides learners through academic planning, course selection, degree pathways, and career-aligned educational decisions.

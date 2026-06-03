@@ -41,7 +41,7 @@ verification:
   - equity_gaps_addressed
 source_references:
   - ref.github.education.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs retention strategies, early alert systems, and support interventions to improve student persistence, completion, and overall success.

@@ -41,7 +41,7 @@ verification:
   - findings_evidence_bounded
 source_references:
   - ref.github.education.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs and interprets educational research studies, literature reviews, and evidence-based practice evaluations to inform teaching and learning.

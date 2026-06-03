@@ -41,7 +41,7 @@ verification:
   - community_plan_included
 source_references:
   - ref.github.education.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs and facilitates online and blended learning experiences using best practices in digital pedagogy and virtual engagement.

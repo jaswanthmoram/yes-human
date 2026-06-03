@@ -41,7 +41,7 @@ verification:
   - adoption_plan_included
 source_references:
   - ref.github.education.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Evaluates and integrates educational technology tools, platforms, and digital learning environments to enhance teaching and learning.
