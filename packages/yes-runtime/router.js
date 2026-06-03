@@ -79,6 +79,14 @@ function attachRoutingHints(matchedRoute) {
   return matchedRoute;
 }
 
+/**
+ * Resolve a natural-language task to a route.
+ * @param {string} task - The task description to route.
+ * @param {object} [options] - Routing options.
+ * @param {number} [options.depth=0] - Current routing depth for loop prevention.
+ * @param {string[]} [options.visited=[]] - Previously visited route IDs.
+ * @returns {Promise<object>} The resolved route object with target, budget_band, and match metadata.
+ */
 export async function resolveRoute(prompt, context = {}) {
   const { depth = 0, visited = [], estimatedTokens } = context;
 
@@ -184,7 +192,14 @@ export async function resolveRoute(prompt, context = {}) {
     }
   }
 
-  // 5. Fallback
+  // 5. Semantic fallback (stub — off unless registry/graph-routing.json semantic_fallback: true)
+  if (!matchedRoute) {
+    const semCfg = readSemanticGraphConfig();
+    const sem = trySemanticFallback(query, getRoute, semCfg);
+    if (sem) matchedRoute = sem;
+  }
+
+  // 6. Fallback
   if (!matchedRoute) {
     matchedRoute = annotate(getFallbackRoute(fallbackId), { stage: 'fallback', confidence: 0, reason: 'no route matched' });
   }
@@ -271,13 +286,37 @@ export function resolveRouteSync(prompt, context = {}) {
     }
   }
 
-  // 4. Fallback
+  // 4. Semantic fallback (stub)
+  const semCfg = readSemanticGraphConfig();
+  const sem = trySemanticFallback(query, (routeId) => {
+    if (visited.includes(routeId)) return null;
+    return routes.find((r) => r.route_id === routeId) || null;
+  }, semCfg);
+  if (sem) return attachRoutingHints(sem);
+
+  // 5. Fallback
   return attachRoutingHints(annotate(getFallbackRoute(fallbackId), { stage: 'fallback', confidence: 0, reason: 'no route matched' }));
 }
 
 /** Attach non-enumerable-ish match metadata without breaking schema shape. */
 function annotate(route, meta) {
   return { ...route, _match: meta };
+}
+
+
+/** Semantic routing (disabled by default). No-op until corpus + eval corpus ready. */
+function trySemanticFallback(query, getRoute, graphCfg) {
+  if (!graphCfg?.semantic_fallback) return null;
+  return null;
+}
+
+function readSemanticGraphConfig() {
+  try {
+    const cfg = safeReadJSON('registry/graph-routing.json', {});
+    return { semantic_fallback: Boolean(cfg.semantic_fallback) };
+  } catch {
+    return { semantic_fallback: false };
+  }
 }
 
 function getFallbackRoute(fallbackId = DEFAULT_FALLBACK) {

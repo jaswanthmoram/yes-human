@@ -21,7 +21,7 @@ function countProductionAgents() {
 let skillTop1 = 'n/a';
 try {
   const out = execSync('node packages/yes-schema/eval-skill.js', { cwd: repoRoot, encoding: 'utf8' });
-  skillTop1 = out.match(/top-1 top-1 accuracy: ([\d.]+)%/)?.[1] || skillTop1;
+  skillTop1 = out.match(/top-1 accuracy: ([\d.]+)%/)?.[1] || skillTop1;
 } catch (_) {}
 const da = fs.existsSync(path.join(repoRoot, 'reports/dossier-scores.json')) ? readJson('reports/dossier-scores.json') : {};
 const gate = fs.existsSync(path.join(repoRoot, 'reports/phase9-feedback-gate.json')) ? readJson('reports/phase9-feedback-gate.json') : { passed: false };
