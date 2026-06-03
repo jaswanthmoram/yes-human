@@ -40,7 +40,7 @@ verification:
   - maintenance_plan_included
 source_references:
   - ref.github.product-business.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Creates product documentation including PRDs, release notes, help guides, and internal knowledge bases.

@@ -40,7 +40,7 @@ verification:
   - recommendations_actionable
 source_references:
   - ref.github.product-business.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Analyzes product metrics, user behavior data, and experiment results to inform product decisions.

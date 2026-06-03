@@ -40,7 +40,7 @@ verification:
   - acceptance_criteria_testable
 source_references:
   - ref.github.product-business-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Turns ambiguous feature asks into scoped product requirements, tradeoff notes, and acceptance criteria.

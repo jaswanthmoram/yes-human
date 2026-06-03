@@ -40,7 +40,7 @@ verification:
   - evidence_supports_conclusions
 source_references:
   - ref.github.product-business.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Conducts market research, TAM/SAM/SOM analysis, and trend identification for product strategy decisions.

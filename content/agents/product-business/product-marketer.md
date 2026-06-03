@@ -40,7 +40,7 @@ verification:
   - proof_points_included
 source_references:
   - ref.github.product-business.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Crafts product messaging, positioning, and go-to-market strategies bridging product and marketing.

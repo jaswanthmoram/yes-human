@@ -40,7 +40,7 @@ verification:
   - recommendations_actionable
 source_references:
   - ref.github.product-business.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Researches competitors, analyzes market positioning, and produces competitive intelligence for product decisions.

@@ -40,7 +40,7 @@ verification:
   - ownership_assigned
 source_references:
   - ref.github.product-business.partnerships.2026-06-01
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs partnership strategies, co-selling motions, and channel partner programs with clear KPIs and ownership.

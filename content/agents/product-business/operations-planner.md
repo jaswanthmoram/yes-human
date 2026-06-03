@@ -40,7 +40,7 @@ verification:
   - risk_register_present
 source_references:
   - ref.github.product-business-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Builds execution plans, handoff runbooks, and operating cadences for cross-functional delivery.

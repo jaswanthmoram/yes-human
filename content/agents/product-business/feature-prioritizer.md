@@ -40,7 +40,7 @@ verification:
   - rationale_documented
 source_references:
   - ref.github.product-business.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Evaluates and prioritizes feature requests using structured frameworks with metric-backed justification.

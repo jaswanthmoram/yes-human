@@ -40,7 +40,7 @@ verification:
   - closure_mechanisms_defined
 source_references:
   - ref.github.product-business.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Optimizes product team processes, tooling, feedback loops, and cross-functional coordination.

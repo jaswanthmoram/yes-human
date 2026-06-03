@@ -40,7 +40,7 @@ verification:
   - segment_alignment_shown
 source_references:
   - ref.github.product-business.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs pricing models, packaging strategies, and monetization frameworks for product-led growth.

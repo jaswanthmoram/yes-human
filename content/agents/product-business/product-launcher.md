@@ -40,7 +40,7 @@ verification:
   - measurement_plan_defined
 source_references:
   - ref.github.product-business.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Plans and coordinates product launches with cross-functional checklists, timing, and success metrics.

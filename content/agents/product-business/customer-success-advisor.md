@@ -40,7 +40,7 @@ verification:
   - escalation_thresholds_present
 source_references:
   - ref.github.product-business-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs onboarding, retention, and account-health motions for product teams serving active customers.

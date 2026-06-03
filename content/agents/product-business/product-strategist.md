@@ -40,7 +40,7 @@ verification:
   - measurable_outcomes_defined
 source_references:
   - ref.github.product-business.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Defines product vision, strategic positioning, and long-term product direction with market-backed rationale.

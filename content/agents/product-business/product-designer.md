@@ -40,7 +40,7 @@ verification:
   - interaction_states_defined
 source_references:
   - ref.github.product-business.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs product experiences, information architecture, and interaction patterns aligned with user needs.
