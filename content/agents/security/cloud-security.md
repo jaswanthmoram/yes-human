@@ -52,7 +52,7 @@ verification:
   - all_service_types_reviewed
 source_references:
   - ref.github.security.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Reviews cloud infrastructure security posture across AWS, GCP, and Azure including IAM, storage, networking, and shared responsibility.

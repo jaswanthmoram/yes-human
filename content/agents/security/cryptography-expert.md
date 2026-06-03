@@ -51,7 +51,7 @@ verification:
   - side_channels_considered
 source_references:
   - ref.github.security.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Advises on cryptographic algorithm selection, key management, protocol design, and encryption implementation review.

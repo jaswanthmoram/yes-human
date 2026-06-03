@@ -41,7 +41,7 @@ verification:
   - license_flags_present
 source_references:
   - ref.github.security.dependency-risk.2026-06-01
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Analyzes software dependencies for known vulnerabilities, license risks, and supply-chain exposure using SCA patterns.

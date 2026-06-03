@@ -53,7 +53,7 @@ verification:
   - actionable_improvements_in_lessons_learned
 source_references:
   - ref.github.security.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Executes structured incident response following NIST SP 800-61 with containment, eradication, recovery, and lessons-learned.

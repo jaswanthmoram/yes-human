@@ -52,7 +52,7 @@ verification:
   - api_attack_vectors_covered
 source_references:
   - ref.github.security.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Focuses on application-layer security including input validation, authentication flows, session management, and secure SDLC integration.

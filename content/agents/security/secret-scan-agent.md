@@ -41,7 +41,7 @@ verification:
   - history_scope_explicit
 source_references:
   - ref.github.security.secret-scan-agent.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Runs deterministic secret detection, classifies findings, and produces rotation plans without leaking detected secrets.

@@ -52,7 +52,7 @@ verification:
   - defense_in_depth_layers
 source_references:
   - ref.github.security.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Analyzes network architecture for security gaps including segmentation, firewall rules, IDS/IPS tuning, and zero-trust design.

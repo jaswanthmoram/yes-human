@@ -51,7 +51,7 @@ verification:
   - pam_lifecycle_managed
 source_references:
   - ref.github.security.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs and reviews IAM systems including authentication, authorization, federation, SSO, and privileged access management.

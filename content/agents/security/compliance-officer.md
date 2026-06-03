@@ -51,7 +51,7 @@ verification:
   - data_flow_mapping_included
 source_references:
   - ref.github.security.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Maps security controls to regulatory requirements (GDPR, HIPAA, PCI-DSS, SOC 2) and tracks compliance posture.

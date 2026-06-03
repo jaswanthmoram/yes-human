@@ -51,7 +51,7 @@ verification:
   - maturity_scores_use_defined_scale
 source_references:
   - ref.github.security.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Performs structured security audits against frameworks (ISO 27001, SOC 2, NIST CSF) with evidence collection and gap analysis.

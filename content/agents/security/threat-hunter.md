@@ -52,7 +52,7 @@ verification:
   - detection_rules_validated
 source_references:
   - ref.github.security.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Proactively hunts for threats using MITRE ATT&CK framework, hypothesis-driven analysis, and behavioral anomaly detection.

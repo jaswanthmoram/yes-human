@@ -41,7 +41,7 @@ verification:
   - severity_uses_cvss_or_org_scale
 source_references:
   - ref.github.security.security-reviewer.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Performs OWASP-baseline security code review with deterministic-scanner-first discipline.

@@ -40,7 +40,7 @@ verification:
   - controls_distinguished_from_threats
 source_references:
   - ref.github.security.threat-modeler.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Produces STRIDE/PASTA-style threat models with explicit trust boundaries and abuse cases.

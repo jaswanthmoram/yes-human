@@ -51,7 +51,7 @@ verification:
   - remediation_is_actionable
 source_references:
   - ref.github.security.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Conducts structured penetration testing with evidence-based exploitation chains and responsible disclosure.
