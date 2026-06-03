@@ -282,18 +282,16 @@ Adaptation rule: DevOps agents should prefer read-only diagnosis first and requi
 
 ---
 
-## 15. Internal Source Baseline
+## 15. Canonical content baseline
 
-Existing internal memory for `jas-human` says the prior system had:
+Yes-human production content lives in this repository:
 
-- single plugin at `~/.claude/plugins/jas-human`
-- tiny startup `CLAUDE.md`
-- `AGENT_INDEX.json` flat keyword-to-file routing
-- `CATEGORY_REGISTRY.json`
-- 201 agents across 36 categories
-- 10 meta agents including optimizer, graph rebuilder, GitHub orchestrator, cost tracker, skill generator, and memory bridge
+- `content/agents/<domain>/` — specialist agents with dossiers in `references/<domain>/`
+- `content/skills/<domain>/` — task-scoped skills
+- `content/workflows/<domain>/` — deterministic workflow definitions
+- `registry/*.json` and `graph/indexes/*.min.json` — compiled indexes
 
-Yes-human should import this only into staging, then normalize, dedupe, validate, and route-test it against the new source-backed dossier requirements.
+New material enters through `yes absorb` (staging → review → selective promotion), not legacy plugin imports.
 
 ---
 

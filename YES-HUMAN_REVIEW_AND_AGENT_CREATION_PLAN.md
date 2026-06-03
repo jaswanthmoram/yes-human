@@ -15,7 +15,7 @@
 
 The architecture direction is correct: Yes-human should be a portable, low-token control plane with lazy-loaded agents, graph routing, policy gates, source-backed content, and generated host bundles.
 
-The main drawback is not the idea. The main drawback is that the document is too broad to execute directly. It already describes a mature platform, but it does not yet define the smallest buildable vertical slice, the exact internal migration path from `jas-human`, or the source-dossier mechanics needed before creating hundreds of agents.
+The main drawback is not the idea. The main drawback is that the document is too broad to execute directly. It already describes a mature platform, but it does not yet define the smallest buildable vertical slice or the source-dossier mechanics needed before creating hundreds of agents.
 
 Proceed, but do not start by generating 250-450 agents. Build the route kernel, validators, source dossier pipeline, and 3-5 agents per priority category first.
 
@@ -60,17 +60,6 @@ Required fix:
 - Move execution details into `YES-HUMAN_DEVELOPMENT_PLAN.md`.
 - Keep source discovery in `YES-HUMAN_SOURCE_MAP.md`.
 - Keep review decisions and creation sequence in this plan.
-
-### HIGH: Internal `jas-human` Migration Is Not Concrete Enough
-
-Internal memory says `jas-human` already has 201 agents across 36 categories, a flat `AGENT_INDEX.json`, `CATEGORY_REGISTRY.json`, master agents, and meta agents. The architecture references preserving that pattern, but it does not define a migration report format or acceptance threshold for imported agents.
-
-Required fix:
-
-- Import `jas-human` into `staging/internal/jas-human`.
-- Produce `reports/internal-migration/jas-human-inventory.md`.
-- Map every imported item to one of: `promote`, `merge`, `rewrite`, `staging-only`, `reject`.
-- Preserve the flat keyword routing pattern as the initial exact-route baseline.
 
 ### HIGH: Agent Creation Could Become Stub Generation
 
@@ -301,7 +290,7 @@ Apply these decisions to the main architecture:
 - Source map is mandatory seed input.
 - Per-agent dossiers are required before production promotion.
 - Agent generation is source-first and workflow-first.
-- Internal `jas-human` import is a staging migration, not direct production content.
+- External OSS imports use the absorber staging lane only, never direct production promotion.
 - First implementation is a vertical slice, not full v2 content scale.
 - Cost, source, license, route, and host-bundle validators are Phase 1 infrastructure.
 - Optional adapters are delayed until core routing and validation pass.

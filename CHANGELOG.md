@@ -1,3 +1,7 @@
+## 2.3.0
+
+Architecture OSS-core completion (waves 12–20).
+
 # Changelog
 
 All notable changes to this project are documented here. This project uses conventional commits for release notes.

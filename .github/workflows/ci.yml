@@ -61,6 +61,11 @@ jobs:
       - name: Audit production promotion
         run: npm run audit:promotion
 
+      - name: Audit production skills
+        run: npm run audit:skills
+      - name: Route drift
+        run: npm run validate:drift
+
       - name: Run tests
         run: npm test
 

@@ -4,7 +4,6 @@
 **Date:** 2026-05-28  
 **Last Updated:** 2026-05-29 (ECC deep research integration)  
 **Status:** v2 architecture complete, implementation plan pending  
-**Renamed from:** `jas-human`  
 **Goal:** build a universal, open-source, low-token agentic operating system that can run across Claude, Codex, CLI, IDEs, MCP hosts, and future agent runtimes.
 
 **Companion artifacts:**
@@ -43,7 +42,7 @@ Target startup context:
 - `1,500-3,500 tokens` for normal multi-domain tasks
 - `10k+ tokens` only for explicitly approved deep research, migration, or batch orchestration
 
-The previous `jas-human` pattern that worked should be preserved: startup loads a tiny routing rule and registry pointers only. The full agent and skill corpus stays off-context until the router selects a route.
+The core pattern is preserved: startup loads a tiny routing rule and registry pointers only. The full agent and skill corpus stays off-context until the router selects a route.
 
 ---
 
@@ -3020,13 +3019,7 @@ That combination is the product.
 - use `YES-HUMAN_SOURCE_MAP.md` as the seed source registry for all category and agent dossiers
 - do not generate long-tail agents before schemas, validators, source dossiers, route fixtures, and cost checks exist
 - prove one vertical slice first: source dossier -> category master -> specialist agent -> workflow -> route fixture -> context pack -> host export check
-- treat the previous `jas-human` corpus as staging input, not production content
-
-### Phase 0: Preserve existing backup
-
-- keep current `jas-human-special-backup-20260527`
-- do not delete until migration is complete
-- treat it as source input
+- all production agents and skills are authored and validated in this repo; external imports use the absorber staging lane only
 
 ### Phase 1: Bootstrap Yes-human repo
 
@@ -3038,13 +3031,12 @@ That combination is the product.
 - create canonical `rules/`, `hooks/`, `policies/`, and `validators/`
 - create runtime lifecycle state machines
 
-### Phase 2: Migrate current backup
+### Phase 2: Grow content via absorber
 
-- import current agents into staging
-- normalize metadata
-- count agents/categories/skills
-- build registries
-- generate report
+- stage external repos and local folders under `staging/`
+- normalize metadata and license/provenance
+- promote selectively into `content/` after dossier and route gates
+- compile registries and generate absorption reports
 
 ### Phase 3: Build graph router
 
@@ -3107,7 +3099,7 @@ That combination is the product.
 - create category packs
 - run routing tests
 
-Implementation status on 2026-06-01:
+Implementation status on 2026-06-03 (v2.3.0 OSS-core):
 
 - Wave 4 specialist coverage is complete on the 74-agent baseline.
 - Wave 5 workflow expansion is complete with canonical workflows, workflow dossiers, workflow eval fixtures, and generated category packs.

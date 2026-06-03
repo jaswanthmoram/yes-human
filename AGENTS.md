@@ -11,4 +11,9 @@
 - **325 agents** across 18 domains in `content/agents/`; promotion via `quality_gate: production` and `npm run audit:promotion`.
 - Canonical route table: `graph/indexes/ROUTE_TABLE.min.json`; boot target ≤180 tokens (`npm run eval:cost`).
 - Promotion tooling: `scripts/promote-all-agents.mjs`, `scripts/uplift-dossiers.mjs`, `scripts/section-32-4-gap.mjs`.
-- ECC full import and jas-human migration are out of scope; selective OSS absorb via `yes absorb` / `packages/yes-absorber`.
+- ECC full import is out of scope; selective OSS absorb via `yes absorb` / `packages/yes-absorber`.
+
+
+## OSS-core v2.3
+
+Architecture waves 12–20 complete. Open-core backlog: RBAC, tenants, CRM connectors, VM sandbox, production semantic routing, fan-out.
