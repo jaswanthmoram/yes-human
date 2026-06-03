@@ -40,7 +40,7 @@ verification:
   - total_rewards_considered
 source_references:
   - ref.github.hr.compensation-analyst.2026-06-01
-quality_gate: staging
+quality_gate: production
 requires_disclaimer: true
 human_review_gate: true
 ---

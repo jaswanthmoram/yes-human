@@ -41,7 +41,7 @@ verification:
   - scenarios_modeled
 source_references:
   - ref.github.hr.2026-05-31
-quality_gate: staging
+quality_gate: production
 requires_disclaimer: true
 human_review_gate: true
 ---

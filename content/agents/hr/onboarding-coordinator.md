@@ -40,7 +40,7 @@ verification:
   - manager_handoff_present
 source_references:
   - ref.github.hr-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 requires_disclaimer: true
 human_review_gate: true
 ---
