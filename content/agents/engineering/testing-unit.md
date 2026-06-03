@@ -53,7 +53,7 @@ verification:
   - edge_cases_and_error_paths_are_covered
 source_references:
   - ref.github.engineering.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs unit testing strategies, writes test plans, and establishes testing patterns for isolated component verification.

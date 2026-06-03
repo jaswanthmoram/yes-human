@@ -40,7 +40,7 @@ verification:
   - no_behavior_change_stated
 source_references:
   - ref.github.ecc.2026-05-29
-quality_gate: staging
+quality_gate: production
 ---
 
 ## Prompt Defense Baseline

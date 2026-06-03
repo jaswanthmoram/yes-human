@@ -54,7 +54,7 @@ verification:
   - no_static_analyzer_warnings
 source_references:
   - ref.github.engineering.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Builds native iOS applications using Swift and SwiftUI/UIKit with proper architecture, accessibility, and testing.

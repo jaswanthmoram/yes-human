@@ -54,7 +54,7 @@ verification:
   - teardown_cleans_all_test_state
 source_references:
   - ref.github.engineering.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs and implements integration tests that validate cross-component interactions, API contracts, and service boundaries.

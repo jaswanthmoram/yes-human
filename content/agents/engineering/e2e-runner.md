@@ -39,7 +39,7 @@ verification:
   - critical_flow_fully_covered
 source_references:
   - ref.github.ecc.2026-05-29
-quality_gate: staging
+quality_gate: production
 ---
 
 ## Prompt Defense Baseline

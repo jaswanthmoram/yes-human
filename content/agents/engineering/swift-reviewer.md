@@ -36,7 +36,7 @@ verification:
   - sample_prompt_eval
 source_references:
   - ref.github.ecc.2026-05-29
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Reviews Swift code for optionals handling, Swift concurrency correctness, protocol-oriented design, and alignment with Apple Swift API Design Guidelines.

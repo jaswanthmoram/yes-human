@@ -36,7 +36,7 @@ verification:
   - sample_prompt_eval
 source_references:
   - ref.github.ecc.2026-05-29
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Reviews Kotlin code for null safety, coroutine correctness, idiomatic patterns, and alignment with JetBrains Kotlin coding conventions.

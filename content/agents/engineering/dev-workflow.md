@@ -55,7 +55,7 @@ verification:
   - team_can_adopt_within_sprint
 source_references:
   - ref.github.engineering.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Optimizes development workflows including CI/CD pipelines, git branching strategies, code review processes, and developer tooling.

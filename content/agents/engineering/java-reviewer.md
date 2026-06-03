@@ -36,7 +36,7 @@ verification:
   - sample_prompt_eval
 source_references:
   - ref.github.ecc.2026-05-29
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Reviews Java code for idiomatic use of the language, thread safety, API design, and OpenJDK conventions.

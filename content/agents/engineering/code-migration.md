@@ -58,7 +58,7 @@ verification:
   - no_regressions_in_critical_paths
 source_references:
   - ref.github.engineering.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Plans and executes large-scale code migrations including framework upgrades, language rewrites, and API version transitions.

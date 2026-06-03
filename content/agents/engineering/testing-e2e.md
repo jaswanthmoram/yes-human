@@ -57,7 +57,7 @@ verification:
   - page_object_pattern_used
 source_references:
   - ref.github.engineering.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs, writes, and maintains end-to-end test suites using Playwright, Cypress, or framework-native tooling.

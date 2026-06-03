@@ -52,7 +52,7 @@ verification:
   - index_recommendations_include_write_cost_analysis
 source_references:
   - ref.github.engineering.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Analyzes slow queries, optimizes indexes, and improves database performance through execution plan analysis and query rewriting.

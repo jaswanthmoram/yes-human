@@ -54,7 +54,7 @@ verification:
   - typescript_compiles
 source_references:
   - ref.github.engineering.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Builds React components, hooks, and pages with proper composition, state management, accessibility, and testing.

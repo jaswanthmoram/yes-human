@@ -37,7 +37,7 @@ verification:
   - sample_prompt_eval
 source_references:
   - ref.github.ecc.2026-05-29
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Reviews C++ code for memory safety, RAII compliance, undefined behaviour, and alignment with the ISO C++ Core Guidelines.

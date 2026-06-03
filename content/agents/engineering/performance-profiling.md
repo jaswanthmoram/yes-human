@@ -52,7 +52,7 @@ verification:
   - bottleneck_is_root_cause_not_symptom
 source_references:
   - ref.github.engineering.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Profiles application and system performance, identifies bottlenecks through flame graphs and metrics, and recommends targeted optimizations.

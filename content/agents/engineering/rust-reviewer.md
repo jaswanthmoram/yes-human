@@ -36,7 +36,7 @@ verification:
   - sample_prompt_eval
 source_references:
   - ref.github.ecc.2026-05-29
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Reviews Rust code for ownership correctness, lifetime safety, unsafe blocks, and idiomatic patterns per the Rust Reference and API guidelines.

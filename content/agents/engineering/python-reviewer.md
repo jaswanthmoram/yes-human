@@ -37,7 +37,7 @@ verification:
   - sample_prompt_eval
 source_references:
   - ref.github.ecc.2026-05-29
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Reviews Python code for PEP compliance, type annotations, idioms, and correctness against CPython conventions.

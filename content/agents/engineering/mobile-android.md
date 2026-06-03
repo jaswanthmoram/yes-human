@@ -54,7 +54,7 @@ verification:
   - lint_checks_pass
 source_references:
   - ref.github.engineering.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Builds native Android applications using Kotlin and Jetpack Compose/XML with proper architecture, accessibility, and testing.

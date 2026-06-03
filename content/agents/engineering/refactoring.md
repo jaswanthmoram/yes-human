@@ -56,7 +56,7 @@ verification:
   - no_behavioral_change
 source_references:
   - ref.github.engineering.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Refactors code for clarity, maintainability, and performance without changing external behavior.

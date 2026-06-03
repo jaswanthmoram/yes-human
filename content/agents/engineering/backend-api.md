@@ -55,7 +55,7 @@ verification:
   - error_responses_follow_convention
 source_references:
   - ref.github.engineering.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs and implements REST and GraphQL APIs with proper versioning, pagination, error handling, and documentation.

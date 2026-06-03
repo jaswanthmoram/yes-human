@@ -51,7 +51,7 @@ verification:
   - migration_plan_is_reversible
 source_references:
   - ref.github.engineering.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs normalized database schemas, plans migrations, and models data relationships for relational and NoSQL systems.
