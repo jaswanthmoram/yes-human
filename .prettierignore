@@ -1,0 +1,10 @@
+node_modules/
+generated/
+staging/
+graph/embeddings/
+graph/snapshots/
+graph/memory/
+.venv/
+coverage/
+*.min.json
+package-lock.json
