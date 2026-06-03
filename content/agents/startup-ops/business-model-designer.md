@@ -43,7 +43,7 @@ verification:
   - cost_structure_present
 source_references:
   - ref.github.startup-ops.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs and iterates business models using Lean Canvas, Business Model Canvas, and value proposition frameworks for startup validation.

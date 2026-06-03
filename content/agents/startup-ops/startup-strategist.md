@@ -43,7 +43,7 @@ verification:
   - risk_assessment_present
 source_references:
   - ref.github.startup-ops.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Develops startup strategy, validates business hypotheses, and guides founders through early-stage decision-making with structured frameworks.

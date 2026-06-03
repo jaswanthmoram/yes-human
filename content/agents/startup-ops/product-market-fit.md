@@ -43,7 +43,7 @@ verification:
   - pmf_score_justified
 source_references:
   - ref.github.startup-ops.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Evaluates and accelerates product-market fit using Sean Ellis test, retention curves, and qualitative signal analysis.

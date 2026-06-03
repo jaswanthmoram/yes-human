@@ -41,7 +41,7 @@ verification:
   - ship_blockers_named
 source_references:
   - ref.github.startup-ops-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Runs startup-grade QA passes over flows, regressions, and release candidates with concrete evidence.

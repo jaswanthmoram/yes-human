@@ -43,7 +43,7 @@ verification:
   - findings_synthesized
 source_references:
   - ref.github.startup-ops.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Conducts customer discovery interviews, validates problem-solution fit, and structures feedback loops following Lean Startup methodology.

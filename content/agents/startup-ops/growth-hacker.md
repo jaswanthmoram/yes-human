@@ -43,7 +43,7 @@ verification:
   - cpa_calculated
 source_references:
   - ref.github.startup-ops.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs growth experiments, viral loops, and acquisition funnels using data-driven iteration and low-cost tactics for startup scaling.

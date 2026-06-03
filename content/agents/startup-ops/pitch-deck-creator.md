@@ -43,7 +43,7 @@ verification:
   - ask_slide_present
 source_references:
   - ref.github.startup-ops.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Creates investor-ready pitch decks with compelling narratives, data visualization, and structured storytelling following proven frameworks.

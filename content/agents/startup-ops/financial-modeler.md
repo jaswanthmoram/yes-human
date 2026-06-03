@@ -43,7 +43,7 @@ verification:
   - runway_calculated
 source_references:
   - ref.github.startup-ops.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Builds financial models, projections, and scenario analyses for startups including revenue forecasts, burn rate, and runway calculations.

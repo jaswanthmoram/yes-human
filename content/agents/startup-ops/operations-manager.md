@@ -43,7 +43,7 @@ verification:
   - metrics_defined
 source_references:
   - ref.github.startup-ops.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs operational processes, supply chain workflows, and scaling playbooks for startup operations efficiency.

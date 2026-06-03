@@ -41,7 +41,7 @@ verification:
   - go_no_go_explicit
 source_references:
   - ref.github.startup-ops-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Coordinates the final startup release decision, including changelog, rollout notes, and rollback readiness.

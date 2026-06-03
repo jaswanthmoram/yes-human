@@ -43,7 +43,7 @@ verification:
   - compliance_mapped
 source_references:
   - ref.github.startup-ops.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Guides startups through legal formation, IP protection, regulatory compliance, and contract review for early-stage companies.

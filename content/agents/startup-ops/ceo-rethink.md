@@ -40,7 +40,7 @@ verification:
   - risks_called_out
 source_references:
   - ref.github.startup-ops-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Challenges startup feature bets, priorities, and scope before engineering time is committed.

@@ -43,7 +43,7 @@ verification:
   - materials_complete
 source_references:
   - ref.github.startup-ops.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Guides founders through fundraising preparation, investor targeting, and round structuring with data-driven materials.
