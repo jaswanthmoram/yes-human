@@ -133,22 +133,10 @@ export class PolicyEvaluator {
   }
 
   /**
-   * Evaluate an action against rules, policies, and contracts.
-   * 
-   * @param {Object} context - Action context
-   * @param {string} context.action - Action type (e.g., 'route', 'tool.execute', 'file.write')
-   * @param {Object} [context.task] - Task description
-   * @param {number} [context.estimatedTokens] - Estimated token count
-   * @param {string} [context.tool] - Tool name
-   * @param {Object} [context.args] - Tool arguments
-   * @param {string} [context.filePath] - File path for file operations
-   * @param {string} [context.content] - File content
-   * @param {string} [context.agent] - Agent ID
-   * @param {string} [context.url] - URL for network operations
-   * @param {string} [context.server] - MCP server name
-   * @param {string} [context.license] - License identifier
-   * @param {Object} [context.source] - Source information for absorption
-   * @returns {Object} - { allowed: boolean, reason: string, rule?: string, policy?: string, contract?: string }
+   * Evaluate a context object against all loaded rules and policies.
+   * @param {object} context - The context to evaluate.
+   * @param {string} context.action - The action being performed.
+   * @returns {{ allowed: boolean, reason?: string, rule?: string, policy?: string }} Evaluation result.
    */
   evaluate(rawContext) {
     // Normalize path/filePath aliases so rules and callers can use either key.

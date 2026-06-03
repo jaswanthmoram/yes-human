@@ -1,4 +1,14 @@
 #!/usr/bin/env node
+process.on('unhandledRejection', (reason) => {
+  console.error(`[yes-human] Unhandled rejection: ${reason?.message || reason}`);
+  process.exit(1);
+});
+
+process.on('uncaughtException', (err) => {
+  console.error(`[yes-human] Uncaught exception: ${err.message}`);
+  process.exit(1);
+});
+
 import { spawnSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
@@ -17,6 +27,8 @@ import { CodeGraph } from '../yes-graph/index.js';
 import { buildPlanCard, appendEpisodicOutcome } from '../yes-runtime/lib/plan-card.js';
 import { buildContextPack, readGraphRoutingConfig, isGraphStale } from '../yes-runtime/lib/code-graph-assist.js';
 import * as absorber from '../yes-absorber/index.js';
+import { copySkillsFromStaging } from '../yes-absorber/copy-skills.js';
+import { runPlan } from '../yes-runtime/spawner.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -176,7 +188,13 @@ async function cmdRoute(args) {
     console.error('Usage: yes route <task> [--dry-run] [--hints] [--plan]');
     return 1;
   }
-  const route = await resolveRoute(task);
+  let route;
+  try {
+    route = await resolveRoute(task);
+  } catch (err) {
+    console.error(`✗ Routing failed: ${err.message}`);
+    return 1;
+  }
   if (dryRun) {
     const target = route.target || {};
     const band = route.budget_band ?? 'micro';
@@ -277,15 +295,19 @@ function cmdDoctor() {
     add(false, 'Code graph check', e.message);
   }
 
-  // Connector env vars (enabled MCPs only)
+  // Connector env vars (profile-scoped enabled MCPs only)
   try {
     const mcps = readJSON('registry/mcps.json');
+    const profiles = readJSON('registry/connector-profiles.json');
+    const profileName = process.env.YES_CONNECTOR_PROFILE || profiles.default_profile || 'minimal';
+    const enableSet = new Set(profiles.profiles?.[profileName]?.enable || []);
     const missing = [];
     for (const item of mcps.items || []) {
       if (!item.enabled || !item.env_var) continue;
+      if (enableSet.size && !enableSet.has(item.id)) continue;
       if (!process.env[item.env_var]) missing.push(item.env_var);
     }
-    add(missing.length === 0, 'MCP env vars (enabled)', missing.length ? `missing: ${missing.join(', ')}` : 'all set');
+    add(missing.length === 0, `MCP env vars (profile: ${profileName})`, missing.length ? `missing: ${missing.join(', ')}` : 'all set for profile');
   } catch (e) {
     add(false, 'MCP env check', e.message);
   }
@@ -314,7 +336,13 @@ function cmdPromote(args) {
   const agentId = args[1];
   const gateIdx = args.indexOf('--gate');
   const targetGate = gateIdx >= 0 ? args[gateIdx + 1] : 'production';
-  const result = checkAgentPromotion(repoRoot, agentId, { targetGate });
+  let result;
+  try {
+    result = checkAgentPromotion(repoRoot, agentId, { targetGate });
+  } catch (err) {
+    console.error(`✗ Promotion check failed: ${err.message}`);
+    return 1;
+  }
   console.log(`promotion check: ${agentId} (gate: ${targetGate})\n`);
   for (const w of result.warnings) console.log(`⚠ ${w}`);
   if (result.allowed) {
@@ -362,7 +390,13 @@ function cmdMemory(args) {
   const memory = new MemoryManager();
   
   if (subcommand === 'status') {
-    const stats = memory.getStats();
+    let stats;
+    try {
+      stats = memory.getStats();
+    } catch (err) {
+      console.error(`✗ Memory stats failed: ${err.message}`);
+      return 1;
+    }
     
     console.log('Memory Status\n');
     console.log(`  Working memory:`);
@@ -396,13 +430,24 @@ function cmdMemory(args) {
       return 1;
     }
     
-    memory.clearAll();
+    try {
+      memory.clearAll();
+    } catch (err) {
+      console.error(`✗ Memory clear failed: ${err.message}`);
+      return 1;
+    }
     console.log('✓ All memory cleared');
     return 0;
   }
   
   if (subcommand === 'archive') {
-    const archived = memory.archiveWorkingMemory();
+    let archived;
+    try {
+      archived = memory.archiveWorkingMemory();
+    } catch (err) {
+      console.error(`✗ Memory archive failed: ${err.message}`);
+      return 1;
+    }
     console.log(`✓ Archived ${archived} working memory entries to episodic`);
     return 0;
   }
@@ -416,7 +461,12 @@ function cmdEvaluator(args) {
   const sub = args[0] || 'status';
 
   if (sub === 'status') {
-    console.log(JSON.stringify(evaluator.status(), null, 2));
+    try {
+      console.log(JSON.stringify(evaluator.status(), null, 2));
+    } catch (err) {
+      console.error(`✗ Evaluator status failed: ${err.message}`);
+      return 1;
+    }
     return 0;
   }
 
@@ -424,16 +474,22 @@ function cmdEvaluator(args) {
     const task = flagValue(args, '--task', args.slice(1).filter((a) => !a.startsWith('--')).join(' ').trim());
     const routeId = flagValue(args, '--route', 'route.meta-system.supreme-router');
     const success = boolFlag(args, '--success', true);
-    const result = evaluator.trace({
-      task,
-      route_id: routeId,
-      workflow_id: flagValue(args, '--workflow', null),
-      tenant_id: flagValue(args, '--tenant', null),
-      host: flagValue(args, '--host', 'cli'),
-      success,
-      failure_class: flagValue(args, '--failure-class', null),
-      duration_ms: Number(flagValue(args, '--duration-ms', 0))
-    });
+    let result;
+    try {
+      result = evaluator.trace({
+        task,
+        route_id: routeId,
+        workflow_id: flagValue(args, '--workflow', null),
+        tenant_id: flagValue(args, '--tenant', null),
+        host: flagValue(args, '--host', 'cli'),
+        success,
+        failure_class: flagValue(args, '--failure-class', null),
+        duration_ms: Number(flagValue(args, '--duration-ms', 0))
+      });
+    } catch (err) {
+      console.error(`✗ Evaluator trace failed: ${err.message}`);
+      return 1;
+    }
     console.log(JSON.stringify(result, null, 2));
     return 0;
   }
@@ -444,25 +500,37 @@ function cmdEvaluator(args) {
       console.error('Usage: yes evaluator outcome --route <route-id> --success <true|false> [--trace <trace-id>]');
       return 1;
     }
-    const result = evaluator.outcome({
-      trace_id: flagValue(args, '--trace', null),
-      route_id: routeId,
-      workflow_id: flagValue(args, '--workflow', null),
-      success: boolFlag(args, '--success', true),
-      score: Number(flagValue(args, '--score', boolFlag(args, '--success', true) ? 1 : 0)),
-      source: flagValue(args, '--source', 'manual'),
-      feedback: flagValue(args, '--feedback', null),
-      failure_class: flagValue(args, '--failure-class', null),
-      suggested_route: flagValue(args, '--suggested-route', null),
-      tenant_id: flagValue(args, '--tenant', null)
-    });
+    let result;
+    try {
+      result = evaluator.outcome({
+        trace_id: flagValue(args, '--trace', null),
+        route_id: routeId,
+        workflow_id: flagValue(args, '--workflow', null),
+        success: boolFlag(args, '--success', true),
+        score: Number(flagValue(args, '--score', boolFlag(args, '--success', true) ? 1 : 0)),
+        source: flagValue(args, '--source', 'manual'),
+        feedback: flagValue(args, '--feedback', null),
+        failure_class: flagValue(args, '--failure-class', null),
+        suggested_route: flagValue(args, '--suggested-route', null),
+        tenant_id: flagValue(args, '--tenant', null)
+      });
+    } catch (err) {
+      console.error(`✗ Evaluator outcome failed: ${err.message}`);
+      return 1;
+    }
     console.log(JSON.stringify(result, null, 2));
     return 0;
   }
 
   if (sub === 'gate') {
     const checks = flagValue(args, '--checks', 'route,workflow,skill,cost').split(',').map((s) => s.trim()).filter(Boolean);
-    const result = evaluator.gate(checks);
+    let result;
+    try {
+      result = evaluator.gate(checks);
+    } catch (err) {
+      console.error(`✗ Evaluator gate failed: ${err.message}`);
+      return 1;
+    }
     console.log(JSON.stringify(result, null, 2));
     return result.passed ? 0 : 1;
   }
@@ -476,15 +544,25 @@ function cmdTrainer(args) {
   const sub = args[0] || 'report';
 
   if (sub === 'report') {
-    const result = trainer.report();
-    console.log(JSON.stringify(result, null, 2));
-    return 0;
+    try {
+      const result = trainer.report();
+      console.log(JSON.stringify(result, null, 2));
+      return 0;
+    } catch (err) {
+      console.error(`✗ Trainer report failed: ${err.message}`);
+      return 1;
+    }
   }
 
   if (sub === 'suggest' || sub === 'suggest-workflows') {
-    const result = trainer.suggestWorkflows();
-    console.log(JSON.stringify(result, null, 2));
-    return 0;
+    try {
+      const result = trainer.suggestWorkflows();
+      console.log(JSON.stringify(result, null, 2));
+      return 0;
+    } catch (err) {
+      console.error(`✗ Trainer suggest failed: ${err.message}`);
+      return 1;
+    }
   }
 
   console.error('Usage: yes trainer <report|suggest>');
@@ -497,8 +575,13 @@ function cmdFeedback(args) {
   const engine = evaluator.engine;
 
   if (sub === 'list') {
-    console.log(JSON.stringify(engine.listFeedback(), null, 2));
-    return 0;
+    try {
+      console.log(JSON.stringify(engine.listFeedback(), null, 2));
+      return 0;
+    } catch (err) {
+      console.error(`✗ Feedback list failed: ${err.message}`);
+      return 1;
+    }
   }
 
   if (sub === 'review') {
@@ -558,14 +641,20 @@ function cmdFeedback(args) {
     console.error('Usage: yes feedback <list|review|apply|promote|accept|reject|partial|wrong-agent> ...');
     return 1;
   }
-  const result = engine.stageFeedback({
-    type,
-    trace_id: flagValue(args, '--trace', null),
-    route_id: flagValue(args, '--route', null),
-    suggested_route: flagValue(args, '--suggested-route', null),
-    note: flagValue(args, '--note', null),
-    metadata: { source: 'cli', phrase: flagValue(args, '--phrase', null) }
-  });
+  let result;
+  try {
+    result = engine.stageFeedback({
+      type,
+      trace_id: flagValue(args, '--trace', null),
+      route_id: flagValue(args, '--route', null),
+      suggested_route: flagValue(args, '--suggested-route', null),
+      note: flagValue(args, '--note', null),
+      metadata: { source: 'cli', phrase: flagValue(args, '--phrase', null) }
+    });
+  } catch (err) {
+    console.error(`✗ Feedback staging failed: ${err.message}`);
+    return 1;
+  }
   console.log(JSON.stringify(result, null, 2));
   return 0;
 }
@@ -574,9 +663,14 @@ function cmdWorkflow(args) {
   const sub = args[0];
   if (sub === 'suggest') {
     const miner = new WorkflowMiner({ repoRoot });
-    const result = miner.suggest();
-    console.log(JSON.stringify(result, null, 2));
-    return 0;
+    try {
+      const result = miner.suggest();
+      console.log(JSON.stringify(result, null, 2));
+      return 0;
+    } catch (err) {
+      console.error(`✗ Workflow suggest failed: ${err.message}`);
+      return 1;
+    }
   }
   console.error('Usage: yes workflow suggest');
   return 1;
@@ -588,7 +682,13 @@ function cmdTeam(args) {
     console.error('Usage: yes team status');
     return 1;
   }
-  const config = readJSON('registry/team-mode.json');
+  let config;
+  try {
+    config = readJSON('registry/team-mode.json');
+  } catch (err) {
+    console.error(`✗ Failed to load team config: ${err.message}`);
+    return 1;
+  }
   const tenant = flagValue(args, '--tenant', process.env.YES_TENANT_ID || config.default_tenant);
   const evaluator = new YesEvaluator({ repoRoot });
   const trace = evaluator.engine.createTrace({ task: 'tenant status probe', tenant_id: tenant, route_id: 'route.meta-system.supreme-router', success: true });
@@ -606,21 +706,41 @@ function cmdOffline(args) {
   const recovery = new OfflineRecovery({ repoRoot });
   const sub = args[0] || 'status';
   if (sub === 'status') {
-    console.log(JSON.stringify(recovery.status(), null, 2));
-    return 0;
+    try {
+      console.log(JSON.stringify(recovery.status(), null, 2));
+      return 0;
+    } catch (err) {
+      console.error(`✗ Offline status failed: ${err.message}`);
+      return 1;
+    }
   }
   if (sub === 'checkpoint') {
     const stage = flagValue(args, '--stage', args[1] || 'manual');
-    console.log(JSON.stringify(recovery.checkpoint(stage, { source: 'cli' }), null, 2));
-    return 0;
+    try {
+      console.log(JSON.stringify(recovery.checkpoint(stage, { source: 'cli' }), null, 2));
+      return 0;
+    } catch (err) {
+      console.error(`✗ Offline checkpoint failed: ${err.message}`);
+      return 1;
+    }
   }
   if (sub === 'resume') {
-    console.log(JSON.stringify(recovery.resume(), null, 2));
-    return 0;
+    try {
+      console.log(JSON.stringify(recovery.resume(), null, 2));
+      return 0;
+    } catch (err) {
+      console.error(`✗ Offline resume failed: ${err.message}`);
+      return 1;
+    }
   }
   if (sub === 'clear') {
-    console.log(JSON.stringify(recovery.clear(), null, 2));
-    return 0;
+    try {
+      console.log(JSON.stringify(recovery.clear(), null, 2));
+      return 0;
+    } catch (err) {
+      console.error(`✗ Offline clear failed: ${err.message}`);
+      return 1;
+    }
   }
   console.error('Usage: yes offline <status|checkpoint|resume|clear>');
   return 1;
@@ -668,13 +788,21 @@ function cmdStatus() {
 
 async function cmdRun(args) {
   const trace = args.includes('--trace');
-  const RUN_FLAGS = new Set(['--dry-run', '--plan', '--trace']);
+  const execute = args.includes('--execute');
+  const localExec = args.includes('--local');
+  const RUN_FLAGS = new Set(['--dry-run', '--plan', '--trace', '--execute', '--local']);
   const task = stripFlags(args, RUN_FLAGS).join(' ').trim();
   if (!task) {
-    console.error('Usage: yes run "<task>" [--dry-run] [--trace]');
+    console.error('Usage: yes run "<task>" [--dry-run] [--trace] [--execute] [--local]');
     return 1;
   }
-  const route = await resolveRoute(task);
+  let route;
+  try {
+    route = await resolveRoute(task);
+  } catch (err) {
+    console.error(`✗ Routing failed: ${err.message}`);
+    return 1;
+  }
   const target = route.target || {};
   const band = route.budget_band ?? 'micro';
   let maxTokens = null;
@@ -709,6 +837,13 @@ async function cmdRun(args) {
     console.log('\n  ⚠ Fallback route — no specific agent matched this task.');
     console.log('    Add triggers to an agent or add a route fixture to improve coverage.');
   }
+
+  if (execute || localExec) {
+    const mode = localExec ? 'local' : 'dry-run';
+    const result = await runPlan({ task, route, mode, repoRoot });
+    console.log('\n  Execution (' + mode + '):');
+    console.log(JSON.stringify(result, null, 2));
+  }
   return 0;
 }
 
@@ -731,7 +866,12 @@ function cmdPersona(args) {
       console.error(`Available: ${reg.items.map(p => p.persona_id).join(', ')}`);
       return 1;
     }
-    fs.writeFileSync(personaFile, personaId);
+    try {
+      fs.writeFileSync(personaFile, personaId);
+    } catch (err) {
+      console.error(`✗ Failed to set persona: ${err.message}`);
+      return 1;
+    }
     console.log(`✓ Persona set to: ${found.name} (${personaId})`);
     console.log(`  Default domain : ${found.default_domain}`);
     console.log(`  Budget bias    : ${found.budget_bias}`);
@@ -742,7 +882,12 @@ function cmdPersona(args) {
   }
 
   if (sub === 'clear') {
-    if (fs.existsSync(personaFile)) fs.rmSync(personaFile);
+    try {
+      if (fs.existsSync(personaFile)) fs.rmSync(personaFile);
+    } catch (err) {
+      console.error(`✗ Failed to clear persona: ${err.message}`);
+      return 1;
+    }
     console.log('✓ Persona cleared');
     return 0;
   }
@@ -768,7 +913,13 @@ function cmdPersona(args) {
 function cmdVersion(args) {
   const sub = args[0];
   const ledgerPath = path.join(repoRoot, 'registry', 'version-ledger.json');
-  const ledger = fs.existsSync(ledgerPath) ? JSON.parse(fs.readFileSync(ledgerPath, 'utf8')) : { entries: [] };
+  let ledger;
+  try {
+    ledger = fs.existsSync(ledgerPath) ? JSON.parse(fs.readFileSync(ledgerPath, 'utf8')) : { entries: [] };
+  } catch (err) {
+    console.error(`✗ Failed to read version ledger: ${err.message}`);
+    return 1;
+  }
 
   if (!sub || sub === 'list') {
     const artifactId = args[1];
@@ -800,6 +951,24 @@ function cmdVersion(args) {
     if (e1.hash === e2.hash) console.log('  (no content change)');
     else console.log('  Content changed (hashes differ).');
     return 0;
+  }
+
+  if (sub === 'copy-skills') {
+    const slug = args[1];
+    if (!slug) { console.error('Usage: yes absorb copy-skills <slug> [--domain meta-system]'); return 1; }
+    const domainIdx = args.indexOf('--domain');
+    const domain = domainIdx >= 0 ? args[domainIdx + 1] : 'meta-system';
+    const changeIdx = args.indexOf('--change-id');
+    const changeId = changeIdx >= 0 ? args[changeIdx + 1] : null;
+    try {
+      const r = copySkillsFromStaging(slug, { domain, maxFiles: 5, changeId });
+      console.log(`✓ Copied ${r.copied.length} skill(s) from ${slug}`);
+      for (const c of r.copied) console.log(`  ${c.skillId} → ${c.dest}`);
+      return 0;
+    } catch (e) {
+      console.error(`✗ ${e.message}`);
+      return 1;
+    }
   }
 
   if (sub === 'rollback') {
@@ -844,11 +1013,22 @@ function cmdContribute(args) {
   const absPath = path.resolve(filePath);
   if (!fs.existsSync(absPath)) { console.error(`File not found: ${absPath}`); return 1; }
 
-  const content = fs.readFileSync(absPath, 'utf8');
+  let content;
+  try {
+    content = fs.readFileSync(absPath, 'utf8');
+  } catch (err) {
+    console.error(`✗ Failed to read file: ${err.message}`);
+    return 1;
+  }
   const slug = path.basename(absPath, path.extname(absPath));
   const stagingDir = path.join(repoRoot, 'staging', 'incoming', `contrib-${kind}-${slug}`);
-  fs.mkdirSync(stagingDir, { recursive: true });
-  fs.copyFileSync(absPath, path.join(stagingDir, path.basename(absPath)));
+  try {
+    fs.mkdirSync(stagingDir, { recursive: true });
+    fs.copyFileSync(absPath, path.join(stagingDir, path.basename(absPath)));
+  } catch (err) {
+    console.error(`✗ Failed to stage file: ${err.message}`);
+    return 1;
+  }
 
   // Basic validation
   const issues = [];
@@ -893,7 +1073,13 @@ function cmdDossier(args) {
   const agentId = args[1];
   const gateIdx = args.indexOf('--gate');
   const targetGate = gateIdx >= 0 ? args[gateIdx + 1] : 'production';
-  const result = checkAgentPromotion(repoRoot, agentId, { targetGate });
+  let result;
+  try {
+    result = checkAgentPromotion(repoRoot, agentId, { targetGate });
+  } catch (err) {
+    console.error(`✗ Dossier validation failed: ${err.message}`);
+    return 1;
+  }
   let total = null;
   try {
     const p = path.join(repoRoot, 'references', agentId.split('.')[0], `${agentId.split('.').slice(1).join('.')}.sources.json`);
@@ -958,9 +1144,15 @@ async function cmdGraph(args) {
     console.log(`Building code graph for ${path.resolve(target)} → ${DEFAULT_GRAPH_DB}`);
     console.log(`Candidate files: ${candidateCount}`);
     const t0 = Date.now();
-    const result = await CodeGraph.build(target, dbPath, {
-      onProgress: (n, total) => process.stderr.write(`\r  indexed ${n}/${total}`)
-    });
+    let result;
+    try {
+      result = await CodeGraph.build(target, dbPath, {
+        onProgress: (n, total) => process.stderr.write(`\r  indexed ${n}/${total}`)
+      });
+    } catch (err) {
+      console.error(`✗ Graph build failed: ${err.message}`);
+      return 1;
+    }
     process.stderr.write('\n');
     const dt = ((Date.now() - t0) / 1000).toFixed(2);
     console.log(`✓ Indexed ${result.filesIndexed} files, ${result.symbols} symbols, ${result.imports} imports in ${dt}s`);
@@ -973,9 +1165,13 @@ async function cmdGraph(args) {
       console.error('✗ No graph yet. Run: yes graph build <path>');
       return 1;
     }
+    let brief;
     const graph = new CodeGraph(dbPath);
-    const brief = graph.briefing();
-    graph.close();
+    try {
+      brief = graph.briefing();
+    } finally {
+      graph.close();
+    }
     console.log(`Repo: ${brief.repo_path}`);
     console.log(`Built: ${brief.built_at}`);
     console.log(`Files: ${brief.file_count} | Symbols: ${brief.symbol_count} | Imports: ${brief.import_count}\n`);
@@ -997,9 +1193,13 @@ async function cmdGraph(args) {
       console.error('✗ No graph yet. Run: yes graph build <path>');
       return 1;
     }
+    let hits;
     const graph = new CodeGraph(dbPath);
-    const hits = graph.search(query, { limit: 20 });
-    graph.close();
+    try {
+      hits = graph.search(query, { limit: 20 });
+    } finally {
+      graph.close();
+    }
     if (hits.length === 0) {
       console.log('(no matches)');
       return 0;
@@ -1027,6 +1227,7 @@ async function cmdAbsorb(args) {
     console.error('  yes absorb stage <github-url | local-path>   Stage a source through the license gate');
     console.error('  yes absorb apply <slug>                      Promote a staged source (writes rollback record)');
     console.error('  yes absorb list                              Show staged / promoted / rejected / rollback records');
+    console.error('  yes absorb copy-skills <slug> [--domain D]   Copy staged SKILL.md files into content/skills/');
     console.error('  yes absorb rollback <change-id>              Revert a promotion');
     return 1;
   }
@@ -1083,7 +1284,13 @@ async function cmdAbsorb(args) {
   }
 
   if (sub === 'list') {
-    const l = absorber.list();
+    let l;
+    try {
+      l = absorber.list();
+    } catch (err) {
+      console.error(`✗ Absorb list failed: ${err.message}`);
+      return 1;
+    }
     console.log(`Staged (normalized): ${l.normalized.length}`);
     for (const e of l.normalized) console.log(`  ${e.slug.padEnd(40)} ${e.license ?? '?'.padEnd(10)} ${e.origin}`);
     console.log(`\nRejected: ${l.rejected.length}`);
@@ -1126,18 +1333,22 @@ async function cmdBuild(args) {
     return 1;
   }
 
-  // Auto-validate after build
-    const hostsBuilt = host === 'all' ? ['claude', 'codex', 'opencode', 'mcp', 'cursor', 'windsurf', 'vscode', 'sourcegraph', 'generic'] : [host];
   let allOk = true;
-  for (const h of hostsBuilt) {
-    const dir = path.join(repoRoot, 'generated', h);
-    const { ok, checks } = validateHostBundle(h, dir);
-    const icon = ok ? '✓' : '✗';
-    console.log(`\n${icon} ${h} bundle validation:`);
-    for (const c of checks) {
-      console.log(`  ${c.passed ? '✓' : '✗'} ${c.label}${c.detail ? ' — ' + c.detail : ''}`);
+  try {
+    const hostsBuilt = host === 'all' ? ['claude', 'codex', 'opencode', 'mcp', 'cursor', 'windsurf', 'vscode', 'sourcegraph', 'generic'] : [host];
+    for (const h of hostsBuilt) {
+      const dir = path.join(repoRoot, 'generated', h);
+      const { ok, checks } = validateHostBundle(h, dir);
+      const icon = ok ? '✓' : '✗';
+      console.log(`\n${icon} ${h} bundle validation:`);
+      for (const c of checks) {
+        console.log(`  ${c.passed ? '✓' : '✗'} ${c.label}${c.detail ? ' — ' + c.detail : ''}`);
+      }
+      if (!ok) allOk = false;
     }
-    if (!ok) allOk = false;
+  } catch (err) {
+    console.error(`✗ Bundle validation failed: ${err.message}`);
+    return 1;
   }
 
   console.log(allOk ? '\n✓ All bundles valid.' : '\n✗ Some bundles failed validation.');
