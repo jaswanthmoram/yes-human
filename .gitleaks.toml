@@ -1,0 +1,32 @@
+title = "yes-human gitleaks config"
+
+[allowlist]
+description = "Allow deterministic test placeholders only"
+regexes = [
+  '''test-key'''
+]
+paths = [
+  '''package-lock\.json'''
+]
+
+[[rules]]
+id = "firecrawl-api-key"
+description = "Firecrawl API key"
+regex = '''fc-[a-f0-9]{32}'''
+keywords = ["fc-", "firecrawl"]
+
+[[rules]]
+id = "env-var-secret-reference-required"
+description = "Plain env-like secret assignment"
+regex = '''(?i)(exa|firecrawl|openai|anthropic|github|aws)[A-Z0-9_ -]{0,24}(api[_ -]?key|token|secret)\s*[:=]\s*["']?[A-Za-z0-9_\-]{16,}'''
+keywords = ["api", "token", "secret", "key"]
+
+[[rules.allowlists]]
+description = "Historical deterministic fake credentials in policy tests"
+paths = [
+  '''tests/policy-evaluator\.test\.js'''
+]
+regexes = [
+  '''sk-[0-9a-f]{32}''',
+  '''ghp_[0-9a-f]{32}12'''
+]

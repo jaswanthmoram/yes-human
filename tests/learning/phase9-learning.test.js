@@ -47,7 +47,7 @@ test('records tenant-scoped redacted traces without raw task text', () => {
 
     const result = engine.recordTrace({
       tenant_id: 'team-a',
-      task: 'Email test@example.com using sk-12345678901234567890',
+      task: `Email test@example.com using sk-${'1234567890'.repeat(2)}`,
       route_id: 'route.engineering.code-reviewer',
       success: true
     });
@@ -59,7 +59,7 @@ test('records tenant-scoped redacted traces without raw task text', () => {
     assert.ok(fs.existsSync(result.trace_path));
     const stored = fs.readFileSync(result.trace_path, 'utf8');
     assert.ok(!stored.includes('test@example.com'));
-    assert.ok(!stored.includes('sk-12345678901234567890'));
+    assert.ok(!stored.includes(`sk-${'1234567890'.repeat(2)}`));
   } finally {
     fs.rmSync(dir, { recursive: true, force: true });
   }

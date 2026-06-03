@@ -79,9 +79,10 @@ test('filesystem policy blocks SSH key write', () => {
 
 test('privacy policy blocks API key', () => {
   const evaluator = new PolicyEvaluator();
+  const fakeOpenAIKey = `sk-${'1234567890abcdef'.repeat(2)}`;
   const result = evaluator.evaluate({
     action: 'file.write',
-    content: 'API_KEY=sk-1234567890abcdef1234567890abcdef'
+    content: `API_KEY=${fakeOpenAIKey}`
   });
   
   assert.equal(result.allowed, false);
@@ -90,9 +91,10 @@ test('privacy policy blocks API key', () => {
 
 test('privacy policy blocks GitHub token', () => {
   const evaluator = new PolicyEvaluator();
+  const fakeGitHubToken = `ghp_${'1234567890abcdef'.repeat(2)}12`;
   const result = evaluator.evaluate({
     action: 'file.write',
-    content: 'GITHUB_TOKEN=ghp_1234567890abcdef1234567890abcdef12'
+    content: `GITHUB_TOKEN=${fakeGitHubToken}`
   });
   
   assert.equal(result.allowed, false);
