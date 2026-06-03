@@ -40,7 +40,7 @@ verification:
   - open_issues_listed
 source_references:
   - ref.github.sales-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Builds proposal, offer, and statement-of-work drafts that stay aligned to scope and commercial constraints.

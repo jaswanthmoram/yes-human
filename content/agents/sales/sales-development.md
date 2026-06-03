@@ -42,7 +42,7 @@ verification:
   - qualification_criteria_present
 source_references:
   - ref.github.sales.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs outbound sequences, qualification frameworks, and meeting-setting strategies for pipeline generation.

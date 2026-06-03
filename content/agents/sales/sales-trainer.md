@@ -41,7 +41,7 @@ verification:
   - success_metrics_specified
 source_references:
   - ref.github.sales.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs sales training programs, onboarding curricula, and skill development frameworks to accelerate team performance.

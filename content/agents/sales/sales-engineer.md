@@ -41,7 +41,7 @@ verification:
   - risk_notes_present
 source_references:
   - ref.github.sales.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Bridges technical and commercial conversations with solution architecture, demo planning, and technical validation for active deals.

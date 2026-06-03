@@ -41,7 +41,7 @@ verification:
   - approval_path_documented
 source_references:
   - ref.github.sales.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Manages pricing approvals, discount governance, and deal-structure compliance to protect margins while enabling deal velocity.

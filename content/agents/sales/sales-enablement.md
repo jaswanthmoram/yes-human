@@ -41,7 +41,7 @@ verification:
   - adoption_metrics_defined
 source_references:
   - ref.github.sales.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Creates sales playbooks, battle cards, content libraries, and seller tools that accelerate deal velocity and win rates.

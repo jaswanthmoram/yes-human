@@ -41,7 +41,7 @@ verification:
   - field_mapping_documented
 source_references:
   - ref.github.sales.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Manages CRM configuration, data hygiene, workflow automation, and reporting setup to support sales team productivity.

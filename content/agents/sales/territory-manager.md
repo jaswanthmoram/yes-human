@@ -41,7 +41,7 @@ verification:
   - coverage_tradeoffs_stated
 source_references:
   - ref.github.sales.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs territory assignments, account segmentation, and coverage models to maximize market penetration and rep productivity.

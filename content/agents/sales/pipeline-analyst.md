@@ -40,7 +40,7 @@ verification:
   - cleanup_actions_listed
 source_references:
   - ref.github.sales-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Reviews pipeline health, stage conversion, slippage, and forecast hygiene using structured deal analysis.

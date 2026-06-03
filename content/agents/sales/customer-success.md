@@ -41,7 +41,7 @@ verification:
   - expansion_opportunities_listed
 source_references:
   - ref.github.sales.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs onboarding plans, health score frameworks, and expansion strategies to maximize customer lifetime value.

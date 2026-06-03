@@ -41,7 +41,7 @@ verification:
   - close_plan_timeline_present
 source_references:
   - ref.github.sales.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Manages full-cycle deal execution from qualification through close with structured pipeline discipline and stakeholder mapping.

@@ -40,7 +40,7 @@ verification:
   - risk_notes_present
 source_references:
   - ref.github.sales-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs sales motions, territory plans, and discovery structures around an explicit commercial goal.

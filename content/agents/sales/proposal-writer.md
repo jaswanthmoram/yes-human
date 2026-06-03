@@ -41,7 +41,7 @@ verification:
   - commercial_terms_included
 source_references:
   - ref.github.sales.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Crafts persuasive proposal narratives, executive summaries, and value propositions aligned to buyer requirements and commercial constraints.

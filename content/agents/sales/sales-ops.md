@@ -41,7 +41,7 @@ verification:
   - tool_config_specified
 source_references:
   - ref.github.sales.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs sales processes, compensation structures, tool configurations, and operational workflows that scale the sales organization.

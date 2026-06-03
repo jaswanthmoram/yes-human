@@ -41,7 +41,7 @@ verification:
   - recommendations_actionable
 source_references:
   - ref.github.sales.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Analyzes sales performance data, conversion metrics, and trend patterns to produce actionable insights for sales leadership.

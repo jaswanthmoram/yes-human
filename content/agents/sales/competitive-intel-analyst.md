@@ -41,7 +41,7 @@ verification:
   - positioning_specific
 source_references:
   - ref.github.sales.competitive-intel.2026-06-01
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Conducts win/loss analysis, competitive positioning, and battle card creation using structured intelligence methodologies.

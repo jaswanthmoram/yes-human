@@ -41,7 +41,7 @@ verification:
   - concession_limits_defined
 source_references:
   - ref.github.sales.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Manages commercial negotiation strategy, term analysis, and deal-structure optimization while coordinating legal review for non-standard terms.
