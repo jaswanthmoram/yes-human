@@ -16,40 +16,44 @@ import { redactString } from '../packages/yes-runtime/redaction.js';
 const learning = new LearningEngine();
 
 export default async function onTaskComplete(context) {
-  const { task, route, agents, tools, duration, success } = context;
-  
-  // 1. Create tenant-scoped redacted trace and episodic record.
-  const { trace } = learning.recordTrace({
-    ...context,
-    task,
-    route_id: typeof route === 'string' ? route : route?.route_id,
-    route,
-    agents: agents || [],
-    tools: tools || [],
-    duration_ms: duration,
-    success
-  });
+  try {
+    const { task, route, agents, tools, duration, success } = context;
+    
+    // 1. Create tenant-scoped redacted trace and episodic record.
+    const { trace } = learning.recordTrace({
+      ...context,
+      task,
+      route_id: typeof route === 'string' ? route : route?.route_id,
+      route,
+      agents: agents || [],
+      tools: tools || [],
+      duration_ms: duration,
+      success
+    });
 
-  // 2. Write to immutable ledger (from iso pattern). The ledger stores the
-  // redacted trace only, never raw task text.
-  const ledgerEntry = {
-    ...trace,
-    previous_hash: getLastLedgerHash(),
-    hash: null // Will be calculated
-  };
-  ledgerEntry.hash = hashLedgerEntry(ledgerEntry);
-  
-  appendToJSONL('registry/ledger.jsonl', ledgerEntry);
-  
-  // 3. Log redacted summary to console.
-  const taskPreview = task ? redactString(String(task).slice(0, 120)) : '';
-  console.log(`[trace] task="${taskPreview}" route=${trace.route_id} success=${success} duration=${duration}ms trace=${trace.trace_id}`);
-  
-  return { 
-    recorded: true,
-    trace_id: trace.trace_id,
-    ledger_hash: ledgerEntry.hash
-  };
+    // 2. Write to immutable ledger (from iso pattern). The ledger stores the
+    // redacted trace only, never raw task text.
+    const ledgerEntry = {
+      ...trace,
+      previous_hash: getLastLedgerHash(),
+      hash: null // Will be calculated
+    };
+    ledgerEntry.hash = hashLedgerEntry(ledgerEntry);
+    
+    appendToJSONL('registry/ledger.jsonl', ledgerEntry);
+    
+    // 3. Log redacted summary to console.
+    const taskPreview = task ? redactString(String(task).slice(0, 120)) : '';
+    console.log(`[trace] task="${taskPreview}" route=${trace.route_id} success=${success} duration=${duration}ms trace=${trace.trace_id}`);
+    
+    return { 
+      recorded: true,
+      trace_id: trace.trace_id,
+      ledger_hash: ledgerEntry.hash
+    };
+  } catch (err) {
+    return { recorded: false, error: err.message };
+  }
 }
 
 /**

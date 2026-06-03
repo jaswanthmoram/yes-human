@@ -32,79 +32,83 @@ function loadActivePersona() {
 }
 
 export default async function preRoute(context, policyEvaluator = null) {
-  const { task, estimatedTokens, depth = 0, visited = [] } = context;
-  
-  // Initialize policy evaluator if not provided
-  const evaluator = policyEvaluator || new PolicyEvaluator();
-  
-  // 1. Budget check
-  if (estimatedTokens !== undefined) {
-    const budgetCheck = evaluator.evaluate({
+  try {
+    const { task, estimatedTokens, depth = 0, visited = [] } = context;
+    
+    // Initialize policy evaluator if not provided
+    const evaluator = policyEvaluator || new PolicyEvaluator();
+    
+    // 1. Budget check
+    if (estimatedTokens !== undefined) {
+      const budgetCheck = evaluator.evaluate({
+        action: 'route',
+        estimatedTokens,
+        task
+      });
+      
+      if (!budgetCheck.allowed) {
+        return { 
+          block_reason: budgetCheck.reason,
+          rule: budgetCheck.rule,
+          policy: budgetCheck.policy
+        };
+      }
+    }
+    
+    // 2. Safety check (destructive keywords)
+    const safetyCheck = evaluator.evaluate({
       action: 'route',
-      estimatedTokens,
       task
     });
     
-    if (!budgetCheck.allowed) {
+    if (!safetyCheck.allowed) {
       return { 
-        block_reason: budgetCheck.reason,
-        rule: budgetCheck.rule,
-        policy: budgetCheck.policy
+        block_reason: safetyCheck.reason,
+        rule: safetyCheck.rule
       };
     }
-  }
-  
-  // 2. Safety check (destructive keywords)
-  const safetyCheck = evaluator.evaluate({
-    action: 'route',
-    task
-  });
-  
-  if (!safetyCheck.allowed) {
-    return { 
-      block_reason: safetyCheck.reason,
-      rule: safetyCheck.rule
-    };
-  }
-  
-  // 3. Signal-word routing (from AgentMaster pattern)
-  const signalWords = extractSignalWords(task);
-  const routingHint = matchSignalWords(signalWords);
-  
-  // 4. Loop prevention (from loop-prevention.rules.json)
-  if (depth > 2) {
-    return { 
-      block_reason: 'Max routing depth (2) exceeded',
-      rule: 'loop-prevention'
-    };
-  }
-  
-  if (routingHint && visited.includes(routingHint.routeId)) {
-    return { 
-      block_reason: `Circular route detected: ${routingHint.routeId}`,
-      rule: 'loop-prevention'
-    };
-  }
-  
-  // 5. Persona bias — inject preferred domain hint if a persona is active
-  const persona = loadActivePersona();
-  let personaHint = null;
-  if (persona && !routingHint) {
-    // Only use persona hint when no stronger signal-word hint was found
-    const preferredAgent = persona.preferred_agents?.[0];
-    if (preferredAgent) {
-      personaHint = { routeId: `route.${preferredAgent}`, priority: 0.5 };
+    
+    // 3. Signal-word routing (from AgentMaster pattern)
+    const signalWords = extractSignalWords(task);
+    const routingHint = matchSignalWords(signalWords);
+    
+    // 4. Loop prevention (from loop-prevention.rules.json)
+    if (depth > 2) {
+      return { 
+        block_reason: 'Max routing depth (2) exceeded',
+        rule: 'loop-prevention'
+      };
     }
-  }
+    
+    if (routingHint && visited.includes(routingHint.routeId)) {
+      return { 
+        block_reason: `Circular route detected: ${routingHint.routeId}`,
+        rule: 'loop-prevention'
+      };
+    }
+    
+    // 5. Persona bias — inject preferred domain hint if a persona is active
+    const persona = loadActivePersona();
+    let personaHint = null;
+    if (persona && !routingHint) {
+      // Only use persona hint when no stronger signal-word hint was found
+      const preferredAgent = persona.preferred_agents?.[0];
+      if (preferredAgent) {
+        personaHint = { routeId: `route.${preferredAgent}`, priority: 0.5 };
+      }
+    }
 
-  // Success: return modified context with routing hints
-  return {
-    modified_task: task,
-    routing_hint: routingHint || personaHint,
-    signal_words: signalWords,
-    active_persona: persona?.persona_id || null,
-    allowed: true
-  };
+    // Success: return modified context with routing hints
+    return {
+      modified_task: task,
+      routing_hint: routingHint || personaHint,
+      signal_words: signalWords,
+      active_persona: persona?.persona_id || null,
+      allowed: true
+    };
+  } catch (err) {
+    return { block_reason: 'pre-route hook error: ' + err.message, allowed: false };
+  }
 }
 
 /**

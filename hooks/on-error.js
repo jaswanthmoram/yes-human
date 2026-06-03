@@ -15,51 +15,55 @@ const memory = new MemoryManager();
 const learning = new LearningEngine({ memoryManager: memory });
 
 export default async function onError(context) {
-  const { error, task, agent, tool, args } = context;
-  const errorMessage = redactString(error?.message || String(error));
-  
-  // 1. Log error to episodic memory
-  const episodeId = memory.addEpisodicMemory('errors', {
-    error_type: classifyError(error),
-    error: errorMessage,
-    error_message: errorMessage,
-    error_stack: null,
-    task_hash: task ? learning.createTrace({ task, route_id: context.route_id, success: false }).task_hash : null,
-    agent,
-    tool,
-    args: sanitizeArgs(args),
-    timestamp: new Date().toISOString()
-  });
-  
-  // 2. Update mistake graph (semantic memory)
-  const mistakePattern = extractMistakePattern(context);
-  if (mistakePattern) {
-    learning.updateMistakeGraph({
-      trace_id: context.trace_id || null,
-      route_id: context.route_id || context.route?.route_id || 'route.meta-system.supreme-router',
-      workflow_id: context.workflow_id || null,
-      failure_class: mistakePattern.error_type,
+  try {
+    const { error, task, agent, tool, args } = context;
+    const errorMessage = redactString(error?.message || String(error));
+    
+    // 1. Log error to episodic memory
+    const episodeId = memory.addEpisodicMemory('errors', {
+      error_type: classifyError(error),
+      error: errorMessage,
+      error_message: errorMessage,
+      error_stack: null,
       task_hash: task ? learning.createTrace({ task, route_id: context.route_id, success: false }).task_hash : null,
-      suggested_route: context.suggested_route || null
+      agent,
+      tool,
+      args: sanitizeArgs(args),
+      timestamp: new Date().toISOString()
     });
+    
+    // 2. Update mistake graph (semantic memory)
+    const mistakePattern = extractMistakePattern(context);
+    if (mistakePattern) {
+      learning.updateMistakeGraph({
+        trace_id: context.trace_id || null,
+        route_id: context.route_id || context.route?.route_id || 'route.meta-system.supreme-router',
+        workflow_id: context.workflow_id || null,
+        failure_class: mistakePattern.error_type,
+        task_hash: task ? learning.createTrace({ task, route_id: context.route_id, success: false }).task_hash : null,
+        suggested_route: context.suggested_route || null
+      });
 
-    memory.addSemanticMemory({
-      pattern: mistakePattern.pattern,
-      lesson: mistakePattern.lesson,
-      context: mistakePattern.context,
-      source_episodes: [episodeId],
-      error_type: mistakePattern.error_type
-    });
+      memory.addSemanticMemory({
+        pattern: mistakePattern.pattern,
+        lesson: mistakePattern.lesson,
+        context: mistakePattern.context,
+        source_episodes: [episodeId],
+        error_type: mistakePattern.error_type
+      });
+    }
+    
+    // 3. Log to console
+    console.error(`[error] task_hash=${task ? learning.createTrace({ task, route_id: context.route_id, success: false }).task_hash : 'empty'} agent=${agent} error=${errorMessage} episode=${episodeId}`);
+    
+    return { 
+      handled: true,
+      episode_id: episodeId,
+      mistake_pattern: mistakePattern
+    };
+  } catch (err) {
+    return { handled: false, error: err.message };
   }
-  
-  // 3. Log to console
-  console.error(`[error] task_hash=${task ? learning.createTrace({ task, route_id: context.route_id, success: false }).task_hash : 'empty'} agent=${agent} error=${errorMessage} episode=${episodeId}`);
-  
-  return { 
-    handled: true,
-    episode_id: episodeId,
-    mistake_pattern: mistakePattern
-  };
 }
 
 /**

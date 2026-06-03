@@ -10,63 +10,67 @@
 import { PolicyEvaluator } from '../packages/yes-core/policy-evaluator.js';
 
 export default async function preWrite(context, policyEvaluator = null) {
-  const { filePath, content, agent } = context;
-  
-  // Initialize policy evaluator if not provided
-  const evaluator = policyEvaluator || new PolicyEvaluator();
-  
-  // 1. Filesystem policy check (protected paths)
-  const fsCheck = evaluator.evaluate({
-    action: 'file.write',
-    filePath,
-    agent
-  });
-  
-  if (!fsCheck.allowed) {
-    return { 
-      block_reason: fsCheck.reason,
-      policy: fsCheck.policy
-    };
-  }
-  
-  // 2. Privacy policy check (secrets/PII detection)
-  if (content && typeof content === 'string') {
-    const privacyCheck = evaluator.evaluate({
+  try {
+    const { filePath, content, agent } = context;
+    
+    // Initialize policy evaluator if not provided
+    const evaluator = policyEvaluator || new PolicyEvaluator();
+    
+    // 1. Filesystem policy check (protected paths)
+    const fsCheck = evaluator.evaluate({
       action: 'file.write',
       filePath,
-      content,
       agent
     });
     
-    if (!privacyCheck.allowed) {
+    if (!fsCheck.allowed) {
       return { 
-        block_reason: privacyCheck.reason,
-        policy: privacyCheck.policy
+        block_reason: fsCheck.reason,
+        policy: fsCheck.policy
       };
     }
-  }
-  
-  // 3. Contract check (if agent has contracts)
-  if (agent) {
-    const contractCheck = evaluator.evaluate({
-      action: 'file.write',
-      agent,
-      filePath,
-      content
-    });
     
-    if (!contractCheck.allowed) {
-      return { 
-        block_reason: contractCheck.reason,
-        contract: contractCheck.contract
-      };
+    // 2. Privacy policy check (secrets/PII detection)
+    if (content && typeof content === 'string') {
+      const privacyCheck = evaluator.evaluate({
+        action: 'file.write',
+        filePath,
+        content,
+        agent
+      });
+      
+      if (!privacyCheck.allowed) {
+        return { 
+          block_reason: privacyCheck.reason,
+          policy: privacyCheck.policy
+        };
+      }
     }
+    
+    // 3. Contract check (if agent has contracts)
+    if (agent) {
+      const contractCheck = evaluator.evaluate({
+        action: 'file.write',
+        agent,
+        filePath,
+        content
+      });
+      
+      if (!contractCheck.allowed) {
+        return { 
+          block_reason: contractCheck.reason,
+          contract: contractCheck.contract
+        };
+      }
+    }
+    
+    // Success: write is allowed
+    return { 
+      allowed: true,
+      filePath,
+      agent
+    };
+  } catch (err) {
+    return { block_reason: 'pre-write hook error: ' + err.message, allowed: false };
   }
-  
-  // Success: write is allowed
-  return { 
-    allowed: true,
-    filePath,
-    agent
-  };
 }

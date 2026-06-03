@@ -96,6 +96,19 @@
         "cli": "native",
         "opencode": "plugin"
       }
+    },
+    {
+      "id": "hook.post-route.audit",
+      "event": "post-route",
+      "runtime": "node",
+      "entry": "hooks/post-route.js",
+      "inputs": ["task", "route", "duration"],
+      "outputs": ["logged"],
+      "policy_dependencies": ["telemetry.policy.json"],
+      "host_support": {
+        "cli": "native",
+        "opencode": "plugin"
+      }
     }
   ]
 }
