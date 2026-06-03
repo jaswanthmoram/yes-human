@@ -1,0 +1,10 @@
+{
+  "name": "@yes-human/workflows",
+  "version": "2.0.0",
+  "type": "module",
+  "main": "index.js",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -6,6 +6,8 @@ import path from 'node:path';
 import { resolveRoute } from '../../packages/yes-runtime/router.js';
 import { loadBuildContext, buildHost, repoRoot } from '../../packages/yes-adapters/index.js';
 import { validateHostBundle } from '../../validators/host-bundle.validator.js';
+import { WorkflowOrchestrator } from '../../packages/yes-workflows/index.js';
+import { runDriftCheck } from '../../packages/yes-schema/validate-drift.js';
 
 function readJSON(relativePath) {
   return JSON.parse(fs.readFileSync(path.join(repoRoot, relativePath), 'utf8'));
@@ -58,4 +60,12 @@ test('offline E2E smoke builds and reparses the generic host bundle', async () =
   assert.equal(manifest.trust_model, 'zero-trust');
   assert.equal(manifest.route_table, 'graph/indexes/ROUTE_TABLE.min.json');
   assert.equal(manifest.registries?.agents, 'registry/agents.json');
+});
+
+
+test('workflow dry-run and drift', async () => {
+  const o = new WorkflowOrchestrator({ repoRoot });
+  const plan = await o.run('workflow.engineering.code-review-with-security', { dryRun: true });
+  assert.ok(plan.steps.length >= 1);
+  assert.ok(runDriftCheck(repoRoot));
 });

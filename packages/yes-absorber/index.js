@@ -40,6 +40,27 @@ const PATHS = {
   rollback:   () => path.join(repoRoot, 'staging', 'rollback')
 };
 
+
+function effectiveRepoRoot(options = {}) {
+  if (options.repoRoot) return options.repoRoot;
+  const cwd = process.cwd();
+  if (fs.existsSync(path.join(cwd, 'package.json')) && fs.existsSync(path.join(cwd, 'staging'))) {
+    return cwd;
+  }
+  return repoRoot;
+}
+
+function pathsFor(root) {
+  return {
+    incoming: path.join(root, 'staging', 'incoming'),
+    normalized: path.join(root, 'staging', 'normalized'),
+    reviewed: path.join(root, 'staging', 'reviewed'),
+    rejected: path.join(root, 'staging', 'rejected'),
+    promoted: path.join(root, 'staging', 'promoted'),
+    rollback: path.join(root, 'staging', 'rollback')
+  };
+}
+
 function ensureStageDirs() {
   for (const p of Object.values(PATHS)) fs.mkdirSync(p(), { recursive: true });
 }
@@ -137,9 +158,13 @@ export async function stage(input) {
  * per-file review step. Apply records intent + provenance so the items are
  * tracked and registries' provenance.json reflects the new origin.)
  */
-export async function apply(slug) {
-  ensureStageDirs();
-  const normalizedDir = path.join(PATHS.normalized(), slug);
+export async function apply(slug, options = {}) {
+  const root = effectiveRepoRoot(options);
+  const paths = pathsFor(root);
+  for (const sub of ['incoming', 'normalized', 'reviewed', 'rejected', 'promoted', 'rollback']) {
+    fs.mkdirSync(paths[sub], { recursive: true });
+  }
+  const normalizedDir = path.join(paths.normalized, slug);
   const manifestPath = path.join(normalizedDir, 'manifest.json');
   if (!fs.existsSync(manifestPath)) {
     throw new Error(`No staged source at staging/normalized/${slug}`);
@@ -168,8 +193,22 @@ export async function apply(slug) {
     rollback_command: `yes absorb rollback ${changeId}`,
     safe_to_auto_rollback: true
   };
-  const rollbackPath = path.join(PATHS.rollback(), `${changeId}.json`);
+  const rollbackPath = path.join(paths.rollback, `${changeId}.json`);
   fs.writeFileSync(rollbackPath, JSON.stringify(rollback, null, 2));
+
+  let promoteResult = null;
+  if (options.promote) {
+    const { promoteContentFromStaging } = await import('./promote-content.js');
+    promoteResult = promoteContentFromStaging(slug, {
+      changeId,
+      rollbackPath,
+      manifest,
+      repoRoot: root,
+      domain: options.domain
+    });
+    rollback.files_added = promoteResult.files_added;
+    fs.writeFileSync(rollbackPath, JSON.stringify(rollback, null, 2));
+  }
 
   // 2. Promotion record — provenance, decision, originating manifest
   const promotion = {
@@ -180,14 +219,17 @@ export async function apply(slug) {
     license: manifest.license,
     classification: manifest.classification,
     duplicates: manifest.duplicates,
-    rollback_record: path.relative(repoRoot, rollbackPath),
-    next_steps: [
-      'Hand-author dossiers for each promoted artifact in references/<domain>/',
-      'Run `yes promote --check <agent-id>` to validate dossiers',
-      'Compile registries with `yes compile`'
-    ]
+    rollback_record: path.relative(root, rollbackPath),
+    next_steps: options.promote
+      ? ['Run `yes compile` and `npm run validate`', 'Uplift dossiers with scripts/uplift-dossiers.mjs if needed']
+      : [
+          'Run `yes absorb apply <slug> --promote` to copy into content/',
+          'Hand-author dossiers for each promoted artifact in references/<domain>/',
+          'Compile registries with `yes compile`'
+        ],
+    promote: promoteResult
   };
-  const promotedPath = path.join(PATHS.promoted(), `${changeId}.json`);
+  const promotedPath = path.join(paths.promoted, `${changeId}.json`);
   fs.writeFileSync(promotedPath, JSON.stringify(promotion, null, 2));
 
   // 3. Append to global provenance.json (additive — never modifies existing entries)
@@ -199,26 +241,26 @@ export async function apply(slug) {
     created_at: promotion.applied_at,
     confidence: 0.9,
     author: 'yes-absorber'
-  });
+  }, root);
 
-  return { changeId, promotedPath: path.relative(repoRoot, promotedPath), rollbackPath: path.relative(repoRoot, rollbackPath) };
+  return { changeId, promotedPath: path.relative(root, promotedPath), rollbackPath: path.relative(root, rollbackPath), promote: promoteResult };
 }
 
 // ── rollback ──────────────────────────────────────────────────────────────────
 
-export async function rollback(changeId) {
-  const rollbackPath = path.join(PATHS.rollback(), `${changeId}.json`);
+export async function rollback(changeId, options = {}) {
+  const root = effectiveRepoRoot(options);
+  const paths = pathsFor(root);
+  const rollbackPath = path.join(paths.rollback, `${changeId}.json`);
   if (!fs.existsSync(rollbackPath)) throw new Error(`No rollback record: ${changeId}`);
   const record = JSON.parse(fs.readFileSync(rollbackPath, 'utf8'));
 
-  // Delete files this change added (currently always empty — apply does not auto-copy).
   for (const f of record.files_added || []) {
-    const abs = path.join(repoRoot, f);
+    const abs = path.join(root, f);
     if (fs.existsSync(abs)) fs.rmSync(abs, { force: true });
   }
 
-  // Mark the promotion record as rolled-back
-  const promotedPath = path.join(PATHS.promoted(), `${changeId}.json`);
+  const promotedPath = path.join(paths.promoted, `${changeId}.json`);
   if (fs.existsSync(promotedPath)) {
     const promo = JSON.parse(fs.readFileSync(promotedPath, 'utf8'));
     promo.rolled_back = true;
@@ -293,8 +335,8 @@ function classifyContent(root) {
 
 // ── provenance append (additive, idempotent on id) ────────────────────────────
 
-function appendProvenance(entry) {
-  const p = path.join(repoRoot, 'registry', 'provenance.json');
+function appendProvenance(entry, root = repoRoot) {
+  const p = path.join(root, 'registry', 'provenance.json');
   let arr = [];
   if (fs.existsSync(p)) {
     try { arr = JSON.parse(fs.readFileSync(p, 'utf8')); } catch { arr = []; }

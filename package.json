@@ -1,6 +1,6 @@
 {
   "name": "yes-human",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "private": true,
   "publishConfig": {
     "access": "restricted"
@@ -45,7 +45,14 @@
     "sync:dossiers": "node scripts/sync-dossier-promotion-decision.mjs",
     "high-stakes:dossiers": "node scripts/high-stakes-authoritative.mjs",
     "report:phase11": "node packages/yes-schema/generate-phase11-acceptance.js",
-    "absorb:copy-skills": "node scripts/absorb-skills-from-staging.mjs"
+    "absorb:copy-skills": "node scripts/absorb-skills-from-staging.mjs",
+    "promote:skills:check": "node scripts/promote-all-skills.mjs --check",
+    "promote:skills:apply": "node scripts/promote-all-skills.mjs --apply --only-staging",
+    "audit:skills": "node packages/yes-schema/audit-skills.js --strict",
+    "report:phase12": "node packages/yes-schema/generate-phase12-acceptance.js",
+    "report:health": "node scripts/agent-health-report.mjs",
+    "validate:drift": "node packages/yes-schema/validate-drift.js",
+    "report:adapter-parity": "node packages/yes-schema/generate-adapter-parity.js"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",

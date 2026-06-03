@@ -15,11 +15,13 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { resolveRoute } from '../yes-runtime/router.js';
 import { checkAgentPromotion } from '../../validators/promotion.validator.js';
+import { proposeRouteProposal } from '../yes-runtime/learning-propose.js';
 import { DreamCycle } from '../yes-runtime/dream-cycle.js';
 import { MemoryManager } from '../yes-runtime/memory-manager.js';
 import { YesEvaluator } from '../yes-runtime/yes-evaluator.js';
 import { YesTrainer } from '../yes-runtime/yes-trainer.js';
 import { WorkflowMiner } from '../yes-runtime/workflow-miner.js';
+import { WorkflowOrchestrator } from '../yes-workflows/index.js';
 import { OfflineRecovery } from '../yes-runtime/offline-recovery.js';
 import { loadBuildContext, buildHost, buildAll } from '../yes-adapters/index.js';
 import { validateHostBundle } from '../../validators/host-bundle.validator.js';
@@ -659,7 +661,7 @@ function cmdFeedback(args) {
   return 0;
 }
 
-function cmdWorkflow(args) {
+async function cmdWorkflow(args) {
   const sub = args[0];
   if (sub === 'suggest') {
     const miner = new WorkflowMiner({ repoRoot });
@@ -672,7 +674,24 @@ function cmdWorkflow(args) {
       return 1;
     }
   }
-  console.error('Usage: yes workflow suggest');
+  if (sub === 'run') {
+    const workflowId = args[1];
+    const dryRun = !args.includes('--execute');
+    if (!workflowId || workflowId.startsWith('--')) {
+      console.error('Usage: yes workflow run <workflow-id> [--dry-run] [--execute]');
+      return 1;
+    }
+    const orchestrator = new WorkflowOrchestrator({ repoRoot });
+    try {
+      const result = await orchestrator.run(workflowId, { dryRun });
+      console.log(JSON.stringify(result, null, 2));
+      return 0;
+    } catch (err) {
+      console.error(`✗ Workflow run failed: ${err.message}`);
+      return 1;
+    }
+  }
+  console.error('Usage: yes workflow suggest | yes workflow run <workflow-id> [--execute]');
   return 1;
 }
 
@@ -790,10 +809,11 @@ async function cmdRun(args) {
   const trace = args.includes('--trace');
   const execute = args.includes('--execute');
   const localExec = args.includes('--local');
-  const RUN_FLAGS = new Set(['--dry-run', '--plan', '--trace', '--execute', '--local']);
+  const localTools = args.includes('--local-tools');
+  const RUN_FLAGS = new Set(['--dry-run', '--plan', '--trace', '--execute', '--local', '--local-tools']);
   const task = stripFlags(args, RUN_FLAGS).join(' ').trim();
   if (!task) {
-    console.error('Usage: yes run "<task>" [--dry-run] [--trace] [--execute] [--local]');
+    console.error('Usage: yes run "<task>" [--dry-run] [--trace] [--execute] [--local] [--local-tools]');
     return 1;
   }
   let route;
@@ -838,8 +858,8 @@ async function cmdRun(args) {
     console.log('    Add triggers to an agent or add a route fixture to improve coverage.');
   }
 
-  if (execute || localExec) {
-    const mode = localExec ? 'local' : 'dry-run';
+  if (execute || localExec || localTools) {
+    const mode = localTools ? 'local-tools' : (localExec ? 'local' : 'dry-run');
     const result = await runPlan({ task, route, mode, repoRoot });
     console.log('\n  Execution (' + mode + '):');
     console.log(JSON.stringify(result, null, 2));
@@ -1002,6 +1022,31 @@ function cmdVersion(args) {
 }
 
 // ── yes contribute ────────────────────────────────────────────────────────────
+
+
+function cmdLearning(args) {
+  const sub = args[0];
+  if (sub === 'propose-route') {
+    const phraseIdx = args.indexOf('--phrase');
+    const routeIdx = args.indexOf('--route');
+    const phrase = phraseIdx >= 0 ? args[phraseIdx + 1] : null;
+    const routeId = routeIdx >= 0 ? args[routeIdx + 1] : null;
+    if (!phrase || !routeId) {
+      console.error('Usage: yes learning propose-route --phrase "<text>" --route <route-id>');
+      return 1;
+    }
+    try {
+      const r = proposeRouteProposal(repoRoot, { phrase, route_id: routeId });
+      console.log(JSON.stringify(r, null, 2));
+      return 0;
+    } catch (e) {
+      console.error('✗ ' + e.message);
+      return 1;
+    }
+  }
+  console.error('Usage: yes learning propose-route --phrase "<text>" --route <route-id>');
+  return 1;
+}
 
 function cmdContribute(args) {
   const kind = args[0]; // agent | skill
@@ -1225,7 +1270,7 @@ async function cmdAbsorb(args) {
   if (!sub || sub === 'help') {
     console.error('Usage:');
     console.error('  yes absorb stage <github-url | local-path>   Stage a source through the license gate');
-    console.error('  yes absorb apply <slug>                      Promote a staged source (writes rollback record)');
+    console.error('  yes absorb apply <slug> [--promote]            Promote staged source; --promote copies into content/');
     console.error('  yes absorb list                              Show staged / promoted / rejected / rollback records');
     console.error('  yes absorb copy-skills <slug> [--domain D]   Copy staged SKILL.md files into content/skills/');
     console.error('  yes absorb rollback <change-id>              Revert a promotion');
@@ -1256,13 +1301,19 @@ async function cmdAbsorb(args) {
 
   if (sub === 'apply') {
     const slug = args[1];
-    if (!slug) { console.error('Usage: yes absorb apply <slug>'); return 1; }
+    const promote = args.includes('--promote');
+    const domainArg = args.find((a, i) => args[i - 1] === '--domain');
+    if (!slug || slug.startsWith('--')) { console.error('Usage: yes absorb apply <slug> [--promote] [--domain D]'); return 1; }
     try {
-      const r = await absorber.apply(slug);
-      console.log(`✓ Promoted ${slug}`);
+      const r = await absorber.apply(slug, { promote, domain: domainArg });
+      console.log(`✓ Promoted ${slug}${promote ? ' (content copied)' : ''}`);
       console.log(`  change_id : ${r.changeId}`);
       console.log(`  promoted  : ${r.promotedPath}`);
       console.log(`  rollback  : ${r.rollbackPath}`);
+      if (r.promote) {
+        console.log(`  files     : ${r.promote.files_added.length} added`);
+        console.log(`  agents    : ${r.promote.promoted.agents.length}, skills: ${r.promote.promoted.skills.length}, workflows: ${r.promote.promoted.workflows.length}`);
+      }
       return 0;
     } catch (e) {
       console.error(`✗ ${e.message}`);
@@ -1428,7 +1479,7 @@ async function main() {
     case 'recover':
       return cmdOffline(rest.length ? rest : ['status']);
     case 'validate':
-      return runScript('packages/yes-schema/validate.js');
+      return runScript('packages/yes-schema/validate.js', rest);
     case 'compile':
       return runScript('packages/yes-cli/commands/compile.js');
     case 'promote':
@@ -1449,6 +1500,8 @@ async function main() {
       return cmdPersona(rest);
     case 'version':
       return cmdVersion(rest);
+    case 'learning':
+      return cmdLearning(rest);
     case 'contribute':
       return cmdContribute(rest);
     case 'export':

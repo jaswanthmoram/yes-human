@@ -198,6 +198,7 @@ export function validateHostBundle(host, generatedRoot, registryRoutes = []) {
         add('generic manifest has signature', !!manifest.signature?.value);
         add('generic feedback is staging-only', manifest.permissions?.production_mutation_from_feedback === false);
         add('generic supports cancellation', manifest.cancellation?.supported === true);
+        add('generic CANCEL.md present', fs.existsSync(path.join(generatedRoot, 'CANCEL.md')));
       } catch (e) {
         add('manifest.json is valid JSON', false, e.message);
       }

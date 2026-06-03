@@ -5,6 +5,7 @@ import { buildTrieFromRouteMap } from '../yes-graph/index.js';
 import { HookRunner } from '../../hooks/hook-runner.js';
 import { PolicyEvaluator } from '../yes-core/policy-evaluator.js';
 import { LearningEngine } from './learning-engine.js';
+import { buildContextPack, isGraphStale, promptWantsGraphAssist, readGraphRoutingConfig } from './lib/code-graph-assist.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -180,7 +181,13 @@ export async function resolveRoute(prompt, context = {}) {
     }
   }
 
-  // 4. Use routing hint if no match found (still subject to negative-keyword veto)
+  // 4. Code-graph assist boost
+  if (!matchedRoute) {
+    const graphBoost = tryGraphAssistRoute(query, getRoute, repoRoot);
+    if (graphBoost) matchedRoute = graphBoost;
+  }
+
+  // 5. Use routing hint if no match found (still subject to negative-keyword veto)
   if (!matchedRoute && routingHint) {
     const route = getRoute(routingHint.routeId);
     if (route && !hasNegativeKeyword(route, query)) {
@@ -192,14 +199,14 @@ export async function resolveRoute(prompt, context = {}) {
     }
   }
 
-  // 5. Semantic fallback (stub — off unless registry/graph-routing.json semantic_fallback: true)
+  // 6. Semantic fallback (stub — off unless registry/graph-routing.json semantic_fallback: true)
   if (!matchedRoute) {
     const semCfg = readSemanticGraphConfig();
     const sem = trySemanticFallback(query, getRoute, semCfg);
     if (sem) matchedRoute = sem;
   }
 
-  // 6. Fallback
+  // 7. Fallback
   if (!matchedRoute) {
     matchedRoute = annotate(getFallbackRoute(fallbackId), { stage: 'fallback', confidence: 0, reason: 'no route matched' });
   }
@@ -305,8 +312,43 @@ function annotate(route, meta) {
 
 
 /** Semantic routing (disabled by default). No-op until corpus + eval corpus ready. */
+function tryGraphAssistRoute(query, getRoute, root) {
+  const cfg = readGraphRoutingConfig(root);
+  if (!cfg.code_graph_assist) return null;
+  if (isGraphStale(root, cfg).stale) return null;
+  if (!promptWantsGraphAssist(query)) return null;
+  const pack = buildContextPack(root, query, cfg);
+  if (!pack.length) return null;
+  const boostMap = cfg.route_boost || {};
+  for (const item of pack) {
+    for (const [prefix, routeId] of Object.entries(boostMap)) {
+      if (item.file.startsWith(prefix)) {
+        const route = getRoute(routeId);
+        if (route && !hasNegativeKeyword(route, query)) {
+          return annotate(route, { stage: 'graph_assist', confidence: 0.75, reason: `graph assist ${prefix}`, context_pack: pack.slice(0, 3) });
+        }
+      }
+    }
+  }
+  return null;
+}
+
 function trySemanticFallback(query, getRoute, graphCfg) {
   if (!graphCfg?.semantic_fallback) return null;
+  const stubPath = path.join(repoRoot, 'graph/indexes/semantic.stub.json');
+  if (!fs.existsSync(stubPath)) return null;
+  let stub;
+  try { stub = JSON.parse(fs.readFileSync(stubPath, 'utf8')); } catch { return null; }
+  for (const entry of stub.entries || []) {
+    for (const phrase of entry.phrases || []) {
+      if (query.includes(normalize(phrase))) {
+        const route = getRoute(entry.route_id);
+        if (route && !hasNegativeKeyword(route, query)) {
+          return annotate(route, { stage: 'semantic_stub', confidence: 0.72, reason: `semantic stub "${phrase}"` });
+        }
+      }
+    }
+  }
   return null;
 }
 
