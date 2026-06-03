@@ -34,6 +34,126 @@ function readJSON(relativePath) {
   return JSON.parse(fs.readFileSync(path.join(repoRoot, relativePath), 'utf8'));
 }
 
+function readJSONSafe(relativePath, fallback = null) {
+  try {
+    return readJSON(relativePath);
+  } catch {
+    return fallback;
+  }
+}
+
+function stripFlags(args, flags) {
+  return args.filter((arg) => !flags.has(arg));
+}
+
+function estimateTextTokens(text) {
+  return Math.ceil(String(text || '').length / 4);
+}
+
+function resolveAgentPath(agentId) {
+  const parts = String(agentId || '').split('.');
+  if (parts.length < 2) return null;
+  return path.join(repoRoot, 'content', 'agents', parts[0], `${parts.slice(1).join('.')}.md`);
+}
+
+function lookupAgent(agentId) {
+  const agents = readJSONSafe('registry/agents.json', { items: [] });
+  return agents.items?.find((agent) => agent.id === agentId || agent.agent_id === agentId) || null;
+}
+
+function estimateAgentTokens(agentId) {
+  const agentPath = resolveAgentPath(agentId);
+  if (!agentPath || !fs.existsSync(agentPath)) return 0;
+  return estimateTextTokens(fs.readFileSync(agentPath, 'utf8'));
+}
+
+function traceDate(now = new Date()) {
+  return now.toISOString().slice(0, 10);
+}
+
+function traceDir() {
+  return process.env.YES_TRACE_DIR || path.join(repoRoot, 'staging', 'traces');
+}
+
+function appendRunTrace(trace) {
+  const dir = traceDir();
+  fs.mkdirSync(dir, { recursive: true });
+  const file = path.join(dir, `${traceDate()}.jsonl`);
+  trace.trace_file = file;
+  fs.appendFileSync(file, `${JSON.stringify(trace)}\n`);
+  return file;
+}
+
+function buildHookTrace(route) {
+  const preRoute = route._hooks?.pre_route || [];
+  const combined = preRoute.find((item) => item.hook === 'hook.pre-route.budget-safety')?.result || {};
+  const blocked = route._match?.stage === 'blocked';
+
+  return {
+    pre_route: {
+      budget: {
+        status: blocked && route._match?.blocked_by === 'budget' ? 'blocked' : 'allowed',
+        estimated_tokens: combined.estimated_tokens ?? null
+      },
+      safety: {
+        status: blocked && route._match?.blocked_by === 'safety' ? 'blocked' : 'allowed',
+        reason: blocked ? route._match?.reason ?? null : null
+      },
+      signal_words: {
+        status: combined.routing_hint ? 'hinted' : 'none',
+        words: combined.signal_words || [],
+        route_hint: combined.routing_hint?.routeId || null
+      },
+      loop_prevention: {
+        status: blocked && route._match?.blocked_by === 'loop-prevention' ? 'blocked' : 'allowed'
+      },
+      persona: {
+        status: combined.active_persona ? 'applied' : 'none',
+        active_persona: combined.active_persona || null
+      },
+      raw_hooks: preRoute.map((item) => ({
+        hook: item.hook,
+        allowed: item.result?.allowed ?? null,
+        blocked: item.result?.blocked ?? false
+      }))
+    },
+    post_route: (route._hooks?.post_route || []).map((item) => ({
+      hook: item.hook,
+      status: item.result?.allowed === false ? 'blocked' : 'ok'
+    }))
+  };
+}
+
+function buildRunTrace({ task, route, agentTokens, maxTokens }) {
+  const target = route.target || {};
+  const agent = lookupAgent(target.agent);
+  const disclaimerGateFired = Boolean(agent?.requires_disclaimer || agent?.human_review_gate);
+
+  return {
+    event: 'yes.run.trace',
+    created_at: new Date().toISOString(),
+    input: task,
+    matched_route: {
+      route_id: route.route_id,
+      stage: route._match?.stage ?? 'unknown',
+      confidence: route._match?.confidence ?? null,
+      reason: route._match?.reason ?? null
+    },
+    selected_agent: target.agent ?? null,
+    domain_master: target.domain_master ?? null,
+    workflow: target.workflow ?? null,
+    budget_band: route.budget_band ?? 'micro',
+    estimated_tokens: {
+      agent: agentTokens,
+      max_context: maxTokens
+    },
+    hook_chain: buildHookTrace(route),
+    disclaimer_gate_fired: disclaimerGateFired,
+    human_review_gate: Boolean(agent?.human_review_gate),
+    trace_file: null
+  };
+}
+
 function flagValue(args, name, fallback = null) {
   const idx = args.indexOf(name);
   if (idx < 0) return fallback;
@@ -547,9 +667,11 @@ function cmdStatus() {
 // ── yes run ───────────────────────────────────────────────────────────────────
 
 async function cmdRun(args) {
-  const task = args.filter(a => a !== '--dry-run' && a !== '--plan').join(' ').trim();
+  const trace = args.includes('--trace');
+  const RUN_FLAGS = new Set(['--dry-run', '--plan', '--trace']);
+  const task = stripFlags(args, RUN_FLAGS).join(' ').trim();
   if (!task) {
-    console.error('Usage: yes run "<task>" [--dry-run]');
+    console.error('Usage: yes run "<task>" [--dry-run] [--trace]');
     return 1;
   }
   const route = await resolveRoute(task);
@@ -562,14 +684,12 @@ async function cmdRun(args) {
   } catch { /* ignore */ }
 
   // Load agent body for context size estimate
-  let agentTokens = 0;
-  if (target.agent) {
-    const agentId = target.agent;
-    const parts = agentId.split('.');
-    const agentPath = path.join(repoRoot, 'content', 'agents', parts[0], `${parts.slice(1).join('.')}.md`);
-    if (fs.existsSync(agentPath)) {
-      agentTokens = Math.ceil(fs.readFileSync(agentPath, 'utf8').length / 4);
-    }
+  const agentTokens = target.agent ? estimateAgentTokens(target.agent) : 0;
+
+  if (trace) {
+    const traceRecord = buildRunTrace({ task, route, agentTokens, maxTokens });
+    appendRunTrace(traceRecord);
+    console.error(JSON.stringify(traceRecord));
   }
 
   console.log('yes run — routing + context plan\n');
