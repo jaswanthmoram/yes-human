@@ -43,7 +43,7 @@ verification:
   - negative_keywords_addressed
 source_references:
   - ref.github.marketing.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs and optimizes paid search campaigns across Google Ads and Bing with bid strategy and landing page alignment.

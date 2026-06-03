@@ -41,7 +41,7 @@ verification:
   - measurement_hooks_present
 source_references:
   - ref.github.marketing.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs marketing automation workflows, lead nurturing sequences, and trigger-based communication programs.

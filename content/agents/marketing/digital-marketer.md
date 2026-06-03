@@ -43,7 +43,7 @@ verification:
   - measurement_plan_present
 source_references:
   - ref.github.marketing.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Plans cross-channel digital marketing programs with budget allocation, audience targeting, and performance measurement.

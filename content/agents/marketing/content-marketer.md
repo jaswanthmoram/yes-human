@@ -43,7 +43,7 @@ verification:
   - distribution_notes_present
 source_references:
   - ref.github.marketing.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs content programs and drafts that connect audience questions to distribution and conversion goals.

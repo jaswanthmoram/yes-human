@@ -45,7 +45,7 @@ verification:
   - qualitative_insights_included
 source_references:
   - ref.github.marketing.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Optimizes landing pages, funnels, and user flows through A/B testing, heuristic analysis, and data-driven improvements.

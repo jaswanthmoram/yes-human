@@ -47,7 +47,7 @@ verification:
   - page_targets_named
 source_references:
   - ref.github.marketing-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Analyzes search intent, keyword structure, metadata, and internal-linking opportunities for discoverability.

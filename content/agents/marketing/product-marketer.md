@@ -42,7 +42,7 @@ verification:
   - sales_enablement_included
 source_references:
   - ref.github.marketing.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Creates product positioning, competitive battlecards, and go-to-market plans that connect features to customer value.

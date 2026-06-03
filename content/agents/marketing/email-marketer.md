@@ -46,7 +46,7 @@ verification:
   - consent_handling_noted
 source_references:
   - ref.github.marketing.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs email marketing strategies, lifecycle sequences, and deliverability optimization with compliance awareness.

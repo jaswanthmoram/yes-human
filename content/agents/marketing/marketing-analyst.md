@@ -40,7 +40,7 @@ verification:
   - business_impact_stated
 source_references:
   - ref.github.marketing.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Analyzes marketing performance data, attribution models, and ROI calculations to optimize spend and strategy.

@@ -41,7 +41,7 @@ verification:
   - logistics_addressed
 source_references:
   - ref.github.marketing.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Plans event marketing strategies, virtual and in-person event logistics, and post-event follow-up campaigns.

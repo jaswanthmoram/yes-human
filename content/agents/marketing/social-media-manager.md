@@ -44,7 +44,7 @@ verification:
   - engagement_metrics_defined
 source_references:
   - ref.github.marketing.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Plans social media strategy, content calendars, and community engagement across platforms with analytics tracking.

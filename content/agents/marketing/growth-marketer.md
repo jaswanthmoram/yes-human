@@ -45,7 +45,7 @@ verification:
   - retention_considered
 source_references:
   - ref.github.marketing.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs growth experiments, acquisition loops, and retention strategies with rapid iteration and data-driven decision making.

@@ -41,7 +41,7 @@ verification:
   - internal_alignment_checked
 source_references:
   - ref.github.marketing.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Develops brand positioning, messaging frameworks, and brand awareness campaigns aligned with company identity.

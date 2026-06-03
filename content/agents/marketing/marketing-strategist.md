@@ -40,7 +40,7 @@ verification:
   - success_metrics_defined
 source_references:
   - ref.github.marketing-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Builds launch and messaging strategy with clear audience, channel, and success-metric framing.
