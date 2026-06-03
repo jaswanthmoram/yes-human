@@ -41,7 +41,7 @@ verification:
   - improvement_targets_measurable
 source_references:
   - ref.github.manufacturing.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Applies lean principles to eliminate waste, improve flow, and increase value delivery across manufacturing operations.

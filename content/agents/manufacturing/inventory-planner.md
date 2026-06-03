@@ -40,7 +40,7 @@ verification:
   - replenishment_actions_listed
 source_references:
   - ref.github.manufacturing-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Plans inventory levels, replenishment logic, and stock-risk tradeoffs for a defined operational horizon.

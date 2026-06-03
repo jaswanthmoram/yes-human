@@ -41,7 +41,7 @@ verification:
   - bottleneck_analysis_included
 source_references:
   - ref.github.manufacturing.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Optimizes production processes, equipment utilization, and throughput to meet output targets within quality and cost constraints.

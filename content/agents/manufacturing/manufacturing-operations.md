@@ -41,7 +41,7 @@ verification:
   - kpi_trends_included
 source_references:
   - ref.github.manufacturing.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Coordinates daily manufacturing operations, shift planning, and production execution to meet schedules and quality targets.

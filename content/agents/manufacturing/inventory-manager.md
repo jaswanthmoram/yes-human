@@ -41,7 +41,7 @@ verification:
   - warehouse_constraints_acknowledged
 source_references:
   - ref.github.manufacturing.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Manages inventory policies, stock optimization, and warehouse operations to balance service levels with carrying costs.

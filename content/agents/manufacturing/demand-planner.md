@@ -40,7 +40,7 @@ verification:
   - balancing_actions_listed
 source_references:
   - ref.github.manufacturing-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Builds demand forecasts and demand-supply balancing notes around seasonality, bias, and product-family context.

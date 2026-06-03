@@ -41,7 +41,7 @@ verification:
   - spare_parts_listed
 source_references:
   - ref.github.manufacturing.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Plans and optimizes preventive and predictive maintenance programs to maximize equipment uptime and reliability.

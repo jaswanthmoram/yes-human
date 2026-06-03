@@ -41,7 +41,7 @@ verification:
   - data_quality_caveats_included
 source_references:
   - ref.github.manufacturing.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Analyzes manufacturing data to uncover trends, anomalies, and optimization opportunities across production, quality, and cost dimensions.

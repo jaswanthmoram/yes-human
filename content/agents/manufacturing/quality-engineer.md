@@ -41,7 +41,7 @@ verification:
   - compliance_requirements_listed
 source_references:
   - ref.github.manufacturing.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs and maintains quality systems, inspection protocols, and corrective-action processes for manufactured products.

@@ -40,7 +40,7 @@ verification:
   - corrective_path_stated
 source_references:
   - ref.github.manufacturing-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Investigates quality failures, containment actions, and corrective-action paths without losing lot-level traceability.

@@ -41,7 +41,7 @@ verification:
   - yield_impact_stated
 source_references:
   - ref.github.manufacturing.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs, documents, and improves manufacturing processes including parameters, yields, and process capability.

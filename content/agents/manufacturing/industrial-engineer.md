@@ -41,7 +41,7 @@ verification:
   - workforce_impact_stated
 source_references:
   - ref.github.manufacturing.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs and optimizes integrated systems of people, materials, equipment, and energy to improve overall manufacturing efficiency.
