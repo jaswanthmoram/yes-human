@@ -46,7 +46,7 @@ verification:
   - pdb_configured
 source_references:
   - ref.github.platform.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Kubernetes cluster administration specialist — cluster lifecycle, RBAC, resource quotas, node management, and workload scheduling.

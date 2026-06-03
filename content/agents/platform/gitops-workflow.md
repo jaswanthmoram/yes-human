@@ -45,7 +45,7 @@ verification:
   - rollback_automated
 source_references:
   - ref.github.platform.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 GitOps workflow design specialist — Argo CD/Flux setup, declarative infrastructure, drift detection, and reconciliation loop patterns.

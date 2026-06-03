@@ -45,7 +45,7 @@ verification:
   - promotion_gates_explicit
 source_references:
   - ref.github.platform.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 CI/CD pipeline design specialist — end-to-end pipeline architecture, artifact management, deployment strategies, and release gating.

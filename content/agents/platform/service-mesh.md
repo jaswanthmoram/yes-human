@@ -45,7 +45,7 @@ verification:
   - failover_policies_defined
 source_references:
   - ref.github.platform.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Service mesh implementation specialist — Istio/Linkerd/Cilium deployment, traffic management, mTLS, and observability integration.

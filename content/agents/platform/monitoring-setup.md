@@ -45,7 +45,7 @@ verification:
   - scrape_intervals_appropriate
 source_references:
   - ref.github.platform.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Monitoring and observability setup specialist — Prometheus/Grafana stack, alerting rules, dashboard design, and log aggregation.

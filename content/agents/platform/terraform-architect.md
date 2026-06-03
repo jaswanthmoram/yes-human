@@ -45,7 +45,7 @@ verification:
   - lifecycle_rules_explicit
 source_references:
   - ref.github.platform.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Terraform infrastructure architecture specialist — module design, state management, provider patterns, and multi-cloud IaC strategy.

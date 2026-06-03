@@ -45,7 +45,7 @@ verification:
   - cleanup_automated
 source_references:
   - ref.github.platform.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Infrastructure testing specialist — Terratest, compliance-as-code, chaos engineering, and infrastructure validation pipelines.

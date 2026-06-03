@@ -46,7 +46,7 @@ verification:
   - cost_allocation_defined
 source_references:
   - ref.github.platform.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Cloud cost optimization specialist — right-sizing, reserved capacity planning, spot/preemptible workloads, and cost allocation tagging.
