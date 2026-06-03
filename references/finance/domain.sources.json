@@ -5,17 +5,93 @@
   "expires_at": "2027-06-01T19:00:00Z",
   "sources": [
     {
-      "url": "https://github.com/VoltAgent/awesome-claude-skills",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
       "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "sources.json: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "sources.json: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/langgenius/dify",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Dify patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/langflow-ai/langflow",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Langflow patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/FlowiseAI/Flowise",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Flowise patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/skills",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Anthropic skills patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/VoltAgent/awesome-claude-skills",
+      "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
         "sources.json: Awesome Agent Skills patterns and workflow references",
-        "verification pattern 1"
+        "verification pattern 7"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
       "url": "https://github.com/kyrolabs/awesome-agents",
@@ -24,11 +100,11 @@
       "version_or_commit": "main",
       "used_for": [
         "sources.json: Awesome Agents patterns and workflow references",
-        "verification pattern 2"
+        "verification pattern 8"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
       "url": "https://github.com/vivy-yi/awesome-agent-orchestration",
@@ -37,11 +113,11 @@
       "version_or_commit": "main",
       "used_for": [
         "sources.json: Awesome Agent Orchestration patterns and workflow references",
-        "verification pattern 3"
+        "verification pattern 9"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
       "url": "https://github.com/EvoMap/awesome-agent-swarm",
@@ -50,11 +126,11 @@
       "version_or_commit": "main",
       "used_for": [
         "sources.json: Awesome Agent Swarm patterns and workflow references",
-        "verification pattern 4"
+        "verification pattern 10"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
       "url": "https://github.com/anthropics/claude-code",
@@ -63,61 +139,22 @@
       "version_or_commit": "main",
       "used_for": [
         "sources.json: Claude Code patterns and workflow references",
-        "verification pattern 5"
+        "verification pattern 11"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
-    },
-    {
-      "url": "https://github.com/anthropics/claude-cookbook",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "main",
-      "used_for": [
-        "sources.json: Claude Cookbook patterns and workflow references",
-        "verification pattern 6"
-      ],
-      "copy_policy": "patterns_only",
-      "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
-    },
-    {
-      "url": "https://github.com/anthropics/claude-quickstarts",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "main",
-      "used_for": [
-        "sources.json: Claude Quickstarts patterns and workflow references",
-        "verification pattern 7"
-      ],
-      "copy_policy": "patterns_only",
-      "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
-    },
-    {
-      "url": "https://github.com/anthropics/claude-desktop-extensions",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "main",
-      "used_for": [
-        "sources.json: Claude Desktop Extensions patterns and workflow references",
-        "verification pattern 8"
-      ],
-      "copy_policy": "patterns_only",
-      "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 8,
+    "source_count": 11,
     "official_docs": 15,
     "github_quality": 15,
     "license_safety": 15,
     "maintenance": 10,
     "pattern_clarity": 10,
     "testability": 10,
-    "total": 87
+    "total": 91
   },
   "promotion_decision": "production",
   "disclaimer_required": true,

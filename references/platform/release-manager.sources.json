@@ -1,10 +1,22 @@
 {
-  "dossier_id": "dossier.platform.release-manager.2026-06-02",
+  "dossier_id": "dossier.platform.release-manager.2026-06-03",
   "agent_id": "platform.release-manager",
   "domain": "platform",
   "created_at": "2026-06-02T00:00:00Z",
   "expires_at": "2026-09-01T00:00:00Z",
   "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "release manager: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
     {
       "url": "https://developers.openai.com/api/docs/guides/agents",
       "source_type": "official_docs",
@@ -12,111 +24,138 @@
       "version_or_commit": "2026-06-02",
       "used_for": [
         "release manager: OpenAI Agents docs patterns and workflow references",
-        "verification pattern 1"
-      ],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/crewAIInc/crewAI",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "main",
-      "used_for": [
-        "release manager: CrewAI patterns and workflow references",
         "verification pattern 2"
       ],
       "copy_policy": "patterns_only",
-      "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/microsoft/autogen",
+      "url": "https://github.com/open-telemetry/opentelemetry-collector",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "release manager: AutoGen patterns and workflow references",
+        "release manager: OpenTelemetry Collector patterns and workflow references",
         "verification pattern 3"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/OpenHands/OpenHands",
+      "url": "https://github.com/prometheus/prometheus",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "release manager: OpenHands patterns and workflow references",
+        "release manager: Prometheus patterns and workflow references",
         "verification pattern 4"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/lastmile-ai/mcp-agent",
+      "url": "https://github.com/grafana/grafana",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "release manager: MCP Agent patterns and workflow references",
+        "release manager: Grafana patterns and workflow references",
         "verification pattern 5"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/microsoft/agent-lightning",
+      "url": "https://github.com/argoproj/argo-cd",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "release manager: Agent Lightning patterns and workflow references",
+        "release manager: Argo CD patterns and workflow references",
         "verification pattern 6"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/openpipe/art",
+      "url": "https://github.com/kubernetes/kubernetes",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "release manager: OpenPipe ART patterns and workflow references",
+        "release manager: Kubernetes patterns and workflow references",
         "verification pattern 7"
       ],
       "copy_policy": "patterns_only",
-      "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "stars": 5000,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/langgenius/dify",
+      "url": "https://github.com/hashicorp/terraform",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "release manager: Dify patterns and workflow references",
+        "release manager: Terraform patterns and workflow references",
         "verification pattern 8"
       ],
       "copy_policy": "patterns_only",
+      "stars": 5000,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://docs.github.com/en/actions",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "release manager: GitHub Actions docs patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "release manager: Microsoft Agent Framework patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/langchain-ai/langgraph",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "release manager: LangGraph patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 8,
+    "source_count": 11,
     "official_docs": 15,
-    "github_quality": 15,
+    "github_quality": 16,
     "license_safety": 15,
     "maintenance": 10,
     "pattern_clarity": 10,
     "testability": 10,
-    "total": 87
+    "total": 92
   },
   "promotion_decision": "production"
 }

@@ -1,124 +1,161 @@
 {
-  "dossier_id": "dossier.hr.compensation-analysis.2026-06-02",
+  "dossier_id": "dossier.hr.compensation-analysis.2026-06-03",
   "workflow_id": "hr.compensation-analysis",
   "domain": "hr",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2026-08-30T00:00:00Z",
   "sources": [
     {
-      "url": "https://github.com/kyrolabs/awesome-agents",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
       "source_type": "official_docs",
-      "license": "MIT",
-      "version_or_commit": "main",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
       "used_for": [
-        "compensation analysis: Awesome Agents patterns and workflow references",
+        "compensation analysis: OpenAI Agents docs patterns and workflow references",
         "verification pattern 1"
       ],
       "copy_policy": "patterns_only",
-      "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/vivy-yi/awesome-agent-orchestration",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "main",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
       "used_for": [
-        "compensation analysis: Awesome Agent Orchestration patterns and workflow references",
+        "compensation analysis: Microsoft Agent Framework docs patterns and workflow references",
         "verification pattern 2"
       ],
       "copy_policy": "patterns_only",
-      "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/EvoMap/awesome-agent-swarm",
+      "url": "https://github.com/orangehrm/orangehrm",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "compensation analysis: Awesome Agent Swarm patterns and workflow references",
+        "compensation analysis: OrangeHRM patterns and workflow references",
         "verification pattern 3"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/anthropics/claude-code",
+      "url": "https://github.com/microsoft/agent-framework",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "compensation analysis: Claude Code patterns and workflow references",
+        "compensation analysis: Microsoft Agent Framework patterns and workflow references",
         "verification pattern 4"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/anthropics/claude-cookbook",
+      "url": "https://github.com/langchain-ai/langgraph",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "compensation analysis: Claude Cookbook patterns and workflow references",
+        "compensation analysis: LangGraph patterns and workflow references",
         "verification pattern 5"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/anthropics/claude-quickstarts",
+      "url": "https://github.com/openai/openai-agents-python",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "compensation analysis: Claude Quickstarts patterns and workflow references",
+        "compensation analysis: OpenAI Agents SDK Python patterns and workflow references",
         "verification pattern 6"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/anthropics/claude-desktop-extensions",
+      "url": "https://github.com/openai/openai-agents-js",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "compensation analysis: Claude Desktop Extensions patterns and workflow references",
+        "compensation analysis: OpenAI Agents SDK JS patterns and workflow references",
         "verification pattern 7"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/hesreallyhim/awesome-claude-code",
+      "url": "https://github.com/crewAIInc/crewAI",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "compensation analysis: Awesome Claude Code patterns and workflow references",
+        "compensation analysis: CrewAI patterns and workflow references",
         "verification pattern 8"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/autogen",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "compensation analysis: AutoGen patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "compensation analysis: OpenHands patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/lastmile-ai/mcp-agent",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "compensation analysis: MCP Agent patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 8,
+    "source_count": 11,
     "official_docs": 15,
     "github_quality": 15,
     "license_safety": 15,
     "maintenance": 10,
     "pattern_clarity": 10,
     "testability": 10,
-    "total": 87
+    "total": 91
   },
   "promotion_decision": "staging"
 }

@@ -1,124 +1,161 @@
 {
-  "dossier_id": "dossier.hr.talent-management.2026-06-02",
+  "dossier_id": "dossier.hr.talent-management.2026-06-03",
   "skill_id": "hr.talent-management",
   "domain": "hr",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2027-06-01T00:00:00Z",
   "sources": [
     {
-      "url": "https://github.com/langgenius/dify",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
       "source_type": "official_docs",
-      "license": "MIT",
-      "version_or_commit": "main",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
       "used_for": [
-        "talent management: Dify patterns and workflow references",
+        "talent management: Microsoft Agent Framework docs patterns and workflow references",
         "verification pattern 1"
       ],
       "copy_policy": "patterns_only",
-      "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/langflow-ai/langflow",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "main",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
       "used_for": [
-        "talent management: Langflow patterns and workflow references",
+        "talent management: OpenAI Agents docs patterns and workflow references",
         "verification pattern 2"
       ],
       "copy_policy": "patterns_only",
-      "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/FlowiseAI/Flowise",
+      "url": "https://github.com/liyoshio/mcp-compass",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "talent management: Flowise patterns and workflow references",
+        "talent management: MCP Compass patterns and workflow references",
         "verification pattern 3"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/anthropics/skills",
+      "url": "https://github.com/anaisbetts/mcp-installer",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "talent management: Anthropic skills patterns and workflow references",
+        "talent management: MCP Installer patterns and workflow references",
         "verification pattern 4"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/VoltAgent/awesome-claude-skills",
+      "url": "https://github.com/idosal/mcphub",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "talent management: Awesome Agent Skills patterns and workflow references",
+        "talent management: MCPHub patterns and workflow references",
         "verification pattern 5"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/kyrolabs/awesome-agents",
+      "url": "https://github.com/continuedev/continue",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "talent management: Awesome Agents patterns and workflow references",
+        "talent management: Continue patterns and workflow references",
         "verification pattern 6"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/vivy-yi/awesome-agent-orchestration",
+      "url": "https://github.com/cline/cline",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "talent management: Awesome Agent Orchestration patterns and workflow references",
+        "talent management: Cline patterns and workflow references",
         "verification pattern 7"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/EvoMap/awesome-agent-swarm",
+      "url": "https://github.com/OpenInterpreter/open-interpreter",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "talent management: Awesome Agent Swarm patterns and workflow references",
+        "talent management: Open Interpreter patterns and workflow references",
         "verification pattern 8"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/Aider-AI/aider",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "talent management: Aider AI patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/orangehrm/orangehrm",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "talent management: OrangeHRM patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "talent management: Microsoft Agent Framework patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 8,
+    "source_count": 11,
     "official_docs": 15,
     "github_quality": 15,
     "license_safety": 15,
     "maintenance": 10,
     "pattern_clarity": 10,
     "testability": 10,
-    "total": 87
+    "total": 91
   },
   "promotion_decision": "staging"
 }

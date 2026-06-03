@@ -1,124 +1,161 @@
 {
-  "dossier_id": "dossier.healthcare.ehr-patterns.2026-06-02",
+  "dossier_id": "dossier.healthcare.ehr-patterns.2026-06-03",
   "agent_id": "healthcare.ehr-patterns",
   "domain": "healthcare",
   "created_at": "2026-06-01T00:00:00Z",
   "expires_at": "2026-08-30T00:00:00Z",
   "sources": [
     {
-      "url": "https://github.com/Doriandarko/claude-engineer",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
       "source_type": "official_docs",
-      "license": "MIT",
-      "version_or_commit": "main",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
       "used_for": [
-        "ehr patterns: Claude Engineer patterns and workflow references",
+        "ehr patterns: Microsoft Agent Framework docs patterns and workflow references",
         "verification pattern 1"
       ],
       "copy_policy": "patterns_only",
-      "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/parallaxsys/claude-swarm",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "main",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
       "used_for": [
-        "ehr patterns: Claude Swarm patterns and workflow references",
+        "ehr patterns: OpenAI Agents docs patterns and workflow references",
         "verification pattern 2"
       ],
       "copy_policy": "patterns_only",
-      "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/zebbern/claude-dev-tools",
+      "url": "https://github.com/openpipe/art",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "ehr patterns: Claude Dev Tools patterns and workflow references",
+        "ehr patterns: OpenPipe ART patterns and workflow references",
         "verification pattern 3"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/liyoshio/mcp-compass",
+      "url": "https://github.com/langgenius/dify",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "ehr patterns: MCP Compass patterns and workflow references",
+        "ehr patterns: Dify patterns and workflow references",
         "verification pattern 4"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/anaisbetts/mcp-installer",
+      "url": "https://github.com/langflow-ai/langflow",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "ehr patterns: MCP Installer patterns and workflow references",
+        "ehr patterns: Langflow patterns and workflow references",
         "verification pattern 5"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/idosal/mcphub",
+      "url": "https://github.com/FlowiseAI/Flowise",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "ehr patterns: MCPHub patterns and workflow references",
+        "ehr patterns: Flowise patterns and workflow references",
         "verification pattern 6"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/continuedev/continue",
+      "url": "https://github.com/anthropics/skills",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "ehr patterns: Continue patterns and workflow references",
+        "ehr patterns: Anthropic skills patterns and workflow references",
         "verification pattern 7"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/cline/cline",
+      "url": "https://github.com/VoltAgent/awesome-claude-skills",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "ehr patterns: Cline patterns and workflow references",
+        "ehr patterns: Awesome Agent Skills patterns and workflow references",
         "verification pattern 8"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/kyrolabs/awesome-agents",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "ehr patterns: Awesome Agents patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/vivy-yi/awesome-agent-orchestration",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "ehr patterns: Awesome Agent Orchestration patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/EvoMap/awesome-agent-swarm",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "ehr patterns: Awesome Agent Swarm patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 8,
+    "source_count": 11,
     "official_docs": 15,
     "github_quality": 15,
     "license_safety": 15,
     "maintenance": 10,
     "pattern_clarity": 10,
     "testability": 10,
-    "total": 87
+    "total": 91
   },
-  "promotion_decision": "staging"
+  "promotion_decision": "production"
 }

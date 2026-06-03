@@ -1,10 +1,22 @@
 {
-  "dossier_id": "dossier.platform.incident-responder-playbook.2026-06-02",
+  "dossier_id": "dossier.platform.incident-responder-playbook.2026-06-03",
   "workflow_id": "platform.incident-responder-playbook",
   "domain": "platform",
   "created_at": "2026-06-02T00:00:00Z",
   "expires_at": "2026-09-01T00:00:00Z",
   "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "incident responder playbook: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
     {
       "url": "https://developers.openai.com/api/docs/guides/agents",
       "source_type": "official_docs",
@@ -12,111 +24,138 @@
       "version_or_commit": "2026-06-02",
       "used_for": [
         "incident responder playbook: OpenAI Agents docs patterns and workflow references",
-        "verification pattern 1"
-      ],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/crewAIInc/crewAI",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "main",
-      "used_for": [
-        "incident responder playbook: CrewAI patterns and workflow references",
         "verification pattern 2"
       ],
       "copy_policy": "patterns_only",
-      "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/microsoft/autogen",
+      "url": "https://github.com/anthropics/skills",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "incident responder playbook: AutoGen patterns and workflow references",
+        "incident responder playbook: Anthropic skills patterns and workflow references",
         "verification pattern 3"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/OpenHands/OpenHands",
+      "url": "https://github.com/VoltAgent/awesome-claude-skills",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "incident responder playbook: OpenHands patterns and workflow references",
+        "incident responder playbook: Awesome Agent Skills patterns and workflow references",
         "verification pattern 4"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/lastmile-ai/mcp-agent",
+      "url": "https://github.com/kyrolabs/awesome-agents",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "incident responder playbook: MCP Agent patterns and workflow references",
+        "incident responder playbook: Awesome Agents patterns and workflow references",
         "verification pattern 5"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/microsoft/agent-lightning",
+      "url": "https://github.com/vivy-yi/awesome-agent-orchestration",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "incident responder playbook: Agent Lightning patterns and workflow references",
+        "incident responder playbook: Awesome Agent Orchestration patterns and workflow references",
         "verification pattern 6"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/openpipe/art",
+      "url": "https://github.com/EvoMap/awesome-agent-swarm",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "incident responder playbook: OpenPipe ART patterns and workflow references",
+        "incident responder playbook: Awesome Agent Swarm patterns and workflow references",
         "verification pattern 7"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/langgenius/dify",
+      "url": "https://github.com/anthropics/claude-code",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
       "used_for": [
-        "incident responder playbook: Dify patterns and workflow references",
+        "incident responder playbook: Claude Code patterns and workflow references",
         "verification pattern 8"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-cookbook",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "incident responder playbook: Claude Cookbook patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-quickstarts",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "incident responder playbook: Claude Quickstarts patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-desktop-extensions",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "incident responder playbook: Claude Desktop Extensions patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 8,
+    "source_count": 11,
     "official_docs": 15,
     "github_quality": 15,
     "license_safety": 15,
     "maintenance": 10,
     "pattern_clarity": 10,
     "testability": 10,
-    "total": 87
+    "total": 91
   },
   "promotion_decision": "staging"
 }

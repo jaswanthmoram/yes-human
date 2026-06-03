@@ -1,5 +1,5 @@
 {
-  "dossier_id": "dossier.finance.master.2026-06-02",
+  "dossier_id": "dossier.finance.master.2026-06-03",
   "agent_id": "finance.master",
   "domain": "finance",
   "created_at": "2026-05-31T00:00:00Z",
@@ -145,28 +145,6 @@
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
-    },
-    {
-      "url": "https://www.sec.gov/edgar",
-      "source_type": "official_docs",
-      "license": "Apache-2.0",
-      "used_for": [
-        "finance.master: SEC filing and disclosure reference for audit workflows"
-      ],
-      "version_or_commit": "2026-06-02",
-      "copy_policy": "patterns_only",
-      "last_updated": "2026-06-02T00:00:00Z"
-    },
-    {
-      "url": "https://www.fasb.org/standards",
-      "source_type": "official_docs",
-      "license": "MIT",
-      "used_for": [
-        "finance.master: GAAP standards context for expense and revenue review"
-      ],
-      "version_or_commit": "2026-06-02",
-      "copy_policy": "patterns_only",
-      "last_updated": "2026-06-02T00:00:00Z"
     }
   ],
   "scores": {

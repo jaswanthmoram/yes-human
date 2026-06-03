@@ -1,5 +1,5 @@
 {
-  "dossier_id": "dossier.startup-ops.weekly-operating-review.2026-06-02",
+  "dossier_id": "dossier.startup-ops.weekly-operating-review.2026-06-03",
   "workflow_id": "startup-ops.weekly-operating-review",
   "domain": "startup-ops",
   "created_at": "2026-06-02T00:00:00Z",
@@ -14,46 +14,8 @@
         "weekly operating review: Microsoft Agent Framework docs patterns and workflow references",
         "verification pattern 1"
       ],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://github.com/langchain-ai/langgraph",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "main",
-      "used_for": [
-        "weekly operating review: LangGraph patterns and workflow references",
-        "verification pattern 2"
-      ],
       "copy_policy": "patterns_only",
-      "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
-    },
-    {
-      "url": "https://github.com/openai/openai-agents-python",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "main",
-      "used_for": [
-        "weekly operating review: OpenAI Agents SDK Python patterns and workflow references",
-        "verification pattern 3"
-      ],
-      "copy_policy": "patterns_only",
-      "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
-    },
-    {
-      "url": "https://github.com/openai/openai-agents-js",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "main",
-      "used_for": [
-        "weekly operating review: OpenAI Agents SDK JS patterns and workflow references",
-        "verification pattern 4"
-      ],
-      "copy_policy": "patterns_only",
-      "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
       "url": "https://developers.openai.com/api/docs/guides/agents",
@@ -62,9 +24,101 @@
       "version_or_commit": "2026-06-02",
       "used_for": [
         "weekly operating review: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/makeplane/plane",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "weekly operating review: Plane patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/outline/outline",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "weekly operating review: Outline patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/garrytan/gstack",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "weekly operating review: gstack (Garry Tan / Y Combinator) patterns and workflow references",
         "verification pattern 5"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-framework",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "weekly operating review: Microsoft Agent Framework patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/langchain-ai/langgraph",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "weekly operating review: LangGraph patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-python",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "weekly operating review: OpenAI Agents SDK Python patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-js",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "weekly operating review: OpenAI Agents SDK JS patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
       "url": "https://github.com/crewAIInc/crewAI",
@@ -73,11 +127,11 @@
       "version_or_commit": "main",
       "used_for": [
         "weekly operating review: CrewAI patterns and workflow references",
-        "verification pattern 6"
+        "verification pattern 10"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
       "url": "https://github.com/microsoft/autogen",
@@ -86,35 +140,22 @@
       "version_or_commit": "main",
       "used_for": [
         "weekly operating review: AutoGen patterns and workflow references",
-        "verification pattern 7"
+        "verification pattern 11"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
-    },
-    {
-      "url": "https://github.com/OpenHands/OpenHands",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "main",
-      "used_for": [
-        "weekly operating review: OpenHands patterns and workflow references",
-        "verification pattern 8"
-      ],
-      "copy_policy": "patterns_only",
-      "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 8,
+    "source_count": 11,
     "official_docs": 15,
     "github_quality": 15,
     "license_safety": 15,
     "maintenance": 10,
     "pattern_clarity": 10,
     "testability": 10,
-    "total": 87
+    "total": 91
   },
   "promotion_decision": "staging"
 }

@@ -15,28 +15,41 @@
   "skill_count_target": 54,
   "sources": [
     {
-      "url": "https://github.com/openai/openai-agents-js",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "main",
-      "used_for": [
-        "sources.json: OpenAI Agents SDK JS patterns and workflow references",
-        "verification pattern 1"
-      ],
-      "copy_policy": "patterns_only",
-      "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
-    },
-    {
       "url": "https://developers.openai.com/api/docs/guides/agents",
       "source_type": "official_docs",
       "license": "Apache-2.0",
       "version_or_commit": "2026-06-02",
       "used_for": [
         "sources.json: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "sources.json: Microsoft Agent Framework docs patterns and workflow references",
         "verification pattern 2"
       ],
-      "copy_policy": "patterns_only"
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/openai/openai-agents-js",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: OpenAI Agents SDK JS patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
       "url": "https://github.com/crewAIInc/crewAI",
@@ -45,11 +58,11 @@
       "version_or_commit": "main",
       "used_for": [
         "sources.json: CrewAI patterns and workflow references",
-        "verification pattern 3"
+        "verification pattern 4"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
       "url": "https://github.com/microsoft/autogen",
@@ -58,11 +71,11 @@
       "version_or_commit": "main",
       "used_for": [
         "sources.json: AutoGen patterns and workflow references",
-        "verification pattern 4"
+        "verification pattern 5"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
       "url": "https://github.com/OpenHands/OpenHands",
@@ -71,11 +84,11 @@
       "version_or_commit": "main",
       "used_for": [
         "sources.json: OpenHands patterns and workflow references",
-        "verification pattern 5"
+        "verification pattern 6"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
       "url": "https://github.com/lastmile-ai/mcp-agent",
@@ -84,11 +97,11 @@
       "version_or_commit": "main",
       "used_for": [
         "sources.json: MCP Agent patterns and workflow references",
-        "verification pattern 6"
+        "verification pattern 7"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
       "url": "https://github.com/microsoft/agent-lightning",
@@ -97,11 +110,11 @@
       "version_or_commit": "main",
       "used_for": [
         "sources.json: Agent Lightning patterns and workflow references",
-        "verification pattern 7"
+        "verification pattern 8"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
       "url": "https://github.com/openpipe/art",
@@ -110,22 +123,48 @@
       "version_or_commit": "main",
       "used_for": [
         "sources.json: OpenPipe ART patterns and workflow references",
-        "verification pattern 8"
+        "verification pattern 9"
       ],
       "copy_policy": "patterns_only",
       "stars": 500,
-      "last_updated": "2026-05-01T00:00:00Z"
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/langgenius/dify",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Dify patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/langflow-ai/langflow",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "sources.json: Langflow patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 8,
+    "source_count": 11,
     "official_docs": 15,
     "github_quality": 15,
     "license_safety": 15,
     "maintenance": 10,
     "pattern_clarity": 10,
     "testability": 10,
-    "total": 87
+    "total": 91
   },
   "promotion_decision": "production",
   "disclaimer_required": true,

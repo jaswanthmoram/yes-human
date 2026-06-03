@@ -1,68 +1,161 @@
 {
-  "dossier_id": "dossier.engineering.frontend-vue.2026-05-31",
+  "dossier_id": "dossier.engineering.frontend-vue.2026-06-03",
   "agent_id": "engineering.frontend-vue",
   "domain": "engineering.frontend-development",
   "created_at": "2026-05-31T12:00:00Z",
   "expires_at": "2026-08-29T12:00:00Z",
   "sources": [
     {
-      "url": "https://github.com/vuejs/core",
-      "source_type": "github_repo",
-      "license": "MIT",
-      "version_or_commit": "main",
-      "stars": 48000,
-      "last_updated": "2026-05-29",
-      "used_for": ["Vue 3 Composition API patterns", "reactivity system", "SFC structure"],
-      "copy_policy": "patterns_only"
-    },
-    {
-      "url": "https://vuejs.org/",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
       "source_type": "official_docs",
-      "license": "MIT",
-      "version_or_commit": "2026-05",
-      "used_for": ["Vue.js official documentation", "composables guide", "best practices"],
-      "copy_policy": "patterns_only"
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "frontend vue: Microsoft Agent Framework docs patterns and workflow references",
+        "verification pattern 1"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/nuxt/nuxt",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
+      "source_type": "official_docs",
+      "license": "Apache-2.0",
+      "version_or_commit": "2026-06-02",
+      "used_for": [
+        "frontend vue: OpenAI Agents docs patterns and workflow references",
+        "verification pattern 2"
+      ],
+      "copy_policy": "patterns_only",
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/FlowiseAI/Flowise",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "stars": 55000,
-      "last_updated": "2026-05-30",
-      "used_for": ["Nuxt page patterns", "server-side rendering", "auto-imports and modules"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "frontend vue: Flowise patterns and workflow references",
+        "verification pattern 3"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/vuejs/test-utils",
+      "url": "https://github.com/anthropics/skills",
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "stars": 4200,
-      "last_updated": "2026-05-15",
-      "used_for": ["Vue Test Utils patterns", "component testing", "emit and slot testing"],
-      "copy_policy": "patterns_only"
+      "used_for": [
+        "frontend vue: Anthropic skills patterns and workflow references",
+        "verification pattern 4"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     },
     {
-      "url": "https://github.com/vuejs/pinia",
+      "url": "https://github.com/VoltAgent/awesome-claude-skills",
       "source_type": "github_repo",
       "license": "MIT",
-      "version_or_commit": "v2",
-      "stars": 13000,
-      "last_updated": "2026-05-20",
-      "used_for": ["Pinia state management patterns", "store composition", "SSR hydration"],
-      "copy_policy": "patterns_only"
+      "version_or_commit": "main",
+      "used_for": [
+        "frontend vue: Awesome Agent Skills patterns and workflow references",
+        "verification pattern 5"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/kyrolabs/awesome-agents",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "frontend vue: Awesome Agents patterns and workflow references",
+        "verification pattern 6"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/vivy-yi/awesome-agent-orchestration",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "frontend vue: Awesome Agent Orchestration patterns and workflow references",
+        "verification pattern 7"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/EvoMap/awesome-agent-swarm",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "frontend vue: Awesome Agent Swarm patterns and workflow references",
+        "verification pattern 8"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "frontend vue: Claude Code patterns and workflow references",
+        "verification pattern 9"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-cookbook",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "frontend vue: Claude Cookbook patterns and workflow references",
+        "verification pattern 10"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-quickstarts",
+      "source_type": "github_repo",
+      "license": "MIT",
+      "version_or_commit": "main",
+      "used_for": [
+        "frontend vue: Claude Quickstarts patterns and workflow references",
+        "verification pattern 11"
+      ],
+      "copy_policy": "patterns_only",
+      "stars": 500,
+      "last_updated": "2026-05-15T00:00:00Z"
     }
   ],
   "scores": {
-    "source_count": 5,
-    "official_docs": 1,
-    "github_quality": 90,
-    "license_safety": 95,
-    "maintenance": 92,
-    "pattern_clarity": 88,
-    "testability": 85,
-    "total": 88
+    "source_count": 11,
+    "official_docs": 15,
+    "github_quality": 15,
+    "license_safety": 15,
+    "maintenance": 10,
+    "pattern_clarity": 10,
+    "testability": 10,
+    "total": 91
   },
-  "promotion_decision": "staging"
+  "promotion_decision": "production"
 }

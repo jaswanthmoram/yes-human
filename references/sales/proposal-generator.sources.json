@@ -1,5 +1,5 @@
 {
-  "dossier_id": "dossier.sales.proposal-generator.2026-06-02",
+  "dossier_id": "dossier.sales.proposal-generator.2026-06-03",
   "agent_id": "sales.proposal-generator",
   "domain": "sales",
   "created_at": "2026-06-01T00:00:00Z",
@@ -157,5 +157,5 @@
     "testability": 10,
     "total": 91
   },
-  "promotion_decision": "staging"
+  "promotion_decision": "production"
 }
