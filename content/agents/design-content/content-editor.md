@@ -47,7 +47,7 @@ verification:
   - tone_requirements_met
 source_references:
   - ref.github.design-content.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Edits and refines content for clarity, consistency, grammar, tone, and adherence to style guides.

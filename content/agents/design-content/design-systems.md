@@ -47,7 +47,7 @@ verification:
   - naming_convention_applied
 source_references:
   - ref.github.design-content.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Builds and maintains design systems with tokens, component libraries, documentation, and governance.

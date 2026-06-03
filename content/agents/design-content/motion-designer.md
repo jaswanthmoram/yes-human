@@ -46,7 +46,7 @@ verification:
   - performance_budget_met
 source_references:
   - ref.github.design-content.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs motion systems including animation principles, timing curves, transitions, and micro-interactions.

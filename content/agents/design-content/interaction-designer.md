@@ -46,7 +46,7 @@ verification:
   - feedback_consistency_checked
 source_references:
   - ref.github.design-content.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs interactive behaviors, transitions, gestures, and feedback patterns for digital products.

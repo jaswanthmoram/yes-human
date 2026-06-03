@@ -46,7 +46,7 @@ verification:
   - technical_constraints_addressed
 source_references:
   - ref.github.design-content.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs user experiences through research, wireframing, prototyping, and usability evaluation.

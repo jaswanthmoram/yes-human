@@ -46,7 +46,7 @@ verification:
   - content_inventory_reviewed
 source_references:
   - ref.github.design-content.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Develops content strategies including audience analysis, content audits, editorial calendars, and governance frameworks.

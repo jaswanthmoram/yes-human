@@ -41,7 +41,7 @@ verification:
   - voice_guidelines_present
 source_references:
   - ref.github.design-content.brand-strategist.2026-06-01
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs brand architecture, visual identity systems, and brand voice guidelines with strategic positioning.

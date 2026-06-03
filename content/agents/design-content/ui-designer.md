@@ -46,7 +46,7 @@ verification:
   - component_consistency_checked
 source_references:
   - ref.github.design-content.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Creates user interface designs with focus on layout, typography, color, and component composition.

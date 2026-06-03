@@ -46,7 +46,7 @@ verification:
   - anti_slop_check_passed
 source_references:
   - ref.github.design-content.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Writes compelling copy for digital products including microcopy, marketing text, and product messaging.

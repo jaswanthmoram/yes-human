@@ -47,7 +47,7 @@ verification:
   - meta_elements_included
 source_references:
   - ref.github.design-content.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Creates SEO-optimized content with keyword research, search intent mapping, and on-page optimization.

@@ -46,7 +46,7 @@ verification:
   - medium_specs_included
 source_references:
   - ref.github.design-content.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Crafts visual language including color palettes, typography scales, iconography, and imagery systems.

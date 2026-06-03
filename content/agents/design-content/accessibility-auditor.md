@@ -46,7 +46,7 @@ verification:
   - remediation_specific
 source_references:
   - ref.github.design-content-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Audits product surfaces for keyboard support, semantics, contrast, and assistive-technology usability.

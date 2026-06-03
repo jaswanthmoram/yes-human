@@ -46,7 +46,7 @@ verification:
   - application_contexts_covered
 source_references:
   - ref.github.design-content.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Creates brand identity systems including logos, color palettes, typography, and brand application guidelines.

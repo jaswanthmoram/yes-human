@@ -40,7 +40,7 @@ verification:
   - anti_slop_check_present
 source_references:
   - ref.github.design-content-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Reviews and refines UI surfaces for hierarchy, clarity, and anti-slop quality before implementation or ship.
