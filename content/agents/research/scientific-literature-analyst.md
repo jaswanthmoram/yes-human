@@ -41,7 +41,7 @@ verification:
   - contradictions_noted
 source_references:
   - ref.github.research-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Reviews scientific or technical literature with citation discipline, evidence grading, and gap analysis.

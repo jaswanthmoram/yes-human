@@ -41,7 +41,7 @@ verification:
   - open_questions_listed
 source_references:
   - ref.github.research-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Builds multi-source research briefs that decompose a question, collect evidence, and synthesize a decision-ready answer.

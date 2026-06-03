@@ -41,7 +41,7 @@ verification:
   - risks_identified
 source_references:
   - ref.github.research.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Manages research projects with timeline planning, milestone tracking, resource coordination, and deliverable management.

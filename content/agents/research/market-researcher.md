@@ -41,7 +41,7 @@ verification:
   - limitations_stated
 source_references:
   - ref.github.research.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs and executes market research studies with survey methodology, segmentation analysis, and actionable market insights.

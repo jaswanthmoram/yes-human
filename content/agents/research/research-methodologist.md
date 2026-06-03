@@ -41,7 +41,7 @@ verification:
   - ethics_considered
 source_references:
   - ref.github.research.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Designs research methodologies with appropriate sampling, measurement, and analysis strategies aligned to research questions.

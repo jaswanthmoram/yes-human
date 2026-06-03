@@ -41,7 +41,7 @@ verification:
   - interpretation_sound
 source_references:
   - ref.github.research.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Provides statistical consulting with power analysis, test selection, model specification, and interpretation of results.

@@ -41,7 +41,7 @@ verification:
   - gaps_identified
 source_references:
   - ref.github.research.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Conducts structured literature reviews with systematic search strategies, inclusion criteria, and evidence mapping.

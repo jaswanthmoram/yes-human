@@ -41,7 +41,7 @@ verification:
   - contribution_clear
 source_references:
   - ref.github.research.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Conducts academic research with rigorous methodology, literature grounding, and peer-review-ready output formatting.

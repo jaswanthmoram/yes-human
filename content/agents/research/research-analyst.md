@@ -41,7 +41,7 @@ verification:
   - limitations_noted
 source_references:
   - ref.github.research.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Analyzes research data with statistical rigor, produces evidence-based findings, and identifies patterns across datasets.

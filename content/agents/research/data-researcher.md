@@ -41,7 +41,7 @@ verification:
   - quality_scored
 source_references:
   - ref.github.research.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Locates, evaluates, and prepares research datasets with provenance tracking, quality assessment, and ethical sourcing validation.

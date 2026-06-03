@@ -41,7 +41,7 @@ verification:
   - evidence_tied_to_claims
 source_references:
   - ref.github.research-master.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Analyzes category trends, market structure, and competitor positioning without drifting into deal-specific sales advice.

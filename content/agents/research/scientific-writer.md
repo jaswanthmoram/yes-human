@@ -41,7 +41,7 @@ verification:
   - formatting_compliant
 source_references:
   - ref.github.research.2026-05-31
-quality_gate: staging
+quality_gate: production
 ---
 ## Mission
 Produces publication-ready scientific manuscripts, grant proposals, and technical reports with proper structure and citation formatting.
