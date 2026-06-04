@@ -136,7 +136,7 @@ async function executeAction(report, action) {
 
       rollbackRecord.files_modified.push(path.relative(repoRoot, agentPath));
 
-      let updatedContent = '';
+      let updatedContent;
       if (action === 'MERGE') {
         updatedContent = `${content}\n\n## Custom Local Rules (Onboarded)\n\nMerged from host environment ruleset on ${new Date().toISOString()}.\n`;
       } else {
