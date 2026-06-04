@@ -26,38 +26,55 @@ const DEFAULT_FALLBACK = 'route.meta-system.supreme-router';
 const policyEvaluator = getSharedPolicyEvaluator();
 const hookRunner = new HookRunner('hooks', policyEvaluator);
 
+const pathCache = new Map();
+
 // Helper to resolve files relative to process.cwd() or fall back to repoRoot
 function resolvePath(relativePath) {
+  const key = `${process.cwd()}::${relativePath}`;
+  let resolved = pathCache.get(key);
+  if (resolved) return resolved;
+
   const cwdPath = path.join(process.cwd(), relativePath);
   if (fs.existsSync(cwdPath)) {
-    return cwdPath;
+    resolved = cwdPath;
+  } else {
+    resolved = path.join(repoRoot, relativePath);
   }
-  return path.join(repoRoot, relativePath);
+  pathCache.set(key, resolved);
+  return resolved;
 }
 
 const jsonCache = new Map();
+const STAT_THROTTLE_MS = process.env.NODE_ENV === 'test' ? 0 : 5000;
 
 // Helper to safely read and parse JSON without throwing exceptions
 function safeReadJSON(filePath, fallbackValue) {
   const absolutePath = resolvePath(filePath);
+  const now = Date.now();
+  const cached = jsonCache.get(absolutePath);
+
+  if (cached && (now - cached.lastChecked < STAT_THROTTLE_MS)) {
+    return cached.data;
+  }
+
   if (!fs.existsSync(absolutePath)) {
     return fallbackValue;
   }
   try {
     const stats = fs.statSync(absolutePath);
     const mtime = stats.mtimeMs;
-    const cached = jsonCache.get(absolutePath);
     if (cached && cached.mtime === mtime) {
+      cached.lastChecked = now;
       return cached.data;
     }
     const data = JSON.parse(fs.readFileSync(absolutePath, 'utf8'));
-    jsonCache.set(absolutePath, { data, mtime });
+    jsonCache.set(absolutePath, { data, mtime, lastChecked: now });
     return data;
   } catch (error) {
     // Write warnings to stderr to avoid stdout IPC stream pollution!
     log.warn('JSON parse error; falling back to cached or default', { filePath, error: error.message });
-    const cached = jsonCache.get(absolutePath);
     if (cached) {
+      cached.lastChecked = now;
       return cached.data;
     }
     return fallbackValue;
@@ -194,18 +211,25 @@ function hasNegativeKeyword(route, query) {
  * @returns {Promise<object>} route object, annotated with `_match` metadata
  */
 
-const aliasRegexCache = new Map(); // absolutePath -> { mtime, regexes: [{ alias, regex, routeId }] }
+const aliasRegexCache = new Map(); // absolutePath -> { mtime, lastChecked, regexes: [{ alias, regex, routeId }] }
 
 function getCompiledAliases(filePath) {
   const absolutePath = resolvePath(filePath);
+  const now = Date.now();
+  const cached = aliasRegexCache.get(absolutePath);
+
+  if (cached && (now - cached.lastChecked < STAT_THROTTLE_MS)) {
+    return cached.regexes;
+  }
+
   if (!fs.existsSync(absolutePath)) {
     return [];
   }
   try {
     const stats = fs.statSync(absolutePath);
     const mtime = stats.mtimeMs;
-    const cached = aliasRegexCache.get(absolutePath);
     if (cached && cached.mtime === mtime) {
+      cached.lastChecked = now;
       return cached.regexes;
     }
     const data = safeReadJSON(filePath, { aliases: {} });
@@ -220,12 +244,32 @@ function getCompiledAliases(filePath) {
         routeId: aliases[alias]
       };
     });
-    aliasRegexCache.set(absolutePath, { mtime, regexes });
+    aliasRegexCache.set(absolutePath, { mtime, lastChecked: now, regexes });
     return regexes;
   } catch (error) {
     log.warn('Alias compile error', { filePath, error: error.message });
     return [];
   }
+}
+
+const routesMapCache = new WeakMap();
+function getRoutesMap(routes) {
+  let map = routesMapCache.get(routes);
+  if (!map) {
+    map = new Map(routes.map((r) => [r.route_id, r]));
+    routesMapCache.set(routes, map);
+  }
+  return map;
+}
+
+const trieCache = new WeakMap();
+function getTrie(routes) {
+  let trie = trieCache.get(routes);
+  if (!trie) {
+    trie = buildTrieFromRouteMap(routes);
+    trieCache.set(routes, trie);
+  }
+  return trie;
 }
 
 function attachRoutingHints(matchedRoute) {
@@ -307,7 +351,7 @@ function resolveRouteCore(query, context, options = {}) {
 
   // 3. Keyword containment via phrase trie (longest phrase wins)
   if (!matchedRoute) {
-    const trie = buildTrieFromRouteMap(routeTable.routes);
+    const trie = getTrie(routeTable.routes);
     const hit = trie.search(query);
     if (hit) {
       const route = getRoute(hit.routeId);
@@ -483,7 +527,7 @@ export async function resolveRoute(prompt, context = {}) {
     return annotate(getFallbackRoute(), { stage: 'fallback', confidence: 0, reason: 'route table unavailable' });
   }
   const routes = safeReadJSON('registry/routes.json', []);
-  const routesMap = new Map(routes.map((r) => [r.route_id, r]));
+  const routesMap = getRoutesMap(routes);
   const fallbackId = routeTable.fallback || DEFAULT_FALLBACK;
 
   const matchedRoute = resolveRouteCore(query, context, {
@@ -545,7 +589,7 @@ export function resolveRouteSync(prompt, context = {}) {
     );
   }
   const routes = safeReadJSON('registry/routes.json', []);
-  const routesMap = new Map(routes.map((r) => [r.route_id, r]));
+  const routesMap = getRoutesMap(routes);
   const fallbackId = routeTable.fallback || DEFAULT_FALLBACK;
 
   const matchedRoute = resolveRouteCore(query, context, {

@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-06-04T08:01:08.224Z",
+  "generated_at": "2026-06-04T09:57:35.286Z",
   "count": 19,
   "items": [
     {
@@ -53,7 +53,12 @@
         "engineering.tdd-feature",
         "engineering.test-suite-expansion"
       ],
-      "connectors": ["github", "context7", "pm.plane", "pm.openproject"],
+      "connectors": [
+        "github",
+        "context7",
+        "pm.plane",
+        "pm.openproject"
+      ],
       "route_fixture_files": [
         "engineering-batch1.fixtures.json",
         "engineering-batch2.fixtures.json",
@@ -65,7 +70,9 @@
         "seed.fixtures.json",
         "workflow-routes.fixtures.json"
       ],
-      "workflow_fixture_files": ["phase8.fixtures.json"],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
       "knowledge_pack_id": "engineering-pack",
       "hook_binding_ids": [
         "hook.pre-route.budget-safety",
@@ -132,7 +139,12 @@
         "engineering.tdd-feature",
         "engineering.test-suite-expansion"
       ],
-      "connectors": ["github", "context7", "pm.plane", "pm.openproject"],
+      "connectors": [
+        "github",
+        "context7",
+        "pm.plane",
+        "pm.openproject"
+      ],
       "route_fixture_files": [
         "engineering-batch1.fixtures.json",
         "engineering-batch2.fixtures.json",
@@ -144,7 +156,9 @@
         "seed.fixtures.json",
         "workflow-routes.fixtures.json"
       ],
-      "workflow_fixture_files": ["phase8.fixtures.json"],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
       "knowledge_pack_id": "engineering-pack",
       "hook_binding_ids": [
         "hook.pre-route.budget-safety",
@@ -191,7 +205,9 @@
         "security.threat-hunting-campaign",
         "security.vulnerability-remediation"
       ],
-      "connectors": ["github"],
+      "connectors": [
+        "github"
+      ],
       "route_fixture_files": [
         "phase8-new-agents.fixtures.json",
         "security-new.fixtures.json",
@@ -199,7 +215,9 @@
         "seed.fixtures.json",
         "workflow-routes.fixtures.json"
       ],
-      "workflow_fixture_files": ["phase8.fixtures.json"],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
       "knowledge_pack_id": "security-pack",
       "hook_binding_ids": [
         "hook.pre-route.budget-safety",
@@ -245,7 +263,12 @@
         "platform.monitoring-stack-deployment",
         "platform.terraform-infrastructure-deployment"
       ],
-      "connectors": ["github", "playwright", "pm.plane", "pm.openproject"],
+      "connectors": [
+        "github",
+        "playwright",
+        "pm.plane",
+        "pm.openproject"
+      ],
       "route_fixture_files": [
         "phase8-new-agents.fixtures.json",
         "phase8-specialists.fixtures.json",
@@ -254,7 +277,9 @@
         "seed.fixtures.json",
         "workflow-routes.fixtures.json"
       ],
-      "workflow_fixture_files": ["phase8.fixtures.json"],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
       "knowledge_pack_id": "platform-pack",
       "hook_binding_ids": [
         "hook.pre-route.budget-safety",
@@ -302,7 +327,14 @@
         "meta-system.system-optimization",
         "meta-system.workflow-design"
       ],
-      "connectors": ["firecrawl", "exa", "github", "context7", "memory", "sequential-thinking"],
+      "connectors": [
+        "firecrawl",
+        "exa",
+        "github",
+        "context7",
+        "memory",
+        "sequential-thinking"
+      ],
       "route_fixture_files": [
         "integrations-meta-missing.fixtures.json",
         "meta-system-specialists.fixtures.json",
@@ -312,7 +344,9 @@
         "seed.fixtures.json",
         "workflow-routes.fixtures.json"
       ],
-      "workflow_fixture_files": ["phase8.fixtures.json"],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
       "knowledge_pack_id": "meta-system-pack",
       "hook_binding_ids": [
         "hook.pre-route.budget-safety",
@@ -352,8 +386,13 @@
         "data-ai.rag-engineer",
         "data-ai.recommendation-engineer"
       ],
-      "workflows": ["data-ai.rag-eval"],
-      "connectors": ["sequential-thinking", "analytics.posthog"],
+      "workflows": [
+        "data-ai.rag-eval"
+      ],
+      "connectors": [
+        "sequential-thinking",
+        "analytics.posthog"
+      ],
       "route_fixture_files": [
         "data-ai-specialists.fixtures.json",
         "data-ai.fixtures.json",
@@ -362,7 +401,9 @@
         "phase8-specialists.fixtures.json",
         "workflow-routes.fixtures.json"
       ],
-      "workflow_fixture_files": ["phase8.fixtures.json"],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
       "knowledge_pack_id": "data-ai-pack",
       "hook_binding_ids": [
         "hook.pre-route.budget-safety",
@@ -401,8 +442,15 @@
         "integrations.vercel-agent",
         "integrations.webhook-developer"
       ],
-      "workflows": ["integrations.mcp-server-design"],
-      "connectors": ["firecrawl", "github", "context7", "playwright"],
+      "workflows": [
+        "integrations.mcp-server-design"
+      ],
+      "connectors": [
+        "firecrawl",
+        "github",
+        "context7",
+        "playwright"
+      ],
       "route_fixture_files": [
         "integrations-meta-missing.fixtures.json",
         "integrations-specialists.fixtures.json",
@@ -410,7 +458,9 @@
         "phase8-new-agents.fixtures.json",
         "workflow-routes.fixtures.json"
       ],
-      "workflow_fixture_files": ["phase8.fixtures.json"],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
       "knowledge_pack_id": "integrations-pack",
       "hook_binding_ids": [
         "hook.pre-route.budget-safety",
@@ -463,7 +513,9 @@
         "startup-ops-specialists.fixtures.json",
         "startup-ops.fixtures.json"
       ],
-      "workflow_fixture_files": ["phase8.fixtures.json"],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
       "knowledge_pack_id": "startup-ops-pack",
       "hook_binding_ids": [
         "hook.pre-route.budget-safety",
@@ -505,13 +557,19 @@
         "research.research-publication",
         "research.systematic-review"
       ],
-      "connectors": ["firecrawl", "exa", "sequential-thinking"],
+      "connectors": [
+        "firecrawl",
+        "exa",
+        "sequential-thinking"
+      ],
       "route_fixture_files": [
         "phase8-new-agents.fixtures.json",
         "research-specialists.fixtures.json",
         "research.fixtures.json"
       ],
-      "workflow_fixture_files": ["phase8.fixtures.json"],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
       "knowledge_pack_id": "research-pack",
       "hook_binding_ids": [
         "hook.pre-route.budget-safety",
@@ -588,7 +646,9 @@
         "product-business.fixtures.json",
         "workflow-routes.fixtures.json"
       ],
-      "workflow_fixture_files": ["phase8.fixtures.json"],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
       "knowledge_pack_id": "product-business-pack",
       "hook_binding_ids": [
         "hook.pre-route.budget-safety",
@@ -637,7 +697,11 @@
         "design-content.seo-content-creation",
         "design-content.visual-and-a11y-check"
       ],
-      "connectors": ["firecrawl", "context7", "playwright"],
+      "connectors": [
+        "firecrawl",
+        "context7",
+        "playwright"
+      ],
       "route_fixture_files": [
         "design-content-new.fixtures.json",
         "design-content-specialists.fixtures.json",
@@ -648,7 +712,9 @@
         "phase8-specialists.fixtures.json",
         "workflow-routes.fixtures.json"
       ],
-      "workflow_fixture_files": ["phase8.fixtures.json"],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
       "knowledge_pack_id": "design-content-pack",
       "hook_binding_ids": [
         "hook.pre-route.budget-safety",
@@ -698,7 +764,13 @@
         "marketing.seo-improvement",
         "marketing.social-media-campaign"
       ],
-      "connectors": ["firecrawl", "exa", "crm.twenty", "support.chatwoot", "analytics.posthog"],
+      "connectors": [
+        "firecrawl",
+        "exa",
+        "crm.twenty",
+        "support.chatwoot",
+        "analytics.posthog"
+      ],
       "route_fixture_files": [
         "gap-close-specialists.fixtures.json",
         "marketing-new.fixtures.json",
@@ -709,7 +781,9 @@
         "product-business-new.fixtures.json",
         "workflow-routes.fixtures.json"
       ],
-      "workflow_fixture_files": ["phase8.fixtures.json"],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
       "knowledge_pack_id": "marketing-pack",
       "hook_binding_ids": [
         "hook.pre-route.budget-safety",
@@ -760,7 +834,9 @@
         "sales.sales-forecast-creation",
         "sales.sales-qualification-process"
       ],
-      "connectors": ["crm.twenty"],
+      "connectors": [
+        "crm.twenty"
+      ],
       "route_fixture_files": [
         "phase8-new-agents.fixtures.json",
         "phase8-specialists.fixtures.json",
@@ -769,7 +845,9 @@
         "sales.fixtures.json",
         "workflow-routes.fixtures.json"
       ],
-      "workflow_fixture_files": ["phase8.fixtures.json"],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
       "knowledge_pack_id": "sales-pack",
       "hook_binding_ids": [
         "hook.pre-route.budget-safety",
@@ -821,7 +899,9 @@
         "phase8-new-agents.fixtures.json",
         "phase8-scale.fixtures.json"
       ],
-      "workflow_fixture_files": ["phase8.fixtures.json"],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
       "knowledge_pack_id": "healthcare-pack",
       "hook_binding_ids": [
         "hook.pre-route.budget-safety",
@@ -870,7 +950,9 @@
         "phase8-new-agents.fixtures.json",
         "phase8-scale.fixtures.json"
       ],
-      "workflow_fixture_files": ["phase8.fixtures.json"],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
       "knowledge_pack_id": "education-pack",
       "hook_binding_ids": [
         "hook.pre-route.budget-safety",
@@ -918,7 +1000,9 @@
         "manufacturing.fixtures.json",
         "phase8-new-agents.fixtures.json"
       ],
-      "workflow_fixture_files": ["phase8.fixtures.json"],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
       "knowledge_pack_id": "manufacturing-pack",
       "hook_binding_ids": [
         "hook.pre-route.budget-safety",
@@ -963,7 +1047,10 @@
         "hr.performance-review-cycle",
         "hr.recruitment-process"
       ],
-      "connectors": ["hr.frappe-hrms", "hr.orangehrm"],
+      "connectors": [
+        "hr.frappe-hrms",
+        "hr.orangehrm"
+      ],
       "route_fixture_files": [
         "hr-specialists.fixtures.json",
         "hr.fixtures.json",
@@ -972,7 +1059,9 @@
         "phase8-specialists.fixtures.json",
         "workflow-routes.fixtures.json"
       ],
-      "workflow_fixture_files": ["phase8.fixtures.json"],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
       "knowledge_pack_id": "hr-pack",
       "hook_binding_ids": [
         "hook.pre-route.budget-safety",
@@ -1023,7 +1112,10 @@
         "finance.monthly-forecast",
         "finance.risk-assessment"
       ],
-      "connectors": ["accounting.erpnext", "accounting.odoo"],
+      "connectors": [
+        "accounting.erpnext",
+        "accounting.odoo"
+      ],
       "route_fixture_files": [
         "finance-new.fixtures.json",
         "finance-specialists.fixtures.json",
@@ -1033,7 +1125,9 @@
         "phase8-specialists.fixtures.json",
         "workflow-routes.fixtures.json"
       ],
-      "workflow_fixture_files": ["phase8.fixtures.json"],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
       "knowledge_pack_id": "finance-pack",
       "hook_binding_ids": [
         "hook.pre-route.budget-safety",
@@ -1087,7 +1181,9 @@
         "phase8-specialists.fixtures.json",
         "workflow-routes.fixtures.json"
       ],
-      "workflow_fixture_files": ["phase8.fixtures.json"],
+      "workflow_fixture_files": [
+        "phase8.fixtures.json"
+      ],
       "knowledge_pack_id": "legal-compliance-pack",
       "hook_binding_ids": [
         "hook.pre-route.budget-safety",

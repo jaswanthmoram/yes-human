@@ -366,3 +366,8 @@ function appendProvenance(entry, root = repoRoot) {
   arr.push(entry);
   fs.writeFileSync(p, JSON.stringify(arr, null, 2));
 }
+
+export * from './onboarding-discover.js';
+export * from './onboarding-evaluator.js';
+export * from './onboarding-wizard.js';
+

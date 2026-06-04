@@ -74,6 +74,25 @@ node packages/yes-cli/index.js build all
 5. `hooks/post-route.js` records route metadata without mutating production registries.
 6. `yes run --trace` writes structured per-invocation trace JSON to stderr and `staging/traces/<date>.jsonl`.
 
+```mermaid
+graph TD
+    Start[User Task / Prompt] --> Stage1[1. Pre-Route Hooks<br/>Persona, Safety, Loop Prevention]
+    Stage1 --> Stage2{2. Exact Phrase Match?}
+    Stage2 -->|Yes| Found[Resolve Target Route]
+    Stage2 -->|No| Stage3{3. Alias Match?}
+    Stage3 -->|Yes| Found
+    Stage3 -->|No| Stage4{4. Phrase-Trie Containment?}
+    Stage4 -->|Yes| Found
+    Stage4 -->|No| Stage5{5. Code-Graph Assist?}
+    Stage5 -->|Yes| Found
+    Stage5 -->|No| Stage6{6. Deterministic Semantic Fallback?}
+    Stage6 -->|Yes| Found
+    Stage6 -->|No| Stage7[7. Fallback Route<br/>supreme-router]
+    Stage7 --> Found
+    Found --> PostRoute[Post-Route Hooks<br/>Audit, Trace, Hints]
+    PostRoute --> Execute[Lazy-load Agent/Skills/Workflow]
+```
+
 ## Supported Hosts
 
 | Host        | Build command                      | Output                   |
@@ -220,6 +239,20 @@ npm run yes -- absorb stage <github-url>
 npm run yes -- absorb apply <slug>          # provenance + rollback record
 npm run yes -- absorb copy-skills <slug>    # copy SKILL.md trees into content/skills/
 npm run yes -- absorb rollback <change-id>
+```
+
+#### Smart Agent-Assisted Onboarding
+
+Yes-human includes an LLM-assisted onboarding agent to automatically discover, evaluate, and absorb custom rules, rulesets, and active tool plugins from client hosts (such as Cursor, VS Code, and Claude Desktop) into the unified control plane.
+
+To run environment discovery:
+```bash
+npm run yes -- absorb onboard --discover
+```
+
+To interactive-wizard apply a specific discovery file:
+```bash
+npm run yes -- absorb onboard --apply <discovery-file-path>
 ```
 
 ### Runtime execution

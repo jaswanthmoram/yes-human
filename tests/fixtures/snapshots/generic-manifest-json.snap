@@ -1,0 +1,33 @@
+{
+  "name": "yes-human-generic",
+  "version": "normalized-version",
+  "trust_model": "zero-trust",
+  "route_table": "graph/indexes/ROUTE_TABLE.min.json",
+  "registries": {
+    "routes": "registry/routes.json",
+    "agents": "registry/agents.json",
+    "workflows": "registry/workflows.json",
+    "skills": "registry/skills.json"
+  },
+  "permissions": {
+    "network": "deny",
+    "filesystem": "explicit-allowlist",
+    "production_mutation_from_feedback": false
+  },
+  "audit": {
+    "enabled": true,
+    "redacted": true,
+    "file": "audit.jsonl"
+  },
+  "cancellation": {
+    "supported": true,
+    "file": "CANCEL.md"
+  },
+  "generated_at": "normalized-date",
+  "signature": {
+    "algorithm": "ed25519",
+    "value": "normalized-value",
+    "public_key": "normalized-public_key",
+    "signed_at": "normalized-signed_at"
+  }
+}

@@ -81,6 +81,9 @@ jobs:
       - name: Doctor
         run: npm run doctor
 
+      - name: Enforce core routing performance baseline
+        run: npm run bench:assert
+
       - name: Build all host bundles
         run: node packages/yes-cli/index.js build all
 

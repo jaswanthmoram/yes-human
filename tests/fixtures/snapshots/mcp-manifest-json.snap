@@ -1,0 +1,94 @@
+{
+  "name": "yes-human",
+  "version": "normalized-version",
+  "description": "Portable low-token agentic control plane",
+  "tools": [
+    {
+      "name": "yes_route",
+      "description": "Resolve a task to its best route (agent + workflow + budget band). Pass dry_run:true for a PlanCard without executing.",
+      "inputSchema": {
+        "type": "object",
+        "required": [
+          "task"
+        ],
+        "properties": {
+          "task": {
+            "type": "string",
+            "description": "The user task to route"
+          },
+          "dry_run": {
+            "type": "boolean",
+            "default": true
+          }
+        }
+      }
+    },
+    {
+      "name": "yes_validate",
+      "description": "Run full schema + registry + route consistency validation. Returns pass/fail with details.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    {
+      "name": "yes_eval_cost",
+      "description": "Check that the boot file is within the startup token budget (target 180, cap 300).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    {
+      "name": "yes_dossier_check",
+      "description": "Validate a source dossier for an agent against the promotion gate (staging or production).",
+      "inputSchema": {
+        "type": "object",
+        "required": [
+          "agent_id"
+        ],
+        "properties": {
+          "agent_id": {
+            "type": "string",
+            "description": "Agent id e.g. engineering.code-reviewer"
+          },
+          "gate": {
+            "type": "string",
+            "enum": [
+              "staging",
+              "production"
+            ],
+            "default": "production"
+          }
+        }
+      }
+    }
+  ],
+  "resources": [
+    {
+      "uri": "yes://boot",
+      "name": "Yes-human boot text",
+      "description": "The minimal startup boot instruction (~69 tokens)",
+      "mimeType": "text/markdown"
+    },
+    {
+      "uri": "yes://route-table",
+      "name": "Hot route table",
+      "description": "Keyword → route_id map (ROUTE_TABLE.min.json)",
+      "mimeType": "application/json"
+    },
+    {
+      "uri": "yes://agents",
+      "name": "Agent registry",
+      "description": "All registered agents (lazy-loaded on route match)",
+      "mimeType": "application/json"
+    },
+    {
+      "uri": "yes://workflows",
+      "name": "Workflow registry",
+      "description": "All registered workflows with inputs/outputs/gates",
+      "mimeType": "application/json"
+    }
+  ],
+  "generated_at": "normalized-date"
+}
