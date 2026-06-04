@@ -153,7 +153,7 @@ get `{ markdown, images, hasImages }` instead of a string.
 | `packages/yes-schema/`               | JSON schemas and validator                                                              |
 | `packages/yes-connectors/`           | Generic OSS connector adapter protocol over `registry/mcps.json` and connector profiles |
 | `yes-human.plugin.json`              | Plugin manifest                                                                         |
-| `staging/traces/`                    | Local `yes run --trace` JSONL output (gitignored)                                        |
+| `staging/traces/`                    | Local `yes run --trace` JSONL output (gitignored)                                       |
 
 ## Documentation
 

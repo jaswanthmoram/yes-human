@@ -9,7 +9,16 @@
       "entry": "hooks/pre-route.js",
       "priority": 200,
       "inputs": ["task"],
-      "outputs": ["modified_task", "block_reason", "routing_hint", "signal_words", "active_persona", "allowed", "rule", "policy"],
+      "outputs": [
+        "modified_task",
+        "block_reason",
+        "routing_hint",
+        "signal_words",
+        "active_persona",
+        "allowed",
+        "rule",
+        "policy"
+      ],
       "policy_dependencies": ["budget.rules.json", "safety.rules.json"],
       "host_support": {
         "cli": "native",

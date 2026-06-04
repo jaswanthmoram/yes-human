@@ -3,6 +3,10 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { resolveRoute } from '../yes-runtime/router.js';
 
+// Workflow evals measure the DETERMINISTIC routing contract against fixed
+// fixtures. Isolate the non-deterministic LLM-assist hook (read at call time).
+process.env.YES_DISABLE_LLM_ASSIST = process.env.YES_DISABLE_LLM_ASSIST || 'true';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const repoRoot = path.resolve(__dirname, '../..');

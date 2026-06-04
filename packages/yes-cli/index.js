@@ -271,7 +271,7 @@ function cmdDoctor() {
 
   // Route table resolves to routes.json
   let routesOk = false;
-  let routeDetail = '';
+  let routeDetail;
   try {
     const table = readJSON('graph/indexes/ROUTE_TABLE.min.json');
     const routes = readJSON('registry/routes.json');

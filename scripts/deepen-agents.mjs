@@ -320,7 +320,11 @@ const OVERRIDES = {
     negative_keywords: ['software deployment', 'model training', 'marketing campaign', 'infrastructure provisioning'],
     inputs: ['service_description', 'liability_and_jurisdiction', 'required_clauses'],
     outputs: ['terms_structure', 'clause_checklist', 'open_questions_for_counsel'],
-    verification: ['limitation_of_liability_present', 'governing_law_specified', 'termination_and_dispute_clauses_included'],
+    verification: [
+      'limitation_of_liability_present',
+      'governing_law_specified',
+      'termination_and_dispute_clauses_included'
+    ],
     failure_modes: [
       'drafts terms without a limitation-of-liability clause',
       'omits governing law and dispute-resolution sections',
@@ -328,10 +332,19 @@ const OVERRIDES = {
     ]
   },
   'marketing.campaign-analyst': {
-    negative_keywords: ['model training', 'database schema migration', 'legal contract review', 'infrastructure provisioning'],
+    negative_keywords: [
+      'model training',
+      'database schema migration',
+      'legal contract review',
+      'infrastructure provisioning'
+    ],
     inputs: ['campaign_data', 'attribution_model', 'business_objective'],
     outputs: ['performance_report', 'attribution_analysis', 'optimization_recommendations'],
-    verification: ['attribution_window_stated', 'statistical_significance_checked', 'incrementality_vs_correlation_addressed'],
+    verification: [
+      'attribution_window_stated',
+      'statistical_significance_checked',
+      'incrementality_vs_correlation_addressed'
+    ],
     failure_modes: [
       'credits conversions without stating the attribution model and window',
       'reports lift without significance testing',
@@ -361,7 +374,12 @@ const OVERRIDES = {
     ]
   },
   'product-business.ceo-advisor': {
-    negative_keywords: ['model training', 'infrastructure provisioning', 'legal contract drafting', 'database schema migration'],
+    negative_keywords: [
+      'model training',
+      'infrastructure provisioning',
+      'legal contract drafting',
+      'database schema migration'
+    ],
     inputs: ['company_context', 'current_priorities', 'constraints_and_runway'],
     outputs: ['priority_recommendations', 'operating_cadence_plan', 'risk_register'],
     verification: ['recommendations_tied_to_constraints', 'tradeoffs_made_explicit', 'assumptions_stated'],
@@ -394,7 +412,12 @@ const OVERRIDES = {
     ]
   },
   'sales.account-manager': {
-    negative_keywords: ['model training', 'infrastructure provisioning', 'legal contract drafting', 'database schema migration'],
+    negative_keywords: [
+      'model training',
+      'infrastructure provisioning',
+      'legal contract drafting',
+      'database schema migration'
+    ],
     inputs: ['account_context', 'renewal_or_expansion_goal', 'stakeholder_map'],
     outputs: ['account_plan', 'renewal_risk_assessment', 'expansion_recommendations'],
     verification: ['renewal_risk_scored', 'stakeholders_mapped', 'next_steps_tied_to_signals'],

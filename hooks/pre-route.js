@@ -38,9 +38,8 @@ function loadActivePersona() {
 }
 
 export default async function preRoute(context, policyEvaluator = null) {
+  const { task, estimatedTokens, depth = 0, visited = [] } = context || {};
   try {
-    const { task, estimatedTokens, depth = 0, visited = [] } = context;
-
     // Initialize policy evaluator if not provided (shared singleton)
     const evaluator = policyEvaluator || getSharedPolicyEvaluator();
 
@@ -116,7 +115,7 @@ export default async function preRoute(context, policyEvaluator = null) {
     log.warn('Graceful degradation: pre-route hook infrastructure error', { error: err.message });
     return {
       allowed: true,
-      modified_task: context.task || task
+      modified_task: context?.task || task
     };
   }
 }

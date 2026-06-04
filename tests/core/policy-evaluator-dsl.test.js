@@ -66,10 +66,7 @@ test('evaluateInvariant: max_tokens with non-numeric value fails closed', () => 
 test('evaluateInvariant: no_secrets detects API keys', () => {
   const e = new PolicyEvaluator();
   assert.equal(e.evaluateInvariant('no_secrets', { content: 'hello world' }), true);
-  assert.equal(
-    e.evaluateInvariant('no_secrets', { content: 'sk-abcdef1234567890abcdef1234567890' }),
-    false
-  );
+  assert.equal(e.evaluateInvariant('no_secrets', { content: 'sk-abcdef1234567890abcdef1234567890' }), false);
 });
 
 test('evaluateInvariant: unknown invariant fails closed', () => {

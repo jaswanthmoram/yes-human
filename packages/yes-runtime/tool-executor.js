@@ -116,7 +116,7 @@ export class ToolExecutor {
    * Execute tool with fallback chain
    */
   async executeWithFallback(tool, args, fallbackChain) {
-    let lastError = null;
+    let lastError;
 
     // Try primary tool
     try {

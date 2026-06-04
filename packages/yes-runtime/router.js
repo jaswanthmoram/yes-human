@@ -212,7 +212,7 @@ function getCompiledAliases(filePath) {
     const aliases = data.aliases || {};
     const sortedAliases = Object.keys(aliases).sort((a, b) => b.length - a.length);
     const regexes = sortedAliases.map((alias) => {
-      const escapedAlias = alias.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+      const escapedAlias = alias.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
       const regex = new RegExp(`(?<=^|[^a-z0-9#+])${escapedAlias}(?=$|[^a-z0-9#+])`, 'i');
       return {
         alias,

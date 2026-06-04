@@ -31,9 +31,30 @@ function makeHooksDir() {
     JSON.stringify({
       hooks: [
         // Intentionally insert low-priority first to prove the sort works.
-        { id: 'low', event: 'test', priority: 10, entry: 'hooks/low.js', inputs: ['task'], outputs: ['modified_task', 'allowed'] },
-        { id: 'high', event: 'test', priority: 100, entry: 'hooks/high.js', inputs: ['task'], outputs: ['modified_task', 'allowed'] },
-        { id: 'undeclared', event: 'test2', priority: 50, entry: 'hooks/undeclared.js', inputs: ['task'], outputs: ['allowed'] }
+        {
+          id: 'low',
+          event: 'test',
+          priority: 10,
+          entry: 'hooks/low.js',
+          inputs: ['task'],
+          outputs: ['modified_task', 'allowed']
+        },
+        {
+          id: 'high',
+          event: 'test',
+          priority: 100,
+          entry: 'hooks/high.js',
+          inputs: ['task'],
+          outputs: ['modified_task', 'allowed']
+        },
+        {
+          id: 'undeclared',
+          event: 'test2',
+          priority: 50,
+          entry: 'hooks/undeclared.js',
+          inputs: ['task'],
+          outputs: ['allowed']
+        }
       ]
     })
   );
@@ -63,10 +84,7 @@ test('hook-runner: YES_HOOK_VALIDATION=strict throws on undeclared output', asyn
     process.chdir(root);
     process.env.YES_HOOK_VALIDATION = 'strict';
     const runner = new HookRunner('hooks');
-    await assert.rejects(
-      () => runner.run('test2', { task: 'x' }),
-      /undeclared output property "mystery_output"/
-    );
+    await assert.rejects(() => runner.run('test2', { task: 'x' }), /undeclared output property "mystery_output"/);
   } finally {
     process.chdir(cwd);
     if (prev !== undefined) process.env.YES_HOOK_VALIDATION = prev;

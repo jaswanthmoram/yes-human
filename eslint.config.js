@@ -1,6 +1,23 @@
 import js from '@eslint/js';
 
 export default [
+  // Global ignores MUST be in their own config object (flat-config rule):
+  // mixing `ignores` with `rules`/`languageOptions` scopes it to that block
+  // only and does NOT exclude files globally.
+  {
+    ignores: [
+      'node_modules/**',
+      'generated/**',
+      'staging/**',
+      'reports/**',
+      'graph/embeddings/**',
+      'graph/snapshots/**',
+      'graph/memory/**',
+      'graph/indexes/**',
+      '.venv/**',
+      'coverage/**'
+    ]
+  },
   js.configs.recommended,
   {
     languageOptions: {
@@ -16,7 +33,15 @@ export default [
         setTimeout: 'readonly',
         setInterval: 'readonly',
         clearTimeout: 'readonly',
-        clearInterval: 'readonly'
+        clearInterval: 'readonly',
+        URLSearchParams: 'readonly',
+        TextEncoder: 'readonly',
+        TextDecoder: 'readonly',
+        globalThis: 'readonly',
+        performance: 'readonly',
+        structuredClone: 'readonly',
+        queueMicrotask: 'readonly',
+        fetch: 'readonly'
       }
     },
     rules: {
@@ -24,16 +49,6 @@ export default [
       'no-console': 'off',
       'no-empty': ['error', { allowEmptyCatch: true }],
       'no-constant-condition': 'warn'
-    },
-    ignores: [
-      'node_modules/**',
-      'generated/**',
-      'staging/**',
-      'graph/embeddings/**',
-      'graph/snapshots/**',
-      'graph/memory/**',
-      '.venv/**',
-      'coverage/**'
-    ]
+    }
   }
 ];

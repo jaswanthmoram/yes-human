@@ -82,7 +82,7 @@ async function main() {
     // 3b. Embedded alias match
     const sortedAliases = Object.keys(aliases).sort((a, b) => b.length - a.length);
     for (const alias of sortedAliases) {
-      const escapedAlias = alias.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+      const escapedAlias = alias.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
       const regex = new RegExp(`(?<=^|[^a-z0-9#+])${escapedAlias}(?=$|[^a-z0-9#+])`, 'i');
       if (regex.test(query)) {
         const rId = aliases[alias];

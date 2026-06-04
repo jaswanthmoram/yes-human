@@ -3,6 +3,13 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { resolveRoute } from '../yes-runtime/router.js';
 
+// Route evals measure the DETERMINISTIC routing contract against fixed fixtures.
+// The LLM-assist hook is a non-deterministic, low-confidence enhancement (a real
+// model in production, a heuristic in mock mode) and must be isolated out of
+// fixture-based scoring. The hook reads this flag at call time, so setting it
+// here (before any resolveRoute call) fully disables it for the eval run.
+process.env.YES_DISABLE_LLM_ASSIST = process.env.YES_DISABLE_LLM_ASSIST || 'true';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const repoRoot = path.resolve(__dirname, '../..');
