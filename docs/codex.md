@@ -16,3 +16,7 @@ This generates:
 * `.codex/skills/bug-fix/SKILL.md`
 * `.codex/skills/security-review/SKILL.md`
 * `.codex/skills/test-generator/SKILL.md`
+
+## Plugin Registry
+
+`registry/codex-plugins.json` includes yes-human itself as `codex.yes-human`, alongside imported Codex plugin metadata. The entry keeps activation lazy and points back to the OSS core registries instead of duplicating the 325-agent catalog inside the Codex plugin list.

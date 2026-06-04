@@ -26,6 +26,7 @@ const registryIndexNames = [
   'commands',
   'bundles',
   'category-packs',
+  'codex-plugins',
   'adapter-packs'
 ];
 const highStakesWorkflowDomains = new Set(['finance', 'legal-compliance', 'healthcare', 'hr']);

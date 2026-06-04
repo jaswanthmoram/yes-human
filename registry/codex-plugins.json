@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-06-04T12:28:17.908Z",
-  "count": 48,
+  "generated_at": "2026-06-04T12:33:20.753Z",
+  "count": 49,
   "items": [
     {
       "id": "codex.biorender",
@@ -3449,6 +3449,64 @@
         "default_activation": "route-on-demand",
         "trust_model": "host-managed",
         "note": "Metadata-only import from the local Codex plugin cache. Runtime execution remains controlled by Codex and installed MCP/app permissions."
+      }
+    },
+    {
+      "id": "codex.yes-human",
+      "name": "yes-human",
+      "version": "2.3.0",
+      "description": "Portable low-token agentic control plane",
+      "source": "yes-human-oss-core",
+      "source_namespace": "yes-human",
+      "cache_path": ".",
+      "manifest_path": "yes-human.plugin.json",
+      "use_mode": "lazy-load",
+      "status": "available",
+      "capabilities": {
+        "agents": 325,
+        "skills": 389,
+        "workflows": 119,
+        "apps": 0,
+        "mcp_servers": 30,
+        "category_packs": 19
+      },
+      "startup": {
+        "boot_file": "YES_BOOT.md",
+        "route_table": "graph/indexes/ROUTE_TABLE.min.json",
+        "target_tokens": 180,
+        "hard_cap_tokens": 300
+      },
+      "exports": [
+        "claude",
+        "codex",
+        "opencode",
+        "agent-md",
+        "cli",
+        "mcp",
+        "cursor",
+        "windsurf",
+        "vscode",
+        "sourcegraph",
+        "generic"
+      ],
+      "registries": {
+        "agents": "registry/agents.json",
+        "skills": "registry/skills.json",
+        "workflows": "registry/workflows.json",
+        "tools": "registry/tools.json",
+        "mcps": "registry/mcps.json",
+        "category_packs": "registry/category-packs.json",
+        "codex_plugins": "registry/codex-plugins.json",
+        "adapter_packs": "registry/adapter-packs.json",
+        "learning_policy": "registry/learning-policy.json",
+        "team_mode": "registry/team-mode.json",
+        "offline_mode": "registry/offline-mode.json"
+      },
+      "policy": {
+        "vendored_code": false,
+        "default_activation": "route-on-demand",
+        "trust_model": "workspace-managed",
+        "note": "Local yes-human OSS core plugin entry. Runtime activation should use the low-token boot file and route table, with registries loaded on demand."
       }
     },
     {

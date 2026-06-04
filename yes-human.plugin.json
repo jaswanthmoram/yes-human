@@ -37,6 +37,7 @@
     "tools": "registry/tools.json",
     "mcps": "registry/mcps.json",
     "category_packs": "registry/category-packs.json",
+    "codex_plugins": "registry/codex-plugins.json",
     "adapter_packs": "registry/adapter-packs.json",
     "learning_policy": "registry/learning-policy.json",
     "team_mode": "registry/team-mode.json",
