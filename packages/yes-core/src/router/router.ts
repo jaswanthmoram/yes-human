@@ -10,6 +10,7 @@ import {
   TraceObject,
 } from "../types/index.js";
 import { TraceTracker } from "../trace/tracker.js";
+import { createLocalSemanticRouter } from "./semantic.js";
 
 export class Router {
   private mode: string;
@@ -27,6 +28,16 @@ export class Router {
     this.tracker = new TraceTracker();
     this.fallbackRouteId = config.fallbackRouteId || "route.meta-system.supreme-router";
     this.semanticRouter = config.semanticRouter;
+
+    if (!this.semanticRouter && config.semanticEndpoint) {
+      const endpoint = config.semanticEndpoint;
+      const model = config.semanticModel;
+      this.semanticRouter = async (input: string) => {
+        const workflows = Array.from(this.workflows.values());
+        const routeFn = createLocalSemanticRouter(endpoint, { model, workflows });
+        return routeFn(input);
+      };
+    }
 
     if (config.packs) {
       for (const pack of config.packs) {

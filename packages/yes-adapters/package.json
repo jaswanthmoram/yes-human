@@ -1,6 +1,7 @@
 {
   "name": "@yes-human/adapters",
   "version": "2.4.0",
+  "description": "Exporters and target system adapters for yes-human (Codex, Antigravity)",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -10,6 +11,23 @@
       "types": "./dist/index.d.ts"
     }
   },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaswanthmoram/yes-human.git",
+    "directory": "packages/yes-adapters"
+  },
+  "keywords": [
+    "yes-human",
+    "adapters",
+    "codex",
+    "antigravity",
+    "exporter"
+  ],
+  "author": "yes-human contributors",
+  "license": "MIT",
   "scripts": {
     "build": "tsc"
   },

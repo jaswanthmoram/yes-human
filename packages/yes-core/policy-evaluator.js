@@ -1,4 +1,4 @@
-export * from "./dist/policy-evaluator.js";
+export * from "@yes-human/policy";
 export {
   evaluatePromotion,
   checkAgentPromotion,
@@ -6,4 +6,4 @@ export {
   MIN_PRODUCTION_SCORE,
   getSharedPolicyEvaluator,
   PolicyEvaluator
-} from "./dist/policy-evaluator.js";
+} from "@yes-human/policy";

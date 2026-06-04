@@ -14,11 +14,5 @@ export default defineConfig({
       path: path.resolve(__dirname, "./src/node-mock.ts"),
       url: path.resolve(__dirname, "./src/node-mock.ts")
     }
-  },
-  define: {
-    "process.env": "{}",
-    "process.cwd": "() => '/'",
-    "process.platform": '"browser"',
-    "process.argv": "[]"
   }
 });

@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WorkflowDefinition",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "triggerPhrases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "requiredSkills": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "expectedInput": {
+      "type": "string"
+    },
+    "expectedOutput": {
+      "type": "string"
+    },
+    "traceSteps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "safetyNotes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "description",
+    "triggerPhrases",
+    "requiredSkills",
+    "expectedInput",
+    "expectedOutput",
+    "traceSteps"
+  ]
+}

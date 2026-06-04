@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { COMBINED_SECRET_REGEX } from "./secrets.js";
+import { COMBINED_SECRET_REGEX } from "@yes-human/core";
 
 export {
   evaluatePromotion,

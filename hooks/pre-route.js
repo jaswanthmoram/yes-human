@@ -11,7 +11,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { getSharedPolicyEvaluator } from '@yes-human/core';
+import { getSharedPolicyEvaluator } from '@yes-human/policy';
 import { createLogger } from '../packages/yes-core/logger.js';
 import { MAX_ROUTE_DEPTH } from '../packages/yes-runtime/router.js';
 

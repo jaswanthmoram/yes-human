@@ -6,6 +6,8 @@ export interface RouterConfig {
   trace?: boolean;
   fallbackRouteId?: string;
   semanticRouter?: (input: string) => Promise<RouteDetails | null> | RouteDetails | null;
+  semanticEndpoint?: string;
+  semanticModel?: string;
 }
 
 export interface RouteDetails {

@@ -1,7 +1,7 @@
 {
-  "name": "@yes-human/core",
+  "name": "@yes-human/react",
   "version": "2.4.0",
-  "description": "Browser-safe routing primitives for yes-human offline AI routing",
+  "description": "React integration hook for yes-human offline AI routing",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -17,12 +17,13 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jaswanthmoram/yes-human.git",
-    "directory": "packages/yes-core"
+    "directory": "packages/yes-react"
   },
   "keywords": [
     "yes-human",
+    "react",
+    "hook",
     "router",
-    "offline-first",
     "sdk"
   ],
   "author": "yes-human contributors",
@@ -30,7 +31,15 @@
   "scripts": {
     "build": "tsc"
   },
+  "dependencies": {
+    "@yes-human/core": "*"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0"
+  },
   "devDependencies": {
+    "@types/react": "^18.0.0 || ^19.0.0",
+    "react": "^18.0.0 || ^19.0.0",
     "typescript": "^5.4.5"
   },
   "engines": {

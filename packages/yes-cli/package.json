@@ -1,11 +1,29 @@
 {
   "name": "@yes-human/cli",
   "version": "2.4.0",
+  "description": "Command line interface for yes-human offline AI routing and simulation",
   "type": "module",
   "main": "./dist/index.js",
   "bin": {
     "yes": "./dist/index.js"
   },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaswanthmoram/yes-human.git",
+    "directory": "packages/yes-cli"
+  },
+  "keywords": [
+    "yes-human",
+    "cli",
+    "router",
+    "agentic",
+    "simulator"
+  ],
+  "author": "yes-human contributors",
+  "license": "MIT",
   "scripts": {
     "build": "tsc"
   },

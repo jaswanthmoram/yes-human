@@ -15,7 +15,8 @@ export default [
       'graph/memory/**',
       'graph/indexes/**',
       '.venv/**',
-      'coverage/**'
+      'coverage/**',
+      '**/dist/**'
     ]
   },
   js.configs.recommended,

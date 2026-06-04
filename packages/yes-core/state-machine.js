@@ -1,2 +1,2 @@
-export * from "./dist/state-machine.js";
-export { StateMachine, loadStateMachines } from "./dist/state-machine.js";
+export * from "@yes-human/policy";
+export { StateMachine, loadStateMachines } from "@yes-human/policy";

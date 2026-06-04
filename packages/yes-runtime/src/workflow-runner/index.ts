@@ -46,7 +46,8 @@ export class WorkflowRunner {
         startTime: new Date().toISOString(),
         endTime: new Date().toISOString(),
         steps: context.trace
-      }
+      },
+      output: currentInput
     };
   }
 }

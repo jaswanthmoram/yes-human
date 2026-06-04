@@ -1,6 +1,7 @@
 {
   "name": "@yes-human/runtime",
   "version": "2.4.0",
+  "description": "Deterministic local execution runtime for yes-human agents and workflows",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -10,6 +11,22 @@
       "types": "./dist/index.d.ts"
     }
   },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaswanthmoram/yes-human.git",
+    "directory": "packages/yes-runtime"
+  },
+  "keywords": [
+    "yes-human",
+    "runtime",
+    "workflow-executor",
+    "sdk"
+  ],
+  "author": "yes-human contributors",
+  "license": "MIT",
   "scripts": {
     "build": "tsc"
   },

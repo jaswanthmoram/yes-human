@@ -7,7 +7,8 @@ export class MarkitdownAdapter {
       return output;
     } catch (err: any) {
       throw new Error(
-        `markitdown CLI is not installed or failed. Please run 'pip install markitdown' to use document conversion tools. Error: ${err.message}`
+        `markitdown CLI is not installed or failed. Please run 'pip install markitdown' to use document conversion tools. Error: ${err.message}`,
+        { cause: err }
       );
     }
   }

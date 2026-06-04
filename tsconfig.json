@@ -1,0 +1,13 @@
+{
+  "files": [],
+  "references": [
+    { "path": "packages/yes-core" },
+    { "path": "packages/yes-policy" },
+    { "path": "packages/yes-runtime" },
+    { "path": "packages/yes-packs" },
+    { "path": "packages/yes-adapters" },
+    { "path": "packages/yes-cli" },
+    { "path": "packages/yes-doc-tools" },
+    { "path": "packages/yes-react" }
+  ]
+}

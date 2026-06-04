@@ -1,8 +1,8 @@
-export * from "./dist/rbac.js";
+export * from "@yes-human/policy";
 export {
   loadRbacPolicy,
   resolveRole,
   hasPermission,
   assertPermission,
   defaultRbacPolicy
-} from "./dist/rbac.js";
+} from "@yes-human/policy";

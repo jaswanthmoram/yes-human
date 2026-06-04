@@ -61,7 +61,23 @@ export default function App() {
           <div className="input-section">
             <h2 className="section-title">Test Natural-Language Routing</h2>
             <div className="input-wrapper">
+              <label
+                htmlFor="task-prompt"
+                style={{
+                  position: "absolute",
+                  width: "1px",
+                  height: "1px",
+                  padding: 0,
+                  margin: "-1px",
+                  overflow: "hidden",
+                  clip: "rect(0, 0, 0, 0)",
+                  border: 0,
+                }}
+              >
+                Enter a task prompt
+              </label>
               <textarea
+                id="task-prompt"
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
                 placeholder="Enter a task (e.g., 'review code for memory leaks' or 'summarize this document')"
@@ -82,16 +98,21 @@ export default function App() {
                 Suggestions:
               </span>
               {samplePrompts.map((p, idx) => (
-                <div
+                <button
                   key={idx}
                   className="example-tag"
+                  style={{
+                    cursor: "pointer",
+                    border: "none",
+                    fontFamily: "inherit"
+                  }}
                   onClick={() => {
                     setPrompt(p);
                     handleRoute(p);
                   }}
                 >
                   {p}
-                </div>
+                </button>
               ))}
             </div>
           </div>
