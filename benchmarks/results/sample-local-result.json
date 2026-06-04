@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-06-04T12:00:00.000Z",
+  "environment": {
+    "nodeVersion": "v26.0.0",
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpu": "Apple M4"
+  },
+  "metrics": {
+    "routesLoaded": 116,
+    "workflowsLoaded": 35,
+    "skillsLoaded": 33,
+    "startupTimeMs": 1.57,
+    "heapMemoryDeltaMb": 0.063,
+    "iterationsRun": 500,
+    "avgRouteLatencyMs": 0.0438,
+    "routeAccuracy": 100.0,
+    "fallbackRate": 10.0
+  }
+}

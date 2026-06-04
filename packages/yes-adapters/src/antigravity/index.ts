@@ -95,6 +95,9 @@ Inspects source files for hardcoded secrets, input sanitization leaks, and packa
 }
 
 export function exportToAntigravity(workflows: WorkflowDefinition[], outputDir: string): void {
+  if (!workflows || !Array.isArray(workflows)) {
+    throw new Error("Invalid workflows: array required");
+  }
   fs.mkdirSync(outputDir, { recursive: true });
 
   // 1. Generate agents.md

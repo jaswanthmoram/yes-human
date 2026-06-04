@@ -47,6 +47,19 @@ export class Router {
   }
 
   public loadPack(pack: PackDefinition): void {
+    if (!pack) {
+      throw new Error("Invalid pack: pack is null or undefined");
+    }
+    if (!pack.name) {
+      throw new Error("Invalid pack: pack name is required");
+    }
+    if (!Array.isArray(pack.workflows)) {
+      throw new Error("Invalid pack: pack.workflows must be an array");
+    }
+    if (!Array.isArray(pack.skills)) {
+      throw new Error("Invalid pack: pack.skills must be an array");
+    }
+
     if (this.traceEnabled) {
       this.tracker.addStep("load-pack", "success", { packName: pack.name });
     }
@@ -66,6 +79,9 @@ export class Router {
   }
 
   public registerWorkflow(workflow: WorkflowDefinition): void {
+    if (!workflow || !workflow.id) {
+      throw new Error("Invalid workflow: workflow id is required");
+    }
     this.workflows.set(workflow.id, workflow);
     if (this.traceEnabled) {
       this.tracker.addStep("register-workflow", "success", {
@@ -75,6 +91,9 @@ export class Router {
   }
 
   public registerSkill(skill: SkillDefinition): void {
+    if (!skill || !skill.id) {
+      throw new Error("Invalid skill: skill id is required");
+    }
     this.skills.set(skill.id, skill);
     if (this.traceEnabled) {
       this.tracker.addStep("register-skill", "success", { skillId: skill.id });

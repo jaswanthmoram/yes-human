@@ -1,52 +1,93 @@
-# Architecture Guide
+# Architecture of yes-human
 
-This document describes the routing, execution, and trace tracking architecture of the `yes-human` SDK.
+`yes-human` is a lightweight, low-token AI workflow router and control plane designed to run locally, offline-first. It handles routing, workflows, instructions, and pack management around LLM systems (such as Codex, Antigravity, or Cursor).
 
-## Execution Flow
+---
 
-The main objective of `yes-human` is to turn a natural-language user task into a structured execution trace while loading only the minimum instructions required.
+## Product Positioning
+
+Instead of passing massive, generic instructions directly to an LLM context on every prompt (leading to high token costs and latency), `yes-human` intercepts the user query locally, determines the precise intent, and returns a tailored agent dossier, workflow, and instructions.
+
+* **What it is**: The routing, workflow orchestration, instruction-scaffolding, and security validation layer.
+* **What it is NOT**: An LLM, database, or a direct replacement for coding tools.
+
+---
+
+## Package Responsibility Map
+
+`yes-human` is organized as a monorepo containing decoupled packages:
+
+| Package | Responsibility |
+|---|---|
+| [`@yes-human/core`](file:///Users/moramvenkatasatyajaswanth/yes-human/packages/yes-core) | Fast, browser-safe routing primitives, pack load handlers, and type registries. |
+| [`@yes-human/runtime`](file:///Users/moramvenkatasatyajaswanth/yes-human/packages/yes-runtime) | Workflow and step runners, context propagation, and learning-engine integration. |
+| [`@yes-human/packs`](file:///Users/moramvenkatasatyajaswanth/yes-human/packages/yes-packs) | Standardized, domain-specific bundles of workflows and skill metadata. |
+| [`@yes-human/adapters`](file:///Users/moramvenkatasatyajaswanth/yes-human/packages/yes-adapters) | Exporters to translate local configurations to Codex and Antigravity. |
+| [`@yes-human/doc-tools`](file:///Users/moramvenkatasatyajaswanth/yes-human/packages/yes-doc-tools) | Optional document-to-markdown converters (requires Python & Microsoft MarkItDown). |
+| [`yes-cli`](file:///Users/moramvenkatasatyajaswanth/yes-human/packages/yes-cli) | SDK command line tool to validate setups, route queries, and trigger builds. |
+
+---
+
+## System Workflows & Pipelines
+
+### 1. Pack Loading Flow
+Packs are loaded into the core router at initialization. Workflows and skills are compiled into indexing structures.
 
 ```mermaid
 graph TD
-    UserPrompt["User Prompt"] --> Router["1. Router resolves Route"]
-    Router --> Route["2. Selected Route points to Workflow"]
-    Route --> Workflow["3. Selected Workflow maps Skills"]
-    Workflow --> Skills["4. Skills Executed in Runtime Simulator"]
-    Skills --> Trace["5. Step Trace Recorded"]
-    Trace --> Result["6. Final Output & Trace Object"]
+  A[RouterConfig] -->|Packs Array| B[createRouter]
+  B --> C[loadPack]
+  C --> D{Already Loaded?}
+  D -->|Yes| E[Ignore duplicate]
+  D -->|No| F[Merge Skills & Workflows Map]
 ```
 
-1. **User Prompt**: The user inputs a task description (e.g. *"review my code for bugs"*).
-2. **Router Resolution**: The router evaluates the prompt against registered trigger phrases, aliases, and keywords to select a specific route.
-3. **Workflow Selected**: The route identifies a target workflow containing sequential execution steps.
-4. **Skill Execution**: The runtime loads the specific skill files required for the workflow.
-5. **Trace Tracking**: Every action, skill invocation, and state transition is captured by the trace tracker.
-6. **Final Output**: The SDK returns the final resolution metadata and a strict execution trace.
+### 2. Query Routing Flow
+When a user query is received, the router goes through a deterministic routing pipeline:
+
+```mermaid
+graph TD
+  Query[User Input] --> N[Normalize Query]
+  N --> Scope{Is Pack Scoped? e.g. '[developer]'}
+  Scope -->|Yes| Filter[Filter Workflows by Pack]
+  Scope -->|No| All[Check All Workflows]
+  Filter --> E1[1. Exact Phrase Match]
+  All --> E1
+  E1 -->|Match| Resolve[Resolve Workflow]
+  E1 -->|No Match| E2[2. Alias / Containment Match]
+  E2 -->|Match| Resolve
+  E2 -->|No Match| E3[3. Keyword Token Overlap]
+  E3 -->|Match| Resolve
+  E3 -->|No Match| E4[4. Semantic Router Hook]
+  E4 -->|Match| Resolve
+  E4 -->|No Match| Fallback[Fallback: Supreme Router]
+```
+
+### 3. Trace and Execution Pipeline
+When a workflow is resolved or directly executed, the step trace logs performance:
+
+```mermaid
+sequenceDiagram
+  participant Client as Node/Web Client
+  participant WR as WorkflowRunner
+  participant SR as SkillRunner
+  participant EC as RuntimeExecutionContext
+
+  Client->>WR: run(workflow, input)
+  loop For each traceStep
+    WR->>EC: step(name, fn)
+    EC->>EC: Add step event (status: pending)
+    WR->>SR: run(skillId, currentInput, context)
+    SR-->>WR: return output
+    EC->>EC: Update step event (status: success)
+  end
+  WR-->>Client: return RouteResult (with aggregated trace)
+```
 
 ---
 
-## Deterministic Offline Routing Engine
+## Offline-First Design
 
-The core routing engine operates completely offline without calling remote API endpoints. It evaluates matches through the following sequence:
-
-### 1. Exact Phrase Match
-Checks if the normalized prompt matches any route's primary trigger phrase exactly. This is the fastest match stage with $1.0$ confidence.
-
-### 2. Alias Match
-Checks if the normalized prompt matches any defined route aliases (e.g., shorthand names or common synonyms). Resolves with $0.95$ confidence.
-
-### 3. Keyword / Phrase Containment
-Uses phrase-trie parsing to find if any registered keyword sequences are contained within the user's prompt (longest containment match wins). Resolves with $0.9$ confidence.
-
-### 4. Pack-Scoped Filtering
-When a router is instantiated with specific packs, it scopes routing decisions to routes defined within those packs, preventing namespace collisions and reducing the lookup space.
-
-### 5. Fallback Route
-If no stages produce a match, the engine routes the prompt to the fallback route (e.g., `route.meta-system.supreme-router`).
-
----
-
-## Performance & Budgets
-
-* **Zero Latency Overhead**: Deterministic matching avoids slow network requests or model inference. Normal routing decisions take `<1ms`.
-* **Zero Token Waste**: By loading only the selected agent dossier and skill definitions rather than all instructions, the startup context remains small and compliant with tight agent context budgets.
+1. **Instant Resolution**: 99% of query routing is handled by local string normalization and regex/phrase-trie lookups. Average resolution latency is under **0.05ms**, running with zero network dependency.
+2. **Redaction & Filtering**: Input validation rules (e.g. licensing constraints or secret checks) are run in local hooks inside the memory sandbox.
+3. **Low-Token Control Plane**: Keeps the runtime context clean by loading only the active workflows, preserving valuable LLM context space.

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { convertToMarkdown } from '../packages/yes-runtime/tools/markitdown.js';
+import { convertToMarkdown } from '../packages/yes-doc-tools/dist/index.js';
 
 test('converts a plain text file to markdown', async () => {
   const tmp = path.join(os.tmpdir(), `yh-md-${Date.now()}.txt`);

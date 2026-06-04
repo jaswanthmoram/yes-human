@@ -1,19 +1,24 @@
-# Benchmarks
+# yes-human Benchmarking Suite
 
-Performance benchmarks for yes-human. Run from the project root after `npm ci`.
+This directory contains benchmarking code and fixtures to measure the startup time, memory footprints, and routing latency of the `yes-human` control plane.
 
-## Routing throughput
+## File Structure
 
+* `fixtures/route-prompts.json`: Prompts with expected workflow IDs matching standard pack configurations.
+* `results/sample-local-result.json`: Sample metrics from a local reference run on Apple Silicon hardware.
+* `routing.bench.js`: Script to run baseline benchmark iterations.
+* `assert-baseline.js`: Baseline performance regression assertion gates.
+
+## Running Benchmarks
+
+### Using the CLI (Recommended)
+You can trigger the benchmark suite using:
 ```bash
-node benchmarks/routing.bench.js
+npx yes bench
 ```
 
-Measures route resolution speed across 10 representative tasks over 100 iterations.
-
-## Host bundle build time
-
+### Using npm scripts
 ```bash
-node benchmarks/build.bench.js
+npm run bench
 ```
-
-Measures the time to build all 9 host bundles.
+This triggers the CLI `yes bench` command and logs the results to the standard output.

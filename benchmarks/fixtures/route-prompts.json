@@ -1,0 +1,42 @@
+[
+  {
+    "prompt": "review code",
+    "expectedWorkflowId": "developer.code-review"
+  },
+  {
+    "prompt": "bug fix",
+    "expectedWorkflowId": "developer.bug-fix"
+  },
+  {
+    "prompt": "explain code",
+    "expectedWorkflowId": "developer.explain-code"
+  },
+  {
+    "prompt": "generate tests",
+    "expectedWorkflowId": "developer.generate-tests"
+  },
+  {
+    "prompt": "security review",
+    "expectedWorkflowId": "developer.security-review"
+  },
+  {
+    "prompt": "summarize document",
+    "expectedWorkflowId": "document.summarize-document"
+  },
+  {
+    "prompt": "extract tasks",
+    "expectedWorkflowId": "document.extract-tasks"
+  },
+  {
+    "prompt": "create business plan",
+    "expectedWorkflowId": "business.business-plan"
+  },
+  {
+    "prompt": "launch checklist",
+    "expectedWorkflowId": "startup.launch-checklist"
+  },
+  {
+    "prompt": "order a cup of coffee",
+    "expectedWorkflowId": "meta-system.supreme-router"
+  }
+]

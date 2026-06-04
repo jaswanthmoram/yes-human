@@ -1,20 +1,59 @@
-# Benchmarks
+# Routing & Loading Benchmarks
 
-Benchmarks measure routing latency, memory overhead, and prompt accuracy for the yes-human SDK.
+This document details the benchmarking system built into `yes-human`. Benchmarking measures routing latency, startup speeds, and memory allocations locally on the developer machine.
 
-## Running the Benchmark
+---
 
-Run the benchmarks locally from the CLI:
+## How Benchmarks Are Run
+
+Benchmarks are triggered using the `yes` CLI:
 
 ```bash
-yes bench
+# Run route resolution benchmarks
+npx yes bench
+
+# Or run via root script
+npm run bench
 ```
 
-## Performance Metrics
+This runs:
+1. **Startup Performance**: Tracks the millisecond timing to load default, developer, document, business, security, and startup packs, compiling all routes.
+2. **Memory Heap Allocations**: Measures heap growth after loading registries.
+3. **Execution Latency**: Runs 500 iterations over a fixture suite of natural language queries to compute average sub-millisecond routing speeds.
+4. **Accuracy and Fallbacks**: Validates routing resolutions against the target expected workflow IDs.
 
-* **Average Routing Latency**: `<1.00 ms` (sub-millisecond deterministic matching)
-* **Memory Overhead**: `<150 KB` per loaded pack
-* **Accuracy Rate**: `100%` on predefined workflow trigger phrases
-* **Zero Model Call Overhead**: Avoids external API roundtrips and token consumption entirely during routing.
+---
 
-*Note: Benchmark figures depend on local machine resources and CPU capacity.*
+## Metric Explanations
+
+* **Routes Loaded**: Total count of routing intent triggers defined across all workflows.
+* **Workflows Loaded**: Total count of workflows registered.
+* **Skills Loaded**: Total count of skill descriptions.
+* **Startup Time**: Time in milliseconds required to initialize the router and parse the registries.
+* **Memory Usage**: Heap memory change (in Megabytes) before and after pack ingestion.
+* **Avg Route Lat**: The average latency (in milliseconds) to normalize a query and resolve the matching route.
+* **Route Accuracy**: Percentage of test prompts correctly resolved to their expected workflow IDs.
+* **Fallback Rate**: Percentage of prompts successfully routed to the default fallback `supreme-router` when no match exists.
+
+---
+
+## Performance Disclaimers
+
+All benchmark statistics are **local sample results**. Performance metrics vary based on system hardware, CPU load, and background operations.
+
+We do not make exaggerated claims. Deterministic routing is designed to run in under **0.1ms** on modern architectures, whereas semantic similarity models or network fallbacks will add latency matching the target endpoint speeds.
+
+---
+
+## Reproducing Locally
+
+To replicate benchmark statistics:
+1. Ensure your local workspaces are fully compiled:
+   ```bash
+   npm run build
+   ```
+2. Run the benchmarks:
+   ```bash
+   npm run bench
+   ```
+   The fixture definitions are loaded dynamically from [`benchmarks/fixtures/route-prompts.json`](file:///Users/moramvenkatasatyajaswanth/yes-human/benchmarks/fixtures/route-prompts.json).

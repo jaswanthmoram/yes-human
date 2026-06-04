@@ -1,41 +1,195 @@
-# API Reference
+# SDK API Reference
 
-This document covers public classes and types for `@yes-human/core` and `@yes-human/runtime`.
+This document provides a detailed API specification for the `@yes-human/core` and `@yes-human/runtime` packages.
 
-## `@yes-human/core`
+---
 
-### `createRouter(config?: RouterConfig): Router`
-Instantiates a new router context.
+## Initialization
 
+### `createRouter(config)`
+
+Factory function to create a new `Router` instance.
+
+* **Parameters:**
+  * `config` (`RouterConfig`, optional): Configuration options.
+* **Returns:** `Router`
+* **Example:**
+  ```typescript
+  import { createRouter } from "@yes-human/core";
+  import { developerPack } from "@yes-human/packs";
+  
+  const router = createRouter({
+    mode: "offline",
+    packs: [developerPack],
+    trace: true,
+    fallbackRouteId: "route.custom.fallback"
+  });
+  ```
+
+---
+
+## Router Instance Methods
+
+### `router.route(input)`
+
+Resolves a natural language query against registered workflows using exact match, alias, keyword matching, and semantic hooks.
+
+* **Parameters:**
+  * `input` (`string`): The user prompt or task description.
+* **Returns:** `Promise<RouteResult>`
+* **Example:**
+  ```javascript
+  const result = await router.route("review code changes");
+  console.log(result.route.id); // "route.developer.code-review"
+  ```
+
+### `router.runWorkflow(workflowId, input)`
+
+Directly invokes a workflow by its unique ID, bypassing the routing phrase matching logic but tracking execution steps.
+
+* **Parameters:**
+  * `workflowId` (`string`): The ID of the workflow to run.
+  * `input` (`string`): Input payload/context.
+* **Returns:** `Promise<RouteResult>`
+* **Example:**
+  ```javascript
+  const result = await router.runWorkflow("developer.code-review", "diff...");
+  ```
+
+### `router.loadPack(pack)`
+
+Registers a workflow pack containing workflows and skills. Validates structures and throws errors on malformed payloads.
+
+* **Parameters:**
+  * `pack` (`PackDefinition`): Pack containing workflows and skills.
+* **Returns:** `void`
+
+### `router.registerWorkflow(workflow)`
+
+Manually registers a single custom workflow definition.
+
+* **Parameters:**
+  * `workflow` (`WorkflowDefinition`): Custom workflow object.
+* **Returns:** `void`
+
+### `router.registerSkill(skill)`
+
+Manually registers a single custom skill definition.
+
+* **Parameters:**
+  * `skill` (`SkillDefinition`): Custom skill object.
+* **Returns:** `void`
+
+### `router.getTrace()`
+
+Retrieves the recorded step-by-step trace events of the router instance since creation.
+
+* **Returns:** `TraceObject`
+
+### `router.listWorkflows()`
+
+Lists all registered workflows in the router.
+
+* **Returns:** `WorkflowDefinition[]`
+
+### `router.listSkills()`
+
+Lists all registered skills in the router.
+
+* **Returns:** `SkillDefinition[]`
+
+### `router.listRoutes()`
+
+Lists computed routes based on all registered workflow triggers.
+
+* **Returns:** `RouteDetails[]`
+
+---
+
+## Core TypeScript Types
+
+### `RouterConfig`
 ```typescript
 export interface RouterConfig {
   mode?: "offline" | "hybrid" | "online";
   packs?: PackDefinition[];
-  trace?: boolean;
+  trace?: boolean; // default true
+  fallbackRouteId?: string;
+  semanticRouter?: (input: string) => Promise<RouteDetails | null> | RouteDetails | null;
+  semanticEndpoint?: string;
+  semanticModel?: string;
 }
 ```
 
-### `Router` Class Methods
-- `route(prompt: string): Promise<RouteResult>`: Evaluates a user prompt against registered triggers and returns routing details.
-- `runWorkflow(workflowId: string, input: string): Promise<RouteResult>`: Executes a workflow directly.
-- `registerSkill(skill: SkillDefinition): void`: Dynamically registers a skill.
-- `registerWorkflow(workflow: WorkflowDefinition): void`: Dynamically registers a workflow.
-- `loadPack(pack: PackDefinition): void`: Dynamically loads a pack of workflows/skills.
-- `getTrace(): TraceObject`: Returns the current trace tracker object.
-- `listRoutes(): RouteDetails[]`: Lists all registered routes.
-- `listWorkflows(): WorkflowDefinition[]`: Lists all registered workflows.
-- `listSkills(): SkillDefinition[]`: Lists all registered skills.
+### `RouteDetails`
+```typescript
+export interface RouteDetails {
+  id: string; // prefixed with "route."
+  workflowId: string;
+  confidence: number; // 0.0 to 1.0
+  stage: "exact" | "alias" | "keyword" | "fallback";
+  reason: string;
+}
+```
 
----
+### `TraceEvent`
+```typescript
+export interface TraceEvent {
+  step: string;
+  timestamp: string; // ISO String
+  status: "pending" | "success" | "failure";
+  metadata?: Record<string, any>;
+}
+```
 
-## `@yes-human/runtime`
+### `TraceObject`
+```typescript
+export interface TraceObject {
+  startTime: string;
+  endTime: string;
+  steps: TraceEvent[];
+}
+```
 
-### `RuntimeExecutionContext`
-Standard tracker context for sequential skill steps.
+### `RouteResult`
+```typescript
+export interface RouteResult {
+  route: RouteDetails;
+  workflow: WorkflowDefinition | null; // null if fallback
+  trace: TraceObject;
+}
+```
 
-- `step<T>(name: string, fn: () => Promise<T> | T): Promise<T>`: Wraps a subtask and appends it to the execution trace.
+### `WorkflowDefinition`
+```typescript
+export interface WorkflowDefinition {
+  id: string;
+  name: string;
+  description: string;
+  triggerPhrases: string[];
+  requiredSkills: string[];
+  expectedInput: string;
+  expectedOutput: string;
+  traceSteps: string[];
+  safetyNotes?: string;
+}
+```
 
-### `WorkflowRunner`
-Chains skills and executes them sequentially.
+### `SkillDefinition`
+```typescript
+export interface SkillDefinition {
+  id: string;
+  name: string;
+  description: string;
+}
+```
 
-- `execute(workflow: WorkflowDefinition, input: string, skills: Map<string, SkillDefinition>, context: RuntimeExecutionContext): Promise<{ output: string; trace: any[] }>`
+### `PackDefinition`
+```typescript
+export interface PackDefinition {
+  name: string;
+  description: string;
+  workflows: WorkflowDefinition[];
+  skills: SkillDefinition[];
+}
+```

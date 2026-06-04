@@ -1,131 +1,109 @@
 # yes-human
 
-Offline-first AI workflow router for local apps and developer tools.
+**yes-human is an offline-first AI workflow router that turns natural-language tasks into structured, reusable agent workflows for local apps and AI coding tools.**
 
-yes-human turns natural-language tasks into structured agent workflows. It helps local apps, AI coding tools, and developer platforms choose the right workflow, load only the needed instructions, run repeatable skills, and produce traceable outputs.
-
-It is not an LLM. It is the routing, workflow, and instruction layer around LLMs and local tools.
-
----
-
-## 1. What is yes-human?
-An offline-first, zero-latency routing layer that matches user prompts to predefined developer or corporate workflows, loading only the necessary skills and checking compliance.
-
-## 2. Who is it for?
-* **Desktop & CLI Tool Developers**: Build local coding tools with consistent AI behavior.
-* **AI Coding Agent Builders**: Standardize instructions and workflows for Codex, Antigravity, or Cursor.
-* **Enterprise Control Planes**: Enforce auditable compliance gates and trace logging of AI actions.
-
-## 3. Why it exists?
-To prevent high routing latency, reduce token consumption in agent prompts, and ensure deterministic, repeatable executions.
-
-## 4. What problem it solves?
-LLM-based routing is slow, expensive, and unpredictable. yes-human resolves routing in `< 1ms` with a local deterministic trie, eliminating network hops and token overhead.
+> **What it is**: It is the routing, workflow, instruction, and pack layer around Large Language Models (LLMs) and local developer tools.
+>
+> **What it is NOT**: It is not an LLM. It is not a replacement for Codex, Claude Code, Cursor, or Antigravity. It is the orchestrator and router that runs ahead of them.
 
 ---
 
-## 5. How to Install and Use in 60 Seconds
+## Quick Q&A (First Screen Overview)
 
-Install the workspace packages:
+### 1. What is yes-human?
+An offline-first, zero-latency intent router and workflow engine. It parses natural-language prompts locally and maps them to specialized, deterministic agent routines, loading only the needed instructions and rules.
+
+### 2. What problem does it solve?
+Using LLMs to route prompts is slow, expensive, and unpredictable. `yes-human` maps user queries to specific workflow IDs in under **0.05ms** with zero network calls, eliminating token overhead, prompt drift, and routing errors.
+
+### 3. Who is it for?
+* **Desktop & Desktop-Wrapper App Builders**: Developers building Tauri, Electron, or local React coding assistants.
+* **AI Coding Agent Architects**: Team leads standardizing prompt templates and checklists for Codex, Antigravity, or Cursor workspaces.
+* **Enterprise Control Planes**: Security leads enforcing local compliance check gates (such as PII redaction and license audits) before prompts leave the local system.
+
+### 4. Why not just use Codex/Antigravity directly?
+Codex and Antigravity are powerful execution engines but have no built-in deterministic query-to-intent routing, local safety guardrails, or domain workflow pack registries. `yes-human` organizes your workflows locally and generates the configs Codex and Antigravity need, preventing prompt bloat.
+
+### 5. How does yes-human help reduce prompt waste?
+Instead of prefixing every prompt with hundreds of lines of generic instruction markdown (which burns context window tokens and increases billing costs), `yes-human` matches queries locally and only exposes the specific, relevant instruction subset (or Codex/Antigravity skill) required for that task.
+
+### 6. How to install/use SDK?
+Install the npm packages:
 ```bash
 npm install @yes-human/core @yes-human/runtime @yes-human/packs
 ```
-
----
-
-## 6. How it helps Codex, Antigravity, and Cursor
-* **Codex**: Generates instructions (`AGENTS.md` and `.codex/skills/`) to guide Codex behaviors.
-* **Antigravity**: Exports standardized `agents.md`, `skills/` procedures, and target `workflows/` sequences.
-* **Cursor / VSCode**: Generates `.cursorrules` or vscode workspace configurations.
-
----
-
-## 7. Architecture Flow
-
-```mermaid
-graph TD
-  UserPrompt["User Prompt"] --> Router["1. Router resolves Route"]
-  Router --> Route["2. Selected Route points to Workflow"]
-  Route --> Workflow["3. Selected Workflow maps Skills"]
-  Workflow --> Skills["4. Skills Executed in Runtime Simulator"]
-  Skills --> Trace["5. Step Trace Recorded"]
-  Trace --> Result["6. Final Output & Trace Object"]
-```
-
----
-
-## 8. SDK Example
-
-```typescript
+Bootstrap the SDK:
+```javascript
 import { createRouter } from "@yes-human/core";
 import { developerPack } from "@yes-human/packs";
 
-const router = createRouter({
-  mode: "offline",
-  packs: [developerPack],
-  trace: true
-});
-
-const result = await router.route("review this code for bugs and security issues");
-
-console.log(result.route.id);       // "route.developer.code-review"
-console.log(result.route.stage);    // "alias"
-console.log(result.trace.steps);    // Array of trace execution steps
+const router = createRouter({ packs: [developerPack] });
+const result = await router.route("review code changes");
+console.log(result.route.workflowId); // "developer.code-review"
 ```
 
----
-
-## 9. CLI Example
-
+### 7. How to export Codex skills?
+Synchronize your local workflows directly to Codex workspace files:
 ```bash
-# Route a prompt to a workflow
-yes route "review code for bugs" --trace
+npx yes export codex ./my-project
+```
+This generates `.codex/skills/` (containing Purpose, When to Use, and checklist parameters) and `AGENTS.md`.
 
-# Execute a specific workflow
-yes run developer.code-review "const x = 1;"
+### 8. How to export Antigravity skills?
+Synchronize workflows to Google Antigravity workspaces:
+```bash
+npx yes export antigravity ./my-project
+```
+This generates `agents.md` (team structure) along with standard `skills/` prompts and `workflows/` sequences.
 
-# List loaded packs
-yes pack list
+### 9. How offline mode works?
+`yes-human` resolves intent routing entirely on the local CPU using deterministic normalization, keyword overlap, and alias maps. It runs fully offline with sub-millisecond execution times. Local document conversion is powered by Microsoft's MarkItDown running on local python environments.
 
-# Export skills to Codex/Antigravity
-yes export codex ./output-dir
-yes export antigravity ./output-dir
+### 10. What packages exist?
+* **`@yes-human/core`**: Core router matching algorithms and pack loading primitives.
+* **`@yes-human/runtime`**: Workflow runner execution and context tracing.
+* **`@yes-human/packs`**: Predefined bundles (default, developer, document, business, security, startup).
+* **`@yes-human/adapters`**: Code generation adapters for Codex, Antigravity, and host prompts.
+* **`@yes-human/doc-tools`**: Optional document-to-markdown conversion utility.
+* **`yes-cli`**: Developer control CLI.
 
-# Run performance benchmarks
-yes bench
+---
+
+## Architecture Pipeline
+
+```mermaid
+graph TD
+  Prompt[User Prompt] -->|Sub-millisecond Routing| Router[1. Router resolves Route]
+  Router -->|Exact, Alias, or Keyword stage| Workflow[2. Resolves target Workflow & Skills]
+  Workflow -->|Offline-First Exec| Runtime[3. WorkflowRunner runs traceSteps]
+  Runtime -->|Record status & result| Context[4. Context updates step trace]
+  Context -->|Final Output| Output[5. Aggregated RouteResult Object]
 ```
 
 ---
 
-## 10. Packs List
-* **developer-pack**: Code review, bug fix, explain code, test generation, security reviews.
-* **document-pack**: Summarization, tasks extraction, outline, differences comparison.
-* **business-pack**: Business models, startup costs estimates, slide outlines, pricing strategy.
-* **security-pack**: Prompt injection scans, dependency scanning, secrets scans.
-* **startup-pack**: Roadmaps, PRD generator, VC summaries, launches checks.
-* **default-pack**: 10 lightweight, fast-loading general workflows.
+## SDK Integration Guides
+
+* [Getting Started Guide](file:///Users/moramvenkatasatyajaswanth/yes-human/docs/getting-started.md)
+* [API Reference Documentation](file:///Users/moramvenkatasatyajaswanth/yes-human/docs/api-reference.md)
+* [Architecture Specifications](file:///Users/moramvenkatasatyajaswanth/yes-human/docs/architecture.md)
+* [App Integration Blueprints](file:///Users/moramvenkatasatyajaswanth/yes-human/docs/integration-guide.md)
+* [Domain Packs Registry](file:///Users/moramvenkatasatyajaswanth/yes-human/docs/packs.md)
+* [Codex & Antigravity Exporters](file:///Users/moramvenkatasatyajaswanth/yes-human/docs/adapters.md)
+* [Document Conversion Tools](file:///Users/moramvenkatasatyajaswanth/yes-human/docs/doc-tools.md)
+* [Routing & Load Benchmarks](file:///Users/moramvenkatasatyajaswanth/yes-human/docs/benchmarks.md)
 
 ---
 
-## 11. Integration Examples
-* [node-cli-assistant](file:///Users/moramvenkatasatyajaswanth/yes-human/examples/node-cli-assistant/index.ts): Command line assistant demonstrating developer workflow.
-* [react-local-app](file:///Users/moramvenkatasatyajaswanth/yes-human/examples/react-local-app/index.html): A gorgeous local dashboard detailing routing trace timelines.
+## Runnable Examples
 
----
-
-## 12. Roadmap
-* [x] Strictly typed TypeScript monorepo packages.
-* [x] Codex & Antigravity export adapters.
-* [x] Interactive browser React dashboard simulation.
-* [ ] Multi-agent orchestration workflows.
-* [ ] Local database synchronizer.
-
----
-
-> [!CAUTION]
-> **Production Safety Note**: All medical, legal, or high-stakes financial outcomes generated by routed AI workflows require human evaluation prior to production execution.
+* [Node.js Interactive CLI Assistant](file:///Users/moramvenkatasatyajaswanth/yes-human/examples/node-cli-assistant)
+* [React Vite Dashboard Visualizer](file:///Users/moramvenkatasatyajaswanth/yes-human/examples/react-local-app)
+* [Electron Offline App Setup](file:///Users/moramvenkatasatyajaswanth/examples/electron-offline-app)
+* [Tauri Desktop sidecar Setup](file:///Users/moramvenkatasatyajaswanth/examples/tauri-offline-app)
 
 ---
 
 ## License
+
 MIT License. See [LICENSE](file:///Users/moramvenkatasatyajaswanth/yes-human/LICENSE) for details.
