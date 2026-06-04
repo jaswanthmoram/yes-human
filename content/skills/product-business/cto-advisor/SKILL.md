@@ -62,49 +62,62 @@ rollback:
 validators:
   - skill.validator
 ---
+
 ## Trigger
+
 Use for technology strategy, org design decisions, build-vs-buy analysis, or technical communication to board/investors.
 
 ## Prerequisites
+
 - Current tech stack and team structure documented
 - Business goals defined for planning horizon
 
 ## Steps
 
 ### 1. Map Tech to Business
+
 Every major technical investment must answer: "What business outcome does this enable?" If you can't answer, it's not a priority.
 
 ### 2. Build vs Buy
+
 Build: core differentiating capability (your secret sauce). Buy/SaaS: commodity infrastructure (auth, billing, email). Build total cost of ownership includes: engineering time, maintenance, opportunity cost.
 
 ### 3. Prioritize Tech Debt
+
 Score each item: business risk (1-5) × engineering effort (1-5). Attack high-risk items first. Low-risk tolerable debt is not a priority.
 
 ### 4. Design the Org
+
 Pre-PMF: generalist engineers in a feature team. Post-PMF: product-aligned squads with embedded platform team. Scale: platform team becomes a foundation team.
 
 ### 5. Define North Star Architecture
+
 3-year target architecture in one diagram. Today → milestones → north star. Don't migrate without a destination.
 
 ### 6. Prepare Board Communication
+
 Technical risk is a board-level concern. Communicate: "Our current architecture can support X users. To support 10X, we need Y investment by Q3."
 
 ## Verification
+
 - [ ] Tech strategy tied to business outcomes
 - [ ] Build-vs-buy includes TCO
 - [ ] Tech debt scored by business risk
 - [ ] Board communication clear and non-jargon
 
 ## Rollback
+
 Strategy documents — no system changes.
 
 ## Common Failures
-| Failure | Cause | Fix |
-|---------|-------|-----|
+
+| Failure                   | Cause                     | Fix                                           |
+| ------------------------- | ------------------------- | --------------------------------------------- |
 | Technology vanity project | Not tied to business goal | Require business outcome for every investment |
-| Premature optimization | Scaling before PMF | Fix correctness before scalability |
-| No north star | Reactive architecture | Define 2-3yr target state |
+| Premature optimization    | Scaling before PMF        | Fix correctness before scalability            |
+| No north star             | Reactive architecture     | Define 2-3yr target state                     |
 
 ## Examples
+
 **Example A:** Build-vs-buy: auth system — buy (Auth0) to focus engineering on core product.
 **Example B:** Post-Series A: migrate from monolith to modular monolith (not microservices yet) to enable team scaling.

@@ -18,12 +18,7 @@
     "security posture assessment",
     "platform security audit"
   ],
-  "negative_keywords": [
-    "single file code review",
-    "fix a specific bug",
-    "write new feature",
-    "deploy to production"
-  ],
+  "negative_keywords": ["single file code review", "fix a specific bug", "write new feature", "deploy to production"],
   "inputs": [
     {
       "name": "audit_scope",
@@ -59,28 +54,18 @@
   "primary_agent": "security.security-reviewer",
   "route": {
     "domain_master": "security.master",
-    "agents": [
-      "security.security-reviewer"
-    ],
+    "agents": ["security.security-reviewer"],
     "parallel": true,
     "max_parallel_agents": 3,
     "primary": "security.security-reviewer",
-    "participants": [
-      "security.secret-scan-agent",
-      "security.compliance-checker"
-    ]
+    "participants": ["security.secret-scan-agent", "security.compliance-checker"]
   },
   "budget": {
     "band": "expanded",
     "max_context_tokens": 5000,
     "max_tool_calls": 18
   },
-  "gates": [
-    "pre-route",
-    "pre-tool",
-    "post-tool",
-    "on-task-complete"
-  ],
+  "gates": ["pre-route", "pre-tool", "post-tool", "on-task-complete"],
   "steps": [
     {
       "id": "scope-definition",
@@ -131,9 +116,7 @@
     "mode": "no_write",
     "summary": "Read-only audit workflow with no code modifications."
   },
-  "source_references": [
-    "ref.workflow.security.security-audit-process.2026-06-01"
-  ],
+  "source_references": ["ref.workflow.security.security-audit-process.2026-06-01"],
   "promotion": {
     "can_learn": true,
     "quality_gate": "staging",

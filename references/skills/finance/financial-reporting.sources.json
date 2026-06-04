@@ -125,10 +125,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "financial reporting: Claude Engineer patterns and workflow references",
-        "verification pattern 10"
-      ],
+      "used_for": ["financial reporting: Claude Engineer patterns and workflow references", "verification pattern 10"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -138,10 +135,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "financial reporting: Claude Swarm patterns and workflow references",
-        "verification pattern 11"
-      ],
+      "used_for": ["financial reporting: Claude Swarm patterns and workflow references", "verification pattern 11"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"

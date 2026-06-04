@@ -10,15 +10,8 @@
     "calibration process design",
     "growth plan template creation"
   ],
-  "aliases": [
-    "performance review cycle",
-    "review cycle workflow"
-  ],
-  "negative_keywords": [
-    "tax filing",
-    "contract interpretation",
-    "campaign launch"
-  ],
+  "aliases": ["performance review cycle", "review cycle workflow"],
+  "negative_keywords": ["tax filing", "contract interpretation", "campaign launch"],
   "inputs": [
     {
       "name": "role_family",
@@ -53,14 +46,9 @@
   "primary_agent": "hr.performance-reviewer",
   "route": {
     "domain_master": "hr.master",
-    "agents": [
-      "hr.performance-reviewer",
-      "hr.performance-reviewer"
-    ],
+    "agents": ["hr.performance-reviewer", "hr.performance-reviewer"],
     "primary_agent": "hr.performance-reviewer",
-    "participants": [
-      "hr.performance-reviewer"
-    ],
+    "participants": ["hr.performance-reviewer"],
     "parallel": false,
     "max_parallel_agents": 2
   },

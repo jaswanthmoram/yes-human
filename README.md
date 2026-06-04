@@ -9,16 +9,16 @@ Yes-human is a portable, low-token routing and orchestration layer for AI assist
 
 ## Production Scope
 
-| Capability | Current status |
-|---|---|
-| Agents | 325 registered agents across 18 domains |
-| Skills | 389 registered skills with stub detection in CI |
-| Workflows | 119 deterministic workflow entries |
-| Routes | 445 route definitions and 2,526 hot-route phrases |
-| Startup budget | `YES_BOOT.md` held under the 180 token target |
-| High-stakes work | Finance, legal, HR, and healthcare routes require disclaimer and human review gates |
-| Host bundles | Claude, Codex, OpenCode, MCP, Cursor, Windsurf, VS Code, Sourcegraph, and Generic |
-| Security baseline | Env-var secret references, CI secret scan, pre-commit gitleaks hook |
+| Capability             | Current status                                                                                                                      |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Agents                 | 325 registered agents across 18 domains                                                                                             |
+| Skills                 | 389 registered skills with stub detection in CI                                                                                     |
+| Workflows              | 119 deterministic workflow entries                                                                                                  |
+| Routes                 | 445 route definitions and 2,526 hot-route phrases                                                                                   |
+| Startup budget         | `YES_BOOT.md` held under the 180 token target                                                                                       |
+| High-stakes work       | Finance, legal, HR, and healthcare routes require disclaimer and human review gates                                                 |
+| Host bundles           | Claude, Codex, OpenCode, MCP, Cursor, Windsurf, VS Code, Sourcegraph, and Generic                                                   |
+| Security baseline      | Env-var secret references, CI secret scan, pre-commit gitleaks hook                                                                 |
 | OSS runtime primitives | Semantic fallback, fan-out plans, RBAC, tenant/project trace isolation, retention, connector protocol, signed manifest verification |
 
 ## Install
@@ -76,40 +76,40 @@ node packages/yes-cli/index.js build all
 
 ## Supported Hosts
 
-| Host | Build command | Output |
-|---|---|---|
-| Claude | `npm run yes -- build claude` | `generated/claude/` |
-| Codex | `npm run yes -- build codex` | `generated/codex/` |
-| OpenCode | `npm run yes -- build opencode` | `generated/opencode/` |
-| MCP | `npm run yes -- build mcp` | `generated/mcp/` |
-| Cursor | `npm run yes -- build cursor` | `generated/cursor/` |
-| Windsurf | `npm run yes -- build windsurf` | `generated/windsurf/` |
-| VS Code | `npm run yes -- build vscode` | `generated/vscode/` |
+| Host        | Build command                      | Output                   |
+| ----------- | ---------------------------------- | ------------------------ |
+| Claude      | `npm run yes -- build claude`      | `generated/claude/`      |
+| Codex       | `npm run yes -- build codex`       | `generated/codex/`       |
+| OpenCode    | `npm run yes -- build opencode`    | `generated/opencode/`    |
+| MCP         | `npm run yes -- build mcp`         | `generated/mcp/`         |
+| Cursor      | `npm run yes -- build cursor`      | `generated/cursor/`      |
+| Windsurf    | `npm run yes -- build windsurf`    | `generated/windsurf/`    |
+| VS Code     | `npm run yes -- build vscode`      | `generated/vscode/`      |
 | Sourcegraph | `npm run yes -- build sourcegraph` | `generated/sourcegraph/` |
-| Generic | `npm run yes -- build generic` | `generated/generic/` |
+| Generic     | `npm run yes -- build generic`     | `generated/generic/`     |
 
 ## Domains
 
-| Domain | Scope |
-|---|---|
-| `data-ai` | Analytics engineering, ML systems, evaluations, experimentation |
-| `design-content` | UX, UI, presentations, copy, content systems |
-| `education` | Curriculum, assessment, tutoring, learning operations |
-| `engineering` | Architecture, testing, review, refactoring, language patterns |
-| `finance` | Informational finance analysis, expense, payroll, FP&A |
-| `healthcare` | Informational healthcare workflows with human review gates |
-| `hr` | Hiring, policies, performance, people operations |
-| `integrations` | Figma, Notion, Stripe, MCP, connector design |
-| `legal-compliance` | Informational contract, privacy, policy, compliance workflows |
-| `manufacturing` | Operations, quality, supply chain, reliability |
-| `marketing` | Growth, campaigns, brand, lifecycle, channels |
-| `meta-system` | Routing, graph building, adapter generation, cost control |
-| `platform` | Cloud, release, SRE, container, infrastructure operations |
-| `product-business` | Product strategy, CEO/CTO/CFO advisory, pricing, growth |
-| `research` | Market, technical, academic, and evidence synthesis |
-| `sales` | Account, deal, pricing, forecast, and follow-up workflows |
-| `security` | Threat modeling, review, detection, incident workflows |
-| `startup-ops` | Fundraising, pitch, operations, planning |
+| Domain             | Scope                                                           |
+| ------------------ | --------------------------------------------------------------- |
+| `data-ai`          | Analytics engineering, ML systems, evaluations, experimentation |
+| `design-content`   | UX, UI, presentations, copy, content systems                    |
+| `education`        | Curriculum, assessment, tutoring, learning operations           |
+| `engineering`      | Architecture, testing, review, refactoring, language patterns   |
+| `finance`          | Informational finance analysis, expense, payroll, FP&A          |
+| `healthcare`       | Informational healthcare workflows with human review gates      |
+| `hr`               | Hiring, policies, performance, people operations                |
+| `integrations`     | Figma, Notion, Stripe, MCP, connector design                    |
+| `legal-compliance` | Informational contract, privacy, policy, compliance workflows   |
+| `manufacturing`    | Operations, quality, supply chain, reliability                  |
+| `marketing`        | Growth, campaigns, brand, lifecycle, channels                   |
+| `meta-system`      | Routing, graph building, adapter generation, cost control       |
+| `platform`         | Cloud, release, SRE, container, infrastructure operations       |
+| `product-business` | Product strategy, CEO/CTO/CFO advisory, pricing, growth         |
+| `research`         | Market, technical, academic, and evidence synthesis             |
+| `sales`            | Account, deal, pricing, forecast, and follow-up workflows       |
+| `security`         | Threat modeling, review, detection, incident workflows          |
+| `startup-ops`      | Fundraising, pitch, operations, planning                        |
 
 ## Adding Agents And Skills
 
@@ -144,32 +144,26 @@ get `{ markdown, images, hasImages }` instead of a string.
 
 ## Key paths
 
-| Path | Purpose |
-|------|---------|
-| `YES_BOOT.md` | Startup boot text (~60–180 tokens) |
-| `graph/indexes/ROUTE_TABLE.min.json` | Hot keyword → route_id map |
-| `registry/routes.json` | Full route definitions (lazy-loaded) |
-| `registry/*.json` | Agent, skill, workflow, connector, and category-pack indexes |
-| `packages/yes-schema/` | JSON schemas and validator |
-| `packages/yes-connectors/` | Generic OSS connector adapter protocol over `registry/mcps.json` and connector profiles |
-| `yes-human.plugin.json` | Plugin manifest |
-| `reports/phase8-acceptance.md` | Generated Phase 8 acceptance summary |
-| `reports/phase9-acceptance.md` | Phase 9 learning/team/offline/adapter acceptance summary |
-| `staging/traces/` | Local `yes run --trace` JSONL output |
+| Path                                 | Purpose                                                                                 |
+| ------------------------------------ | --------------------------------------------------------------------------------------- |
+| `YES_BOOT.md`                        | Startup boot text (~60–180 tokens)                                                      |
+| `graph/indexes/ROUTE_TABLE.min.json` | Hot keyword → route_id map                                                              |
+| `registry/routes.json`               | Full route definitions (lazy-loaded)                                                    |
+| `registry/*.json`                    | Agent, skill, workflow, connector, and category-pack indexes                            |
+| `packages/yes-schema/`               | JSON schemas and validator                                                              |
+| `packages/yes-connectors/`           | Generic OSS connector adapter protocol over `registry/mcps.json` and connector profiles |
+| `yes-human.plugin.json`              | Plugin manifest                                                                         |
+| `staging/traces/`                    | Local `yes run --trace` JSONL output (gitignored)                                        |
 
 ## Documentation
 
-### Current OSS Core
-- `YES-HUMAN_DEVELOPMENT_PLAN.md` — Current OSS core status, contributor validation gate, and concise future hosted deployment section
-- `yes-human-agentic-system-architecture.md` — Architecture reference for the public control plane
+- `README.md` — Overview, install, quickstart, routing model, and supported hosts
 - `CONTRIBUTING.md` — Contributor workflow, source dossier expectations, route fixture rules, and validation gate
+- `SECURITY.md` — Security policy and disclosure process
+- `VERSIONING.md` — Versioning and release policy
+- `CHANGELOG.md` — Release history
 
-### Provenance And Research
-- `YES-HUMAN_SOURCE_MAP.md` — Validated source registry for agent/workflow creation
-- `reports/ECC-SKILL-SOURCE-MAP-DEEP-RESEARCH.md` — Deep research: 180+ repos, 14 architecture patterns, 8 categories
-- `reports/COMPETITOR-ANALYSIS.md` — Direct competitor analysis: 5 closest projects, 20 adoption patterns, competitive positioning matrix
-
-Historical phase plans and prompt-only task files were removed once their work was reflected in code, schemas, tests, docs, reports, or source provenance.
+Internal planning, architecture-draft, and research/source-map documents are kept out of the published repository; their decisions are reflected directly in code, schemas, tests, and registries.
 
 ## Architecture Highlights
 
@@ -178,6 +172,7 @@ Historical phase plans and prompt-only task files were removed once their work w
 **Target Startup Context:** 60-180 tokens (hard cap: 300 tokens)
 
 **System Layers:**
+
 1. `yes-core` — Policy evaluation, validation, trust scoring
 2. `yes-runtime` — Execution, spawner, traces
 3. `yes-graph` — Multi-tiered routing (Trie, SQLite, semantic fallback)
@@ -201,6 +196,7 @@ node packages/yes-cli/index.js recover resume
 Feedback, workflow suggestions, and trainer output are staging/report artifacts only. They never mutate `registry/routes.json` or `graph/indexes/ROUTE_TABLE.min.json` directly.
 
 **ECC Integration:** Selectively absorbing patterns from 180+ repositories:
+
 - PlanCard pattern (`forgent`) for structured route output
 - 4-signal quality scoring (`ctx`) for skill/workflow validation
 - 6 team topologies (`harness`) for workflow coordination hints
@@ -239,7 +235,6 @@ Runtime traces are tenant/project scoped under `graph/memory/tenants/<tenant-has
 ### MCP connector profiles
 
 Set `YES_CONNECTOR_PROFILE` to `minimal` (default), `research`, or `enterprise` (see `registry/connector-profiles.json`). `npm run doctor` only checks env vars for MCPs listed in the active profile's `enable` array. Copy keys from `.env.example`; keep optional MCPs disabled in `registry/mcps.json` until you opt in.
-
 
 ## License
 

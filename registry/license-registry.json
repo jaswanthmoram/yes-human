@@ -1,25 +1,5 @@
 {
-  "allowed": [
-    "MIT",
-    "Apache-2.0",
-    "BSD-3-Clause",
-    "BSD-2-Clause",
-    "ISC",
-    "Unlicense",
-    "CC0-1.0"
-  ],
-  "forbidden": [
-    "GPL-2.0",
-    "GPL-3.0",
-    "AGPL-3.0",
-    "SSPL",
-    "CC-BY-NC-4.0",
-    "Proprietary",
-    "Unclear"
-  ],
-  "restricted": [
-    "LGPL-2.1",
-    "LGPL-3.0",
-    "MPL-2.0"
-  ]
+  "allowed": ["MIT", "Apache-2.0", "BSD-3-Clause", "BSD-2-Clause", "ISC", "Unlicense", "CC0-1.0"],
+  "forbidden": ["GPL-2.0", "GPL-3.0", "AGPL-3.0", "SSPL", "CC-BY-NC-4.0", "Proprietary", "Unclear"],
+  "restricted": ["LGPL-2.1", "LGPL-3.0", "MPL-2.0"]
 }

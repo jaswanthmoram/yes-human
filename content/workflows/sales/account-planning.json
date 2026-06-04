@@ -10,15 +10,8 @@
     "account strategy design",
     "key account planning session"
   ],
-  "aliases": [
-    "account planning",
-    "account strategy"
-  ],
-  "negative_keywords": [
-    "marketing ABM campaign",
-    "customer support escalation",
-    "product roadmap planning"
-  ],
+  "aliases": ["account planning", "account strategy"],
+  "negative_keywords": ["marketing ABM campaign", "customer support escalation", "product roadmap planning"],
   "inputs": [
     {
       "name": "account_data",
@@ -53,16 +46,9 @@
   "primary_agent": "sales.customer-success",
   "route": {
     "domain_master": "sales.master",
-    "agents": [
-      "sales.customer-success",
-      "sales.account-executive",
-      "sales.sales-strategist"
-    ],
+    "agents": ["sales.customer-success", "sales.account-executive", "sales.sales-strategist"],
     "primary_agent": "sales.customer-success",
-    "participants": [
-      "sales.account-executive",
-      "sales.sales-strategist"
-    ],
+    "participants": ["sales.account-executive", "sales.sales-strategist"],
     "parallel": true,
     "max_parallel_agents": 3
   },

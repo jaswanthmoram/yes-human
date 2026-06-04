@@ -4,21 +4,9 @@
   "status": "active",
   "summary": "Assess a repository for security risk by combining baseline code review with dedicated secret scanning.",
   "task_family": "security_review",
-  "triggers": [
-    "scan this repo for security risks",
-    "perform a repo risk scan",
-    "audit this repository before release"
-  ],
-  "aliases": [
-    "repository security scan",
-    "appsec repo review",
-    "secret and vuln sweep"
-  ],
-  "negative_keywords": [
-    "threat model a new design",
-    "fix build error",
-    "write product plan"
-  ],
+  "triggers": ["scan this repo for security risks", "perform a repo risk scan", "audit this repository before release"],
+  "aliases": ["repository security scan", "appsec repo review", "secret and vuln sweep"],
+  "negative_keywords": ["threat model a new design", "fix build error", "write product plan"],
   "inputs": [
     {
       "name": "repo_path",
@@ -47,27 +35,18 @@
   "primary_agent": "security.security-reviewer",
   "route": {
     "domain_master": "security.master",
-    "agents": [
-      "security.security-reviewer"
-    ],
+    "agents": ["security.security-reviewer"],
     "parallel": true,
     "max_parallel_agents": 2,
     "primary": "security.security-reviewer",
-    "participants": [
-      "security.secret-scan-agent"
-    ]
+    "participants": ["security.secret-scan-agent"]
   },
   "budget": {
     "band": "expanded",
     "max_context_tokens": 4200,
     "max_tool_calls": 12
   },
-  "gates": [
-    "pre-route",
-    "pre-tool",
-    "post-tool",
-    "on-task-complete"
-  ],
+  "gates": ["pre-route", "pre-tool", "post-tool", "on-task-complete"],
   "steps": [
     {
       "id": "baseline-scan",
@@ -82,12 +61,7 @@
       "summary": "Read the flagged code paths, drop false positives, and rank confirmed issues by severity."
     }
   ],
-  "tools": [
-    "filesystem.read",
-    "shell.readonly",
-    "security_scanner",
-    "secret_scanner"
-  ],
+  "tools": ["filesystem.read", "shell.readonly", "security_scanner", "secret_scanner"],
   "verification": [
     "scanner_output_consulted_first",
     "every_finding_has_evidence",
@@ -102,9 +76,7 @@
     "mode": "no_write",
     "summary": "Read-only assessment workflow."
   },
-  "source_references": [
-    "ref.workflow.security.repo-risk-scan.2026-06-01"
-  ],
+  "source_references": ["ref.workflow.security.repo-risk-scan.2026-06-01"],
   "promotion": {
     "can_learn": true,
     "quality_gate": "staging",

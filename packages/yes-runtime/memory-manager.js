@@ -3,13 +3,13 @@ import path from 'path';
 
 /**
  * 4-Layer Memory Manager (from agentic-harness pattern)
- * 
+ *
  * Memory layers:
  * 1. working/ - Live task state, volatile, archived after 2 days
  * 2. episodic/ - What happened in prior runs, JSONL, scored by salience
  * 3. semantic/ - Distilled patterns that outlive episodes (lessons.jsonl → LESSONS.md)
  * 4. personal/ - User preferences, never merged into semantic
- * 
+ *
  * Features:
  * - Salience scoring for episodic memory
  * - Automatic archival of working memory
@@ -23,7 +23,7 @@ export class MemoryManager {
     this.episodicDir = path.join(this.memoryDir, 'episodic');
     this.semanticDir = path.join(this.memoryDir, 'semantic');
     this.personalDir = path.join(this.memoryDir, 'personal');
-    
+
     this.ensureDirectories();
   }
 
@@ -61,16 +61,16 @@ export class MemoryManager {
   getWorkingMemory(key) {
     const filePath = path.join(this.workingDir, `${key}.json`);
     if (!fs.existsSync(filePath)) return null;
-    
+
     try {
       const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-      
+
       // Check expiration
       if (data.expires_at && new Date(data.expires_at) < new Date()) {
         fs.unlinkSync(filePath);
         return null;
       }
-      
+
       return data.value;
     } catch {
       return null;
@@ -81,7 +81,7 @@ export class MemoryManager {
    * Clear all working memory
    */
   clearWorkingMemory() {
-    const files = fs.readdirSync(this.workingDir).filter(f => f.endsWith('.json'));
+    const files = fs.readdirSync(this.workingDir).filter((f) => f.endsWith('.json'));
     for (const file of files) {
       fs.unlinkSync(path.join(this.workingDir, file));
     }
@@ -91,14 +91,14 @@ export class MemoryManager {
    * Archive expired working memory to episodic
    */
   archiveWorkingMemory() {
-    const files = fs.readdirSync(this.workingDir).filter(f => f.endsWith('.json'));
+    const files = fs.readdirSync(this.workingDir).filter((f) => f.endsWith('.json'));
     let archived = 0;
-    
+
     for (const file of files) {
       const filePath = path.join(this.workingDir, file);
       try {
         const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-        
+
         if (data.expires_at && new Date(data.expires_at) < new Date()) {
           // Archive to episodic
           this.addEpisodicMemory('tasks', {
@@ -107,7 +107,7 @@ export class MemoryManager {
             archived_from: 'working',
             original_timestamp: data.timestamp
           });
-          
+
           fs.unlinkSync(filePath);
           archived++;
         }
@@ -115,7 +115,7 @@ export class MemoryManager {
         // Skip invalid files
       }
     }
-    
+
     return archived;
   }
 
@@ -132,7 +132,7 @@ export class MemoryManager {
       salience: this.calculateSalience(entry),
       id: this.generateId()
     };
-    
+
     fs.appendFileSync(filePath, JSON.stringify(enriched) + '\n');
     return enriched.id;
   }
@@ -143,11 +143,11 @@ export class MemoryManager {
   getEpisodicMemory(category, limit = 100) {
     const filePath = path.join(this.episodicDir, `${category}.jsonl`);
     if (!fs.existsSync(filePath)) return [];
-    
+
     try {
       const lines = fs.readFileSync(filePath, 'utf8').trim().split('\n');
       return lines
-        .map(line => JSON.parse(line))
+        .map((line) => JSON.parse(line))
         .sort((a, b) => (b.salience || 0) - (a.salience || 0))
         .slice(0, limit);
     } catch {
@@ -161,9 +161,9 @@ export class MemoryManager {
   searchEpisodicMemory(category, query, limit = 10) {
     const entries = this.getEpisodicMemory(category, 1000);
     const queryLower = query.toLowerCase();
-    
+
     return entries
-      .filter(entry => {
+      .filter((entry) => {
         const text = JSON.stringify(entry).toLowerCase();
         return text.includes(queryLower);
       })
@@ -175,26 +175,26 @@ export class MemoryManager {
    */
   calculateSalience(entry) {
     let score = 0;
-    
+
     // Failures are more salient
     if (entry.success === false || entry.error) score += 10;
-    
+
     // Long tasks are more salient
     if (entry.duration && entry.duration > 60000) score += 5;
-    
+
     // Multi-agent tasks are more salient
     if (entry.agents && entry.agents.length > 2) score += 3;
-    
+
     // Errors are highly salient
     if (entry.error) score += 8;
-    
+
     // User feedback
     if (entry.user_feedback === 'negative') score += 15;
     if (entry.user_feedback === 'positive') score += 2;
-    
+
     // Complexity
     if (entry.tools && entry.tools.length > 3) score += 2;
-    
+
     return score;
   }
 
@@ -211,12 +211,12 @@ export class MemoryManager {
       id: this.generateId(),
       source_episodes: lesson.source_episodes || []
     };
-    
+
     fs.appendFileSync(filePath, JSON.stringify(enriched) + '\n');
-    
+
     // Also update LESSONS.md for human readability
     this.updateLessonsMarkdown();
-    
+
     return enriched.id;
   }
 
@@ -226,12 +226,10 @@ export class MemoryManager {
   getSemanticMemory(limit = 50) {
     const filePath = path.join(this.semanticDir, 'lessons.jsonl');
     if (!fs.existsSync(filePath)) return [];
-    
+
     try {
       const lines = fs.readFileSync(filePath, 'utf8').trim().split('\n');
-      return lines
-        .map(line => JSON.parse(line))
-        .slice(-limit); // Most recent lessons
+      return lines.map((line) => JSON.parse(line)).slice(-limit); // Most recent lessons
     } catch {
       return [];
     }
@@ -243,10 +241,10 @@ export class MemoryManager {
   updateLessonsMarkdown() {
     const lessons = this.getSemanticMemory(100);
     const mdPath = path.join(this.semanticDir, 'LESSONS.md');
-    
+
     let md = '# Lessons Learned\n\n';
     md += `*Auto-generated from ${lessons.length} lessons*\n\n`;
-    
+
     // Group by pattern
     const byPattern = {};
     for (const lesson of lessons) {
@@ -254,7 +252,7 @@ export class MemoryManager {
       if (!byPattern[pattern]) byPattern[pattern] = [];
       byPattern[pattern].push(lesson);
     }
-    
+
     for (const [pattern, patternLessons] of Object.entries(byPattern)) {
       md += `## ${pattern}\n\n`;
       for (const lesson of patternLessons.slice(0, 5)) {
@@ -265,7 +263,7 @@ export class MemoryManager {
       }
       md += '\n';
     }
-    
+
     fs.writeFileSync(mdPath, md);
   }
 
@@ -277,7 +275,7 @@ export class MemoryManager {
   setPersonalPreference(key, value) {
     const filePath = path.join(this.personalDir, 'preferences.json');
     let prefs = {};
-    
+
     if (fs.existsSync(filePath)) {
       try {
         prefs = JSON.parse(fs.readFileSync(filePath, 'utf8'));
@@ -285,12 +283,12 @@ export class MemoryManager {
         prefs = {};
       }
     }
-    
+
     prefs[key] = {
       value,
       updated_at: new Date().toISOString()
     };
-    
+
     fs.writeFileSync(filePath, JSON.stringify(prefs, null, 2));
   }
 
@@ -300,7 +298,7 @@ export class MemoryManager {
   getPersonalPreference(key) {
     const filePath = path.join(this.personalDir, 'preferences.json');
     if (!fs.existsSync(filePath)) return null;
-    
+
     try {
       const prefs = JSON.parse(fs.readFileSync(filePath, 'utf8'));
       return prefs[key]?.value ?? null;
@@ -315,7 +313,7 @@ export class MemoryManager {
   getAllPersonalPreferences() {
     const filePath = path.join(this.personalDir, 'preferences.json');
     if (!fs.existsSync(filePath)) return {};
-    
+
     try {
       return JSON.parse(fs.readFileSync(filePath, 'utf8'));
     } catch {
@@ -351,32 +349,38 @@ export class MemoryManager {
       semantic: { count: 0, size: 0 },
       personal: { count: 0, size: 0 }
     };
-    
+
     // Working
-    const workingFiles = fs.readdirSync(this.workingDir).filter(f => f.endsWith('.json'));
+    const workingFiles = fs.readdirSync(this.workingDir).filter((f) => f.endsWith('.json'));
     stats.working.count = workingFiles.length;
     stats.working.size = workingFiles.reduce((sum, f) => {
       return sum + fs.statSync(path.join(this.workingDir, f)).size;
     }, 0);
-    
+
     // Episodic
-    const episodicFiles = fs.readdirSync(this.episodicDir).filter(f => f.endsWith('.jsonl'));
+    const episodicFiles = fs.readdirSync(this.episodicDir).filter((f) => f.endsWith('.jsonl'));
     for (const file of episodicFiles) {
       const content = fs.readFileSync(path.join(this.episodicDir, file), 'utf8');
-      const lines = content.trim().split('\n').filter(l => l.trim());
+      const lines = content
+        .trim()
+        .split('\n')
+        .filter((l) => l.trim());
       stats.episodic.count += lines.length;
       stats.episodic.size += content.length;
     }
-    
+
     // Semantic
     const lessonsPath = path.join(this.semanticDir, 'lessons.jsonl');
     if (fs.existsSync(lessonsPath)) {
       const content = fs.readFileSync(lessonsPath, 'utf8');
-      const lines = content.trim().split('\n').filter(l => l.trim());
+      const lines = content
+        .trim()
+        .split('\n')
+        .filter((l) => l.trim());
       stats.semantic.count = lines.length;
       stats.semantic.size = content.length;
     }
-    
+
     // Personal
     const prefsPath = path.join(this.personalDir, 'preferences.json');
     if (fs.existsSync(prefsPath)) {
@@ -385,7 +389,7 @@ export class MemoryManager {
       stats.personal.count = Object.keys(prefs).length;
       stats.personal.size = content.length;
     }
-    
+
     return stats;
   }
 
@@ -394,13 +398,13 @@ export class MemoryManager {
    */
   clearAll() {
     this.clearWorkingMemory();
-    
+
     // Clear episodic
-    const episodicFiles = fs.readdirSync(this.episodicDir).filter(f => f.endsWith('.jsonl'));
+    const episodicFiles = fs.readdirSync(this.episodicDir).filter((f) => f.endsWith('.jsonl'));
     for (const file of episodicFiles) {
       fs.unlinkSync(path.join(this.episodicDir, file));
     }
-    
+
     // Clear semantic
     const lessonsPath = path.join(this.semanticDir, 'lessons.jsonl');
     if (fs.existsSync(lessonsPath)) {
@@ -410,7 +414,7 @@ export class MemoryManager {
     if (fs.existsSync(mdPath)) {
       fs.unlinkSync(mdPath);
     }
-    
+
     // Clear personal
     const prefsPath = path.join(this.personalDir, 'preferences.json');
     if (fs.existsSync(prefsPath)) {

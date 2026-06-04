@@ -20,7 +20,9 @@ function mkSourceDir(files) {
 }
 
 test('detects MIT from LICENSE file', () => {
-  const dir = mkSourceDir({ 'LICENSE': 'MIT License\n\nCopyright (c) 2026 Anyone\n\nPermission is hereby granted, free of charge...' });
+  const dir = mkSourceDir({
+    LICENSE: 'MIT License\n\nCopyright (c) 2026 Anyone\n\nPermission is hereby granted, free of charge...'
+  });
   const r = extractLicense(dir, registry);
   assert.equal(r.spdx, 'MIT');
   assert.equal(r.decision, 'allowed');
@@ -28,7 +30,9 @@ test('detects MIT from LICENSE file', () => {
 });
 
 test('detects Apache-2.0', () => {
-  const dir = mkSourceDir({ 'LICENSE': '                                 Apache License\n                           Version 2.0, January 2004' });
+  const dir = mkSourceDir({
+    LICENSE: '                                 Apache License\n                           Version 2.0, January 2004'
+  });
   const r = extractLicense(dir, registry);
   assert.equal(r.spdx, 'Apache-2.0');
   assert.equal(r.decision, 'allowed');
@@ -36,7 +40,7 @@ test('detects Apache-2.0', () => {
 });
 
 test('forbidden license (GPL-3.0) is decision=forbidden', () => {
-  const dir = mkSourceDir({ 'LICENSE': 'GNU GENERAL PUBLIC LICENSE\n                       Version 3, 29 June 2007' });
+  const dir = mkSourceDir({ LICENSE: 'GNU GENERAL PUBLIC LICENSE\n                       Version 3, 29 June 2007' });
   const r = extractLicense(dir, registry);
   assert.equal(r.spdx, 'GPL-3.0');
   assert.equal(r.decision, 'forbidden');
@@ -44,7 +48,7 @@ test('forbidden license (GPL-3.0) is decision=forbidden', () => {
 });
 
 test('restricted license (MPL-2.0) is decision=restricted', () => {
-  const dir = mkSourceDir({ 'LICENSE': 'Mozilla Public License Version 2.0' });
+  const dir = mkSourceDir({ LICENSE: 'Mozilla Public License Version 2.0' });
   const r = extractLicense(dir, registry);
   assert.equal(r.spdx, 'MPL-2.0');
   assert.equal(r.decision, 'restricted');

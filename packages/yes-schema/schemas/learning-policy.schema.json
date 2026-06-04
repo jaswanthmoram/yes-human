@@ -2,15 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Yes-human Learning Policy",
   "type": "object",
-  "required": [
-    "id",
-    "version",
-    "enabled",
-    "outcome_tracking",
-    "feedback_gate",
-    "workflow_miner",
-    "mistake_graph"
-  ],
+  "required": ["id", "version", "enabled", "outcome_tracking", "feedback_gate", "workflow_miner", "mistake_graph"],
   "properties": {
     "id": {
       "type": "string"
@@ -26,12 +18,7 @@
     },
     "outcome_tracking": {
       "type": "object",
-      "required": [
-        "enabled",
-        "decay",
-        "min_events_for_signal",
-        "state_dir"
-      ],
+      "required": ["enabled", "decay", "min_events_for_signal", "state_dir"],
       "properties": {
         "enabled": {
           "type": "boolean"
@@ -53,12 +40,7 @@
     },
     "feedback_gate": {
       "type": "object",
-      "required": [
-        "requires_eval_pass",
-        "allowed_mutations",
-        "forbidden_mutations",
-        "checks"
-      ],
+      "required": ["requires_eval_pass", "allowed_mutations", "forbidden_mutations", "checks"],
       "properties": {
         "requires_eval_pass": {
           "type": "boolean"
@@ -79,12 +61,7 @@
           "type": "array",
           "items": {
             "type": "string",
-            "enum": [
-              "route",
-              "workflow",
-              "skill",
-              "cost"
-            ]
+            "enum": ["route", "workflow", "skill", "cost"]
           }
         }
       },
@@ -92,12 +69,7 @@
     },
     "workflow_miner": {
       "type": "object",
-      "required": [
-        "enabled",
-        "min_successes",
-        "min_distinct_task_hashes",
-        "suggestion_dir"
-      ],
+      "required": ["enabled", "min_successes", "min_distinct_task_hashes", "suggestion_dir"],
       "properties": {
         "enabled": {
           "type": "boolean"
@@ -118,11 +90,7 @@
     },
     "mistake_graph": {
       "type": "object",
-      "required": [
-        "enabled",
-        "state_file",
-        "min_repeats_for_candidate"
-      ],
+      "required": ["enabled", "state_file", "min_repeats_for_candidate"],
       "properties": {
         "enabled": {
           "type": "boolean"
@@ -139,9 +107,7 @@
     },
     "routing_hints": {
       "type": "object",
-      "required": [
-        "enabled"
-      ],
+      "required": ["enabled"],
       "properties": {
         "enabled": {
           "type": "boolean"

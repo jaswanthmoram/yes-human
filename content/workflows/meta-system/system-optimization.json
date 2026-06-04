@@ -10,15 +10,8 @@
     "performance optimization pass",
     "boot token reduction"
   ],
-  "aliases": [
-    "system tuning",
-    "performance optimization workflow"
-  ],
-  "negative_keywords": [
-    "code optimization",
-    "database optimization",
-    "agent creation"
-  ],
+  "aliases": ["system tuning", "performance optimization workflow"],
+  "negative_keywords": ["code optimization", "database optimization", "agent creation"],
   "inputs": [
     {
       "name": "system_metrics",
@@ -53,16 +46,9 @@
   "primary_agent": "meta-system.system-optimizer",
   "route": {
     "domain_master": "meta-system.master",
-    "agents": [
-      "meta-system.system-optimizer",
-      "meta-system.system-architect",
-      "meta-system.quality-assurance"
-    ],
+    "agents": ["meta-system.system-optimizer", "meta-system.system-architect", "meta-system.quality-assurance"],
     "primary_agent": "meta-system.system-optimizer",
-    "participants": [
-      "meta-system.system-architect",
-      "meta-system.quality-assurance"
-    ],
+    "participants": ["meta-system.system-architect", "meta-system.quality-assurance"],
     "parallel": false,
     "max_parallel_agents": 2
   },

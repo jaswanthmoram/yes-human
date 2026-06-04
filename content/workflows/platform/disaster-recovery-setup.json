@@ -13,17 +13,8 @@
     "disaster recovery testing",
     "RTO RPO configuration"
   ],
-  "aliases": [
-    "DR setup",
-    "failover configuration",
-    "backup and recovery"
-  ],
-  "negative_keywords": [
-    "incident response",
-    "monitoring deployment",
-    "cloud migration",
-    "performance optimization"
-  ],
+  "aliases": ["DR setup", "failover configuration", "backup and recovery"],
+  "negative_keywords": ["incident response", "monitoring deployment", "cloud migration", "performance optimization"],
   "inputs": [
     {
       "name": "critical_services",
@@ -65,11 +56,7 @@
     }
   ],
   "primary_agent": "platform.sre-engineer",
-  "participants": [
-    "platform.devops-engineer",
-    "platform.security-engineer",
-    "platform.network-engineer"
-  ],
+  "participants": ["platform.devops-engineer", "platform.security-engineer", "platform.network-engineer"],
   "skills": [
     "disaster-recovery",
     "backup-management",
@@ -191,9 +178,7 @@
   },
   "route": {
     "domain_master": "platform.master",
-    "agents": [
-      "platform.sre-engineer"
-    ],
+    "agents": ["platform.sre-engineer"],
     "parallel": false,
     "max_parallel_agents": 1
   }

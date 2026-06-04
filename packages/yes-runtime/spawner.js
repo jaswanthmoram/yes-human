@@ -32,7 +32,10 @@ function executeLocalTool(tool, args, repoRoot) {
     const r = spawnSync('rg', ['-n', '--max-count', '20', pattern, rel], { cwd: repoRoot, encoding: 'utf8' });
     if (r.error) {
       if (r.error.code === 'ENOENT') {
-        return { success: false, error: 'ripgrep (rg) is not installed on this system. Please install it or configure PATH.' };
+        return {
+          success: false,
+          error: 'ripgrep (rg) is not installed on this system. Please install it or configure PATH.'
+        };
       }
       return { success: false, error: `ripgrep execution failed: ${r.error.message}` };
     }
@@ -154,7 +157,7 @@ export async function runPlan({ task, route, mode = 'dry-run', repoRoot = proces
       grepPattern = patternMatch[1] || patternMatch[2];
     } else {
       // Use the last non-stop-word word or key action
-      const words = task.split(/\s+/).filter(w => w.length > 3 && !LOCAL_TOOL_ALLOWLIST.has(w));
+      const words = task.split(/\s+/).filter((w) => w.length > 3 && !LOCAL_TOOL_ALLOWLIST.has(w));
       if (words.length > 0) {
         grepPattern = words[words.length - 1].replace(/[^\w-]/g, '');
       }

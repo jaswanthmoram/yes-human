@@ -65,48 +65,61 @@ rollback:
 validators:
   - skill.validator
 ---
+
 ## Trigger
+
 Use to measure real test suite effectiveness — not just coverage — especially before a major refactor or when bugs keep slipping through despite high coverage.
 
 ## Prerequisites
+
 - Test suite passing cleanly
 - stryker-cli available (npx stryker)
 
 ## Steps
 
 ### 1. Install and Init
+
 `npx stryker init` generates stryker.config.js. Choose your test runner. Start with one module.
 
 ### 2. Run Focused Mutation
+
 `npx stryker run --files src/payments/**` — limit scope to avoid hour-long runs.
 
 ### 3. Review Survivors
+
 Open the HTML report. Each surviving mutant is a gap in your tests. Prioritize survivors in business-critical code.
 
 ### 4. Kill Survivors
+
 Write a test that would detect each survivor. The test must fail when Stryker applies the mutation and pass on clean code.
 
 ### 5. Verify Improvement
+
 Re-run Stryker. Score should rise. Repeat until ≥80%.
 
 ### 6. Set CI Threshold
+
 Add `thresholds: { high: 80, low: 70, break: 65 }` to stryker.config.js. CI fails if score drops below break.
 
 ## Verification
+
 - [ ] Mutation score ≥80% on target module
 - [ ] Surviving mutants documented or killed
 - [ ] CI threshold configured
 
 ## Rollback
+
 Remove threshold from CI config if it blocks a legitimate release; re-add after fixing.
 
 ## Common Failures
-| Failure | Cause | Fix |
-|---------|-------|-----|
-| Score 40% on class | Tests check behavior not implementation | Rewrite tests around public API |
-| Stryker times out | Too many files | Run per module |
-| Score drops after PR | New code without tests | Make mutation score a PR check |
+
+| Failure              | Cause                                   | Fix                             |
+| -------------------- | --------------------------------------- | ------------------------------- |
+| Score 40% on class   | Tests check behavior not implementation | Rewrite tests around public API |
+| Stryker times out    | Too many files                          | Run per module                  |
+| Score drops after PR | New code without tests                  | Make mutation score a PR check  |
 
 ## Examples
+
 **Example A:** Payment module has 95% coverage but mutation score 55% — tests weren't asserting amounts. Fix: add amount assertions.
 **Example B:** Auth module survivors all on error paths — write tests for every error branch.

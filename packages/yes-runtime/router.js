@@ -3,7 +3,10 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { buildTrieFromRouteMap } from '../yes-graph/index.js';
 import { HookRunner } from '../../hooks/hook-runner.js';
-import { PolicyEvaluator } from '../yes-core/policy-evaluator.js';
+import { getSharedPolicyEvaluator } from '../yes-core/policy-evaluator.js';
+import { createLogger } from '../yes-core/logger.js';
+
+const log = createLogger('router');
 import { LearningEngine } from './learning-engine.js';
 import {
   buildContextPack,
@@ -19,8 +22,8 @@ const repoRoot = path.resolve(__dirname, '../..');
 export const MAX_ROUTE_DEPTH = 2;
 const DEFAULT_FALLBACK = 'route.meta-system.supreme-router';
 
-// Initialize hook runner and policy evaluator
-const policyEvaluator = new PolicyEvaluator();
+// Initialize hook runner and policy evaluator (shared singletons)
+const policyEvaluator = getSharedPolicyEvaluator();
 const hookRunner = new HookRunner('hooks', policyEvaluator);
 
 // Helper to resolve files relative to process.cwd() or fall back to repoRoot
@@ -52,7 +55,7 @@ function safeReadJSON(filePath, fallbackValue) {
     return data;
   } catch (error) {
     // Write warnings to stderr to avoid stdout IPC stream pollution!
-    console.error(`⚠ JSON Parse Error for ${filePath}: ${error.message}`);
+    log.warn('JSON parse error; falling back to cached or default', { filePath, error: error.message });
     const cached = jsonCache.get(absolutePath);
     if (cached) {
       return cached.data;
@@ -208,7 +211,7 @@ function getCompiledAliases(filePath) {
     const data = safeReadJSON(filePath, { aliases: {} });
     const aliases = data.aliases || {};
     const sortedAliases = Object.keys(aliases).sort((a, b) => b.length - a.length);
-    const regexes = sortedAliases.map(alias => {
+    const regexes = sortedAliases.map((alias) => {
       const escapedAlias = alias.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
       const regex = new RegExp(`(?<=^|[^a-z0-9#+])${escapedAlias}(?=$|[^a-z0-9#+])`, 'i');
       return {
@@ -220,7 +223,7 @@ function getCompiledAliases(filePath) {
     aliasRegexCache.set(absolutePath, { mtime, regexes });
     return regexes;
   } catch (error) {
-    console.error(`⚠ Alias Compile Error for ${filePath}: ${error.message}`);
+    log.warn('Alias compile error', { filePath, error: error.message });
     return [];
   }
 }
@@ -234,7 +237,7 @@ function attachRoutingHints(matchedRoute) {
       if (hints.length) matchedRoute.routing_hints = hints;
     }
   } catch (err) {
-    console.error(`⚠ routing hints unavailable: ${err.message}`);
+    log.warn('Routing hints unavailable', { error: err.message });
   }
   return matchedRoute;
 }
@@ -256,12 +259,12 @@ function resolveRouteCore(query, context, options = {}) {
 
   const getRoute = (routeId) => {
     if (visited.includes(routeId)) {
-      console.error(`⚠ Loop prevention: route '${routeId}' already visited; falling back.`);
+      log.warn('Loop prevention: route already visited; falling back', { routeId });
       return null;
     }
     const route = routesMap.get(routeId);
     if (!route) {
-      console.error(`⚠ Stale route index warning: '${routeId}' not in registry. Falling back.`);
+      log.warn('Stale route index: not in registry; falling back', { routeId });
       return null;
     }
     return route;
@@ -382,7 +385,11 @@ function resolveRouteCore(query, context, options = {}) {
       if (hint && hint.suggested_route) {
         const suggested = getRoute(hint.suggested_route);
         if (suggested) {
-          console.warn(`[Router] Auto-rerouting from '${matchedRoute.route_id}' to '${hint.suggested_route}' based on mistake graph feedback.`);
+          log.info('Auto-rerouting based on mistake graph feedback', {
+            from: matchedRoute.route_id,
+            to: hint.suggested_route,
+            failure_class: hint.failure_class
+          });
           matchedRoute = annotate(suggested, {
             stage: 'mistake_reroute',
             confidence: 0.8,
@@ -554,7 +561,6 @@ export function resolveRouteSync(prompt, context = {}) {
   return attachRoutingHints(matchedRoute);
 }
 
-
 /** Attach non-enumerable-ish match metadata without breaking schema shape. */
 function annotate(route, meta) {
   return { ...route, _match: meta };
@@ -586,15 +592,18 @@ function tryGraphAssistRoute(query, getRoute, root) {
   return null;
 }
 
-function trySemanticFallback(query, getRoute, graphCfg, routes = []) {
-  if (!graphCfg?.semantic_fallback) return null;
-  const queryTokens = semanticTokenize(query);
-  if (queryTokens.length < (graphCfg.semantic_min_query_tokens ?? 2)) return null;
+// Inverted index: token → Set<route_id>. Lets us look up only routes that share
+// at least one token with the query, instead of walking all 445 routes every call.
+// Keyed by the routes array identity so cache invalidates when the array is replaced.
+const semanticIndexCache = new WeakMap();
 
-  let best = null;
-  for (const candidate of routes) {
-    const route = getRoute(candidate.route_id);
-    if (!route || hasNegativeKeyword(route, query)) continue;
+function buildSemanticIndex(routes) {
+  const cached = semanticIndexCache.get(routes);
+  if (cached) return cached;
+  const tokenToRoutes = new Map();
+  const routeTokens = new Map(); // route_id → tokens (avoid recomputing per query)
+  for (const route of routes) {
+    if (!route?.route_id) continue;
     const routeText = [
       route.route_id,
       route.target?.agent,
@@ -604,7 +613,45 @@ function trySemanticFallback(query, getRoute, graphCfg, routes = []) {
     ]
       .filter(Boolean)
       .join(' ');
-    const { score, overlap } = semanticScore(queryTokens, semanticTokenize(routeText));
+    const tokens = semanticTokenize(routeText);
+    routeTokens.set(route.route_id, tokens);
+    for (const token of tokens) {
+      let set = tokenToRoutes.get(token);
+      if (!set) {
+        set = new Set();
+        tokenToRoutes.set(token, set);
+      }
+      set.add(route.route_id);
+    }
+  }
+  const index = { tokenToRoutes, routeTokens };
+  semanticIndexCache.set(routes, index);
+  return index;
+}
+
+function trySemanticFallback(query, getRoute, graphCfg, routes = []) {
+  if (!graphCfg?.semantic_fallback) return null;
+  const queryTokens = semanticTokenize(query);
+  if (queryTokens.length < (graphCfg.semantic_min_query_tokens ?? 2)) return null;
+
+  const { tokenToRoutes, routeTokens } = buildSemanticIndex(routes);
+
+  // Candidate set: union of route_ids that share at least one token with the query.
+  // For a 3-token query in a 445-route registry this typically yields ~30-80 candidates
+  // instead of all 445.
+  const candidateIds = new Set();
+  for (const token of queryTokens) {
+    const set = tokenToRoutes.get(token);
+    if (set) for (const id of set) candidateIds.add(id);
+  }
+  if (candidateIds.size === 0) return null;
+
+  let best = null;
+  for (const routeId of candidateIds) {
+    const route = getRoute(routeId);
+    if (!route || hasNegativeKeyword(route, query)) continue;
+    const tokens = routeTokens.get(routeId) || [];
+    const { score, overlap } = semanticScore(queryTokens, tokens);
     if (overlap.length < (graphCfg.semantic_min_overlap ?? 2)) continue;
     if (!best || score > best.score) best = { route, score, overlap };
   }

@@ -28,9 +28,8 @@ for (const [trigger, routeId] of Object.entries(routes)) {
   seen.set(trigger, routeId);
 }
 const uniqueKeys = [...new Set(Object.keys(routes))];
-const exactDupKeyCount = Object.keys(routes).length - new Set(
-  Object.entries(routes).map(([k, v]) => k + '::' + v)
-).size;
+const exactDupKeyCount =
+  Object.keys(routes).length - new Set(Object.entries(routes).map(([k, v]) => k + '::' + v)).size;
 
 let removed = 0;
 if (apply && exactDupKeyCount === 0) {
@@ -38,7 +37,10 @@ if (apply && exactDupKeyCount === 0) {
   const used = new Set();
   for (const [trigger, routeId] of Object.entries(routes)) {
     const sig = trigger + '::' + routeId;
-    if (used.has(sig)) { removed++; continue; }
+    if (used.has(sig)) {
+      removed++;
+      continue;
+    }
     used.add(sig);
     next[trigger] = routeId;
   }
@@ -56,7 +58,14 @@ function evalRoute() {
 }
 
 const before = evalRoute();
-console.log('Route triggers:', Object.keys(routes).length, 'exact duplicate sigs:', exactDupKeyCount, 'removed:', removed);
+console.log(
+  'Route triggers:',
+  Object.keys(routes).length,
+  'exact duplicate sigs:',
+  exactDupKeyCount,
+  'removed:',
+  removed
+);
 console.log('Route eval accuracy:', before + '%');
 if (before < 95) {
   console.error('✗ eval-route below 95% — abort');

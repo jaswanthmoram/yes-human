@@ -9,11 +9,7 @@
         "review_scope": "Liability caps, indemnification, data processing, and termination clauses",
         "standard_playbook": "Company standard SaaS MSA playbook v3.2"
       },
-      "expected_outputs": [
-        "triage_summary",
-        "clause_analysis",
-        "attorney_handoff"
-      ],
+      "expected_outputs": ["triage_summary", "clause_analysis", "attorney_handoff"],
       "expected_step_count": 5
     },
     {
@@ -24,11 +20,7 @@
         "review_scope": "Confidentiality scope, term length, return/destruction obligations",
         "standard_playbook": "Company standard NDA template v2.1"
       },
-      "expected_outputs": [
-        "triage_summary",
-        "clause_analysis",
-        "attorney_handoff"
-      ],
+      "expected_outputs": ["triage_summary", "clause_analysis", "attorney_handoff"],
       "expected_step_count": 5
     },
     {
@@ -39,11 +31,7 @@
         "jurisdiction_scope": "EU (GDPR), Germany (BDSG), France (CNIL guidelines)",
         "source_constraints": "Focus on post-Schrems II case law and 2024-2026 guidance"
       },
-      "expected_outputs": [
-        "research_findings",
-        "precedent_analysis",
-        "attorney_review_packet"
-      ],
+      "expected_outputs": ["research_findings", "precedent_analysis", "attorney_review_packet"],
       "expected_step_count": 5
     },
     {
@@ -54,11 +42,7 @@
         "jurisdiction_scope": "California, Delaware, New York, Texas",
         "source_constraints": "Focus on statutory limitations and recent case law"
       },
-      "expected_outputs": [
-        "research_findings",
-        "precedent_analysis",
-        "attorney_review_packet"
-      ],
+      "expected_outputs": ["research_findings", "precedent_analysis", "attorney_review_packet"],
       "expected_step_count": 5
     },
     {
@@ -69,11 +53,7 @@
         "control_inventory": "72 controls documented across 5 trust service criteria",
         "evidence_repository": "Confluence documentation and Jira compliance project"
       },
-      "expected_outputs": [
-        "compliance_matrix",
-        "gap_analysis",
-        "remediation_plan"
-      ],
+      "expected_outputs": ["compliance_matrix", "gap_analysis", "remediation_plan"],
       "expected_step_count": 5
     },
     {
@@ -84,11 +64,7 @@
         "control_inventory": "45 technical and organizational measures documented",
         "evidence_repository": "ISO 27001 ISMS documentation and DPIA records"
       },
-      "expected_outputs": [
-        "compliance_matrix",
-        "gap_analysis",
-        "remediation_plan"
-      ],
+      "expected_outputs": ["compliance_matrix", "gap_analysis", "remediation_plan"],
       "expected_step_count": 5
     },
     {
@@ -99,11 +75,7 @@
         "diligence_scope": "Material contracts, IP portfolio, employment agreements, data processing",
         "document_inventory": "Virtual data room with 200+ documents across 8 categories"
       },
-      "expected_outputs": [
-        "diligence_report",
-        "risk_flags",
-        "attorney_review_packet"
-      ],
+      "expected_outputs": ["diligence_report", "risk_flags", "attorney_review_packet"],
       "expected_step_count": 5
     },
     {
@@ -114,11 +86,7 @@
         "diligence_scope": "IP licensing, data sharing agreements, liability exposure",
         "document_inventory": "Shared folder with 30 documents across 4 categories"
       },
-      "expected_outputs": [
-        "diligence_report",
-        "risk_flags",
-        "attorney_review_packet"
-      ],
+      "expected_outputs": ["diligence_report", "risk_flags", "attorney_review_packet"],
       "expected_step_count": 5
     },
     {
@@ -129,11 +97,7 @@
         "regulatory_context": "GDPR, CCPA, state data retention requirements",
         "stakeholder_requirements": "Legal, IT, and privacy team input on retention periods"
       },
-      "expected_outputs": [
-        "policy_draft",
-        "implementation_guide",
-        "review_checklist"
-      ],
+      "expected_outputs": ["policy_draft", "implementation_guide", "review_checklist"],
       "expected_step_count": 5
     },
     {
@@ -144,11 +108,7 @@
         "regulatory_context": "GDPR 72-hour notification, state breach notification laws",
         "stakeholder_requirements": "Security, legal, and communications team requirements"
       },
-      "expected_outputs": [
-        "policy_draft",
-        "implementation_guide",
-        "review_checklist"
-      ],
+      "expected_outputs": ["policy_draft", "implementation_guide", "review_checklist"],
       "expected_step_count": 5
     }
   ]

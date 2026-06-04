@@ -4,7 +4,8 @@ import { readJsonIfExists, hashValue } from './redaction.js';
 
 function readJsonl(filePath) {
   if (!fs.existsSync(filePath)) return [];
-  return fs.readFileSync(filePath, 'utf8')
+  return fs
+    .readFileSync(filePath, 'utf8')
     .split('\n')
     .filter(Boolean)
     .map((line) => JSON.parse(line));
@@ -20,9 +21,12 @@ export class WorkflowMiner {
     this.repoRoot = config.repoRoot || process.cwd();
     this.policy = config.policy || readJsonIfExists(path.join(this.repoRoot, 'registry/learning-policy.json'), {});
     this.memoryDir = config.memoryDir || path.join(this.repoRoot, 'graph/memory');
-    this.suggestionDir = config.suggestionDir || path.join(this.repoRoot, this.policy.workflow_miner?.suggestion_dir || 'staging/workflow-suggestions');
+    this.suggestionDir =
+      config.suggestionDir ||
+      path.join(this.repoRoot, this.policy.workflow_miner?.suggestion_dir || 'staging/workflow-suggestions');
     this.minSuccesses = config.minSuccesses || this.policy.workflow_miner?.min_successes || 3;
-    this.minDistinctTaskHashes = config.minDistinctTaskHashes || this.policy.workflow_miner?.min_distinct_task_hashes || 2;
+    this.minDistinctTaskHashes =
+      config.minDistinctTaskHashes || this.policy.workflow_miner?.min_distinct_task_hashes || 2;
   }
 
   loadTraces() {

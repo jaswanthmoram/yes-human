@@ -19,16 +19,21 @@ Stage an external source through the license gate and produce a dossier.
 ```
 
 ## Inputs
+
 source_url_or_path
 
 ## Outputs
+
 staged_manifest
+
 - dossier_template
 
 ## Workflow
+
 Routes through `yes route` to activate the `meta-system.source-mine-and-dossier` workflow.
 All policy gates (pre-route, pre-tool, pre-write) apply.
 
 ## Notes
+
 - This command is a shim over the `meta-system.source-mine-and-dossier` workflow.
 - Run `yes route "absorb" --dry-run` to inspect the routing before execution.

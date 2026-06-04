@@ -36,7 +36,9 @@ function fetchGithub(url, stagingRoot) {
   // Normalize: strip trailing .git, /tree/<branch>, etc.
   const m = url.match(/^https?:\/\/github\.com\/([^/]+)\/([^/]+?)(?:\.git)?(?:\/(?:tree|blob)\/([^/]+))?(?:\/.*)?$/);
   if (!m) throw new Error(`Not a recognizable GitHub URL: ${url}`);
-  const owner = m[1], repo = m[2], ref = m[3];
+  const owner = m[1],
+    repo = m[2],
+    ref = m[3];
   const slug = slugify(`gh-${owner}-${repo}${ref ? '-' + ref : ''}`);
   const dest = path.join(stagingRoot, slug);
 
@@ -114,7 +116,11 @@ function fingerprintDir(dir) {
   const h = crypto.createHash('sha256');
   function walk(d) {
     let entries;
-    try { entries = fs.readdirSync(d, { withFileTypes: true }); } catch { return; }
+    try {
+      entries = fs.readdirSync(d, { withFileTypes: true });
+    } catch {
+      return;
+    }
     for (const e of entries.sort((a, b) => a.name.localeCompare(b.name))) {
       if (e.name === '.git' || e.name === 'node_modules') continue;
       const full = path.join(d, e.name);
@@ -123,7 +129,9 @@ function fingerprintDir(dir) {
         try {
           const st = fs.statSync(full);
           h.update(`${path.relative(dir, full)}:${st.size}:${st.mtimeMs}\n`);
-        } catch { /* ignore */ }
+        } catch {
+          /* ignore */
+        }
       }
     }
   }

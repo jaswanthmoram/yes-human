@@ -3,7 +3,9 @@
   "version": "2.0.0",
   "description": "Yes-human Command Line Interface",
   "main": "index.js",
-  "bin": { "yes": "index.js" },
+  "bin": {
+    "yes": "index.js"
+  },
   "private": true,
   "type": "module",
   "dependencies": {}

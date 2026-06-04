@@ -4,55 +4,113 @@
   "status": "active",
   "summary": "Investigate quality issues, perform root cause analysis, and develop corrective and preventive action plans to reduce defects.",
   "task_family": "quality_improvement",
-  "triggers": ["quality improvement project", "defect reduction initiative", "corrective action plan", "quality cost reduction", "scrap reduction program"],
+  "triggers": [
+    "quality improvement project",
+    "defect reduction initiative",
+    "corrective action plan",
+    "quality cost reduction",
+    "scrap reduction program"
+  ],
   "aliases": ["quality improvement", "defect reduction"],
   "negative_keywords": ["code review", "financial forecast", "contract review"],
   "inputs": [
-    {"name": "quality_data", "required": true, "description": "Defect rates, scrap costs, rework data, and customer complaints by product and period."},
-    {"name": "process_data", "required": true, "description": "Process parameters, SPC data, and capability indices for affected operations."},
-    {"name": "specification_requirements", "required": false, "description": "Product specifications, acceptance criteria, and applicable standards."}
+    {
+      "name": "quality_data",
+      "required": true,
+      "description": "Defect rates, scrap costs, rework data, and customer complaints by product and period."
+    },
+    {
+      "name": "process_data",
+      "required": true,
+      "description": "Process parameters, SPC data, and capability indices for affected operations."
+    },
+    {
+      "name": "specification_requirements",
+      "required": false,
+      "description": "Product specifications, acceptance criteria, and applicable standards."
+    }
   ],
   "outputs": [
-    {"name": "root_cause_analysis", "description": "Validated root causes for top quality issues with evidence."},
-    {"name": "corrective_action_plan", "description": "Corrective and preventive actions with owners, timelines, and expected impact."},
-    {"name": "quality_baseline", "description": "Current defect rates, cost of quality, and capability indices."}
+    { "name": "root_cause_analysis", "description": "Validated root causes for top quality issues with evidence." },
+    {
+      "name": "corrective_action_plan",
+      "description": "Corrective and preventive actions with owners, timelines, and expected impact."
+    },
+    { "name": "quality_baseline", "description": "Current defect rates, cost of quality, and capability indices." }
   ],
   "primary_agent": "manufacturing.quality-engineer",
   "route": {
     "domain_master": "manufacturing.master",
-    "agents": ["manufacturing.quality-engineer", "manufacturing.process-engineer", "manufacturing.manufacturing-analyst"],
+    "agents": [
+      "manufacturing.quality-engineer",
+      "manufacturing.process-engineer",
+      "manufacturing.manufacturing-analyst"
+    ],
     "primary_agent": "manufacturing.quality-engineer",
     "participants": ["manufacturing.process-engineer", "manufacturing.manufacturing-analyst"],
     "parallel": false,
     "max_parallel_agents": 3
   },
-  "budget": {"band": "standard", "max_context_tokens": 5000, "max_tool_calls": 12},
+  "budget": { "band": "standard", "max_context_tokens": 5000, "max_tool_calls": 12 },
   "gates": [
-    {"id": "pre-route", "rule": "Confirm the task is quality improvement, not product liability or financial analysis."},
-    {"id": "pre-tool", "rule": "Require quality data and process data before root cause analysis."},
-    {"id": "on-task-complete", "rule": "Output must include root cause analysis, corrective action plan, and quality baseline."}
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is quality improvement, not product liability or financial analysis."
+    },
+    { "id": "pre-tool", "rule": "Require quality data and process data before root cause analysis." },
+    {
+      "id": "on-task-complete",
+      "rule": "Output must include root cause analysis, corrective action plan, and quality baseline."
+    }
   ],
   "steps": [
-    {"id": "validate-inputs", "agent": "manufacturing.quality-engineer", "action": "Check quality and process data for completeness and accuracy."},
-    {"id": "baseline-quality", "agent": "manufacturing.manufacturing-analyst", "action": "Calculate current defect rates, cost of quality, and capability indices."},
-    {"id": "root-cause-analysis", "agent": "manufacturing.quality-engineer", "action": "Perform structured root cause analysis for top quality issues."},
-    {"id": "develop-corrective-actions", "agent": "manufacturing.process-engineer", "action": "Design corrective and preventive actions with validation plan."}
+    {
+      "id": "validate-inputs",
+      "agent": "manufacturing.quality-engineer",
+      "action": "Check quality and process data for completeness and accuracy."
+    },
+    {
+      "id": "baseline-quality",
+      "agent": "manufacturing.manufacturing-analyst",
+      "action": "Calculate current defect rates, cost of quality, and capability indices."
+    },
+    {
+      "id": "root-cause-analysis",
+      "agent": "manufacturing.quality-engineer",
+      "action": "Perform structured root cause analysis for top quality issues."
+    },
+    {
+      "id": "develop-corrective-actions",
+      "agent": "manufacturing.process-engineer",
+      "action": "Design corrective and preventive actions with validation plan."
+    }
   ],
   "tools": [
-    {"name": "filesystem.read", "purpose": "Read quality data, process records, and specifications."},
-    {"name": "filesystem.write", "purpose": "Save the root cause analysis and corrective action plan."}
+    { "name": "filesystem.read", "purpose": "Read quality data, process records, and specifications." },
+    { "name": "filesystem.write", "purpose": "Save the root cause analysis and corrective action plan." }
   ],
   "verification": [
-    {"id": "root-causes-validated", "method": "Check that root causes are supported by evidence."},
-    {"id": "actions-specific", "method": "Check that corrective actions have owners, timelines, and expected impact."},
-    {"id": "baseline-documented", "method": "Check that current quality metrics are documented."}
+    { "id": "root-causes-validated", "method": "Check that root causes are supported by evidence." },
+    {
+      "id": "actions-specific",
+      "method": "Check that corrective actions have owners, timelines, and expected impact."
+    },
+    { "id": "baseline-documented", "method": "Check that current quality metrics are documented." }
   ],
   "success_criteria": [
     "Root causes are validated with evidence, not assumptions.",
     "Corrective actions are specific with owners and timelines.",
     "Current quality baseline is documented with metrics."
   ],
-  "rollback": {"mode": "trace_based", "when": "If the analysis uses incomplete quality data or invents root causes, roll back to verified inputs."},
-  "source_references": [{"dossier_path": "references/workflows/manufacturing/quality-improvement.sources.json", "relationship": "workflow_dossier"}],
-  "promotion": {"can_learn": true, "min_successes_before_update": 2, "quality_gate": "staging"}
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If the analysis uses incomplete quality data or invents root causes, roll back to verified inputs."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/manufacturing/quality-improvement.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": { "can_learn": true, "min_successes_before_update": 2, "quality_gate": "staging" }
 }

@@ -34,7 +34,12 @@
         "assistive_tech_requirements": "Must support VoiceOver, NVDA, and JAWS",
         "previous_audit_results": "Last audit 18 months ago with 23 violations"
       },
-      "expected_outputs": ["a11y_audit_report", "wcag_conformance_score", "remediation_plan", "assistive_tech_findings"],
+      "expected_outputs": [
+        "a11y_audit_report",
+        "wcag_conformance_score",
+        "remediation_plan",
+        "assistive_tech_findings"
+      ],
       "expected_step_count": 6
     },
     {
@@ -45,7 +50,12 @@
         "wcag_target_level": "AA",
         "assistive_tech_requirements": "Must support all major screen readers and switch devices"
       },
-      "expected_outputs": ["a11y_audit_report", "wcag_conformance_score", "remediation_plan", "assistive_tech_findings"],
+      "expected_outputs": [
+        "a11y_audit_report",
+        "wcag_conformance_score",
+        "remediation_plan",
+        "assistive_tech_findings"
+      ],
       "expected_step_count": 6
     },
     {
@@ -57,7 +67,12 @@
         "existing_content_inventory": "120 blog posts, 15 guides, 8 case studies",
         "competitive_landscape": "5 direct competitors with active content programs"
       },
-      "expected_outputs": ["content_strategy_document", "audience_analysis", "editorial_calendar", "governance_framework"],
+      "expected_outputs": [
+        "content_strategy_document",
+        "audience_analysis",
+        "editorial_calendar",
+        "governance_framework"
+      ],
       "expected_step_count": 6
     },
     {
@@ -68,7 +83,12 @@
         "audience_segments": "End users (technical and non-technical), API developers",
         "existing_content_inventory": "200 help articles, 50 API docs, 30 tutorials"
       },
-      "expected_outputs": ["content_strategy_document", "audience_analysis", "editorial_calendar", "governance_framework"],
+      "expected_outputs": [
+        "content_strategy_document",
+        "audience_analysis",
+        "editorial_calendar",
+        "governance_framework"
+      ],
       "expected_step_count": 6
     },
     {

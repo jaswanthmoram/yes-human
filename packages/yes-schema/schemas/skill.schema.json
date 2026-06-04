@@ -108,12 +108,7 @@
     },
     "budget_band": {
       "type": "string",
-      "enum": [
-        "micro",
-        "standard",
-        "expanded",
-        "deep"
-      ]
+      "enum": ["micro", "standard", "expanded", "deep"]
     },
     "rollback": {
       "type": "array",
@@ -147,19 +142,11 @@
     },
     "status": {
       "type": "string",
-      "enum": [
-        "active",
-        "deprecated",
-        "experimental"
-      ]
+      "enum": ["active", "deprecated", "experimental"]
     },
     "quality_gate": {
       "type": "string",
-      "enum": [
-        "draft",
-        "staging",
-        "production"
-      ]
+      "enum": ["draft", "staging", "production"]
     }
   },
   "additionalProperties": false

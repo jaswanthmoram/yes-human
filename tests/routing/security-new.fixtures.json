@@ -11,7 +11,10 @@
     { "prompt": "security audit against ISO 27001", "expected_route": "route.security.security-auditor" },
     { "prompt": "SOC 2 readiness assessment", "expected_route": "route.security.security-auditor" },
     { "prompt": "NIST CSF gap analysis", "expected_route": "route.security.security-auditor" },
-    { "prompt": "control effectiveness review for access management", "expected_route": "route.security.security-auditor" },
+    {
+      "prompt": "control effectiveness review for access management",
+      "expected_route": "route.security.security-auditor"
+    },
     { "prompt": "compliance audit for the data center", "expected_route": "route.security.security-auditor" },
 
     { "prompt": "vulnerability triage from the latest scan", "expected_route": "route.security.vulnerability-manager" },
@@ -30,7 +33,10 @@
     { "prompt": "key management plan for microservices", "expected_route": "route.security.cryptography-expert" },
     { "prompt": "TLS configuration review", "expected_route": "route.security.cryptography-expert" },
     { "prompt": "hashing strategy for password storage", "expected_route": "route.security.cryptography-expert" },
-    { "prompt": "digital signature design for document signing", "expected_route": "route.security.cryptography-expert" },
+    {
+      "prompt": "digital signature design for document signing",
+      "expected_route": "route.security.cryptography-expert"
+    },
 
     { "prompt": "network security review of the production VPC", "expected_route": "route.security.network-security" },
     { "prompt": "firewall rule audit on the perimeter", "expected_route": "route.security.network-security" },
@@ -38,8 +44,14 @@
     { "prompt": "network segmentation for PCI scope", "expected_route": "route.security.network-security" },
     { "prompt": "IDS IPS tuning for the datacenter", "expected_route": "route.security.network-security" },
 
-    { "prompt": "application security review of the user portal", "expected_route": "route.security.application-security" },
-    { "prompt": "authentication flow review for SSO integration", "expected_route": "route.security.application-security" },
+    {
+      "prompt": "application security review of the user portal",
+      "expected_route": "route.security.application-security"
+    },
+    {
+      "prompt": "authentication flow review for SSO integration",
+      "expected_route": "route.security.application-security"
+    },
     { "prompt": "API security review of the REST endpoints", "expected_route": "route.security.application-security" },
     { "prompt": "OWASP ASVS assessment for the payment app", "expected_route": "route.security.application-security" },
     { "prompt": "input validation audit on the signup form", "expected_route": "route.security.application-security" },
@@ -47,7 +59,10 @@
     { "prompt": "cloud security review of our AWS environment", "expected_route": "route.security.cloud-security" },
     { "prompt": "IAM policy audit on GCP", "expected_route": "route.security.cloud-security" },
     { "prompt": "cloud misconfiguration scan for Azure", "expected_route": "route.security.cloud-security" },
-    { "prompt": "shared responsibility analysis for our SaaS stack", "expected_route": "route.security.cloud-security" },
+    {
+      "prompt": "shared responsibility analysis for our SaaS stack",
+      "expected_route": "route.security.cloud-security"
+    },
     { "prompt": "AWS security audit for the production account", "expected_route": "route.security.cloud-security" },
 
     { "prompt": "IAM design for the microservices platform", "expected_route": "route.security.identity-access" },

@@ -17,7 +17,19 @@
     "target_tokens": 180,
     "hard_cap_tokens": 300
   },
-  "exports": ["claude", "codex", "opencode", "agent-md", "cli", "mcp", "cursor", "windsurf", "vscode", "sourcegraph", "generic"],
+  "exports": [
+    "claude",
+    "codex",
+    "opencode",
+    "agent-md",
+    "cli",
+    "mcp",
+    "cursor",
+    "windsurf",
+    "vscode",
+    "sourcegraph",
+    "generic"
+  ],
   "registries": {
     "agents": "registry/agents.json",
     "skills": "registry/skills.json",

@@ -66,6 +66,7 @@ validators:
 ---
 
 ## Procedure
+
 1. Confirm entity, period, payroll system, and roster source.
 2. Reconcile employees and compensation changes to the HR roster.
 3. Compare gross pay, deductions, taxes, benefits, and net pay to the prior period.
@@ -73,6 +74,7 @@ validators:
 5. Prepare review questions for HR, payroll provider, and finance.
 
 ## Verification
+
 - No payroll action is recommended without human review.
 - Tax and employment-law claims are avoided.
 - Every unresolved variance has a next owner.

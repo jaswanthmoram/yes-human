@@ -64,49 +64,62 @@ rollback:
 validators:
   - skill.validator
 ---
+
 ## Trigger
+
 Use when starting a new project, when a test suite has become slow/unreliable, or when onboarding engineers ask where to put tests.
 
 ## Prerequisites
+
 - Test framework chosen
 - Codebase structure understood
 
 ## Steps
 
 ### 1. Audit Current State
+
 Run `find . -name "*.test.*" | wc -l`. Categorize: unit (mocked deps), integration (real DB), E2E (browser). Identify the current pyramid shape.
 
 ### 2. Define Layer Boundaries
+
 Unit: one module, all external dependencies mocked. Integration: real database/cache, external services mocked. E2E: real browser, real API, test data seeded.
 
 ### 3. Establish Fixture Strategy
+
 Create factory functions: `buildUser({ role: 'admin' })`. Use Builder pattern for complex objects. Never hard-code test data.
 
 ### 4. Organize Files
+
 Co-locate unit tests with source (`src/auth/auth.test.ts`). Put integration tests in `tests/integration/`. Put E2E in `tests/e2e/`. Mirror the source structure.
 
 ### 5. Tag and Split
+
 Tag slow tests: `describe.skip` for E2E in unit CI. Use Jest projects or `--testPathPattern` to run subsets.
 
 ### 6. Document the Decision
+
 Write a one-page testing guide explaining each layer, where to put new tests, and how to run each layer.
 
 ## Verification
+
 - [ ] Unit tests complete in <30s
 - [ ] Integration tests don't hit real external services
 - [ ] E2E tests cover top 3-5 user journeys only
 - [ ] Testing guide exists
 
 ## Rollback
+
 Revert file moves via git if CI breaks during reorganization.
 
 ## Common Failures
-| Failure | Cause | Fix |
-|---------|-------|-----|
-| All tests in one file | No architecture defined | Apply pyramid and split |
-| Unit tests hit database | Missing DB mock | Add test double at repository layer |
-| E2E suite takes 1 hour | Too many E2E tests | Move scenarios to integration or unit |
+
+| Failure                 | Cause                   | Fix                                   |
+| ----------------------- | ----------------------- | ------------------------------------- |
+| All tests in one file   | No architecture defined | Apply pyramid and split               |
+| Unit tests hit database | Missing DB mock         | Add test double at repository layer   |
+| E2E suite takes 1 hour  | Too many E2E tests      | Move scenarios to integration or unit |
 
 ## Examples
+
 **Example A:** E-commerce app: 500 unit tests, 50 integration, 10 E2E for checkout, login, order history.
 **Example B:** Microservice: 200 unit tests, 20 integration (real Postgres in Docker), 0 E2E (covered by consumer contracts).

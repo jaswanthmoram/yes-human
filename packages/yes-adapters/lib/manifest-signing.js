@@ -15,7 +15,7 @@ export function signManifest(manifest, privateKeyPem = null) {
   }
   const payload = canonicalManifestString(manifest);
   const sig = crypto.sign(null, Buffer.from(payload), privateKeyPem);
-  
+
   let publicKeyPem = null;
   try {
     const pubKey = crypto.createPublicKey(privateKeyPem);
@@ -23,7 +23,7 @@ export function signManifest(manifest, privateKeyPem = null) {
   } catch (err) {
     // Ignore extraction errors
   }
-  
+
   return {
     algorithm: 'ed25519',
     value: sig.toString('base64'),

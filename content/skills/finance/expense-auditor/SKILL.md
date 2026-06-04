@@ -66,6 +66,7 @@ validators:
 ---
 
 ## Procedure
+
 1. Confirm policy version, approval matrix, audit period, and materiality threshold.
 2. Normalize transactions and identify missing fields.
 3. Test each transaction against category limits, receipt rules, and approval thresholds.
@@ -74,6 +75,7 @@ validators:
 6. Produce a report with remediation and control improvements.
 
 ## Verification
+
 - Findings reference policy criteria.
 - Fraud, tax, and legal conclusions are avoided.
 - Human finance review is required before action.

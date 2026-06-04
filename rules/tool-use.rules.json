@@ -6,9 +6,9 @@
   "default": "allow",
   "rules": [
     {
-      "when": { 
-        "tool": "bash", 
-        "agent": { "$not_in": ["engineering.master", "platform.master", "meta-system.master"] } 
+      "when": {
+        "tool": "bash",
+        "agent": { "$not_in": ["engineering.master", "platform.master", "meta-system.master"] }
       },
       "then": "ask",
       "reason": "Agent not authorized for bash execution"
@@ -22,25 +22,25 @@
       "reason": "Agent file modification allowed"
     },
     {
-      "when": { 
-        "tool": "file.write", 
-        "path": { "$starts_with": "registry/" } 
+      "when": {
+        "tool": "file.write",
+        "path": { "$starts_with": "registry/" }
       },
       "then": "ask",
       "reason": "Registry modification requires confirmation"
     },
     {
-      "when": { 
-        "tool": "file.write", 
-        "path": { "$starts_with": "graph/" } 
+      "when": {
+        "tool": "file.write",
+        "path": { "$starts_with": "graph/" }
       },
       "then": "ask",
       "reason": "Graph modification requires confirmation"
     },
     {
-      "when": { 
-        "tool": "network", 
-        "url": { "$matches": "^http://" } 
+      "when": {
+        "tool": "network",
+        "url": { "$matches": "^http://" }
       },
       "then": "deny",
       "reason": "HTTP (non-HTTPS) network requests blocked"

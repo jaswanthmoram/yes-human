@@ -10,15 +10,8 @@
     "onboarding checklist creation",
     "ramp plan design"
   ],
-  "aliases": [
-    "onboarding process",
-    "onboarding workflow"
-  ],
-  "negative_keywords": [
-    "tax filing",
-    "contract interpretation",
-    "campaign launch"
-  ],
+  "aliases": ["onboarding process", "onboarding workflow"],
+  "negative_keywords": ["tax filing", "contract interpretation", "campaign launch"],
   "inputs": [
     {
       "name": "role_context",
@@ -53,14 +46,9 @@
   "primary_agent": "hr.onboarding-coordinator",
   "route": {
     "domain_master": "hr.master",
-    "agents": [
-      "hr.onboarding-coordinator",
-      "hr.hr-operations"
-    ],
+    "agents": ["hr.onboarding-coordinator", "hr.hr-operations"],
     "primary_agent": "hr.onboarding-coordinator",
-    "participants": [
-      "hr.hr-operations"
-    ],
+    "participants": ["hr.hr-operations"],
     "parallel": false,
     "max_parallel_agents": 2
   },

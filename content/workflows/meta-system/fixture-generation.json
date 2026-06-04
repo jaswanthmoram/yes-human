@@ -10,15 +10,8 @@
     "create test fixtures batch",
     "fixture lifecycle start"
   ],
-  "aliases": [
-    "fixture batch generation",
-    "test fixture workflow"
-  ],
-  "negative_keywords": [
-    "run tests",
-    "evaluate routing",
-    "agent creation"
-  ],
+  "aliases": ["fixture batch generation", "test fixture workflow"],
+  "negative_keywords": ["run tests", "evaluate routing", "agent creation"],
   "inputs": [
     {
       "name": "fixture_requirements",
@@ -57,16 +50,9 @@
   "primary_agent": "meta-system.fixture-engineer",
   "route": {
     "domain_master": "meta-system.master",
-    "agents": [
-      "meta-system.fixture-engineer",
-      "meta-system.eval-runner",
-      "meta-system.quality-assurance"
-    ],
+    "agents": ["meta-system.fixture-engineer", "meta-system.eval-runner", "meta-system.quality-assurance"],
     "primary_agent": "meta-system.fixture-engineer",
-    "participants": [
-      "meta-system.eval-runner",
-      "meta-system.quality-assurance"
-    ],
+    "participants": ["meta-system.eval-runner", "meta-system.quality-assurance"],
     "parallel": true,
     "max_parallel_agents": 3
   },

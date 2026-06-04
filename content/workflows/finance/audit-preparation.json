@@ -10,15 +10,8 @@
     "audit document preparation",
     "audit readiness assessment"
   ],
-  "aliases": [
-    "audit preparation",
-    "pre-audit prep"
-  ],
-  "negative_keywords": [
-    "security audit",
-    "IT audit",
-    "code review"
-  ],
+  "aliases": ["audit preparation", "pre-audit prep"],
+  "negative_keywords": ["security audit", "IT audit", "code review"],
   "inputs": [
     {
       "name": "audit_scope",
@@ -53,14 +46,9 @@
   "primary_agent": "finance.audit-specialist",
   "route": {
     "domain_master": "finance.master",
-    "agents": [
-      "finance.audit-specialist",
-      "finance.compliance-officer"
-    ],
+    "agents": ["finance.audit-specialist", "finance.compliance-officer"],
     "primary_agent": "finance.audit-specialist",
-    "participants": [
-      "finance.compliance-officer"
-    ],
+    "participants": ["finance.compliance-officer"],
     "parallel": true,
     "max_parallel_agents": 2
   },

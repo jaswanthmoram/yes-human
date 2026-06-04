@@ -6,7 +6,19 @@
   "properties": {
     "host": {
       "type": "string",
-      "enum": ["claude", "codex", "opencode", "agent-md", "cli", "mcp", "cursor", "windsurf", "vscode", "sourcegraph", "generic"]
+      "enum": [
+        "claude",
+        "codex",
+        "opencode",
+        "agent-md",
+        "cli",
+        "mcp",
+        "cursor",
+        "windsurf",
+        "vscode",
+        "sourcegraph",
+        "generic"
+      ]
     },
     "generated_at": { "type": "string", "format": "date-time" },
     "boot_file": { "type": "string" },

@@ -4,18 +4,35 @@
   "status": "active",
   "summary": "Develop a complete online course with modular structure, multimedia content, engagement strategies, and quality assurance using established online learning standards.",
   "task_family": "online_learning",
-  "triggers": ["online course development", "build an online course", "e-learning course creation", "digital course development", "create online course workflow"],
+  "triggers": [
+    "online course development",
+    "build an online course",
+    "e-learning course creation",
+    "digital course development",
+    "create online course workflow"
+  ],
   "aliases": ["online course build", "e-learning development"],
   "negative_keywords": ["code review", "financial forecast", "website design"],
   "inputs": [
-    {"name": "course_topic", "required": true, "description": "The subject matter and scope of the online course."},
-    {"name": "target_audience", "required": true, "description": "Learner demographics, prior knowledge, and technology access."},
-    {"name": "delivery_platform", "required": false, "description": "LMS or platform for course delivery (Canvas, Moodle, etc.)."}
+    { "name": "course_topic", "required": true, "description": "The subject matter and scope of the online course." },
+    {
+      "name": "target_audience",
+      "required": true,
+      "description": "Learner demographics, prior knowledge, and technology access."
+    },
+    {
+      "name": "delivery_platform",
+      "required": false,
+      "description": "LMS or platform for course delivery (Canvas, Moodle, etc.)."
+    }
   ],
   "outputs": [
-    {"name": "course_structure", "description": "Modular course outline with units, lessons, and navigation design."},
-    {"name": "content_plan", "description": "Multimedia content plan with accessibility considerations."},
-    {"name": "quality_checklist", "description": "Quality assurance checklist based on Quality Matters or equivalent standards."}
+    { "name": "course_structure", "description": "Modular course outline with units, lessons, and navigation design." },
+    { "name": "content_plan", "description": "Multimedia content plan with accessibility considerations." },
+    {
+      "name": "quality_checklist",
+      "description": "Quality assurance checklist based on Quality Matters or equivalent standards."
+    }
   ],
   "primary_agent": "education.online-educator",
   "route": {
@@ -26,34 +43,68 @@
     "parallel": false,
     "max_parallel_agents": 3
   },
-  "budget": {"band": "standard", "max_context_tokens": 4800, "max_tool_calls": 12},
+  "budget": { "band": "standard", "max_context_tokens": 4800, "max_tool_calls": 12 },
   "gates": [
-    {"id": "pre-route", "rule": "Confirm the task is online course development, not face-to-face curriculum or website design."},
-    {"id": "pre-tool", "rule": "Require course topic and target audience before design begins."},
-    {"id": "on-task-complete", "rule": "Output must include course structure, content plan, and quality checklist."}
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is online course development, not face-to-face curriculum or website design."
+    },
+    { "id": "pre-tool", "rule": "Require course topic and target audience before design begins." },
+    { "id": "on-task-complete", "rule": "Output must include course structure, content plan, and quality checklist." }
   ],
   "steps": [
-    {"id": "course-architecture", "agent": "education.online-educator", "action": "Design modular course structure with units, lessons, and navigation."},
-    {"id": "instructional-design", "agent": "education.instructional-designer", "action": "Design instructional strategies, activities, and engagement approaches for each module."},
-    {"id": "technology-selection", "agent": "education.educational-technologist", "action": "Select and configure technology tools for content delivery and interaction."},
-    {"id": "accessibility-review", "agent": "education.online-educator", "action": "Review all content and tools for accessibility compliance."},
-    {"id": "quality-assurance", "agent": "education.online-educator", "action": "Apply quality assurance checklist and document compliance."}
+    {
+      "id": "course-architecture",
+      "agent": "education.online-educator",
+      "action": "Design modular course structure with units, lessons, and navigation."
+    },
+    {
+      "id": "instructional-design",
+      "agent": "education.instructional-designer",
+      "action": "Design instructional strategies, activities, and engagement approaches for each module."
+    },
+    {
+      "id": "technology-selection",
+      "agent": "education.educational-technologist",
+      "action": "Select and configure technology tools for content delivery and interaction."
+    },
+    {
+      "id": "accessibility-review",
+      "agent": "education.online-educator",
+      "action": "Review all content and tools for accessibility compliance."
+    },
+    {
+      "id": "quality-assurance",
+      "agent": "education.online-educator",
+      "action": "Apply quality assurance checklist and document compliance."
+    }
   ],
   "tools": [
-    {"name": "filesystem.read", "purpose": "Read platform requirements, course templates, and learner data."},
-    {"name": "filesystem.write", "purpose": "Save course structure, content plan, and quality checklist."}
+    { "name": "filesystem.read", "purpose": "Read platform requirements, course templates, and learner data." },
+    { "name": "filesystem.write", "purpose": "Save course structure, content plan, and quality checklist." }
   ],
   "verification": [
-    {"id": "structure-modular", "method": "Check that course has clear modular structure with units and lessons."},
-    {"id": "accessibility-checked", "method": "Check that accessibility review is documented for all content and tools."},
-    {"id": "qa-complete", "method": "Check that quality assurance checklist is fully completed."}
+    { "id": "structure-modular", "method": "Check that course has clear modular structure with units and lessons." },
+    {
+      "id": "accessibility-checked",
+      "method": "Check that accessibility review is documented for all content and tools."
+    },
+    { "id": "qa-complete", "method": "Check that quality assurance checklist is fully completed." }
   ],
   "success_criteria": [
     "Course structure is modular with clear unit and lesson boundaries.",
     "All content and tools pass accessibility review.",
     "Quality assurance checklist is complete with evidence documented."
   ],
-  "rollback": {"mode": "no_write", "when": "If the course design ignores accessibility or lacks modular structure, discard and restart."},
-  "source_references": [{"dossier_path": "references/workflows/education/online-course-development.sources.json", "relationship": "workflow_dossier"}],
-  "promotion": {"can_learn": true, "min_successes_before_update": 2, "quality_gate": "staging"}
+  "rollback": {
+    "mode": "no_write",
+    "when": "If the course design ignores accessibility or lacks modular structure, discard and restart."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/education/online-course-development.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": { "can_learn": true, "min_successes_before_update": 2, "quality_gate": "staging" }
 }

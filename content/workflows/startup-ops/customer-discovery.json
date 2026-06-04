@@ -4,21 +4,9 @@
   "status": "active",
   "summary": "Conduct structured customer discovery to validate problem-solution fit through interviews, synthesis, and hypothesis testing.",
   "task_family": "startup_ops",
-  "triggers": [
-    "customer discovery",
-    "discover customers",
-    "validate problem fit",
-    "customer research startup"
-  ],
-  "aliases": [
-    "cust discovery",
-    "customer research"
-  ],
-  "negative_keywords": [
-    "market research report",
-    "focus group facilitation",
-    "survey analytics"
-  ],
+  "triggers": ["customer discovery", "discover customers", "validate problem fit", "customer research startup"],
+  "aliases": ["cust discovery", "customer research"],
+  "negative_keywords": ["market research report", "focus group facilitation", "survey analytics"],
   "inputs": [
     {
       "name": "problem_hypothesis",
@@ -53,14 +41,9 @@
   "primary_agent": "startup-ops.customer-development",
   "route": {
     "domain_master": "startup-ops.master",
-    "agents": [
-      "startup-ops.customer-development",
-      "startup-ops.product-market-fit"
-    ],
+    "agents": ["startup-ops.customer-development", "startup-ops.product-market-fit"],
     "primary_agent": "startup-ops.customer-development",
-    "participants": [
-      "startup-ops.startup-strategist"
-    ],
+    "participants": ["startup-ops.startup-strategist"],
     "parallel": false,
     "max_parallel_agents": 3
   },

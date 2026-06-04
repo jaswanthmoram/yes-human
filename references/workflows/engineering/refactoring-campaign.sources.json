@@ -46,10 +46,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "refactoring campaign: LangGraph patterns and workflow references",
-        "verification pattern 4"
-      ],
+      "used_for": ["refactoring campaign: LangGraph patterns and workflow references", "verification pattern 4"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -85,10 +82,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "refactoring campaign: CrewAI patterns and workflow references",
-        "verification pattern 7"
-      ],
+      "used_for": ["refactoring campaign: CrewAI patterns and workflow references", "verification pattern 7"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -98,10 +92,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "refactoring campaign: AutoGen patterns and workflow references",
-        "verification pattern 8"
-      ],
+      "used_for": ["refactoring campaign: AutoGen patterns and workflow references", "verification pattern 8"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -111,10 +102,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "refactoring campaign: OpenHands patterns and workflow references",
-        "verification pattern 9"
-      ],
+      "used_for": ["refactoring campaign: OpenHands patterns and workflow references", "verification pattern 9"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -124,10 +112,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "refactoring campaign: MCP Agent patterns and workflow references",
-        "verification pattern 10"
-      ],
+      "used_for": ["refactoring campaign: MCP Agent patterns and workflow references", "verification pattern 10"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -137,10 +122,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "refactoring campaign: Agent Lightning patterns and workflow references",
-        "verification pattern 11"
-      ],
+      "used_for": ["refactoring campaign: Agent Lightning patterns and workflow references", "verification pattern 11"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -150,10 +132,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "refactoring campaign: OpenPipe ART patterns and workflow references",
-        "verification pattern 12"
-      ],
+      "used_for": ["refactoring campaign: OpenPipe ART patterns and workflow references", "verification pattern 12"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"

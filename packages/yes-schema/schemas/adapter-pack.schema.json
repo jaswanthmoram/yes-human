@@ -2,7 +2,19 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Yes-human Adapter Pack",
   "type": "object",
-  "required": ["id", "host", "status", "trust_model", "build_command", "boot_file", "files", "supports_hooks", "supports_cancellation", "sandbox", "audit"],
+  "required": [
+    "id",
+    "host",
+    "status",
+    "trust_model",
+    "build_command",
+    "boot_file",
+    "files",
+    "supports_hooks",
+    "supports_cancellation",
+    "sandbox",
+    "audit"
+  ],
   "properties": {
     "id": { "type": "string" },
     "host": { "type": "string", "enum": ["cursor", "windsurf", "vscode", "sourcegraph", "generic"] },

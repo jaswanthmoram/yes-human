@@ -10,15 +10,8 @@
     "platform campaign brief",
     "social launch campaign"
   ],
-  "aliases": [
-    "social campaign",
-    "social media plan"
-  ],
-  "negative_keywords": [
-    "paid social ads",
-    "influencer campaign",
-    "email marketing"
-  ],
+  "aliases": ["social campaign", "social media plan"],
+  "negative_keywords": ["paid social ads", "influencer campaign", "email marketing"],
   "inputs": [
     {
       "name": "campaign_objective",
@@ -53,14 +46,9 @@
   "primary_agent": "marketing.social-media-manager",
   "route": {
     "domain_master": "marketing.master",
-    "agents": [
-      "marketing.social-media-manager",
-      "marketing.content-marketer"
-    ],
+    "agents": ["marketing.social-media-manager", "marketing.content-marketer"],
     "primary_agent": "marketing.social-media-manager",
-    "participants": [
-      "marketing.content-marketer"
-    ],
+    "participants": ["marketing.content-marketer"],
     "parallel": true,
     "max_parallel_agents": 2
   },

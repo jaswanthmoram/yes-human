@@ -60,47 +60,59 @@ validators:
 ---
 
 ## Trigger
+
 Use this skill for tasks related to: refactor this code, clean up this module, reduce code duplication.
 
 ## Prerequisites
+
 - Access to the relevant artifact (code, document, system)
 - Clear understanding of the goal and constraints
 
 ## Steps
 
 ### 1. Step
+
 Run the full test suite and confirm it is green before touching any code
 
 ### 2. Step
+
 Identify the refactoring target and the specific improvement (extract function, eliminate duplication, rename for clarity)
 
 ### 3. Step
+
 Apply the smallest safe transformation first — one change at a time
 
 ### 4. Step
+
 Run tests after each transformation — commit if green, revert if red
 
 ### 5. Step
+
 Repeat until refactoring goal achieved without behavior change
 
 ### 6. Step
+
 Write a PR description explaining what changed and confirming no behavior change
 
 ## Verification
+
 - [ ] All steps completed
 - [ ] Output reviewed against quality gates
 - [ ] Sources cited where applicable
 
 ## Rollback
+
 git revert each incremental commit
 
 ## Common Failures
-| Failure | Cause | Fix |
-|---------|-------|-----|
-| Changing behavior while claiming to refactor | See procedure | Address in review |
-| No test run between changes | See procedure | Address in review |
+
+| Failure                                                | Cause         | Fix               |
+| ------------------------------------------------------ | ------------- | ----------------- |
+| Changing behavior while claiming to refactor           | See procedure | Address in review |
+| No test run between changes                            | See procedure | Address in review |
 | Creating new coupling while reducing local duplication | See procedure | Address in review |
 
 ## Examples
+
 **Example A:** Apply this skill to a typical instance of 'refactor this code'.
 **Example B:** Apply this skill when facing 'reduce code duplication' in a complex codebase.

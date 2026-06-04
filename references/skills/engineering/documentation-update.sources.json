@@ -58,10 +58,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "documentation update: Claude Code patterns and workflow references",
-        "verification pattern 5"
-      ],
+      "used_for": ["documentation update: Claude Code patterns and workflow references", "verification pattern 5"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -71,10 +68,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "documentation update: Claude Cookbook patterns and workflow references",
-        "verification pattern 6"
-      ],
+      "used_for": ["documentation update: Claude Cookbook patterns and workflow references", "verification pattern 6"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"

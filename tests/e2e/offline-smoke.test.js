@@ -62,7 +62,6 @@ test('offline E2E smoke builds and reparses the generic host bundle', async () =
   assert.equal(manifest.registries?.agents, 'registry/agents.json');
 });
 
-
 test('workflow dry-run and drift', async () => {
   const o = new WorkflowOrchestrator({ repoRoot });
   const plan = await o.run('workflow.engineering.code-review-with-security', { dryRun: true });

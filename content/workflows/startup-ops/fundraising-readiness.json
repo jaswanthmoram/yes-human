@@ -3,65 +3,35 @@
   "version": "1.0.0",
   "status": "active",
   "summary": "fundraising-readiness workflow",
-  "triggers": [
-    "fundraising readiness"
-  ],
-  "aliases": [
-    "fundraising-readiness"
-  ],
+  "triggers": ["fundraising readiness"],
+  "aliases": ["fundraising-readiness"],
   "primary_agent": "startup-ops.fundraising-specialist",
-  "inputs": [
-    "task_context"
-  ],
-  "outputs": [
-    "workflow_output"
-  ],
-  "steps": [
-    "intake_scope",
-    "execute_workflow",
-    "verify_outputs"
-  ],
-  "gates": [
-    "pre-route",
-    "pre-tool",
-    "on-task-complete"
-  ],
+  "inputs": ["task_context"],
+  "outputs": ["workflow_output"],
+  "steps": ["intake_scope", "execute_workflow", "verify_outputs"],
+  "gates": ["pre-route", "pre-tool", "on-task-complete"],
   "route": {
     "domain_master": "startup-ops.master",
-    "agents": [
-      "startup-ops.fundraising-specialist"
-    ],
+    "agents": ["startup-ops.fundraising-specialist"],
     "parallel": false,
     "max_parallel_agents": 1,
     "primary": "startup-ops.fundraising-specialist",
-    "participants": [
-      "startup-ops.fundraising-specialist"
-    ]
+    "participants": ["startup-ops.fundraising-specialist"]
   },
   "budget": {
     "band": "standard",
     "max_context_tokens": 8000,
     "max_tool_calls": 12
   },
-  "source_references": [
-    "ref.workflow.startup-ops.fundraising-readiness.2026-06-02"
-  ],
+  "source_references": ["ref.workflow.startup-ops.fundraising-readiness.2026-06-02"],
   "promotion": {
     "can_learn": true,
     "min_successes_before_update": 2
   },
   "task_family": "startup-ops",
-  "negative_keywords": [
-    "wrong domain"
-  ],
-  "tools": [
-    "filesystem.read"
-  ],
-  "verification": [
-    "outputs_verified"
-  ],
-  "success_criteria": [
-    "workflow_objectives_met"
-  ],
+  "negative_keywords": ["wrong domain"],
+  "tools": ["filesystem.read"],
+  "verification": ["outputs_verified"],
+  "success_criteria": ["workflow_objectives_met"],
   "rollback": "trace_based"
 }

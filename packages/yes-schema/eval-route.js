@@ -21,9 +21,8 @@ function loadFixtures() {
   return out;
 }
 
-const thresholds = JSON.parse(
-  fs.readFileSync(path.join(repoRoot, 'registry', 'eval-thresholds.json'), 'utf8')
-).routing || {};
+const thresholds =
+  JSON.parse(fs.readFileSync(path.join(repoRoot, 'registry', 'eval-thresholds.json'), 'utf8')).routing || {};
 
 const fixtures = loadFixtures();
 if (fixtures.length === 0) {
@@ -60,8 +59,12 @@ const missingRouteRate = missingRoute / total;
 console.log('--- Routing eval ---');
 console.log(`fixtures: ${total}`);
 console.log(`top-1 accuracy: ${(top1 * 100).toFixed(1)}% (min ${(thresholds.exact_alias_top1_min ?? 0.95) * 100}%)`);
-console.log(`wrong-domain rate: ${(wrongDomainRate * 100).toFixed(1)}% (max ${(thresholds.wrong_domain_rate_max ?? 0.03) * 100}%)`);
-console.log(`missing-route rate: ${(missingRouteRate * 100).toFixed(1)}% (max ${(thresholds.missing_route_rate_max ?? 0.02) * 100}%)`);
+console.log(
+  `wrong-domain rate: ${(wrongDomainRate * 100).toFixed(1)}% (max ${(thresholds.wrong_domain_rate_max ?? 0.03) * 100}%)`
+);
+console.log(
+  `missing-route rate: ${(missingRouteRate * 100).toFixed(1)}% (max ${(thresholds.missing_route_rate_max ?? 0.02) * 100}%)`
+);
 
 if (failures.length) {
   console.log('\nmismatches:');

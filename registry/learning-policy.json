@@ -11,23 +11,14 @@
   },
   "feedback_gate": {
     "requires_eval_pass": true,
-    "allowed_mutations": [
-      "staging.feedback",
-      "staging.workflow-suggestions",
-      "graph.memory.learning"
-    ],
+    "allowed_mutations": ["staging.feedback", "staging.workflow-suggestions", "graph.memory.learning"],
     "forbidden_mutations": [
       "registry/routes.json",
       "graph/indexes/ROUTE_TABLE.min.json",
       "registry/workflows.json",
       "registry/agents.json"
     ],
-    "checks": [
-      "route",
-      "workflow",
-      "skill",
-      "cost"
-    ]
+    "checks": ["route", "workflow", "skill", "cost"]
   },
   "workflow_miner": {
     "enabled": true,

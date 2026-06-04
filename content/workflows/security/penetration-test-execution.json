@@ -18,12 +18,7 @@
     "red team simulation",
     "ethical hacking engagement"
   ],
-  "negative_keywords": [
-    "defensive security review",
-    "compliance audit",
-    "code review",
-    "documentation task"
-  ],
+  "negative_keywords": ["defensive security review", "compliance audit", "code review", "documentation task"],
   "inputs": [
     {
       "name": "test_scope",
@@ -66,28 +61,18 @@
   "primary_agent": "security.penetration-tester",
   "route": {
     "domain_master": "security.master",
-    "agents": [
-      "security.penetration-tester"
-    ],
+    "agents": ["security.penetration-tester"],
     "parallel": false,
     "max_parallel_agents": 2,
     "primary": "security.penetration-tester",
-    "participants": [
-      "security.security-reviewer",
-      "security.network-analyst"
-    ]
+    "participants": ["security.security-reviewer", "security.network-analyst"]
   },
   "budget": {
     "band": "expanded",
     "max_context_tokens": 6000,
     "max_tool_calls": 22
   },
-  "gates": [
-    "pre-route",
-    "pre-tool",
-    "post-tool",
-    "on-task-complete"
-  ],
+  "gates": ["pre-route", "pre-tool", "post-tool", "on-task-complete"],
   "steps": [
     {
       "id": "scope-and-authorization",
@@ -144,9 +129,7 @@
     "mode": "manual",
     "summary": "Test artifacts and access must be manually cleaned up post-engagement."
   },
-  "source_references": [
-    "ref.workflow.security.penetration-test-execution.2026-06-01"
-  ],
+  "source_references": ["ref.workflow.security.penetration-test-execution.2026-06-01"],
   "promotion": {
     "can_learn": true,
     "quality_gate": "staging",

@@ -62,48 +62,61 @@ rollback:
 validators:
   - skill.validator
 ---
+
 ## Trigger
+
 Use when sales process is inconsistent, CRM data is unreliable, or pipeline reviews are not driving action.
 
 ## Prerequisites
+
 - CRM system accessible
 - Current sales process documented (even informally)
 
 ## Steps
 
 ### 1. Audit CRM Hygiene
+
 Check required field completion rate. Look at deal ages (stale deals >90 days). Identify reps not updating stages.
 
 ### 2. Define Stage Exit Criteria
+
 For each deal stage, write a specific, observable action required to advance: not "good call" but "sent pricing proposal and received verbal acknowledgment of budget."
 
 ### 3. Calculate Pipeline Velocity
+
 `(deals in pipeline × avg deal size × win rate) ÷ avg sales cycle`. This number tells you if you have enough pipeline to hit quota.
 
 ### 4. Set Review Cadence
+
 Weekly: 30-min deal reviews focused on at-risk and next-30-day deals. Monthly: pipeline coverage review. Quarterly: win/loss analysis.
 
 ### 5. Build Dashboards
+
 Rep dashboard: pipeline coverage (target 3x quota), conversion rate by stage, avg sales cycle. Manager dashboard: team pipeline health.
 
 ### 6. Identify Coaching Opportunities
+
 Reps below 70% quota attainment get structured coaching. Focus on the stage with highest drop-off rate in their pipeline.
 
 ## Verification
+
 - [ ] Stage exit criteria documented
 - [ ] Pipeline coverage ≥3x per rep
 - [ ] CRM required fields ≥90% complete
 
 ## Rollback
+
 Process documents only — revert CRM changes via CRM audit log if needed.
 
 ## Common Failures
-| Failure | Cause | Fix |
-|---------|-------|-----|
-| CRM not maintained | No enforcement | Make CRM update required for commission |
-| Subjective stages | Vague criteria | Rewrite with observable actions |
+
+| Failure                           | Cause                    | Fix                                         |
+| --------------------------------- | ------------------------ | ------------------------------------------- |
+| CRM not maintained                | No enforcement           | Make CRM update required for commission     |
+| Subjective stages                 | Vague criteria           | Rewrite with observable actions             |
 | Pipeline reviews = status updates | No problem-solving focus | Change agenda: "What's blocking this deal?" |
 
 ## Examples
+
 **Example A:** Discovery → Demo → Proposal → Contract → Closed. Each stage has 3 specific exit criteria.
 **Example B:** Pipeline velocity analysis shows 40% drop at Proposal stage — investigate pricing and proposal quality.

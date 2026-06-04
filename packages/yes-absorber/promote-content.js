@@ -47,16 +47,27 @@ function seedAgentDossier(repoRoot, agentId, manifest) {
     dossier_id: `dossier.${agentId}.${new Date().toISOString().slice(0, 10)}`,
     agent_id: agentId,
     domain,
-    sources: [{
-      url: origin,
-      source_type: 'absorbed_bundle',
-      license: manifest?.license?.spdx || 'MIT',
-      version_or_commit: manifest?.source?.commit_or_version || 'unknown',
-      used_for: ['absorber promotion seed'],
-      copy_policy: manifest?.copy_policy_required || 'patterns_only',
-      last_updated: new Date().toISOString()
-    }],
-    scores: { source_count: 1, official_docs: 10, github_quality: 10, license_safety: 15, maintenance: 10, pattern_clarity: 10, testability: 10, total: 65 },
+    sources: [
+      {
+        url: origin,
+        source_type: 'absorbed_bundle',
+        license: manifest?.license?.spdx || 'MIT',
+        version_or_commit: manifest?.source?.commit_or_version || 'unknown',
+        used_for: ['absorber promotion seed'],
+        copy_policy: manifest?.copy_policy_required || 'patterns_only',
+        last_updated: new Date().toISOString()
+      }
+    ],
+    scores: {
+      source_count: 1,
+      official_docs: 10,
+      github_quality: 10,
+      license_safety: 15,
+      maintenance: 10,
+      pattern_clarity: 10,
+      testability: 10,
+      total: 65
+    },
     promotion_decision: 'staging',
     expires_at: new Date(Date.now() + 90 * 86400000).toISOString()
   };
@@ -75,16 +86,27 @@ function seedSkillDossier(repoRoot, skillId, manifest) {
     dossier_id: `dossier.${skillId}.${new Date().toISOString().slice(0, 10)}`,
     skill_id: skillId,
     domain,
-    sources: [{
-      url: origin,
-      source_type: 'absorbed_bundle',
-      license: manifest?.license?.spdx || 'MIT',
-      version_or_commit: manifest?.source?.commit_or_version || 'unknown',
-      used_for: ['absorber promotion seed'],
-      copy_policy: manifest?.copy_policy_required || 'patterns_only',
-      last_updated: new Date().toISOString()
-    }],
-    scores: { source_count: 1, official_docs: 10, github_quality: 10, license_safety: 15, maintenance: 10, pattern_clarity: 10, testability: 10, total: 65 },
+    sources: [
+      {
+        url: origin,
+        source_type: 'absorbed_bundle',
+        license: manifest?.license?.spdx || 'MIT',
+        version_or_commit: manifest?.source?.commit_or_version || 'unknown',
+        used_for: ['absorber promotion seed'],
+        copy_policy: manifest?.copy_policy_required || 'patterns_only',
+        last_updated: new Date().toISOString()
+      }
+    ],
+    scores: {
+      source_count: 1,
+      official_docs: 10,
+      github_quality: 10,
+      license_safety: 15,
+      maintenance: 10,
+      pattern_clarity: 10,
+      testability: 10,
+      total: 65
+    },
     promotion_decision: 'staging',
     expires_at: new Date(Date.now() + 90 * 86400000).toISOString()
   };
@@ -100,9 +122,8 @@ export function promoteContentFromStaging(slug, opts = {}) {
   }
 
   const manifestPath = path.join(srcRoot, 'manifest.json');
-  const manifest = opts.manifest || (fs.existsSync(manifestPath)
-    ? JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
-    : {});
+  const manifest =
+    opts.manifest || (fs.existsSync(manifestPath) ? JSON.parse(fs.readFileSync(manifestPath, 'utf8')) : {});
 
   if (manifest.license?.decision === 'forbidden' || manifest.license?.decision === 'unknown') {
     throw new Error(`License gate blocks promotion: ${manifest.license?.spdx ?? 'unknown'}`);
@@ -118,8 +139,9 @@ export function promoteContentFromStaging(slug, opts = {}) {
   const planned = [];
   const promoted = { agents: [], skills: [], workflows: [] };
 
-  const agentFiles = walkFiles(srcRoot, (p, name) =>
-    name.endsWith('.md') && (p.includes(path.sep + 'agents' + path.sep))
+  const agentFiles = walkFiles(
+    srcRoot,
+    (p, name) => name.endsWith('.md') && p.includes(path.sep + 'agents' + path.sep)
   ).slice(0, maxPerKind);
 
   for (const src of agentFiles) {
@@ -149,20 +171,31 @@ export function promoteContentFromStaging(slug, opts = {}) {
     planned.push({ kind: 'skill', src, dest, relDest: path.relative(repoRoot, dest), skillId });
   }
 
-  const workflowFiles = walkFiles(srcRoot, (p, name) =>
-    name.endsWith('.json') && p.includes(path.sep + 'workflows' + path.sep)
+  const workflowFiles = walkFiles(
+    srcRoot,
+    (p, name) => name.endsWith('.json') && p.includes(path.sep + 'workflows' + path.sep)
   ).slice(0, maxPerKind);
 
   for (const src of workflowFiles) {
     if (blockedExact.has(src)) continue;
     let wf;
-    try { wf = JSON.parse(fs.readFileSync(src, 'utf8')); } catch { continue; }
+    try {
+      wf = JSON.parse(fs.readFileSync(src, 'utf8'));
+    } catch {
+      continue;
+    }
     const id = wf.id;
     const domain = inferDomainFromId(id, defaultDomain);
     const baseName = id ? id.split('.').slice(1).join('.') : path.basename(src, '.json');
     const dest = path.join(repoRoot, 'content', 'workflows', domain, `${baseName}.json`);
     if (fs.existsSync(dest)) continue;
-    planned.push({ kind: 'workflow', src, dest, relDest: path.relative(repoRoot, dest), workflowId: id || `${domain}.${baseName}` });
+    planned.push({
+      kind: 'workflow',
+      src,
+      dest,
+      relDest: path.relative(repoRoot, dest),
+      workflowId: id || `${domain}.${baseName}`
+    });
   }
 
   const filesAdded = planned.map((p) => p.relDest);
@@ -195,15 +228,18 @@ export function promoteContentFromStaging(slug, opts = {}) {
 
   const ledgerPath = path.join(repoRoot, 'registry', 'ledger.jsonl');
   fs.mkdirSync(path.dirname(ledgerPath), { recursive: true });
-  fs.appendFileSync(ledgerPath, JSON.stringify({
-    type: 'absorb_promote_content',
-    slug,
-    change_id: opts.changeId || null,
-    files_added: filesAdded,
-    dossiers_added: dossiersAdded,
-    promoted,
-    at: new Date().toISOString()
-  }) + '\\n');
+  fs.appendFileSync(
+    ledgerPath,
+    JSON.stringify({
+      type: 'absorb_promote_content',
+      slug,
+      change_id: opts.changeId || null,
+      files_added: filesAdded,
+      dossiers_added: dossiersAdded,
+      promoted,
+      at: new Date().toISOString()
+    }) + '\\n'
+  );
 
   return { slug, files_added: filesAdded, dossiers_added: dossiersAdded, promoted };
 }

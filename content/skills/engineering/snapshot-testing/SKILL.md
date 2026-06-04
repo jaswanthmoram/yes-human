@@ -64,48 +64,61 @@ rollback:
 validators:
   - skill.validator
 ---
+
 ## Trigger
+
 Use when you need to detect unintended changes in component rendering, serialized objects, or CLI output.
 
 ## Prerequisites
+
 - Jest/Vitest installed
 - Output is deterministic (no random values, timestamps, or UUIDs without mocking)
 
 ## Steps
 
 ### 1. Choose Snapshot Target
+
 Good candidates: React component trees, serialized config objects, CLI help text, API response shapes (with IDs mocked). Bad candidates: anything with timestamps, random IDs, or dynamic data.
 
 ### 2. Mock Non-Deterministic Values
+
 Mock `Date.now()`, `Math.random()`, UUID generators. Replace with fixed values before snapshotting.
 
 ### 3. Write the Snapshot Test
+
 Use `toMatchInlineSnapshot()` for small outputs — they live in the test file and are always visible. Use file snapshots for large structures only.
 
 ### 4. Review First Snapshot
+
 When creating for the first time, run once to generate, then read the snapshot. If it looks wrong, fix the component — don't accept a wrong snapshot.
 
 ### 5. Handle Updates
+
 When the snapshot changes intentionally (new feature, design change), run `jest --updateSnapshot`, read the diff, write a meaningful commit message explaining the change.
 
 ### 6. CI Configuration
+
 Never auto-update snapshots in CI. Fail on any snapshot mismatch. Updates must be explicit developer decisions.
 
 ## Verification
+
 - [ ] All snapshots deterministic
 - [ ] Snapshot files committed to git
 - [ ] No --updateSnapshot in CI config
 
 ## Rollback
+
 `git checkout -- src/__snapshots__/` to restore previous snapshots.
 
 ## Common Failures
-| Failure | Cause | Fix |
-|---------|-------|-----|
-| Snapshots always fail in CI | Timestamps in output | Mock Date.now() |
-| 5000-line snapshot diffs | Snapshotting entire app tree | Use shallow rendering |
-| Snapshots updated without review | --updateSnapshot in CI | Remove from CI |
+
+| Failure                          | Cause                        | Fix                   |
+| -------------------------------- | ---------------------------- | --------------------- |
+| Snapshots always fail in CI      | Timestamps in output         | Mock Date.now()       |
+| 5000-line snapshot diffs         | Snapshotting entire app tree | Use shallow rendering |
+| Snapshots updated without review | --updateSnapshot in CI       | Remove from CI        |
 
 ## Examples
+
 **Example A:** Button component snapshot captures rendered HTML — fails when classname changes.
 **Example B:** Config serializer snapshot detects when a new required field is added to output.

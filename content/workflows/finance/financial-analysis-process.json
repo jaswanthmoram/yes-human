@@ -10,15 +10,8 @@
     "financial performance analysis",
     "quarterly financial assessment"
   ],
-  "aliases": [
-    "financial analysis",
-    "financial review process"
-  ],
-  "negative_keywords": [
-    "legal compliance review",
-    "security audit",
-    "code review"
-  ],
+  "aliases": ["financial analysis", "financial review process"],
+  "negative_keywords": ["legal compliance review", "security audit", "code review"],
   "inputs": [
     {
       "name": "financial_statements",
@@ -53,14 +46,9 @@
   "primary_agent": "finance.financial-analyst",
   "route": {
     "domain_master": "finance.master",
-    "agents": [
-      "finance.financial-analyst",
-      "finance.risk-manager"
-    ],
+    "agents": ["finance.financial-analyst", "finance.risk-manager"],
     "primary_agent": "finance.financial-analyst",
-    "participants": [
-      "finance.risk-manager"
-    ],
+    "participants": ["finance.risk-manager"],
     "parallel": true,
     "max_parallel_agents": 2
   },

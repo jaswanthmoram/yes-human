@@ -67,6 +67,7 @@ validators:
 ---
 
 ## Procedure
+
 1. Gather deal facts: segment, use case, buyer value, alternatives, budget, timeline, and procurement constraints.
 2. Build three package options with price, scope, term, services, and usage limits.
 3. Calculate ARR, margin, payback, and renewal risk for each option.
@@ -74,6 +75,7 @@ validators:
 5. Recommend one option plus fallback positions for negotiation.
 
 ## Verification
+
 - Discount rationale is tied to customer value or reciprocal commitment.
 - Finance-sensitive assumptions are labeled.
 - Approval requirements are explicit.

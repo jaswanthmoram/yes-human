@@ -3,8 +3,14 @@
   "title": "Yes-human Agent Source Dossier Schema",
   "type": "object",
   "required": [
-    "dossier_id", "agent_id", "domain", "created_at", "expires_at", 
-    "sources", "scores", "promotion_decision"
+    "dossier_id",
+    "agent_id",
+    "domain",
+    "created_at",
+    "expires_at",
+    "sources",
+    "scores",
+    "promotion_decision"
   ],
   "properties": {
     "dossier_id": { "type": "string" },
@@ -19,7 +25,21 @@
         "required": ["url", "source_type", "license", "version_or_commit", "used_for", "copy_policy"],
         "properties": {
           "url": { "type": "string", "format": "uri" },
-          "source_type": { "type": "string", "enum": ["github_repo", "official_docs", "official_blog", "official_book", "official_course", "official_specs", "standards_doc", "research_paper", "vendor_docs", "technical_blog"] },
+          "source_type": {
+            "type": "string",
+            "enum": [
+              "github_repo",
+              "official_docs",
+              "official_blog",
+              "official_book",
+              "official_course",
+              "official_specs",
+              "standards_doc",
+              "research_paper",
+              "vendor_docs",
+              "technical_blog"
+            ]
+          },
           "license": { "type": "string" },
           "version_or_commit": { "type": "string" },
           "used_for": {
@@ -33,8 +53,14 @@
     "scores": {
       "type": "object",
       "required": [
-        "source_count", "official_docs", "github_quality", "license_safety", 
-        "maintenance", "pattern_clarity", "testability", "total"
+        "source_count",
+        "official_docs",
+        "github_quality",
+        "license_safety",
+        "maintenance",
+        "pattern_clarity",
+        "testability",
+        "total"
       ],
       "properties": {
         "source_count": { "type": "integer", "minimum": 0 },

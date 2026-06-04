@@ -10,14 +10,8 @@
     "test business hypothesis",
     "validate startup idea"
   ],
-  "aliases": [
-    "biz model validation",
-    "model validation"
-  ],
-  "negative_keywords": [
-    "enterprise business case",
-    "government procurement"
-  ],
+  "aliases": ["biz model validation", "model validation"],
+  "negative_keywords": ["enterprise business case", "government procurement"],
   "inputs": [
     {
       "name": "business_hypothesis",
@@ -58,9 +52,7 @@
       "startup-ops.market-validation"
     ],
     "primary_agent": "startup-ops.business-model-designer",
-    "participants": [
-      "startup-ops.financial-modeler"
-    ],
+    "participants": ["startup-ops.financial-modeler"],
     "parallel": false,
     "max_parallel_agents": 3
   },

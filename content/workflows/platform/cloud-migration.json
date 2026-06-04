@@ -14,17 +14,8 @@
     "cloud provider switch",
     "datacenter exit migration"
   ],
-  "aliases": [
-    "cloud migration",
-    "workload migration",
-    "lift and shift"
-  ],
-  "negative_keywords": [
-    "application refactoring",
-    "greenfield deployment",
-    "disaster recovery",
-    "backup restoration"
-  ],
+  "aliases": ["cloud migration", "workload migration", "lift and shift"],
+  "negative_keywords": ["application refactoring", "greenfield deployment", "disaster recovery", "backup restoration"],
   "inputs": [
     {
       "name": "source_environment",
@@ -72,13 +63,7 @@
     "platform.sre-engineer",
     "platform.cost-analyst"
   ],
-  "skills": [
-    "cloud-migration",
-    "infrastructure-as-code",
-    "data-replication",
-    "dns-management",
-    "cost-optimization"
-  ],
+  "skills": ["cloud-migration", "infrastructure-as-code", "data-replication", "dns-management", "cost-optimization"],
   "budget_band": "expanded",
   "max_context_tokens": 4500,
   "max_tool_calls": 16,
@@ -193,9 +178,7 @@
   },
   "route": {
     "domain_master": "platform.master",
-    "agents": [
-      "platform.devops-engineer"
-    ],
+    "agents": ["platform.devops-engineer"],
     "parallel": false,
     "max_parallel_agents": 1
   }

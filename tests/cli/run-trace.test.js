@@ -22,9 +22,19 @@ test('yes run --trace keeps stdout readable and writes structured JSONL trace', 
   assert.match(result.stdout, /yes run/);
   assert.match(result.stdout, /Route\s+: route\.finance\.expense-auditor/);
 
+  // stderr may contain structured-log warnings in addition to the trace JSON.
+  // Filter to lines that parse as the trace event.
   const stderrLines = result.stderr.trim().split(/\n+/).filter(Boolean);
-  assert.equal(stderrLines.length, 1);
-  const trace = JSON.parse(stderrLines[0]);
+  const traceLines = stderrLines.filter((l) => {
+    try {
+      const parsed = JSON.parse(l);
+      return parsed.event === 'yes.run.trace';
+    } catch {
+      return false;
+    }
+  });
+  assert.equal(traceLines.length, 1);
+  const trace = JSON.parse(traceLines[0]);
 
   assert.equal(trace.event, 'yes.run.trace');
   assert.equal(trace.input, 'expense audit');

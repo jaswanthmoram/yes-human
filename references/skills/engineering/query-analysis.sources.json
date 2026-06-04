@@ -22,10 +22,7 @@
       "source_type": "official_docs",
       "license": "Apache-2.0",
       "version_or_commit": "2026-06-02",
-      "used_for": [
-        "query analysis: OpenAI Agents docs patterns and workflow references",
-        "verification pattern 2"
-      ],
+      "used_for": ["query analysis: OpenAI Agents docs patterns and workflow references", "verification pattern 2"],
       "copy_policy": "patterns_only",
       "last_updated": "2026-05-15T00:00:00Z"
     },
@@ -59,10 +56,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "query analysis: LangGraph patterns and workflow references",
-        "verification pattern 5"
-      ],
+      "used_for": ["query analysis: LangGraph patterns and workflow references", "verification pattern 5"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -85,10 +79,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "query analysis: OpenAI Agents SDK JS patterns and workflow references",
-        "verification pattern 7"
-      ],
+      "used_for": ["query analysis: OpenAI Agents SDK JS patterns and workflow references", "verification pattern 7"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -98,10 +89,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "query analysis: CrewAI patterns and workflow references",
-        "verification pattern 8"
-      ],
+      "used_for": ["query analysis: CrewAI patterns and workflow references", "verification pattern 8"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -111,10 +99,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "query analysis: AutoGen patterns and workflow references",
-        "verification pattern 9"
-      ],
+      "used_for": ["query analysis: AutoGen patterns and workflow references", "verification pattern 9"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -124,10 +109,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "query analysis: OpenHands patterns and workflow references",
-        "verification pattern 10"
-      ],
+      "used_for": ["query analysis: OpenHands patterns and workflow references", "verification pattern 10"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -137,10 +119,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "query analysis: MCP Agent patterns and workflow references",
-        "verification pattern 11"
-      ],
+      "used_for": ["query analysis: MCP Agent patterns and workflow references", "verification pattern 11"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -150,10 +129,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "query analysis: Agent Lightning patterns and workflow references",
-        "verification pattern 12"
-      ],
+      "used_for": ["query analysis: Agent Lightning patterns and workflow references", "verification pattern 12"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"

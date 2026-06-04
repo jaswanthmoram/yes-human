@@ -67,6 +67,7 @@ validators:
 ---
 
 ## Procedure
+
 1. Capture account facts: ARR, renewal date, product footprint, stakeholders, goals, and open issues.
 2. Score account health across adoption, value proof, relationship strength, support burden, and commercial risk.
 3. Build a stakeholder map and identify missing relationships.
@@ -74,6 +75,7 @@ validators:
 5. Convert the plan into CRM-safe next steps with dates and owners.
 
 ## Verification
+
 - Renewal and expansion paths are separated.
 - Risks include evidence and mitigation.
 - CRM updates do not include unsupported claims.

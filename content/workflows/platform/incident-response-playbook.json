@@ -13,17 +13,8 @@
     "incident triage and mitigation",
     "run incident playbook"
   ],
-  "aliases": [
-    "incident response",
-    "outage playbook",
-    "incident workflow"
-  ],
-  "negative_keywords": [
-    "feature development",
-    "capacity planning",
-    "monitoring setup",
-    "deployment pipeline"
-  ],
+  "aliases": ["incident response", "outage playbook", "incident workflow"],
+  "negative_keywords": ["feature development", "capacity planning", "monitoring setup", "deployment pipeline"],
   "inputs": [
     {
       "name": "incident_signal",
@@ -65,17 +56,8 @@
     }
   ],
   "primary_agent": "platform.incident-responder",
-  "participants": [
-    "platform.sre-engineer",
-    "platform.devops-engineer",
-    "platform.security-engineer"
-  ],
-  "skills": [
-    "incident-management",
-    "log-analysis",
-    "runbook-execution",
-    "stakeholder-communication"
-  ],
+  "participants": ["platform.sre-engineer", "platform.devops-engineer", "platform.security-engineer"],
+  "skills": ["incident-management", "log-analysis", "runbook-execution", "stakeholder-communication"],
   "budget_band": "standard",
   "max_context_tokens": 3200,
   "max_tool_calls": 10,
@@ -185,9 +167,7 @@
   },
   "route": {
     "domain_master": "platform.master",
-    "agents": [
-      "platform.incident-responder"
-    ],
+    "agents": ["platform.incident-responder"],
     "parallel": false,
     "max_parallel_agents": 1
   }

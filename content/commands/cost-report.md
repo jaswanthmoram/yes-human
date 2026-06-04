@@ -19,16 +19,21 @@ Check startup token budget and context-pack sizes for all budget bands.
 ```
 
 ## Inputs
+
 registry_paths
 
 ## Outputs
+
 token_report
+
 - budget_compliance
 
 ## Workflow
+
 Routes through `yes route` to activate the `meta-system.cost-controller` workflow.
 All policy gates (pre-route, pre-tool, pre-write) apply.
 
 ## Notes
+
 - This command is a shim over the `meta-system.cost-controller` workflow.
 - Run `yes route "cost-report" --dry-run` to inspect the routing before execution.

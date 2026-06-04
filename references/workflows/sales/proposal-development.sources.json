@@ -34,10 +34,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "proposal development: Agent Lightning patterns and workflow references",
-        "verification pattern 3"
-      ],
+      "used_for": ["proposal development: Agent Lightning patterns and workflow references", "verification pattern 3"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -47,10 +44,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "proposal development: OpenPipe ART patterns and workflow references",
-        "verification pattern 4"
-      ],
+      "used_for": ["proposal development: OpenPipe ART patterns and workflow references", "verification pattern 4"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -60,10 +54,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "proposal development: Dify patterns and workflow references",
-        "verification pattern 5"
-      ],
+      "used_for": ["proposal development: Dify patterns and workflow references", "verification pattern 5"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -73,10 +64,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "proposal development: Langflow patterns and workflow references",
-        "verification pattern 6"
-      ],
+      "used_for": ["proposal development: Langflow patterns and workflow references", "verification pattern 6"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -86,10 +74,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "proposal development: Flowise patterns and workflow references",
-        "verification pattern 7"
-      ],
+      "used_for": ["proposal development: Flowise patterns and workflow references", "verification pattern 7"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -99,10 +84,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "proposal development: Anthropic skills patterns and workflow references",
-        "verification pattern 8"
-      ],
+      "used_for": ["proposal development: Anthropic skills patterns and workflow references", "verification pattern 8"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -125,10 +107,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "proposal development: Awesome Agents patterns and workflow references",
-        "verification pattern 10"
-      ],
+      "used_for": ["proposal development: Awesome Agents patterns and workflow references", "verification pattern 10"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"

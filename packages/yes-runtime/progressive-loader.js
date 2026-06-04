@@ -14,10 +14,12 @@ function uniqueStrings(values) {
 }
 
 function listFieldNames(entries) {
-  return uniqueStrings((entries || []).map((entry) => {
-    if (typeof entry === 'string') return entry;
-    return entry?.name || entry?.summary || entry?.id || entry?.dossier_path || entry?.method || entry?.rule || '';
-  }));
+  return uniqueStrings(
+    (entries || []).map((entry) => {
+      if (typeof entry === 'string') return entry;
+      return entry?.name || entry?.summary || entry?.id || entry?.dossier_path || entry?.method || entry?.rule || '';
+    })
+  );
 }
 
 function normalizeWorkflow(workflow) {
@@ -33,11 +35,7 @@ function normalizeWorkflow(workflow) {
     verification: listFieldNames(workflow.verification),
     route: {
       domain_master: route.domain_master || (primaryAgent ? `${primaryAgent.split('.')[0]}.master` : null),
-      agents: uniqueStrings([
-        ...(route.agents || []),
-        route.primary || primaryAgent,
-        ...(route.participants || [])
-      ]),
+      agents: uniqueStrings([...(route.agents || []), route.primary || primaryAgent, ...(route.participants || [])]),
       parallel: route.parallel === true,
       max_parallel_agents: route.max_parallel_agents || 1
     },
@@ -48,12 +46,12 @@ function normalizeWorkflow(workflow) {
 
 /**
  * Progressive Loader - Lazy-loads agents/skills/workflows on demand
- * 
+ *
  * Implements progressive disclosure pattern from agentic-harness:
  * - Load manifest only at startup (ROUTE_TABLE.min.json)
  * - Load full agent/skill/workflow only when matched
  * - Track token budget and enforce limits
- * 
+ *
  * This keeps startup tokens low (69 tokens) while allowing
  * access to full content when needed.
  */
@@ -62,11 +60,11 @@ export class ProgressiveLoader {
     this.contentDir = config.contentDir || 'content';
     this.registryDir = config.registryDir || 'registry';
     this.graphDir = config.graphDir || 'graph/indexes';
-    
+
     this.loaded = new Map(); // Cache of loaded content
     this.tokenBudget = config.tokenBudget || 180; // Startup budget
     this.currentTokens = 0;
-    
+
     // Load manifest at startup
     this.manifest = this.loadManifest();
   }
@@ -80,14 +78,14 @@ export class ProgressiveLoader {
       aliasTable: this.loadJSON(path.join(this.graphDir, 'ALIAS_TABLE.min.json')),
       workflowCache: this.loadJSON(path.join(this.graphDir, 'WORKFLOW_CACHE.min.json'))
     };
-    
+
     this.currentTokens = this.estimateTokens(manifest);
     return manifest;
   }
 
   /**
    * Load full agent/skill/workflow on demand
-   * 
+   *
    * @param {string} routeId - Route ID (e.g., 'route.engineering.code-reviewer')
    * @returns {Object|null} - Loaded content or null if not found
    */
@@ -105,9 +103,7 @@ export class ProgressiveLoader {
     const content = {
       route,
       agent: route.target?.agent ? this.loadAgentById(route.target.agent) : null,
-      skills: (route.target?.skills || [])
-        .map((skillId) => this.loadSkillById(skillId))
-        .filter(Boolean),
+      skills: (route.target?.skills || []).map((skillId) => this.loadSkillById(skillId)).filter(Boolean),
       workflow: route.target?.workflow ? this.loadWorkflowById(route.target.workflow) : null
     };
 
@@ -137,12 +133,12 @@ export class ProgressiveLoader {
    */
   loadAgent(domain, id) {
     const filePath = path.join(process.cwd(), this.contentDir, 'agents', domain, `${id}.md`);
-    
+
     if (!fs.existsSync(filePath)) {
       console.warn(`[ProgressiveLoader] Agent not found: ${filePath}`);
       return null;
     }
-    
+
     try {
       const content = fs.readFileSync(filePath, 'utf8');
       return this.parseMarkdown(content);
@@ -157,12 +153,12 @@ export class ProgressiveLoader {
    */
   loadSkill(domain, id) {
     const filePath = path.join(process.cwd(), this.contentDir, 'skills', domain, `${id}.md`);
-    
+
     if (!fs.existsSync(filePath)) {
       console.warn(`[ProgressiveLoader] Skill not found: ${filePath}`);
       return null;
     }
-    
+
     try {
       const content = fs.readFileSync(filePath, 'utf8');
       return this.parseMarkdown(content);
@@ -185,12 +181,12 @@ export class ProgressiveLoader {
    */
   loadWorkflow(domain, id) {
     const filePath = path.join(process.cwd(), this.contentDir, 'workflows', domain, `${id}.json`);
-    
+
     if (!fs.existsSync(filePath)) {
       console.warn(`[ProgressiveLoader] Workflow not found: ${filePath}`);
       return null;
     }
-    
+
     try {
       const content = fs.readFileSync(filePath, 'utf8');
       return normalizeWorkflow(JSON.parse(content));
@@ -213,18 +209,18 @@ export class ProgressiveLoader {
    */
   parseMarkdown(content) {
     const match = content.match(/^---\n([\s\S]+?)\n---\n([\s\S]+)$/);
-    
+
     if (!match) {
       return { body: content };
     }
-    
+
     const frontmatter = match[1];
     const body = match[2];
-    
+
     // Simple YAML parser for frontmatter
     const metadata = {};
     const lines = frontmatter.split('\n');
-    
+
     for (const line of lines) {
       const colonIndex = line.indexOf(':');
       if (colonIndex > 0) {
@@ -233,7 +229,7 @@ export class ProgressiveLoader {
         metadata[key] = value;
       }
     }
-    
+
     return { metadata, body };
   }
 
@@ -242,11 +238,11 @@ export class ProgressiveLoader {
    */
   loadJSON(filePath) {
     const fullPath = path.join(process.cwd(), filePath);
-    
+
     if (!fs.existsSync(fullPath)) {
       return null;
     }
-    
+
     try {
       const content = fs.readFileSync(fullPath, 'utf8');
       return JSON.parse(content);

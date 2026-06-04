@@ -10,15 +10,8 @@
     "vendor agreement issue spotting",
     "privacy clause screening"
   ],
-  "aliases": [
-    "contract risk review",
-    "agreement triage"
-  ],
-  "negative_keywords": [
-    "forecast model",
-    "campaign brief",
-    "deployment rollback"
-  ],
+  "aliases": ["contract risk review", "agreement triage"],
+  "negative_keywords": ["forecast model", "campaign brief", "deployment rollback"],
   "inputs": [
     {
       "name": "document_type",
@@ -59,10 +52,7 @@
       "legal-compliance.compliance-checker"
     ],
     "primary_agent": "legal-compliance.contract-reviewer",
-    "participants": [
-      "legal-compliance.privacy-advisor",
-      "legal-compliance.compliance-checker"
-    ],
+    "participants": ["legal-compliance.privacy-advisor", "legal-compliance.compliance-checker"],
     "parallel": true,
     "max_parallel_agents": 3
   },

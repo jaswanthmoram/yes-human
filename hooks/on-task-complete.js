@@ -1,6 +1,6 @@
 /**
  * On-task-complete hook: Trace + Ledger
- * 
+ *
  * Runs when a task completes. Performs:
  * 1. Trace recording (to episodic memory)
  * 2. Ledger entry (immutable record with hash chain)
@@ -18,7 +18,7 @@ const learning = new LearningEngine();
 export default async function onTaskComplete(context) {
   try {
     const { task, route, agents, tools, duration, success } = context;
-    
+
     // 1. Create tenant-scoped redacted trace and episodic record.
     const { trace } = learning.recordTrace({
       ...context,
@@ -39,14 +39,16 @@ export default async function onTaskComplete(context) {
       hash: null // Will be calculated
     };
     ledgerEntry.hash = hashLedgerEntry(ledgerEntry);
-    
+
     appendToJSONL('registry/ledger.jsonl', ledgerEntry);
-    
+
     // 3. Log redacted summary to console.
     const taskPreview = task ? redactString(String(task).slice(0, 120)) : '';
-    console.log(`[trace] task="${taskPreview}" route=${trace.route_id} success=${success} duration=${duration}ms trace=${trace.trace_id}`);
-    
-    return { 
+    console.log(
+      `[trace] task="${taskPreview}" route=${trace.route_id} success=${success} duration=${duration}ms trace=${trace.trace_id}`
+    );
+
+    return {
       recorded: true,
       trace_id: trace.trace_id,
       ledger_hash: ledgerEntry.hash
@@ -74,10 +76,10 @@ function getLastLedgerHash() {
   try {
     const ledgerPath = 'registry/ledger.jsonl';
     if (!fs.existsSync(ledgerPath)) return 'genesis';
-    
+
     const lines = fs.readFileSync(ledgerPath, 'utf8').trim().split('\n');
     if (lines.length === 0) return 'genesis';
-    
+
     const last = JSON.parse(lines[lines.length - 1]);
     return last.hash || 'genesis';
   } catch {

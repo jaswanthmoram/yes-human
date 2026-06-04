@@ -4,21 +4,9 @@
   "status": "active",
   "summary": "Comprehensive accessibility audit of a digital product against WCAG 2.2 AA standards with remediation plan.",
   "task_family": "accessibility_review",
-  "triggers": [
-    "run accessibility audit on product",
-    "wcag compliance audit",
-    "accessibility review for launch"
-  ],
-  "aliases": [
-    "a11y audit",
-    "accessibility check",
-    "wcag audit"
-  ],
-  "negative_keywords": [
-    "visual design only",
-    "performance optimization",
-    "security audit"
-  ],
+  "triggers": ["run accessibility audit on product", "wcag compliance audit", "accessibility review for launch"],
+  "aliases": ["a11y audit", "accessibility check", "wcag audit"],
+  "negative_keywords": ["visual design only", "performance optimization", "security audit"],
   "inputs": [
     {
       "name": "product_surface",
@@ -54,26 +42,18 @@
   "primary_agent": "design-content.accessibility-auditor",
   "route": {
     "domain_master": "design-content.master",
-    "agents": [
-      "design-content.accessibility-auditor"
-    ],
+    "agents": ["design-content.accessibility-auditor"],
     "parallel": false,
     "max_parallel_agents": 1,
     "primary": "design-content.accessibility-auditor",
-    "participants": [
-      "design-content.ui-designer"
-    ]
+    "participants": ["design-content.ui-designer"]
   },
   "budget": {
     "band": "standard",
     "max_context_tokens": 6000,
     "max_tool_calls": 15
   },
-  "gates": [
-    "pre-route",
-    "pre-tool",
-    "on-task-complete"
-  ],
+  "gates": ["pre-route", "pre-tool", "on-task-complete"],
   "steps": [
     {
       "id": "map-product-surface",
@@ -100,12 +80,7 @@
       "summary": "Produce audit report with conformance score and action items."
     }
   ],
-  "tools": [
-    "filesystem.read",
-    "a11y_checker",
-    "browser_inspection",
-    "screen_reader_testing"
-  ],
+  "tools": ["filesystem.read", "a11y_checker", "browser_inspection", "screen_reader_testing"],
   "verification": [
     "every_finding_cites_wcag_criterion",
     "keyboard_navigation_tested",
@@ -122,9 +97,7 @@
     "mode": "no_write",
     "summary": "Review-only workflow."
   },
-  "source_references": [
-    "ref.workflow.design-content.accessibility-audit.2026-05-31"
-  ],
+  "source_references": ["ref.workflow.design-content.accessibility-audit.2026-05-31"],
   "promotion": {
     "can_learn": true,
     "quality_gate": "staging",

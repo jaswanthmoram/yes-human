@@ -46,10 +46,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "security compliance check: OpenHands patterns and workflow references",
-        "verification pattern 4"
-      ],
+      "used_for": ["security compliance check: OpenHands patterns and workflow references", "verification pattern 4"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -59,10 +56,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "security compliance check: MCP Agent patterns and workflow references",
-        "verification pattern 5"
-      ],
+      "used_for": ["security compliance check: MCP Agent patterns and workflow references", "verification pattern 5"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -98,10 +92,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "security compliance check: Dify patterns and workflow references",
-        "verification pattern 8"
-      ],
+      "used_for": ["security compliance check: Dify patterns and workflow references", "verification pattern 8"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -111,10 +102,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "security compliance check: Langflow patterns and workflow references",
-        "verification pattern 9"
-      ],
+      "used_for": ["security compliance check: Langflow patterns and workflow references", "verification pattern 9"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -124,10 +112,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "security compliance check: Flowise patterns and workflow references",
-        "verification pattern 10"
-      ],
+      "used_for": ["security compliance check: Flowise patterns and workflow references", "verification pattern 10"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"

@@ -4,18 +4,39 @@
   "status": "active",
   "summary": "End-to-end curriculum design process from needs analysis through implementation, using backward design and standards alignment.",
   "task_family": "curriculum_design",
-  "triggers": ["curriculum design process", "design a new curriculum", "curriculum development workflow", "backward design curriculum process", "curriculum creation from scratch"],
+  "triggers": [
+    "curriculum design process",
+    "design a new curriculum",
+    "curriculum development workflow",
+    "backward design curriculum process",
+    "curriculum creation from scratch"
+  ],
   "aliases": ["curriculum design", "curriculum development"],
   "negative_keywords": ["code review", "financial forecast", "contract review"],
   "inputs": [
-    {"name": "learner_population", "required": true, "description": "Target learner demographics, grade level, and prior knowledge."},
-    {"name": "standards_or_competencies", "required": true, "description": "Applicable education standards, competency frameworks, or learning goals."},
-    {"name": "design_constraints", "required": false, "description": "Time, resource, technology, or institutional constraints."}
+    {
+      "name": "learner_population",
+      "required": true,
+      "description": "Target learner demographics, grade level, and prior knowledge."
+    },
+    {
+      "name": "standards_or_competencies",
+      "required": true,
+      "description": "Applicable education standards, competency frameworks, or learning goals."
+    },
+    {
+      "name": "design_constraints",
+      "required": false,
+      "description": "Time, resource, technology, or institutional constraints."
+    }
   ],
   "outputs": [
-    {"name": "curriculum_framework", "description": "Complete curriculum structure with units, lessons, and learning progressions."},
-    {"name": "alignment_matrix", "description": "Mapping of standards to curriculum units and assessments."},
-    {"name": "implementation_guide", "description": "Educator-facing guide for delivering the curriculum."}
+    {
+      "name": "curriculum_framework",
+      "description": "Complete curriculum structure with units, lessons, and learning progressions."
+    },
+    { "name": "alignment_matrix", "description": "Mapping of standards to curriculum units and assessments." },
+    { "name": "implementation_guide", "description": "Educator-facing guide for delivering the curriculum." }
   ],
   "primary_agent": "education.curriculum-designer",
   "route": {
@@ -26,34 +47,71 @@
     "parallel": false,
     "max_parallel_agents": 3
   },
-  "budget": {"band": "standard", "max_context_tokens": 4800, "max_tool_calls": 12},
+  "budget": { "band": "standard", "max_context_tokens": 4800, "max_tool_calls": 12 },
   "gates": [
-    {"id": "pre-route", "rule": "Confirm the task is curriculum design, not single lesson planning or assessment-only work."},
-    {"id": "pre-tool", "rule": "Require learner population and standards before design begins."},
-    {"id": "on-task-complete", "rule": "Output must include curriculum framework, alignment matrix, and implementation guide."}
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is curriculum design, not single lesson planning or assessment-only work."
+    },
+    { "id": "pre-tool", "rule": "Require learner population and standards before design begins." },
+    {
+      "id": "on-task-complete",
+      "rule": "Output must include curriculum framework, alignment matrix, and implementation guide."
+    }
   ],
   "steps": [
-    {"id": "needs-analysis", "agent": "education.curriculum-designer", "action": "Conduct needs analysis for the target learner population and context."},
-    {"id": "standards-mapping", "agent": "education.curriculum-designer", "action": "Map applicable standards to curriculum units and learning progressions."},
-    {"id": "instructional-strategy", "agent": "education.instructional-designer", "action": "Design instructional strategies and learning experiences for each unit."},
-    {"id": "assessment-alignment", "agent": "education.assessment-specialist", "action": "Design assessments aligned to objectives and create alignment matrix."},
-    {"id": "implementation-guide", "agent": "education.curriculum-designer", "action": "Create implementation guide with pacing, materials, and educator notes."}
+    {
+      "id": "needs-analysis",
+      "agent": "education.curriculum-designer",
+      "action": "Conduct needs analysis for the target learner population and context."
+    },
+    {
+      "id": "standards-mapping",
+      "agent": "education.curriculum-designer",
+      "action": "Map applicable standards to curriculum units and learning progressions."
+    },
+    {
+      "id": "instructional-strategy",
+      "agent": "education.instructional-designer",
+      "action": "Design instructional strategies and learning experiences for each unit."
+    },
+    {
+      "id": "assessment-alignment",
+      "agent": "education.assessment-specialist",
+      "action": "Design assessments aligned to objectives and create alignment matrix."
+    },
+    {
+      "id": "implementation-guide",
+      "agent": "education.curriculum-designer",
+      "action": "Create implementation guide with pacing, materials, and educator notes."
+    }
   ],
   "tools": [
-    {"name": "filesystem.read", "purpose": "Read standards documents, existing curriculum, and learner data."},
-    {"name": "filesystem.write", "purpose": "Save curriculum framework, alignment matrix, and implementation guide."}
+    { "name": "filesystem.read", "purpose": "Read standards documents, existing curriculum, and learner data." },
+    { "name": "filesystem.write", "purpose": "Save curriculum framework, alignment matrix, and implementation guide." }
   ],
   "verification": [
-    {"id": "framework-complete", "method": "Check that curriculum framework covers all units and lessons."},
-    {"id": "alignment-verified", "method": "Check that every standard maps to at least one unit and assessment."},
-    {"id": "guide-actionable", "method": "Check that implementation guide is specific enough for an educator to follow."}
+    { "id": "framework-complete", "method": "Check that curriculum framework covers all units and lessons." },
+    { "id": "alignment-verified", "method": "Check that every standard maps to at least one unit and assessment." },
+    {
+      "id": "guide-actionable",
+      "method": "Check that implementation guide is specific enough for an educator to follow."
+    }
   ],
   "success_criteria": [
     "Curriculum framework covers all required standards.",
     "Alignment matrix maps every standard to curriculum and assessment.",
     "Implementation guide is actionable for the target educator audience."
   ],
-  "rollback": {"mode": "no_write", "when": "If the curriculum invents standards or misrepresents learner needs, discard and restart from verified inputs."},
-  "source_references": [{"dossier_path": "references/workflows/education/curriculum-design-process.sources.json", "relationship": "workflow_dossier"}],
-  "promotion": {"can_learn": true, "min_successes_before_update": 2, "quality_gate": "staging"}
+  "rollback": {
+    "mode": "no_write",
+    "when": "If the curriculum invents standards or misrepresents learner needs, discard and restart from verified inputs."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/education/curriculum-design-process.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": { "can_learn": true, "min_successes_before_update": 2, "quality_gate": "staging" }
 }

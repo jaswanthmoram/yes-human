@@ -4,19 +4,33 @@
   "status": "active",
   "summary": "Conduct a full PRISMA-compliant systematic review with protocol registration, dual screening, data extraction, risk-of-bias assessment, and synthesis.",
   "task_family": "systematic_review",
-  "triggers": ["systematic review workflow", "PRISMA review process", "evidence synthesis protocol", "structured systematic study", "bias-assessed review"],
+  "triggers": [
+    "systematic review workflow",
+    "PRISMA review process",
+    "evidence synthesis protocol",
+    "structured systematic study",
+    "bias-assessed review"
+  ],
   "aliases": ["systematic review", "PRISMA workflow"],
   "negative_keywords": ["code review", "product launch", "sales pipeline"],
   "inputs": [
-    {"name": "review_protocol", "required": true, "description": "Registered or documented review protocol with PICO or equivalent."},
-    {"name": "databases", "required": true, "description": "List of academic databases to search."},
-    {"name": "quality_tool", "required": false, "description": "Risk of bias assessment tool to use (Cochrane RoB, NOS, etc.)."}
+    {
+      "name": "review_protocol",
+      "required": true,
+      "description": "Registered or documented review protocol with PICO or equivalent."
+    },
+    { "name": "databases", "required": true, "description": "List of academic databases to search." },
+    {
+      "name": "quality_tool",
+      "required": false,
+      "description": "Risk of bias assessment tool to use (Cochrane RoB, NOS, etc.)."
+    }
   ],
   "outputs": [
-    {"name": "prisma_flow_diagram", "description": "Complete PRISMA flow diagram with all screening stages."},
-    {"name": "data_extraction_table", "description": "Standardized extraction table for all included studies."},
-    {"name": "risk_of_bias_summary", "description": "Risk of bias assessment for each included study."},
-    {"name": "synthesis_report", "description": "Narrative or quantitative synthesis with evidence grading."}
+    { "name": "prisma_flow_diagram", "description": "Complete PRISMA flow diagram with all screening stages." },
+    { "name": "data_extraction_table", "description": "Standardized extraction table for all included studies." },
+    { "name": "risk_of_bias_summary", "description": "Risk of bias assessment for each included study." },
+    { "name": "synthesis_report", "description": "Narrative or quantitative synthesis with evidence grading." }
   ],
   "primary_agent": "research.literature-reviewer",
   "route": {
@@ -27,39 +41,71 @@
     "parallel": false,
     "max_parallel_agents": 3
   },
-  "budget": {"band": "expanded", "max_context_tokens": 8000, "max_tool_calls": 30},
+  "budget": { "band": "expanded", "max_context_tokens": 8000, "max_tool_calls": 30 },
   "gates": [
-    {"id": "pre-route", "rule": "Confirm a review protocol exists with defined PICO or equivalent framework."},
-    {"id": "pre-tool", "rule": "Verify search strategy covers all specified databases."},
-    {"id": "post-tool", "rule": "Confirm dual screening was performed and disagreements resolved."},
-    {"id": "on-task-complete", "rule": "Synthesis must include risk of bias assessment and evidence quality grading."}
+    { "id": "pre-route", "rule": "Confirm a review protocol exists with defined PICO or equivalent framework." },
+    { "id": "pre-tool", "rule": "Verify search strategy covers all specified databases." },
+    { "id": "post-tool", "rule": "Confirm dual screening was performed and disagreements resolved." },
+    { "id": "on-task-complete", "rule": "Synthesis must include risk of bias assessment and evidence quality grading." }
   ],
   "steps": [
-    {"id": "register-protocol", "agent": "research.literature-reviewer", "action": "Register or document the review protocol with objectives and eligibility criteria."},
-    {"id": "systematic-search", "agent": "research.literature-reviewer", "action": "Execute systematic search across all specified databases with documented strategies."},
-    {"id": "dual-screening", "agent": "research.literature-reviewer", "action": "Screen titles, abstracts, and full texts with dual independent reviewers."},
-    {"id": "data-extraction", "agent": "research.scientific-literature-analyst", "action": "Extract data using standardized forms for all included studies."},
-    {"id": "bias-assessment", "agent": "research.scientific-literature-analyst", "action": "Assess risk of bias for each included study using the specified tool."},
-    {"id": "synthesis", "agent": "research.research-analyst", "action": "Synthesize findings with evidence grading and sensitivity analysis."}
+    {
+      "id": "register-protocol",
+      "agent": "research.literature-reviewer",
+      "action": "Register or document the review protocol with objectives and eligibility criteria."
+    },
+    {
+      "id": "systematic-search",
+      "agent": "research.literature-reviewer",
+      "action": "Execute systematic search across all specified databases with documented strategies."
+    },
+    {
+      "id": "dual-screening",
+      "agent": "research.literature-reviewer",
+      "action": "Screen titles, abstracts, and full texts with dual independent reviewers."
+    },
+    {
+      "id": "data-extraction",
+      "agent": "research.scientific-literature-analyst",
+      "action": "Extract data using standardized forms for all included studies."
+    },
+    {
+      "id": "bias-assessment",
+      "agent": "research.scientific-literature-analyst",
+      "action": "Assess risk of bias for each included study using the specified tool."
+    },
+    {
+      "id": "synthesis",
+      "agent": "research.research-analyst",
+      "action": "Synthesize findings with evidence grading and sensitivity analysis."
+    }
   ],
   "tools": [
-    {"name": "filesystem.read", "purpose": "Read review protocol and prior review data."},
-    {"name": "web.search", "purpose": "Search academic databases systematically."},
-    {"name": "web.fetch", "purpose": "Fetch full texts for screening and extraction."},
-    {"name": "filesystem.write", "purpose": "Save all review outputs including PRISMA diagram and tables."}
+    { "name": "filesystem.read", "purpose": "Read review protocol and prior review data." },
+    { "name": "web.search", "purpose": "Search academic databases systematically." },
+    { "name": "web.fetch", "purpose": "Fetch full texts for screening and extraction." },
+    { "name": "filesystem.write", "purpose": "Save all review outputs including PRISMA diagram and tables." }
   ],
   "verification": [
-    {"id": "protocol-adherence", "method": "Verify all protocol-specified procedures were followed."},
-    {"id": "dual-screening", "method": "Verify two independent screeners reviewed all records."},
-    {"id": "bias-assessed", "method": "Verify risk of bias assessed for all included studies."},
-    {"id": "synthesis-graded", "method": "Verify synthesis includes evidence quality grading."}
+    { "id": "protocol-adherence", "method": "Verify all protocol-specified procedures were followed." },
+    { "id": "dual-screening", "method": "Verify two independent screeners reviewed all records." },
+    { "id": "bias-assessed", "method": "Verify risk of bias assessed for all included studies." },
+    { "id": "synthesis-graded", "method": "Verify synthesis includes evidence quality grading." }
   ],
   "success_criteria": [
     "PRISMA flow diagram accounts for every record from search to inclusion.",
     "Data extraction covers all pre-specified fields.",
     "Synthesis includes risk of bias and evidence quality assessment."
   ],
-  "rollback": {"mode": "no_write", "when": "If dual screening was not performed or protocol deviations found, restart from the affected stage."},
-  "source_references": [{"dossier_path": "references/workflows/research/systematic-review.sources.json", "relationship": "workflow_dossier"}],
-  "promotion": {"can_learn": true, "min_successes_before_update": 2, "quality_gate": "staging"}
+  "rollback": {
+    "mode": "no_write",
+    "when": "If dual screening was not performed or protocol deviations found, restart from the affected stage."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/research/systematic-review.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": { "can_learn": true, "min_successes_before_update": 2, "quality_gate": "staging" }
 }

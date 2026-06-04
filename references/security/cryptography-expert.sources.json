@@ -10,10 +10,7 @@
       "source_type": "vendor_docs",
       "license": "Apache-2.0",
       "version_or_commit": "2026-06-02",
-      "used_for": [
-        "cryptography expert: Semgrep docs patterns and workflow references",
-        "verification pattern 1"
-      ],
+      "used_for": ["cryptography expert: Semgrep docs patterns and workflow references", "verification pattern 1"],
       "copy_policy": "patterns_only",
       "last_updated": "2026-05-15T00:00:00Z"
     },
@@ -46,10 +43,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "cryptography expert: Trivy patterns and workflow references",
-        "verification pattern 4"
-      ],
+      "used_for": ["cryptography expert: Trivy patterns and workflow references", "verification pattern 4"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -59,10 +53,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "cryptography expert: OWASP LLM Top 10 patterns and workflow references",
-        "verification pattern 5"
-      ],
+      "used_for": ["cryptography expert: OWASP LLM Top 10 patterns and workflow references", "verification pattern 5"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -98,10 +89,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "cryptography expert: Joern patterns and workflow references",
-        "verification pattern 8"
-      ],
+      "used_for": ["cryptography expert: Joern patterns and workflow references", "verification pattern 8"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -111,10 +99,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "cryptography expert: Claude BugHunter patterns and workflow references",
-        "verification pattern 9"
-      ],
+      "used_for": ["cryptography expert: Claude BugHunter patterns and workflow references", "verification pattern 9"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -137,10 +122,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "cryptography expert: LangGraph patterns and workflow references",
-        "verification pattern 11"
-      ],
+      "used_for": ["cryptography expert: LangGraph patterns and workflow references", "verification pattern 11"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"

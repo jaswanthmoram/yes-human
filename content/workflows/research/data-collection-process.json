@@ -4,18 +4,32 @@
   "status": "active",
   "summary": "Execute a research data collection process with instrument deployment, participant recruitment, data quality monitoring, and dataset compilation.",
   "task_family": "data_collection",
-  "triggers": ["data collection process", "research data gathering workflow", "survey deployment pipeline", "field data collection execution", "participant recruitment workflow"],
+  "triggers": [
+    "data collection process",
+    "research data gathering workflow",
+    "survey deployment pipeline",
+    "field data collection execution",
+    "participant recruitment workflow"
+  ],
   "aliases": ["data collection", "field collection"],
   "negative_keywords": ["code testing", "product analytics", "sales reporting"],
   "inputs": [
-    {"name": "collection_protocol", "required": true, "description": "Approved data collection protocol with instruments and procedures."},
-    {"name": "sampling_plan", "required": true, "description": "Sampling strategy, sample size, and recruitment approach."},
-    {"name": "ethics_clearance", "required": true, "description": "Confirmation of ethics approval or IRB clearance."}
+    {
+      "name": "collection_protocol",
+      "required": true,
+      "description": "Approved data collection protocol with instruments and procedures."
+    },
+    {
+      "name": "sampling_plan",
+      "required": true,
+      "description": "Sampling strategy, sample size, and recruitment approach."
+    },
+    { "name": "ethics_clearance", "required": true, "description": "Confirmation of ethics approval or IRB clearance." }
   ],
   "outputs": [
-    {"name": "recruitment_log", "description": "Log of participant recruitment progress and response rates."},
-    {"name": "compiled_dataset", "description": "Validated and compiled dataset ready for analysis."},
-    {"name": "quality_report", "description": "Data quality report with completeness and consistency metrics."}
+    { "name": "recruitment_log", "description": "Log of participant recruitment progress and response rates." },
+    { "name": "compiled_dataset", "description": "Validated and compiled dataset ready for analysis." },
+    { "name": "quality_report", "description": "Data quality report with completeness and consistency metrics." }
   ],
   "primary_agent": "research.data-researcher",
   "route": {
@@ -26,36 +40,64 @@
     "parallel": false,
     "max_parallel_agents": 3
   },
-  "budget": {"band": "expanded", "max_context_tokens": 5000, "max_tool_calls": 20},
+  "budget": { "band": "expanded", "max_context_tokens": 5000, "max_tool_calls": 20 },
   "gates": [
-    {"id": "pre-route", "rule": "Confirm ethics clearance is obtained before any data collection begins."},
-    {"id": "pre-tool", "rule": "Verify collection protocol and instruments are finalized."},
-    {"id": "post-tool", "rule": "Check data quality metrics meet pre-defined thresholds."},
-    {"id": "on-task-complete", "rule": "Dataset must pass completeness and consistency validation."}
+    { "id": "pre-route", "rule": "Confirm ethics clearance is obtained before any data collection begins." },
+    { "id": "pre-tool", "rule": "Verify collection protocol and instruments are finalized." },
+    { "id": "post-tool", "rule": "Check data quality metrics meet pre-defined thresholds." },
+    { "id": "on-task-complete", "rule": "Dataset must pass completeness and consistency validation." }
   ],
   "steps": [
-    {"id": "prepare-instruments", "agent": "research.data-researcher", "action": "Finalize and pilot test data collection instruments."},
-    {"id": "recruit-participants", "agent": "research.data-researcher", "action": "Execute recruitment strategy and track response rates."},
-    {"id": "collect-data", "agent": "research.data-researcher", "action": "Deploy instruments and collect data with quality monitoring."},
-    {"id": "validate-data", "agent": "research.statistical-consultant", "action": "Validate data completeness, consistency, and handle missing values."},
-    {"id": "compile-dataset", "agent": "research.data-researcher", "action": "Compile validated dataset with documentation and quality report."}
+    {
+      "id": "prepare-instruments",
+      "agent": "research.data-researcher",
+      "action": "Finalize and pilot test data collection instruments."
+    },
+    {
+      "id": "recruit-participants",
+      "agent": "research.data-researcher",
+      "action": "Execute recruitment strategy and track response rates."
+    },
+    {
+      "id": "collect-data",
+      "agent": "research.data-researcher",
+      "action": "Deploy instruments and collect data with quality monitoring."
+    },
+    {
+      "id": "validate-data",
+      "agent": "research.statistical-consultant",
+      "action": "Validate data completeness, consistency, and handle missing values."
+    },
+    {
+      "id": "compile-dataset",
+      "agent": "research.data-researcher",
+      "action": "Compile validated dataset with documentation and quality report."
+    }
   ],
   "tools": [
-    {"name": "filesystem.read", "purpose": "Read collection protocol and instrument files."},
-    {"name": "filesystem.write", "purpose": "Save compiled dataset, logs, and quality reports."},
-    {"name": "web.search", "purpose": "Search for recruitment channels or panel services."}
+    { "name": "filesystem.read", "purpose": "Read collection protocol and instrument files." },
+    { "name": "filesystem.write", "purpose": "Save compiled dataset, logs, and quality reports." },
+    { "name": "web.search", "purpose": "Search for recruitment channels or panel services." }
   ],
   "verification": [
-    {"id": "ethics-confirmed", "method": "Verify ethics approval documented before collection started."},
-    {"id": "quality-metrics", "method": "Verify data quality metrics meet pre-defined thresholds."},
-    {"id": "dataset-complete", "method": "Verify compiled dataset passes completeness validation."}
+    { "id": "ethics-confirmed", "method": "Verify ethics approval documented before collection started." },
+    { "id": "quality-metrics", "method": "Verify data quality metrics meet pre-defined thresholds." },
+    { "id": "dataset-complete", "method": "Verify compiled dataset passes completeness validation." }
   ],
   "success_criteria": [
     "Recruitment meets the planned sample size within acceptable margins.",
     "Data quality metrics exceed pre-defined thresholds.",
     "Compiled dataset is documented and ready for analysis."
   ],
-  "rollback": {"mode": "no_write", "when": "If data quality falls below thresholds, pause collection and remediate before continuing."},
-  "source_references": [{"dossier_path": "references/workflows/research/data-collection-process.sources.json", "relationship": "workflow_dossier"}],
-  "promotion": {"can_learn": true, "min_successes_before_update": 2, "quality_gate": "staging"}
+  "rollback": {
+    "mode": "no_write",
+    "when": "If data quality falls below thresholds, pause collection and remediate before continuing."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/research/data-collection-process.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": { "can_learn": true, "min_successes_before_update": 2, "quality_gate": "staging" }
 }

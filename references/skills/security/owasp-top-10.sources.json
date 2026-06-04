@@ -10,10 +10,7 @@
       "source_type": "vendor_docs",
       "license": "Apache-2.0",
       "version_or_commit": "2026-06-02",
-      "used_for": [
-        "owasp top 10: Semgrep docs patterns and workflow references",
-        "verification pattern 1"
-      ],
+      "used_for": ["owasp top 10: Semgrep docs patterns and workflow references", "verification pattern 1"],
       "copy_policy": "patterns_only",
       "last_updated": "2026-05-15T00:00:00Z"
     },
@@ -34,10 +31,7 @@
       "source_type": "official_docs",
       "license": "Apache-2.0",
       "version_or_commit": "2026-06-02",
-      "used_for": [
-        "owasp top 10: OpenAI Agents docs patterns and workflow references",
-        "verification pattern 3"
-      ],
+      "used_for": ["owasp top 10: OpenAI Agents docs patterns and workflow references", "verification pattern 3"],
       "copy_policy": "patterns_only",
       "last_updated": "2026-05-15T00:00:00Z"
     },
@@ -59,10 +53,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "owasp top 10: Awesome Claude Code patterns and workflow references",
-        "verification pattern 5"
-      ],
+      "used_for": ["owasp top 10: Awesome Claude Code patterns and workflow references", "verification pattern 5"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -72,10 +63,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "owasp top 10: Awesome MCP Servers patterns and workflow references",
-        "verification pattern 6"
-      ],
+      "used_for": ["owasp top 10: Awesome MCP Servers patterns and workflow references", "verification pattern 6"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -85,10 +73,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "owasp top 10: SuperClaude Framework patterns and workflow references",
-        "verification pattern 7"
-      ],
+      "used_for": ["owasp top 10: SuperClaude Framework patterns and workflow references", "verification pattern 7"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -98,10 +83,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "owasp top 10: Claude Code Router patterns and workflow references",
-        "verification pattern 8"
-      ],
+      "used_for": ["owasp top 10: Claude Code Router patterns and workflow references", "verification pattern 8"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -111,10 +93,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "owasp top 10: Claude Task Master patterns and workflow references",
-        "verification pattern 9"
-      ],
+      "used_for": ["owasp top 10: Claude Task Master patterns and workflow references", "verification pattern 9"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -124,10 +103,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "owasp top 10: Claude Engineer patterns and workflow references",
-        "verification pattern 10"
-      ],
+      "used_for": ["owasp top 10: Claude Engineer patterns and workflow references", "verification pattern 10"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -137,10 +113,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "owasp top 10: Claude Swarm patterns and workflow references",
-        "verification pattern 11"
-      ],
+      "used_for": ["owasp top 10: Claude Swarm patterns and workflow references", "verification pattern 11"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -150,10 +123,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "owasp top 10: Claude Dev Tools patterns and workflow references",
-        "verification pattern 12"
-      ],
+      "used_for": ["owasp top 10: Claude Dev Tools patterns and workflow references", "verification pattern 12"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"

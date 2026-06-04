@@ -66,6 +66,7 @@ validators:
 ---
 
 ## Procedure
+
 1. Clarify product behavior, user types, monetization, jurisdictions, and review owner.
 2. Build the clause map before drafting prose.
 3. Draft sections with product-specific notes and placeholders for counsel decisions.
@@ -73,6 +74,7 @@ validators:
 5. Produce counsel review checklist and publication blockers.
 
 ## Verification
+
 - Publication is blocked pending legal review.
 - Product-specific clauses match actual behavior.
 - No legal advice or final enforceability claim is made.

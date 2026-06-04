@@ -7,9 +7,18 @@
     { "name": "feedback_received", "type": "normal", "description": "User or verification feedback is recorded" },
     { "name": "redacted", "type": "normal", "description": "Raw task and sensitive fields are redacted or hashed" },
     { "name": "staged", "type": "normal", "description": "Feedback candidate written to staging/feedback" },
-    { "name": "eval_gate", "type": "gate", "gate": "ask", "description": "Route, workflow, skill, and cost evals must pass" },
+    {
+      "name": "eval_gate",
+      "type": "gate",
+      "gate": "ask",
+      "description": "Route, workflow, skill, and cost evals must pass"
+    },
     { "name": "reviewed", "type": "normal", "description": "Human or release review accepts the staged candidate" },
-    { "name": "promoted", "type": "terminal", "description": "A separate promotion commit updates production registries" },
+    {
+      "name": "promoted",
+      "type": "terminal",
+      "description": "A separate promotion commit updates production registries"
+    },
     { "name": "rejected", "type": "terminal", "description": "Candidate rejected or eval failed" }
   ],
   "transitions": [
@@ -18,7 +27,12 @@
     { "from": "staged", "on": "run_eval", "to": "eval_gate" },
     { "from": "eval_gate", "on": "passed", "to": "reviewed" },
     { "from": "eval_gate", "on": "failed", "to": "rejected" },
-    { "from": "reviewed", "on": "promote_commit", "to": "promoted", "guard": "production routing is changed only by explicit promotion commit" },
+    {
+      "from": "reviewed",
+      "on": "promote_commit",
+      "to": "promoted",
+      "guard": "production routing is changed only by explicit promotion commit"
+    },
     { "from": "reviewed", "on": "reject", "to": "rejected" }
   ]
 }

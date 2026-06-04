@@ -4,21 +4,9 @@
   "status": "active",
   "summary": "End-to-end workflow for creating new agents with proper design, validation, dossier, and fixture generation.",
   "task_family": "agent_lifecycle",
-  "triggers": [
-    "create new agent",
-    "agent creation workflow",
-    "onboard new agent",
-    "agent lifecycle start"
-  ],
-  "aliases": [
-    "agent onboarding",
-    "new agent workflow"
-  ],
-  "negative_keywords": [
-    "modify existing agent",
-    "delete agent",
-    "workflow creation"
-  ],
+  "triggers": ["create new agent", "agent creation workflow", "onboard new agent", "agent lifecycle start"],
+  "aliases": ["agent onboarding", "new agent workflow"],
+  "negative_keywords": ["modify existing agent", "delete agent", "workflow creation"],
   "inputs": [
     {
       "name": "agent_requirement",
@@ -60,11 +48,7 @@
       "meta-system.dossier-evaluator"
     ],
     "primary_agent": "meta-system.agent-designer",
-    "participants": [
-      "meta-system.system-architect",
-      "meta-system.fixture-engineer",
-      "meta-system.dossier-evaluator"
-    ],
+    "participants": ["meta-system.system-architect", "meta-system.fixture-engineer", "meta-system.dossier-evaluator"],
     "parallel": false,
     "max_parallel_agents": 2
   },

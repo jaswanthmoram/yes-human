@@ -10,15 +10,8 @@
     "three-statement model workflow",
     "model building process"
   ],
-  "aliases": [
-    "financial model build",
-    "model creation"
-  ],
-  "negative_keywords": [
-    "legal review",
-    "code review",
-    "marketing campaign"
-  ],
+  "aliases": ["financial model build", "model creation"],
+  "negative_keywords": ["legal review", "code review", "marketing campaign"],
   "inputs": [
     {
       "name": "model_requirements",
@@ -53,14 +46,9 @@
   "primary_agent": "finance.financial-modeler",
   "route": {
     "domain_master": "finance.master",
-    "agents": [
-      "finance.financial-modeler",
-      "finance.valuation-expert"
-    ],
+    "agents": ["finance.financial-modeler", "finance.valuation-expert"],
     "primary_agent": "finance.financial-modeler",
-    "participants": [
-      "finance.valuation-expert"
-    ],
+    "participants": ["finance.valuation-expert"],
     "parallel": false,
     "max_parallel_agents": 2
   },

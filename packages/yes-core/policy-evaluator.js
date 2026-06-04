@@ -10,12 +10,36 @@ export {
 } from '../../validators/promotion.validator.js';
 
 /**
+ * Module-level singleton — PolicyEvaluator is stateless (lazy-loaded data only),
+ * so most callers should share a single instance instead of constructing per-request.
+ * Re-instantiate only when you need a different rulesDir/policiesDir/costPolicyPath.
+ *
+ * Cache key: stringified config so callers with different paths get different instances.
+ */
+const _evaluatorCache = new Map();
+
+export function getSharedPolicyEvaluator(config = {}) {
+  const key = JSON.stringify({
+    rulesDir: config.rulesDir || 'rules',
+    policiesDir: config.policiesDir || 'policies',
+    contractsDir: config.contractsDir || 'contracts',
+    costPolicyPath: config.costPolicyPath || 'registry/cost-policy.json'
+  });
+  let evaluator = _evaluatorCache.get(key);
+  if (!evaluator) {
+    evaluator = new PolicyEvaluator(config);
+    _evaluatorCache.set(key, evaluator);
+  }
+  return evaluator;
+}
+
+/**
  * Enhanced PolicyEvaluator with rules, policies, and contract checking.
- * 
+ *
  * Loads rules from rules/*.json and policies from policies/*.json.
  * Evaluates actions against rules (conditional logic) and policies (access control).
  * Supports contract checking for formal verification (from iso pattern).
- * 
+ *
  * Evaluation order:
  * 1. Check rules (action-specific conditional logic)
  * 2. Check policies (access control and security)
@@ -29,11 +53,13 @@ export class PolicyEvaluator {
     this.policiesDir = (!isString && config.policiesDir) || 'policies';
     this.contractsDir = (!isString && config.contractsDir) || 'contracts';
     this.costPolicyPath = (isString ? config : config.costPolicyPath) || 'registry/cost-policy.json';
-    
+
     this._rules = null;
     this._policies = null;
     this._contracts = null;
     this._costPolicy = null;
+    this._rulesByAction = null;
+    this._policiesByAction = null;
   }
 
   get rules() {
@@ -80,13 +106,13 @@ export class PolicyEvaluator {
   loadRules() {
     const rules = {};
     const rulesPath = path.join(process.cwd(), this.rulesDir);
-    
+
     if (!fs.existsSync(rulesPath)) {
       console.warn(`[PolicyEvaluator] Rules directory not found: ${rulesPath}`);
       return rules;
     }
-    
-    const files = fs.readdirSync(rulesPath).filter(f => f.endsWith('.rules.json'));
+
+    const files = fs.readdirSync(rulesPath).filter((f) => f.endsWith('.rules.json'));
     for (const file of files) {
       try {
         const id = file.replace('.rules.json', '');
@@ -96,7 +122,7 @@ export class PolicyEvaluator {
         console.error(`[PolicyEvaluator] Failed to load rule ${file}:`, error.message);
       }
     }
-    
+
     return rules;
   }
 
@@ -106,13 +132,13 @@ export class PolicyEvaluator {
   loadPolicies() {
     const policies = {};
     const policiesPath = path.join(process.cwd(), this.policiesDir);
-    
+
     if (!fs.existsSync(policiesPath)) {
       console.warn(`[PolicyEvaluator] Policies directory not found: ${policiesPath}`);
       return policies;
     }
-    
-    const files = fs.readdirSync(policiesPath).filter(f => f.endsWith('.policy.json'));
+
+    const files = fs.readdirSync(policiesPath).filter((f) => f.endsWith('.policy.json'));
     for (const file of files) {
       try {
         const id = file.replace('.policy.json', '');
@@ -122,7 +148,7 @@ export class PolicyEvaluator {
         console.error(`[PolicyEvaluator] Failed to load policy ${file}:`, error.message);
       }
     }
-    
+
     return policies;
   }
 
@@ -132,12 +158,12 @@ export class PolicyEvaluator {
   loadContracts() {
     const contracts = {};
     const contractsPath = path.join(process.cwd(), this.contractsDir);
-    
+
     if (!fs.existsSync(contractsPath)) {
       return contracts; // Contracts are optional
     }
-    
-    const files = fs.readdirSync(contractsPath).filter(f => f.endsWith('.contract.json'));
+
+    const files = fs.readdirSync(contractsPath).filter((f) => f.endsWith('.contract.json'));
     for (const file of files) {
       try {
         const id = file.replace('.contract.json', '');
@@ -147,7 +173,7 @@ export class PolicyEvaluator {
         console.error(`[PolicyEvaluator] Failed to load contract ${file}:`, error.message);
       }
     }
-    
+
     return contracts;
   }
 
@@ -258,7 +284,7 @@ export class PolicyEvaluator {
         }
       }
     }
-    
+
     // 4. Default allow (no rules or policies matched)
     return {
       allowed: true,
@@ -319,13 +345,17 @@ export class PolicyEvaluator {
       if (value === undefined || value === null) return false;
       try {
         if (!new RegExp(operator.$matches, 'i').test(String(value))) return false;
-      } catch { return false; }
+      } catch {
+        return false;
+      }
     }
 
     if (known('$not_matches')) {
       try {
         if (value !== undefined && new RegExp(operator.$not_matches, 'i').test(String(value))) return false;
-      } catch { return false; }
+      } catch {
+        return false;
+      }
     }
 
     if (known('$starts_with')) {
@@ -378,7 +408,7 @@ export class PolicyEvaluator {
         }
       }
     }
-    
+
     // Check invariants
     if (contract.invariants) {
       for (const invariant of contract.invariants) {
@@ -390,40 +420,75 @@ export class PolicyEvaluator {
         }
       }
     }
-    
+
     return { valid: true };
   }
 
   /**
-   * Evaluate a precondition
+   * Evaluate a precondition string (prefix-based DSL).
+   *
+   * Supported prefixes:
+   *   - `has_tool:<name>`       – context.tools must include <name>
+   *   - `has_permission:<name>` – context.permissions must include <name>
+   *
+   * Unknown prefixes log a warning (default: fail-closed) and return `false` so
+   * a typo cannot silently pass a precondition. Set YES_LENIENT_DSL=true to
+   * fall back to the old behaviour (treat unknown prefixes as no-op `true`).
    */
   evaluatePrecondition(precondition, context) {
-    // Simple precondition checking (can be extended)
-    if (precondition.startsWith('has_tool:')) {
-      const tool = precondition.split(':')[1];
-      return !!context.tools?.includes(tool);
+    if (typeof precondition !== 'string' || !precondition.includes(':')) {
+      console.warn(`[PolicyEvaluator] Malformed precondition (missing prefix): ${JSON.stringify(precondition)}`);
+      return process.env.YES_LENIENT_DSL === 'true';
     }
-    if (precondition.startsWith('has_permission:')) {
-      const permission = precondition.split(':')[1];
-      return !!context.permissions?.includes(permission);
+    const prefix = precondition.split(':')[0];
+    const value = precondition.slice(prefix.length + 1);
+    switch (prefix) {
+      case 'has_tool':
+        return !!context.tools?.includes(value);
+      case 'has_permission':
+        return !!context.permissions?.includes(value);
+      default:
+        console.warn(
+          `[PolicyEvaluator] Unknown precondition prefix "${prefix}". Known: has_tool, has_permission. ` +
+            `Set YES_LENIENT_DSL=true to allow unknown prefixes.`
+        );
+        return process.env.YES_LENIENT_DSL === 'true';
     }
-    return true;
   }
 
   /**
-   * Evaluate an invariant
+   * Evaluate an invariant string (prefix-based DSL).
+   *
+   * Supported:
+   *   - `max_tokens:<n>` – context.estimatedTokens <= n
+   *   - `no_secrets`     – context.content must not match COMBINED_SECRET_REGEX
+   *
+   * Unknown invariants fail closed (return false) so typos cannot silently
+   * pass. Set YES_LENIENT_DSL=true to preserve legacy fail-open behaviour.
    */
   evaluateInvariant(invariant, context) {
-    // Simple invariant checking (can be extended)
+    if (typeof invariant !== 'string') {
+      console.warn(`[PolicyEvaluator] Malformed invariant (not a string): ${JSON.stringify(invariant)}`);
+      return process.env.YES_LENIENT_DSL === 'true';
+    }
     if (invariant.startsWith('max_tokens:')) {
-      const maxTokens = parseInt(invariant.split(':')[1]);
+      const maxTokens = parseInt(invariant.slice('max_tokens:'.length), 10);
+      if (Number.isNaN(maxTokens)) {
+        console.warn(`[PolicyEvaluator] max_tokens invariant has non-numeric value: ${invariant}`);
+        return process.env.YES_LENIENT_DSL === 'true';
+      }
       return (context.estimatedTokens || 0) <= maxTokens;
     }
-    if (invariant.startsWith('no_secrets')) {
+    if (invariant === 'no_secrets' || invariant.startsWith('no_secrets:')) {
       const content = context.content || '';
       return !COMBINED_SECRET_REGEX.test(content);
     }
-    return true;
+    const prefix = invariant.includes(':') ? invariant.split(':')[0] : invariant;
+    console.warn(
+      `[PolicyEvaluator] Unknown invariant "${prefix}". Known: max_tokens, no_secrets. ` +
+        `Set YES_LENIENT_DSL=true to allow unknown invariants.`
+    );
+    return process.env.YES_LENIENT_DSL === 'true';
   }
 
   /**

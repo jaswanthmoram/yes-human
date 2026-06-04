@@ -60,47 +60,59 @@ validators:
 ---
 
 ## Trigger
+
 Use this skill for tasks related to: plan the implementation, create implementation plan, break down this task.
 
 ## Prerequisites
+
 - Access to the relevant artifact (code, document, system)
 - Clear understanding of the goal and constraints
 
 ## Steps
 
 ### 1. Step
+
 Understand the goal and constraints — clarify acceptance criteria and non-goals
 
 ### 2. Step
+
 Identify the smallest slice that delivers value — the walking skeleton
 
 ### 3. Step
+
 Break into sequential tasks with explicit dependencies
 
 ### 4. Step
+
 Identify risks and unknowns — flag them before coding begins
 
 ### 5. Step
+
 Estimate complexity (S/M/L) per task and identify which to prototype first
 
 ### 6. Step
+
 Document the plan in a PR description or task comment before opening any code files
 
 ## Verification
+
 - [ ] All steps completed
 - [ ] Output reviewed against quality gates
 - [ ] Sources cited where applicable
 
 ## Rollback
+
 Plans are documents — no code to revert
 
 ## Common Failures
-| Failure | Cause | Fix |
-|---------|-------|-----|
+
+| Failure                                    | Cause         | Fix               |
+| ------------------------------------------ | ------------- | ----------------- |
 | Planning without understanding constraints | See procedure | Address in review |
-| Tasks not sequenced by dependency | See procedure | Address in review |
-| No risk identification before coding | See procedure | Address in review |
+| Tasks not sequenced by dependency          | See procedure | Address in review |
+| No risk identification before coding       | See procedure | Address in review |
 
 ## Examples
+
 **Example A:** Apply this skill to a typical instance of 'plan the implementation'.
 **Example B:** Apply this skill when facing 'break down this task' in a complex codebase.

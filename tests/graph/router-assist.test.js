@@ -11,10 +11,13 @@ before(async () => {
   workDir = fs.mkdtempSync(path.join(os.tmpdir(), 'yh-assist-'));
   fs.writeFileSync(path.join(workDir, 'router.js'), 'export function resolveRoute() {}\n');
   fs.mkdirSync(path.join(workDir, 'registry'), { recursive: true });
-  fs.writeFileSync(path.join(workDir, 'registry/graph-routing.json'), JSON.stringify({
-    code_graph_assist: true,
-    db_path: 'graph/indexes/yes.sqlite'
-  }));
+  fs.writeFileSync(
+    path.join(workDir, 'registry/graph-routing.json'),
+    JSON.stringify({
+      code_graph_assist: true,
+      db_path: 'graph/indexes/yes.sqlite'
+    })
+  );
   fs.mkdirSync(path.join(workDir, 'graph/indexes'), { recursive: true });
   await CodeGraph.build(workDir, path.join(workDir, 'graph/indexes/yes.sqlite'));
 });

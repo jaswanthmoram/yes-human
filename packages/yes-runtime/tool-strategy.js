@@ -1,9 +1,9 @@
 /**
  * Tool Strategy Layer
- * 
+ *
  * Detects available tools and selects the best tool for a task with fallback chains.
  * Supports both paid tools (firecrawl, exa) and free fallbacks (webfetch, playwright, gh api).
- * 
+ *
  * Top 10 Tools (ranked by use case):
  * 1. webfetch - Quick URL fetch, markdown (Free, Built-in)
  * 2. firecrawl_search - Structured web search (Paid, API key)
@@ -45,7 +45,7 @@ export class ToolStrategy {
     }
 
     const tools = {
-      webfetch: true,  // Always available (built-in)
+      webfetch: true, // Always available (built-in)
       playwright: true, // Always available (built-in)
       gh: this.checkCommand('gh'),
       curl: this.checkCommand('curl'),
@@ -61,7 +61,7 @@ export class ToolStrategy {
    */
   checkCommand(cmd) {
     try {
-      const result = spawnSync('which', [cmd], { 
+      const result = spawnSync('which', [cmd], {
         encoding: 'utf8',
         stdio: 'pipe'
       });
@@ -80,7 +80,7 @@ export class ToolStrategy {
 
   /**
    * Select the best tool for a task with fallback chain
-   * 
+   *
    * @param {Object} task - Task description
    * @param {string} task.type - Task type: 'search', 'scrape', 'github', 'js-site', 'download'
    * @param {string} [task.url] - URL to fetch
@@ -94,21 +94,21 @@ export class ToolStrategy {
     // Web search
     if (type === 'search') {
       if (this.availableTools.firecrawl) {
-        return { 
-          tool: 'firecrawl_search', 
+        return {
+          tool: 'firecrawl_search',
           fallback: ['web_search_exa', 'webfetch'],
           reason: 'Firecrawl available for structured search'
         };
       }
       if (this.availableTools.exa) {
-        return { 
-          tool: 'web_search_exa', 
+        return {
+          tool: 'web_search_exa',
           fallback: ['webfetch'],
           reason: 'Exa available for neural search'
         };
       }
-      return { 
-        tool: 'webfetch', 
+      return {
+        tool: 'webfetch',
         fallback: ['curl'],
         reason: 'Using free webfetch fallback'
       };
@@ -117,21 +117,21 @@ export class ToolStrategy {
     // Page scraping
     if (type === 'scrape') {
       if (this.availableTools.firecrawl) {
-        return { 
-          tool: 'firecrawl_scrape', 
+        return {
+          tool: 'firecrawl_scrape',
           fallback: ['webfetch', 'playwright'],
           reason: 'Firecrawl available for deep extraction'
         };
       }
       if (this.availableTools.exa) {
-        return { 
-          tool: 'crawling_exa', 
+        return {
+          tool: 'crawling_exa',
           fallback: ['webfetch', 'playwright'],
           reason: 'Exa available for token-controlled fetch'
         };
       }
-      return { 
-        tool: 'webfetch', 
+      return {
+        tool: 'webfetch',
         fallback: ['playwright', 'curl'],
         reason: 'Using free webfetch fallback'
       };
@@ -140,14 +140,14 @@ export class ToolStrategy {
     // GitHub research
     if (type === 'github') {
       if (this.availableTools.gh) {
-        return { 
-          tool: 'gh', 
+        return {
+          tool: 'gh',
           fallback: ['webfetch'],
           reason: 'GitHub CLI available for API access'
         };
       }
-      return { 
-        tool: 'webfetch', 
+      return {
+        tool: 'webfetch',
         fallback: ['curl'],
         reason: 'Using webfetch for GitHub (gh CLI not available)'
       };
@@ -155,8 +155,8 @@ export class ToolStrategy {
 
     // JS-heavy sites (SPAs, dynamic content)
     if (type === 'js-site') {
-      return { 
-        tool: 'playwright', 
+      return {
+        tool: 'playwright',
         fallback: ['webfetch'],
         reason: 'Using Playwright for JS-heavy site'
       };
@@ -165,21 +165,21 @@ export class ToolStrategy {
     // File download
     if (type === 'download') {
       if (this.availableTools.curl) {
-        return { 
-          tool: 'curl', 
+        return {
+          tool: 'curl',
           fallback: ['wget'],
           reason: 'Using curl for download'
         };
       }
       if (this.availableTools.wget) {
-        return { 
-          tool: 'wget', 
+        return {
+          tool: 'wget',
           fallback: [],
           reason: 'Using wget for download'
         };
       }
-      return { 
-        tool: 'webfetch', 
+      return {
+        tool: 'webfetch',
         fallback: [],
         reason: 'Using webfetch for download'
       };
@@ -188,14 +188,14 @@ export class ToolStrategy {
     // Multi-page crawl
     if (type === 'crawl') {
       if (this.availableTools.firecrawl) {
-        return { 
-          tool: 'firecrawl_crawl', 
+        return {
+          tool: 'firecrawl_crawl',
           fallback: ['webfetch'],
           reason: 'Firecrawl available for multi-page crawl'
         };
       }
-      return { 
-        tool: 'webfetch', 
+      return {
+        tool: 'webfetch',
         fallback: [],
         reason: 'Using webfetch (firecrawl not available for crawl)'
       };
@@ -204,22 +204,22 @@ export class ToolStrategy {
     // Batch URL fetching
     if (type === 'batch-fetch') {
       if (this.availableTools.exa) {
-        return { 
-          tool: 'exa_web_fetch_exa', 
+        return {
+          tool: 'exa_web_fetch_exa',
           fallback: ['webfetch'],
           reason: 'Exa available for batch fetching'
         };
       }
-      return { 
-        tool: 'webfetch', 
+      return {
+        tool: 'webfetch',
         fallback: [],
         reason: 'Using webfetch for batch (exa not available)'
       };
     }
 
     // Default
-    return { 
-      tool: 'webfetch', 
+    return {
+      tool: 'webfetch',
       fallback: ['curl', 'wget'],
       reason: 'Default tool selection'
     };
@@ -227,7 +227,7 @@ export class ToolStrategy {
 
   /**
    * Execute a task with automatic fallback chain
-   * 
+   *
    * @param {Object} task - Task description
    * @returns {Promise<Object>} - Execution result
    */
@@ -348,7 +348,7 @@ export class ToolStrategy {
 
   async ghApi(endpoint) {
     // Placeholder - would call gh CLI
-    const result = spawnSync('gh', ['api', endpoint], { 
+    const result = spawnSync('gh', ['api', endpoint], {
       encoding: 'utf8',
       stdio: 'pipe'
     });
@@ -363,7 +363,7 @@ export class ToolStrategy {
     if (output) {
       args.push('-o', output);
     }
-    const result = spawnSync('curl', args, { 
+    const result = spawnSync('curl', args, {
       encoding: 'utf8',
       stdio: 'pipe'
     });
@@ -378,7 +378,7 @@ export class ToolStrategy {
     if (output) {
       args.push('-O', output);
     }
-    const result = spawnSync('wget', args, { 
+    const result = spawnSync('wget', args, {
       encoding: 'utf8',
       stdio: 'pipe'
     });
@@ -398,7 +398,7 @@ export class ToolStrategy {
     const unavailable = Object.entries(this.availableTools)
       .filter(([_, v]) => !v)
       .map(([k]) => k);
-    
+
     return {
       available,
       unavailable,

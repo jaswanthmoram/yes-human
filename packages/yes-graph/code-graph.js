@@ -20,8 +20,11 @@ import { DatabaseSync } from 'node:sqlite';
 // Languages we extract symbols for via lightweight regex.
 // Tree-sitter is the long-term plan; this gives us a fast, dependency-free MVP.
 const LANG_BY_EXT = {
-  '.js': 'javascript', '.mjs': 'javascript', '.cjs': 'javascript',
-  '.ts': 'typescript', '.tsx': 'typescript',
+  '.js': 'javascript',
+  '.mjs': 'javascript',
+  '.cjs': 'javascript',
+  '.ts': 'typescript',
+  '.tsx': 'typescript',
   '.jsx': 'javascript',
   '.py': 'python',
   '.go': 'go',
@@ -30,7 +33,8 @@ const LANG_BY_EXT = {
   '.rb': 'ruby',
   '.md': 'markdown',
   '.json': 'json',
-  '.yaml': 'yaml', '.yml': 'yaml',
+  '.yaml': 'yaml',
+  '.yml': 'yaml',
   '.toml': 'toml',
   '.sql': 'sql'
 };
@@ -40,53 +44,60 @@ const LANG_BY_EXT = {
 const SYMBOL_PATTERNS = {
   javascript: [
     { kind: 'function', re: /^\s*(?:export\s+)?(?:async\s+)?function\s+([A-Za-z_$][\w$]*)/gm },
-    { kind: 'class',    re: /^\s*(?:export\s+)?class\s+([A-Za-z_$][\w$]*)/gm },
-    { kind: 'const',    re: /^\s*(?:export\s+)?(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=/gm }
+    { kind: 'class', re: /^\s*(?:export\s+)?class\s+([A-Za-z_$][\w$]*)/gm },
+    { kind: 'const', re: /^\s*(?:export\s+)?(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=/gm }
   ],
   typescript: [
-    { kind: 'function',  re: /^\s*(?:export\s+)?(?:async\s+)?function\s+([A-Za-z_$][\w$]*)/gm },
-    { kind: 'class',     re: /^\s*(?:export\s+)?class\s+([A-Za-z_$][\w$]*)/gm },
+    { kind: 'function', re: /^\s*(?:export\s+)?(?:async\s+)?function\s+([A-Za-z_$][\w$]*)/gm },
+    { kind: 'class', re: /^\s*(?:export\s+)?class\s+([A-Za-z_$][\w$]*)/gm },
     { kind: 'interface', re: /^\s*(?:export\s+)?interface\s+([A-Za-z_$][\w$]*)/gm },
-    { kind: 'type',      re: /^\s*(?:export\s+)?type\s+([A-Za-z_$][\w$]*)\s*=/gm },
-    { kind: 'const',     re: /^\s*(?:export\s+)?(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*[:=]/gm }
+    { kind: 'type', re: /^\s*(?:export\s+)?type\s+([A-Za-z_$][\w$]*)\s*=/gm },
+    { kind: 'const', re: /^\s*(?:export\s+)?(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*[:=]/gm }
   ],
   python: [
     { kind: 'function', re: /^def\s+([A-Za-z_][\w]*)/gm },
-    { kind: 'class',    re: /^class\s+([A-Za-z_][\w]*)/gm }
+    { kind: 'class', re: /^class\s+([A-Za-z_][\w]*)/gm }
   ],
   go: [
     { kind: 'function', re: /^func\s+(?:\([^)]+\)\s+)?([A-Za-z_][\w]*)/gm },
-    { kind: 'type',     re: /^type\s+([A-Za-z_][\w]*)/gm }
+    { kind: 'type', re: /^type\s+([A-Za-z_][\w]*)/gm }
   ],
   rust: [
     { kind: 'function', re: /^(?:pub\s+)?fn\s+([A-Za-z_][\w]*)/gm },
-    { kind: 'struct',   re: /^(?:pub\s+)?struct\s+([A-Za-z_][\w]*)/gm },
-    { kind: 'enum',     re: /^(?:pub\s+)?enum\s+([A-Za-z_][\w]*)/gm }
+    { kind: 'struct', re: /^(?:pub\s+)?struct\s+([A-Za-z_][\w]*)/gm },
+    { kind: 'enum', re: /^(?:pub\s+)?enum\s+([A-Za-z_][\w]*)/gm }
   ]
 };
 
 const IMPORT_PATTERNS = {
   javascript: /^\s*import\s+(?:[^'"]*from\s+)?['"]([^'"]+)['"]/gm,
   typescript: /^\s*import\s+(?:[^'"]*from\s+)?['"]([^'"]+)['"]/gm,
-  python:     /^\s*(?:from\s+([\w.]+)\s+import|import\s+([\w.]+))/gm,
-  go:         /^\s*import\s+(?:\(\s*)?["]([^"]+)["]/gm,
-  rust:       /^\s*use\s+([\w:]+)/gm
+  python: /^\s*(?:from\s+([\w.]+)\s+import|import\s+([\w.]+))/gm,
+  go: /^\s*import\s+(?:\(\s*)?["]([^"]+)["]/gm,
+  rust: /^\s*use\s+([\w:]+)/gm
 };
 
 // Heuristics for skipping noisy directories at any depth.
 const SKIP_DIRS = new Set([
-  'node_modules', '.git', '.venv', 'venv', '__pycache__',
-  'dist', 'build', 'target', '.next', '.nuxt',
-  'coverage', '.cache', 'generated'
+  'node_modules',
+  '.git',
+  '.venv',
+  'venv',
+  '__pycache__',
+  'dist',
+  'build',
+  'target',
+  '.next',
+  '.nuxt',
+  'coverage',
+  '.cache',
+  'generated'
 ]);
 
 // Path-prefix exclusions (relative to repo root) used by yes-human itself.
 // Keeps the graph focused on canonical source; staged reference plugins are
 // reference material, not yes-human's own code.
-const SKIP_PATH_PREFIXES = [
-  'staging/incoming/',
-  'reports/source-mining/'
-];
+const SKIP_PATH_PREFIXES = ['staging/incoming/', 'reports/source-mining/'];
 
 // Large file cap — skip generated lockfiles, minified bundles, etc.
 const MAX_FILE_BYTES = 500_000;
@@ -186,7 +197,7 @@ export class CodeGraph {
         if (SKIP_DIRS.has(entry.name)) continue;
         const full = path.join(dir, entry.name);
         const relFromRoot = path.relative(root, full);
-        if (SKIP_PATH_PREFIXES.some(p => relFromRoot.startsWith(p))) continue;
+        if (SKIP_PATH_PREFIXES.some((p) => relFromRoot.startsWith(p))) continue;
         if (entry.isDirectory()) walk(full);
         else if (entry.isFile()) {
           const ext = path.extname(entry.name);
@@ -204,12 +215,8 @@ export class CodeGraph {
     const insertFile = graph.db.prepare(
       'INSERT INTO files (path, language, size_bytes, line_count, hash) VALUES (?, ?, ?, ?, ?)'
     );
-    const insertSymbol = graph.db.prepare(
-      'INSERT INTO symbols (file_id, kind, name, line) VALUES (?, ?, ?, ?)'
-    );
-    const insertImport = graph.db.prepare(
-      'INSERT INTO imports (file_id, module) VALUES (?, ?)'
-    );
+    const insertSymbol = graph.db.prepare('INSERT INTO symbols (file_id, kind, name, line) VALUES (?, ?, ?, ?)');
+    const insertImport = graph.db.prepare('INSERT INTO imports (file_id, module) VALUES (?, ?)');
 
     let totalSymbols = 0;
     let totalImports = 0;
@@ -275,50 +282,74 @@ export class CodeGraph {
 
   /** Find a symbol by exact or substring name. Returns compact context-pack rows. */
   findSymbol(name, { limit = 10 } = {}) {
-    return this.db.prepare(`
+    return this.db
+      .prepare(
+        `
       SELECT f.path AS file, s.kind, s.name, s.line, f.language
       FROM symbols s JOIN files f ON s.file_id = f.id
       WHERE s.name = ? OR s.name LIKE ?
       ORDER BY (s.name = ?) DESC, length(s.name) ASC
       LIMIT ?
-    `).all(name, `%${name}%`, name, limit);
+    `
+      )
+      .all(name, `%${name}%`, name, limit);
   }
 
   /** Find files importing a given module. */
   filesUsing(module, { limit = 20 } = {}) {
-    return this.db.prepare(`
+    return this.db
+      .prepare(
+        `
       SELECT f.path AS file, i.module, f.language
       FROM imports i JOIN files f ON i.file_id = f.id
       WHERE i.module = ? OR i.module LIKE ?
       ORDER BY (i.module = ?) DESC
       LIMIT ?
-    `).all(module, `%${module}%`, module, limit);
+    `
+      )
+      .all(module, `%${module}%`, module, limit);
   }
 
   /** Free-text search across symbol names and file paths. Context pack output. */
   search(query, { limit = 20 } = {}) {
     const like = `%${query}%`;
-    const symHits = this.db.prepare(`
+    const symHits = this.db
+      .prepare(
+        `
       SELECT f.path AS file, s.kind, s.name, s.line, 'symbol' AS source
       FROM symbols s JOIN files f ON s.file_id = f.id
       WHERE s.name LIKE ? LIMIT ?
-    `).all(like, limit);
-    const fileHits = this.db.prepare(`
+    `
+      )
+      .all(like, limit);
+    const fileHits = this.db
+      .prepare(
+        `
       SELECT path AS file, language AS kind, path AS name, 1 AS line, 'file' AS source
       FROM files WHERE path LIKE ? LIMIT ?
-    `).all(like, limit);
+    `
+      )
+      .all(like, limit);
     return [...symHits, ...fileHits].slice(0, limit);
   }
 
   /** Compact briefing of the indexed repo — for `yes graph stats` output. */
   briefing() {
-    const langs = this.db.prepare(`
+    const langs = this.db
+      .prepare(
+        `
       SELECT language, COUNT(*) AS n FROM files
       WHERE language IS NOT NULL GROUP BY language ORDER BY n DESC
-    `).all();
-    const topSymbols = this.db.prepare(`
+    `
+      )
+      .all();
+    const topSymbols = this.db
+      .prepare(
+        `
       SELECT kind, COUNT(*) AS n FROM symbols GROUP BY kind ORDER BY n DESC LIMIT 8
-    `).all();
+    `
+      )
+      .all();
     return { ...this.stats(), languages: langs, symbol_kinds: topSymbols };
   }
 

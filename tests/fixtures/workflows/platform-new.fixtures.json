@@ -26,9 +26,7 @@
         "cloud_provider": "GCP",
         "cluster_spec": {
           "version": "1.29",
-          "node_pools": [
-            { "name": "default", "instance_type": "e2-standard-4", "count": 3 }
-          ],
+          "node_pools": [{ "name": "default", "instance_type": "e2-standard-4", "count": 3 }],
           "networking_cidr": "172.16.0.0/12"
         },
         "storage_requirements": { "storage_classes": ["standard-rwo", "premium-rwo"] }

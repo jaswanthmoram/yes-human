@@ -20,13 +20,16 @@ function hash(s) {
 }
 
 function poolFor(domain) {
-  return [...(seeds.categories[domain] || []), ...(seeds.categories['meta-system'] || [])]
-    .filter((s) => ALLOWED.has(s.license));
+  return [...(seeds.categories[domain] || []), ...(seeds.categories['meta-system'] || [])].filter((s) =>
+    ALLOWED.has(s.license)
+  );
 }
 
 function pickSeeds(domain, entityKey) {
   const pool = poolFor(domain);
-  const official = pool.filter((s) => ['official_docs', 'vendor_docs', 'standards_doc', 'official_specs'].includes(s.source_type));
+  const official = pool.filter((s) =>
+    ['official_docs', 'vendor_docs', 'standards_doc', 'official_specs'].includes(s.source_type)
+  );
   const github = pool.filter((s) => s.source_type === 'github_repo');
   const out = [];
   const add = (arr, n) => {
@@ -52,7 +55,7 @@ function buildSources(domain, entityKey, specialistHint) {
     version_or_commit: seed.source_type === 'github_repo' ? 'main' : '2026-06-02',
     used_for: [`${specialistHint}: ${seed.used_for_template?.[0] || seed.name}`, `verification pattern ${idx + 1}`],
     copy_policy: 'patterns_only',
-    stars: seed.source_type === 'github_repo' ? (seed.stars || 1200) : undefined,
+    stars: seed.source_type === 'github_repo' ? seed.stars || 1200 : undefined,
     last_updated: '2026-05-15T00:00:00Z'
   }));
 }

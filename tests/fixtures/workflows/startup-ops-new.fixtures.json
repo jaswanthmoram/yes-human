@@ -9,11 +9,7 @@
         "target_customer": "Content marketing managers at Series A-C startups with 5-20 person marketing teams",
         "market_data": "Content marketing market growing 15% YoY, 3 competitors in AI writing space"
       },
-      "expected_outputs": [
-        "lean_canvas",
-        "validation_report",
-        "next_steps"
-      ],
+      "expected_outputs": ["lean_canvas", "validation_report", "next_steps"],
       "expected_step_count": 5
     },
     {
@@ -24,11 +20,7 @@
         "target_customer": "Freelance designers seeking consistent work and seed-stage startups needing affordable design",
         "market_data": "Freelance design market $12B, 5 existing platforms but none focused on startup branding"
       },
-      "expected_outputs": [
-        "lean_canvas",
-        "validation_report",
-        "next_steps"
-      ],
+      "expected_outputs": ["lean_canvas", "validation_report", "next_steps"],
       "expected_step_count": 5
     },
     {
@@ -39,11 +31,7 @@
         "metrics": "500 active teams, $50K MRR, 40% MoM growth, 90% retention at 6 months",
         "target_investors": "Seed-stage VCs focused on future-of-work and remote work tools"
       },
-      "expected_outputs": [
-        "deck_outline",
-        "data_visualizations",
-        "talking_points"
-      ],
+      "expected_outputs": ["deck_outline", "data_visualizations", "talking_points"],
       "expected_step_count": 4
     },
     {
@@ -54,11 +42,7 @@
         "metrics": "$2M ARR, 150 enterprise customers, 3x net revenue retention, 18-month payback",
         "target_investors": "Series A VCs with developer tools thesis and enterprise SaaS focus"
       },
-      "expected_outputs": [
-        "deck_outline",
-        "data_visualizations",
-        "talking_points"
-      ],
+      "expected_outputs": ["deck_outline", "data_visualizations", "talking_points"],
       "expected_step_count": 4
     },
     {
@@ -69,11 +53,7 @@
         "funding_target": "$1.5M seed round for engineering hires and go-to-market",
         "existing_materials": "Draft pitch deck and basic financial model"
       },
-      "expected_outputs": [
-        "fundraising_strategy",
-        "investor_targets",
-        "materials_checklist"
-      ],
+      "expected_outputs": ["fundraising_strategy", "investor_targets", "materials_checklist"],
       "expected_step_count": 5
     },
     {
@@ -84,11 +64,7 @@
         "funding_target": "$8M Series A for scaling sales team and product development",
         "existing_materials": "Complete pitch deck, financial model, and data room with customer case studies"
       },
-      "expected_outputs": [
-        "fundraising_strategy",
-        "investor_targets",
-        "materials_checklist"
-      ],
+      "expected_outputs": ["fundraising_strategy", "investor_targets", "materials_checklist"],
       "expected_step_count": 5
     },
     {
@@ -99,11 +75,7 @@
         "target_segment": "VP Engineering and Engineering Managers at Series B-C companies with 50-200 engineers",
         "interview_count_target": 15
       },
-      "expected_outputs": [
-        "interview_guide",
-        "findings_report",
-        "hypothesis_validation"
-      ],
+      "expected_outputs": ["interview_guide", "findings_report", "hypothesis_validation"],
       "expected_step_count": 5
     },
     {
@@ -114,11 +86,7 @@
         "target_segment": "Remote workers at tech companies, 2-5 years into career, living in major metro areas",
         "interview_count_target": 20
       },
-      "expected_outputs": [
-        "interview_guide",
-        "findings_report",
-        "hypothesis_validation"
-      ],
+      "expected_outputs": ["interview_guide", "findings_report", "hypothesis_validation"],
       "expected_step_count": 5
     }
   ]

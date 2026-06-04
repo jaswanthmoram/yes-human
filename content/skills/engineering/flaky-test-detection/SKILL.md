@@ -65,48 +65,61 @@ rollback:
 validators:
   - skill.validator
 ---
+
 ## Trigger
+
 Use when a test fails intermittently in CI or locally — not on every run but frequently enough to block reliable deployment.
 
 ## Prerequisites
+
 - Can run the test in isolation (not as part of the full suite)
 - CI run history available to confirm pattern (not just one-off)
 
 ## Steps
 
 ### 1. Confirm Flakiness
+
 Run the test 10 times in isolation. If it fails at least once, it's genuinely flaky. Document the failure rate.
 
 ### 2. Classify Root Cause
+
 Timing: async code not properly awaited. State: shared test state not reset. External: real network/DB calls. Random: seeded randomness not controlled. Ordering: test depends on another test's side effect.
 
 ### 3. Fix Timing Issues
+
 Replace `setTimeout(done, 1000)` with proper `await`, `waitFor`, or event-based assertions. Use testing-library's `waitFor` or equivalent.
 
 ### 4. Fix State Pollution
+
 Add explicit `beforeEach`/`afterEach` cleanup. Use factory functions to create fresh instances. Never share mutable state between test files.
 
 ### 5. Fix External Dependencies
+
 Mock external services at the boundary using Jest mocks, Sinon stubs, or testcontainers for a real isolated instance.
 
 ### 6. Verify Elimination
+
 Run 20 consecutive passes before marking fixed. Add comment documenting the root cause for future maintainers.
 
 ## Verification
+
 - [ ] 20 consecutive passes confirmed
 - [ ] Root cause documented
 - [ ] No arbitrary sleeps/timeouts in fixed code
 
 ## Rollback
+
 Revert the test change and re-add quarantine tag if flakiness returns.
 
 ## Common Failures
-| Failure | Cause | Fix |
-|---------|-------|-----|
-| Still flaky after timing fix | Race at OS level, not JS | Use event-driven assertion |
-| Mock not matching real service | Mock too simplified | Use testcontainers |
-| Fix breaks other tests | Shared state assumption | Audit all related tests |
+
+| Failure                        | Cause                    | Fix                        |
+| ------------------------------ | ------------------------ | -------------------------- |
+| Still flaky after timing fix   | Race at OS level, not JS | Use event-driven assertion |
+| Mock not matching real service | Mock too simplified      | Use testcontainers         |
+| Fix breaks other tests         | Shared state assumption  | Audit all related tests    |
 
 ## Examples
+
 **Example A:** CI fails 1 in 5 runs on a test that waits for a Promise — fix: replace `setTimeout` with `await`.
 **Example B:** DB test fails when run after another test — fix: add `afterEach` that truncates test tables.

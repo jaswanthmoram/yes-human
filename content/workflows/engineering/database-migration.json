@@ -12,16 +12,8 @@
     "generate the up and down migration scripts",
     "plan the data migration for this change"
   ],
-  "aliases": [
-    "schema migration",
-    "database migration workflow",
-    "migration script creation"
-  ],
-  "negative_keywords": [
-    "frontend component",
-    "API endpoint only",
-    "docs only"
-  ],
+  "aliases": ["schema migration", "database migration workflow", "migration script creation"],
+  "negative_keywords": ["frontend component", "API endpoint only", "docs only"],
   "inputs": [
     {
       "name": "schema_change_spec",
@@ -57,9 +49,7 @@
   "primary_agent": "engineering.migration-builder",
   "route": {
     "domain_master": "engineering.master",
-    "agents": [
-      "engineering.migration-builder"
-    ],
+    "agents": ["engineering.migration-builder"],
     "parallel": false,
     "max_parallel_agents": 1,
     "primary": "engineering.migration-builder",
@@ -70,13 +60,7 @@
     "max_context_tokens": 2600,
     "max_tool_calls": 10
   },
-  "gates": [
-    "pre-route",
-    "pre-tool",
-    "pre-write",
-    "post-tool",
-    "on-task-complete"
-  ],
+  "gates": ["pre-route", "pre-tool", "pre-write", "post-tool", "on-task-complete"],
   "steps": [
     {
       "id": "analyze-schema",
@@ -99,13 +83,7 @@
       "summary": "Run the migration up and down against a test database to verify correctness and reversibility."
     }
   ],
-  "tools": [
-    "filesystem.read",
-    "filesystem.write",
-    "shell.migration_runner",
-    "schema_inspector",
-    "diff_inspection"
-  ],
+  "tools": ["filesystem.read", "filesystem.write", "shell.migration_runner", "schema_inspector", "diff_inspection"],
   "verification": [
     "up_migration_applies_cleanly",
     "down_migration_reverts_cleanly",
@@ -123,9 +101,7 @@
     "mode": "trace_based",
     "summary": "Run the down migration to revert; remove migration files if they have not been committed."
   },
-  "source_references": [
-    "ref.workflow.engineering.database-migration.2026-06-01"
-  ],
+  "source_references": ["ref.workflow.engineering.database-migration.2026-06-01"],
   "promotion": {
     "can_learn": true,
     "quality_gate": "staging",

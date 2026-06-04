@@ -1,50 +1,234 @@
 {
   "fixtures": [
-    { "prompt": "review this PR for bugs and security issues", "expected_workflow": "engineering.code-review-with-security", "expected_primary_agent": "engineering.code-reviewer" },
-    { "prompt": "pr review with security", "expected_workflow": "engineering.code-review-with-security", "expected_primary_agent": "engineering.code-reviewer" },
-    { "prompt": "fix this build error", "expected_workflow": "engineering.fix-build-error", "expected_primary_agent": "engineering.build-resolver" },
-    { "prompt": "build failure fix", "expected_workflow": "engineering.fix-build-error", "expected_primary_agent": "engineering.build-resolver" },
-    { "prompt": "implement this with TDD", "expected_workflow": "engineering.tdd-feature", "expected_primary_agent": "engineering.tdd-guide" },
-    { "prompt": "test first feature", "expected_workflow": "engineering.tdd-feature", "expected_primary_agent": "engineering.tdd-guide" },
-    { "prompt": "get me oriented in this repo", "expected_workflow": "engineering.repo-onboarding", "expected_primary_agent": "engineering.architect" },
-    { "prompt": "repo walkthrough", "expected_workflow": "engineering.repo-onboarding", "expected_primary_agent": "engineering.architect" },
-    { "prompt": "update the docs for this change", "expected_workflow": "engineering.docs-update", "expected_primary_agent": "engineering.docs-updater" },
-    { "prompt": "documentation refresh", "expected_workflow": "engineering.docs-update", "expected_primary_agent": "engineering.docs-updater" },
-    { "prompt": "scan this repo for security risks", "expected_workflow": "security.repo-risk-scan", "expected_primary_agent": "security.security-reviewer" },
-    { "prompt": "secret and vuln sweep", "expected_workflow": "security.repo-risk-scan", "expected_primary_agent": "security.security-reviewer" },
-    { "prompt": "review this agent for prompt injection", "expected_workflow": "security.prompt-injection-review", "expected_primary_agent": "security.threat-modeler" },
-    { "prompt": "agent prompt attack audit", "expected_workflow": "security.prompt-injection-review", "expected_primary_agent": "security.threat-modeler" },
-    { "prompt": "evaluate this RAG pipeline", "expected_workflow": "data-ai.rag-eval", "expected_primary_agent": "data-ai.rag-engineer" },
-    { "prompt": "rag quality check", "expected_workflow": "data-ai.rag-eval", "expected_primary_agent": "data-ai.rag-engineer" },
-    { "prompt": "design an MCP server for this API", "expected_workflow": "integrations.mcp-server-design", "expected_primary_agent": "integrations.master" },
-    { "prompt": "mcp connector design", "expected_workflow": "integrations.mcp-server-design", "expected_primary_agent": "integrations.master" },
-    { "prompt": "check this UI for visual and accessibility issues", "expected_workflow": "design-content.visual-and-a11y-check", "expected_primary_agent": "design-content.frontend-design-agent" },
-    { "prompt": "ui quality audit", "expected_workflow": "design-content.visual-and-a11y-check", "expected_primary_agent": "design-content.frontend-design-agent" },
-    { "prompt": "turn this PRD into an execution plan", "expected_workflow": "product-business.prd-to-plan", "expected_primary_agent": "product-business.product-manager" },
-    { "prompt": "requirements to plan", "expected_workflow": "product-business.prd-to-plan", "expected_primary_agent": "product-business.product-manager" },
-    { "prompt": "product launch campaign", "expected_workflow": "marketing.launch-campaign", "expected_primary_agent": "marketing.marketing-strategist" },
-    { "prompt": "campaign launch", "expected_workflow": "marketing.launch-campaign", "expected_primary_agent": "marketing.marketing-strategist" },
-    { "prompt": "deal health review", "expected_workflow": "sales.deal-review", "expected_primary_agent": "sales.pipeline-analyst" },
-    { "prompt": "opportunity review", "expected_workflow": "sales.deal-review", "expected_primary_agent": "sales.pipeline-analyst" },
-    { "prompt": "monthly forecast update", "expected_workflow": "finance.monthly-forecast", "expected_primary_agent": "finance.forecasting-analyst" },
-    { "prompt": "forecast refresh", "expected_workflow": "finance.monthly-forecast", "expected_primary_agent": "finance.forecasting-analyst" },
-    { "prompt": "hiring pipeline design", "expected_workflow": "hr.hiring-pipeline", "expected_primary_agent": "hr.hiring-manager" },
-    { "prompt": "interview pipeline", "expected_workflow": "hr.hiring-pipeline", "expected_primary_agent": "hr.hiring-manager" },
-    { "prompt": "contract risk review", "expected_workflow": "legal-compliance.contract-risk-review", "expected_primary_agent": "legal-compliance.contract-reviewer" },
-    { "prompt": "agreement triage", "expected_workflow": "legal-compliance.contract-risk-review", "expected_primary_agent": "legal-compliance.contract-reviewer" },
-    { "prompt": "ci failure triage", "expected_workflow": "platform.ci-failure-triage", "expected_primary_agent": "platform.ci-cd-engineer" },
-    { "prompt": "pipeline failure review", "expected_workflow": "platform.ci-failure-triage", "expected_primary_agent": "platform.ci-cd-engineer" },
-    { "prompt": "source mining run", "expected_workflow": "meta-system.source-mine-and-dossier", "expected_primary_agent": "meta-system.source-miner" },
-    { "prompt": "source dossier build", "expected_workflow": "meta-system.source-mine-and-dossier", "expected_primary_agent": "meta-system.source-miner" },
-    { "prompt": "ceo review pack", "expected_workflow": "startup-ops.ceo-review-pack", "expected_primary_agent": "startup-ops.ceo-rethink" },
-    { "prompt": "office hours prep", "expected_workflow": "startup-ops.ceo-review-pack", "expected_primary_agent": "startup-ops.ceo-rethink" },
-    { "prompt": "deep research synthesis", "expected_workflow": "research.deep-research-synthesis", "expected_primary_agent": "research.deep-researcher" },
-    { "prompt": "research report", "expected_workflow": "research.deep-research-synthesis", "expected_primary_agent": "research.deep-researcher" },
-    { "prompt": "clinical guideline review", "expected_workflow": "healthcare.clinical-guideline-review", "expected_primary_agent": "healthcare.clinical-decision-support" },
-    { "prompt": "guideline review", "expected_workflow": "healthcare.clinical-guideline-review", "expected_primary_agent": "healthcare.clinical-decision-support" },
-    { "prompt": "curriculum assessment alignment", "expected_workflow": "education.curriculum-assessment-alignment", "expected_primary_agent": "education.curriculum-designer" },
-    { "prompt": "curriculum alignment", "expected_workflow": "education.curriculum-assessment-alignment", "expected_primary_agent": "education.curriculum-designer" },
-    { "prompt": "demand inventory balancing", "expected_workflow": "manufacturing.demand-inventory-balancing", "expected_primary_agent": "manufacturing.demand-planner" },
-    { "prompt": "demand balancing", "expected_workflow": "manufacturing.demand-inventory-balancing", "expected_primary_agent": "manufacturing.demand-planner" }
+    {
+      "prompt": "review this PR for bugs and security issues",
+      "expected_workflow": "engineering.code-review-with-security",
+      "expected_primary_agent": "engineering.code-reviewer"
+    },
+    {
+      "prompt": "pr review with security",
+      "expected_workflow": "engineering.code-review-with-security",
+      "expected_primary_agent": "engineering.code-reviewer"
+    },
+    {
+      "prompt": "fix this build error",
+      "expected_workflow": "engineering.fix-build-error",
+      "expected_primary_agent": "engineering.build-resolver"
+    },
+    {
+      "prompt": "build failure fix",
+      "expected_workflow": "engineering.fix-build-error",
+      "expected_primary_agent": "engineering.build-resolver"
+    },
+    {
+      "prompt": "implement this with TDD",
+      "expected_workflow": "engineering.tdd-feature",
+      "expected_primary_agent": "engineering.tdd-guide"
+    },
+    {
+      "prompt": "test first feature",
+      "expected_workflow": "engineering.tdd-feature",
+      "expected_primary_agent": "engineering.tdd-guide"
+    },
+    {
+      "prompt": "get me oriented in this repo",
+      "expected_workflow": "engineering.repo-onboarding",
+      "expected_primary_agent": "engineering.architect"
+    },
+    {
+      "prompt": "repo walkthrough",
+      "expected_workflow": "engineering.repo-onboarding",
+      "expected_primary_agent": "engineering.architect"
+    },
+    {
+      "prompt": "update the docs for this change",
+      "expected_workflow": "engineering.docs-update",
+      "expected_primary_agent": "engineering.docs-updater"
+    },
+    {
+      "prompt": "documentation refresh",
+      "expected_workflow": "engineering.docs-update",
+      "expected_primary_agent": "engineering.docs-updater"
+    },
+    {
+      "prompt": "scan this repo for security risks",
+      "expected_workflow": "security.repo-risk-scan",
+      "expected_primary_agent": "security.security-reviewer"
+    },
+    {
+      "prompt": "secret and vuln sweep",
+      "expected_workflow": "security.repo-risk-scan",
+      "expected_primary_agent": "security.security-reviewer"
+    },
+    {
+      "prompt": "review this agent for prompt injection",
+      "expected_workflow": "security.prompt-injection-review",
+      "expected_primary_agent": "security.threat-modeler"
+    },
+    {
+      "prompt": "agent prompt attack audit",
+      "expected_workflow": "security.prompt-injection-review",
+      "expected_primary_agent": "security.threat-modeler"
+    },
+    {
+      "prompt": "evaluate this RAG pipeline",
+      "expected_workflow": "data-ai.rag-eval",
+      "expected_primary_agent": "data-ai.rag-engineer"
+    },
+    {
+      "prompt": "rag quality check",
+      "expected_workflow": "data-ai.rag-eval",
+      "expected_primary_agent": "data-ai.rag-engineer"
+    },
+    {
+      "prompt": "design an MCP server for this API",
+      "expected_workflow": "integrations.mcp-server-design",
+      "expected_primary_agent": "integrations.master"
+    },
+    {
+      "prompt": "mcp connector design",
+      "expected_workflow": "integrations.mcp-server-design",
+      "expected_primary_agent": "integrations.master"
+    },
+    {
+      "prompt": "check this UI for visual and accessibility issues",
+      "expected_workflow": "design-content.visual-and-a11y-check",
+      "expected_primary_agent": "design-content.frontend-design-agent"
+    },
+    {
+      "prompt": "ui quality audit",
+      "expected_workflow": "design-content.visual-and-a11y-check",
+      "expected_primary_agent": "design-content.frontend-design-agent"
+    },
+    {
+      "prompt": "turn this PRD into an execution plan",
+      "expected_workflow": "product-business.prd-to-plan",
+      "expected_primary_agent": "product-business.product-manager"
+    },
+    {
+      "prompt": "requirements to plan",
+      "expected_workflow": "product-business.prd-to-plan",
+      "expected_primary_agent": "product-business.product-manager"
+    },
+    {
+      "prompt": "product launch campaign",
+      "expected_workflow": "marketing.launch-campaign",
+      "expected_primary_agent": "marketing.marketing-strategist"
+    },
+    {
+      "prompt": "campaign launch",
+      "expected_workflow": "marketing.launch-campaign",
+      "expected_primary_agent": "marketing.marketing-strategist"
+    },
+    {
+      "prompt": "deal health review",
+      "expected_workflow": "sales.deal-review",
+      "expected_primary_agent": "sales.pipeline-analyst"
+    },
+    {
+      "prompt": "opportunity review",
+      "expected_workflow": "sales.deal-review",
+      "expected_primary_agent": "sales.pipeline-analyst"
+    },
+    {
+      "prompt": "monthly forecast update",
+      "expected_workflow": "finance.monthly-forecast",
+      "expected_primary_agent": "finance.forecasting-analyst"
+    },
+    {
+      "prompt": "forecast refresh",
+      "expected_workflow": "finance.monthly-forecast",
+      "expected_primary_agent": "finance.forecasting-analyst"
+    },
+    {
+      "prompt": "hiring pipeline design",
+      "expected_workflow": "hr.hiring-pipeline",
+      "expected_primary_agent": "hr.hiring-manager"
+    },
+    {
+      "prompt": "interview pipeline",
+      "expected_workflow": "hr.hiring-pipeline",
+      "expected_primary_agent": "hr.hiring-manager"
+    },
+    {
+      "prompt": "contract risk review",
+      "expected_workflow": "legal-compliance.contract-risk-review",
+      "expected_primary_agent": "legal-compliance.contract-reviewer"
+    },
+    {
+      "prompt": "agreement triage",
+      "expected_workflow": "legal-compliance.contract-risk-review",
+      "expected_primary_agent": "legal-compliance.contract-reviewer"
+    },
+    {
+      "prompt": "ci failure triage",
+      "expected_workflow": "platform.ci-failure-triage",
+      "expected_primary_agent": "platform.ci-cd-engineer"
+    },
+    {
+      "prompt": "pipeline failure review",
+      "expected_workflow": "platform.ci-failure-triage",
+      "expected_primary_agent": "platform.ci-cd-engineer"
+    },
+    {
+      "prompt": "source mining run",
+      "expected_workflow": "meta-system.source-mine-and-dossier",
+      "expected_primary_agent": "meta-system.source-miner"
+    },
+    {
+      "prompt": "source dossier build",
+      "expected_workflow": "meta-system.source-mine-and-dossier",
+      "expected_primary_agent": "meta-system.source-miner"
+    },
+    {
+      "prompt": "ceo review pack",
+      "expected_workflow": "startup-ops.ceo-review-pack",
+      "expected_primary_agent": "startup-ops.ceo-rethink"
+    },
+    {
+      "prompt": "office hours prep",
+      "expected_workflow": "startup-ops.ceo-review-pack",
+      "expected_primary_agent": "startup-ops.ceo-rethink"
+    },
+    {
+      "prompt": "deep research synthesis",
+      "expected_workflow": "research.deep-research-synthesis",
+      "expected_primary_agent": "research.deep-researcher"
+    },
+    {
+      "prompt": "research report",
+      "expected_workflow": "research.deep-research-synthesis",
+      "expected_primary_agent": "research.deep-researcher"
+    },
+    {
+      "prompt": "clinical guideline review",
+      "expected_workflow": "healthcare.clinical-guideline-review",
+      "expected_primary_agent": "healthcare.clinical-decision-support"
+    },
+    {
+      "prompt": "guideline review",
+      "expected_workflow": "healthcare.clinical-guideline-review",
+      "expected_primary_agent": "healthcare.clinical-decision-support"
+    },
+    {
+      "prompt": "curriculum assessment alignment",
+      "expected_workflow": "education.curriculum-assessment-alignment",
+      "expected_primary_agent": "education.curriculum-designer"
+    },
+    {
+      "prompt": "curriculum alignment",
+      "expected_workflow": "education.curriculum-assessment-alignment",
+      "expected_primary_agent": "education.curriculum-designer"
+    },
+    {
+      "prompt": "demand inventory balancing",
+      "expected_workflow": "manufacturing.demand-inventory-balancing",
+      "expected_primary_agent": "manufacturing.demand-planner"
+    },
+    {
+      "prompt": "demand balancing",
+      "expected_workflow": "manufacturing.demand-inventory-balancing",
+      "expected_primary_agent": "manufacturing.demand-planner"
+    }
   ]
 }

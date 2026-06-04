@@ -4,21 +4,9 @@
   "status": "active",
   "summary": "Plan and execute a user research process from question definition through actionable insights.",
   "task_family": "research",
-  "triggers": [
-    "run user research",
-    "user research process",
-    "conduct user research study"
-  ],
-  "aliases": [
-    "ux research process",
-    "user study",
-    "research sprint"
-  ],
-  "negative_keywords": [
-    "implement code now",
-    "deploy to production",
-    "financial audit"
-  ],
+  "triggers": ["run user research", "user research process", "conduct user research study"],
+  "aliases": ["ux research process", "user study", "research sprint"],
+  "negative_keywords": ["implement code now", "deploy to production", "financial audit"],
   "inputs": [
     {
       "name": "research_objectives",
@@ -47,26 +35,18 @@
   "primary_agent": "product-business.user-researcher",
   "route": {
     "domain_master": "product-business.master",
-    "agents": [
-      "product-business.user-researcher"
-    ],
+    "agents": ["product-business.user-researcher"],
     "parallel": false,
     "max_parallel_agents": 2,
     "primary": "product-business.user-researcher",
-    "participants": [
-      "product-business.product-manager"
-    ]
+    "participants": ["product-business.product-manager"]
   },
   "budget": {
     "band": "standard",
     "max_context_tokens": 5000,
     "max_tool_calls": 12
   },
-  "gates": [
-    "pre-route",
-    "pre-tool",
-    "on-task-complete"
-  ],
+  "gates": ["pre-route", "pre-tool", "on-task-complete"],
   "steps": [
     {
       "id": "define-questions",
@@ -85,16 +65,8 @@
       "summary": "Analyze data, identify themes, and produce actionable insights."
     }
   ],
-  "tools": [
-    "filesystem.read",
-    "research_template",
-    "interview_guide"
-  ],
-  "verification": [
-    "research_questions_answered",
-    "methodology_appropriate",
-    "insights_actionable_and_linked"
-  ],
+  "tools": ["filesystem.read", "research_template", "interview_guide"],
+  "verification": ["research_questions_answered", "methodology_appropriate", "insights_actionable_and_linked"],
   "success_criteria": [
     "Research questions are clearly defined and answered.",
     "Methodology is appropriate for the questions asked.",
@@ -104,9 +76,7 @@
     "mode": "no_write",
     "summary": "Research workflow produces insights but does not modify product directly."
   },
-  "source_references": [
-    "ref.workflow.product-business.user-research-process.2026-05-31"
-  ],
+  "source_references": ["ref.workflow.product-business.user-research-process.2026-05-31"],
   "promotion": {
     "can_learn": true,
     "quality_gate": "staging",

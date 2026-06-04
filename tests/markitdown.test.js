@@ -17,8 +17,5 @@ test('converts a plain text file to markdown', async () => {
 });
 
 test('rejects when the input file does not exist', async () => {
-  await assert.rejects(
-    () => convertToMarkdown('/no/such/file/here.pdf'),
-    /File not found/
-  );
+  await assert.rejects(() => convertToMarkdown('/no/such/file/here.pdf'), /File not found/);
 });

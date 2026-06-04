@@ -63,10 +63,13 @@ rollback:
 validators:
   - skill.validator
 ---
+
 ## Trigger
+
 Use when designing a growth experiment, analyzing funnel drop-offs, or developing a systematic growth strategy.
 
 ## Prerequisites
+
 - Baseline funnel metrics available
 - Analytics tool tracking the funnel
 - Traffic volume sufficient for experimentation (min ~100 conversions/week)
@@ -74,39 +77,49 @@ Use when designing a growth experiment, analyzing funnel drop-offs, or developin
 ## Steps
 
 ### 1. Diagnose the Funnel
+
 Don't guess — measure. Where is the biggest drop-off? Acquisition → activation is usually the first bottleneck for early-stage products.
 
 ### 2. Form a Hypothesis
+
 "By adding social proof to the signup page, we expect signup conversion to improve by 15% because users need trust signals before committing."
 
 ### 3. Calculate Sample Size
+
 Use an A/B test calculator. Input: baseline conversion rate, minimum detectable effect (MDE), power (80%), significance (0.05). Don't run underpowered experiments.
 
 ### 4. Pre-Register Everything
+
 Document before launch: primary metric, secondary metrics, MDE, run duration, decision threshold. No moving goalposts.
 
 ### 5. Run for Full Cycle
+
 Minimum 2 weeks to capture weekly seasonality. Don't stop early even if it looks good.
 
 ### 6. Analyze and Document
+
 Did the primary metric hit the threshold? If yes: ship. If no: document the learning — negative results are valuable. Add to growth playbook.
 
 ## Verification
+
 - [ ] Hypothesis falsifiable
 - [ ] Sample size pre-calculated
 - [ ] Success metric pre-registered
 - [ ] Experiment ran full duration
 
 ## Rollback
+
 Disable experiment via feature flag.
 
 ## Common Failures
-| Failure | Cause | Fix |
-|---------|-------|-----|
-| P-hacking | Peeking and stopping early | Commit to run duration |
-| Inconclusive results | Underpowered experiment | Calculate sample size first |
-| No learnings from failures | Results archived | Document every experiment outcome |
+
+| Failure                    | Cause                      | Fix                               |
+| -------------------------- | -------------------------- | --------------------------------- |
+| P-hacking                  | Peeking and stopping early | Commit to run duration            |
+| Inconclusive results       | Underpowered experiment    | Calculate sample size first       |
+| No learnings from failures | Results archived           | Document every experiment outcome |
 
 ## Examples
+
 **Example A:** Activation experiment: add onboarding checklist → 23% improvement in day-7 retention.
 **Example B:** Referral loop: add "invite a colleague" to activation email → 8% referral rate (below 15% MDE → learn and iterate).

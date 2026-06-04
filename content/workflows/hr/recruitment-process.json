@@ -10,15 +10,8 @@
     "candidate evaluation framework",
     "recruitment pipeline refresh"
   ],
-  "aliases": [
-    "recruitment process",
-    "recruiting workflow"
-  ],
-  "negative_keywords": [
-    "tax filing",
-    "contract interpretation",
-    "campaign launch"
-  ],
+  "aliases": ["recruitment process", "recruiting workflow"],
+  "negative_keywords": ["tax filing", "contract interpretation", "campaign launch"],
   "inputs": [
     {
       "name": "role_requirements",
@@ -53,14 +46,9 @@
   "primary_agent": "hr.talent-acquisition",
   "route": {
     "domain_master": "hr.master",
-    "agents": [
-      "hr.talent-acquisition",
-      "hr.hiring-manager"
-    ],
+    "agents": ["hr.talent-acquisition", "hr.hiring-manager"],
     "primary_agent": "hr.talent-acquisition",
-    "participants": [
-      "hr.hiring-manager"
-    ],
+    "participants": ["hr.hiring-manager"],
     "parallel": false,
     "max_parallel_agents": 2
   },

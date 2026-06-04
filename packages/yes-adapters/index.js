@@ -13,6 +13,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import { resolveEnv } from '../yes-core/secrets.js';
 import { fileURLToPath } from 'url';
 import crypto from 'crypto';
 
@@ -46,12 +47,12 @@ export function ensureDir(rel) {
  * Loads all canonical data once and shares it across adapters.
  */
 export function loadBuildContext() {
-  const plugin     = readJSON('yes-human.plugin.json');
-  const agents     = readJSON('registry/agents.json');
-  const routes     = readJSON('registry/routes.json');
+  const plugin = readJSON('yes-human.plugin.json');
+  const agents = readJSON('registry/agents.json');
+  const routes = readJSON('registry/routes.json');
   const routeTable = readJSON('graph/indexes/ROUTE_TABLE.min.json');
-  const workflows  = readJSON('registry/workflows.json');
-  const mcps       = readJSON('registry/mcps.json');
+  const workflows = readJSON('registry/workflows.json');
+  const mcps = readJSON('registry/mcps.json');
   const adapterPacks = readJSON('registry/adapter-packs.json');
   const categoryPacks = readJSON('registry/category-packs.json');
   const categories = readJSON('registry/categories.json');
@@ -59,14 +60,8 @@ export function loadBuildContext() {
   const learningPolicy = readJSON('registry/learning-policy.json');
   const teamMode = readJSON('registry/team-mode.json');
   const offlineMode = readJSON('registry/offline-mode.json');
-  const bootText   = readFile('YES_BOOT.md');
+  const bootText = readFile('YES_BOOT.md');
 
-  const resolveEnv = (val) => {
-    if (val && val.startsWith('{env:') && val.endsWith('}')) {
-      return process.env[val.slice(5, -1)];
-    }
-    return val;
-  };
   let privateKey = resolveEnv(process.env.YES_PRIVATE_KEY) || null;
   let publicKey = resolveEnv(process.env.YES_PUBLIC_KEY) || null;
 

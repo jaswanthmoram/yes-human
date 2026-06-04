@@ -4,21 +4,9 @@
   "status": "active",
   "summary": "Mine candidate sources, evaluate quality and license fit, and assemble a dossier for workflow or agent promotion.",
   "task_family": "source_intake",
-  "triggers": [
-    "source mining run",
-    "build workflow dossier",
-    "provenance intake batch",
-    "candidate source evaluation"
-  ],
-  "aliases": [
-    "source dossier build",
-    "source mining"
-  ],
-  "negative_keywords": [
-    "launch campaign",
-    "cash forecast",
-    "candidate onboarding"
-  ],
+  "triggers": ["source mining run", "build workflow dossier", "provenance intake batch", "candidate source evaluation"],
+  "aliases": ["source dossier build", "source mining"],
+  "negative_keywords": ["launch campaign", "cash forecast", "candidate onboarding"],
   "inputs": [
     {
       "name": "target_domain",
@@ -53,16 +41,9 @@
   "primary_agent": "meta-system.source-miner",
   "route": {
     "domain_master": "meta-system.master",
-    "agents": [
-      "meta-system.source-miner",
-      "meta-system.eval-runner",
-      "meta-system.plugin-absorber"
-    ],
+    "agents": ["meta-system.source-miner", "meta-system.eval-runner", "meta-system.plugin-absorber"],
     "primary_agent": "meta-system.source-miner",
-    "participants": [
-      "meta-system.eval-runner",
-      "meta-system.plugin-absorber"
-    ],
+    "participants": ["meta-system.eval-runner", "meta-system.plugin-absorber"],
     "parallel": true,
     "max_parallel_agents": 3
   },

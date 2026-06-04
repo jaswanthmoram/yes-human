@@ -83,14 +83,17 @@ validators:
 ---
 
 ## Trigger
+
 Use this skill when absorbing external agents from GitHub repositories, local sources, or plugin packages into the yes-human ecosystem.
 
 ## Prerequisites
+
 - Access to the external source (GitHub URL, local path, or package)
 - Understanding of yes-human agent schema and requirements
 - License verification tools available
 
 ## Steps
+
 1. **Fetch and Inspect**:
    - Clone repository or copy local files
    - Identify agent files (AGENT.md, skills, workflows)
@@ -144,6 +147,7 @@ Use this skill when absorbing external agents from GitHub repositories, local so
     - Update documentation
 
 ## Verification
+
 - License is compatible and documented
 - Schema validation passes
 - Security scan is clean
@@ -153,6 +157,7 @@ Use this skill when absorbing external agents from GitHub repositories, local so
 - Provenance is complete
 
 ## Rollback
+
 - Remove agent files from content/agents/
 - Revert registry/agents.json changes
 - Update category packs to remove agent
@@ -160,6 +165,7 @@ Use this skill when absorbing external agents from GitHub repositories, local so
 - Update provenance to mark as rolled back
 
 ## Common Failures
+
 - Absorbing agents with incompatible licenses
 - Missing schema validations (broken agents)
 - Not scanning for security issues
@@ -168,9 +174,12 @@ Use this skill when absorbing external agents from GitHub repositories, local so
 - Incomplete provenance (can't track source)
 
 ## Examples
+
 ### Absorbing an Agent from GitHub
+
 Input: GitHub repository with coding agent
 Output:
+
 - Source: https://github.com/example/coding-agent (MIT license)
 - Schema: ✓ Valid (minor fixes applied to triggers)
 - Security: ✓ Clean (no secrets, no malicious code)
@@ -180,6 +189,7 @@ Output:
 - Provenance: Recorded with commit hash abc123
 
 ## Procedure
+
 1. Clarify inputs
 2. Apply dossier patterns
 3. Verify outputs

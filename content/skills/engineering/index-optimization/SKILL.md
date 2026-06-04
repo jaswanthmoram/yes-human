@@ -63,48 +63,61 @@ rollback:
 validators:
   - skill.validator
 ---
+
 ## Trigger
+
 Use when query optimization analysis identifies a Seq Scan on a large table, or when conducting a periodic index health audit.
 
 ## Prerequisites
+
 - Database administrator access (at least read access to pg_stat_user_indexes)
 - Slow query identified
 
 ## Steps
 
 ### 1. Audit Unused Indexes
+
 `SELECT indexname, idx_scan FROM pg_stat_user_indexes WHERE schemaname='public' ORDER BY idx_scan;` — idx_scan=0 means unused.
 
 ### 2. Remove Dead Weight
+
 For idx_scan=0 indexes not recently created, `DROP INDEX CONCURRENTLY`. Coordinate with team — someone might be planning to use it.
 
 ### 3. Choose Index Type
+
 B-tree (default) for equality and range. GIN for arrays and JSONB. Partial for `WHERE status='active'`. Covering for `INCLUDE (col)` to avoid heap fetch.
 
 ### 4. Create CONCURRENTLY
+
 `CREATE INDEX CONCURRENTLY idx_orders_user_id ON orders(user_id)` — no table lock, slower to build but safe for production.
 
 ### 5. Verify Usage
+
 Run `EXPLAIN ANALYZE` on the target query after index creation. Confirm Index Scan appears instead of Seq Scan.
 
 ### 6. Monitor Writes
+
 Track INSERT/UPDATE times before/after. If writes degrade >20%, the index cost outweighs the read benefit.
 
 ## Verification
+
 - [ ] Unused indexes identified and removed or documented
 - [ ] New index used by target query (Index Scan in EXPLAIN)
 - [ ] Write performance monitored
 
 ## Rollback
+
 `DROP INDEX CONCURRENTLY idx_name;`
 
 ## Common Failures
-| Failure | Cause | Fix |
-|---------|-------|-----|
-| Index not used | Planner prefers Seq Scan for small table | Accept it — Seq Scan is faster for <1K rows |
-| Too many indexes | Historical accumulation | Regular audit with pg_stat_user_indexes |
-| Lock during creation | Forgot CONCURRENTLY | Always use CONCURRENTLY in production |
+
+| Failure              | Cause                                    | Fix                                         |
+| -------------------- | ---------------------------------------- | ------------------------------------------- |
+| Index not used       | Planner prefers Seq Scan for small table | Accept it — Seq Scan is faster for <1K rows |
+| Too many indexes     | Historical accumulation                  | Regular audit with pg_stat_user_indexes     |
+| Lock during creation | Forgot CONCURRENTLY                      | Always use CONCURRENTLY in production       |
 
 ## Examples
+
 **Example A:** `orders.user_id` missing index — query does Seq Scan on 1M rows — add B-tree index.
 **Example B:** Partial index: `CREATE INDEX ON orders(created_at) WHERE status='pending'` — only indexes pending orders.

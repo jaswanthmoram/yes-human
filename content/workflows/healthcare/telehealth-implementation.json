@@ -11,16 +11,8 @@
     "telehealth program design",
     "remote care implementation"
   ],
-  "aliases": [
-    "telehealth rollout",
-    "virtual care implementation",
-    "telemedicine deployment"
-  ],
-  "negative_keywords": [
-    "video conferencing setup",
-    "general it deployment",
-    "marketing webinars"
-  ],
+  "aliases": ["telehealth rollout", "virtual care implementation", "telemedicine deployment"],
+  "negative_keywords": ["video conferencing setup", "general it deployment", "marketing webinars"],
   "inputs": [
     {
       "name": "clinical_requirements",
@@ -69,17 +61,11 @@
   "primary_agent": "healthcare.telehealth-specialist",
   "route": {
     "domain_master": "healthcare.master",
-    "agents": [
-      "healthcare.telehealth-specialist"
-    ],
+    "agents": ["healthcare.telehealth-specialist"],
     "parallel": false,
     "max_parallel_agents": 3,
     "primary": "healthcare.telehealth-specialist",
-    "participants": [
-      "healthcare.phi-compliance",
-      "healthcare.health-it",
-      "healthcare.healthcare-operations"
-    ]
+    "participants": ["healthcare.phi-compliance", "healthcare.health-it", "healthcare.healthcare-operations"]
   },
   "budget": {
     "band": "expanded",
@@ -140,10 +126,7 @@
       "action": "Create phased implementation plan with training and go-live support."
     }
   ],
-  "tools": [
-    "filesystem.read",
-    "filesystem.write"
-  ],
+  "tools": ["filesystem.read", "filesystem.write"],
   "verification": [
     "hipaa_compliance_verified_with_baa",
     "licensure_requirements_addressed_for_all_states",

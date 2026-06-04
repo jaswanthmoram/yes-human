@@ -66,6 +66,7 @@ validators:
 ---
 
 ## Procedure
+
 1. Clarify audience, goal, timing, and desired decision.
 2. Turn content into a storyline and slide map.
 3. Rewrite each slide title as a takeaway.
@@ -73,6 +74,7 @@ validators:
 5. Verify consistency, accessibility, chart labeling, and speaker flow.
 
 ## Verification
+
 - Each slide has one takeaway.
 - The deck can be understood by scanning headlines.
 - Any claim or chart includes a source or assumption.

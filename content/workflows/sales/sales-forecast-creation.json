@@ -10,15 +10,8 @@
     "revenue projection from pipeline",
     "forecast model design"
   ],
-  "aliases": [
-    "sales forecast",
-    "revenue forecast"
-  ],
-  "negative_keywords": [
-    "financial accounting forecast",
-    "market size projection",
-    "product demand forecast"
-  ],
+  "aliases": ["sales forecast", "revenue forecast"],
+  "negative_keywords": ["financial accounting forecast", "market size projection", "product demand forecast"],
   "inputs": [
     {
       "name": "pipeline_data",
@@ -53,16 +46,9 @@
   "primary_agent": "sales.sales-analyst",
   "route": {
     "domain_master": "sales.master",
-    "agents": [
-      "sales.sales-analyst",
-      "sales.pipeline-analyst",
-      "sales.account-executive"
-    ],
+    "agents": ["sales.sales-analyst", "sales.pipeline-analyst", "sales.account-executive"],
     "primary_agent": "sales.sales-analyst",
-    "participants": [
-      "sales.pipeline-analyst",
-      "sales.account-executive"
-    ],
+    "participants": ["sales.pipeline-analyst", "sales.account-executive"],
     "parallel": true,
     "max_parallel_agents": 3
   },

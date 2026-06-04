@@ -1,59 +1,52 @@
 import https from 'https';
+import { resolveEnv } from '../../yes-core/secrets.js';
 
 /**
  * Call LLM using configured provider (e.g. OpenAI) or fall back to mock/heuristic in tests/offline mode.
- * 
+ *
  * @param {Object} options - { system, prompt, max_tokens }
  * @returns {Promise<string>} Model response
  */
 export async function callLLM(options = {}) {
   const { system = '', prompt = '', max_tokens = 50 } = options;
 
-  let apiKey = process.env.OPENAI_API_KEY;
-  if (apiKey && apiKey.startsWith('{env:') && apiKey.endsWith('}')) {
-    apiKey = process.env[apiKey.slice(5, -1)];
-  }
+  const apiKey = resolveEnv(process.env.OPENAI_API_KEY);
   const isMock = process.env.YES_MOCK_LLM === 'true' || !apiKey;
 
   if (isMock) {
+    // Mock LLM: deterministic, candidate-driven only. We score each route in the
+    // system prompt's `Available specialist routes:` block against query tokens and
+    // return the highest-overlap route, or "NONE" if nothing scores. This keeps the
+    // mock honest with the prompt — no hardcoded route shortcuts that mask real bugs.
     const query = String(prompt || '').toLowerCase();
+    const queryTokens = new Set(query.split(/[^a-z0-9+#]+/).filter((t) => t.length > 2));
 
-    // 1. Try matching candidates listed in the system prompt if present
-    if (system && system.includes('Available specialist routes:')) {
-      try {
-        const routesSection = system.split('Available specialist routes:')[1];
-        const candidateRoutes = routesSection
-          .split('\n')
-          .map(l => l.trim().replace(/^-\s*/, ''))
-          .filter(r => r.startsWith('route.'));
+    if (!system || !system.includes('Available specialist routes:')) {
+      return 'NONE';
+    }
 
-        for (const route of candidateRoutes) {
-          const parts = route.replace(/^route\./, '').split('.');
-          const lastPart = parts[parts.length - 1]; // e.g. "ui-ux-designer" or "ai-ethics-specialist"
-          const words = lastPart.split('-');
-          // Match if all keywords in the agent name are contained in the query
-          if (words.every(w => query.includes(w) || ['specialist', 'guide', 'designer', 'reviewer'].includes(w))) {
-            return route;
-          }
-        }
-      } catch (err) {
-        // Fall back gracefully
+    try {
+      const routesSection = system.split('Available specialist routes:')[1];
+      const candidateRoutes = routesSection
+        .split('\n')
+        .map((l) => l.trim().replace(/^-\s*/, ''))
+        .filter((r) => r.startsWith('route.'));
+
+      let best = { route: null, score: 0 };
+      for (const route of candidateRoutes) {
+        // Tokenize the route_id (drop "route." prefix) into hyphen/dot words.
+        const tokens = route
+          .replace(/^route\./, '')
+          .split(/[.-]/)
+          .filter((t) => t.length > 2 && !['specialist', 'guide', 'designer', 'reviewer', 'master'].includes(t));
+        const score = tokens.reduce((acc, t) => acc + (queryTokens.has(t) ? 1 : 0), 0);
+        if (score > best.score) best = { route, score };
       }
+
+      return best.score > 0 ? best.route : 'NONE';
+    } catch {
+      return 'NONE';
     }
-    
-    // 2. Existing hardcoded checks as fallback
-    if (query.includes('ai-ethics') || query.includes('bias audit') || query.includes('ethical guidelines')) {
-      return 'route.data-ai.ai-ethics-specialist';
-    }
-    if (query.includes('uiux') || query.includes('product design') || query.includes('interface design')) {
-      return 'route.design-content.ui-ux-designer';
-    }
-    if (query.includes('tdd') || query.includes('test driven') || query.includes('unit test')) {
-      return 'route.engineering.tdd-guide';
-    }
-    
-    // Default mock response when no heuristic matches
-    return 'NONE';
   }
 
   // Real LLM call using native https module (zero external dependencies)
@@ -75,7 +68,7 @@ export async function callLLM(options = {}) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`,
+        Authorization: `Bearer ${apiKey}`,
         'Content-Length': Buffer.byteLength(postData)
       }
     };

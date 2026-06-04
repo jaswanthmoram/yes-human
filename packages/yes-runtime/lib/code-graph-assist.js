@@ -57,7 +57,13 @@ export function buildContextPack(repoRoot, prompt, config = readGraphRoutingConf
     const name = m.split(/\s+/).pop();
     if (name) terms.push(name);
   }
-  if (!terms.length) terms.push(...prompt.split(/\s+/).filter((w) => w.length > 3).slice(0, 4));
+  if (!terms.length)
+    terms.push(
+      ...prompt
+        .split(/\s+/)
+        .filter((w) => w.length > 3)
+        .slice(0, 4)
+    );
   const limit = config.max_context_items ?? 8;
   const graph = new CodeGraph(dbPath);
   const seen = new Set();

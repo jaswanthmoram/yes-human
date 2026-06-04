@@ -10,15 +10,8 @@
     "control framework audit",
     "audit readiness assessment"
   ],
-  "aliases": [
-    "compliance audit",
-    "regulatory audit"
-  ],
-  "negative_keywords": [
-    "code audit",
-    "security audit code",
-    "financial audit"
-  ],
+  "aliases": ["compliance audit", "regulatory audit"],
+  "negative_keywords": ["code audit", "security audit code", "financial audit"],
   "inputs": [
     {
       "name": "compliance_framework",
@@ -59,10 +52,7 @@
       "legal-compliance.risk-manager"
     ],
     "primary_agent": "legal-compliance.compliance-checker",
-    "participants": [
-      "legal-compliance.regulatory-affairs",
-      "legal-compliance.risk-manager"
-    ],
+    "participants": ["legal-compliance.regulatory-affairs", "legal-compliance.risk-manager"],
     "parallel": true,
     "max_parallel_agents": 3
   },

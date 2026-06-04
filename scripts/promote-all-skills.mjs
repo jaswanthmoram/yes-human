@@ -59,7 +59,15 @@ const results = skills.map(({ id }) => {
 });
 const passed = results.filter((r) => r.allowed);
 const failed = results.filter((r) => !r.allowed);
-const lines = ['# Skill promotion gap', '', 'Generated: ' + new Date().toISOString(), 'Passed: ' + passed.length + '/' + results.length, '', '## Failed', ...failed.map((r) => '- ' + r.skill_id + ': ' + r.blockers.join('; '))];
+const lines = [
+  '# Skill promotion gap',
+  '',
+  'Generated: ' + new Date().toISOString(),
+  'Passed: ' + passed.length + '/' + results.length,
+  '',
+  '## Failed',
+  ...failed.map((r) => '- ' + r.skill_id + ': ' + r.blockers.join('; '))
+];
 fs.writeFileSync(path.join(repoRoot, 'reports/skill-promotion-gap.md'), lines.join('\n'));
 console.log('skills', passed.length + '/' + results.length);
 if (failed.length) process.exit(1);

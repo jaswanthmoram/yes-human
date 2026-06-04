@@ -10,15 +10,8 @@
     "proposal readiness check",
     "pipeline risk assessment"
   ],
-  "aliases": [
-    "deal review",
-    "opportunity review"
-  ],
-  "negative_keywords": [
-    "campaign launch",
-    "contract legal advice",
-    "ci failure triage"
-  ],
+  "aliases": ["deal review", "opportunity review"],
+  "negative_keywords": ["campaign launch", "contract legal advice", "ci failure triage"],
   "inputs": [
     {
       "name": "deal_snapshot",
@@ -53,16 +46,9 @@
   "primary_agent": "sales.pipeline-analyst",
   "route": {
     "domain_master": "sales.master",
-    "agents": [
-      "sales.pipeline-analyst",
-      "sales.sales-strategist",
-      "sales.proposal-generator"
-    ],
+    "agents": ["sales.pipeline-analyst", "sales.sales-strategist", "sales.proposal-generator"],
     "primary_agent": "sales.pipeline-analyst",
-    "participants": [
-      "sales.sales-strategist",
-      "sales.proposal-generator"
-    ],
+    "participants": ["sales.sales-strategist", "sales.proposal-generator"],
     "parallel": true,
     "max_parallel_agents": 3
   },

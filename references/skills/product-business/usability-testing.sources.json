@@ -9,10 +9,7 @@
       "source_type": "official_docs",
       "license": "Apache-2.0",
       "version_or_commit": "2026-06-02",
-      "used_for": [
-        "usability testing: OpenAI Agents docs patterns and workflow references",
-        "verification pattern 1"
-      ],
+      "used_for": ["usability testing: OpenAI Agents docs patterns and workflow references", "verification pattern 1"],
       "copy_policy": "patterns_only",
       "last_updated": "2026-05-15T00:00:00Z"
     },
@@ -33,10 +30,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "usability testing: Dify patterns and workflow references",
-        "verification pattern 3"
-      ],
+      "used_for": ["usability testing: Dify patterns and workflow references", "verification pattern 3"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -46,10 +40,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "usability testing: Langflow patterns and workflow references",
-        "verification pattern 4"
-      ],
+      "used_for": ["usability testing: Langflow patterns and workflow references", "verification pattern 4"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -59,10 +50,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "usability testing: Flowise patterns and workflow references",
-        "verification pattern 5"
-      ],
+      "used_for": ["usability testing: Flowise patterns and workflow references", "verification pattern 5"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -72,10 +60,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "usability testing: Anthropic skills patterns and workflow references",
-        "verification pattern 6"
-      ],
+      "used_for": ["usability testing: Anthropic skills patterns and workflow references", "verification pattern 6"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -98,10 +83,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "usability testing: Awesome Agents patterns and workflow references",
-        "verification pattern 8"
-      ],
+      "used_for": ["usability testing: Awesome Agents patterns and workflow references", "verification pattern 8"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -137,10 +119,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "usability testing: Claude Code patterns and workflow references",
-        "verification pattern 11"
-      ],
+      "used_for": ["usability testing: Claude Code patterns and workflow references", "verification pattern 11"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"

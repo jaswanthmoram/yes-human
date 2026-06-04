@@ -152,7 +152,9 @@ export function checkAgentPromotion(repoRoot, agentId, opts = {}) {
   if (!fs.existsSync(dossierPath)) {
     return {
       allowed: false,
-      blockers: [`missing dossier at references/${agentId.split('.')[0]}/${agentId.split('.').slice(1).join('.')}.sources.json`],
+      blockers: [
+        `missing dossier at references/${agentId.split('.')[0]}/${agentId.split('.').slice(1).join('.')}.sources.json`
+      ],
       warnings: []
     };
   }
@@ -165,7 +167,6 @@ export function checkAgentPromotion(repoRoot, agentId, opts = {}) {
   return evaluatePromotion(dossier, { ...opts, licenseRegistry });
 }
 
-
 export function dossierPathForSkill(repoRoot, skillId) {
   const domain = skillId.split('.')[0];
   const sub = skillId.split('.').slice(1).join('.');
@@ -177,7 +178,9 @@ export function checkSkillPromotion(repoRoot, skillId, opts = {}) {
   if (!fs.existsSync(dossierPath)) {
     return {
       allowed: false,
-      blockers: [`missing dossier at references/skills/${skillId.split('.')[0]}/${skillId.split('.').slice(1).join('.')}.sources.json`],
+      blockers: [
+        `missing dossier at references/skills/${skillId.split('.')[0]}/${skillId.split('.').slice(1).join('.')}.sources.json`
+      ],
       warnings: []
     };
   }

@@ -146,7 +146,10 @@ function asStringArray(value, fallback = []) {
 
 function normalizeSkill(skill) {
   const domain = skill.domain || String(skill.id || '').split('.')[0] || 'meta-system';
-  const steps = asStringArray(skill.steps, asStringArray(skill.procedure, ['Follow the skill procedure in SKILL.md body.']));
+  const steps = asStringArray(
+    skill.steps,
+    asStringArray(skill.procedure, ['Follow the skill procedure in SKILL.md body.'])
+  );
   const triggers = asStringArray(skill.triggers, asStringArray(skill.activation_triggers, []));
   const sourceRefs = asStringArray(skill.source_references, [`ref.yes-human.${skill.id}.2026-06-02`]);
   return {
@@ -170,7 +173,10 @@ function normalizeSkill(skill) {
     handoffs: asStringArray(skill.handoffs, []),
     budget_band: skill.budget_band || 'standard',
     rollback: asStringArray(skill.rollback, ['Revert partial outputs and re-run with narrower scope']),
-    validators: asStringArray(skill.validators, asStringArray(skill.quality_gates, ['outputs_complete', 'policy_safe'])),
+    validators: asStringArray(
+      skill.validators,
+      asStringArray(skill.quality_gates, ['outputs_complete', 'policy_safe'])
+    ),
     source_references: sourceRefs,
     allowed_agents: asStringArray(skill.allowed_agents, []),
     allowed_workflows: asStringArray(skill.allowed_workflows, []),
@@ -181,15 +187,60 @@ function normalizeSkill(skill) {
 function getArchitectureAliasExtensions(compiledAgents) {
   const agentById = new Map(compiledAgents.map((agent) => [agent.id, agent]));
   const specs = [
-    { route_id: 'route.engineering.build-resolver', agent: 'engineering.build-resolver', keywords: ['build error', 'fix build', 'compilation error'], aliases: ['build-error-resolver', 'build error resolver'] },
-    { route_id: 'route.engineering.testing-e2e', agent: 'engineering.testing-e2e', keywords: ['e2e test', 'end to end test', 'playwright test'], aliases: ['e2e-runner', 'e2e runner'] },
-    { route_id: 'route.engineering.refactoring', agent: 'engineering.refactoring', keywords: ['refactor code', 'clean up code', 'code cleanup'], aliases: ['refactor-cleaner', 'refactor cleaner'] },
-    { route_id: 'route.security.security-reviewer', agent: 'security.security-reviewer', keywords: ['security code review', 'review security'], aliases: ['security-reviewer'] },
-    { route_id: 'route.integrations.browser-auto', agent: 'integrations.browser-auto', keywords: ['browser automation', 'playwright automation', 'web automation'], aliases: ['browser-automation-agent', 'browser automation agent'] },
-    { route_id: 'route.design-content.ui-ux-designer', agent: 'design-content.ui-ux-designer', keywords: ['ui ux design', 'ui/ux', 'interface design'], aliases: ['ui-ux-designer', 'ui ux designer'] },
-    { route_id: 'route.finance.cfo-advisor', agent: 'finance.cfo-advisor', keywords: ['cfo advice', 'chief financial officer'], aliases: ['cfo-advisor'] },
-    { route_id: 'route.marketing.brand-marketer', agent: 'marketing.brand-marketer', keywords: ['brand manager', 'brand management'], aliases: ['brand-manager'] },
-    { route_id: 'route.marketing.growth-marketer', agent: 'marketing.growth-marketer', keywords: ['growth marketer', 'growth marketing'], aliases: ['growth-marketer'] }
+    {
+      route_id: 'route.engineering.build-resolver',
+      agent: 'engineering.build-resolver',
+      keywords: ['build error', 'fix build', 'compilation error'],
+      aliases: ['build-error-resolver', 'build error resolver']
+    },
+    {
+      route_id: 'route.engineering.testing-e2e',
+      agent: 'engineering.testing-e2e',
+      keywords: ['e2e test', 'end to end test', 'playwright test'],
+      aliases: ['e2e-runner', 'e2e runner']
+    },
+    {
+      route_id: 'route.engineering.refactoring',
+      agent: 'engineering.refactoring',
+      keywords: ['refactor code', 'clean up code', 'code cleanup'],
+      aliases: ['refactor-cleaner', 'refactor cleaner']
+    },
+    {
+      route_id: 'route.security.security-reviewer',
+      agent: 'security.security-reviewer',
+      keywords: ['security code review', 'review security'],
+      aliases: ['security-reviewer']
+    },
+    {
+      route_id: 'route.integrations.browser-auto',
+      agent: 'integrations.browser-auto',
+      keywords: ['browser automation', 'playwright automation', 'web automation'],
+      aliases: ['browser-automation-agent', 'browser automation agent']
+    },
+    {
+      route_id: 'route.design-content.ui-ux-designer',
+      agent: 'design-content.ui-ux-designer',
+      keywords: ['ui ux design', 'ui/ux', 'interface design'],
+      aliases: ['ui-ux-designer', 'ui ux designer']
+    },
+    {
+      route_id: 'route.finance.cfo-advisor',
+      agent: 'finance.cfo-advisor',
+      keywords: ['cfo advice', 'chief financial officer'],
+      aliases: ['cfo-advisor']
+    },
+    {
+      route_id: 'route.marketing.brand-marketer',
+      agent: 'marketing.brand-marketer',
+      keywords: ['brand manager', 'brand management'],
+      aliases: ['brand-manager']
+    },
+    {
+      route_id: 'route.marketing.growth-marketer',
+      agent: 'marketing.growth-marketer',
+      keywords: ['growth marketer', 'growth marketing'],
+      aliases: ['growth-marketer']
+    }
   ];
   const extensions = new Map();
   for (const spec of specs) {
@@ -259,12 +310,14 @@ function buildRegistryFromJson(relativeDir) {
 }
 
 function listFieldNames(entries) {
-  return uniqueStrings((entries || []).map((entry) => {
-    if (typeof entry === 'string') {
-      return entry;
-    }
-    return entry?.name || entry?.summary || entry?.id || entry?.dossier_path || entry?.method || entry?.rule || '';
-  }));
+  return uniqueStrings(
+    (entries || []).map((entry) => {
+      if (typeof entry === 'string') {
+        return entry;
+      }
+      return entry?.name || entry?.summary || entry?.id || entry?.dossier_path || entry?.method || entry?.rule || '';
+    })
+  );
 }
 
 function normalizeWorkflow(workflow) {
@@ -278,14 +331,15 @@ function normalizeWorkflow(workflow) {
       ...(route.participants || [])
     ]),
     parallel: route.parallel === true,
-    max_parallel_agents: route.max_parallel_agents || Math.max(1, uniqueStrings([
-      route.primary || workflow.primary_agent,
-      ...(route.participants || [])
-    ]).length)
+    max_parallel_agents:
+      route.max_parallel_agents ||
+      Math.max(1, uniqueStrings([route.primary || workflow.primary_agent, ...(route.participants || [])]).length)
   };
   const promotion = workflow.promotion || {};
   const gates = asStringArray(workflow.gates, ['pre-route', 'on-task-complete']);
-  const validGates = gates.filter((g) => ['pre-route','pre-tool','pre-write','post-tool','on-error','on-task-complete','on-absorb'].includes(g));
+  const validGates = gates.filter((g) =>
+    ['pre-route', 'pre-tool', 'pre-write', 'post-tool', 'on-error', 'on-task-complete', 'on-absorb'].includes(g)
+  );
   return {
     id: workflow.id,
     version: workflow.version || '1.0.0',
@@ -299,7 +353,9 @@ function normalizeWorkflow(workflow) {
     outputs: listFieldNames(workflow.outputs),
     primary_agent: workflow.primary_agent,
     route: normalizedRoute,
-    budget: workflow.budget?.band ? workflow.budget : { band: 'standard', max_context_tokens: 8000, max_tool_calls: 12 },
+    budget: workflow.budget?.band
+      ? workflow.budget
+      : { band: 'standard', max_context_tokens: 8000, max_tool_calls: 12 },
     gates: validGates.length ? validGates : ['pre-route', 'on-task-complete'],
     steps: listFieldNames(workflow.steps),
     tools: listFieldNames(workflow.tools),
@@ -413,7 +469,12 @@ function buildRouteSet(existingRoutes, compiledAgents, workflows) {
     fallback: 'route.meta-system.supreme-router'
   };
 
-  const manualRoutes = existingRoutes.filter((route) => route.manual === true && route.route_id !== fallbackRoute.route_id && !DEPRECATED_ARCH_MANUAL_ROUTE_IDS.has(route.route_id));
+  const manualRoutes = existingRoutes.filter(
+    (route) =>
+      route.manual === true &&
+      route.route_id !== fallbackRoute.route_id &&
+      !DEPRECATED_ARCH_MANUAL_ROUTE_IDS.has(route.route_id)
+  );
   const workflowByPrimaryAgent = buildWorkflowByPrimaryAgent(workflows);
   const archExtensions = getArchitectureAliasExtensions(compiledAgents);
   const generatedRoutes = [
@@ -451,7 +512,9 @@ function buildRouteTable(routes) {
       const normalized = normalizePhrase(keyword);
       if (!normalized) continue;
       if (routeTable.routes[normalized] && routeTable.routes[normalized] !== route.route_id) {
-        console.warn(`⚠ Collision warning: keyword "${normalized}" is registered by both "${routeTable.routes[normalized]}" and "${route.route_id}". Keeping "${routeTable.routes[normalized]}".`);
+        console.warn(
+          `⚠ Collision warning: keyword "${normalized}" is registered by both "${routeTable.routes[normalized]}" and "${route.route_id}". Keeping "${routeTable.routes[normalized]}".`
+        );
         continue;
       }
       routeTable.routes[normalized] = route.route_id;
@@ -468,7 +531,9 @@ function buildAliasTable(routes) {
       const key = normalizePhrase(alias);
       if (!key) continue;
       if (aliasTable.aliases[key] && aliasTable.aliases[key] !== route.route_id) {
-        console.warn(`⚠ Alias collision: "${key}" claimed by "${aliasTable.aliases[key]}" and "${route.route_id}". Keeping first.`);
+        console.warn(
+          `⚠ Alias collision: "${key}" claimed by "${aliasTable.aliases[key]}" and "${route.route_id}". Keeping first.`
+        );
         continue;
       }
       aliasTable.aliases[key] = route.route_id;
@@ -480,10 +545,7 @@ function buildAliasTable(routes) {
 function buildWorkflowCache(workflows) {
   const entries = {};
   for (const workflow of workflows) {
-    const phrases = uniqueStrings([
-      ...(workflow.triggers || []),
-      ...(workflow.aliases || [])
-    ]);
+    const phrases = uniqueStrings([...(workflow.triggers || []), ...(workflow.aliases || [])]);
     for (const phrase of phrases) {
       const key = normalizePhrase(phrase);
       if (key && !entries[key]) {
@@ -502,7 +564,10 @@ function loadFixtureDomainMap(relativeDir, extractor) {
     return map;
   }
 
-  for (const file of fs.readdirSync(dir).filter((entry) => entry.endsWith('.fixtures.json')).sort()) {
+  for (const file of fs
+    .readdirSync(dir)
+    .filter((entry) => entry.endsWith('.fixtures.json'))
+    .sort()) {
     const absolutePath = path.join(dir, file);
     let parsed;
     try {
@@ -549,16 +614,15 @@ function buildCategoryPacks(categories, agents, workflows, connectors, knowledge
   return categories.map((category) => {
     const domainPrefix = category.id.split('.')[0];
     const categoryAgents = agents.filter((agent) => agent.id.startsWith(`${domainPrefix}.`));
-    const specialists = categoryAgents
-      .filter((agent) => agent.kind !== 'master')
-      .map((agent) => agent.id);
+    const specialists = categoryAgents.filter((agent) => agent.kind !== 'master').map((agent) => agent.id);
     const categoryWorkflows = workflows
       .filter((workflow) => workflow.id.startsWith(`${domainPrefix}.`))
       .map((workflow) => workflow.id);
     const categoryConnectors = connectors
-      .filter((connector) =>
-        (connector.allowed_agents || []).some((agentId) => agentId.startsWith(`${domainPrefix}.`)) ||
-        (connector.allowed_workflows || []).some((workflowId) => workflowId.startsWith(`${domainPrefix}.`))
+      .filter(
+        (connector) =>
+          (connector.allowed_agents || []).some((agentId) => agentId.startsWith(`${domainPrefix}.`)) ||
+          (connector.allowed_workflows || []).some((workflowId) => workflowId.startsWith(`${domainPrefix}.`))
       )
       .map((connector) => connector.id);
 
@@ -572,8 +636,12 @@ function buildCategoryPacks(categories, agents, workflows, connectors, knowledge
       workflow_fixture_files: Array.from(workflowFixtureMap.get(domainPrefix) || []).sort(),
       knowledge_pack_id: (knowledgePacks.items || []).find((p) => p.domain === domainPrefix)?.id || null,
       hook_binding_ids: (hookBindings.bindings || []).map((b) => b.hook_id),
-      dossier_coverage: { agents: categoryAgents.filter((a) => a.quality_gate === "staging" || a.quality_gate === "production").length, workflows: categoryWorkflows.length },
-      status: category.master_agent && categoryAgents.some((agent) => agent.id === category.master_agent) ? 'active' : 'draft'
+      dossier_coverage: {
+        agents: categoryAgents.filter((a) => a.quality_gate === 'staging' || a.quality_gate === 'production').length,
+        workflows: categoryWorkflows.length
+      },
+      status:
+        category.master_agent && categoryAgents.some((agent) => agent.id === category.master_agent) ? 'active' : 'draft'
     };
   });
 }
@@ -603,11 +671,15 @@ console.log(`✓ Rebuilt hot route table graph/indexes/ROUTE_TABLE.min.json`);
 
 const aliasTable = buildAliasTable(routes);
 writeJson('graph/indexes/ALIAS_TABLE.min.json', aliasTable);
-console.log(`✓ Rebuilt alias table graph/indexes/ALIAS_TABLE.min.json (${Object.keys(aliasTable.aliases).length} aliases)`);
+console.log(
+  `✓ Rebuilt alias table graph/indexes/ALIAS_TABLE.min.json (${Object.keys(aliasTable.aliases).length} aliases)`
+);
 
 const workflowCache = buildWorkflowCache(compiledWorkflows);
 writeJson('graph/indexes/WORKFLOW_CACHE.min.json', workflowCache);
-console.log(`✓ Rebuilt workflow cache graph/indexes/WORKFLOW_CACHE.min.json (${Object.keys(workflowCache.entries).length} entries)`);
+console.log(
+  `✓ Rebuilt workflow cache graph/indexes/WORKFLOW_CACHE.min.json (${Object.keys(workflowCache.entries).length} entries)`
+);
 
 const aliasItems = Object.entries(aliasTable.aliases).map(([alias, route_id]) => ({ id: alias, route_id }));
 writeRegistry('registry/aliases.json', aliasItems);
@@ -615,9 +687,16 @@ console.log('✓ Synchronized registry/aliases.json');
 
 const categories = readJson('registry/categories.json', { items: [] });
 const connectors = readJson('registry/mcps.json', { items: [] });
-const knowledgePacks = readJson("registry/knowledge-packs.json", { items: [] });
-const hookBindings = readJson("registry/hook-bindings.json", { bindings: [] });
-const categoryPacks = buildCategoryPacks(categories.items || [], compiledAgents, compiledWorkflows, connectors.items || [], knowledgePacks, hookBindings);
+const knowledgePacks = readJson('registry/knowledge-packs.json', { items: [] });
+const hookBindings = readJson('registry/hook-bindings.json', { bindings: [] });
+const categoryPacks = buildCategoryPacks(
+  categories.items || [],
+  compiledAgents,
+  compiledWorkflows,
+  connectors.items || [],
+  knowledgePacks,
+  hookBindings
+);
 writeRegistry('registry/category-packs.json', categoryPacks);
 console.log(`✓ Generated registry/category-packs.json (${categoryPacks.length} packs)`);
 

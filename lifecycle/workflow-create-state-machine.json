@@ -8,7 +8,12 @@
     { "name": "pattern_match", "type": "normal", "description": "on-workflow-suggest: repeated pattern detected" },
     { "name": "candidate", "type": "normal", "description": "workflow candidate drafted from traces" },
     { "name": "validation", "type": "normal", "description": "workflow.validator: inputs/outputs/gates/success" },
-    { "name": "eval_gate", "type": "gate", "gate": "ask", "description": "eval gate: routing + cost + security must still pass" },
+    {
+      "name": "eval_gate",
+      "type": "gate",
+      "gate": "ask",
+      "description": "eval gate: routing + cost + security must still pass"
+    },
     { "name": "promoted", "type": "terminal", "description": "workflow added to registry, staged candidate cleared" },
     { "name": "rejected", "type": "terminal", "description": "validation or eval failed" }
   ],

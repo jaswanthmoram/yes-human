@@ -60,47 +60,59 @@ validators:
 ---
 
 ## Trigger
+
 Use this skill for tasks related to: write e2e tests, playwright test, end to end test.
 
 ## Prerequisites
+
 - Access to the relevant artifact (code, document, system)
 - Clear understanding of the goal and constraints
 
 ## Steps
 
 ### 1. Step
+
 Identify the top 3-5 critical user journeys that must not regress (login, checkout, core workflow)
 
 ### 2. Step
+
 Set up Playwright: npx playwright install, create playwright.config.ts with baseURL and retries:0
 
 ### 3. Step
+
 Use stable selectors: data-testid attributes preferred, then ARIA roles, never CSS classes
 
 ### 4. Step
+
 Use Page Object Model — one file per page that encapsulates selectors and actions
 
 ### 5. Step
+
 Add explicit waits with expect(locator).toBeVisible() — never page.waitForTimeout()
 
 ### 6. Step
+
 Run headless in CI with playwright test --reporter=html; review trace files on failures
 
 ## Verification
+
 - [ ] All steps completed
 - [ ] Output reviewed against quality gates
 - [ ] Sources cited where applicable
 
 ## Rollback
+
 Revert test files — no production changes from E2E tests
 
 ## Common Failures
-| Failure | Cause | Fix |
-|---------|-------|-----|
+
+| Failure                                              | Cause         | Fix               |
+| ---------------------------------------------------- | ------------- | ----------------- |
 | Brittle CSS selectors that break on minor UI changes | See procedure | Address in review |
-| Arbitrary sleeps causing flakiness | See procedure | Address in review |
-| E2E tests for every feature instead of top journeys | See procedure | Address in review |
+| Arbitrary sleeps causing flakiness                   | See procedure | Address in review |
+| E2E tests for every feature instead of top journeys  | See procedure | Address in review |
 
 ## Examples
+
 **Example A:** Apply this skill to a typical instance of 'write e2e tests'.
 **Example B:** Apply this skill when facing 'end to end test' in a complex codebase.

@@ -13,17 +13,8 @@
     "install logging pipeline",
     "setup distributed tracing"
   ],
-  "aliases": [
-    "observability setup",
-    "monitoring deployment",
-    "metrics stack install"
-  ],
-  "negative_keywords": [
-    "application performance tuning",
-    "load testing",
-    "incident response",
-    "log analysis"
-  ],
+  "aliases": ["observability setup", "monitoring deployment", "metrics stack install"],
+  "negative_keywords": ["application performance tuning", "load testing", "incident response", "log analysis"],
   "inputs": [
     {
       "name": "target_infrastructure",
@@ -65,17 +56,8 @@
     }
   ],
   "primary_agent": "platform.sre-engineer",
-  "participants": [
-    "platform.devops-engineer",
-    "platform.security-engineer"
-  ],
-  "skills": [
-    "prometheus",
-    "grafana",
-    "opentelemetry",
-    "alerting-systems",
-    "kubernetes-admin"
-  ],
+  "participants": ["platform.devops-engineer", "platform.security-engineer"],
+  "skills": ["prometheus", "grafana", "opentelemetry", "alerting-systems", "kubernetes-admin"],
   "budget_band": "expanded",
   "max_context_tokens": 3800,
   "max_tool_calls": 12,
@@ -190,9 +172,7 @@
   },
   "route": {
     "domain_master": "platform.master",
-    "agents": [
-      "platform.sre-engineer"
-    ],
+    "agents": ["platform.sre-engineer"],
     "parallel": false,
     "max_parallel_agents": 1
   }

@@ -11,20 +11,60 @@ const domainArg = process.argv.find((a, i) => process.argv[i - 1] === '--domain'
 
 const DOMAIN_AUTH = {
   finance: [
-    { url: 'https://www.sec.gov/edgar', source_type: 'official_docs', license: 'Apache-2.0', used_for: ['SEC filings reference'] },
-    { url: 'https://www.fasb.org/standards', source_type: 'official_docs', license: 'MIT', used_for: ['GAAP standards context'] }
+    {
+      url: 'https://www.sec.gov/edgar',
+      source_type: 'official_docs',
+      license: 'Apache-2.0',
+      used_for: ['SEC filings reference']
+    },
+    {
+      url: 'https://www.fasb.org/standards',
+      source_type: 'official_docs',
+      license: 'MIT',
+      used_for: ['GAAP standards context']
+    }
   ],
   'legal-compliance': [
-    { url: 'https://www.ftc.gov/legal-library/browse/rules', source_type: 'official_docs', license: 'Apache-2.0', used_for: ['FTC rules reference'] },
-    { url: 'https://www.law.cornell.edu/wex/contract', source_type: 'official_docs', license: 'MIT', used_for: ['Contract law reference'] }
+    {
+      url: 'https://www.ftc.gov/legal-library/browse/rules',
+      source_type: 'official_docs',
+      license: 'Apache-2.0',
+      used_for: ['FTC rules reference']
+    },
+    {
+      url: 'https://www.law.cornell.edu/wex/contract',
+      source_type: 'official_docs',
+      license: 'MIT',
+      used_for: ['Contract law reference']
+    }
   ],
   hr: [
-    { url: 'https://www.dol.gov/general/topic/wages', source_type: 'official_docs', license: 'Apache-2.0', used_for: ['DOL wage guidance'] },
-    { url: 'https://www.eeoc.gov/laws/guidance', source_type: 'official_docs', license: 'Apache-2.0', used_for: ['EEOC policy guidance'] }
+    {
+      url: 'https://www.dol.gov/general/topic/wages',
+      source_type: 'official_docs',
+      license: 'Apache-2.0',
+      used_for: ['DOL wage guidance']
+    },
+    {
+      url: 'https://www.eeoc.gov/laws/guidance',
+      source_type: 'official_docs',
+      license: 'Apache-2.0',
+      used_for: ['EEOC policy guidance']
+    }
   ],
   healthcare: [
-    { url: 'https://www.hhs.gov/hipaa/for-professionals/index.html', source_type: 'official_docs', license: 'Apache-2.0', used_for: ['HIPAA guidance'] },
-    { url: 'https://www.fda.gov/medical-devices', source_type: 'official_docs', license: 'Apache-2.0', used_for: ['FDA device context'] }
+    {
+      url: 'https://www.hhs.gov/hipaa/for-professionals/index.html',
+      source_type: 'official_docs',
+      license: 'Apache-2.0',
+      used_for: ['HIPAA guidance']
+    },
+    {
+      url: 'https://www.fda.gov/medical-devices',
+      source_type: 'official_docs',
+      license: 'Apache-2.0',
+      used_for: ['FDA device context']
+    }
   ]
 };
 
@@ -53,12 +93,26 @@ function patchDossier(filePath, extras) {
   const urls = new Set(sources.map((s) => s.url));
   for (const ex of extras) {
     if (!urls.has(ex.url)) {
-      sources.unshift({ ...ex, version_or_commit: '2026-06-02', copy_policy: 'patterns_only', last_updated: '2026-06-02T00:00:00Z' });
+      sources.unshift({
+        ...ex,
+        version_or_commit: '2026-06-02',
+        copy_policy: 'patterns_only',
+        last_updated: '2026-06-02T00:00:00Z'
+      });
     }
   }
   const scores = scoreDossier({ ...dossier, sources });
   dossier.sources = sources;
-  dossier.scores = { source_count: sources.length, official_docs: scores.official_docs, github_quality: scores.github_quality, license_safety: scores.license_safety, maintenance: scores.maintenance, pattern_clarity: scores.pattern_clarity, testability: scores.testability, total: scores.total };
+  dossier.scores = {
+    source_count: sources.length,
+    official_docs: scores.official_docs,
+    github_quality: scores.github_quality,
+    license_safety: scores.license_safety,
+    maintenance: scores.maintenance,
+    pattern_clarity: scores.pattern_clarity,
+    testability: scores.testability,
+    total: scores.total
+  };
   fs.writeFileSync(filePath, JSON.stringify(dossier, null, 2) + '\n');
   return true;
 }

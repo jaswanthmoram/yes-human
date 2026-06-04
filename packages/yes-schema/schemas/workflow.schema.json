@@ -3,9 +3,25 @@
   "title": "Yes-human Workflow Schema",
   "type": "object",
   "required": [
-    "id", "version", "status", "summary", "task_family", "triggers", "aliases",
-    "negative_keywords", "inputs", "outputs", "primary_agent", "route", "budget",
-    "gates", "steps", "tools", "verification", "success_criteria", "rollback",
+    "id",
+    "version",
+    "status",
+    "summary",
+    "task_family",
+    "triggers",
+    "aliases",
+    "negative_keywords",
+    "inputs",
+    "outputs",
+    "primary_agent",
+    "route",
+    "budget",
+    "gates",
+    "steps",
+    "tools",
+    "verification",
+    "success_criteria",
+    "rollback",
     "source_references"
   ],
   "properties": {
@@ -59,7 +75,10 @@
     },
     "gates": {
       "type": "array",
-      "items": { "type": "string", "enum": ["pre-route", "pre-tool", "pre-write", "post-tool", "on-error", "on-task-complete", "on-absorb"] }
+      "items": {
+        "type": "string",
+        "enum": ["pre-route", "pre-tool", "pre-write", "post-tool", "on-error", "on-task-complete", "on-absorb"]
+      }
     },
     "steps": {
       "type": "array",

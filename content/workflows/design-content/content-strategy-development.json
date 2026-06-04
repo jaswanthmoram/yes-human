@@ -4,21 +4,9 @@
   "status": "active",
   "summary": "Develop a comprehensive content strategy with audience analysis, content audit, editorial calendar, and governance.",
   "task_family": "content_strategy",
-  "triggers": [
-    "develop content strategy",
-    "create content plan",
-    "build content strategy from scratch"
-  ],
-  "aliases": [
-    "content strategy plan",
-    "content planning",
-    "content strategy build"
-  ],
-  "negative_keywords": [
-    "code implementation",
-    "security audit",
-    "financial forecasting"
-  ],
+  "triggers": ["develop content strategy", "create content plan", "build content strategy from scratch"],
+  "aliases": ["content strategy plan", "content planning", "content strategy build"],
+  "negative_keywords": ["code implementation", "security audit", "financial forecasting"],
   "inputs": [
     {
       "name": "business_objectives",
@@ -54,27 +42,18 @@
   "primary_agent": "design-content.content-strategist",
   "route": {
     "domain_master": "design-content.master",
-    "agents": [
-      "design-content.content-strategist"
-    ],
+    "agents": ["design-content.content-strategist"],
     "parallel": true,
     "max_parallel_agents": 2,
     "primary": "design-content.content-strategist",
-    "participants": [
-      "design-content.seo-writer",
-      "design-content.content-editor"
-    ]
+    "participants": ["design-content.seo-writer", "design-content.content-editor"]
   },
   "budget": {
     "band": "expanded",
     "max_context_tokens": 8000,
     "max_tool_calls": 15
   },
-  "gates": [
-    "pre-route",
-    "pre-tool",
-    "on-task-complete"
-  ],
+  "gates": ["pre-route", "pre-tool", "on-task-complete"],
   "steps": [
     {
       "id": "audience-analysis",
@@ -101,11 +80,7 @@
       "summary": "Establish content standards, review process, and measurement plan."
     }
   ],
-  "tools": [
-    "filesystem.read",
-    "filesystem.write",
-    "web.search"
-  ],
+  "tools": ["filesystem.read", "filesystem.write", "web.search"],
   "verification": [
     "audience_analysis_present",
     "content_gaps_identified",
@@ -122,9 +97,7 @@
     "mode": "file_revert",
     "summary": "Revert strategy documents to previous state."
   },
-  "source_references": [
-    "ref.workflow.design-content.content-strategy-development.2026-05-31"
-  ],
+  "source_references": ["ref.workflow.design-content.content-strategy-development.2026-05-31"],
   "promotion": {
     "can_learn": true,
     "quality_gate": "staging",

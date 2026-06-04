@@ -13,7 +13,7 @@ test('dynamic rerouting based on mistake graph suggestions', async () => {
     fs.mkdirSync(path.join(dir, 'graph/memory/learning'), { recursive: true });
     fs.mkdirSync(path.join(dir, 'graph/indexes'), { recursive: true });
     fs.mkdirSync(path.join(dir, 'registry'), { recursive: true });
-    
+
     // Write routes index
     fs.writeFileSync(
       path.join(dir, 'graph/indexes/ROUTE_TABLE.min.json'),
@@ -27,17 +27,29 @@ test('dynamic rerouting based on mistake graph suggestions', async () => {
       })
     );
     fs.writeFileSync(path.join(dir, 'graph/indexes/ALIAS_TABLE.min.json'), JSON.stringify({ aliases: {} }));
-    
+
     // Write registry routes
     fs.writeFileSync(
       path.join(dir, 'registry/routes.json'),
       JSON.stringify([
-        { route_id: 'route.engineering.code-reviewer', target: { agent: 'engineering.code-reviewer' }, match: { negative_keywords: [] } },
-        { route_id: 'route.security.security-reviewer', target: { agent: 'security.security-reviewer' }, match: { negative_keywords: [] } },
-        { route_id: 'route.meta-system.supreme-router', target: { agent: 'meta-system.supreme-router' }, match: { negative_keywords: [] } }
+        {
+          route_id: 'route.engineering.code-reviewer',
+          target: { agent: 'engineering.code-reviewer' },
+          match: { negative_keywords: [] }
+        },
+        {
+          route_id: 'route.security.security-reviewer',
+          target: { agent: 'security.security-reviewer' },
+          match: { negative_keywords: [] }
+        },
+        {
+          route_id: 'route.meta-system.supreme-router',
+          target: { agent: 'meta-system.supreme-router' },
+          match: { negative_keywords: [] }
+        }
       ])
     );
-    
+
     // Write learning policy with read_only: false
     fs.writeFileSync(
       path.join(dir, 'registry/learning-policy.json'),
@@ -46,7 +58,7 @@ test('dynamic rerouting based on mistake graph suggestions', async () => {
         mistake_graph: { state_file: 'graph/memory/learning/mistake-graph.json', min_repeats_for_candidate: 1 }
       })
     );
-    
+
     // Create mistake graph entry pointing from code-reviewer to security-reviewer
     const engine = new LearningEngine({
       repoRoot: dir,
@@ -57,22 +69,21 @@ test('dynamic rerouting based on mistake graph suggestions', async () => {
         mistake_graph: { min_repeats_for_candidate: 1 }
       }
     });
-    
+
     engine.trackOutcome({
       route_id: 'route.engineering.code-reviewer',
       success: false,
       failure_class: 'wrong-agent',
       suggested_route: 'route.security.security-reviewer'
     });
-    
+
     process.chdir(dir);
-    
+
     // Resolve route and verify it rerouted automatically!
     const route = await resolveRouteSync('please code review');
     assert.equal(route.route_id, 'route.security.security-reviewer');
     assert.equal(route._match.stage, 'mistake_reroute');
     assert.equal(route._match.original_route, 'route.engineering.code-reviewer');
-    
   } finally {
     process.chdir(prev);
     fs.rmSync(dir, { recursive: true, force: true });
@@ -86,7 +97,7 @@ test('does not reroute when read_only is true', async () => {
     fs.mkdirSync(path.join(dir, 'graph/memory/learning'), { recursive: true });
     fs.mkdirSync(path.join(dir, 'graph/indexes'), { recursive: true });
     fs.mkdirSync(path.join(dir, 'registry'), { recursive: true });
-    
+
     fs.writeFileSync(
       path.join(dir, 'graph/indexes/ROUTE_TABLE.min.json'),
       JSON.stringify({
@@ -96,14 +107,18 @@ test('does not reroute when read_only is true', async () => {
       })
     );
     fs.writeFileSync(path.join(dir, 'graph/indexes/ALIAS_TABLE.min.json'), JSON.stringify({ aliases: {} }));
-    
+
     fs.writeFileSync(
       path.join(dir, 'registry/routes.json'),
       JSON.stringify([
-        { route_id: 'route.engineering.code-reviewer', target: { agent: 'engineering.code-reviewer' }, match: { negative_keywords: [] } }
+        {
+          route_id: 'route.engineering.code-reviewer',
+          target: { agent: 'engineering.code-reviewer' },
+          match: { negative_keywords: [] }
+        }
       ])
     );
-    
+
     // Write learning policy with read_only: true
     fs.writeFileSync(
       path.join(dir, 'registry/learning-policy.json'),
@@ -112,7 +127,7 @@ test('does not reroute when read_only is true', async () => {
         mistake_graph: { state_file: 'graph/memory/learning/mistake-graph.json', min_repeats_for_candidate: 1 }
       })
     );
-    
+
     const engine = new LearningEngine({
       repoRoot: dir,
       learningDir: path.join(dir, 'graph/memory/learning'),
@@ -122,21 +137,20 @@ test('does not reroute when read_only is true', async () => {
         mistake_graph: { min_repeats_for_candidate: 1 }
       }
     });
-    
+
     engine.trackOutcome({
       route_id: 'route.engineering.code-reviewer',
       success: false,
       failure_class: 'wrong-agent',
       suggested_route: 'route.security.security-reviewer'
     });
-    
+
     process.chdir(dir);
-    
+
     // Resolve route and verify it did NOT reroute
     const route = await resolveRouteSync('please code review');
     assert.equal(route.route_id, 'route.engineering.code-reviewer');
     assert.notEqual(route._match.stage, 'mistake_reroute');
-    
   } finally {
     process.chdir(prev);
     fs.rmSync(dir, { recursive: true, force: true });

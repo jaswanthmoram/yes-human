@@ -83,6 +83,8 @@ test('engineering agent output is unaffected by high-stakes policy', () => {
   });
   // Should NOT be denied by high-stakes; falls through to default allow
   // (other policies may still gate it, but high-stakes specifically should not)
-  assert.ok(!/healthcare|attorney|clinician|employment|finance|hr/i.test(r.reason || ''),
-    `expected reason without high-stakes marker, got: ${r.reason}`);
+  assert.ok(
+    !/healthcare|attorney|clinician|employment|finance|hr/i.test(r.reason || ''),
+    `expected reason without high-stakes marker, got: ${r.reason}`
+  );
 });

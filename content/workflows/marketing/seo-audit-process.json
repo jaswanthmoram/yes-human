@@ -4,21 +4,9 @@
   "status": "active",
   "summary": "Conduct a comprehensive SEO audit covering technical health, content gaps, and competitive positioning with prioritized remediation.",
   "task_family": "seo_audit",
-  "triggers": [
-    "comprehensive seo audit",
-    "site seo health check",
-    "organic search audit",
-    "seo competitive analysis"
-  ],
-  "aliases": [
-    "seo audit",
-    "site audit"
-  ],
-  "negative_keywords": [
-    "paid search audit",
-    "social media audit",
-    "content writing"
-  ],
+  "triggers": ["comprehensive seo audit", "site seo health check", "organic search audit", "seo competitive analysis"],
+  "aliases": ["seo audit", "site audit"],
+  "negative_keywords": ["paid search audit", "social media audit", "content writing"],
   "inputs": [
     {
       "name": "site_url",
@@ -53,14 +41,9 @@
   "primary_agent": "marketing.seo-analyst",
   "route": {
     "domain_master": "marketing.master",
-    "agents": [
-      "marketing.seo-analyst",
-      "marketing.content-marketer"
-    ],
+    "agents": ["marketing.seo-analyst", "marketing.content-marketer"],
     "primary_agent": "marketing.seo-analyst",
-    "participants": [
-      "marketing.content-marketer"
-    ],
+    "participants": ["marketing.content-marketer"],
     "parallel": true,
     "max_parallel_agents": 2
   },

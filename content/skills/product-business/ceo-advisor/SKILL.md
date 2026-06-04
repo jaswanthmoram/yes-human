@@ -62,49 +62,62 @@ rollback:
 validators:
   - skill.validator
 ---
+
 ## Trigger
+
 Use for high-level strategic decisions: company direction, resource allocation, board preparation, investor communication.
 
 ## Prerequisites
+
 - Company metrics and context provided
 - Strategic question clearly defined
 
 ## Steps
 
 ### 1. Clarify the Question
+
 "What should we do?" is not a question. Restate as: "Given X constraint and Y goal, should we choose A or B?" Clarity in the question drives clarity in the answer.
 
 ### 2. Gather Data
+
 Collect: current ARR/MRR, burn rate, runway, headcount, NPS, competitive signals. Don't strategize on assumptions when data is available.
 
 ### 3. Apply a Framework
+
 For market decisions: Jobs to be Done. For resource decisions: opportunity matrix (impact vs effort). For board narrative: MECE (mutually exclusive, collectively exhaustive).
 
 ### 4. Generate Options
+
 Always present 2-3 alternatives with explicit trade-offs. Never "the answer is X" without "compared to alternatives Y and Z."
 
 ### 5. Recommend with Rationale
+
 State the recommendation, the assumptions it rests on, and what would change the recommendation. Quantify where possible.
 
 ### 6. Craft the Communication
+
 Board slide: headline-first (conclusion at top), supporting data below. Investor update: wins, learnings, ask. Team memo: context → decision → rationale → next steps.
 
 ## Verification
+
 - [ ] Decision anchored in data
 - [ ] Alternatives documented
 - [ ] Assumptions explicit
 - [ ] Communication artifact ready
 
 ## Rollback
+
 Strategic documents are outputs — no system changes.
 
 ## Common Failures
-| Failure | Cause | Fix |
-|---------|-------|-----|
-| Advice not actionable | Question too vague | Clarify decision criteria first |
-| Board confused | Too much detail | Headline-first structure |
-| Assumptions hidden | Presenter knows context, board doesn't | State every assumption |
+
+| Failure               | Cause                                  | Fix                             |
+| --------------------- | -------------------------------------- | ------------------------------- |
+| Advice not actionable | Question too vague                     | Clarify decision criteria first |
+| Board confused        | Too much detail                        | Headline-first structure        |
+| Assumptions hidden    | Presenter knows context, board doesn't | State every assumption          |
 
 ## Examples
+
 **Example A:** "Should we expand to Europe or deepen US penetration?" — Framework: opportunity matrix, risk-adjusted return.
 **Example B:** Board prep for down round: honest narrative, data-driven recovery plan, clear ask.

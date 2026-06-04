@@ -11,13 +11,15 @@ const licenseRegistry = {
 const goodDossier = {
   agent_id: 'engineering.code-reviewer',
   expires_at: '2999-01-01T00:00:00Z',
-  sources: [{
-    url: 'https://github.com/example/repo',
-    license: 'MIT',
-    version_or_commit: 'abc123',
-    used_for: ['review checklist'],
-    copy_policy: 'patterns_only'
-  }],
+  sources: [
+    {
+      url: 'https://github.com/example/repo',
+      license: 'MIT',
+      version_or_commit: 'abc123',
+      used_for: ['review checklist'],
+      copy_policy: 'patterns_only'
+    }
+  ],
   scores: { total: 86 }
 };
 

@@ -4,21 +4,9 @@
   "status": "active",
   "summary": "End-to-end workflow for developing new skills with proper authoring, validation, dossier creation, and fixture generation.",
   "task_family": "skill_lifecycle",
-  "triggers": [
-    "develop new skill",
-    "skill development workflow",
-    "create skill definition",
-    "skill lifecycle start"
-  ],
-  "aliases": [
-    "skill creation",
-    "new skill development"
-  ],
-  "negative_keywords": [
-    "modify existing skill",
-    "delete skill",
-    "agent creation"
-  ],
+  "triggers": ["develop new skill", "skill development workflow", "create skill definition", "skill lifecycle start"],
+  "aliases": ["skill creation", "new skill development"],
+  "negative_keywords": ["modify existing skill", "delete skill", "agent creation"],
   "inputs": [
     {
       "name": "skill_requirement",
@@ -60,11 +48,7 @@
       "meta-system.dossier-evaluator"
     ],
     "primary_agent": "meta-system.skill-designer",
-    "participants": [
-      "meta-system.system-architect",
-      "meta-system.fixture-engineer",
-      "meta-system.dossier-evaluator"
-    ],
+    "participants": ["meta-system.system-architect", "meta-system.fixture-engineer", "meta-system.dossier-evaluator"],
     "parallel": false,
     "max_parallel_agents": 2
   },

@@ -84,10 +84,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "graphql integration: Claude Engineer patterns and workflow references",
-        "verification pattern 7"
-      ],
+      "used_for": ["graphql integration: Claude Engineer patterns and workflow references", "verification pattern 7"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -97,10 +94,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "graphql integration: Claude Swarm patterns and workflow references",
-        "verification pattern 8"
-      ],
+      "used_for": ["graphql integration: Claude Swarm patterns and workflow references", "verification pattern 8"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -110,10 +104,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "graphql integration: Claude Dev Tools patterns and workflow references",
-        "verification pattern 9"
-      ],
+      "used_for": ["graphql integration: Claude Dev Tools patterns and workflow references", "verification pattern 9"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -123,10 +114,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "graphql integration: MCP Compass patterns and workflow references",
-        "verification pattern 10"
-      ],
+      "used_for": ["graphql integration: MCP Compass patterns and workflow references", "verification pattern 10"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -136,10 +124,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "graphql integration: MCP Installer patterns and workflow references",
-        "verification pattern 11"
-      ],
+      "used_for": ["graphql integration: MCP Installer patterns and workflow references", "verification pattern 11"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"

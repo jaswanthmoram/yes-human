@@ -52,9 +52,17 @@ export class WorkflowOrchestrator {
     assertPermission(this.role, 'workflow:read', this.rbac);
     const wf = this.loadWorkflow(workflowId);
     const fan_out = this.fanOutPlan(wf);
+    // Parallel-eligibility rules (explicit, no name-pattern guessing):
+    //   1. `s.parallel === true`  → parallel (if fan_out enabled)
+    //   2. `s.parallel === false` → never parallel
+    //   3. `s.parallel === undefined` → fall back to workflow-level default
+    //      (`wf.default_parallel_steps`), default false. The regex-on-step-name
+    //      heuristic was removed because it made parallelism a function of
+    //      English wording, not intent.
+    const workflowDefault = wf.default_parallel_steps === true;
     const steps = (wf.steps || [])
       .map((s, i) => {
-        const isStepParallel = s.parallel !== false && (s.parallel === true || /parallel|review|audit/i.test(s.id || s.summary || ''));
+        const isStepParallel = s.parallel === undefined ? workflowDefault : s.parallel === true;
         return {
           index: i + 1,
           id: s.id,
@@ -97,7 +105,7 @@ export class WorkflowOrchestrator {
         if (step.parallel_agents?.length) {
           const results = await Promise.all(
             step.parallel_agents.map(async (agent) => {
-              const route = routes.find(r => r.target?.agent === agent);
+              const route = routes.find((r) => r.target?.agent === agent);
               if (route) {
                 try {
                   const { runPlan } = await import('../yes-runtime/spawner.js');
@@ -118,7 +126,7 @@ export class WorkflowOrchestrator {
           executed.push({ step_id: step.id, status: 'parallel_executed', agents: results });
         } else {
           const primaryAgent = plan.primary_agent;
-          const route = routes.find(r => r.target?.agent === primaryAgent);
+          const route = routes.find((r) => r.target?.agent === primaryAgent);
           if (route) {
             try {
               const { runPlan } = await import('../yes-runtime/spawner.js');

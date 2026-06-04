@@ -10,15 +10,8 @@
     "MEDDIC assessment for deal",
     "lead scoring and qualification"
   ],
-  "aliases": [
-    "qualification process",
-    "lead qualification"
-  ],
-  "negative_keywords": [
-    "marketing lead scoring",
-    "customer satisfaction survey",
-    "product feature request"
-  ],
+  "aliases": ["qualification process", "lead qualification"],
+  "negative_keywords": ["marketing lead scoring", "customer satisfaction survey", "product feature request"],
   "inputs": [
     {
       "name": "lead_data",
@@ -53,16 +46,9 @@
   "primary_agent": "sales.account-executive",
   "route": {
     "domain_master": "sales.master",
-    "agents": [
-      "sales.account-executive",
-      "sales.sales-development",
-      "sales.sales-strategist"
-    ],
+    "agents": ["sales.account-executive", "sales.sales-development", "sales.sales-strategist"],
     "primary_agent": "sales.account-executive",
-    "participants": [
-      "sales.sales-development",
-      "sales.sales-strategist"
-    ],
+    "participants": ["sales.sales-development", "sales.sales-strategist"],
     "parallel": true,
     "max_parallel_agents": 3
   },

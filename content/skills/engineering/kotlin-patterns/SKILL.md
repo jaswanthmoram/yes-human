@@ -60,47 +60,59 @@ validators:
 ---
 
 ## Trigger
+
 Use this skill for tasks related to: kotlin review, kotlin code review, review kotlin.
 
 ## Prerequisites
+
 - Access to the relevant artifact (code, document, system)
 - Clear understanding of the goal and constraints
 
 ## Steps
 
 ### 1. Step
+
 Check null safety — prefer non-nullable types; justify every !! with a comment
 
 ### 2. Step
+
 Review coroutine scope — coroutines must be launched in a scope that manages cancellation
 
 ### 3. Step
+
 Check sealed class exhaustiveness — when expressions on sealed classes should cover all cases
 
 ### 4. Step
+
 Review data class usage — data classes for value objects; check equals/hashCode implications
 
 ### 5. Step
+
 Check extension function placement — extension functions on third-party classes can be surprising; document why
 
 ### 6. Step
+
 Review Flow usage — cold flows don't execute until collected; hot flows (SharedFlow) need lifecycle management
 
 ## Verification
+
 - [ ] All steps completed
 - [ ] Output reviewed against quality gates
 - [ ] Sources cited where applicable
 
 ## Rollback
+
 No writes — read-only review
 
 ## Common Failures
-| Failure | Cause | Fix |
-|---------|-------|-----|
+
+| Failure                              | Cause         | Fix               |
+| ------------------------------------ | ------------- | ----------------- |
 | !! operator approved without comment | See procedure | Address in review |
-| Coroutines launched in GlobalScope | See procedure | Address in review |
-| Non-exhaustive when expression | See procedure | Address in review |
+| Coroutines launched in GlobalScope   | See procedure | Address in review |
+| Non-exhaustive when expression       | See procedure | Address in review |
 
 ## Examples
+
 **Example A:** Apply this skill to a typical instance of 'kotlin review'.
 **Example B:** Apply this skill when facing 'review kotlin' in a complex codebase.

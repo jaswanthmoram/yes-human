@@ -10,18 +10,14 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Microsoft Agent Framework patterns and workflow references"
-        ]
+        "used_for_template": ["Microsoft Agent Framework patterns and workflow references"]
       },
       {
         "name": "Microsoft Agent Framework docs",
         "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
         "source_type": "official_docs",
         "license": "Apache-2.0",
-        "used_for_template": [
-          "Microsoft Agent Framework docs patterns and workflow references"
-        ]
+        "used_for_template": ["Microsoft Agent Framework docs patterns and workflow references"]
       },
       {
         "name": "LangGraph",
@@ -29,9 +25,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "LangGraph patterns and workflow references"
-        ]
+        "used_for_template": ["LangGraph patterns and workflow references"]
       },
       {
         "name": "OpenAI Agents SDK Python",
@@ -39,9 +33,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "OpenAI Agents SDK Python patterns and workflow references"
-        ]
+        "used_for_template": ["OpenAI Agents SDK Python patterns and workflow references"]
       },
       {
         "name": "OpenAI Agents SDK JS",
@@ -49,18 +41,14 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "OpenAI Agents SDK JS patterns and workflow references"
-        ]
+        "used_for_template": ["OpenAI Agents SDK JS patterns and workflow references"]
       },
       {
         "name": "OpenAI Agents docs",
         "url": "https://developers.openai.com/api/docs/guides/agents",
         "source_type": "official_docs",
         "license": "Apache-2.0",
-        "used_for_template": [
-          "OpenAI Agents docs patterns and workflow references"
-        ]
+        "used_for_template": ["OpenAI Agents docs patterns and workflow references"]
       },
       {
         "name": "CrewAI",
@@ -68,9 +56,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "CrewAI patterns and workflow references"
-        ]
+        "used_for_template": ["CrewAI patterns and workflow references"]
       },
       {
         "name": "AutoGen",
@@ -78,9 +64,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "AutoGen patterns and workflow references"
-        ]
+        "used_for_template": ["AutoGen patterns and workflow references"]
       },
       {
         "name": "OpenHands",
@@ -88,9 +72,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "OpenHands patterns and workflow references"
-        ]
+        "used_for_template": ["OpenHands patterns and workflow references"]
       },
       {
         "name": "MCP Agent",
@@ -98,9 +80,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "MCP Agent patterns and workflow references"
-        ]
+        "used_for_template": ["MCP Agent patterns and workflow references"]
       },
       {
         "name": "Agent Lightning",
@@ -108,9 +88,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Agent Lightning patterns and workflow references"
-        ]
+        "used_for_template": ["Agent Lightning patterns and workflow references"]
       },
       {
         "name": "OpenPipe ART",
@@ -118,9 +96,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "OpenPipe ART patterns and workflow references"
-        ]
+        "used_for_template": ["OpenPipe ART patterns and workflow references"]
       },
       {
         "name": "Dify",
@@ -128,9 +104,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Dify patterns and workflow references"
-        ]
+        "used_for_template": ["Dify patterns and workflow references"]
       },
       {
         "name": "Langflow",
@@ -138,9 +112,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Langflow patterns and workflow references"
-        ]
+        "used_for_template": ["Langflow patterns and workflow references"]
       },
       {
         "name": "Flowise",
@@ -148,9 +120,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Flowise patterns and workflow references"
-        ]
+        "used_for_template": ["Flowise patterns and workflow references"]
       },
       {
         "name": "Anthropic skills",
@@ -158,9 +128,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Anthropic skills patterns and workflow references"
-        ]
+        "used_for_template": ["Anthropic skills patterns and workflow references"]
       },
       {
         "name": "Awesome Agent Skills",
@@ -168,9 +136,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Awesome Agent Skills patterns and workflow references"
-        ]
+        "used_for_template": ["Awesome Agent Skills patterns and workflow references"]
       },
       {
         "name": "Awesome Agents",
@@ -178,9 +144,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Awesome Agents patterns and workflow references"
-        ]
+        "used_for_template": ["Awesome Agents patterns and workflow references"]
       },
       {
         "name": "Awesome Agent Orchestration",
@@ -188,9 +152,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Awesome Agent Orchestration patterns and workflow references"
-        ]
+        "used_for_template": ["Awesome Agent Orchestration patterns and workflow references"]
       },
       {
         "name": "Awesome Agent Swarm",
@@ -198,9 +160,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Awesome Agent Swarm patterns and workflow references"
-        ]
+        "used_for_template": ["Awesome Agent Swarm patterns and workflow references"]
       },
       {
         "name": "Claude Code",
@@ -208,9 +168,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Claude Code patterns and workflow references"
-        ]
+        "used_for_template": ["Claude Code patterns and workflow references"]
       },
       {
         "name": "Claude Cookbook",
@@ -218,9 +176,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Claude Cookbook patterns and workflow references"
-        ]
+        "used_for_template": ["Claude Cookbook patterns and workflow references"]
       },
       {
         "name": "Claude Quickstarts",
@@ -228,9 +184,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Claude Quickstarts patterns and workflow references"
-        ]
+        "used_for_template": ["Claude Quickstarts patterns and workflow references"]
       },
       {
         "name": "Claude Desktop Extensions",
@@ -238,9 +192,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Claude Desktop Extensions patterns and workflow references"
-        ]
+        "used_for_template": ["Claude Desktop Extensions patterns and workflow references"]
       },
       {
         "name": "Awesome Claude Code",
@@ -248,9 +200,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Awesome Claude Code patterns and workflow references"
-        ]
+        "used_for_template": ["Awesome Claude Code patterns and workflow references"]
       },
       {
         "name": "Awesome MCP Servers",
@@ -258,9 +208,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Awesome MCP Servers patterns and workflow references"
-        ]
+        "used_for_template": ["Awesome MCP Servers patterns and workflow references"]
       },
       {
         "name": "SuperClaude Framework",
@@ -268,9 +216,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "SuperClaude Framework patterns and workflow references"
-        ]
+        "used_for_template": ["SuperClaude Framework patterns and workflow references"]
       },
       {
         "name": "Claude Code Router",
@@ -278,9 +224,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Claude Code Router patterns and workflow references"
-        ]
+        "used_for_template": ["Claude Code Router patterns and workflow references"]
       },
       {
         "name": "Claude Task Master",
@@ -288,9 +232,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Claude Task Master patterns and workflow references"
-        ]
+        "used_for_template": ["Claude Task Master patterns and workflow references"]
       },
       {
         "name": "Claude Engineer",
@@ -298,9 +240,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Claude Engineer patterns and workflow references"
-        ]
+        "used_for_template": ["Claude Engineer patterns and workflow references"]
       },
       {
         "name": "Claude Swarm",
@@ -308,9 +248,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Claude Swarm patterns and workflow references"
-        ]
+        "used_for_template": ["Claude Swarm patterns and workflow references"]
       },
       {
         "name": "Claude Dev Tools",
@@ -318,9 +256,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Claude Dev Tools patterns and workflow references"
-        ]
+        "used_for_template": ["Claude Dev Tools patterns and workflow references"]
       },
       {
         "name": "MCP Compass",
@@ -328,9 +264,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "MCP Compass patterns and workflow references"
-        ]
+        "used_for_template": ["MCP Compass patterns and workflow references"]
       },
       {
         "name": "MCP Installer",
@@ -338,9 +272,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "MCP Installer patterns and workflow references"
-        ]
+        "used_for_template": ["MCP Installer patterns and workflow references"]
       },
       {
         "name": "MCPHub",
@@ -348,9 +280,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "MCPHub patterns and workflow references"
-        ]
+        "used_for_template": ["MCPHub patterns and workflow references"]
       },
       {
         "name": "Continue",
@@ -358,9 +288,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Continue patterns and workflow references"
-        ]
+        "used_for_template": ["Continue patterns and workflow references"]
       },
       {
         "name": "Cline",
@@ -368,9 +296,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Cline patterns and workflow references"
-        ]
+        "used_for_template": ["Cline patterns and workflow references"]
       },
       {
         "name": "Open Interpreter",
@@ -378,9 +304,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Open Interpreter patterns and workflow references"
-        ]
+        "used_for_template": ["Open Interpreter patterns and workflow references"]
       },
       {
         "name": "Aider AI",
@@ -388,9 +312,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Aider AI patterns and workflow references"
-        ]
+        "used_for_template": ["Aider AI patterns and workflow references"]
       }
     ],
     "engineering": [
@@ -400,9 +322,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Aider patterns and workflow references"
-        ]
+        "used_for_template": ["Aider patterns and workflow references"]
       },
       {
         "name": "Cline",
@@ -410,9 +330,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Cline patterns and workflow references"
-        ]
+        "used_for_template": ["Cline patterns and workflow references"]
       },
       {
         "name": "Continue",
@@ -420,9 +338,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Continue patterns and workflow references"
-        ]
+        "used_for_template": ["Continue patterns and workflow references"]
       },
       {
         "name": "SWE-agent",
@@ -430,9 +346,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "SWE-agent patterns and workflow references"
-        ]
+        "used_for_template": ["SWE-agent patterns and workflow references"]
       },
       {
         "name": "OpenHands",
@@ -440,9 +354,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "OpenHands patterns and workflow references"
-        ]
+        "used_for_template": ["OpenHands patterns and workflow references"]
       },
       {
         "name": "Claude Code PM",
@@ -450,9 +362,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Claude Code PM patterns and workflow references"
-        ]
+        "used_for_template": ["Claude Code PM patterns and workflow references"]
       },
       {
         "name": "Sourcegraph public snapshot",
@@ -460,18 +370,14 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Sourcegraph public snapshot patterns and workflow references"
-        ]
+        "used_for_template": ["Sourcegraph public snapshot patterns and workflow references"]
       },
       {
         "name": "Sourcegraph Cody context docs",
         "url": "https://sourcegraph.com/docs/cody/core-concepts/context",
         "source_type": "vendor_docs",
         "license": "Apache-2.0",
-        "used_for_template": [
-          "Sourcegraph Cody context docs patterns and workflow references"
-        ]
+        "used_for_template": ["Sourcegraph Cody context docs patterns and workflow references"]
       },
       {
         "name": "Tree-sitter",
@@ -479,9 +385,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Tree-sitter patterns and workflow references"
-        ]
+        "used_for_template": ["Tree-sitter patterns and workflow references"]
       }
     ],
     "security": [
@@ -491,18 +395,14 @@
         "source_type": "github_repo",
         "license": "LGPL-2.1",
         "stars": 500,
-        "used_for_template": [
-          "Semgrep patterns and workflow references"
-        ]
+        "used_for_template": ["Semgrep patterns and workflow references"]
       },
       {
         "name": "Semgrep docs",
         "url": "https://semgrep.dev/docs/",
         "source_type": "vendor_docs",
         "license": "Apache-2.0",
-        "used_for_template": [
-          "Semgrep docs patterns and workflow references"
-        ]
+        "used_for_template": ["Semgrep docs patterns and workflow references"]
       },
       {
         "name": "CodeQL",
@@ -510,9 +410,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "CodeQL patterns and workflow references"
-        ]
+        "used_for_template": ["CodeQL patterns and workflow references"]
       },
       {
         "name": "GitHub CodeQL docs",
@@ -520,9 +418,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "GitHub CodeQL docs patterns and workflow references"
-        ]
+        "used_for_template": ["GitHub CodeQL docs patterns and workflow references"]
       },
       {
         "name": "Gitleaks",
@@ -530,9 +426,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Gitleaks patterns and workflow references"
-        ]
+        "used_for_template": ["Gitleaks patterns and workflow references"]
       },
       {
         "name": "Trivy",
@@ -540,9 +434,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Trivy patterns and workflow references"
-        ]
+        "used_for_template": ["Trivy patterns and workflow references"]
       },
       {
         "name": "OWASP LLM Top 10",
@@ -550,9 +442,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "OWASP LLM Top 10 patterns and workflow references"
-        ]
+        "used_for_template": ["OWASP LLM Top 10 patterns and workflow references"]
       },
       {
         "name": "OWASP Web Security Testing Guide",
@@ -560,9 +450,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "OWASP Web Security Testing Guide patterns and workflow references"
-        ]
+        "used_for_template": ["OWASP Web Security Testing Guide patterns and workflow references"]
       },
       {
         "name": "OWASP Cheat Sheet Series",
@@ -570,9 +458,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "OWASP Cheat Sheet Series patterns and workflow references"
-        ]
+        "used_for_template": ["OWASP Cheat Sheet Series patterns and workflow references"]
       },
       {
         "name": "Joern",
@@ -580,9 +466,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Joern patterns and workflow references"
-        ]
+        "used_for_template": ["Joern patterns and workflow references"]
       },
       {
         "name": "Claude BugHunter",
@@ -590,9 +474,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Claude BugHunter patterns and workflow references"
-        ]
+        "used_for_template": ["Claude BugHunter patterns and workflow references"]
       }
     ],
     "data-ai": [
@@ -602,9 +484,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Microsoft GraphRAG patterns and workflow references"
-        ]
+        "used_for_template": ["Microsoft GraphRAG patterns and workflow references"]
       },
       {
         "name": "LlamaIndex",
@@ -612,9 +492,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "LlamaIndex patterns and workflow references"
-        ]
+        "used_for_template": ["LlamaIndex patterns and workflow references"]
       },
       {
         "name": "LangChain",
@@ -622,9 +500,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "LangChain patterns and workflow references"
-        ]
+        "used_for_template": ["LangChain patterns and workflow references"]
       },
       {
         "name": "Haystack",
@@ -632,9 +508,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Haystack patterns and workflow references"
-        ]
+        "used_for_template": ["Haystack patterns and workflow references"]
       },
       {
         "name": "Qdrant",
@@ -642,9 +516,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Qdrant patterns and workflow references"
-        ]
+        "used_for_template": ["Qdrant patterns and workflow references"]
       },
       {
         "name": "Weaviate",
@@ -652,9 +524,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Weaviate patterns and workflow references"
-        ]
+        "used_for_template": ["Weaviate patterns and workflow references"]
       },
       {
         "name": "MLflow",
@@ -662,9 +532,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "MLflow patterns and workflow references"
-        ]
+        "used_for_template": ["MLflow patterns and workflow references"]
       },
       {
         "name": "Promptfoo",
@@ -672,9 +540,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Promptfoo patterns and workflow references"
-        ]
+        "used_for_template": ["Promptfoo patterns and workflow references"]
       },
       {
         "name": "DeepEval",
@@ -682,9 +548,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "DeepEval patterns and workflow references"
-        ]
+        "used_for_template": ["DeepEval patterns and workflow references"]
       },
       {
         "name": "mem0",
@@ -692,9 +556,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "mem0 patterns and workflow references"
-        ]
+        "used_for_template": ["mem0 patterns and workflow references"]
       },
       {
         "name": "Graphiti",
@@ -702,9 +564,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Graphiti patterns and workflow references"
-        ]
+        "used_for_template": ["Graphiti patterns and workflow references"]
       }
     ],
     "research": [
@@ -714,9 +574,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Microsoft GraphRAG patterns and workflow references"
-        ]
+        "used_for_template": ["Microsoft GraphRAG patterns and workflow references"]
       },
       {
         "name": "LlamaIndex",
@@ -724,9 +582,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "LlamaIndex patterns and workflow references"
-        ]
+        "used_for_template": ["LlamaIndex patterns and workflow references"]
       },
       {
         "name": "LangChain",
@@ -734,9 +590,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "LangChain patterns and workflow references"
-        ]
+        "used_for_template": ["LangChain patterns and workflow references"]
       },
       {
         "name": "Haystack",
@@ -744,9 +598,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Haystack patterns and workflow references"
-        ]
+        "used_for_template": ["Haystack patterns and workflow references"]
       },
       {
         "name": "Qdrant",
@@ -754,9 +606,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Qdrant patterns and workflow references"
-        ]
+        "used_for_template": ["Qdrant patterns and workflow references"]
       },
       {
         "name": "Weaviate",
@@ -764,9 +614,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Weaviate patterns and workflow references"
-        ]
+        "used_for_template": ["Weaviate patterns and workflow references"]
       },
       {
         "name": "MLflow",
@@ -774,9 +622,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "MLflow patterns and workflow references"
-        ]
+        "used_for_template": ["MLflow patterns and workflow references"]
       },
       {
         "name": "Promptfoo",
@@ -784,9 +630,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Promptfoo patterns and workflow references"
-        ]
+        "used_for_template": ["Promptfoo patterns and workflow references"]
       },
       {
         "name": "DeepEval",
@@ -794,9 +638,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "DeepEval patterns and workflow references"
-        ]
+        "used_for_template": ["DeepEval patterns and workflow references"]
       },
       {
         "name": "mem0",
@@ -804,9 +646,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "mem0 patterns and workflow references"
-        ]
+        "used_for_template": ["mem0 patterns and workflow references"]
       },
       {
         "name": "Graphiti",
@@ -814,9 +654,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Graphiti patterns and workflow references"
-        ]
+        "used_for_template": ["Graphiti patterns and workflow references"]
       }
     ],
     "integrations": [
@@ -825,9 +663,7 @@
         "url": "https://modelcontextprotocol.io/docs/getting-started/intro",
         "source_type": "technical_blog",
         "license": "MIT",
-        "used_for_template": [
-          "MCP docs patterns and workflow references"
-        ]
+        "used_for_template": ["MCP docs patterns and workflow references"]
       },
       {
         "name": "MCP servers",
@@ -835,9 +671,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "MCP servers patterns and workflow references"
-        ]
+        "used_for_template": ["MCP servers patterns and workflow references"]
       },
       {
         "name": "MCP registry",
@@ -845,9 +679,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "MCP registry patterns and workflow references"
-        ]
+        "used_for_template": ["MCP registry patterns and workflow references"]
       },
       {
         "name": "MCP inspector",
@@ -855,9 +687,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "MCP inspector patterns and workflow references"
-        ]
+        "used_for_template": ["MCP inspector patterns and workflow references"]
       },
       {
         "name": "GitHub MCP server",
@@ -865,9 +695,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "GitHub MCP server patterns and workflow references"
-        ]
+        "used_for_template": ["GitHub MCP server patterns and workflow references"]
       },
       {
         "name": "Playwright MCP",
@@ -875,9 +703,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Playwright MCP patterns and workflow references"
-        ]
+        "used_for_template": ["Playwright MCP patterns and workflow references"]
       },
       {
         "name": "Awesome MCP servers",
@@ -885,9 +711,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Awesome MCP servers patterns and workflow references"
-        ]
+        "used_for_template": ["Awesome MCP servers patterns and workflow references"]
       },
       {
         "name": "Awesome MCP servers alternate",
@@ -895,9 +719,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Awesome MCP servers alternate patterns and workflow references"
-        ]
+        "used_for_template": ["Awesome MCP servers alternate patterns and workflow references"]
       },
       {
         "name": "vercel-labs/agent-browser",
@@ -905,9 +727,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "vercel-labs/agent-browser patterns and workflow references"
-        ]
+        "used_for_template": ["vercel-labs/agent-browser patterns and workflow references"]
       }
     ],
     "design-content": [
@@ -917,9 +737,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Storybook patterns and workflow references"
-        ]
+        "used_for_template": ["Storybook patterns and workflow references"]
       },
       {
         "name": "shadcn/ui",
@@ -927,9 +745,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "shadcn/ui patterns and workflow references"
-        ]
+        "used_for_template": ["shadcn/ui patterns and workflow references"]
       },
       {
         "name": "Radix UI Primitives",
@@ -937,9 +753,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Radix UI Primitives patterns and workflow references"
-        ]
+        "used_for_template": ["Radix UI Primitives patterns and workflow references"]
       },
       {
         "name": "Tailwind CSS",
@@ -947,9 +761,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Tailwind CSS patterns and workflow references"
-        ]
+        "used_for_template": ["Tailwind CSS patterns and workflow references"]
       },
       {
         "name": "axe-core",
@@ -957,9 +769,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "axe-core patterns and workflow references"
-        ]
+        "used_for_template": ["axe-core patterns and workflow references"]
       },
       {
         "name": "Playwright",
@@ -967,9 +777,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Playwright patterns and workflow references"
-        ]
+        "used_for_template": ["Playwright patterns and workflow references"]
       },
       {
         "name": "Stop Slop",
@@ -977,9 +785,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Stop Slop patterns and workflow references"
-        ]
+        "used_for_template": ["Stop Slop patterns and workflow references"]
       }
     ],
     "product-business": [
@@ -989,9 +795,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Twenty CRM patterns and workflow references"
-        ]
+        "used_for_template": ["Twenty CRM patterns and workflow references"]
       },
       {
         "name": "Chatwoot",
@@ -999,9 +803,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Chatwoot patterns and workflow references"
-        ]
+        "used_for_template": ["Chatwoot patterns and workflow references"]
       },
       {
         "name": "PostHog",
@@ -1009,9 +811,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "PostHog patterns and workflow references"
-        ]
+        "used_for_template": ["PostHog patterns and workflow references"]
       },
       {
         "name": "OpenProject",
@@ -1019,9 +819,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "OpenProject patterns and workflow references"
-        ]
+        "used_for_template": ["OpenProject patterns and workflow references"]
       },
       {
         "name": "Plane",
@@ -1029,9 +827,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Plane patterns and workflow references"
-        ]
+        "used_for_template": ["Plane patterns and workflow references"]
       },
       {
         "name": "Outline",
@@ -1039,9 +835,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Outline patterns and workflow references"
-        ]
+        "used_for_template": ["Outline patterns and workflow references"]
       },
       {
         "name": "gstack (Garry Tan / Y Combinator)",
@@ -1049,9 +843,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "gstack (Garry Tan / Y Combinator) patterns and workflow references"
-        ]
+        "used_for_template": ["gstack (Garry Tan / Y Combinator) patterns and workflow references"]
       }
     ],
     "sales": [
@@ -1061,9 +853,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Twenty CRM patterns and workflow references"
-        ]
+        "used_for_template": ["Twenty CRM patterns and workflow references"]
       },
       {
         "name": "Chatwoot",
@@ -1071,9 +861,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Chatwoot patterns and workflow references"
-        ]
+        "used_for_template": ["Chatwoot patterns and workflow references"]
       },
       {
         "name": "PostHog",
@@ -1081,9 +869,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "PostHog patterns and workflow references"
-        ]
+        "used_for_template": ["PostHog patterns and workflow references"]
       },
       {
         "name": "OpenProject",
@@ -1091,9 +877,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "OpenProject patterns and workflow references"
-        ]
+        "used_for_template": ["OpenProject patterns and workflow references"]
       },
       {
         "name": "Plane",
@@ -1101,9 +885,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Plane patterns and workflow references"
-        ]
+        "used_for_template": ["Plane patterns and workflow references"]
       },
       {
         "name": "Outline",
@@ -1111,9 +893,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Outline patterns and workflow references"
-        ]
+        "used_for_template": ["Outline patterns and workflow references"]
       }
     ],
     "startup-ops": [
@@ -1123,9 +903,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Twenty CRM patterns and workflow references"
-        ]
+        "used_for_template": ["Twenty CRM patterns and workflow references"]
       },
       {
         "name": "Chatwoot",
@@ -1133,9 +911,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Chatwoot patterns and workflow references"
-        ]
+        "used_for_template": ["Chatwoot patterns and workflow references"]
       },
       {
         "name": "PostHog",
@@ -1143,9 +919,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "PostHog patterns and workflow references"
-        ]
+        "used_for_template": ["PostHog patterns and workflow references"]
       },
       {
         "name": "OpenProject",
@@ -1153,9 +927,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "OpenProject patterns and workflow references"
-        ]
+        "used_for_template": ["OpenProject patterns and workflow references"]
       },
       {
         "name": "Plane",
@@ -1163,9 +935,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Plane patterns and workflow references"
-        ]
+        "used_for_template": ["Plane patterns and workflow references"]
       },
       {
         "name": "Outline",
@@ -1173,9 +943,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Outline patterns and workflow references"
-        ]
+        "used_for_template": ["Outline patterns and workflow references"]
       },
       {
         "name": "gstack (Garry Tan / Y Combinator)",
@@ -1183,9 +951,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "gstack (Garry Tan / Y Combinator) patterns and workflow references"
-        ]
+        "used_for_template": ["gstack (Garry Tan / Y Combinator) patterns and workflow references"]
       }
     ],
     "marketing": [
@@ -1195,9 +961,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Mautic patterns and workflow references"
-        ]
+        "used_for_template": ["Mautic patterns and workflow references"]
       },
       {
         "name": "listmonk",
@@ -1205,9 +969,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "listmonk patterns and workflow references"
-        ]
+        "used_for_template": ["listmonk patterns and workflow references"]
       },
       {
         "name": "Matomo",
@@ -1215,9 +977,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Matomo patterns and workflow references"
-        ]
+        "used_for_template": ["Matomo patterns and workflow references"]
       },
       {
         "name": "Plausible Analytics",
@@ -1225,9 +985,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Plausible Analytics patterns and workflow references"
-        ]
+        "used_for_template": ["Plausible Analytics patterns and workflow references"]
       },
       {
         "name": "PostHog",
@@ -1235,9 +993,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "PostHog patterns and workflow references"
-        ]
+        "used_for_template": ["PostHog patterns and workflow references"]
       }
     ],
     "finance": [
@@ -1247,9 +1003,7 @@
         "source_type": "github_repo",
         "license": "GPL-3.0",
         "stars": 500,
-        "used_for_template": [
-          "ERPNext patterns and workflow references"
-        ]
+        "used_for_template": ["ERPNext patterns and workflow references"]
       },
       {
         "name": "Odoo",
@@ -1257,9 +1011,7 @@
         "source_type": "github_repo",
         "license": "GPL-3.0",
         "stars": 500,
-        "used_for_template": [
-          "Odoo patterns and workflow references"
-        ]
+        "used_for_template": ["Odoo patterns and workflow references"]
       },
       {
         "name": "Invoice Ninja",
@@ -1267,9 +1019,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Invoice Ninja patterns and workflow references"
-        ]
+        "used_for_template": ["Invoice Ninja patterns and workflow references"]
       },
       {
         "name": "Firefly III",
@@ -1277,9 +1027,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Firefly III patterns and workflow references"
-        ]
+        "used_for_template": ["Firefly III patterns and workflow references"]
       },
       {
         "name": "Akaunting",
@@ -1287,9 +1035,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Akaunting patterns and workflow references"
-        ]
+        "used_for_template": ["Akaunting patterns and workflow references"]
       },
       {
         "name": "Maybe Finance",
@@ -1297,9 +1043,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Maybe Finance patterns and workflow references"
-        ]
+        "used_for_template": ["Maybe Finance patterns and workflow references"]
       }
     ],
     "legal-compliance": [
@@ -1309,9 +1053,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Documenso patterns and workflow references"
-        ]
+        "used_for_template": ["Documenso patterns and workflow references"]
       },
       {
         "name": "DocuSeal",
@@ -1319,9 +1061,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "DocuSeal patterns and workflow references"
-        ]
+        "used_for_template": ["DocuSeal patterns and workflow references"]
       },
       {
         "name": "Nextcloud",
@@ -1329,9 +1069,7 @@
         "source_type": "github_repo",
         "license": "GPL-3.0",
         "stars": 500,
-        "used_for_template": [
-          "Nextcloud patterns and workflow references"
-        ]
+        "used_for_template": ["Nextcloud patterns and workflow references"]
       },
       {
         "name": "Joplin",
@@ -1339,9 +1077,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Joplin patterns and workflow references"
-        ]
+        "used_for_template": ["Joplin patterns and workflow references"]
       },
       {
         "name": "Outline",
@@ -1349,9 +1085,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Outline patterns and workflow references"
-        ]
+        "used_for_template": ["Outline patterns and workflow references"]
       },
       {
         "name": "OWASP Cheat Sheet Series",
@@ -1359,9 +1093,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "OWASP Cheat Sheet Series patterns and workflow references"
-        ]
+        "used_for_template": ["OWASP Cheat Sheet Series patterns and workflow references"]
       }
     ],
     "hr": [
@@ -1371,9 +1103,7 @@
         "source_type": "github_repo",
         "license": "GPL-3.0",
         "stars": 500,
-        "used_for_template": [
-          "Frappe HRMS patterns and workflow references"
-        ]
+        "used_for_template": ["Frappe HRMS patterns and workflow references"]
       },
       {
         "name": "OrangeHRM",
@@ -1381,9 +1111,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "OrangeHRM patterns and workflow references"
-        ]
+        "used_for_template": ["OrangeHRM patterns and workflow references"]
       },
       {
         "name": "ERPNext HR modules",
@@ -1391,9 +1119,7 @@
         "source_type": "github_repo",
         "license": "GPL-3.0",
         "stars": 500,
-        "used_for_template": [
-          "ERPNext HR modules patterns and workflow references"
-        ]
+        "used_for_template": ["ERPNext HR modules patterns and workflow references"]
       },
       {
         "name": "Odoo HR modules",
@@ -1401,9 +1127,7 @@
         "source_type": "github_repo",
         "license": "GPL-3.0",
         "stars": 500,
-        "used_for_template": [
-          "Odoo HR modules patterns and workflow references"
-        ]
+        "used_for_template": ["Odoo HR modules patterns and workflow references"]
       }
     ],
     "platform": [
@@ -1413,9 +1137,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "OpenTelemetry Collector patterns and workflow references"
-        ]
+        "used_for_template": ["OpenTelemetry Collector patterns and workflow references"]
       },
       {
         "name": "Prometheus",
@@ -1423,9 +1145,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Prometheus patterns and workflow references"
-        ]
+        "used_for_template": ["Prometheus patterns and workflow references"]
       },
       {
         "name": "Grafana",
@@ -1433,9 +1153,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Grafana patterns and workflow references"
-        ]
+        "used_for_template": ["Grafana patterns and workflow references"]
       },
       {
         "name": "Argo CD",
@@ -1443,9 +1161,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Argo CD patterns and workflow references"
-        ]
+        "used_for_template": ["Argo CD patterns and workflow references"]
       },
       {
         "name": "Kubernetes",
@@ -1453,9 +1169,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 5000,
-        "used_for_template": [
-          "Kubernetes patterns and workflow references"
-        ]
+        "used_for_template": ["Kubernetes patterns and workflow references"]
       },
       {
         "name": "Terraform",
@@ -1463,9 +1177,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 5000,
-        "used_for_template": [
-          "Terraform patterns and workflow references"
-        ]
+        "used_for_template": ["Terraform patterns and workflow references"]
       },
       {
         "name": "GitHub Actions docs",
@@ -1473,9 +1185,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "GitHub Actions docs patterns and workflow references"
-        ]
+        "used_for_template": ["GitHub Actions docs patterns and workflow references"]
       }
     ],
     "healthcare": [
@@ -1485,9 +1195,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "TxAgent (Harvard MIMS) patterns and workflow references"
-        ]
+        "used_for_template": ["TxAgent (Harvard MIMS) patterns and workflow references"]
       },
       {
         "name": "Doctor-R1 (Tsinghua)",
@@ -1495,9 +1203,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Doctor-R1 (Tsinghua) patterns and workflow references"
-        ]
+        "used_for_template": ["Doctor-R1 (Tsinghua) patterns and workflow references"]
       },
       {
         "name": "COMPASS-Engine",
@@ -1505,9 +1211,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "COMPASS-Engine patterns and workflow references"
-        ]
+        "used_for_template": ["COMPASS-Engine patterns and workflow references"]
       },
       {
         "name": "Meissa",
@@ -1515,9 +1219,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Meissa patterns and workflow references"
-        ]
+        "used_for_template": ["Meissa patterns and workflow references"]
       },
       {
         "name": "Cerebra",
@@ -1525,9 +1227,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Cerebra patterns and workflow references"
-        ]
+        "used_for_template": ["Cerebra patterns and workflow references"]
       }
     ],
     "education": [
@@ -1537,9 +1237,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "DeepTutor (HKUDS) patterns and workflow references"
-        ]
+        "used_for_template": ["DeepTutor (HKUDS) patterns and workflow references"]
       },
       {
         "name": "LearnOS",
@@ -1547,9 +1245,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "LearnOS patterns and workflow references"
-        ]
+        "used_for_template": ["LearnOS patterns and workflow references"]
       },
       {
         "name": "OpenMAIC (Tsinghua)",
@@ -1557,9 +1253,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "OpenMAIC (Tsinghua) patterns and workflow references"
-        ]
+        "used_for_template": ["OpenMAIC (Tsinghua) patterns and workflow references"]
       },
       {
         "name": "OpenTutor",
@@ -1567,9 +1261,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "OpenTutor patterns and workflow references"
-        ]
+        "used_for_template": ["OpenTutor patterns and workflow references"]
       }
     ],
     "manufacturing": [
@@ -1579,9 +1271,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "Carbon (crbnos) patterns and workflow references"
-        ]
+        "used_for_template": ["Carbon (crbnos) patterns and workflow references"]
       },
       {
         "name": "ERPNext",
@@ -1589,9 +1279,7 @@
         "source_type": "github_repo",
         "license": "GPL-3.0",
         "stars": 500,
-        "used_for_template": [
-          "ERPNext patterns and workflow references"
-        ]
+        "used_for_template": ["ERPNext patterns and workflow references"]
       },
       {
         "name": "NexusAI-ERP",
@@ -1599,9 +1287,7 @@
         "source_type": "github_repo",
         "license": "MIT",
         "stars": 500,
-        "used_for_template": [
-          "NexusAI-ERP patterns and workflow references"
-        ]
+        "used_for_template": ["NexusAI-ERP patterns and workflow references"]
       }
     ]
   },

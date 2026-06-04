@@ -10,15 +10,8 @@
     "contract triage and analysis",
     "msa review cycle"
   ],
-  "aliases": [
-    "contract review",
-    "agreement review process"
-  ],
-  "negative_keywords": [
-    "code review",
-    "performance review",
-    "design review"
-  ],
+  "aliases": ["contract review", "agreement review process"],
+  "negative_keywords": ["code review", "performance review", "design review"],
   "inputs": [
     {
       "name": "contract_document",
@@ -59,10 +52,7 @@
       "legal-compliance.privacy-advisor"
     ],
     "primary_agent": "legal-compliance.contract-reviewer",
-    "participants": [
-      "legal-compliance.compliance-checker",
-      "legal-compliance.privacy-advisor"
-    ],
+    "participants": ["legal-compliance.compliance-checker", "legal-compliance.privacy-advisor"],
     "parallel": true,
     "max_parallel_agents": 3
   },

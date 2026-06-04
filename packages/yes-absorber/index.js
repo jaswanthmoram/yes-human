@@ -32,14 +32,13 @@ const __dirname = path.dirname(__filename);
 export const repoRoot = path.resolve(__dirname, '../..');
 
 const PATHS = {
-  incoming:   () => path.join(repoRoot, 'staging', 'incoming'),
+  incoming: () => path.join(repoRoot, 'staging', 'incoming'),
   normalized: () => path.join(repoRoot, 'staging', 'normalized'),
-  reviewed:   () => path.join(repoRoot, 'staging', 'reviewed'),
-  rejected:   () => path.join(repoRoot, 'staging', 'rejected'),
-  promoted:   () => path.join(repoRoot, 'staging', 'promoted'),
-  rollback:   () => path.join(repoRoot, 'staging', 'rollback')
+  reviewed: () => path.join(repoRoot, 'staging', 'reviewed'),
+  rejected: () => path.join(repoRoot, 'staging', 'rejected'),
+  promoted: () => path.join(repoRoot, 'staging', 'promoted'),
+  rollback: () => path.join(repoRoot, 'staging', 'rollback')
 };
-
 
 function effectiveRepoRoot(options = {}) {
   if (options.repoRoot) return options.repoRoot;
@@ -175,7 +174,9 @@ export async function apply(slug, options = {}) {
     throw new Error(`Cannot apply: source decision is "${manifest.decision}", not "staged".`);
   }
   if (manifest.license?.decision === 'forbidden' || manifest.license?.decision === 'unknown') {
-    throw new Error(`License gate blocks promotion: ${manifest.license?.spdx ?? 'unknown'} (${manifest.license?.decision})`);
+    throw new Error(
+      `License gate blocks promotion: ${manifest.license?.spdx ?? 'unknown'} (${manifest.license?.decision})`
+    );
   }
 
   const changeId = newChangeId(slug);
@@ -233,17 +234,25 @@ export async function apply(slug, options = {}) {
   fs.writeFileSync(promotedPath, JSON.stringify(promotion, null, 2));
 
   // 3. Append to global provenance.json (additive — never modifies existing entries)
-  appendProvenance({
-    id: `prov.absorb.${slug}.${new Date().toISOString().slice(0, 10)}`,
-    item_id: slug,
-    kind: 'absorbed_source',
-    source: manifest.source.origin_url,
-    created_at: promotion.applied_at,
-    confidence: 0.9,
-    author: 'yes-absorber'
-  }, root);
+  appendProvenance(
+    {
+      id: `prov.absorb.${slug}.${new Date().toISOString().slice(0, 10)}`,
+      item_id: slug,
+      kind: 'absorbed_source',
+      source: manifest.source.origin_url,
+      created_at: promotion.applied_at,
+      confidence: 0.9,
+      author: 'yes-absorber'
+    },
+    root
+  );
 
-  return { changeId, promotedPath: path.relative(root, promotedPath), rollbackPath: path.relative(root, rollbackPath), promote: promoteResult };
+  return {
+    changeId,
+    promotedPath: path.relative(root, promotedPath),
+    rollbackPath: path.relative(root, rollbackPath),
+    promote: promoteResult
+  };
 }
 
 // ── rollback ──────────────────────────────────────────────────────────────────
@@ -277,9 +286,10 @@ export function list() {
   ensureStageDirs();
   const collect = (dir) => {
     if (!fs.existsSync(dir)) return [];
-    return fs.readdirSync(dir, { withFileTypes: true })
-      .filter(e => e.isDirectory())
-      .map(e => {
+    return fs
+      .readdirSync(dir, { withFileTypes: true })
+      .filter((e) => e.isDirectory())
+      .map((e) => {
         const m = path.join(dir, e.name, 'manifest.json');
         if (!fs.existsSync(m)) return null;
         const data = JSON.parse(fs.readFileSync(m, 'utf8'));
@@ -294,15 +304,16 @@ export function list() {
   };
   const collectFlat = (dir) => {
     if (!fs.existsSync(dir)) return [];
-    return fs.readdirSync(dir)
-      .filter(f => f.endsWith('.json'))
-      .map(f => ({ change_id: f.replace(/\.json$/, ''), file: path.relative(repoRoot, path.join(dir, f)) }));
+    return fs
+      .readdirSync(dir)
+      .filter((f) => f.endsWith('.json'))
+      .map((f) => ({ change_id: f.replace(/\.json$/, ''), file: path.relative(repoRoot, path.join(dir, f)) }));
   };
   return {
     normalized: collect(PATHS.normalized()),
-    rejected:   collect(PATHS.rejected()),
-    promoted:   collectFlat(PATHS.promoted()),
-    rollback:   collectFlat(PATHS.rollback())
+    rejected: collect(PATHS.rejected()),
+    promoted: collectFlat(PATHS.promoted()),
+    rollback: collectFlat(PATHS.rollback())
   };
 }
 
@@ -312,7 +323,11 @@ function classifyContent(root) {
   const counts = { agents: 0, skills: 0, workflows: 0, commands: 0, hooks: 0, mcp: 0, total_files: 0 };
   (function walk(d, rel = '') {
     let entries;
-    try { entries = fs.readdirSync(d, { withFileTypes: true }); } catch { return; }
+    try {
+      entries = fs.readdirSync(d, { withFileTypes: true });
+    } catch {
+      return;
+    }
     for (const e of entries) {
       if (e.name === '.git' || e.name === 'node_modules') continue;
       const full = path.join(d, e.name);
@@ -322,7 +337,8 @@ function classifyContent(root) {
         counts.total_files++;
         const lower = r.toLowerCase();
         if (lower.includes('agents/') && e.name.endsWith('.md')) counts.agents++;
-        else if ((lower.includes('skills/') && e.name.endsWith('.md')) || e.name.toUpperCase() === 'SKILL.MD') counts.skills++;
+        else if ((lower.includes('skills/') && e.name.endsWith('.md')) || e.name.toUpperCase() === 'SKILL.MD')
+          counts.skills++;
         else if (lower.includes('workflows/') && e.name.endsWith('.md')) counts.workflows++;
         else if (lower.includes('commands/') && e.name.endsWith('.md')) counts.commands++;
         else if (lower.includes('hooks/')) counts.hooks++;
@@ -339,10 +355,14 @@ function appendProvenance(entry, root = repoRoot) {
   const p = path.join(root, 'registry', 'provenance.json');
   let arr = [];
   if (fs.existsSync(p)) {
-    try { arr = JSON.parse(fs.readFileSync(p, 'utf8')); } catch { arr = []; }
+    try {
+      arr = JSON.parse(fs.readFileSync(p, 'utf8'));
+    } catch {
+      arr = [];
+    }
     if (!Array.isArray(arr)) arr = [];
   }
-  if (arr.some(e => e.id === entry.id)) return;
+  if (arr.some((e) => e.id === entry.id)) return;
   arr.push(entry);
   fs.writeFileSync(p, JSON.stringify(arr, null, 2));
 }

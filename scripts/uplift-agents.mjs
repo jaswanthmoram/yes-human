@@ -13,7 +13,10 @@ function parseFrontmatter(content) {
   let key = null;
   for (const line of m[1].split(/\r?\n/)) {
     if (line.startsWith('  - ') || line.startsWith('- ')) {
-      const v = line.replace(/^(\s*-?\s*)/, '').trim().replace(/^['"]|['"]$/g, '');
+      const v = line
+        .replace(/^(\s*-?\s*)/, '')
+        .trim()
+        .replace(/^['"]|['"]$/g, '');
       if (key && Array.isArray(fm[key])) fm[key].push(v);
       continue;
     }
@@ -47,10 +50,17 @@ function loadDossier(agentId) {
 
 function buildBody(fm, dossier) {
   const name = fm.name || fm.id;
-  const patterns = (dossier?.sources || []).slice(0, 6).flatMap((s) => s.used_for || []).slice(0, 6);
+  const patterns = (dossier?.sources || [])
+    .slice(0, 6)
+    .flatMap((s) => s.used_for || [])
+    .slice(0, 6);
   const proc = patterns.length
     ? patterns.map((p, i) => `${i + 1}. Apply guidance from: ${p}.`)
-    : ['1. Clarify task scope and constraints.', '2. Gather evidence from allowed tools.', '3. Produce structured output with verification steps.'];
+    : [
+        '1. Clarify task scope and constraints.',
+        '2. Gather evidence from allowed tools.',
+        '3. Produce structured output with verification steps.'
+      ];
   const examples = [
     `Example A: User asks for ${name} help on a bounded task → deliver checklist, risks, and next actions.`,
     `Example B: User provides incomplete context → ask targeted questions, then execute the procedure with assumptions explicit.`
@@ -99,7 +109,27 @@ function upliftAgent(filePath) {
   if (!fm.source_references?.length && dossier) {
     fm.source_references = dossier.sources.slice(0, 3).map((s, i) => `ref.${fm.id}.${i}`);
   }
-  const keys = ['id','name','version','status','category','kind','summary','triggers','aliases','negative_keywords','inputs','outputs','allowed_tools','budget_band','max_context_tokens','failure_modes','verification','source_references','quality_gate'];
+  const keys = [
+    'id',
+    'name',
+    'version',
+    'status',
+    'category',
+    'kind',
+    'summary',
+    'triggers',
+    'aliases',
+    'negative_keywords',
+    'inputs',
+    'outputs',
+    'allowed_tools',
+    'budget_band',
+    'max_context_tokens',
+    'failure_modes',
+    'verification',
+    'source_references',
+    'quality_gate'
+  ];
   if (fm.requires_disclaimer) keys.push('requires_disclaimer', 'human_review_gate');
   let yaml = '---\n';
   for (const k of keys) if (fm[k] !== undefined) yaml += yamlLine(k, fm[k]);

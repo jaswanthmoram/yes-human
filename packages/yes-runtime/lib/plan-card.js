@@ -1,8 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 function readJson(repoRoot, rel, fallback) {
-  try { return JSON.parse(fs.readFileSync(path.join(repoRoot, rel), 'utf8')); }
-  catch { return fallback; }
+  try {
+    return JSON.parse(fs.readFileSync(path.join(repoRoot, rel), 'utf8'));
+  } catch {
+    return fallback;
+  }
 }
 export function buildPlanCard(repoRoot, route) {
   const workflows = readJson(repoRoot, 'registry/workflows.json', { items: [] }).items || [];

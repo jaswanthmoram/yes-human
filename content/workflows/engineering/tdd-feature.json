@@ -4,21 +4,9 @@
   "status": "active",
   "summary": "Deliver a feature or bug fix using red-green-refactor with tests written before production changes.",
   "task_family": "feature_dev",
-  "triggers": [
-    "implement this with TDD",
-    "write the failing test first",
-    "use red green refactor"
-  ],
-  "aliases": [
-    "tdd implementation",
-    "red green refactor workflow",
-    "test first feature"
-  ],
-  "negative_keywords": [
-    "docs only",
-    "security scan only",
-    "repo tour"
-  ],
+  "triggers": ["implement this with TDD", "write the failing test first", "use red green refactor"],
+  "aliases": ["tdd implementation", "red green refactor workflow", "test first feature"],
+  "negative_keywords": ["docs only", "security scan only", "repo tour"],
   "inputs": [
     {
       "name": "task_description",
@@ -47,9 +35,7 @@
   "primary_agent": "engineering.tdd-guide",
   "route": {
     "domain_master": "engineering.master",
-    "agents": [
-      "engineering.tdd-guide"
-    ],
+    "agents": ["engineering.tdd-guide"],
     "parallel": false,
     "max_parallel_agents": 1,
     "primary": "engineering.tdd-guide",
@@ -60,12 +46,7 @@
     "max_context_tokens": 2600,
     "max_tool_calls": 10
   },
-  "gates": [
-    "pre-route",
-    "pre-write",
-    "post-tool",
-    "on-task-complete"
-  ],
+  "gates": ["pre-route", "pre-write", "post-tool", "on-task-complete"],
   "steps": [
     {
       "id": "write-red-test",
@@ -80,17 +61,8 @@
       "summary": "Clean local design debt without changing behavior, then rerun the focused suite."
     }
   ],
-  "tools": [
-    "filesystem.read",
-    "filesystem.write",
-    "test_runner",
-    "diff_inspection"
-  ],
-  "verification": [
-    "test_runs_red_then_green",
-    "focused_suite_passes",
-    "refactor_keeps_tests_green"
-  ],
+  "tools": ["filesystem.read", "filesystem.write", "test_runner", "diff_inspection"],
+  "verification": ["test_runs_red_then_green", "focused_suite_passes", "refactor_keeps_tests_green"],
   "success_criteria": [
     "A failing test exists before the implementation change.",
     "The relevant tests pass after the implementation.",
@@ -100,9 +72,7 @@
     "mode": "trace_based",
     "summary": "Back out the latest implementation or refactor if the red-green order is broken or tests regress."
   },
-  "source_references": [
-    "ref.workflow.engineering.tdd-feature.2026-06-01"
-  ],
+  "source_references": ["ref.workflow.engineering.tdd-feature.2026-06-01"],
   "promotion": {
     "can_learn": true,
     "quality_gate": "staging",

@@ -19,16 +19,21 @@ Build or refresh the local code graph index for the current repository.
 ```
 
 ## Inputs
+
 repo_path
 
 ## Outputs
+
 graph_manifest
+
 - stats
 
 ## Workflow
+
 Routes through `yes route` to activate the `meta-system.graph-builder` workflow.
 All policy gates (pre-route, pre-tool, pre-write) apply.
 
 ## Notes
+
 - This command is a shim over the `meta-system.graph-builder` workflow.
 - Run `yes route "graph-build" --dry-run` to inspect the routing before execution.

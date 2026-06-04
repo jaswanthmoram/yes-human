@@ -3,65 +3,35 @@
   "version": "1.0.0",
   "status": "active",
   "summary": "crm-hygiene workflow",
-  "triggers": [
-    "crm hygiene"
-  ],
-  "aliases": [
-    "crm-hygiene"
-  ],
+  "triggers": ["crm hygiene"],
+  "aliases": ["crm-hygiene"],
   "primary_agent": "sales.pipeline-analyst",
-  "inputs": [
-    "task_context"
-  ],
-  "outputs": [
-    "workflow_output"
-  ],
-  "steps": [
-    "intake_scope",
-    "execute_workflow",
-    "verify_outputs"
-  ],
-  "gates": [
-    "pre-route",
-    "pre-tool",
-    "on-task-complete"
-  ],
+  "inputs": ["task_context"],
+  "outputs": ["workflow_output"],
+  "steps": ["intake_scope", "execute_workflow", "verify_outputs"],
+  "gates": ["pre-route", "pre-tool", "on-task-complete"],
   "route": {
     "domain_master": "sales.master",
-    "agents": [
-      "sales.pipeline-analyst"
-    ],
+    "agents": ["sales.pipeline-analyst"],
     "parallel": false,
     "max_parallel_agents": 1,
     "primary": "sales.pipeline-analyst",
-    "participants": [
-      "sales.pipeline-analyst"
-    ]
+    "participants": ["sales.pipeline-analyst"]
   },
   "budget": {
     "band": "standard",
     "max_context_tokens": 8000,
     "max_tool_calls": 12
   },
-  "source_references": [
-    "ref.workflow.sales.crm-hygiene.2026-06-02"
-  ],
+  "source_references": ["ref.workflow.sales.crm-hygiene.2026-06-02"],
   "promotion": {
     "can_learn": true,
     "min_successes_before_update": 2
   },
   "task_family": "sales",
-  "negative_keywords": [
-    "wrong domain"
-  ],
-  "tools": [
-    "filesystem.read"
-  ],
-  "verification": [
-    "outputs_verified"
-  ],
-  "success_criteria": [
-    "workflow_objectives_met"
-  ],
+  "negative_keywords": ["wrong domain"],
+  "tools": ["filesystem.read"],
+  "verification": ["outputs_verified"],
+  "success_criteria": ["workflow_objectives_met"],
   "rollback": "trace_based"
 }

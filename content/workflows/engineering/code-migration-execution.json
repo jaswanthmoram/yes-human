@@ -12,16 +12,8 @@
     "execute the migration plan for this module",
     "port this code to the new version"
   ],
-  "aliases": [
-    "code migration",
-    "framework migration",
-    "API version upgrade"
-  ],
-  "negative_keywords": [
-    "new feature",
-    "bug fix only",
-    "docs only"
-  ],
+  "aliases": ["code migration", "framework migration", "API version upgrade"],
+  "negative_keywords": ["new feature", "bug fix only", "docs only"],
   "inputs": [
     {
       "name": "migration_plan",
@@ -58,9 +50,7 @@
   "primary_agent": "engineering.migration-executor",
   "route": {
     "domain_master": "engineering.master",
-    "agents": [
-      "engineering.migration-executor"
-    ],
+    "agents": ["engineering.migration-executor"],
     "parallel": false,
     "max_parallel_agents": 1,
     "primary": "engineering.migration-executor",
@@ -71,13 +61,7 @@
     "max_context_tokens": 3800,
     "max_tool_calls": 16
   },
-  "gates": [
-    "pre-route",
-    "pre-tool",
-    "pre-write",
-    "post-tool",
-    "on-task-complete"
-  ],
+  "gates": ["pre-route", "pre-tool", "pre-write", "post-tool", "on-task-complete"],
   "steps": [
     {
       "id": "inventory-scope",
@@ -134,9 +118,7 @@
     "mode": "trace_based",
     "summary": "Revert migrated files to pre-migration state using git or saved snapshots if validation fails."
   },
-  "source_references": [
-    "ref.workflow.engineering.code-migration-execution.2026-06-01"
-  ],
+  "source_references": ["ref.workflow.engineering.code-migration-execution.2026-06-01"],
   "promotion": {
     "can_learn": true,
     "quality_gate": "staging",

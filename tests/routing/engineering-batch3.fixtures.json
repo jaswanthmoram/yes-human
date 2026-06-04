@@ -12,7 +12,10 @@
     { "prompt": "upgrade angular to latest", "expected_route": "route.engineering.code-migration" },
     { "prompt": "migrate python 2 codebase to python 3", "expected_route": "route.engineering.code-migration" },
     { "prompt": "handle breaking changes in api v3", "expected_route": "route.engineering.code-migration" },
-    { "prompt": "plan the next.js pages to app router migration", "expected_route": "route.engineering.code-migration" },
+    {
+      "prompt": "plan the next.js pages to app router migration",
+      "expected_route": "route.engineering.code-migration"
+    },
 
     { "prompt": "refactor this long method", "expected_route": "route.engineering.refactoring" },
     { "prompt": "clean up the auth module", "expected_route": "route.engineering.refactoring" },

@@ -3,9 +3,23 @@
   "title": "Yes-human Agent Frontmatter",
   "type": "object",
   "required": [
-    "id", "name", "version", "status", "category", "kind", "summary", 
-    "triggers", "inputs", "outputs", "allowed_tools", "budget_band", 
-    "max_context_tokens", "failure_modes", "verification", "source_references", "quality_gate"
+    "id",
+    "name",
+    "version",
+    "status",
+    "category",
+    "kind",
+    "summary",
+    "triggers",
+    "inputs",
+    "outputs",
+    "allowed_tools",
+    "budget_band",
+    "max_context_tokens",
+    "failure_modes",
+    "verification",
+    "source_references",
+    "quality_gate"
   ],
   "properties": {
     "id": { "type": "string" },

@@ -141,9 +141,30 @@ test('workflow miner stages suggestions from repeated successful traces', () => 
     const episodicDir = path.join(memoryDir, 'episodic');
     fs.mkdirSync(episodicDir, { recursive: true });
     const traces = [
-      { trace_id: 'a', route_id: 'route.engineering.code-reviewer', task_hash: 'h1', success: true, agents: ['engineering.code-reviewer'], tools: ['shell'] },
-      { trace_id: 'b', route_id: 'route.engineering.code-reviewer', task_hash: 'h2', success: true, agents: ['engineering.code-reviewer'], tools: ['shell'] },
-      { trace_id: 'c', route_id: 'route.engineering.code-reviewer', task_hash: 'h3', success: true, agents: ['engineering.code-reviewer'], tools: ['shell'] }
+      {
+        trace_id: 'a',
+        route_id: 'route.engineering.code-reviewer',
+        task_hash: 'h1',
+        success: true,
+        agents: ['engineering.code-reviewer'],
+        tools: ['shell']
+      },
+      {
+        trace_id: 'b',
+        route_id: 'route.engineering.code-reviewer',
+        task_hash: 'h2',
+        success: true,
+        agents: ['engineering.code-reviewer'],
+        tools: ['shell']
+      },
+      {
+        trace_id: 'c',
+        route_id: 'route.engineering.code-reviewer',
+        task_hash: 'h3',
+        success: true,
+        agents: ['engineering.code-reviewer'],
+        tools: ['shell']
+      }
     ];
     fs.writeFileSync(path.join(episodicDir, 'tasks.jsonl'), traces.map((t) => JSON.stringify(t)).join('\n') + '\n');
 

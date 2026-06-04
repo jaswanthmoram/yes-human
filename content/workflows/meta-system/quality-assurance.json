@@ -4,21 +4,9 @@
   "status": "active",
   "summary": "End-to-end workflow for running quality assurance checks across agents, skills, and workflows.",
   "task_family": "quality_lifecycle",
-  "triggers": [
-    "run quality assurance",
-    "QA workflow",
-    "system quality check",
-    "registry quality audit"
-  ],
-  "aliases": [
-    "QA sweep",
-    "quality audit workflow"
-  ],
-  "negative_keywords": [
-    "code testing",
-    "security audit",
-    "agent creation"
-  ],
+  "triggers": ["run quality assurance", "QA workflow", "system quality check", "registry quality audit"],
+  "aliases": ["QA sweep", "quality audit workflow"],
+  "negative_keywords": ["code testing", "security audit", "agent creation"],
   "inputs": [
     {
       "name": "audit_scope",
@@ -60,11 +48,7 @@
       "meta-system.eval-runner"
     ],
     "primary_agent": "meta-system.quality-assurance",
-    "participants": [
-      "meta-system.stub-detector",
-      "meta-system.dossier-evaluator",
-      "meta-system.eval-runner"
-    ],
+    "participants": ["meta-system.stub-detector", "meta-system.dossier-evaluator", "meta-system.eval-runner"],
     "parallel": true,
     "max_parallel_agents": 4
   },

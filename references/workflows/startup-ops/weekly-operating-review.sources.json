@@ -34,10 +34,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "weekly operating review: Plane patterns and workflow references",
-        "verification pattern 3"
-      ],
+      "used_for": ["weekly operating review: Plane patterns and workflow references", "verification pattern 3"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -47,10 +44,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "weekly operating review: Outline patterns and workflow references",
-        "verification pattern 4"
-      ],
+      "used_for": ["weekly operating review: Outline patterns and workflow references", "verification pattern 4"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -86,10 +80,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "weekly operating review: LangGraph patterns and workflow references",
-        "verification pattern 7"
-      ],
+      "used_for": ["weekly operating review: LangGraph patterns and workflow references", "verification pattern 7"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -125,10 +116,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "weekly operating review: CrewAI patterns and workflow references",
-        "verification pattern 10"
-      ],
+      "used_for": ["weekly operating review: CrewAI patterns and workflow references", "verification pattern 10"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -138,10 +126,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "weekly operating review: AutoGen patterns and workflow references",
-        "verification pattern 11"
-      ],
+      "used_for": ["weekly operating review: AutoGen patterns and workflow references", "verification pattern 11"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"

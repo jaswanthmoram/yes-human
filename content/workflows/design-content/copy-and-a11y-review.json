@@ -3,65 +3,35 @@
   "version": "1.0.0",
   "status": "active",
   "summary": "copy-and-a11y-review workflow",
-  "triggers": [
-    "copy and a11y review"
-  ],
-  "aliases": [
-    "copy-and-a11y-review"
-  ],
+  "triggers": ["copy and a11y review"],
+  "aliases": ["copy-and-a11y-review"],
   "primary_agent": "design-content.accessibility-auditor",
-  "inputs": [
-    "task_context"
-  ],
-  "outputs": [
-    "workflow_output"
-  ],
-  "steps": [
-    "intake_scope",
-    "execute_workflow",
-    "verify_outputs"
-  ],
-  "gates": [
-    "pre-route",
-    "pre-tool",
-    "on-task-complete"
-  ],
+  "inputs": ["task_context"],
+  "outputs": ["workflow_output"],
+  "steps": ["intake_scope", "execute_workflow", "verify_outputs"],
+  "gates": ["pre-route", "pre-tool", "on-task-complete"],
   "route": {
     "domain_master": "design-content.master",
-    "agents": [
-      "design-content.accessibility-auditor"
-    ],
+    "agents": ["design-content.accessibility-auditor"],
     "parallel": false,
     "max_parallel_agents": 1,
     "primary": "design-content.accessibility-auditor",
-    "participants": [
-      "design-content.accessibility-auditor"
-    ]
+    "participants": ["design-content.accessibility-auditor"]
   },
   "budget": {
     "band": "standard",
     "max_context_tokens": 8000,
     "max_tool_calls": 12
   },
-  "source_references": [
-    "ref.workflow.design-content.copy-and-a11y-review.2026-06-02"
-  ],
+  "source_references": ["ref.workflow.design-content.copy-and-a11y-review.2026-06-02"],
   "promotion": {
     "can_learn": true,
     "min_successes_before_update": 2
   },
   "task_family": "design-content",
-  "negative_keywords": [
-    "wrong domain"
-  ],
-  "tools": [
-    "filesystem.read"
-  ],
-  "verification": [
-    "outputs_verified"
-  ],
-  "success_criteria": [
-    "workflow_objectives_met"
-  ],
+  "negative_keywords": ["wrong domain"],
+  "tools": ["filesystem.read"],
+  "verification": ["outputs_verified"],
+  "success_criteria": ["workflow_objectives_met"],
   "rollback": "trace_based"
 }

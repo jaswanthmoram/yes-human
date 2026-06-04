@@ -5,10 +5,19 @@
   "initial": "online",
   "states": [
     { "name": "online", "type": "normal", "description": "Normal connector and network policy applies" },
-    { "name": "offline", "type": "normal", "description": "YES_OFFLINE is set; network and MCP calls are denied or skipped" },
+    {
+      "name": "offline",
+      "type": "normal",
+      "description": "YES_OFFLINE is set; network and MCP calls are denied or skipped"
+    },
     { "name": "checkpointed", "type": "normal", "description": "Task stage checkpoint written to offline journal" },
     { "name": "interrupted", "type": "normal", "description": "Process stopped before completion" },
-    { "name": "resume_gate", "type": "gate", "gate": "ask", "description": "Resume from latest checkpoint according to policy" },
+    {
+      "name": "resume_gate",
+      "type": "gate",
+      "gate": "ask",
+      "description": "Resume from latest checkpoint according to policy"
+    },
     { "name": "resumed", "type": "normal", "description": "Checkpoint replay selected" },
     { "name": "complete", "type": "terminal", "description": "Recovered task completed" },
     { "name": "abandoned", "type": "terminal", "description": "Checkpoint cleared or discarded" }

@@ -10,15 +10,8 @@
     "statutory analysis workflow",
     "precedent research cycle"
   ],
-  "aliases": [
-    "legal research",
-    "law research process"
-  ],
-  "negative_keywords": [
-    "market research",
-    "user research",
-    "data analysis"
-  ],
+  "aliases": ["legal research", "law research process"],
+  "negative_keywords": ["market research", "user research", "data analysis"],
   "inputs": [
     {
       "name": "research_question",
@@ -53,16 +46,9 @@
   "primary_agent": "legal-compliance.legal-researcher",
   "route": {
     "domain_master": "legal-compliance.master",
-    "agents": [
-      "legal-compliance.legal-researcher",
-      "legal-compliance.legal-writer",
-      "legal-compliance.case-analysis"
-    ],
+    "agents": ["legal-compliance.legal-researcher", "legal-compliance.legal-writer", "legal-compliance.case-analysis"],
     "primary_agent": "legal-compliance.legal-researcher",
-    "participants": [
-      "legal-compliance.legal-writer",
-      "legal-compliance.case-analysis"
-    ],
+    "participants": ["legal-compliance.legal-writer", "legal-compliance.case-analysis"],
     "parallel": true,
     "max_parallel_agents": 3
   },

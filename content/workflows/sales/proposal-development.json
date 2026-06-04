@@ -10,15 +10,8 @@
     "write proposal for opportunity",
     "build proposal package"
   ],
-  "aliases": [
-    "proposal development",
-    "proposal creation"
-  ],
-  "negative_keywords": [
-    "legal contract drafting",
-    "marketing brochure",
-    "technical specification"
-  ],
+  "aliases": ["proposal development", "proposal creation"],
+  "negative_keywords": ["legal contract drafting", "marketing brochure", "technical specification"],
   "inputs": [
     {
       "name": "buyer_requirements",
@@ -53,16 +46,9 @@
   "primary_agent": "sales.proposal-writer",
   "route": {
     "domain_master": "sales.master",
-    "agents": [
-      "sales.proposal-writer",
-      "sales.proposal-generator",
-      "sales.deal-desk"
-    ],
+    "agents": ["sales.proposal-writer", "sales.proposal-generator", "sales.deal-desk"],
     "primary_agent": "sales.proposal-writer",
-    "participants": [
-      "sales.proposal-generator",
-      "sales.deal-desk"
-    ],
+    "participants": ["sales.proposal-generator", "sales.deal-desk"],
     "parallel": true,
     "max_parallel_agents": 3
   },

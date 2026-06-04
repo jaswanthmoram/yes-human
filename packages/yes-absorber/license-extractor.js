@@ -13,28 +13,43 @@ import fs from 'fs';
 import path from 'path';
 
 const LICENSE_FILE_CANDIDATES = [
-  'LICENSE', 'LICENSE.md', 'LICENSE.txt',
-  'LICENCE', 'LICENCE.md', 'LICENCE.txt',
-  'COPYING', 'COPYING.md', 'COPYING.txt'
+  'LICENSE',
+  'LICENSE.md',
+  'LICENSE.txt',
+  'LICENCE',
+  'LICENCE.md',
+  'LICENCE.txt',
+  'COPYING',
+  'COPYING.md',
+  'COPYING.txt'
 ];
 
 // Quick SPDX detection from license text. Pattern → SPDX id.
 // Ordered: most specific first (AGPL before GPL, BSD-3 before BSD-2, etc.)
 const SPDX_PATTERNS = [
-  { spdx: 'MIT',          re: /^MIT License|\bMIT License\b|Permission is hereby granted, free of charge.*MIT|^The MIT License/im },
-  { spdx: 'Apache-2.0',   re: /Apache License,?\s*Version\s*2\.0|Licensed under the Apache License, Version 2\.0/i },
-  { spdx: 'BSD-3-Clause', re: /Redistribution and use.*\bin source and binary forms\b[\s\S]{1,400}3\.\s*Neither the name/i },
-  { spdx: 'BSD-2-Clause', re: /Redistribution and use.*\bin source and binary forms\b[\s\S]{1,400}2\.\s*Redistributions in binary/i },
-  { spdx: 'ISC',          re: /\bISC License\b|Permission to use, copy, modify, and\/or distribute/i },
-  { spdx: 'Unlicense',    re: /This is free and unencumbered software released into the public domain/i },
-  { spdx: 'CC0-1.0',      re: /Creative Commons.*CC0|CC0\s*1\.0\s*Universal/i },
-  { spdx: 'AGPL-3.0',     re: /GNU AFFERO GENERAL PUBLIC LICENSE\s+Version 3/i },
-  { spdx: 'GPL-3.0',      re: /GNU GENERAL PUBLIC LICENSE\s+Version 3/i },
-  { spdx: 'GPL-2.0',      re: /GNU GENERAL PUBLIC LICENSE\s+Version 2/i },
-  { spdx: 'LGPL-3.0',     re: /GNU LESSER GENERAL PUBLIC LICENSE\s+Version 3/i },
-  { spdx: 'LGPL-2.1',     re: /GNU LESSER GENERAL PUBLIC LICENSE\s+Version 2\.1/i },
-  { spdx: 'MPL-2.0',      re: /Mozilla Public License Version 2\.0/i },
-  { spdx: 'SSPL',         re: /Server Side Public License/i }
+  {
+    spdx: 'MIT',
+    re: /^MIT License|\bMIT License\b|Permission is hereby granted, free of charge.*MIT|^The MIT License/im
+  },
+  { spdx: 'Apache-2.0', re: /Apache License,?\s*Version\s*2\.0|Licensed under the Apache License, Version 2\.0/i },
+  {
+    spdx: 'BSD-3-Clause',
+    re: /Redistribution and use.*\bin source and binary forms\b[\s\S]{1,400}3\.\s*Neither the name/i
+  },
+  {
+    spdx: 'BSD-2-Clause',
+    re: /Redistribution and use.*\bin source and binary forms\b[\s\S]{1,400}2\.\s*Redistributions in binary/i
+  },
+  { spdx: 'ISC', re: /\bISC License\b|Permission to use, copy, modify, and\/or distribute/i },
+  { spdx: 'Unlicense', re: /This is free and unencumbered software released into the public domain/i },
+  { spdx: 'CC0-1.0', re: /Creative Commons.*CC0|CC0\s*1\.0\s*Universal/i },
+  { spdx: 'AGPL-3.0', re: /GNU AFFERO GENERAL PUBLIC LICENSE\s+Version 3/i },
+  { spdx: 'GPL-3.0', re: /GNU GENERAL PUBLIC LICENSE\s+Version 3/i },
+  { spdx: 'GPL-2.0', re: /GNU GENERAL PUBLIC LICENSE\s+Version 2/i },
+  { spdx: 'LGPL-3.0', re: /GNU LESSER GENERAL PUBLIC LICENSE\s+Version 3/i },
+  { spdx: 'LGPL-2.1', re: /GNU LESSER GENERAL PUBLIC LICENSE\s+Version 2\.1/i },
+  { spdx: 'MPL-2.0', re: /Mozilla Public License Version 2\.0/i },
+  { spdx: 'SSPL', re: /Server Side Public License/i }
 ];
 
 /** Classify an SPDX id against the registry. */
@@ -93,7 +108,9 @@ export function extractLicense(sourceRoot, registry) {
           source_file: 'package.json'
         };
       }
-    } catch { /* ignore */ }
+    } catch {
+      /* ignore */
+    }
   }
 
   // 3. pyproject.toml — quick text scan for license = "..."

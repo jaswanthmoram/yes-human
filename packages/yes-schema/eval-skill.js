@@ -35,9 +35,15 @@ function normalize(text) {
 function domainHints(prompt) {
   const p = normalize(prompt);
   const hints = [];
-  if (/security|owasp|vulnerability|secret|auth|pci|gdpr|iam|penetration|threat|compliance officer|attack/.test(p)) hints.push('security');
+  if (/security|owasp|vulnerability|secret|auth|pci|gdpr|iam|penetration|threat|compliance officer|attack/.test(p))
+    hints.push('security');
   if (/payroll|expense|forecast|budget|financial|invoice|revenue/.test(p)) hints.push('finance');
-  if (/commercial risks|enterprise agreement|territory assignments|stakeholder relationships for strategic account/.test(p)) hints.push('sales');
+  if (
+    /commercial risks|enterprise agreement|territory assignments|stakeholder relationships for strategic account/.test(
+      p
+    )
+  )
+    hints.push('sales');
   if (/legal|contract|nda|terms of service|privacy policy/.test(p)) hints.push('legal-compliance');
   if (/startup|fundraising|founder|pmf|growth hack|market sizing/.test(p)) hints.push('startup-ops');
   if (/product roadmap|prd/.test(p)) hints.push('product-business');
@@ -78,7 +84,9 @@ function scoreSkillMatch(prompt, skill) {
       }
     }
   }
-  return best.confidence > 0 ? { skill_id: skill.id, match_type: best.match_type, confidence: best.confidence } : { skill_id: null, match_type: 'none', confidence: 0 };
+  return best.confidence > 0
+    ? { skill_id: skill.id, match_type: best.match_type, confidence: best.confidence }
+    : { skill_id: null, match_type: 'none', confidence: 0 };
 }
 
 function resolveSkill(prompt, skills) {
@@ -118,7 +126,7 @@ const failures = [];
 for (const fx of fixtures) {
   const resolved = resolveSkill(fx.prompt, skills);
   const expected = fx.expected_skill;
-  
+
   if (resolved.skill_id === expected) {
     correct++;
   } else {

@@ -6,7 +6,7 @@ import { hashValue } from './redaction.js';
 
 /**
  * Tool Executor - Executes tools with hooks, policies, and fallback chains
- * 
+ *
  * Integrates:
  * - Pre-tool hooks (permission + tool strategy)
  * - Policy evaluation (tool-use rules, MCP trust, network policies)
@@ -25,7 +25,7 @@ export class ToolExecutor {
 
   /**
    * Execute a tool with full lifecycle hooks
-   * 
+   *
    * @param {string} tool - Tool name
    * @param {Object} args - Tool arguments
    * @param {string} agent - Agent ID
@@ -34,7 +34,7 @@ export class ToolExecutor {
    */
   async execute(tool, args, agent, task) {
     const startTime = Date.now();
-    
+
     try {
       // 1. Run pre-tool hooks (permission + tool strategy)
       const preToolResult = await this.hookRunner.run('pre-tool', {
@@ -54,14 +54,10 @@ export class ToolExecutor {
       }
 
       // Use modified tool from pre-tool hooks if available
-      const toolToExecute = preToolResult.results
-        .map(r => r.result?.modified_tool)
-        .filter(Boolean)[0] || tool;
+      const toolToExecute = preToolResult.results.map((r) => r.result?.modified_tool).filter(Boolean)[0] || tool;
 
       // Use fallback chain from pre-tool hooks if available
-      const fallbackChain = preToolResult.results
-        .map(r => r.result?.fallback_chain)
-        .filter(Boolean)[0] || [];
+      const fallbackChain = preToolResult.results.map((r) => r.result?.fallback_chain).filter(Boolean)[0] || [];
 
       // 2. Execute tool with fallback chain
       const result = await this.executeWithFallback(toolToExecute, args, fallbackChain);
@@ -96,7 +92,6 @@ export class ToolExecutor {
         tool: toolToExecute,
         duration
       };
-
     } catch (error) {
       const duration = Date.now() - startTime;
 

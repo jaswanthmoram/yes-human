@@ -4,55 +4,110 @@
   "status": "active",
   "summary": "Analyze production performance, identify bottlenecks, and recommend optimization actions to improve throughput, quality, and cost efficiency.",
   "task_family": "production_optimization",
-  "triggers": ["production optimization review", "throughput improvement analysis", "production efficiency audit", "bottleneck elimination plan", "production cost reduction"],
+  "triggers": [
+    "production optimization review",
+    "throughput improvement analysis",
+    "production efficiency audit",
+    "bottleneck elimination plan",
+    "production cost reduction"
+  ],
   "aliases": ["production optimization", "throughput improvement"],
   "negative_keywords": ["code review", "financial forecast", "contract review"],
   "inputs": [
-    {"name": "production_data", "required": true, "description": "Production output, cycle times, downtime, and yield data by line and period."},
-    {"name": "capacity_data", "required": true, "description": "Equipment capacity, utilization rates, and constraint identification."},
-    {"name": "quality_metrics", "required": false, "description": "Defect rates, rework costs, and quality hold data."}
+    {
+      "name": "production_data",
+      "required": true,
+      "description": "Production output, cycle times, downtime, and yield data by line and period."
+    },
+    {
+      "name": "capacity_data",
+      "required": true,
+      "description": "Equipment capacity, utilization rates, and constraint identification."
+    },
+    {
+      "name": "quality_metrics",
+      "required": false,
+      "description": "Defect rates, rework costs, and quality hold data."
+    }
   ],
   "outputs": [
-    {"name": "bottleneck_analysis", "description": "Identified bottlenecks ranked by throughput impact."},
-    {"name": "optimization_plan", "description": "Prioritized improvement actions with expected impact and timeline."},
-    {"name": "performance_baseline", "description": "Current state metrics for throughput, OEE, and cost per unit."}
+    { "name": "bottleneck_analysis", "description": "Identified bottlenecks ranked by throughput impact." },
+    {
+      "name": "optimization_plan",
+      "description": "Prioritized improvement actions with expected impact and timeline."
+    },
+    { "name": "performance_baseline", "description": "Current state metrics for throughput, OEE, and cost per unit." }
   ],
   "primary_agent": "manufacturing.production-engineer",
   "route": {
     "domain_master": "manufacturing.master",
-    "agents": ["manufacturing.production-engineer", "manufacturing.process-engineer", "manufacturing.manufacturing-analyst"],
+    "agents": [
+      "manufacturing.production-engineer",
+      "manufacturing.process-engineer",
+      "manufacturing.manufacturing-analyst"
+    ],
     "primary_agent": "manufacturing.production-engineer",
     "participants": ["manufacturing.process-engineer", "manufacturing.manufacturing-analyst"],
     "parallel": false,
     "max_parallel_agents": 3
   },
-  "budget": {"band": "standard", "max_context_tokens": 5000, "max_tool_calls": 12},
+  "budget": { "band": "standard", "max_context_tokens": 5000, "max_tool_calls": 12 },
   "gates": [
-    {"id": "pre-route", "rule": "Confirm the task is production optimization, not financial forecasting or code deployment."},
-    {"id": "pre-tool", "rule": "Require production data and capacity data before bottleneck analysis."},
-    {"id": "on-task-complete", "rule": "Output must include bottleneck analysis, optimization plan, and performance baseline."}
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is production optimization, not financial forecasting or code deployment."
+    },
+    { "id": "pre-tool", "rule": "Require production data and capacity data before bottleneck analysis." },
+    {
+      "id": "on-task-complete",
+      "rule": "Output must include bottleneck analysis, optimization plan, and performance baseline."
+    }
   ],
   "steps": [
-    {"id": "validate-inputs", "agent": "manufacturing.production-engineer", "action": "Check production and capacity data for completeness and consistency."},
-    {"id": "baseline-performance", "agent": "manufacturing.manufacturing-analyst", "action": "Calculate current OEE, throughput rates, and cost per unit."},
-    {"id": "identify-bottlenecks", "agent": "manufacturing.process-engineer", "action": "Analyze process flow to identify constraints and bottlenecks."},
-    {"id": "develop-optimization-plan", "agent": "manufacturing.production-engineer", "action": "Create prioritized improvement plan with expected impact and timeline."}
+    {
+      "id": "validate-inputs",
+      "agent": "manufacturing.production-engineer",
+      "action": "Check production and capacity data for completeness and consistency."
+    },
+    {
+      "id": "baseline-performance",
+      "agent": "manufacturing.manufacturing-analyst",
+      "action": "Calculate current OEE, throughput rates, and cost per unit."
+    },
+    {
+      "id": "identify-bottlenecks",
+      "agent": "manufacturing.process-engineer",
+      "action": "Analyze process flow to identify constraints and bottlenecks."
+    },
+    {
+      "id": "develop-optimization-plan",
+      "agent": "manufacturing.production-engineer",
+      "action": "Create prioritized improvement plan with expected impact and timeline."
+    }
   ],
   "tools": [
-    {"name": "filesystem.read", "purpose": "Read production data, capacity reports, and quality metrics."},
-    {"name": "filesystem.write", "purpose": "Save the optimization plan and performance baseline."}
+    { "name": "filesystem.read", "purpose": "Read production data, capacity reports, and quality metrics." },
+    { "name": "filesystem.write", "purpose": "Save the optimization plan and performance baseline." }
   ],
   "verification": [
-    {"id": "bottlenecks-ranked", "method": "Check that bottlenecks are ranked by throughput impact."},
-    {"id": "actions-prioritized", "method": "Check that optimization actions have expected impact and timeline."},
-    {"id": "baseline-documented", "method": "Check that current state metrics are documented."}
+    { "id": "bottlenecks-ranked", "method": "Check that bottlenecks are ranked by throughput impact." },
+    { "id": "actions-prioritized", "method": "Check that optimization actions have expected impact and timeline." },
+    { "id": "baseline-documented", "method": "Check that current state metrics are documented." }
   ],
   "success_criteria": [
     "Bottlenecks are identified and ranked by throughput impact.",
     "Optimization actions are specific with expected impact and timeline.",
     "Current state performance baseline is documented."
   ],
-  "rollback": {"mode": "trace_based", "when": "If the analysis uses stale production data or invents capacity figures, roll back to verified inputs."},
-  "source_references": [{"dossier_path": "references/workflows/manufacturing/production-optimization.sources.json", "relationship": "workflow_dossier"}],
-  "promotion": {"can_learn": true, "min_successes_before_update": 2, "quality_gate": "staging"}
+  "rollback": {
+    "mode": "trace_based",
+    "when": "If the analysis uses stale production data or invents capacity figures, roll back to verified inputs."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/manufacturing/production-optimization.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": { "can_learn": true, "min_successes_before_update": 2, "quality_gate": "staging" }
 }

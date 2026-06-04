@@ -38,7 +38,10 @@ before(() => {
 
   forbiddenDir = path.join(fixtureRoot, 'forbidden-source');
   fs.mkdirSync(forbiddenDir, { recursive: true });
-  fs.writeFileSync(path.join(forbiddenDir, 'LICENSE'), 'GNU GENERAL PUBLIC LICENSE\n                       Version 3, 29 June 2007');
+  fs.writeFileSync(
+    path.join(forbiddenDir, 'LICENSE'),
+    'GNU GENERAL PUBLIC LICENSE\n                       Version 3, 29 June 2007'
+  );
   fs.writeFileSync(path.join(forbiddenDir, 'README.md'), '# Forbidden');
 });
 

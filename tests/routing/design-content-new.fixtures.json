@@ -14,11 +14,23 @@
     { "prompt": "run a usability evaluation on the signup form", "expected_route": "route.design-content.ux-designer" },
     { "prompt": "information architecture for the help center", "expected_route": "route.design-content.ux-designer" },
 
-    { "prompt": "design interaction patterns for the notification system", "expected_route": "route.design-content.interaction-designer" },
-    { "prompt": "define gesture system for the mobile app", "expected_route": "route.design-content.interaction-designer" },
+    {
+      "prompt": "design interaction patterns for the notification system",
+      "expected_route": "route.design-content.interaction-designer"
+    },
+    {
+      "prompt": "define gesture system for the mobile app",
+      "expected_route": "route.design-content.interaction-designer"
+    },
     { "prompt": "specify transitions between screens", "expected_route": "route.design-content.interaction-designer" },
-    { "prompt": "create feedback pattern library for forms", "expected_route": "route.design-content.interaction-designer" },
-    { "prompt": "design micro-interactions for the like button", "expected_route": "route.design-content.interaction-designer" },
+    {
+      "prompt": "create feedback pattern library for forms",
+      "expected_route": "route.design-content.interaction-designer"
+    },
+    {
+      "prompt": "design micro-interactions for the like button",
+      "expected_route": "route.design-content.interaction-designer"
+    },
 
     { "prompt": "design a visual language for the product", "expected_route": "route.design-content.visual-designer" },
     { "prompt": "create a color palette for the brand", "expected_route": "route.design-content.visual-designer" },
@@ -26,23 +38,56 @@
     { "prompt": "build an iconography system for the app", "expected_route": "route.design-content.visual-designer" },
     { "prompt": "create a visual style guide for marketing", "expected_route": "route.design-content.visual-designer" },
 
-    { "prompt": "create a new design system for the platform", "expected_route": "route.design-content.design-systems" },
+    {
+      "prompt": "create a new design system for the platform",
+      "expected_route": "route.design-content.design-systems"
+    },
     { "prompt": "design token architecture for multi-brand", "expected_route": "route.design-content.design-systems" },
     { "prompt": "set up component library governance", "expected_route": "route.design-content.design-systems" },
     { "prompt": "design system documentation site", "expected_route": "route.design-content.design-systems" },
-    { "prompt": "audit the existing design system for consistency", "expected_route": "route.design-content.design-systems" },
+    {
+      "prompt": "audit the existing design system for consistency",
+      "expected_route": "route.design-content.design-systems"
+    },
 
-    { "prompt": "run an accessibility audit on the dashboard", "expected_route": "route.design-content.accessibility-auditor" },
-    { "prompt": "wcag 2.2 compliance check for the app", "expected_route": "route.design-content.accessibility-auditor" },
-    { "prompt": "inclusive design review for the signup flow", "expected_route": "route.design-content.accessibility-auditor" },
-    { "prompt": "a11y remediation plan for the navigation", "expected_route": "route.design-content.accessibility-auditor" },
-    { "prompt": "screen reader testing for the data table", "expected_route": "route.design-content.accessibility-auditor" },
+    {
+      "prompt": "run an accessibility audit on the dashboard",
+      "expected_route": "route.design-content.accessibility-auditor"
+    },
+    {
+      "prompt": "wcag 2.2 compliance check for the app",
+      "expected_route": "route.design-content.accessibility-auditor"
+    },
+    {
+      "prompt": "inclusive design review for the signup flow",
+      "expected_route": "route.design-content.accessibility-auditor"
+    },
+    {
+      "prompt": "a11y remediation plan for the navigation",
+      "expected_route": "route.design-content.accessibility-auditor"
+    },
+    {
+      "prompt": "screen reader testing for the data table",
+      "expected_route": "route.design-content.accessibility-auditor"
+    },
 
-    { "prompt": "develop a content strategy for the blog", "expected_route": "route.design-content.content-strategist" },
-    { "prompt": "content audit for the help documentation", "expected_route": "route.design-content.content-strategist" },
+    {
+      "prompt": "develop a content strategy for the blog",
+      "expected_route": "route.design-content.content-strategist"
+    },
+    {
+      "prompt": "content audit for the help documentation",
+      "expected_route": "route.design-content.content-strategist"
+    },
     { "prompt": "editorial calendar for q3 publishing", "expected_route": "route.design-content.content-strategist" },
-    { "prompt": "content governance framework for the team", "expected_route": "route.design-content.content-strategist" },
-    { "prompt": "audience content mapping for new segments", "expected_route": "route.design-content.content-strategist" },
+    {
+      "prompt": "content governance framework for the team",
+      "expected_route": "route.design-content.content-strategist"
+    },
+    {
+      "prompt": "audience content mapping for new segments",
+      "expected_route": "route.design-content.content-strategist"
+    },
 
     { "prompt": "write product copy for the pricing page", "expected_route": "route.design-content.copywriter" },
     { "prompt": "microcopy for the error messages", "expected_route": "route.design-content.copywriter" },
@@ -50,19 +95,37 @@
     { "prompt": "product messaging for the new feature launch", "expected_route": "route.design-content.copywriter" },
     { "prompt": "call to action writing for the signup form", "expected_route": "route.design-content.copywriter" },
 
-    { "prompt": "write api documentation for the rest endpoints", "expected_route": "route.design-content.technical-writer" },
+    {
+      "prompt": "write api documentation for the rest endpoints",
+      "expected_route": "route.design-content.technical-writer"
+    },
     { "prompt": "author readme for the new package", "expected_route": "route.design-content.technical-writer" },
-    { "prompt": "create runbook for the deployment process", "expected_route": "route.design-content.technical-writer" },
+    {
+      "prompt": "create runbook for the deployment process",
+      "expected_route": "route.design-content.technical-writer"
+    },
     { "prompt": "write developer guide for the sdk", "expected_route": "route.design-content.technical-writer" },
-    { "prompt": "technical docs review for the migration guide", "expected_route": "route.design-content.technical-writer" },
+    {
+      "prompt": "technical docs review for the migration guide",
+      "expected_route": "route.design-content.technical-writer"
+    },
 
     { "prompt": "editing pass on the blog post draft", "expected_route": "route.design-content.content-editor" },
-    { "prompt": "copy review and refinement for the homepage", "expected_route": "route.design-content.content-editor" },
+    {
+      "prompt": "copy review and refinement for the homepage",
+      "expected_route": "route.design-content.content-editor"
+    },
     { "prompt": "style guide compliance check on the docs", "expected_route": "route.design-content.content-editor" },
     { "prompt": "tone consistency review across all pages", "expected_route": "route.design-content.content-editor" },
-    { "prompt": "grammar and clarity edit for the whitepaper", "expected_route": "route.design-content.content-editor" },
+    {
+      "prompt": "grammar and clarity edit for the whitepaper",
+      "expected_route": "route.design-content.content-editor"
+    },
 
-    { "prompt": "write seo optimized article about cloud computing", "expected_route": "route.design-content.seo-writer" },
+    {
+      "prompt": "write seo optimized article about cloud computing",
+      "expected_route": "route.design-content.seo-writer"
+    },
     { "prompt": "search optimized blog post about devops", "expected_route": "route.design-content.seo-writer" },
     { "prompt": "keyword targeted content for the product page", "expected_route": "route.design-content.seo-writer" },
     { "prompt": "seo blog post draft about machine learning", "expected_route": "route.design-content.seo-writer" },
@@ -75,9 +138,18 @@
     { "prompt": "visual identity refresh for the platform", "expected_route": "route.design-content.brand-designer" },
 
     { "prompt": "motion design system for the product", "expected_route": "route.design-content.motion-designer" },
-    { "prompt": "animation principles definition for the brand", "expected_route": "route.design-content.motion-designer" },
+    {
+      "prompt": "animation principles definition for the brand",
+      "expected_route": "route.design-content.motion-designer"
+    },
     { "prompt": "transition timing design for the app", "expected_route": "route.design-content.motion-designer" },
-    { "prompt": "micro-interaction animation for the toggle", "expected_route": "route.design-content.motion-designer" },
-    { "prompt": "motion language creation for the design system", "expected_route": "route.design-content.motion-designer" }
+    {
+      "prompt": "micro-interaction animation for the toggle",
+      "expected_route": "route.design-content.motion-designer"
+    },
+    {
+      "prompt": "motion language creation for the design system",
+      "expected_route": "route.design-content.motion-designer"
+    }
   ]
 }

@@ -62,55 +62,68 @@ rollback:
 validators:
   - skill.validator
 ---
+
 ## Trigger
+
 Use when tests have hard-coded data that causes conflicts, or when you need realistic-looking data for UI tests or seeding.
 
 ## Prerequisites
+
 - `npm install @faker-js/faker` or `yarn add @faker-js/faker`
 
 ## Steps
 
 ### 1. Install and Configure
+
 Install faker. Add a global beforeAll that calls `faker.seed(12345)` for snapshot tests that need determinism.
 
 ### 2. Create Factory Functions
+
 ```ts
 export const buildUser = (overrides = {}) => ({
   id: faker.string.uuid(),
   email: faker.internet.email(),
   name: faker.person.fullName(),
   role: 'viewer',
-  ...overrides,
+  ...overrides
 });
 ```
 
 ### 3. Use Realistic Values
+
 Use faker's categories: faker.internet.email(), faker.commerce.price(), faker.phone.number(), faker.date.past(). Match the domain.
 
 ### 4. Support Overrides
+
 Every factory must accept partial overrides. Tests that need specific values override just those fields: `buildUser({ role: 'admin' })`.
 
 ### 5. Centralize Factories
+
 Place all factories in `src/__factories__/` or `tests/factories/`. Export from an index file.
 
 ### 6. Document Defaults
+
 Add a README to the factories directory explaining what each factory produces and common override patterns.
 
 ## Verification
+
 - [ ] All entities have factories
 - [ ] Factories support overrides
 - [ ] No hard-coded emails/names in test files
 
 ## Rollback
+
 Replace factory calls with simple static objects if factory complexity exceeds its value.
 
 ## Common Failures
-| Failure | Cause | Fix |
-|---------|-------|-----|
-| Snapshot tests fail after seed change | Seed not fixed | Use faker.seed(constant) |
+
+| Failure                                  | Cause                      | Fix                        |
+| ---------------------------------------- | -------------------------- | -------------------------- |
+| Snapshot tests fail after seed change    | Seed not fixed             | Use faker.seed(constant)   |
 | Factory generates invalid domain objects | No domain rules in factory | Add post-create validation |
-| Tests slow from factory overhead | Factory too complex | Profile and simplify |
+| Tests slow from factory overhead         | Factory too complex        | Profile and simplify       |
 
 ## Examples
+
 **Example A:** E-commerce: `buildProduct({ price: 0 })` tests free product edge case.
 **Example B:** Auth: `buildUser({ emailVerified: false })` tests unverified user flow.

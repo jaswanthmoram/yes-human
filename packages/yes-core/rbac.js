@@ -27,7 +27,10 @@ const DEFAULT_POLICY = {
     }
   },
   deny: [
-    { permission: 'production:mutate:feedback', reason: 'Feedback promotion is staging-only and never mutates production directly.' },
+    {
+      permission: 'production:mutate:feedback',
+      reason: 'Feedback promotion is staging-only and never mutates production directly.'
+    },
     { permission: 'secret:read', reason: 'Secrets must be referenced by environment variable names only.' }
   ]
 };
@@ -51,11 +54,39 @@ export function resolveRole(role, policy = DEFAULT_POLICY, seen = new Set()) {
   return permissions;
 }
 
+/**
+ * Check whether a role has a permission.
+ *
+ * Permission matching rules (in order):
+ *   1. **Explicit deny** — if `policy.deny[].permission === permission`, return false.
+ *      Deny entries are exact-match only; no wildcards. To deny a namespace,
+ *      list each permission explicitly.
+ *   2. **Universal grant** — if the role's resolved set contains `'*'`, return true.
+ *      Use sparingly; this is "root".
+ *   3. **Exact match** — if the resolved set contains `permission` literally, return true.
+ *   4. **Namespace wildcard** — if any granted permission ends in `:*` and the
+ *      requested permission starts with the prefix before `:*`, return true.
+ *      Example: granted `route:*` matches requested `route:read` and `route:write`.
+ *      NOTE: only the trailing `:*` is special — `*:read` or `route:*:meta` are
+ *      treated as literal strings and will only match themselves exactly.
+ *
+ * Inheritance: role A `extends: ['B']` gets all of B's permissions transitively.
+ * Cycle-safe via the `seen` set in `resolveRole`.
+ *
+ * @param {string|null} role - Role name; falls back to policy.default_role.
+ * @param {string} permission - Dotted permission string, e.g. `workflow:execute`.
+ * @param {object} policy - RBAC policy object (default: DEFAULT_POLICY).
+ * @returns {boolean}
+ */
 export function hasPermission(role, permission, policy = DEFAULT_POLICY) {
   const deny = policy.deny || [];
   if (deny.some((rule) => rule.permission === permission)) return false;
   const permissions = resolveRole(role, policy);
-  return permissions.has('*') || permissions.has(permission) || Array.from(permissions).some((p) => p.endsWith(':*') && permission.startsWith(p.slice(0, -1)));
+  return (
+    permissions.has('*') ||
+    permissions.has(permission) ||
+    Array.from(permissions).some((p) => p.endsWith(':*') && permission.startsWith(p.slice(0, -1)))
+  );
 }
 
 export function assertPermission(role, permission, policy = DEFAULT_POLICY) {

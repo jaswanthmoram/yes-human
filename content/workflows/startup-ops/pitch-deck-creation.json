@@ -4,21 +4,9 @@
   "status": "active",
   "summary": "Create an investor-ready pitch deck with compelling narrative, data visualization, and structured storytelling.",
   "task_family": "startup_ops",
-  "triggers": [
-    "create pitch deck",
-    "pitch deck creation",
-    "build investor deck",
-    "startup presentation"
-  ],
-  "aliases": [
-    "deck creation",
-    "pitch build"
-  ],
-  "negative_keywords": [
-    "sales collateral",
-    "product documentation",
-    "training material"
-  ],
+  "triggers": ["create pitch deck", "pitch deck creation", "build investor deck", "startup presentation"],
+  "aliases": ["deck creation", "pitch build"],
+  "negative_keywords": ["sales collateral", "product documentation", "training material"],
   "inputs": [
     {
       "name": "company_narrative",
@@ -53,14 +41,9 @@
   "primary_agent": "startup-ops.pitch-deck-creator",
   "route": {
     "domain_master": "startup-ops.master",
-    "agents": [
-      "startup-ops.pitch-deck-creator",
-      "startup-ops.financial-modeler"
-    ],
+    "agents": ["startup-ops.pitch-deck-creator", "startup-ops.financial-modeler"],
     "primary_agent": "startup-ops.pitch-deck-creator",
-    "participants": [
-      "startup-ops.startup-strategist"
-    ],
+    "participants": ["startup-ops.startup-strategist"],
     "parallel": false,
     "max_parallel_agents": 3
   },

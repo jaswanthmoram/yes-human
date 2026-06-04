@@ -27,10 +27,13 @@ test('retention metadata distinguishes private traces and prunes expired jsonl r
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'yh-retention-'));
   try {
     const file = path.join(dir, 'traces.jsonl');
-    fs.writeFileSync(file, [
-      JSON.stringify({ trace_id: 'old', retention: { expires_at: '2000-01-01T00:00:00.000Z' } }),
-      JSON.stringify({ trace_id: 'new', retention: { expires_at: '2999-01-01T00:00:00.000Z' } })
-    ].join('\n') + '\n');
+    fs.writeFileSync(
+      file,
+      [
+        JSON.stringify({ trace_id: 'old', retention: { expires_at: '2000-01-01T00:00:00.000Z' } }),
+        JSON.stringify({ trace_id: 'new', retention: { expires_at: '2999-01-01T00:00:00.000Z' } })
+      ].join('\n') + '\n'
+    );
     const result = pruneJsonlFile(file, new Date('2026-01-01T00:00:00.000Z'));
     assert.equal(result.removed, 1);
     const stored = fs.readFileSync(file, 'utf8');

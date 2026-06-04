@@ -1,6 +1,6 @@
 /**
  * On-error hook: Mistake Graph
- * 
+ *
  * Runs when an error occurs. Performs:
  * 1. Error logging to episodic memory
  * 2. Mistake graph update (for future avoidance)
@@ -18,7 +18,7 @@ export default async function onError(context) {
   try {
     const { error, task, agent, tool, args } = context;
     const errorMessage = redactString(error?.message || String(error));
-    
+
     // 1. Log error to episodic memory
     const episodeId = memory.addEpisodicMemory('errors', {
       error_type: classifyError(error),
@@ -31,7 +31,7 @@ export default async function onError(context) {
       args: sanitizeArgs(args),
       timestamp: new Date().toISOString()
     });
-    
+
     // 2. Update mistake graph (semantic memory)
     const mistakePattern = extractMistakePattern(context);
     if (mistakePattern) {
@@ -52,11 +52,13 @@ export default async function onError(context) {
         error_type: mistakePattern.error_type
       });
     }
-    
+
     // 3. Log to console
-    console.error(`[error] task_hash=${task ? learning.createTrace({ task, route_id: context.route_id, success: false }).task_hash : 'empty'} agent=${agent} error=${errorMessage} episode=${episodeId}`);
-    
-    return { 
+    console.error(
+      `[error] task_hash=${task ? learning.createTrace({ task, route_id: context.route_id, success: false }).task_hash : 'empty'} agent=${agent} error=${errorMessage} episode=${episodeId}`
+    );
+
+    return {
       handled: true,
       episode_id: episodeId,
       mistake_pattern: mistakePattern
@@ -71,9 +73,9 @@ export default async function onError(context) {
  */
 function classifyError(error) {
   if (!error) return 'unknown';
-  
+
   const message = (error.message || String(error)).toLowerCase();
-  
+
   if (message.includes('timeout')) return 'timeout';
   if (message.includes('network') || message.includes('connection')) return 'network';
   if (message.includes('permission') || message.includes('denied')) return 'permission';
@@ -81,7 +83,7 @@ function classifyError(error) {
   if (message.includes('invalid') || message.includes('validation')) return 'validation';
   if (message.includes('rate limit') || message.includes('429')) return 'rate_limit';
   if (message.includes('auth') || message.includes('unauthorized')) return 'authentication';
-  
+
   return 'unknown';
 }
 
@@ -91,41 +93,41 @@ function classifyError(error) {
 function extractMistakePattern(context) {
   const { error, task, agent, tool } = context;
   const errorType = classifyError(error);
-  
+
   // Common mistake patterns
   const patterns = {
-    'timeout': {
+    timeout: {
       pattern: `Timeout on ${tool || 'operation'}`,
       lesson: 'Consider increasing timeout or breaking into smaller operations',
       context: task ? `task_hash:${hashValue(task, 24)}` : null
     },
-    'network': {
+    network: {
       pattern: `Network error on ${tool || 'operation'}`,
       lesson: 'Check network connectivity or use fallback tool',
       context: task ? `task_hash:${hashValue(task, 24)}` : null
     },
-    'permission': {
+    permission: {
       pattern: `Permission denied on ${tool || 'operation'}`,
       lesson: 'Verify permissions before attempting operation',
       context: task ? `task_hash:${hashValue(task, 24)}` : null
     },
-    'not_found': {
+    not_found: {
       pattern: `Resource not found: ${tool || 'operation'}`,
       lesson: 'Verify resource exists before accessing',
       context: task ? `task_hash:${hashValue(task, 24)}` : null
     },
-    'validation': {
+    validation: {
       pattern: `Validation error on ${tool || 'operation'}`,
       lesson: 'Validate inputs before passing to tool',
       context: task ? `task_hash:${hashValue(task, 24)}` : null
     },
-    'rate_limit': {
+    rate_limit: {
       pattern: `Rate limit exceeded on ${tool || 'operation'}`,
       lesson: 'Implement rate limiting or use alternative tool',
       context: task ? `task_hash:${hashValue(task, 24)}` : null
     }
   };
-  
+
   const pattern = patterns[errorType];
   if (pattern) {
     return {
@@ -133,7 +135,7 @@ function extractMistakePattern(context) {
       error_type: errorType
     };
   }
-  
+
   return null;
 }
 

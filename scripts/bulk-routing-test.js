@@ -43,7 +43,7 @@ async function main() {
 
   function resolveExpectedRoute(prompt, originalExpected) {
     const query = normalize(prompt);
-    
+
     const getRoute = (routeId) => {
       return routes.find((r) => r.route_id === routeId) || null;
     };
@@ -124,11 +124,7 @@ async function main() {
     }
 
     // 4-6. Embedded keywords in question-based natural language wrappers
-    const newContexts = [
-      'how do i do',
-      'can you help me with',
-      'is it possible to perform'
-    ];
+    const newContexts = ['how do i do', 'can you help me with', 'is it possible to perform'];
     for (let i = 0; i < 3; i++) {
       const kw = keywords[i % keywords.length];
       const ctx = newContexts[i];
@@ -136,10 +132,7 @@ async function main() {
     }
 
     // 7-8. Task-oriented verb variation
-    const verbPhrases = [
-      `go ahead and start ${keywords[0]}`,
-      `process the ${keywords[0]} flow`
-    ];
+    const verbPhrases = [`go ahead and start ${keywords[0]}`, `process the ${keywords[0]} flow`];
     for (let i = 0; i < 2; i++) {
       tcs.push({ prompt: verbPhrases[i], expected: routeId, type: 'verb_variation' });
     }
@@ -156,7 +149,11 @@ async function main() {
 
     // 10. Embedded alias in a different phrase
     const aliasVal = aliases.length > 0 ? aliases[0] : routeId.split('.').pop().replace(/-/g, ' ');
-    tcs.push({ prompt: `run task using the ${aliasVal} agent please`, expected: routeId, type: 'embedded_alias_alternate' });
+    tcs.push({
+      prompt: `run task using the ${aliasVal} agent please`,
+      expected: routeId,
+      type: 'embedded_alias_alternate'
+    });
 
     // Override expected routes dynamically using deterministic routing rules
     for (const tc of tcs) {

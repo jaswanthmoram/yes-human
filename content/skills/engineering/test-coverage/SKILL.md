@@ -62,48 +62,61 @@ rollback:
 validators:
   - skill.validator
 ---
+
 ## Trigger
+
 Use when coverage is dropping, before a major release, or when setting up a new project's quality baseline.
 
 ## Prerequisites
+
 - `jest --coverage` or `go test -coverprofile` working
 - Team agreed on minimum branch/line thresholds
 
 ## Steps
 
 ### 1. Generate Report with Branch Coverage
+
 `jest --coverage --coverageReporters=html,text-summary` — open the HTML report. Look at uncovered branches (shown as yellow), not just lines.
 
 ### 2. Prioritize by Business Risk
+
 Focus first on: auth/authz logic, payment processing, error handlers, data transformation. Ignore: generated code, migrations, test utilities.
 
 ### 3. Understand Each Branch
+
 For each uncovered branch, read the code to understand what condition triggers it. Don't write tests without understanding the behavior.
 
 ### 4. Write Meaningful Tests
+
 Write one test per uncovered branch. The test should assert the correct outcome, not just execute the line.
 
 ### 5. Verify Gap Closure
+
 Re-run with coverage. Confirm the branch is now green.
 
 ### 6. Set and Enforce Threshold
+
 `coverageThreshold: { global: { branches: 80, lines: 80 } }` in jest.config.js. Add coverage report to CI artifacts.
 
 ## Verification
+
 - [ ] Branch coverage ≥80% on priority modules
 - [ ] CI enforces threshold
 - [ ] Coverage report committed or uploaded to CI artifacts
 
 ## Rollback
+
 Lower threshold temporarily with a PR comment explaining the plan to restore it.
 
 ## Common Failures
-| Failure | Cause | Fix |
-|---------|-------|-----|
-| Line 100%, branch 40% | Not using branch mode | Add --coverage with branch reporting |
-| Coverage drops with every PR | No coverage CI gate | Add threshold to jest.config.js |
-| Tests only test happy path | Developers avoid error paths | Pair coverage review with code review |
+
+| Failure                      | Cause                        | Fix                                   |
+| ---------------------------- | ---------------------------- | ------------------------------------- |
+| Line 100%, branch 40%        | Not using branch mode        | Add --coverage with branch reporting  |
+| Coverage drops with every PR | No coverage CI gate          | Add threshold to jest.config.js       |
+| Tests only test happy path   | Developers avoid error paths | Pair coverage review with code review |
 
 ## Examples
+
 **Example A:** Auth module has 95% line coverage but error handler branch uncovered — write test where JWT is expired.
 **Example B:** Payment processing has 60% branch coverage — write tests for declined card, insufficient funds, timeout.

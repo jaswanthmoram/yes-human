@@ -25,9 +25,9 @@ What actually happened. Include error output if applicable.
 
 ## Environment
 
-- Node version: 
-- OS: 
-- yes-human version: 
+- Node version:
+- OS:
+- yes-human version:
 
 ## Additional Context
 

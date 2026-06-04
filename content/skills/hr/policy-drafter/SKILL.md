@@ -66,6 +66,7 @@ validators:
 ---
 
 ## Procedure
+
 1. Clarify the policy goal, audience, jurisdiction, and required reviewers.
 2. Draft purpose, scope, definitions, rules, examples, exceptions, and enforcement path.
 3. Compare against existing handbook and related policies for contradictions.
@@ -73,6 +74,7 @@ validators:
 5. Prepare employee FAQ and rollout notes.
 
 ## Verification
+
 - HR and legal review are required before publication.
 - Jurisdiction-sensitive language is flagged.
 - The policy can be applied consistently by managers.

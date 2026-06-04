@@ -7,8 +7,9 @@
       "event": "pre-route",
       "runtime": "node",
       "entry": "hooks/pre-route.js",
-      "inputs": ["task", "estimatedTokens", "context"],
-      "outputs": ["modified_task", "block_reason"],
+      "priority": 200,
+      "inputs": ["task"],
+      "outputs": ["modified_task", "block_reason", "routing_hint", "signal_words", "active_persona", "allowed", "rule", "policy"],
       "policy_dependencies": ["budget.rules.json", "safety.rules.json"],
       "host_support": {
         "cli": "native",
@@ -22,8 +23,9 @@
       "event": "pre-route",
       "runtime": "node",
       "entry": "hooks/pre-route-llm-assist.js",
+      "priority": 100,
       "inputs": ["task", "routerConfidence"],
-      "outputs": ["routing_hint"],
+      "outputs": ["routing_hint", "allowed"],
       "policy_dependencies": [],
       "host_support": {
         "cli": "native",
@@ -116,8 +118,8 @@
       "event": "post-route",
       "runtime": "node",
       "entry": "hooks/post-route.js",
-      "inputs": ["task", "route", "duration"],
-      "outputs": ["logged"],
+      "inputs": ["task", "route"],
+      "outputs": ["logged", "route_id", "error"],
       "policy_dependencies": ["telemetry.policy.json"],
       "host_support": {
         "cli": "native",

@@ -66,6 +66,7 @@ validators:
 ---
 
 ## Procedure
+
 1. Capture party roles, purpose, transaction context, and risk posture.
 2. Review confidentiality definition, exclusions, permitted disclosures, term, and return obligations.
 3. Flag unusual business terms and missing operational protections.
@@ -73,6 +74,7 @@ validators:
 5. Require attorney review before signing or sending redlines.
 
 ## Verification
+
 - No legal conclusion is presented as final advice.
 - Each issue cites a clause or missing clause.
 - Counsel review is explicit.

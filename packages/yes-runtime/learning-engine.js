@@ -152,30 +152,33 @@ export class LearningEngine {
     };
 
     appendJsonl(this.outcomesFile, normalized);
-    const stats = readJsonIfExists(this.routeStatsFile, {
-      version: '1.0.0',
-      generated_at: new Date().toISOString(),
-      routes: {}
-    });
-    const decay = this.policy.outcome_tracking?.decay ?? 0.92;
-    const current = stats.routes[normalized.route_id] || {
-      route_id: normalized.route_id,
-      events: 0,
-      decayed_success: 0,
-      decayed_failure: 0,
-      last_outcome_at: null
-    };
+    let current;
+    withFileLockSync(this.routeStatsFile, () => {
+      const stats = readJsonIfExists(this.routeStatsFile, {
+        version: '1.0.0',
+        generated_at: new Date().toISOString(),
+        routes: {}
+      });
+      const decay = this.policy.outcome_tracking?.decay ?? 0.92;
+      current = stats.routes[normalized.route_id] || {
+        route_id: normalized.route_id,
+        events: 0,
+        decayed_success: 0,
+        decayed_failure: 0,
+        last_outcome_at: null
+      };
 
-    current.events += 1;
-    current.decayed_success = current.decayed_success * decay + (normalized.success ? normalized.score : 0);
-    current.decayed_failure = current.decayed_failure * decay + (!normalized.success ? 1 - normalized.score || 1 : 0);
-    current.last_outcome_at = normalized.created_at;
-    const total = current.decayed_success + current.decayed_failure;
-    current.success_rate = total > 0 ? current.decayed_success / total : null;
-    current.signal_ready = current.events >= (this.policy.outcome_tracking?.min_events_for_signal || 3);
-    stats.generated_at = new Date().toISOString();
-    stats.routes[normalized.route_id] = current;
-    writeJson(this.routeStatsFile, stats);
+      current.events += 1;
+      current.decayed_success = current.decayed_success * decay + (normalized.success ? normalized.score : 0);
+      current.decayed_failure = current.decayed_failure * decay + (!normalized.success ? 1 - normalized.score || 1 : 0);
+      current.last_outcome_at = normalized.created_at;
+      const total = current.decayed_success + current.decayed_failure;
+      current.success_rate = total > 0 ? current.decayed_success / total : null;
+      current.signal_ready = current.events >= (this.policy.outcome_tracking?.min_events_for_signal || 3);
+      stats.generated_at = new Date().toISOString();
+      stats.routes[normalized.route_id] = current;
+      writeJson(this.routeStatsFile, stats);
+    });
 
     if (!normalized.success) {
       this.updateMistakeGraph({
@@ -213,42 +216,45 @@ export class LearningEngine {
   }
 
   updateMistakeGraph(mistake = {}) {
-    const graph = readJsonIfExists(this.mistakeGraphFile, {
-      version: '1.0.0',
-      generated_at: new Date().toISOString(),
-      nodes: {},
-      edges: []
-    });
-    const route_id = mistake.route_id || 'route.meta-system.supreme-router';
-    const failure_class = mistake.failure_class || 'unspecified';
-    const nodeId = `${route_id}#${failure_class}`;
-    const node = graph.nodes[nodeId] || {
-      id: nodeId,
-      route_id,
-      failure_class,
-      count: 0,
-      traces: [],
-      suggested_routes: {}
-    };
-    node.count += 1;
-    if (mistake.trace_id && !node.traces.includes(mistake.trace_id)) {
-      node.traces.push(mistake.trace_id);
-      node.traces = node.traces.slice(-20);
-    }
-    if (mistake.suggested_route) {
-      node.suggested_routes[mistake.suggested_route] = (node.suggested_routes[mistake.suggested_route] || 0) + 1;
-      graph.edges.push({
-        from: nodeId,
-        to: mistake.suggested_route,
-        type: 'suggested_correction',
-        trace_id: mistake.trace_id || null,
-        created_at: new Date().toISOString()
+    let node;
+    withFileLockSync(this.mistakeGraphFile, () => {
+      const graph = readJsonIfExists(this.mistakeGraphFile, {
+        version: '1.0.0',
+        generated_at: new Date().toISOString(),
+        nodes: {},
+        edges: []
       });
-    }
-    node.candidate_ready = node.count >= (this.policy.mistake_graph?.min_repeats_for_candidate || 2);
-    graph.generated_at = new Date().toISOString();
-    graph.nodes[nodeId] = node;
-    writeJson(this.mistakeGraphFile, graph);
+      const route_id = mistake.route_id || 'route.meta-system.supreme-router';
+      const failure_class = mistake.failure_class || 'unspecified';
+      const nodeId = `${route_id}#${failure_class}`;
+      node = graph.nodes[nodeId] || {
+        id: nodeId,
+        route_id,
+        failure_class,
+        count: 0,
+        traces: [],
+        suggested_routes: {}
+      };
+      node.count += 1;
+      if (mistake.trace_id && !node.traces.includes(mistake.trace_id)) {
+        node.traces.push(mistake.trace_id);
+        node.traces = node.traces.slice(-20);
+      }
+      if (mistake.suggested_route) {
+        node.suggested_routes[mistake.suggested_route] = (node.suggested_routes[mistake.suggested_route] || 0) + 1;
+        graph.edges.push({
+          from: nodeId,
+          to: mistake.suggested_route,
+          type: 'suggested_correction',
+          trace_id: mistake.trace_id || null,
+          created_at: new Date().toISOString()
+        });
+      }
+      node.candidate_ready = node.count >= (this.policy.mistake_graph?.min_repeats_for_candidate || 2);
+      graph.generated_at = new Date().toISOString();
+      graph.nodes[nodeId] = node;
+      writeJson(this.mistakeGraphFile, graph);
+    });
     return { node, graph_path: this.mistakeGraphFile };
   }
 

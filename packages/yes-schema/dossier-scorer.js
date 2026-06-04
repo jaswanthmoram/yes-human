@@ -2,7 +2,7 @@
 
 /**
  * Dossier Scorer - Evaluates source dossiers based on 7 quality dimensions
- * 
+ *
  * Scoring dimensions:
  * 1. source_count (0-20): Number of unique sources
  * 2. official_docs (0-15): Presence of official documentation
@@ -11,7 +11,7 @@
  * 5. maintenance (0-10): How well sources are maintained
  * 6. pattern_clarity (0-10): Clarity of patterns extracted
  * 7. testability (0-10): How testable the patterns are
- * 
+ *
  * Total: 0-100 points
  */
 
@@ -106,16 +106,16 @@ export function scoreDossier(dossier) {
 
   for (const source of dossier.sources) {
     const { details } = scoreSource(source);
-    
+
     if (details.github_quality !== undefined) {
       totalGithubQuality += details.github_quality;
       githubCount++;
     }
-    
+
     if (details.license_safety !== undefined) {
       totalLicenseSafety += details.license_safety;
     }
-    
+
     if (details.official_docs !== undefined) {
       totalOfficialDocs += details.official_docs;
     }
@@ -136,7 +136,7 @@ export function scoreDossier(dossier) {
   const now = new Date();
   const recentThreshold = new Date(now.getTime() - SCORING_CONFIG.maintenance.recent_days * 24 * 60 * 60 * 1000);
   let recentCount = 0;
-  
+
   for (const source of dossier.sources) {
     if (source.last_updated) {
       const lastUpdated = new Date(source.last_updated);
@@ -145,7 +145,7 @@ export function scoreDossier(dossier) {
       }
     }
   }
-  
+
   if (recentCount >= 3) scores.maintenance = 10;
   else if (recentCount >= 2) scores.maintenance = 7;
   else if (recentCount >= 1) scores.maintenance = 4;
@@ -186,10 +186,10 @@ export function scoreAllDossiers() {
 
   function processDirectory(dir) {
     const entries = fs.readdirSync(dir, { withFileTypes: true });
-    
+
     for (const entry of entries) {
       const fullPath = path.join(dir, entry.name);
-      
+
       if (entry.isDirectory()) {
         processDirectory(fullPath);
       } else if (entry.name.endsWith('.sources.json')) {
@@ -197,7 +197,7 @@ export function scoreAllDossiers() {
           const content = fs.readFileSync(fullPath, 'utf8');
           const dossier = JSON.parse(content);
           const scores = scoreDossier(dossier);
-          
+
           results.push({
             path: path.relative(repoRoot, fullPath),
             dossier_id: dossier.dossier_id,
@@ -226,25 +226,25 @@ export function generateScoreReport(results) {
     average_score: 0,
     score_distribution: {
       excellent: 0, // 90-100
-      good: 0,      // 80-89
-      fair: 0,      // 70-79
-      poor: 0       // <70
+      good: 0, // 80-89
+      fair: 0, // 70-79
+      poor: 0 // <70
     },
     by_domain: {},
     low_scoring: []
   };
 
   let totalScore = 0;
-  
+
   for (const result of results) {
     totalScore += result.scores.total;
-    
+
     // Distribution
     if (result.scores.total >= 90) report.score_distribution.excellent++;
     else if (result.scores.total >= 80) report.score_distribution.good++;
     else if (result.scores.total >= 70) report.score_distribution.fair++;
     else report.score_distribution.poor++;
-    
+
     // By domain
     const domain = result.domain || 'unknown';
     if (!report.by_domain[domain]) {
@@ -252,7 +252,7 @@ export function generateScoreReport(results) {
     }
     report.by_domain[domain].count++;
     report.by_domain[domain].total_score += result.scores.total;
-    
+
     // Low scoring
     if (result.scores.total < 70) {
       report.low_scoring.push({
@@ -264,7 +264,7 @@ export function generateScoreReport(results) {
   }
 
   report.average_score = Math.round(totalScore / results.length);
-  
+
   // Calculate domain averages
   for (const domain in report.by_domain) {
     const data = report.by_domain[domain];
@@ -277,31 +277,31 @@ export function generateScoreReport(results) {
 // CLI interface
 if (import.meta.url === `file://${process.argv[1]}`) {
   console.log('Scoring all dossiers...\n');
-  
+
   const results = scoreAllDossiers();
   const report = generateScoreReport(results);
-  
+
   console.log(`Total dossiers: ${report.total_dossiers}`);
   console.log(`Average score: ${report.average_score}/100\n`);
-  
+
   console.log('Score distribution:');
   console.log(`  Excellent (90-100): ${report.score_distribution.excellent}`);
   console.log(`  Good (80-89): ${report.score_distribution.good}`);
   console.log(`  Fair (70-79): ${report.score_distribution.fair}`);
   console.log(`  Poor (<70): ${report.score_distribution.poor}\n`);
-  
+
   console.log('By domain:');
   for (const [domain, data] of Object.entries(report.by_domain).sort((a, b) => b[1].average - a[1].average)) {
     console.log(`  ${domain}: ${data.average}/100 (${data.count} dossiers)`);
   }
-  
+
   if (report.low_scoring.length > 0) {
     console.log(`\nLow scoring dossiers (<70):`);
     for (const item of report.low_scoring.slice(0, 10)) {
       console.log(`  ${item.path}: ${item.score}/100`);
     }
   }
-  
+
   // Write detailed results
   const outputPath = path.join(repoRoot, 'reports', 'dossier-scores.json');
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });

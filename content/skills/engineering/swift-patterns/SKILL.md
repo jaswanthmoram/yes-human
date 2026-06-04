@@ -60,47 +60,59 @@ validators:
 ---
 
 ## Trigger
+
 Use this skill for tasks related to: swift review, swift code review, review swift.
 
 ## Prerequisites
+
 - Access to the relevant artifact (code, document, system)
 - Clear understanding of the goal and constraints
 
 ## Steps
 
 ### 1. Step
+
 Check optional handling — avoid force unwrap (!); use guard let or if let with meaningful fallback
 
 ### 2. Step
+
 Review actor isolation — Swift 6 strict concurrency requires explicit actor boundaries; check @MainActor usage
 
 ### 3. Step
+
 Check retain cycles — closures capturing self must use [weak self] or [unowned self] appropriately
 
 ### 4. Step
+
 Review SwiftUI view lifecycle — @StateObject for owned objects, @ObservedObject for injected; don't mix them
 
 ### 5. Step
+
 Check async/await usage — never call async functions in init() without Task {}; Task must be cancelled on disappear
 
 ### 6. Step
+
 Review Codable conformance — custom CodingKeys must cover all cases; missing keys cause runtime crashes
 
 ## Verification
+
 - [ ] All steps completed
 - [ ] Output reviewed against quality gates
 - [ ] Sources cited where applicable
 
 ## Rollback
+
 No writes — read-only review
 
 ## Common Failures
-| Failure | Cause | Fix |
-|---------|-------|-----|
-| Force unwrap without justification | See procedure | Address in review |
+
+| Failure                                       | Cause         | Fix               |
+| --------------------------------------------- | ------------- | ----------------- |
+| Force unwrap without justification            | See procedure | Address in review |
 | Missing [weak self] in closure capturing self | See procedure | Address in review |
-| @StateObject used for injected objects | See procedure | Address in review |
+| @StateObject used for injected objects        | See procedure | Address in review |
 
 ## Examples
+
 **Example A:** Apply this skill to a typical instance of 'swift review'.
 **Example B:** Apply this skill when facing 'review swift' in a complex codebase.

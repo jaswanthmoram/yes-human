@@ -10,15 +10,8 @@
     "content program design",
     "topic cluster strategy"
   ],
-  "aliases": [
-    "content strategy",
-    "editorial strategy"
-  ],
-  "negative_keywords": [
-    "ad copy",
-    "email campaign",
-    "social media posting"
-  ],
+  "aliases": ["content strategy", "editorial strategy"],
+  "negative_keywords": ["ad copy", "email campaign", "social media posting"],
   "inputs": [
     {
       "name": "business_goals",
@@ -53,14 +46,9 @@
   "primary_agent": "marketing.content-marketer",
   "route": {
     "domain_master": "marketing.master",
-    "agents": [
-      "marketing.content-marketer",
-      "marketing.seo-analyst"
-    ],
+    "agents": ["marketing.content-marketer", "marketing.seo-analyst"],
     "primary_agent": "marketing.content-marketer",
-    "participants": [
-      "marketing.seo-analyst"
-    ],
+    "participants": ["marketing.seo-analyst"],
     "parallel": true,
     "max_parallel_agents": 2
   },

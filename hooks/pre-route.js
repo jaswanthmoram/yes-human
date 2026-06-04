@@ -1,6 +1,6 @@
 /**
  * Pre-route hook: Budget + Safety + Signal-Word Routing
- * 
+ *
  * Runs before routing decision. Checks:
  * 1. Token budget (from budget.rules.json)
  * 2. Safety keywords (from safety.rules.json)
@@ -11,8 +11,11 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { PolicyEvaluator } from '@yes-human/core';
+import { getSharedPolicyEvaluator } from '@yes-human/core';
+import { createLogger } from '../packages/yes-core/logger.js';
 import { MAX_ROUTE_DEPTH } from '../packages/yes-runtime/router.js';
+
+const log = createLogger('hook:pre-route');
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -28,17 +31,19 @@ function loadActivePersona() {
     if (!personaId) return null;
     if (!fs.existsSync(PERSONAS_REGISTRY)) return null;
     const registry = JSON.parse(fs.readFileSync(PERSONAS_REGISTRY, 'utf8'));
-    return (registry.items || []).find(p => p.persona_id === personaId) || null;
-  } catch { return null; }
+    return (registry.items || []).find((p) => p.persona_id === personaId) || null;
+  } catch {
+    return null;
+  }
 }
 
 export default async function preRoute(context, policyEvaluator = null) {
   try {
     const { task, estimatedTokens, depth = 0, visited = [] } = context;
-    
-    // Initialize policy evaluator if not provided
-    const evaluator = policyEvaluator || new PolicyEvaluator();
-    
+
+    // Initialize policy evaluator if not provided (shared singleton)
+    const evaluator = policyEvaluator || getSharedPolicyEvaluator();
+
     // 1. Budget check
     if (estimatedTokens !== undefined) {
       const budgetCheck = evaluator.evaluate({
@@ -46,48 +51,48 @@ export default async function preRoute(context, policyEvaluator = null) {
         estimatedTokens,
         task
       });
-      
+
       if (!budgetCheck.allowed) {
-        return { 
+        return {
           block_reason: budgetCheck.reason,
           rule: budgetCheck.rule,
           policy: budgetCheck.policy
         };
       }
     }
-    
+
     // 2. Safety check (destructive keywords)
     const safetyCheck = evaluator.evaluate({
       action: 'route',
       task
     });
-    
+
     if (!safetyCheck.allowed) {
-      return { 
+      return {
         block_reason: safetyCheck.reason,
         rule: safetyCheck.rule
       };
     }
-    
+
     // 3. Signal-word routing (from AgentMaster pattern)
     const signalWords = extractSignalWords(task);
     const routingHint = matchSignalWords(signalWords);
-    
+
     // 4. Loop prevention (from loop-prevention.rules.json)
     if (depth > MAX_ROUTE_DEPTH) {
-      return { 
+      return {
         block_reason: `Max routing depth (${MAX_ROUTE_DEPTH}) exceeded`,
         rule: 'loop-prevention'
       };
     }
-    
+
     if (routingHint && visited.includes(routingHint.routeId)) {
-      return { 
+      return {
         block_reason: `Circular route detected: ${routingHint.routeId}`,
         rule: 'loop-prevention'
       };
     }
-    
+
     // 5. Persona bias — inject preferred domain hint if a persona is active
     const persona = loadActivePersona();
     let personaHint = null;
@@ -108,7 +113,7 @@ export default async function preRoute(context, policyEvaluator = null) {
       allowed: true
     };
   } catch (err) {
-    console.error(`⚠ Graceful degradation: pre-route hook encountered an infrastructure error: ${err.message}`);
+    log.warn('Graceful degradation: pre-route hook infrastructure error', { error: err.message });
     return {
       allowed: true,
       modified_task: context.task || task
@@ -122,26 +127,26 @@ export default async function preRoute(context, policyEvaluator = null) {
  */
 function extractSignalWords(task) {
   if (!task || typeof task !== 'string') return [];
-  
+
   const words = task.toLowerCase().split(/\s+/);
   const signalPatterns = {
-    'build': ['build', 'create', 'implement', 'develop', 'make'],
-    'bug': ['bug', 'crash', 'error', 'fix', 'debug', 'issue'],
-    'review': ['review', 'audit', 'check', 'analyze', 'inspect'],
-    'deploy': ['deploy', 'ship', 'release', 'publish', 'push'],
-    'test': ['test', 'verify', 'validate', 'qa', 'check'],
-    'security': ['security', 'vulnerability', 'exploit', 'audit'],
-    'refactor': ['refactor', 'cleanup', 'improve', 'optimize'],
-    'docs': ['docs', 'documentation', 'readme', 'guide', 'tutorial']
+    build: ['build', 'create', 'implement', 'develop', 'make'],
+    bug: ['bug', 'crash', 'error', 'fix', 'debug', 'issue'],
+    review: ['review', 'audit', 'check', 'analyze', 'inspect'],
+    deploy: ['deploy', 'ship', 'release', 'publish', 'push'],
+    test: ['test', 'verify', 'validate', 'qa', 'check'],
+    security: ['security', 'vulnerability', 'exploit', 'audit'],
+    refactor: ['refactor', 'cleanup', 'improve', 'optimize'],
+    docs: ['docs', 'documentation', 'readme', 'guide', 'tutorial']
   };
-  
+
   const matched = [];
   for (const [category, patterns] of Object.entries(signalPatterns)) {
-    if (patterns.some(p => words.includes(p))) {
+    if (patterns.some((p) => words.includes(p))) {
       matched.push(category);
     }
   }
-  
+
   return matched;
 }
 
@@ -151,19 +156,19 @@ function extractSignalWords(task) {
  */
 function matchSignalWords(signalWords) {
   if (signalWords.length === 0) return null;
-  
+
   // Routing map with priorities (higher = more specific)
   const routingMap = {
-    'build': { routeId: 'route.engineering.master', priority: 1 },
-    'bug': { routeId: 'route.engineering.build-resolver', priority: 3 },
-    'review': { routeId: 'route.engineering.code-reviewer', priority: 2 },
-    'deploy': { routeId: 'route.platform.master', priority: 1 },
-    'test': { routeId: 'route.engineering.tdd-guide', priority: 2 },
-    'security': { routeId: 'route.security.master', priority: 4 },
-    'refactor': { routeId: 'route.engineering.refactor-cleaner', priority: 2 },
-    'docs': { routeId: 'route.engineering.docs-updater', priority: 1 }
+    build: { routeId: 'route.engineering.master', priority: 1 },
+    bug: { routeId: 'route.engineering.build-resolver', priority: 3 },
+    review: { routeId: 'route.engineering.code-reviewer', priority: 2 },
+    deploy: { routeId: 'route.platform.master', priority: 1 },
+    test: { routeId: 'route.engineering.tdd-guide', priority: 2 },
+    security: { routeId: 'route.security.master', priority: 4 },
+    refactor: { routeId: 'route.engineering.refactor-cleaner', priority: 2 },
+    docs: { routeId: 'route.engineering.docs-updater', priority: 1 }
   };
-  
+
   // Validate routes against registry/routes.json
   const routesPath = path.join(repoRoot, 'registry/routes.json');
   let validRoutes = new Set();
@@ -176,15 +181,15 @@ function matchSignalWords(signalWords) {
         }
       }
     } catch (err) {
-      console.error(`⚠ [pre-route] Failed to parse registry/routes.json: ${err.message}`);
+      log.error('Failed to parse registry/routes.json', { error: err.message });
     }
   }
 
   const matchedHints = signalWords
-    .map(w => {
+    .map((w) => {
       const hint = routingMap[w];
       if (hint && validRoutes.size > 0 && !validRoutes.has(hint.routeId)) {
-        console.error(`⚠ [pre-route] Hook routed signal-word to invalid/unregistered routeId: ${hint.routeId}`);
+        log.warn('Signal-word maps to unregistered routeId; dropping hint', { routeId: hint.routeId });
         return null;
       }
       return hint;

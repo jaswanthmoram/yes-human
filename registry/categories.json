@@ -31,7 +31,7 @@
       "keywords": ["vulnerability", "cve", "threat model", "leak", "secret scan"],
       "children": [],
       "default_budget_band": "standard",
-      "quality_threshold": 0.90
+      "quality_threshold": 0.9
     },
     {
       "id": "platform",
@@ -128,7 +128,13 @@
       "name": "Sales Pipeline, Proposals, and Account Management",
       "parent": null,
       "master_agent": "sales.master",
-      "keywords": ["sales strategy", "pipeline analysis", "proposal generation", "pricing strategy", "account management"],
+      "keywords": [
+        "sales strategy",
+        "pipeline analysis",
+        "proposal generation",
+        "pricing strategy",
+        "account management"
+      ],
       "children": [],
       "default_budget_band": "standard",
       "quality_threshold": 0.85
@@ -138,7 +144,13 @@
       "name": "Healthcare and Clinical Decision Support (high-stakes)",
       "parent": null,
       "master_agent": "healthcare.master",
-      "keywords": ["clinical decision support", "ehr workflow", "phi compliance", "clinical guideline", "medical reasoning"],
+      "keywords": [
+        "clinical decision support",
+        "ehr workflow",
+        "phi compliance",
+        "clinical guideline",
+        "medical reasoning"
+      ],
       "children": [],
       "default_budget_band": "standard",
       "quality_threshold": 0.92
@@ -148,7 +160,13 @@
       "name": "Education and Personalized Learning",
       "parent": null,
       "master_agent": "education.master",
-      "keywords": ["curriculum design", "learning assessment", "personalized tutor", "lms patterns", "instructional design"],
+      "keywords": [
+        "curriculum design",
+        "learning assessment",
+        "personalized tutor",
+        "lms patterns",
+        "instructional design"
+      ],
       "children": [],
       "default_budget_band": "standard",
       "quality_threshold": 0.85
@@ -158,7 +176,13 @@
       "name": "Manufacturing and Supply Chain",
       "parent": null,
       "master_agent": "manufacturing.master",
-      "keywords": ["inventory planning", "demand planning", "production scheduling", "supply chain", "quality nonconformance"],
+      "keywords": [
+        "inventory planning",
+        "demand planning",
+        "production scheduling",
+        "supply chain",
+        "quality nonconformance"
+      ],
       "children": [],
       "default_budget_band": "standard",
       "quality_threshold": 0.85
@@ -171,7 +195,7 @@
       "keywords": ["hiring process", "onboarding plan", "performance review", "compensation analysis", "hr policy"],
       "children": [],
       "default_budget_band": "standard",
-      "quality_threshold": 0.90
+      "quality_threshold": 0.9
     },
     {
       "id": "finance",

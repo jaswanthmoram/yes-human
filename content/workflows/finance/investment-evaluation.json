@@ -10,15 +10,8 @@
     "investment analysis workflow",
     "deal screening process"
   ],
-  "aliases": [
-    "investment evaluation",
-    "investment review"
-  ],
-  "negative_keywords": [
-    "legal review",
-    "code review",
-    "marketing campaign"
-  ],
+  "aliases": ["investment evaluation", "investment review"],
+  "negative_keywords": ["legal review", "code review", "marketing campaign"],
   "inputs": [
     {
       "name": "investment_opportunity",
@@ -53,16 +46,9 @@
   "primary_agent": "finance.investment-analyst",
   "route": {
     "domain_master": "finance.master",
-    "agents": [
-      "finance.investment-analyst",
-      "finance.risk-manager",
-      "finance.valuation-expert"
-    ],
+    "agents": ["finance.investment-analyst", "finance.risk-manager", "finance.valuation-expert"],
     "primary_agent": "finance.investment-analyst",
-    "participants": [
-      "finance.risk-manager",
-      "finance.valuation-expert"
-    ],
+    "participants": ["finance.risk-manager", "finance.valuation-expert"],
     "parallel": true,
     "max_parallel_agents": 3
   },

@@ -2,7 +2,18 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Yes-human Offline Mode",
   "type": "object",
-  "required": ["id", "version", "enabled", "env_flag", "state_dir", "journal_file", "checkpoint_file", "network_policy_when_offline", "connector_fallback", "crash_recovery"],
+  "required": [
+    "id",
+    "version",
+    "enabled",
+    "env_flag",
+    "state_dir",
+    "journal_file",
+    "checkpoint_file",
+    "network_policy_when_offline",
+    "connector_fallback",
+    "crash_recovery"
+  ],
   "properties": {
     "id": { "type": "string" },
     "version": { "type": "string" },

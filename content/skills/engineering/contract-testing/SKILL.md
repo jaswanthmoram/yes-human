@@ -69,9 +69,11 @@ validators:
 ---
 
 ## Trigger
+
 Use when services need to agree on API interfaces without a live integration test environment, or when integration tests are slow and flaky.
 
 ## Prerequisites
+
 - Consumer and provider repos identified and accessible
 - Pact broker configured, or using local pact files for single-repo setups
 - Test framework installed (Jest + @pact-foundation/pact)
@@ -79,39 +81,49 @@ Use when services need to agree on API interfaces without a live integration tes
 ## Steps
 
 ### 1. Write Consumer Test
+
 Define the expected interaction using the Pact DSL. Specify the exact request path, method, headers, body matchers. Use matchers (like, term, eachLike) not exact values to avoid brittle contracts.
 
 ### 2. Generate Contract File
+
 Run the consumer test suite. Pact writes a JSON contract file to ./pacts/ describing every interaction. Review the file — it is the source of truth.
 
 ### 3. Publish to Broker
+
 Push the pact file to a Pact Broker (pactflow.io or self-hosted). Tag with branch name and version. This makes it available to the provider.
 
 ### 4. Write Provider Verification
+
 On the provider side, configure the pact verifier to load contracts from the broker. Point it at the running provider. Run: the verifier replays each consumer interaction and checks the response matches.
 
 ### 5. Wire into CI
+
 Consumer CI: generate and publish pact. Provider CI: pull latest contracts, run verification. Both sides: run `can-i-deploy` before any merge or deploy.
 
 ### 6. Handle Failures
+
 If verification fails, the provider team is notified immediately. They must either update the provider or negotiate a new contract with the consumer team. Never suppress failures.
 
 ## Verification
+
 - [ ] Pact file contains all consumer interactions
 - [ ] Provider verification passes with 0 failures
 - [ ] can-i-deploy returns green for the target environment
 - [ ] Both consumer and provider CI pipelines run pact checks
 
 ## Rollback
+
 Remove pact file from broker. Revert consumer expectations if a new contract caused provider failures.
 
 ## Common Failures
-| Failure | Cause | Fix |
-|---------|-------|-----|
-| Provider verification fails on optional field | Consumer used exact match instead of `like()` | Switch to Pact matchers |
-| can-i-deploy times out | Broker not receiving publish events | Check CI publish step |
-| Contracts drift silently | Provider CI doesn't run verification | Add provider verification job |
+
+| Failure                                       | Cause                                         | Fix                           |
+| --------------------------------------------- | --------------------------------------------- | ----------------------------- |
+| Provider verification fails on optional field | Consumer used exact match instead of `like()` | Switch to Pact matchers       |
+| can-i-deploy times out                        | Broker not receiving publish events           | Check CI publish step         |
+| Contracts drift silently                      | Provider CI doesn't run verification          | Add provider verification job |
 
 ## Examples
+
 **Example A:** Frontend React app defines pact for the `/users/{id}` endpoint; backend Node API verifies against it in CI.
 **Example B:** Microservice A consumes events from Service B's REST API — contract tests prevent Service B from silently renaming fields.

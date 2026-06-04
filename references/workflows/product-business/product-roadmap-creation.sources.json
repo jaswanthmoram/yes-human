@@ -99,10 +99,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "product roadmap creation: Claude Swarm patterns and workflow references",
-        "verification pattern 8"
-      ],
+      "used_for": ["product roadmap creation: Claude Swarm patterns and workflow references", "verification pattern 8"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -125,10 +122,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "product roadmap creation: MCP Compass patterns and workflow references",
-        "verification pattern 10"
-      ],
+      "used_for": ["product roadmap creation: MCP Compass patterns and workflow references", "verification pattern 10"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"

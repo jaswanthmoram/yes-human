@@ -4,21 +4,9 @@
   "status": "active",
   "summary": "Build a design system from scratch with tokens, components, documentation, and governance.",
   "task_family": "design_system",
-  "triggers": [
-    "create a new design system",
-    "build design system from scratch",
-    "set up design system for product"
-  ],
-  "aliases": [
-    "design system setup",
-    "ds creation",
-    "design system build"
-  ],
-  "negative_keywords": [
-    "one-off mockup",
-    "marketing campaign",
-    "security audit"
-  ],
+  "triggers": ["create a new design system", "build design system from scratch", "set up design system for product"],
+  "aliases": ["design system setup", "ds creation", "design system build"],
+  "negative_keywords": ["one-off mockup", "marketing campaign", "security audit"],
   "inputs": [
     {
       "name": "product_ecosystem",
@@ -54,27 +42,18 @@
   "primary_agent": "design-content.design-systems",
   "route": {
     "domain_master": "design-content.master",
-    "agents": [
-      "design-content.design-systems"
-    ],
+    "agents": ["design-content.design-systems"],
     "parallel": true,
     "max_parallel_agents": 3,
     "primary": "design-content.design-systems",
-    "participants": [
-      "design-content.visual-designer",
-      "design-content.accessibility-auditor"
-    ]
+    "participants": ["design-content.visual-designer", "design-content.accessibility-auditor"]
   },
   "budget": {
     "band": "expanded",
     "max_context_tokens": 8000,
     "max_tool_calls": 20
   },
-  "gates": [
-    "pre-route",
-    "pre-tool",
-    "on-task-complete"
-  ],
+  "gates": ["pre-route", "pre-tool", "on-task-complete"],
   "steps": [
     {
       "id": "audit-existing-assets",
@@ -101,11 +80,7 @@
       "summary": "Audit components for WCAG 2.2 AA compliance."
     }
   ],
-  "tools": [
-    "filesystem.read",
-    "filesystem.write",
-    "design_tool_integration"
-  ],
+  "tools": ["filesystem.read", "filesystem.write", "design_tool_integration"],
   "verification": [
     "token_architecture_has_naming_convention",
     "all_components_have_documentation",
@@ -122,9 +97,7 @@
     "mode": "file_revert",
     "summary": "Revert design system files to previous state."
   },
-  "source_references": [
-    "ref.workflow.design-content.design-system-creation.2026-05-31"
-  ],
+  "source_references": ["ref.workflow.design-content.design-system-creation.2026-05-31"],
   "promotion": {
     "can_learn": true,
     "quality_gate": "staging",

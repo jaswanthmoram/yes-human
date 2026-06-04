@@ -60,47 +60,59 @@ validators:
 ---
 
 ## Trigger
+
 Use this skill for tasks related to: java review, java code review, review java.
 
 ## Prerequisites
+
 - Access to the relevant artifact (code, document, system)
 - Clear understanding of the goal and constraints
 
 ## Steps
 
 ### 1. Step
+
 Check for null pointer risks — prefer Optional<T> over returning null; use @NonNull annotations
 
 ### 2. Step
+
 Review thread safety — shared mutable state requires synchronization or concurrent collections
 
 ### 3. Step
+
 Check exception handling — never catch(Exception e) {} silently; always log or rethrow
 
 ### 4. Step
+
 Review stream usage — avoid side effects in stream lambdas; prefer collect() over forEach for transformation
 
 ### 5. Step
+
 Check equals/hashCode contract — if you override equals, you must override hashCode
 
 ### 6. Step
+
 Review resource management — always use try-with-resources for Closeable objects
 
 ## Verification
+
 - [ ] All steps completed
 - [ ] Output reviewed against quality gates
 - [ ] Sources cited where applicable
 
 ## Rollback
+
 No writes — read-only review
 
 ## Common Failures
-| Failure | Cause | Fix |
-|---------|-------|-----|
+
+| Failure                                         | Cause         | Fix               |
+| ----------------------------------------------- | ------------- | ----------------- |
 | Approving null returns without Optional wrapper | See procedure | Address in review |
-| Missing synchronized on shared state | See procedure | Address in review |
-| Silent exception swallowing | See procedure | Address in review |
+| Missing synchronized on shared state            | See procedure | Address in review |
+| Silent exception swallowing                     | See procedure | Address in review |
 
 ## Examples
+
 **Example A:** Apply this skill to a typical instance of 'java review'.
 **Example B:** Apply this skill when facing 'review java' in a complex codebase.

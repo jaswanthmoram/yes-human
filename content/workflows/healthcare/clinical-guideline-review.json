@@ -11,15 +11,8 @@
     "guideline implementation readiness",
     "clinical protocol review"
   ],
-  "aliases": [
-    "guideline review",
-    "clinical protocol check"
-  ],
-  "negative_keywords": [
-    "code review",
-    "financial forecast",
-    "marketing campaign"
-  ],
+  "aliases": ["guideline review", "clinical protocol check"],
+  "negative_keywords": ["code review", "financial forecast", "marketing campaign"],
   "inputs": [
     {
       "name": "guideline_document",
@@ -54,14 +47,9 @@
   "primary_agent": "healthcare.clinical-decision-support",
   "route": {
     "domain_master": "healthcare.master",
-    "agents": [
-      "healthcare.clinical-decision-support",
-      "healthcare.phi-compliance"
-    ],
+    "agents": ["healthcare.clinical-decision-support", "healthcare.phi-compliance"],
     "primary_agent": "healthcare.clinical-decision-support",
-    "participants": [
-      "healthcare.phi-compliance"
-    ],
+    "participants": ["healthcare.phi-compliance"],
     "parallel": false,
     "max_parallel_agents": 2
   },

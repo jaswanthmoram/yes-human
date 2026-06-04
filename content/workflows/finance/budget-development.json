@@ -10,15 +10,8 @@
     "budget planning workflow",
     "budget cycle kickoff"
   ],
-  "aliases": [
-    "budget development",
-    "budget planning"
-  ],
-  "negative_keywords": [
-    "legal review",
-    "code review",
-    "marketing campaign"
-  ],
+  "aliases": ["budget development", "budget planning"],
+  "negative_keywords": ["legal review", "code review", "marketing campaign"],
   "inputs": [
     {
       "name": "strategic_priorities",
@@ -53,16 +46,9 @@
   "primary_agent": "finance.financial-planner",
   "route": {
     "domain_master": "finance.master",
-    "agents": [
-      "finance.financial-planner",
-      "finance.budget-planner",
-      "finance.cash-flow-manager"
-    ],
+    "agents": ["finance.financial-planner", "finance.budget-planner", "finance.cash-flow-manager"],
     "primary_agent": "finance.financial-planner",
-    "participants": [
-      "finance.budget-planner",
-      "finance.cash-flow-manager"
-    ],
+    "participants": ["finance.budget-planner", "finance.cash-flow-manager"],
     "parallel": true,
     "max_parallel_agents": 3
   },

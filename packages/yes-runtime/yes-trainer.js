@@ -25,7 +25,9 @@ export class YesTrainer {
 
   report() {
     const status = this.engine.status();
-    const routeOutcomes = readJsonIfExists(path.join(this.repoRoot, 'graph/memory/learning/route-outcomes.json'), { routes: {} });
+    const routeOutcomes = readJsonIfExists(path.join(this.repoRoot, 'graph/memory/learning/route-outcomes.json'), {
+      routes: {}
+    });
     const weakRoutes = Object.values(routeOutcomes.routes || {})
       .filter((route) => route.signal_ready && route.success_rate !== null && route.success_rate < 0.65)
       .sort((a, b) => a.success_rate - b.success_rate)
@@ -36,7 +38,8 @@ export class YesTrainer {
       status,
       weak_routes: weakRoutes,
       production_mutation: false,
-      next_action: 'Review staged feedback/workflow suggestions, then run yes evaluator gate before any registry promotion.'
+      next_action:
+        'Review staged feedback/workflow suggestions, then run yes evaluator gate before any registry promotion.'
     };
 
     const reportPath = path.join(this.repoRoot, 'reports/phase9-trainer-report.json');

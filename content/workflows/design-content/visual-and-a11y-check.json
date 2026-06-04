@@ -9,16 +9,8 @@
     "run a design and a11y review",
     "audit this frontend before release"
   ],
-  "aliases": [
-    "visual accessibility review",
-    "frontend polish and a11y check",
-    "ui quality audit"
-  ],
-  "negative_keywords": [
-    "implement a backend feature",
-    "security threat model",
-    "product roadmap"
-  ],
+  "aliases": ["visual accessibility review", "frontend polish and a11y check", "ui quality audit"],
+  "negative_keywords": ["implement a backend feature", "security threat model", "product roadmap"],
   "inputs": [
     {
       "name": "screens_or_pages",
@@ -47,26 +39,18 @@
   "primary_agent": "design-content.frontend-design-agent",
   "route": {
     "domain_master": "design-content.master",
-    "agents": [
-      "design-content.frontend-design-agent"
-    ],
+    "agents": ["design-content.frontend-design-agent"],
     "parallel": true,
     "max_parallel_agents": 2,
     "primary": "design-content.frontend-design-agent",
-    "participants": [
-      "design-content.accessibility-auditor"
-    ]
+    "participants": ["design-content.accessibility-auditor"]
   },
   "budget": {
     "band": "standard",
     "max_context_tokens": 2800,
     "max_tool_calls": 10
   },
-  "gates": [
-    "pre-route",
-    "pre-tool",
-    "on-task-complete"
-  ],
+  "gates": ["pre-route", "pre-tool", "on-task-complete"],
   "steps": [
     {
       "id": "review-visual-hierarchy",
@@ -81,12 +65,7 @@
       "summary": "Combine findings into a fix list ordered by user impact and implementation effort."
     }
   ],
-  "tools": [
-    "filesystem.read",
-    "screenshot_review",
-    "a11y_checker",
-    "browser_inspection"
-  ],
+  "tools": ["filesystem.read", "screenshot_review", "a11y_checker", "browser_inspection"],
   "verification": [
     "every_accessibility_finding_names_standard_or_pattern",
     "visual_findings_reference_specific_surface",
@@ -101,9 +80,7 @@
     "mode": "no_write",
     "summary": "Review-only workflow."
   },
-  "source_references": [
-    "ref.workflow.design-content.visual-and-a11y-check.2026-06-01"
-  ],
+  "source_references": ["ref.workflow.design-content.visual-and-a11y-check.2026-06-01"],
   "promotion": {
     "can_learn": true,
     "quality_gate": "staging",

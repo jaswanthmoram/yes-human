@@ -4,21 +4,9 @@
   "status": "active",
   "summary": "Run a structured feature prioritization process using frameworks and data to rank the backlog.",
   "task_family": "planning",
-  "triggers": [
-    "prioritize the backlog",
-    "feature prioritization session",
-    "rank features for next quarter"
-  ],
-  "aliases": [
-    "backlog prioritization",
-    "feature ranking",
-    "priority session"
-  ],
-  "negative_keywords": [
-    "implement code now",
-    "deploy to production",
-    "security audit"
-  ],
+  "triggers": ["prioritize the backlog", "feature prioritization session", "rank features for next quarter"],
+  "aliases": ["backlog prioritization", "feature ranking", "priority session"],
+  "negative_keywords": ["implement code now", "deploy to production", "security audit"],
   "inputs": [
     {
       "name": "feature_backlog",
@@ -47,27 +35,18 @@
   "primary_agent": "product-business.feature-prioritizer",
   "route": {
     "domain_master": "product-business.master",
-    "agents": [
-      "product-business.feature-prioritizer"
-    ],
+    "agents": ["product-business.feature-prioritizer"],
     "parallel": false,
     "max_parallel_agents": 2,
     "primary": "product-business.feature-prioritizer",
-    "participants": [
-      "product-business.product-manager",
-      "product-business.product-analyst"
-    ]
+    "participants": ["product-business.product-manager", "product-business.product-analyst"]
   },
   "budget": {
     "band": "standard",
     "max_context_tokens": 4000,
     "max_tool_calls": 10
   },
-  "gates": [
-    "pre-route",
-    "pre-tool",
-    "on-task-complete"
-  ],
+  "gates": ["pre-route", "pre-tool", "on-task-complete"],
   "steps": [
     {
       "id": "gather-inputs",
@@ -82,16 +61,8 @@
       "summary": "Validate scores with data, rank features, and document tradeoffs."
     }
   ],
-  "tools": [
-    "filesystem.read",
-    "prioritization_template",
-    "analytics_query"
-  ],
-  "verification": [
-    "framework_applied_consistently",
-    "scores_backed_by_data",
-    "tradeoffs_documented"
-  ],
+  "tools": ["filesystem.read", "prioritization_template", "analytics_query"],
+  "verification": ["framework_applied_consistently", "scores_backed_by_data", "tradeoffs_documented"],
   "success_criteria": [
     "Prioritization framework is applied consistently across all features.",
     "Scores are backed by available data and user research.",
@@ -101,9 +72,7 @@
     "mode": "no_write",
     "summary": "Prioritization workflow produces rankings but does not commit to delivery."
   },
-  "source_references": [
-    "ref.workflow.product-business.feature-prioritization.2026-05-31"
-  ],
+  "source_references": ["ref.workflow.product-business.feature-prioritization.2026-05-31"],
   "promotion": {
     "can_learn": true,
     "quality_gate": "staging",

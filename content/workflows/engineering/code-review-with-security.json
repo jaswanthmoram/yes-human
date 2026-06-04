@@ -9,16 +9,8 @@
     "perform code review with appsec coverage",
     "audit this diff before merge"
   ],
-  "aliases": [
-    "secure code review",
-    "pr review with security",
-    "engineering security review"
-  ],
-  "negative_keywords": [
-    "threat model only",
-    "secret scan only",
-    "write new feature"
-  ],
+  "aliases": ["secure code review", "pr review with security", "engineering security review"],
+  "negative_keywords": ["threat model only", "secret scan only", "write new feature"],
   "inputs": [
     {
       "name": "diff",
@@ -51,27 +43,18 @@
   "primary_agent": "engineering.code-reviewer",
   "route": {
     "domain_master": "engineering.master",
-    "agents": [
-      "engineering.code-reviewer"
-    ],
+    "agents": ["engineering.code-reviewer"],
     "parallel": true,
     "max_parallel_agents": 2,
     "primary": "engineering.code-reviewer",
-    "participants": [
-      "security.security-reviewer"
-    ]
+    "participants": ["security.security-reviewer"]
   },
   "budget": {
     "band": "expanded",
     "max_context_tokens": 3600,
     "max_tool_calls": 12
   },
-  "gates": [
-    "pre-route",
-    "pre-tool",
-    "post-tool",
-    "on-task-complete"
-  ],
+  "gates": ["pre-route", "pre-tool", "post-tool", "on-task-complete"],
   "steps": [
     {
       "id": "collect-scope",
@@ -79,6 +62,7 @@
     },
     {
       "id": "parallel-review",
+      "parallel": true,
       "summary": "Run engineering quality review and security review in parallel against the same change set."
     },
     {
@@ -112,9 +96,7 @@
     "mode": "no_write",
     "summary": "This workflow is read-only unless explicitly paired with a fix workflow."
   },
-  "source_references": [
-    "ref.workflow.engineering.code-review-with-security.2026-06-01"
-  ],
+  "source_references": ["ref.workflow.engineering.code-review-with-security.2026-06-01"],
   "promotion": {
     "can_learn": true,
     "quality_gate": "staging",

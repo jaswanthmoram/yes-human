@@ -51,16 +51,10 @@
     },
     "status": {
       "type": "string",
-      "enum": [
-        "active",
-        "draft"
-      ]
+      "enum": ["active", "draft"]
     },
     "knowledge_pack_id": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": ["string", "null"]
     },
     "hook_binding_ids": {
       "type": "array",
@@ -78,10 +72,7 @@
           "type": "integer"
         }
       },
-      "required": [
-        "agents",
-        "workflows"
-      ]
+      "required": ["agents", "workflows"]
     }
   },
   "additionalProperties": false

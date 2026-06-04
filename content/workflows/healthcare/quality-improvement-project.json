@@ -11,16 +11,8 @@
     "quality initiative design",
     "clinical quality improvement"
   ],
-  "aliases": [
-    "qi project",
-    "quality initiative",
-    "pdsa project"
-  ],
-  "negative_keywords": [
-    "software quality",
-    "code quality",
-    "manufacturing quality"
-  ],
+  "aliases": ["qi project", "quality initiative", "pdsa project"],
+  "negative_keywords": ["software quality", "code quality", "manufacturing quality"],
   "inputs": [
     {
       "name": "improvement_scope",
@@ -69,16 +61,11 @@
   "primary_agent": "healthcare.quality-improvement",
   "route": {
     "domain_master": "healthcare.master",
-    "agents": [
-      "healthcare.quality-improvement"
-    ],
+    "agents": ["healthcare.quality-improvement"],
     "parallel": false,
     "max_parallel_agents": 3,
     "primary": "healthcare.quality-improvement",
-    "participants": [
-      "healthcare.patient-safety",
-      "healthcare.health-data-analyst"
-    ]
+    "participants": ["healthcare.patient-safety", "healthcare.health-data-analyst"]
   },
   "budget": {
     "band": "expanded",
@@ -139,10 +126,7 @@
       "action": "Design sustainability and spread strategies."
     }
   ],
-  "tools": [
-    "filesystem.read",
-    "filesystem.write"
-  ],
+  "tools": ["filesystem.read", "filesystem.write"],
   "verification": [
     "aim_statement_is_smart_and_measurable",
     "baseline_metrics_established_with_control_charts",

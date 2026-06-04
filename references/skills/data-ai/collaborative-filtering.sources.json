@@ -84,10 +84,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "collaborative filtering: Claude Swarm patterns and workflow references",
-        "verification pattern 7"
-      ],
+      "used_for": ["collaborative filtering: Claude Swarm patterns and workflow references", "verification pattern 7"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -110,10 +107,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "collaborative filtering: MCP Compass patterns and workflow references",
-        "verification pattern 9"
-      ],
+      "used_for": ["collaborative filtering: MCP Compass patterns and workflow references", "verification pattern 9"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -136,10 +130,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "collaborative filtering: MCPHub patterns and workflow references",
-        "verification pattern 11"
-      ],
+      "used_for": ["collaborative filtering: MCPHub patterns and workflow references", "verification pattern 11"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"

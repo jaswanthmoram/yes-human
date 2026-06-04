@@ -4,21 +4,9 @@
   "status": "active",
   "summary": "Design or refresh a compensation analysis with benchmarking, pay equity review, and total rewards recommendations.",
   "task_family": "compensation",
-  "triggers": [
-    "compensation analysis design",
-    "salary benchmarking",
-    "pay equity review",
-    "total rewards analysis"
-  ],
-  "aliases": [
-    "compensation analysis",
-    "comp analysis workflow"
-  ],
-  "negative_keywords": [
-    "tax filing",
-    "contract interpretation",
-    "campaign launch"
-  ],
+  "triggers": ["compensation analysis design", "salary benchmarking", "pay equity review", "total rewards analysis"],
+  "aliases": ["compensation analysis", "comp analysis workflow"],
+  "negative_keywords": ["tax filing", "contract interpretation", "campaign launch"],
   "inputs": [
     {
       "name": "role_data",
@@ -53,14 +41,9 @@
   "primary_agent": "hr.compensation-analyst",
   "route": {
     "domain_master": "hr.master",
-    "agents": [
-      "hr.compensation-analyst",
-      "hr.hr-analyst"
-    ],
+    "agents": ["hr.compensation-analyst", "hr.hr-analyst"],
     "primary_agent": "hr.compensation-analyst",
-    "participants": [
-      "hr.hr-analyst"
-    ],
+    "participants": ["hr.hr-analyst"],
     "parallel": false,
     "max_parallel_agents": 2
   },

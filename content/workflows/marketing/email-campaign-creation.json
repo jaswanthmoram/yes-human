@@ -4,21 +4,9 @@
   "status": "active",
   "summary": "Design and plan email marketing campaigns with segmentation, personalization, and compliance checks.",
   "task_family": "email_campaign",
-  "triggers": [
-    "create email campaign",
-    "email marketing plan",
-    "newsletter campaign design",
-    "drip sequence setup"
-  ],
-  "aliases": [
-    "email campaign",
-    "email plan"
-  ],
-  "negative_keywords": [
-    "transactional email",
-    "sms campaign",
-    "push notification"
-  ],
+  "triggers": ["create email campaign", "email marketing plan", "newsletter campaign design", "drip sequence setup"],
+  "aliases": ["email campaign", "email plan"],
+  "negative_keywords": ["transactional email", "sms campaign", "push notification"],
   "inputs": [
     {
       "name": "campaign_goal",
@@ -53,14 +41,9 @@
   "primary_agent": "marketing.email-marketer",
   "route": {
     "domain_master": "marketing.master",
-    "agents": [
-      "marketing.email-marketer",
-      "marketing.content-marketer"
-    ],
+    "agents": ["marketing.email-marketer", "marketing.content-marketer"],
     "primary_agent": "marketing.email-marketer",
-    "participants": [
-      "marketing.content-marketer"
-    ],
+    "participants": ["marketing.content-marketer"],
     "parallel": true,
     "max_parallel_agents": 2
   },

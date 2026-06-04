@@ -9,11 +9,7 @@
         "user_segment": "Freelancers and small agency owners (2-10 person teams)",
         "business_context": "D1 activation rate is 25%, target is 40%"
       },
-      "expected_outputs": [
-        "validated_problem_statement",
-        "solution_concepts",
-        "discovery_report"
-      ],
+      "expected_outputs": ["validated_problem_statement", "solution_concepts", "discovery_report"],
       "expected_step_count": 4
     },
     {
@@ -24,11 +20,7 @@
         "user_segment": "IT administrators at companies with 500+ employees",
         "business_context": "Enterprise deals stalling due to security compliance gaps"
       },
-      "expected_outputs": [
-        "validated_problem_statement",
-        "solution_concepts",
-        "discovery_report"
-      ],
+      "expected_outputs": ["validated_problem_statement", "solution_concepts", "discovery_report"],
       "expected_step_count": 4
     },
     {
@@ -39,11 +31,7 @@
         "target_users": "Trial users who signed up in last 30 days but didn't activate",
         "research_constraints": "Budget for 15 participants, 3-week timeline"
       },
-      "expected_outputs": [
-        "research_plan",
-        "findings_report",
-        "actionable_insights"
-      ],
+      "expected_outputs": ["research_plan", "findings_report", "actionable_insights"],
       "expected_step_count": 4
     },
     {
@@ -54,11 +42,7 @@
         "target_users": "Active users who use the product daily (power users)",
         "research_constraints": "Remote only, 2-week timeline"
       },
-      "expected_outputs": [
-        "research_plan",
-        "findings_report",
-        "actionable_insights"
-      ],
+      "expected_outputs": ["research_plan", "findings_report", "actionable_insights"],
       "expected_step_count": 4
     },
     {
@@ -69,11 +53,7 @@
         "strategic_goals": "Increase activation by 15% and expand to enterprise segment",
         "data_sources": "PostHog analytics, 20 user interviews, sales feedback"
       },
-      "expected_outputs": [
-        "prioritized_backlog",
-        "scoring_rationale",
-        "tradeoff_documentation"
-      ],
+      "expected_outputs": ["prioritized_backlog", "scoring_rationale", "tradeoff_documentation"],
       "expected_step_count": 3
     },
     {
@@ -84,11 +64,7 @@
         "strategic_goals": "Convert enterprise pilots to paid contracts",
         "data_sources": "Enterprise pilot feedback, usage analytics"
       },
-      "expected_outputs": [
-        "prioritized_backlog",
-        "scoring_rationale",
-        "tradeoff_documentation"
-      ],
+      "expected_outputs": ["prioritized_backlog", "scoring_rationale", "tradeoff_documentation"],
       "expected_step_count": 3
     },
     {
@@ -99,11 +75,7 @@
         "target_audience": "Existing customers (migration) and new mid-market prospects",
         "launch_timeline": "6-week preparation, launch on June 15"
       },
-      "expected_outputs": [
-        "launch_plan",
-        "readiness_report",
-        "post_launch_review"
-      ],
+      "expected_outputs": ["launch_plan", "readiness_report", "post_launch_review"],
       "expected_step_count": 4
     },
     {
@@ -114,11 +86,7 @@
         "target_audience": "Active users on Pro and Enterprise plans",
         "launch_timeline": "3-week preparation, soft launch then GA"
       },
-      "expected_outputs": [
-        "launch_plan",
-        "readiness_report",
-        "post_launch_review"
-      ],
+      "expected_outputs": ["launch_plan", "readiness_report", "post_launch_review"],
       "expected_step_count": 4
     },
     {
@@ -129,11 +97,7 @@
         "analysis_focus": "Feature parity and differentiation in mid-market segment",
         "market_context": "Growing mid-market with increasing competition from Notion and Linear"
       },
-      "expected_outputs": [
-        "competitive_report",
-        "feature_comparison_matrix",
-        "strategic_recommendations"
-      ],
+      "expected_outputs": ["competitive_report", "feature_comparison_matrix", "strategic_recommendations"],
       "expected_step_count": 4
     },
     {
@@ -144,11 +108,7 @@
         "analysis_focus": "Market entry feasibility and positioning for healthcare vertical",
         "market_context": "Healthcare IT spending growing 12% YoY, compliance requirements increasing"
       },
-      "expected_outputs": [
-        "competitive_report",
-        "feature_comparison_matrix",
-        "strategic_recommendations"
-      ],
+      "expected_outputs": ["competitive_report", "feature_comparison_matrix", "strategic_recommendations"],
       "expected_step_count": 4
     },
     {
@@ -159,11 +119,7 @@
         "initiative_backlog": "25 initiatives across product, platform, and growth themes",
         "resource_constraints": "12 engineers, 3 designers, 2 PMs for next 2 quarters"
       },
-      "expected_outputs": [
-        "product_roadmap",
-        "dependency_matrix",
-        "success_metrics_per_theme"
-      ],
+      "expected_outputs": ["product_roadmap", "dependency_matrix", "success_metrics_per_theme"],
       "expected_step_count": 4
     },
     {
@@ -174,11 +130,7 @@
         "initiative_backlog": "12 carry-over initiatives plus 8 new requests from QBR",
         "resource_constraints": "Same team, 2 engineers on loan to platform team"
       },
-      "expected_outputs": [
-        "product_roadmap",
-        "dependency_matrix",
-        "success_metrics_per_theme"
-      ],
+      "expected_outputs": ["product_roadmap", "dependency_matrix", "success_metrics_per_theme"],
       "expected_step_count": 4
     }
   ]

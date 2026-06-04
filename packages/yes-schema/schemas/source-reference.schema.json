@@ -14,7 +14,10 @@
         "required": ["url", "kind", "stars", "license", "used_for"],
         "properties": {
           "url": { "type": "string", "format": "uri" },
-          "kind": { "type": "string", "enum": ["github_repo", "official_docs", "standards_doc", "research_paper", "vendor_docs", "technical_blog"] },
+          "kind": {
+            "type": "string",
+            "enum": ["github_repo", "official_docs", "standards_doc", "research_paper", "vendor_docs", "technical_blog"]
+          },
           "stars": { "type": "integer", "minimum": 0 },
           "license": { "type": "string" },
           "commit": { "type": "string" },

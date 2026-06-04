@@ -4,21 +4,9 @@
   "status": "active",
   "summary": "Design and structure paid advertising campaigns across search and social platforms with budget allocation and optimization plan.",
   "task_family": "paid_advertising",
-  "triggers": [
-    "paid advertising campaign",
-    "ppc campaign setup",
-    "multi-platform ad campaign",
-    "paid media strategy"
-  ],
-  "aliases": [
-    "paid ads",
-    "ppc campaign"
-  ],
-  "negative_keywords": [
-    "organic seo",
-    "content marketing",
-    "email marketing"
-  ],
+  "triggers": ["paid advertising campaign", "ppc campaign setup", "multi-platform ad campaign", "paid media strategy"],
+  "aliases": ["paid ads", "ppc campaign"],
+  "negative_keywords": ["organic seo", "content marketing", "email marketing"],
   "inputs": [
     {
       "name": "campaign_objective",
@@ -53,14 +41,9 @@
   "primary_agent": "marketing.digital-marketer",
   "route": {
     "domain_master": "marketing.master",
-    "agents": [
-      "marketing.digital-marketer",
-      "marketing.sem-specialist"
-    ],
+    "agents": ["marketing.digital-marketer", "marketing.sem-specialist"],
     "primary_agent": "marketing.digital-marketer",
-    "participants": [
-      "marketing.sem-specialist"
-    ],
+    "participants": ["marketing.sem-specialist"],
     "parallel": true,
     "max_parallel_agents": 2
   },

@@ -12,7 +12,10 @@ function loadFixtures() {
   if (!fs.existsSync(dir)) return [];
 
   const out = [];
-  for (const file of fs.readdirSync(dir).filter((entry) => entry.endsWith('.fixtures.json')).sort()) {
+  for (const file of fs
+    .readdirSync(dir)
+    .filter((entry) => entry.endsWith('.fixtures.json'))
+    .sort()) {
     const data = JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8'));
     for (const fixture of data.fixtures || []) {
       out.push({ ...fixture, file });
@@ -21,9 +24,8 @@ function loadFixtures() {
   return out;
 }
 
-const thresholds = JSON.parse(
-  fs.readFileSync(path.join(repoRoot, 'registry', 'eval-thresholds.json'), 'utf8')
-).routing || {};
+const thresholds =
+  JSON.parse(fs.readFileSync(path.join(repoRoot, 'registry', 'eval-thresholds.json'), 'utf8')).routing || {};
 
 const fixtures = loadFixtures();
 if (fixtures.length === 0) {

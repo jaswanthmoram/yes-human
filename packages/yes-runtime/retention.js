@@ -94,7 +94,7 @@ export function withFileLockSync(filePath, action) {
 
 export function pruneJsonlFile(filePath, now = new Date()) {
   if (!fs.existsSync(filePath)) return { file: filePath, kept: 0, removed: 0 };
-  
+
   return withFileLockSync(filePath, () => {
     const lines = fs.readFileSync(filePath, 'utf8').split('\n').filter(Boolean);
     const kept = [];

@@ -2,7 +2,32 @@ repos:
   - repo: local
     hooks:
       - id: gitleaks
-        name: gitleaks
+        name: gitleaks (secret scan)
         entry: gitleaks protect --staged --redact --config .gitleaks.toml
         language: system
         pass_filenames: false
+        stages: [pre-commit]
+
+      - id: prettier
+        name: prettier (format check)
+        entry: npx --no-install prettier --check
+        language: system
+        files: \.(js|mjs|cjs|ts|json|md|yaml|yml)$
+        exclude: ^(node_modules|generated|staging|reports|registry/skills\.json|registry/routes\.json|registry/workflows\.json)/?
+        stages: [pre-commit]
+
+      - id: eslint
+        name: eslint
+        entry: npx --no-install eslint
+        language: system
+        files: \.(js|mjs|cjs)$
+        exclude: ^(node_modules|generated|staging|reports)/
+        stages: [pre-commit]
+
+      - id: registry-route-validation
+        name: registry route validation
+        entry: node scripts/validate-hook-route-refs.mjs
+        language: system
+        pass_filenames: false
+        files: ^(hooks/.*\.js|registry/routes\.json)$
+        stages: [pre-commit]

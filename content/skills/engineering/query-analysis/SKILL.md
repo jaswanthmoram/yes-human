@@ -64,48 +64,61 @@ rollback:
 validators:
   - skill.validator
 ---
+
 ## Trigger
+
 Use when API response times are high and database is identified as the bottleneck through profiling.
 
 ## Prerequisites
+
 - Access to slow query log or query profiler
 - EXPLAIN ANALYZE available in a non-production DB
 
 ## Steps
 
 ### 1. Find Slow Queries
+
 Enable `log_min_duration_statement = 100` (100ms). Check `pg_stat_statements` for queries by total time.
 
 ### 2. Run EXPLAIN ANALYZE
+
 Run the exact query with `EXPLAIN (ANALYZE, BUFFERS, FORMAT TEXT)`. Read: Seq Scan = bad on large tables. Look at "actual time" vs "cost".
 
 ### 3. Identify Root Cause
+
 Missing index (Seq Scan with filter), N+1 (query in loop), missing JOIN condition (cartesian product), or stale statistics (ANALYZE table).
 
 ### 4. Add Index
+
 `CREATE INDEX CONCURRENTLY idx_users_email ON users(email)`. Use CONCURRENTLY to avoid locks. Use partial indexes for filtered queries.
 
 ### 5. Rewrite if Needed
+
 Replace N+1 loops with JOIN. Replace `SELECT *` with explicit columns. Use `LIMIT` on large result sets.
 
 ### 6. Measure Improvement
+
 Run the original query before and after. Log both timings. Only keep changes that show ≥30% improvement.
 
 ## Verification
+
 - [ ] Query time reduced ≥30%
 - [ ] No Seq Scan on large tables
 - [ ] Index added via CONCURRENTLY migration
 
 ## Rollback
+
 `DROP INDEX CONCURRENTLY idx_name;` to remove index. Revert query changes via git.
 
 ## Common Failures
-| Failure | Cause | Fix |
-|---------|-------|-----|
-| Index not used | Low cardinality column | Use composite index or different column |
-| Writes become slow | Too many indexes | Remove unused indexes |
-| EXPLAIN shows different plan in prod | Different stats | Run ANALYZE on prod table |
+
+| Failure                              | Cause                  | Fix                                     |
+| ------------------------------------ | ---------------------- | --------------------------------------- |
+| Index not used                       | Low cardinality column | Use composite index or different column |
+| Writes become slow                   | Too many indexes       | Remove unused indexes                   |
+| EXPLAIN shows different plan in prod | Different stats        | Run ANALYZE on prod table               |
 
 ## Examples
+
 **Example A:** `SELECT * FROM orders WHERE user_id = ?` does Seq Scan — add index on user_id.
 **Example B:** Loading posts with comments does 100 queries (N+1) — rewrite with JOIN and GROUP.

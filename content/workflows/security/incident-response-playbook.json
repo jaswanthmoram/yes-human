@@ -13,12 +13,7 @@
     "start incident triage",
     "handle this security event"
   ],
-  "aliases": [
-    "IR playbook",
-    "incident response process",
-    "security incident handling",
-    "breach response workflow"
-  ],
+  "aliases": ["IR playbook", "incident response process", "security incident handling", "breach response workflow"],
   "negative_keywords": [
     "routine code review",
     "feature development",
@@ -67,28 +62,18 @@
   "primary_agent": "security.incident-responder",
   "route": {
     "domain_master": "security.master",
-    "agents": [
-      "security.incident-responder"
-    ],
+    "agents": ["security.incident-responder"],
     "parallel": false,
     "max_parallel_agents": 2,
     "primary": "security.incident-responder",
-    "participants": [
-      "security.security-reviewer",
-      "security.forensics-analyst"
-    ]
+    "participants": ["security.security-reviewer", "security.forensics-analyst"]
   },
   "budget": {
     "band": "expanded",
     "max_context_tokens": 5500,
     "max_tool_calls": 20
   },
-  "gates": [
-    "pre-route",
-    "pre-tool",
-    "post-tool",
-    "on-task-complete"
-  ],
+  "gates": ["pre-route", "pre-tool", "post-tool", "on-task-complete"],
   "steps": [
     {
       "id": "detection-and-triage",
@@ -145,9 +130,7 @@
     "mode": "manual",
     "summary": "Containment and recovery actions may require manual rollback of system changes."
   },
-  "source_references": [
-    "ref.workflow.security.incident-response-playbook.2026-06-01"
-  ],
+  "source_references": ["ref.workflow.security.incident-response-playbook.2026-06-01"],
   "promotion": {
     "can_learn": true,
     "quality_gate": "staging",

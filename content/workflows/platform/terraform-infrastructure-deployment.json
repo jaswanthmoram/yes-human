@@ -13,11 +13,7 @@
     "iac deployment pipeline",
     "terraform drift detection"
   ],
-  "aliases": [
-    "terraform deploy",
-    "iac deployment",
-    "terraform apply"
-  ],
+  "aliases": ["terraform deploy", "iac deployment", "terraform apply"],
   "negative_keywords": [
     "application code deployment",
     "container orchestration",
@@ -65,17 +61,8 @@
     }
   ],
   "primary_agent": "platform.devops-engineer",
-  "participants": [
-    "platform.security-engineer",
-    "platform.cost-analyst",
-    "platform.sre-engineer"
-  ],
-  "skills": [
-    "terraform",
-    "infrastructure-as-code",
-    "cloud-provider-apis",
-    "state-management"
-  ],
+  "participants": ["platform.security-engineer", "platform.cost-analyst", "platform.sre-engineer"],
+  "skills": ["terraform", "infrastructure-as-code", "cloud-provider-apis", "state-management"],
   "budget_band": "expanded",
   "max_context_tokens": 4000,
   "max_tool_calls": 12,
@@ -190,9 +177,7 @@
   },
   "route": {
     "domain_master": "platform.master",
-    "agents": [
-      "platform.devops-engineer"
-    ],
+    "agents": ["platform.devops-engineer"],
     "parallel": false,
     "max_parallel_agents": 1
   }

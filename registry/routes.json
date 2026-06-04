@@ -698,7 +698,8 @@
       "negative_keywords": [
         "market sizing",
         "cloud deploy",
-        "tax filing"
+        "tax filing",
+        "model training"
       ]
     },
     "target": {
@@ -737,7 +738,8 @@
       "negative_keywords": [
         "code implementation",
         "database schema",
-        "security review"
+        "security review",
+        "model training"
       ]
     },
     "target": {
@@ -772,7 +774,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "contract review"
+        "contract review",
+        "model training"
       ]
     },
     "target": {
@@ -811,7 +814,8 @@
       "negative_keywords": [
         "original content creation",
         "code review",
-        "security audit"
+        "security audit",
+        "model training"
       ]
     },
     "target": {
@@ -850,7 +854,8 @@
       "negative_keywords": [
         "code review",
         "infrastructure design",
-        "security assessment"
+        "security assessment",
+        "model training"
       ]
     },
     "target": {
@@ -890,7 +895,8 @@
       "negative_keywords": [
         "technical documentation",
         "code generation",
-        "data analysis"
+        "data analysis",
+        "model training"
       ]
     },
     "target": {
@@ -929,7 +935,8 @@
       "negative_keywords": [
         "one-off mockup",
         "marketing campaign",
-        "financial report"
+        "financial report",
+        "model training"
       ]
     },
     "target": {
@@ -963,7 +970,8 @@
       "negative_keywords": [
         "database schema",
         "cash flow",
-        "contract redline"
+        "contract redline",
+        "model training"
       ]
     },
     "target": {
@@ -1003,7 +1011,8 @@
       "negative_keywords": [
         "static visual design",
         "backend logic",
-        "legal review"
+        "legal review",
+        "model training"
       ]
     },
     "target": {
@@ -1039,7 +1048,8 @@
       "negative_keywords": [
         "code review",
         "infrastructure design",
-        "legal document"
+        "legal document",
+        "model training"
       ]
     },
     "target": {
@@ -1078,7 +1088,8 @@
       "negative_keywords": [
         "static visual design",
         "backend implementation",
-        "legal review"
+        "legal review",
+        "model training"
       ]
     },
     "target": {
@@ -1110,7 +1121,12 @@
       "aliases": [
         "presentation-designer"
       ],
-      "negative_keywords": []
+      "negative_keywords": [
+        "model training",
+        "financial audit",
+        "legal review",
+        "backend api design"
+      ]
     },
     "target": {
       "domain_master": "design-content.master",
@@ -1148,7 +1164,8 @@
       "negative_keywords": [
         "paid advertising copy",
         "code implementation",
-        "database design"
+        "database design",
+        "model training"
       ]
     },
     "target": {
@@ -1192,7 +1209,8 @@
       "negative_keywords": [
         "marketing copy",
         "visual design",
-        "financial reporting"
+        "financial reporting",
+        "model training"
       ]
     },
     "target": {
@@ -1231,7 +1249,8 @@
       "negative_keywords": [
         "backend architecture",
         "database schema",
-        "security audit"
+        "security audit",
+        "model training"
       ]
     },
     "target": {
@@ -1269,7 +1288,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "legal contract"
+        "legal contract",
+        "model training"
       ]
     },
     "target": {
@@ -1308,7 +1328,8 @@
       "negative_keywords": [
         "visual polish",
         "code implementation",
-        "financial analysis"
+        "financial analysis",
+        "model training"
       ]
     },
     "target": {
@@ -1347,7 +1368,8 @@
       "negative_keywords": [
         "code implementation",
         "database design",
-        "security review"
+        "security review",
+        "model training"
       ]
     },
     "target": {
@@ -1381,7 +1403,8 @@
       "negative_keywords": [
         "financial forecast",
         "contract review",
-        "deployment logs"
+        "deployment logs",
+        "production deployment"
       ]
     },
     "target": {
@@ -1414,7 +1437,8 @@
       "negative_keywords": [
         "sales pipeline",
         "medical reasoning",
-        "terraform plan"
+        "terraform plan",
+        "production deployment"
       ]
     },
     "target": {
@@ -1448,7 +1472,8 @@
       "negative_keywords": [
         "sales pipeline",
         "medical reasoning",
-        "terraform plan"
+        "terraform plan",
+        "production deployment"
       ]
     },
     "target": {
@@ -1482,7 +1507,8 @@
       "negative_keywords": [
         "financial forecast",
         "contract review",
-        "deployment logs"
+        "deployment logs",
+        "production deployment"
       ]
     },
     "target": {
@@ -1516,7 +1542,8 @@
       "negative_keywords": [
         "financial forecast",
         "contract review",
-        "deployment logs"
+        "deployment logs",
+        "production deployment"
       ]
     },
     "target": {
@@ -1550,7 +1577,8 @@
       "negative_keywords": [
         "financial forecast",
         "contract review",
-        "deployment logs"
+        "deployment logs",
+        "production deployment"
       ]
     },
     "target": {
@@ -1584,7 +1612,8 @@
       "negative_keywords": [
         "financial forecast",
         "contract review",
-        "deployment logs"
+        "deployment logs",
+        "production deployment"
       ]
     },
     "target": {
@@ -1618,7 +1647,8 @@
       "negative_keywords": [
         "financial forecast",
         "contract review",
-        "deployment logs"
+        "deployment logs",
+        "production deployment"
       ]
     },
     "target": {
@@ -1652,7 +1682,8 @@
       "negative_keywords": [
         "financial forecast",
         "contract review",
-        "deployment logs"
+        "deployment logs",
+        "production deployment"
       ]
     },
     "target": {
@@ -1687,7 +1718,8 @@
       "negative_keywords": [
         "technical writing",
         "training data",
-        "code review"
+        "code review",
+        "production deployment"
       ]
     },
     "target": {
@@ -1721,7 +1753,8 @@
       "negative_keywords": [
         "financial forecast",
         "contract review",
-        "deployment logs"
+        "deployment logs",
+        "production deployment"
       ]
     },
     "target": {
@@ -1756,7 +1789,8 @@
       "negative_keywords": [
         "financial forecast",
         "contract review",
-        "deployment logs"
+        "deployment logs",
+        "production deployment"
       ]
     },
     "target": {
@@ -1790,7 +1824,8 @@
       "negative_keywords": [
         "financial forecast",
         "contract review",
-        "deployment logs"
+        "deployment logs",
+        "production deployment"
       ]
     },
     "target": {
@@ -1824,7 +1859,8 @@
       "negative_keywords": [
         "pricing proposal",
         "privacy contract",
-        "secret scan"
+        "secret scan",
+        "production deployment"
       ]
     },
     "target": {
@@ -1859,7 +1895,9 @@
       ],
       "negative_keywords": [
         "security review",
-        "code review"
+        "code review",
+        "financial forecasting",
+        "marketing copy"
       ]
     },
     "target": {
@@ -1902,7 +1940,8 @@
       "negative_keywords": [
         "frontend component",
         "mobile ui",
-        "css styling"
+        "css styling",
+        "legal contract review"
       ]
     },
     "target": {
@@ -1935,7 +1974,12 @@
         "build-error-resolver",
         "build error resolver"
       ],
-      "negative_keywords": []
+      "negative_keywords": [
+        "legal contract review",
+        "financial forecasting",
+        "marketing copy",
+        "payroll processing"
+      ]
     },
     "target": {
       "domain_master": "engineering.master",
@@ -2009,7 +2053,9 @@
       ],
       "negative_keywords": [
         "legal review",
-        "tax review"
+        "tax review",
+        "financial forecasting",
+        "marketing copy"
       ]
     },
     "target": {
@@ -2043,7 +2089,9 @@
       ],
       "negative_keywords": [
         "product roadmap",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "marketing copy"
       ]
     },
     "target": {
@@ -2201,7 +2249,9 @@
       ],
       "negative_keywords": [
         "legal document",
-        "contract document"
+        "contract document",
+        "legal contract review",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -2235,7 +2285,8 @@
       "negative_keywords": [
         "unit test",
         "financial forecast",
-        "threat model"
+        "threat model",
+        "legal contract review"
       ]
     },
     "target": {
@@ -2277,7 +2328,8 @@
       "negative_keywords": [
         "vue component",
         "angular template",
-        "backend api"
+        "backend api",
+        "legal contract review"
       ]
     },
     "target": {
@@ -2319,7 +2371,8 @@
       "negative_keywords": [
         "react component",
         "angular template",
-        "backend api"
+        "backend api",
+        "legal contract review"
       ]
     },
     "target": {
@@ -2352,7 +2405,9 @@
       ],
       "negative_keywords": [
         "product roadmap",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "marketing copy"
       ]
     },
     "target": {
@@ -2384,7 +2439,9 @@
       ],
       "negative_keywords": [
         "product roadmap",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "marketing copy"
       ]
     },
     "target": {
@@ -2416,7 +2473,9 @@
       ],
       "negative_keywords": [
         "product roadmap",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "marketing copy"
       ]
     },
     "target": {
@@ -2443,7 +2502,12 @@
       "aliases": [
         "master"
       ],
-      "negative_keywords": []
+      "negative_keywords": [
+        "legal contract review",
+        "financial forecasting",
+        "marketing copy",
+        "payroll processing"
+      ]
     },
     "target": {
       "domain_master": "engineering.master",
@@ -2484,7 +2548,8 @@
       "negative_keywords": [
         "ios app",
         "swift code",
-        "web frontend"
+        "web frontend",
+        "legal contract review"
       ]
     },
     "target": {
@@ -2526,7 +2591,8 @@
       "negative_keywords": [
         "android app",
         "kotlin code",
-        "web frontend"
+        "web frontend",
+        "legal contract review"
       ]
     },
     "target": {
@@ -2601,7 +2667,9 @@
       ],
       "negative_keywords": [
         "product roadmap",
-        "financial forecast"
+        "financial forecast",
+        "legal contract review",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -2634,7 +2702,9 @@
       ],
       "negative_keywords": [
         "product roadmap",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "marketing copy"
       ]
     },
     "target": {
@@ -2667,7 +2737,8 @@
       "negative_keywords": [
         "add new feature",
         "financial forecast",
-        "security audit"
+        "security audit",
+        "legal contract review"
       ]
     },
     "target": {
@@ -2745,7 +2816,9 @@
       ],
       "negative_keywords": [
         "product roadmap",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "marketing copy"
       ]
     },
     "target": {
@@ -2779,7 +2852,8 @@
       "negative_keywords": [
         "threat model",
         "penetration test",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -2811,7 +2885,9 @@
       ],
       "negative_keywords": [
         "product roadmap",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "marketing copy"
       ]
     },
     "target": {
@@ -2845,7 +2921,9 @@
       ],
       "negative_keywords": [
         "load test",
-        "penetration test"
+        "penetration test",
+        "legal contract review",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -3009,7 +3087,9 @@
       ],
       "negative_keywords": [
         "product roadmap",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "marketing copy"
       ]
     },
     "target": {
@@ -3048,7 +3128,8 @@
       "negative_keywords": [
         "code review",
         "security penetration test",
-        "marketing campaign"
+        "marketing campaign",
+        "software deployment"
       ]
     },
     "target": {
@@ -3082,7 +3163,8 @@
       "negative_keywords": [
         "contract draft",
         "medical advice",
-        "design polish"
+        "design polish",
+        "software deployment"
       ]
     },
     "target": {
@@ -3115,7 +3197,8 @@
       "negative_keywords": [
         "proposal outline",
         "source pack",
-        "patient case"
+        "patient case",
+        "software deployment"
       ]
     },
     "target": {
@@ -3151,7 +3234,8 @@
       "negative_keywords": [
         "code review",
         "marketing campaign",
-        "contract review"
+        "contract review",
+        "software deployment"
       ]
     },
     "target": {
@@ -3190,7 +3274,8 @@
       "negative_keywords": [
         "code review",
         "security penetration test",
-        "marketing campaign"
+        "marketing campaign",
+        "software deployment"
       ]
     },
     "target": {
@@ -3228,7 +3313,8 @@
       "negative_keywords": [
         "code review",
         "marketing campaign",
-        "hiring plan"
+        "hiring plan",
+        "software deployment"
       ]
     },
     "target": {
@@ -3260,7 +3346,12 @@
       "aliases": [
         "expense-auditor"
       ],
-      "negative_keywords": []
+      "negative_keywords": [
+        "software deployment",
+        "model training",
+        "marketing campaign",
+        "ui/ux design"
+      ]
     },
     "target": {
       "domain_master": "finance.master",
@@ -3297,7 +3388,8 @@
       "negative_keywords": [
         "code review",
         "marketing campaign",
-        "legal compliance"
+        "legal compliance",
+        "software deployment"
       ]
     },
     "target": {
@@ -3336,7 +3428,8 @@
       "negative_keywords": [
         "code review",
         "marketing campaign",
-        "legal advice"
+        "legal advice",
+        "software deployment"
       ]
     },
     "target": {
@@ -3375,7 +3468,8 @@
       "negative_keywords": [
         "code review",
         "marketing campaign",
-        "legal advice"
+        "legal advice",
+        "software deployment"
       ]
     },
     "target": {
@@ -3409,7 +3503,8 @@
       "negative_keywords": [
         "legal advice",
         "ehr workflow",
-        "ux critique"
+        "ux critique",
+        "software deployment"
       ]
     },
     "target": {
@@ -3448,7 +3543,8 @@
       "negative_keywords": [
         "code review",
         "marketing campaign",
-        "hiring plan"
+        "hiring plan",
+        "software deployment"
       ]
     },
     "target": {
@@ -3488,7 +3584,8 @@
       "negative_keywords": [
         "code review",
         "marketing campaign",
-        "hiring plan"
+        "hiring plan",
+        "software deployment"
       ]
     },
     "target": {
@@ -3524,7 +3621,8 @@
       "negative_keywords": [
         "product roadmap",
         "sales pipeline",
-        "marketing campaign"
+        "marketing campaign",
+        "software deployment"
       ]
     },
     "target": {
@@ -3556,7 +3654,12 @@
       "aliases": [
         "payroll-analyst"
       ],
-      "negative_keywords": []
+      "negative_keywords": [
+        "software deployment",
+        "model training",
+        "marketing campaign",
+        "infrastructure provisioning"
+      ]
     },
     "target": {
       "domain_master": "finance.master",
@@ -3593,7 +3696,8 @@
       "negative_keywords": [
         "code review",
         "marketing campaign",
-        "hiring plan"
+        "hiring plan",
+        "software deployment"
       ]
     },
     "target": {
@@ -3631,7 +3735,8 @@
       "negative_keywords": [
         "code review",
         "security penetration test",
-        "marketing campaign"
+        "marketing campaign",
+        "software deployment"
       ]
     },
     "target": {
@@ -3671,7 +3776,8 @@
       "negative_keywords": [
         "code review",
         "marketing campaign",
-        "investment recommendation"
+        "investment recommendation",
+        "software deployment"
       ]
     },
     "target": {
@@ -3710,7 +3816,8 @@
       "negative_keywords": [
         "code review",
         "marketing campaign",
-        "investment recommendation"
+        "investment recommendation",
+        "software deployment"
       ]
     },
     "target": {
@@ -3749,7 +3856,8 @@
       "negative_keywords": [
         "code review",
         "marketing campaign",
-        "legal advice"
+        "legal advice",
+        "software deployment"
       ]
     },
     "target": {
@@ -3782,7 +3890,8 @@
       "negative_keywords": [
         "patient identifier",
         "sales quote",
-        "legal brief"
+        "legal brief",
+        "software deployment"
       ]
     },
     "target": {
@@ -3817,7 +3926,8 @@
       "negative_keywords": [
         "financial forecast",
         "marketing campaign",
-        "code refactor"
+        "code refactor",
+        "software deployment"
       ]
     },
     "target": {
@@ -3852,7 +3962,8 @@
       "negative_keywords": [
         "basic science research",
         "market research",
-        "software testing"
+        "software testing",
+        "software deployment"
       ]
     },
     "target": {
@@ -3885,7 +3996,8 @@
       "negative_keywords": [
         "deploy infra",
         "budget forecast",
-        "seo metadata"
+        "seo metadata",
+        "software deployment"
       ]
     },
     "target": {
@@ -3918,7 +4030,8 @@
       "negative_keywords": [
         "marketing analytics",
         "financial reporting",
-        "code deployment"
+        "code deployment",
+        "software deployment"
       ]
     },
     "target": {
@@ -3953,7 +4066,8 @@
       "negative_keywords": [
         "general software engineering",
         "web development",
-        "marketing automation"
+        "marketing automation",
+        "software deployment"
       ]
     },
     "target": {
@@ -3987,7 +4101,8 @@
       "negative_keywords": [
         "software compliance",
         "marketing compliance",
-        "code review"
+        "code review",
+        "software deployment"
       ]
     },
     "target": {
@@ -4022,7 +4137,8 @@
       "negative_keywords": [
         "software operations",
         "devops pipeline",
-        "marketing operations"
+        "marketing operations",
+        "software deployment"
       ]
     },
     "target": {
@@ -4058,7 +4174,8 @@
       "negative_keywords": [
         "code review",
         "product review",
-        "financial forecast"
+        "financial forecast",
+        "software deployment"
       ]
     },
     "target": {
@@ -4092,7 +4209,8 @@
       "negative_keywords": [
         "software development",
         "marketing plan",
-        "financial audit"
+        "financial audit",
+        "software deployment"
       ]
     },
     "target": {
@@ -4126,7 +4244,8 @@
       "negative_keywords": [
         "general software engineering",
         "consumer product design",
-        "marketing plan"
+        "marketing plan",
+        "software deployment"
       ]
     },
     "target": {
@@ -4160,7 +4279,8 @@
       "negative_keywords": [
         "software testing",
         "product safety",
-        "marketing review"
+        "marketing review",
+        "software deployment"
       ]
     },
     "target": {
@@ -4193,7 +4313,8 @@
       "negative_keywords": [
         "deal proposal",
         "feature roadmap",
-        "supply chain"
+        "supply chain",
+        "software deployment"
       ]
     },
     "target": {
@@ -4227,7 +4348,8 @@
       "negative_keywords": [
         "individual patient care",
         "marketing analytics",
-        "financial modeling"
+        "financial modeling",
+        "software deployment"
       ]
     },
     "target": {
@@ -4261,7 +4383,8 @@
       "negative_keywords": [
         "software quality assurance",
         "code quality review",
-        "product testing"
+        "product testing",
+        "software deployment"
       ]
     },
     "target": {
@@ -4296,7 +4419,8 @@
       "negative_keywords": [
         "video conferencing setup",
         "general IT support",
-        "marketing campaign"
+        "marketing campaign",
+        "software deployment"
       ]
     },
     "target": {
@@ -4330,7 +4454,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "contract review"
+        "contract review",
+        "software deployment"
       ]
     },
     "target": {
@@ -4365,7 +4490,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "product launch"
+        "product launch",
+        "software deployment"
       ]
     },
     "target": {
@@ -4399,7 +4525,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "product launch"
+        "product launch",
+        "software deployment"
       ]
     },
     "target": {
@@ -4432,7 +4559,8 @@
       "negative_keywords": [
         "tax forecast",
         "legal memo",
-        "kubernetes deploy"
+        "kubernetes deploy",
+        "software deployment"
       ]
     },
     "target": {
@@ -4466,7 +4594,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "product metrics"
+        "product metrics",
+        "software deployment"
       ]
     },
     "target": {
@@ -4500,7 +4629,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "product roadmap"
+        "product roadmap",
+        "software deployment"
       ]
     },
     "target": {
@@ -4534,7 +4664,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "product launch"
+        "product launch",
+        "software deployment"
       ]
     },
     "target": {
@@ -4568,7 +4699,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "product launch"
+        "product launch",
+        "software deployment"
       ]
     },
     "target": {
@@ -4602,7 +4734,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "product roadmap"
+        "product roadmap",
+        "software deployment"
       ]
     },
     "target": {
@@ -4638,7 +4771,8 @@
       "negative_keywords": [
         "code review",
         "product roadmap",
-        "financial forecast"
+        "financial forecast",
+        "software deployment"
       ]
     },
     "target": {
@@ -4671,7 +4805,8 @@
       "negative_keywords": [
         "pricing strategy",
         "clinical evidence",
-        "source mining"
+        "source mining",
+        "software deployment"
       ]
     },
     "target": {
@@ -4706,7 +4841,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "product launch"
+        "product launch",
+        "software deployment"
       ]
     },
     "target": {
@@ -4741,7 +4877,8 @@
       "negative_keywords": [
         "clinical review",
         "proposal draft",
-        "secrets audit"
+        "secrets audit",
+        "software deployment"
       ]
     },
     "target": {
@@ -4774,7 +4911,12 @@
       "aliases": [
         "policy-drafter"
       ],
-      "negative_keywords": []
+      "negative_keywords": [
+        "software deployment",
+        "model training",
+        "financial forecasting",
+        "marketing copy"
+      ]
     },
     "target": {
       "domain_master": "hr.master",
@@ -4807,7 +4949,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "product launch"
+        "product launch",
+        "software deployment"
       ]
     },
     "target": {
@@ -4842,7 +4985,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "product launch"
+        "product launch",
+        "software deployment"
       ]
     },
     "target": {
@@ -4876,7 +5020,8 @@
       "negative_keywords": [
         "service mesh configuration",
         "dns management",
-        "ssl certificate provisioning"
+        "ssl certificate provisioning",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -4910,7 +5055,8 @@
       "negative_keywords": [
         "api security audit",
         "performance benchmark",
-        "database migration"
+        "database migration",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -4948,7 +5094,8 @@
       "negative_keywords": [
         "seo strategy",
         "security pentest",
-        "product roadmap"
+        "product roadmap",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -4982,7 +5129,8 @@
       "negative_keywords": [
         "batch etl pipeline",
         "data warehouse design",
-        "frontend real time updates"
+        "frontend real time updates",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -5014,7 +5162,9 @@
       ],
       "negative_keywords": [
         "code review",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "legal contract review"
       ]
     },
     "target": {
@@ -5047,7 +5197,8 @@
       "negative_keywords": [
         "code review",
         "tax review",
-        "clinical review"
+        "clinical review",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -5081,7 +5232,8 @@
       "negative_keywords": [
         "rest api design",
         "database query optimization",
-        "frontend graphql client"
+        "frontend graphql client",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -5117,7 +5269,8 @@
       "negative_keywords": [
         "code review",
         "security audit",
-        "data pipeline"
+        "data pipeline",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -5151,7 +5304,9 @@
       ],
       "negative_keywords": [
         "code review",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "legal contract review"
       ]
     },
     "target": {
@@ -5185,7 +5340,8 @@
       "negative_keywords": [
         "database optimization",
         "frontend state management",
-        "ci/cd pipeline"
+        "ci/cd pipeline",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -5219,7 +5375,8 @@
       "negative_keywords": [
         "monolith refactoring",
         "single service deployment",
-        "frontend api calls"
+        "frontend api calls",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -5253,7 +5410,8 @@
       "negative_keywords": [
         "database query optimization",
         "frontend component",
-        "deployment pipeline"
+        "deployment pipeline",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -5285,7 +5443,9 @@
       ],
       "negative_keywords": [
         "code review",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "legal contract review"
       ]
     },
     "target": {
@@ -5318,7 +5478,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "contract review"
+        "contract review",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -5350,7 +5511,9 @@
       ],
       "negative_keywords": [
         "code review",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "legal contract review"
       ]
     },
     "target": {
@@ -5384,7 +5547,8 @@
       "negative_keywords": [
         "build custom payment system",
         "internal service design",
-        "database migration"
+        "database migration",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -5417,7 +5581,8 @@
       "negative_keywords": [
         "terraform apply",
         "code review",
-        "legal review"
+        "legal review",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -5451,7 +5616,8 @@
       "negative_keywords": [
         "api design review",
         "database schema",
-        "frontend component"
+        "frontend component",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -5491,7 +5657,8 @@
       "negative_keywords": [
         "pricing review",
         "patient support",
-        "layout polish"
+        "layout polish",
+        "software deployment"
       ]
     },
     "target": {
@@ -5532,7 +5699,8 @@
       "negative_keywords": [
         "forecast model",
         "k8s deploy",
-        "curriculum design"
+        "curriculum design",
+        "software deployment"
       ]
     },
     "target": {
@@ -5565,7 +5733,8 @@
       "negative_keywords": [
         "frontend styling",
         "database migration",
-        "marketing campaign"
+        "marketing campaign",
+        "software deployment"
       ]
     },
     "target": {
@@ -5598,7 +5767,8 @@
       "negative_keywords": [
         "performance testing",
         "content strategy",
-        "budget planning"
+        "budget planning",
+        "software deployment"
       ]
     },
     "target": {
@@ -5633,7 +5803,8 @@
       "negative_keywords": [
         "cloud infrastructure",
         "product roadmap",
-        "financial modeling"
+        "financial modeling",
+        "software deployment"
       ]
     },
     "target": {
@@ -5667,7 +5838,8 @@
       "negative_keywords": [
         "server provisioning",
         "email campaign",
-        "budget forecasting"
+        "budget forecasting",
+        "software deployment"
       ]
     },
     "target": {
@@ -5700,7 +5872,8 @@
       "negative_keywords": [
         "deployment strategy",
         "sales quota",
-        "UI wireframe"
+        "UI wireframe",
+        "software deployment"
       ]
     },
     "target": {
@@ -5734,7 +5907,8 @@
       "negative_keywords": [
         "database optimization",
         "sales training",
-        "deployment automation"
+        "deployment automation",
+        "software deployment"
       ]
     },
     "target": {
@@ -5767,7 +5941,8 @@
       "negative_keywords": [
         "API development",
         "marketing analytics",
-        "cloud migration"
+        "cloud migration",
+        "software deployment"
       ]
     },
     "target": {
@@ -5803,7 +5978,8 @@
       "negative_keywords": [
         "code review",
         "product roadmap",
-        "sales pipeline"
+        "sales pipeline",
+        "software deployment"
       ]
     },
     "target": {
@@ -5835,7 +6011,12 @@
       "aliases": [
         "nda-reviewer"
       ],
-      "negative_keywords": []
+      "negative_keywords": [
+        "software deployment",
+        "model training",
+        "marketing campaign",
+        "ui/ux design"
+      ]
     },
     "target": {
       "domain_master": "legal-compliance.master",
@@ -5867,7 +6048,8 @@
       "negative_keywords": [
         "CI/CD pipeline",
         "revenue modeling",
-        "design system"
+        "design system",
+        "software deployment"
       ]
     },
     "target": {
@@ -5908,7 +6090,8 @@
       "negative_keywords": [
         "sales proposal",
         "medical diagnosis",
-        "release train"
+        "release train",
+        "software deployment"
       ]
     },
     "target": {
@@ -5941,7 +6124,8 @@
       "negative_keywords": [
         "test automation",
         "brand design",
-        "inventory management"
+        "inventory management",
+        "software deployment"
       ]
     },
     "target": {
@@ -5974,7 +6158,8 @@
       "negative_keywords": [
         "code generation",
         "product launch",
-        "social media"
+        "social media",
+        "software deployment"
       ]
     },
     "target": {
@@ -6005,7 +6190,12 @@
       "aliases": [
         "terms-drafter"
       ],
-      "negative_keywords": []
+      "negative_keywords": [
+        "software deployment",
+        "model training",
+        "marketing campaign",
+        "infrastructure provisioning"
+      ]
     },
     "target": {
       "domain_master": "legal-compliance.master",
@@ -6037,7 +6227,8 @@
       "negative_keywords": [
         "privacy review",
         "bug bash",
-        "sales deck"
+        "sales deck",
+        "marketing copy"
       ]
     },
     "target": {
@@ -6072,7 +6263,8 @@
       "negative_keywords": [
         "tax advice",
         "nda review",
-        "ux audit"
+        "ux audit",
+        "marketing copy"
       ]
     },
     "target": {
@@ -6106,7 +6298,8 @@
       "negative_keywords": [
         "tax advice",
         "nda review",
-        "ux audit"
+        "ux audit",
+        "marketing copy"
       ]
     },
     "target": {
@@ -6139,7 +6332,8 @@
       "negative_keywords": [
         "tax advice",
         "nda review",
-        "ux audit"
+        "ux audit",
+        "marketing copy"
       ]
     },
     "target": {
@@ -6173,7 +6367,8 @@
       "negative_keywords": [
         "tax advice",
         "nda review",
-        "ux audit"
+        "ux audit",
+        "marketing copy"
       ]
     },
     "target": {
@@ -6207,7 +6402,8 @@
       "negative_keywords": [
         "tax advice",
         "nda review",
-        "ux audit"
+        "ux audit",
+        "marketing copy"
       ]
     },
     "target": {
@@ -6241,7 +6437,8 @@
       "negative_keywords": [
         "tax advice",
         "nda review",
-        "ux audit"
+        "ux audit",
+        "marketing copy"
       ]
     },
     "target": {
@@ -6275,7 +6472,8 @@
       "negative_keywords": [
         "tax advice",
         "nda review",
-        "ux audit"
+        "ux audit",
+        "marketing copy"
       ]
     },
     "target": {
@@ -6311,7 +6509,8 @@
       "negative_keywords": [
         "code production",
         "production release",
-        "financial forecast"
+        "financial forecast",
+        "marketing copy"
       ]
     },
     "target": {
@@ -6345,7 +6544,8 @@
       "negative_keywords": [
         "tax advice",
         "nda review",
-        "ux audit"
+        "ux audit",
+        "marketing copy"
       ]
     },
     "target": {
@@ -6379,7 +6579,8 @@
       "negative_keywords": [
         "tax advice",
         "nda review",
-        "ux audit"
+        "ux audit",
+        "marketing copy"
       ]
     },
     "target": {
@@ -6414,7 +6615,8 @@
       "negative_keywords": [
         "tax advice",
         "nda review",
-        "ux audit"
+        "ux audit",
+        "marketing copy"
       ]
     },
     "target": {
@@ -6448,7 +6650,8 @@
       "negative_keywords": [
         "growth strategy",
         "ehr workflow",
-        "code refactor"
+        "code refactor",
+        "marketing copy"
       ]
     },
     "target": {
@@ -6482,7 +6685,8 @@
       "negative_keywords": [
         "tax advice",
         "nda review",
-        "ux audit"
+        "ux audit",
+        "marketing copy"
       ]
     },
     "target": {
@@ -6516,7 +6720,8 @@
       "negative_keywords": [
         "tax advice",
         "nda review",
-        "ux audit"
+        "ux audit",
+        "marketing copy"
       ]
     },
     "target": {
@@ -6550,7 +6755,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "legal contract"
+        "legal contract",
+        "model training"
       ]
     },
     "target": {
@@ -6587,7 +6793,8 @@
       "negative_keywords": [
         "performance marketing",
         "ppc campaign",
-        "technical seo"
+        "technical seo",
+        "model training"
       ]
     },
     "target": {
@@ -6619,7 +6826,12 @@
       "aliases": [
         "campaign-analyst"
       ],
-      "negative_keywords": []
+      "negative_keywords": [
+        "model training",
+        "database schema migration",
+        "legal contract review",
+        "infrastructure provisioning"
+      ]
     },
     "target": {
       "domain_master": "marketing.master",
@@ -6654,7 +6866,8 @@
       "negative_keywords": [
         "contract review",
         "employee performance",
-        "deploy rollback"
+        "deploy rollback",
+        "model training"
       ]
     },
     "target": {
@@ -6692,7 +6905,8 @@
       "negative_keywords": [
         "brand redesign",
         "feature development",
-        "seo audit"
+        "seo audit",
+        "model training"
       ]
     },
     "target": {
@@ -6729,7 +6943,8 @@
       "negative_keywords": [
         "contract review",
         "deploy rollback",
-        "financial forecast"
+        "financial forecast",
+        "model training"
       ]
     },
     "target": {
@@ -6769,7 +6984,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "contract review"
+        "contract review",
+        "model training"
       ]
     },
     "target": {
@@ -6804,7 +7020,8 @@
       "negative_keywords": [
         "product roadmap",
         "software deployment",
-        "financial audit"
+        "financial audit",
+        "model training"
       ]
     },
     "target": {
@@ -6845,7 +7062,8 @@
       "negative_keywords": [
         "brand identity",
         "compliance audit",
-        "infrastructure deployment"
+        "infrastructure deployment",
+        "model training"
       ]
     },
     "target": {
@@ -6879,7 +7097,8 @@
       "negative_keywords": [
         "affiliate program",
         "paid search",
-        "email automation"
+        "email automation",
+        "model training"
       ]
     },
     "target": {
@@ -6912,7 +7131,8 @@
       "negative_keywords": [
         "financial audit",
         "product telemetry",
-        "code profiling"
+        "code profiling",
+        "database schema migration"
       ]
     },
     "target": {
@@ -6946,7 +7166,8 @@
       "negative_keywords": [
         "manual outreach",
         "one-time email blast",
-        "social media posting"
+        "social media posting",
+        "model training"
       ]
     },
     "target": {
@@ -6979,7 +7200,8 @@
       "negative_keywords": [
         "proposal draft",
         "clinical review",
-        "compiler error"
+        "compiler error",
+        "model training"
       ]
     },
     "target": {
@@ -7016,7 +7238,8 @@
       "negative_keywords": [
         "sales pipeline",
         "product roadmap",
-        "financial forecast"
+        "financial forecast",
+        "model training"
       ]
     },
     "target": {
@@ -7051,7 +7274,8 @@
       "negative_keywords": [
         "product roadmap",
         "engineering sprint",
-        "customer support"
+        "customer support",
+        "model training"
       ]
     },
     "target": {
@@ -7087,7 +7311,8 @@
       "negative_keywords": [
         "organic seo",
         "social media ads",
-        "display advertising"
+        "display advertising",
+        "model training"
       ]
     },
     "target": {
@@ -7127,7 +7352,8 @@
       "negative_keywords": [
         "sales deck",
         "budget variance",
-        "hipaa"
+        "hipaa",
+        "model training"
       ]
     },
     "target": {
@@ -7164,7 +7390,8 @@
       "negative_keywords": [
         "paid search ads",
         "email deliverability",
-        "technical seo"
+        "technical seo",
+        "model training"
       ]
     },
     "target": {
@@ -7198,7 +7425,9 @@
       ],
       "negative_keywords": [
         "code review",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "clinical advice"
       ]
     },
     "target": {
@@ -7232,7 +7461,8 @@
       "negative_keywords": [
         "workflow design",
         "skill authoring",
-        "code implementation"
+        "code implementation",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -7266,7 +7496,9 @@
       ],
       "negative_keywords": [
         "code review",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "clinical advice"
       ]
     },
     "target": {
@@ -7299,7 +7531,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "contract review"
+        "contract review",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -7333,7 +7566,8 @@
       "negative_keywords": [
         "create dossier",
         "mine sources",
-        "code review"
+        "code review",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -7366,7 +7600,8 @@
       "negative_keywords": [
         "market research",
         "contract review",
-        "patient case"
+        "patient case",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -7400,7 +7635,8 @@
       "negative_keywords": [
         "run tests",
         "code review",
-        "production deployment"
+        "production deployment",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -7433,7 +7669,9 @@
       ],
       "negative_keywords": [
         "code review",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "clinical advice"
       ]
     },
     "target": {
@@ -7459,7 +7697,12 @@
         "system compile"
       ],
       "aliases": [],
-      "negative_keywords": []
+      "negative_keywords": [
+        "financial forecasting",
+        "clinical advice",
+        "legal contract review",
+        "marketing campaign"
+      ]
     },
     "target": {
       "domain_master": "meta-system.master",
@@ -7491,7 +7734,8 @@
       "negative_keywords": [
         "live deployment",
         "medical review",
-        "pricing strategy"
+        "pricing strategy",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -7525,7 +7769,8 @@
       "negative_keywords": [
         "code testing",
         "security audit",
-        "performance testing"
+        "performance testing",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -7560,7 +7805,8 @@
       "negative_keywords": [
         "agent design",
         "workflow design",
-        "code implementation"
+        "code implementation",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -7594,7 +7840,8 @@
       "negative_keywords": [
         "deploy app",
         "customer outreach",
-        "sales proposal"
+        "sales proposal",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -7628,7 +7875,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "contract review"
+        "contract review",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -7662,7 +7910,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "UI design"
+        "UI design",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -7696,7 +7945,8 @@
       "negative_keywords": [
         "code optimization",
         "database optimization",
-        "UI optimization"
+        "UI optimization",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -7731,7 +7981,8 @@
       "negative_keywords": [
         "agent design",
         "skill authoring",
-        "code implementation"
+        "code implementation",
+        "financial forecasting"
       ]
     },
     "target": {
@@ -7764,7 +8015,9 @@
       ],
       "negative_keywords": [
         "code review",
-        "financial forecast"
+        "financial forecast",
+        "financial forecasting",
+        "clinical advice"
       ]
     },
     "target": {
@@ -7797,7 +8050,8 @@
       "negative_keywords": [
         "production scheduling",
         "code review",
-        "financial forecast"
+        "financial forecast",
+        "marketing copy"
       ]
     },
     "target": {
@@ -7833,7 +8087,8 @@
       "negative_keywords": [
         "infrastructure provisioning",
         "code review",
-        "financial forecast"
+        "financial forecast",
+        "marketing copy"
       ]
     },
     "target": {
@@ -7865,7 +8120,12 @@
       "aliases": [
         "cloud-architect"
       ],
-      "negative_keywords": []
+      "negative_keywords": [
+        "marketing copy",
+        "legal contract review",
+        "financial forecasting",
+        "brand design"
+      ]
     },
     "target": {
       "domain_master": "platform.master",
@@ -7900,7 +8160,8 @@
       "negative_keywords": [
         "application code review",
         "financial accounting",
-        "contract negotiation"
+        "contract negotiation",
+        "marketing copy"
       ]
     },
     "target": {
@@ -7935,7 +8196,8 @@
       "negative_keywords": [
         "application code review",
         "financial forecast",
-        "contract review"
+        "contract review",
+        "marketing copy"
       ]
     },
     "target": {
@@ -7968,7 +8230,8 @@
       "negative_keywords": [
         "software release",
         "code review",
-        "financial forecast"
+        "financial forecast",
+        "marketing copy"
       ]
     },
     "target": {
@@ -8003,7 +8266,8 @@
       "negative_keywords": [
         "application code review",
         "financial forecast",
-        "marketing campaign"
+        "marketing campaign",
+        "marketing copy"
       ]
     },
     "target": {
@@ -8043,7 +8307,8 @@
       "negative_keywords": [
         "product review",
         "code review",
-        "financial forecast"
+        "financial forecast",
+        "marketing copy"
       ]
     },
     "target": {
@@ -8079,7 +8344,8 @@
       "negative_keywords": [
         "application unit testing",
         "code review",
-        "financial forecast"
+        "financial forecast",
+        "marketing copy"
       ]
     },
     "target": {
@@ -8115,7 +8381,8 @@
       "negative_keywords": [
         "application code review",
         "financial forecast",
-        "contract review"
+        "contract review",
+        "marketing copy"
       ]
     },
     "target": {
@@ -8143,7 +8410,12 @@
       "aliases": [
         "master"
       ],
-      "negative_keywords": []
+      "negative_keywords": [
+        "marketing copy",
+        "legal contract review",
+        "financial forecasting",
+        "clinical advice"
+      ]
     },
     "target": {
       "domain_master": "platform.master",
@@ -8177,7 +8449,8 @@
       "negative_keywords": [
         "application code review",
         "financial forecast",
-        "contract review"
+        "contract review",
+        "marketing copy"
       ]
     },
     "target": {
@@ -8210,7 +8483,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "contract review"
+        "contract review",
+        "marketing copy"
       ]
     },
     "target": {
@@ -8243,7 +8517,12 @@
       "aliases": [
         "release-manager"
       ],
-      "negative_keywords": []
+      "negative_keywords": [
+        "marketing copy",
+        "legal contract review",
+        "financial forecasting",
+        "clinical advice"
+      ]
     },
     "target": {
       "domain_master": "platform.master",
@@ -8277,7 +8556,8 @@
       "negative_keywords": [
         "application code review",
         "financial forecast",
-        "frontend design"
+        "frontend design",
+        "marketing copy"
       ]
     },
     "target": {
@@ -8312,7 +8592,8 @@
       "negative_keywords": [
         "application code review",
         "financial forecast",
-        "marketing campaign"
+        "marketing campaign",
+        "marketing copy"
       ]
     },
     "target": {
@@ -8341,7 +8622,12 @@
       "aliases": [
         "ceo-advisor"
       ],
-      "negative_keywords": []
+      "negative_keywords": [
+        "model training",
+        "infrastructure provisioning",
+        "legal contract drafting",
+        "database schema migration"
+      ]
     },
     "target": {
       "domain_master": "product-business.master",
@@ -8373,7 +8659,8 @@
       "negative_keywords": [
         "code review",
         "marketing campaign",
-        "hr policy"
+        "hr policy",
+        "infrastructure provisioning"
       ]
     },
     "target": {
@@ -8406,7 +8693,8 @@
       "negative_keywords": [
         "code review",
         "financial audit",
-        "hr policy"
+        "hr policy",
+        "model training"
       ]
     },
     "target": {
@@ -8435,7 +8723,12 @@
       "aliases": [
         "cto-advisor"
       ],
-      "negative_keywords": []
+      "negative_keywords": [
+        "model training",
+        "marketing copy",
+        "legal contract drafting",
+        "financial audit"
+      ]
     },
     "target": {
       "domain_master": "product-business.master",
@@ -8467,7 +8760,8 @@
       "negative_keywords": [
         "sales quote",
         "privacy review",
-        "budget forecast"
+        "budget forecast",
+        "model training"
       ]
     },
     "target": {
@@ -8500,7 +8794,8 @@
       "negative_keywords": [
         "code implementation",
         "financial audit",
-        "seo optimization"
+        "seo optimization",
+        "model training"
       ]
     },
     "target": {
@@ -8534,7 +8829,8 @@
       "negative_keywords": [
         "paid campaign execution",
         "code review",
-        "financial audit"
+        "financial audit",
+        "model training"
       ]
     },
     "target": {
@@ -8567,7 +8863,8 @@
       "negative_keywords": [
         "financial forecast",
         "paid campaign execution",
-        "legal contract"
+        "legal contract",
+        "model training"
       ]
     },
     "target": {
@@ -8600,7 +8897,8 @@
       "negative_keywords": [
         "code deployment",
         "financial audit",
-        "hr policy"
+        "hr policy",
+        "model training"
       ]
     },
     "target": {
@@ -8636,7 +8934,8 @@
       "negative_keywords": [
         "financial forecast",
         "sales pipeline",
-        "marketing campaign"
+        "marketing campaign",
+        "model training"
       ]
     },
     "target": {
@@ -8669,7 +8968,8 @@
       "negative_keywords": [
         "market research",
         "clinical review",
-        "code security audit"
+        "code security audit",
+        "model training"
       ]
     },
     "target": {
@@ -8702,7 +9002,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "contract review"
+        "contract review",
+        "model training"
       ]
     },
     "target": {
@@ -8735,7 +9036,8 @@
       "negative_keywords": [
         "code deployment",
         "financial audit",
-        "hr compensation"
+        "hr compensation",
+        "infrastructure provisioning"
       ]
     },
     "target": {
@@ -8768,7 +9070,8 @@
       "negative_keywords": [
         "infrastructure monitoring",
         "sales pipeline",
-        "code review"
+        "code review",
+        "model training"
       ]
     },
     "target": {
@@ -8801,7 +9104,8 @@
       "negative_keywords": [
         "backend api design",
         "financial modeling",
-        "seo optimization"
+        "seo optimization",
+        "model training"
       ]
     },
     "target": {
@@ -8834,7 +9138,8 @@
       "negative_keywords": [
         "code deployment",
         "financial audit",
-        "hr onboarding"
+        "hr onboarding",
+        "model training"
       ]
     },
     "target": {
@@ -8868,7 +9173,8 @@
       "negative_keywords": [
         "seo strategy",
         "employment policy",
-        "contract review"
+        "contract review",
+        "model training"
       ]
     },
     "target": {
@@ -8901,7 +9207,8 @@
       "negative_keywords": [
         "paid ad execution",
         "code deployment",
-        "financial audit"
+        "financial audit",
+        "model training"
       ]
     },
     "target": {
@@ -8934,7 +9241,8 @@
       "negative_keywords": [
         "code deployment",
         "financial audit",
-        "hr policy"
+        "hr policy",
+        "model training"
       ]
     },
     "target": {
@@ -8967,7 +9275,8 @@
       "negative_keywords": [
         "code deployment",
         "financial audit",
-        "hr policy"
+        "hr policy",
+        "model training"
       ]
     },
     "target": {
@@ -9000,7 +9309,8 @@
       "negative_keywords": [
         "code documentation",
         "financial reporting",
-        "hr policy writing"
+        "hr policy writing",
+        "model training"
       ]
     },
     "target": {
@@ -9033,7 +9343,8 @@
       "negative_keywords": [
         "code deployment",
         "financial audit",
-        "hr policy"
+        "hr policy",
+        "model training"
       ]
     },
     "target": {
@@ -9067,7 +9378,12 @@
       "aliases": [
         "sales-operator"
       ],
-      "negative_keywords": []
+      "negative_keywords": [
+        "model training",
+        "infrastructure provisioning",
+        "legal contract drafting",
+        "clinical advice"
+      ]
     },
     "target": {
       "domain_master": "product-business.master",
@@ -9099,7 +9415,8 @@
       "negative_keywords": [
         "code deployment",
         "financial forecast",
-        "seo audit"
+        "seo audit",
+        "model training"
       ]
     },
     "target": {
@@ -9133,7 +9450,8 @@
       "negative_keywords": [
         "sales proposal",
         "product roadmap",
-        "code deployment"
+        "code deployment",
+        "production deployment"
       ]
     },
     "target": {
@@ -9166,7 +9484,8 @@
       "negative_keywords": [
         "code deployment",
         "product launch",
-        "sales forecast"
+        "sales forecast",
+        "production deployment"
       ]
     },
     "target": {
@@ -9200,7 +9519,8 @@
       "negative_keywords": [
         "crm cleanup",
         "contract redline",
-        "direct deploy"
+        "direct deploy",
+        "production deployment"
       ]
     },
     "target": {
@@ -9234,7 +9554,8 @@
       "negative_keywords": [
         "code migration",
         "security patch",
-        "sales pipeline"
+        "sales pipeline",
+        "production deployment"
       ]
     },
     "target": {
@@ -9267,7 +9588,8 @@
       "negative_keywords": [
         "proposal draft",
         "account escalation",
-        "tax review"
+        "tax review",
+        "production deployment"
       ]
     },
     "target": {
@@ -9300,7 +9622,8 @@
       "negative_keywords": [
         "code review",
         "security audit",
-        "financial audit"
+        "financial audit",
+        "production deployment"
       ]
     },
     "target": {
@@ -9336,7 +9659,8 @@
       "negative_keywords": [
         "code review",
         "security review",
-        "product roadmap"
+        "product roadmap",
+        "production deployment"
       ]
     },
     "target": {
@@ -9369,7 +9693,8 @@
       "negative_keywords": [
         "code refactoring",
         "deployment pipeline",
-        "account management"
+        "account management",
+        "production deployment"
       ]
     },
     "target": {
@@ -9402,7 +9727,8 @@
       "negative_keywords": [
         "code architecture",
         "system design",
-        "product spec"
+        "product spec",
+        "production deployment"
       ]
     },
     "target": {
@@ -9435,7 +9761,8 @@
       "negative_keywords": [
         "software sprint",
         "product launch",
-        "sales campaign"
+        "sales campaign",
+        "production deployment"
       ]
     },
     "target": {
@@ -9469,7 +9796,8 @@
       "negative_keywords": [
         "sales proposal",
         "product roadmap",
-        "performance review"
+        "performance review",
+        "production deployment"
       ]
     },
     "target": {
@@ -9502,7 +9830,8 @@
       "negative_keywords": [
         "marketing copy",
         "sales email",
-        "blog post"
+        "blog post",
+        "production deployment"
       ]
     },
     "target": {
@@ -9536,7 +9865,8 @@
       "negative_keywords": [
         "code debugging",
         "infrastructure setup",
-        "sales analysis"
+        "sales analysis",
+        "production deployment"
       ]
     },
     "target": {
@@ -9570,7 +9900,8 @@
       "negative_keywords": [
         "marketing campaign",
         "customer support ticket",
-        "product roadmap"
+        "product roadmap",
+        "model training"
       ]
     },
     "target": {
@@ -9603,7 +9934,12 @@
       "aliases": [
         "account-manager"
       ],
-      "negative_keywords": []
+      "negative_keywords": [
+        "model training",
+        "infrastructure provisioning",
+        "legal contract drafting",
+        "database schema migration"
+      ]
     },
     "target": {
       "domain_master": "sales.master",
@@ -9636,7 +9972,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "contract review"
+        "contract review",
+        "model training"
       ]
     },
     "target": {
@@ -9670,7 +10007,8 @@
       "negative_keywords": [
         "legal contract drafting",
         "compliance review",
-        "litigation advice"
+        "litigation advice",
+        "model training"
       ]
     },
     "target": {
@@ -9705,7 +10043,8 @@
       "negative_keywords": [
         "crm software development",
         "database administration",
-        "IT infrastructure"
+        "IT infrastructure",
+        "model training"
       ]
     },
     "target": {
@@ -9739,7 +10078,8 @@
       "negative_keywords": [
         "new logo acquisition",
         "cold outreach",
-        "product development"
+        "product development",
+        "model training"
       ]
     },
     "target": {
@@ -9774,7 +10114,8 @@
       "negative_keywords": [
         "financial accounting",
         "legal contract review",
-        "product pricing strategy"
+        "product pricing strategy",
+        "model training"
       ]
     },
     "target": {
@@ -9810,7 +10151,8 @@
       "negative_keywords": [
         "marketing campaign",
         "product roadmap",
-        "financial forecast"
+        "financial forecast",
+        "model training"
       ]
     },
     "target": {
@@ -9843,7 +10185,8 @@
       "negative_keywords": [
         "employee onboarding",
         "contract clause",
-        "ux polish"
+        "ux polish",
+        "model training"
       ]
     },
     "target": {
@@ -9874,7 +10217,12 @@
       "aliases": [
         "pricing-strategist"
       ],
-      "negative_keywords": []
+      "negative_keywords": [
+        "model training",
+        "infrastructure provisioning",
+        "legal contract drafting",
+        "clinical advice"
+      ]
     },
     "target": {
       "domain_master": "sales.master",
@@ -9906,7 +10254,8 @@
       "negative_keywords": [
         "legal approval",
         "tax advice",
-        "security pentest"
+        "security pentest",
+        "model training"
       ]
     },
     "target": {
@@ -9941,7 +10290,8 @@
       "negative_keywords": [
         "legal contract drafting",
         "marketing brochure",
-        "technical documentation"
+        "technical documentation",
+        "model training"
       ]
     },
     "target": {
@@ -9976,7 +10326,8 @@
       "negative_keywords": [
         "financial accounting",
         "marketing attribution",
-        "product analytics"
+        "product analytics",
+        "model training"
       ]
     },
     "target": {
@@ -10012,7 +10363,8 @@
       "negative_keywords": [
         "closing deals",
         "contract negotiation",
-        "customer retention"
+        "customer retention",
+        "model training"
       ]
     },
     "target": {
@@ -10046,7 +10398,8 @@
       "negative_keywords": [
         "marketing content",
         "product documentation",
-        "training delivery"
+        "training delivery",
+        "model training"
       ]
     },
     "target": {
@@ -10080,7 +10433,8 @@
       "negative_keywords": [
         "production deployment",
         "code implementation",
-        "infrastructure setup"
+        "infrastructure setup",
+        "model training"
       ]
     },
     "target": {
@@ -10114,7 +10468,8 @@
       "negative_keywords": [
         "marketing automation",
         "product development",
-        "financial accounting"
+        "financial accounting",
+        "model training"
       ]
     },
     "target": {
@@ -10147,7 +10502,8 @@
       "negative_keywords": [
         "seo strategy",
         "medical advice",
-        "source mining"
+        "source mining",
+        "model training"
       ]
     },
     "target": {
@@ -10181,7 +10537,8 @@
       "negative_keywords": [
         "product training",
         "technical training",
-        "HR compliance training"
+        "HR compliance training",
+        "infrastructure provisioning"
       ]
     },
     "target": {
@@ -10215,7 +10572,8 @@
       "negative_keywords": [
         "marketing campaign",
         "product development",
-        "HR headcount planning"
+        "HR headcount planning",
+        "infrastructure provisioning"
       ]
     },
     "target": {
@@ -10255,7 +10613,8 @@
       "negative_keywords": [
         "infrastructure security",
         "network security",
-        "physical security"
+        "physical security",
+        "marketing copy"
       ]
     },
     "target": {
@@ -10295,7 +10654,8 @@
       "negative_keywords": [
         "cloud cost optimization",
         "cloud migration planning",
-        "multi-cloud strategy"
+        "multi-cloud strategy",
+        "marketing copy"
       ]
     },
     "target": {
@@ -10335,7 +10695,8 @@
       "negative_keywords": [
         "legal contract review",
         "financial compliance",
-        "tax compliance"
+        "tax compliance",
+        "marketing copy"
       ]
     },
     "target": {
@@ -10375,7 +10736,8 @@
       "negative_keywords": [
         "cryptocurrency",
         "blockchain trading",
-        "financial modeling"
+        "financial modeling",
+        "marketing copy"
       ]
     },
     "target": {
@@ -10408,7 +10770,8 @@
       "negative_keywords": [
         "code review",
         "financial forecast",
-        "contract review"
+        "contract review",
+        "marketing copy"
       ]
     },
     "target": {
@@ -10448,7 +10811,8 @@
       "negative_keywords": [
         "user interface design",
         "customer onboarding",
-        "marketing identity"
+        "marketing identity",
+        "marketing copy"
       ]
     },
     "target": {
@@ -10488,7 +10852,8 @@
       "negative_keywords": [
         "performance incident",
         "outage management",
-        "customer support ticket"
+        "customer support ticket",
+        "marketing copy"
       ]
     },
     "target": {
@@ -10518,7 +10883,12 @@
       "aliases": [
         "master"
       ],
-      "negative_keywords": []
+      "negative_keywords": [
+        "marketing copy",
+        "financial forecasting",
+        "ui/ux design",
+        "payroll processing"
+      ]
     },
     "target": {
       "domain_master": "security.master",
@@ -10557,7 +10927,8 @@
       "negative_keywords": [
         "network performance",
         "bandwidth optimization",
-        "CDN setup"
+        "CDN setup",
+        "marketing copy"
       ]
     },
     "target": {
@@ -10597,7 +10968,8 @@
       "negative_keywords": [
         "performance test",
         "load test",
-        "code review"
+        "code review",
+        "marketing copy"
       ]
     },
     "target": {
@@ -10631,7 +11003,8 @@
       "negative_keywords": [
         "performance review",
         "product review",
-        "code review"
+        "code review",
+        "marketing copy"
       ]
     },
     "target": {
@@ -10671,7 +11044,8 @@
       "negative_keywords": [
         "financial audit",
         "code review",
-        "performance audit"
+        "performance audit",
+        "marketing copy"
       ]
     },
     "target": {
@@ -10706,7 +11080,8 @@
       "negative_keywords": [
         "financial audit",
         "product review",
-        "performance review"
+        "performance review",
+        "marketing copy"
       ]
     },
     "target": {
@@ -10746,7 +11121,8 @@
       "negative_keywords": [
         "bug hunting",
         "feature discovery",
-        "market research"
+        "market research",
+        "marketing copy"
       ]
     },
     "target": {
@@ -10780,7 +11156,8 @@
       "negative_keywords": [
         "product roadmap",
         "financial model",
-        "performance model"
+        "performance model",
+        "marketing copy"
       ]
     },
     "target": {
@@ -10821,7 +11198,8 @@
       "negative_keywords": [
         "feature request",
         "bug triage",
-        "release management"
+        "release management",
+        "marketing copy"
       ]
     },
     "target": {
@@ -10858,7 +11236,8 @@
       "negative_keywords": [
         "financial audit",
         "tax planning",
-        "accounting"
+        "accounting",
+        "clinical advice"
       ]
     },
     "target": {
@@ -10892,7 +11271,8 @@
       "negative_keywords": [
         "tax filing",
         "clinical guideline",
-        "contract redline"
+        "contract redline",
+        "model training"
       ]
     },
     "target": {
@@ -10929,7 +11309,8 @@
       "negative_keywords": [
         "market research report",
         "focus group",
-        "survey design"
+        "survey design",
+        "model training"
       ]
     },
     "target": {
@@ -10966,7 +11347,8 @@
       "negative_keywords": [
         "tax filing",
         "audit preparation",
-        "accounting reconciliation"
+        "accounting reconciliation",
+        "clinical advice"
       ]
     },
     "target": {
@@ -11002,7 +11384,8 @@
       "negative_keywords": [
         "loan application",
         "banking compliance",
-        "IPO filing"
+        "IPO filing",
+        "model training"
       ]
     },
     "target": {
@@ -11038,7 +11421,8 @@
       "negative_keywords": [
         "enterprise marketing",
         "brand campaign",
-        "TV advertising"
+        "TV advertising",
+        "model training"
       ]
     },
     "target": {
@@ -11074,7 +11458,8 @@
       "negative_keywords": [
         "enterprise HRIS",
         "union negotiations",
-        "benefits administration"
+        "benefits administration",
+        "model training"
       ]
     },
     "target": {
@@ -11110,7 +11495,8 @@
       "negative_keywords": [
         "litigation strategy",
         "court filing",
-        "criminal defense"
+        "criminal defense",
+        "model training"
       ]
     },
     "target": {
@@ -11146,7 +11532,8 @@
       "negative_keywords": [
         "corporate hr",
         "large enterprise",
-        "legal contract"
+        "legal contract",
+        "model training"
       ]
     },
     "target": {
@@ -11182,7 +11569,8 @@
       "negative_keywords": [
         "manufacturing floor",
         "warehouse management",
-        "logistics fleet"
+        "logistics fleet",
+        "model training"
       ]
     },
     "target": {
@@ -11219,7 +11607,8 @@
       "negative_keywords": [
         "sales deck",
         "product demo",
-        "training slides"
+        "training slides",
+        "model training"
       ]
     },
     "target": {
@@ -11256,7 +11645,8 @@
       "negative_keywords": [
         "product roadmap",
         "feature prioritization",
-        "UX design"
+        "UX design",
+        "model training"
       ]
     },
     "target": {
@@ -11289,7 +11679,8 @@
       "negative_keywords": [
         "unit test only",
         "hr policy",
-        "seo strategy"
+        "seo strategy",
+        "model training"
       ]
     },
     "target": {
@@ -11322,7 +11713,8 @@
       "negative_keywords": [
         "medical advice",
         "compensation review",
-        "contract signing"
+        "contract signing",
+        "model training"
       ]
     },
     "target": {
@@ -11358,7 +11750,8 @@
       "negative_keywords": [
         "therapy",
         "life coaching",
-        "executive coaching enterprise"
+        "executive coaching enterprise",
+        "model training"
       ]
     },
     "target": {
@@ -11394,7 +11787,8 @@
       "negative_keywords": [
         "enterprise strategy",
         "corporate planning",
-        "government policy"
+        "government policy",
+        "model training"
       ]
     },
     "target": {

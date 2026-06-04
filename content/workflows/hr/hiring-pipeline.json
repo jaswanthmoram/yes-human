@@ -10,15 +10,8 @@
     "candidate stage review",
     "onboarding handoff planning"
   ],
-  "aliases": [
-    "hiring pipeline",
-    "interview pipeline"
-  ],
-  "negative_keywords": [
-    "tax filing",
-    "contract interpretation",
-    "campaign launch"
-  ],
+  "aliases": ["hiring pipeline", "interview pipeline"],
+  "negative_keywords": ["tax filing", "contract interpretation", "campaign launch"],
   "inputs": [
     {
       "name": "role_scope",
@@ -53,14 +46,9 @@
   "primary_agent": "hr.hiring-manager",
   "route": {
     "domain_master": "hr.master",
-    "agents": [
-      "hr.hiring-manager",
-      "hr.onboarding-coordinator"
-    ],
+    "agents": ["hr.hiring-manager", "hr.onboarding-coordinator"],
     "primary_agent": "hr.hiring-manager",
-    "participants": [
-      "hr.onboarding-coordinator"
-    ],
+    "participants": ["hr.onboarding-coordinator"],
     "parallel": false,
     "max_parallel_agents": 2
   },

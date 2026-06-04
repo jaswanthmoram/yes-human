@@ -10,15 +10,8 @@
     "compliance procedure drafting",
     "governance policy workflow"
   ],
-  "aliases": [
-    "policy development",
-    "policy creation process"
-  ],
-  "negative_keywords": [
-    "cache policy",
-    "security policy code",
-    "CSP policy"
-  ],
+  "aliases": ["policy development", "policy creation process"],
+  "negative_keywords": ["cache policy", "security policy code", "CSP policy"],
   "inputs": [
     {
       "name": "policy_domain",
@@ -59,10 +52,7 @@
       "legal-compliance.regulatory-affairs"
     ],
     "primary_agent": "legal-compliance.policy-analyst",
-    "participants": [
-      "legal-compliance.compliance-checker",
-      "legal-compliance.regulatory-affairs"
-    ],
+    "participants": ["legal-compliance.compliance-checker", "legal-compliance.regulatory-affairs"],
     "parallel": true,
     "max_parallel_agents": 3
   },

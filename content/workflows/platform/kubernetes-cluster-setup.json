@@ -13,11 +13,7 @@
     "provision managed kubernetes",
     "bootstrap kubernetes cluster"
   ],
-  "aliases": [
-    "k8s setup",
-    "cluster bootstrap",
-    "kubernetes provisioning"
-  ],
+  "aliases": ["k8s setup", "cluster bootstrap", "kubernetes provisioning"],
   "negative_keywords": [
     "application deployment",
     "helm chart authoring",
@@ -65,17 +61,8 @@
     }
   ],
   "primary_agent": "platform.devops-engineer",
-  "participants": [
-    "platform.security-engineer",
-    "platform.network-engineer",
-    "platform.sre-engineer"
-  ],
-  "skills": [
-    "kubernetes-admin",
-    "infrastructure-as-code",
-    "cloud-networking",
-    "container-security"
-  ],
+  "participants": ["platform.security-engineer", "platform.network-engineer", "platform.sre-engineer"],
+  "skills": ["kubernetes-admin", "infrastructure-as-code", "cloud-networking", "container-security"],
   "budget_band": "expanded",
   "max_context_tokens": 4200,
   "max_tool_calls": 14,
@@ -190,9 +177,7 @@
   },
   "route": {
     "domain_master": "platform.master",
-    "agents": [
-      "platform.devops-engineer"
-    ],
+    "agents": ["platform.devops-engineer"],
     "parallel": false,
     "max_parallel_agents": 1
   }

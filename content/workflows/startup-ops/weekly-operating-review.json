@@ -3,65 +3,35 @@
   "version": "1.0.0",
   "status": "active",
   "summary": "weekly-operating-review workflow",
-  "triggers": [
-    "weekly operating review"
-  ],
-  "aliases": [
-    "weekly-operating-review"
-  ],
+  "triggers": ["weekly operating review"],
+  "aliases": ["weekly-operating-review"],
   "primary_agent": "startup-ops.operations-manager",
-  "inputs": [
-    "task_context"
-  ],
-  "outputs": [
-    "workflow_output"
-  ],
-  "steps": [
-    "intake_scope",
-    "execute_workflow",
-    "verify_outputs"
-  ],
-  "gates": [
-    "pre-route",
-    "pre-tool",
-    "on-task-complete"
-  ],
+  "inputs": ["task_context"],
+  "outputs": ["workflow_output"],
+  "steps": ["intake_scope", "execute_workflow", "verify_outputs"],
+  "gates": ["pre-route", "pre-tool", "on-task-complete"],
   "route": {
     "domain_master": "startup-ops.master",
-    "agents": [
-      "startup-ops.operations-manager"
-    ],
+    "agents": ["startup-ops.operations-manager"],
     "parallel": false,
     "max_parallel_agents": 1,
     "primary": "startup-ops.operations-manager",
-    "participants": [
-      "startup-ops.operations-manager"
-    ]
+    "participants": ["startup-ops.operations-manager"]
   },
   "budget": {
     "band": "standard",
     "max_context_tokens": 8000,
     "max_tool_calls": 12
   },
-  "source_references": [
-    "ref.workflow.startup-ops.weekly-operating-review.2026-06-02"
-  ],
+  "source_references": ["ref.workflow.startup-ops.weekly-operating-review.2026-06-02"],
   "promotion": {
     "can_learn": true,
     "min_successes_before_update": 2
   },
   "task_family": "startup-ops",
-  "negative_keywords": [
-    "wrong domain"
-  ],
-  "tools": [
-    "filesystem.read"
-  ],
-  "verification": [
-    "outputs_verified"
-  ],
-  "success_criteria": [
-    "workflow_objectives_met"
-  ],
+  "negative_keywords": ["wrong domain"],
+  "tools": ["filesystem.read"],
+  "verification": ["outputs_verified"],
+  "success_criteria": ["workflow_objectives_met"],
   "rollback": "trace_based"
 }

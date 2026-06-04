@@ -26,7 +26,11 @@ export function hashSource(sourceRoot) {
   const hashes = new Map(); // hash → [relativePath]
   (function walk(d) {
     let entries;
-    try { entries = fs.readdirSync(d, { withFileTypes: true }); } catch { return; }
+    try {
+      entries = fs.readdirSync(d, { withFileTypes: true });
+    } catch {
+      return;
+    }
     for (const e of entries) {
       if (e.name === '.git' || e.name === 'node_modules') continue;
       const full = path.join(d, e.name);
@@ -55,7 +59,9 @@ export function loadActiveSlugs(repoRoot) {
         if (item.id) slugs.add(item.id);
         if (item.name) slugs.add(String(item.name).toLowerCase());
       }
-    } catch { /* ignore */ }
+    } catch {
+      /* ignore */
+    }
   }
   return slugs;
 }
@@ -76,7 +82,11 @@ export function reportDuplicates(stagedRoot, repoRoot) {
     if (!fs.existsSync(root)) continue;
     (function walk(d) {
       let entries;
-      try { entries = fs.readdirSync(d, { withFileTypes: true }); } catch { return; }
+      try {
+        entries = fs.readdirSync(d, { withFileTypes: true });
+      } catch {
+        return;
+      }
       for (const e of entries) {
         const full = path.join(d, e.name);
         if (e.isDirectory()) walk(full);

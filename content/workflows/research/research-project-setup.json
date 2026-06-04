@@ -4,19 +4,33 @@
   "status": "active",
   "summary": "Set up a new research project with protocol development, ethics planning, data management plan, team coordination, and milestone scheduling.",
   "task_family": "research_setup",
-  "triggers": ["research project setup", "new study initialization", "research project kickoff", "study protocol development", "research planning workflow"],
+  "triggers": [
+    "research project setup",
+    "new study initialization",
+    "research project kickoff",
+    "study protocol development",
+    "research planning workflow"
+  ],
   "aliases": ["project setup", "study kickoff"],
   "negative_keywords": ["code deployment", "product launch", "sales campaign"],
   "inputs": [
-    {"name": "research_objective", "required": true, "description": "The primary research objective or question."},
-    {"name": "team_composition", "required": true, "description": "Team members, roles, and institutional affiliations."},
-    {"name": "funding_context", "required": false, "description": "Funding source, budget constraints, and grant requirements."}
+    { "name": "research_objective", "required": true, "description": "The primary research objective or question." },
+    {
+      "name": "team_composition",
+      "required": true,
+      "description": "Team members, roles, and institutional affiliations."
+    },
+    {
+      "name": "funding_context",
+      "required": false,
+      "description": "Funding source, budget constraints, and grant requirements."
+    }
   ],
   "outputs": [
-    {"name": "project_protocol", "description": "Comprehensive research protocol document."},
-    {"name": "ethics_plan", "description": "Ethics review plan with IRB or equivalent requirements."},
-    {"name": "data_management_plan", "description": "FAIR-compliant data management plan."},
-    {"name": "milestone_schedule", "description": "Project timeline with milestones and deliverables."}
+    { "name": "project_protocol", "description": "Comprehensive research protocol document." },
+    { "name": "ethics_plan", "description": "Ethics review plan with IRB or equivalent requirements." },
+    { "name": "data_management_plan", "description": "FAIR-compliant data management plan." },
+    { "name": "milestone_schedule", "description": "Project timeline with milestones and deliverables." }
   ],
   "primary_agent": "research.research-project-manager",
   "route": {
@@ -27,36 +41,67 @@
     "parallel": false,
     "max_parallel_agents": 2
   },
-  "budget": {"band": "expanded", "max_context_tokens": 5000, "max_tool_calls": 15},
+  "budget": { "band": "expanded", "max_context_tokens": 5000, "max_tool_calls": 15 },
   "gates": [
-    {"id": "pre-route", "rule": "Confirm the task is research project setup, not a product or software project."},
-    {"id": "pre-tool", "rule": "Require a defined research objective before protocol development."},
-    {"id": "post-tool", "rule": "Verify ethics and data management plans are documented."},
-    {"id": "on-task-complete", "rule": "All project documents must be internally consistent and reference each other."}
+    { "id": "pre-route", "rule": "Confirm the task is research project setup, not a product or software project." },
+    { "id": "pre-tool", "rule": "Require a defined research objective before protocol development." },
+    { "id": "post-tool", "rule": "Verify ethics and data management plans are documented." },
+    {
+      "id": "on-task-complete",
+      "rule": "All project documents must be internally consistent and reference each other."
+    }
   ],
   "steps": [
-    {"id": "define-objective", "agent": "research.research-project-manager", "action": "Refine the research objective into specific, measurable questions."},
-    {"id": "design-methodology", "agent": "research.research-methodologist", "action": "Design the research methodology with sampling and measurement strategy."},
-    {"id": "plan-ethics", "agent": "research.research-project-manager", "action": "Develop ethics review plan and IRB application requirements."},
-    {"id": "create-dmp", "agent": "research.research-project-manager", "action": "Create a FAIR-compliant data management plan."},
-    {"id": "schedule-milestones", "agent": "research.research-project-manager", "action": "Build project timeline with milestones, dependencies, and risk register."}
+    {
+      "id": "define-objective",
+      "agent": "research.research-project-manager",
+      "action": "Refine the research objective into specific, measurable questions."
+    },
+    {
+      "id": "design-methodology",
+      "agent": "research.research-methodologist",
+      "action": "Design the research methodology with sampling and measurement strategy."
+    },
+    {
+      "id": "plan-ethics",
+      "agent": "research.research-project-manager",
+      "action": "Develop ethics review plan and IRB application requirements."
+    },
+    {
+      "id": "create-dmp",
+      "agent": "research.research-project-manager",
+      "action": "Create a FAIR-compliant data management plan."
+    },
+    {
+      "id": "schedule-milestones",
+      "agent": "research.research-project-manager",
+      "action": "Build project timeline with milestones, dependencies, and risk register."
+    }
   ],
   "tools": [
-    {"name": "filesystem.read", "purpose": "Read existing templates and prior project documents."},
-    {"name": "filesystem.write", "purpose": "Save project protocol, DMP, and milestone schedule."},
-    {"name": "web.search", "purpose": "Search for funder requirements and ethical guidelines."}
+    { "name": "filesystem.read", "purpose": "Read existing templates and prior project documents." },
+    { "name": "filesystem.write", "purpose": "Save project protocol, DMP, and milestone schedule." },
+    { "name": "web.search", "purpose": "Search for funder requirements and ethical guidelines." }
   ],
   "verification": [
-    {"id": "protocol-complete", "method": "Verify protocol covers objectives, methods, ethics, and data management."},
-    {"id": "timeline-realistic", "method": "Verify milestones are achievable within stated constraints."},
-    {"id": "ethics-addressed", "method": "Verify ethics plan covers consent, privacy, and IRB requirements."}
+    { "id": "protocol-complete", "method": "Verify protocol covers objectives, methods, ethics, and data management." },
+    { "id": "timeline-realistic", "method": "Verify milestones are achievable within stated constraints." },
+    { "id": "ethics-addressed", "method": "Verify ethics plan covers consent, privacy, and IRB requirements." }
   ],
   "success_criteria": [
     "A complete research protocol document is produced.",
     "Ethics and data management plans meet institutional requirements.",
     "Project timeline has clear milestones with dependencies mapped."
   ],
-  "rollback": {"mode": "no_write", "when": "If the protocol lacks essential sections, restart from the missing component."},
-  "source_references": [{"dossier_path": "references/workflows/research/research-project-setup.sources.json", "relationship": "workflow_dossier"}],
-  "promotion": {"can_learn": true, "min_successes_before_update": 2, "quality_gate": "staging"}
+  "rollback": {
+    "mode": "no_write",
+    "when": "If the protocol lacks essential sections, restart from the missing component."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/research/research-project-setup.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": { "can_learn": true, "min_successes_before_update": 2, "quality_gate": "staging" }
 }

@@ -18,12 +18,7 @@
     "framework compliance check",
     "regulatory compliance assessment"
   ],
-  "negative_keywords": [
-    "code review",
-    "bug fix",
-    "feature development",
-    "performance optimization"
-  ],
+  "negative_keywords": ["code review", "bug fix", "feature development", "performance optimization"],
   "inputs": [
     {
       "name": "compliance_framework",
@@ -66,28 +61,18 @@
   "primary_agent": "security.compliance-checker",
   "route": {
     "domain_master": "security.master",
-    "agents": [
-      "security.compliance-checker"
-    ],
+    "agents": ["security.compliance-checker"],
     "parallel": true,
     "max_parallel_agents": 3,
     "primary": "security.compliance-checker",
-    "participants": [
-      "security.security-reviewer",
-      "security.policy-analyst"
-    ]
+    "participants": ["security.security-reviewer", "security.policy-analyst"]
   },
   "budget": {
     "band": "expanded",
     "max_context_tokens": 5000,
     "max_tool_calls": 16
   },
-  "gates": [
-    "pre-route",
-    "pre-tool",
-    "post-tool",
-    "on-task-complete"
-  ],
+  "gates": ["pre-route", "pre-tool", "post-tool", "on-task-complete"],
   "steps": [
     {
       "id": "framework-mapping",
@@ -140,9 +125,7 @@
     "mode": "no_write",
     "summary": "Read-only compliance assessment with no system modifications."
   },
-  "source_references": [
-    "ref.workflow.security.security-compliance-check.2026-06-01"
-  ],
+  "source_references": ["ref.workflow.security.security-compliance-check.2026-06-01"],
   "promotion": {
     "can_learn": true,
     "quality_gate": "staging",

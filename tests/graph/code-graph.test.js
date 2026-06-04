@@ -13,7 +13,9 @@ before(async () => {
   dbPath = path.join(workDir, 'graph.sqlite');
 
   // Tiny synthetic mini-repo with two JS files + a Python file.
-  fs.writeFileSync(path.join(workDir, 'auth.js'), `
+  fs.writeFileSync(
+    path.join(workDir, 'auth.js'),
+    `
 import bcrypt from 'bcrypt';
 import { db } from './db.js';
 
@@ -24,15 +26,21 @@ export function hashPassword(plain) {
 export class AuthService {
   async login(email, password) { return true; }
 }
-`);
+`
+  );
 
-  fs.writeFileSync(path.join(workDir, 'db.js'), `
+  fs.writeFileSync(
+    path.join(workDir, 'db.js'),
+    `
 export const db = {
   query: async (sql) => null
 };
-`);
+`
+  );
 
-  fs.writeFileSync(path.join(workDir, 'main.py'), `
+  fs.writeFileSync(
+    path.join(workDir, 'main.py'),
+    `
 import json
 from auth import hashPassword
 
@@ -41,7 +49,8 @@ def run():
 
 class Server:
     pass
-`);
+`
+  );
 
   fs.mkdirSync(path.join(workDir, 'node_modules', 'bcrypt'), { recursive: true });
   fs.writeFileSync(path.join(workDir, 'node_modules', 'bcrypt', 'index.js'), 'export function hash(){}');
@@ -79,28 +88,28 @@ test('extracts a JS class symbol', () => {
   const g = new CodeGraph(dbPath);
   const hits = g.findSymbol('AuthService');
   g.close();
-  assert.ok(hits.some(h => h.kind === 'class' && h.file === 'auth.js'));
+  assert.ok(hits.some((h) => h.kind === 'class' && h.file === 'auth.js'));
 });
 
 test('extracts a Python class symbol', () => {
   const g = new CodeGraph(dbPath);
   const hits = g.findSymbol('Server');
   g.close();
-  assert.ok(hits.some(h => h.kind === 'class' && h.file === 'main.py'));
+  assert.ok(hits.some((h) => h.kind === 'class' && h.file === 'main.py'));
 });
 
 test('captures JS imports', () => {
   const g = new CodeGraph(dbPath);
   const hits = g.filesUsing('bcrypt');
   g.close();
-  assert.ok(hits.some(h => h.file === 'auth.js'));
+  assert.ok(hits.some((h) => h.file === 'auth.js'));
 });
 
 test('captures Python imports', () => {
   const g = new CodeGraph(dbPath);
   const hits = g.filesUsing('auth');
   g.close();
-  assert.ok(hits.some(h => h.file === 'main.py'));
+  assert.ok(hits.some((h) => h.file === 'main.py'));
 });
 
 test('search returns compact context-pack rows (no full file content)', () => {
@@ -121,8 +130,8 @@ test('briefing returns languages + symbol_kinds breakdown', () => {
   const b = g.briefing();
   g.close();
   assert.ok(Array.isArray(b.languages));
-  assert.ok(b.languages.some(l => l.language === 'javascript'));
-  assert.ok(b.languages.some(l => l.language === 'python'));
+  assert.ok(b.languages.some((l) => l.language === 'javascript'));
+  assert.ok(b.languages.some((l) => l.language === 'python'));
   assert.ok(Array.isArray(b.symbol_kinds));
 });
 

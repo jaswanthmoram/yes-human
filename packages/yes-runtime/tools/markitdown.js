@@ -80,11 +80,13 @@ export function convertToMarkdown(filePath, options = {}) {
     // Fail early with an actionable message if MarkItDown is not available.
     const check = spawnSync(python, ['-c', 'import markitdown'], { encoding: 'utf8' });
     if (check.status !== 0) {
-      return reject(new Error(
-        `MarkItDown is not installed for interpreter "${python}". Set it up with:\n` +
-        `  python3 -m venv .venv && .venv/bin/python -m pip install -r requirements.txt\n` +
-        `or point YES_PYTHON at an interpreter that has markitdown[all].`
-      ));
+      return reject(
+        new Error(
+          `MarkItDown is not installed for interpreter "${python}". Set it up with:\n` +
+            `  python3 -m venv .venv && .venv/bin/python -m pip install -r requirements.txt\n` +
+            `or point YES_PYTHON at an interpreter that has markitdown[all].`
+        )
+      );
     }
 
     const args = ['-m', 'markitdown', filePath];
@@ -106,9 +108,11 @@ export function convertToMarkdown(filePath, options = {}) {
 
     child.on('close', (code) => {
       if (code !== 0) {
-        return reject(new Error(
-          `MarkItDown conversion failed with code ${code} for ${path.basename(filePath)}. Error: ${stderr.trim()}`
-        ));
+        return reject(
+          new Error(
+            `MarkItDown conversion failed with code ${code} for ${path.basename(filePath)}. Error: ${stderr.trim()}`
+          )
+        );
       }
 
       let markdown;

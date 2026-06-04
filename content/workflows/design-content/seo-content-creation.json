@@ -4,21 +4,9 @@
   "status": "active",
   "summary": "Create SEO-optimized content with keyword research, search intent mapping, and on-page optimization.",
   "task_family": "content_creation",
-  "triggers": [
-    "create seo optimized content",
-    "write seo blog post",
-    "produce search optimized article"
-  ],
-  "aliases": [
-    "seo content writing",
-    "search content creation",
-    "seo article writing"
-  ],
-  "negative_keywords": [
-    "paid advertising copy",
-    "code implementation",
-    "database design"
-  ],
+  "triggers": ["create seo optimized content", "write seo blog post", "produce search optimized article"],
+  "aliases": ["seo content writing", "search content creation", "seo article writing"],
+  "negative_keywords": ["paid advertising copy", "code implementation", "database design"],
   "inputs": [
     {
       "name": "target_keywords",
@@ -54,26 +42,18 @@
   "primary_agent": "design-content.seo-writer",
   "route": {
     "domain_master": "design-content.master",
-    "agents": [
-      "design-content.seo-writer"
-    ],
+    "agents": ["design-content.seo-writer"],
     "parallel": false,
     "max_parallel_agents": 1,
     "primary": "design-content.seo-writer",
-    "participants": [
-      "design-content.content-editor"
-    ]
+    "participants": ["design-content.content-editor"]
   },
   "budget": {
     "band": "standard",
     "max_context_tokens": 6000,
     "max_tool_calls": 10
   },
-  "gates": [
-    "pre-route",
-    "pre-tool",
-    "on-task-complete"
-  ],
+  "gates": ["pre-route", "pre-tool", "on-task-complete"],
   "steps": [
     {
       "id": "keyword-research",
@@ -96,11 +76,7 @@
       "summary": "Review for clarity, accuracy, and brand voice alignment."
     }
   ],
-  "tools": [
-    "filesystem.read",
-    "filesystem.write",
-    "web.search"
-  ],
+  "tools": ["filesystem.read", "filesystem.write", "web.search"],
   "verification": [
     "keywords_naturally_integrated",
     "search_intent_addressed",
@@ -117,9 +93,7 @@
     "mode": "file_revert",
     "summary": "Revert content files to previous draft."
   },
-  "source_references": [
-    "ref.workflow.design-content.seo-content-creation.2026-05-31"
-  ],
+  "source_references": ["ref.workflow.design-content.seo-content-creation.2026-05-31"],
   "promotion": {
     "can_learn": true,
     "quality_gate": "staging",

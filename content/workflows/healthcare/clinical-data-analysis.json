@@ -11,16 +11,8 @@
     "healthcare utilization analysis",
     "clinical quality analytics"
   ],
-  "aliases": [
-    "clinical analytics",
-    "health data review",
-    "outcomes analysis"
-  ],
-  "negative_keywords": [
-    "marketing analytics",
-    "financial reporting",
-    "code deployment"
-  ],
+  "aliases": ["clinical analytics", "health data review", "outcomes analysis"],
+  "negative_keywords": ["marketing analytics", "financial reporting", "code deployment"],
   "inputs": [
     {
       "name": "dataset_description",
@@ -64,16 +56,11 @@
   "primary_agent": "healthcare.health-data-analyst",
   "route": {
     "domain_master": "healthcare.master",
-    "agents": [
-      "healthcare.health-data-analyst"
-    ],
+    "agents": ["healthcare.health-data-analyst"],
     "parallel": false,
     "max_parallel_agents": 2,
     "primary": "healthcare.health-data-analyst",
-    "participants": [
-      "healthcare.phi-compliance",
-      "healthcare.quality-improvement"
-    ]
+    "participants": ["healthcare.phi-compliance", "healthcare.quality-improvement"]
   },
   "budget": {
     "band": "standard",
@@ -129,10 +116,7 @@
       "action": "Translate findings into actionable quality improvement recommendations."
     }
   ],
-  "tools": [
-    "filesystem.read",
-    "filesystem.write"
-  ],
+  "tools": ["filesystem.read", "filesystem.write"],
   "verification": [
     "deidentification_verified_before_analysis",
     "statistical_methods_appropriate_and_documented",

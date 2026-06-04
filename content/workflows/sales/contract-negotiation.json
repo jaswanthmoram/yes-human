@@ -10,15 +10,8 @@
     "deal terms negotiation",
     "contract concession planning"
   ],
-  "aliases": [
-    "contract negotiation",
-    "deal negotiation"
-  ],
-  "negative_keywords": [
-    "legal contract drafting",
-    "litigation strategy",
-    "employment negotiation"
-  ],
+  "aliases": ["contract negotiation", "deal negotiation"],
+  "negative_keywords": ["legal contract drafting", "litigation strategy", "employment negotiation"],
   "inputs": [
     {
       "name": "contract_terms",
@@ -53,16 +46,9 @@
   "primary_agent": "sales.contract-negotiator",
   "route": {
     "domain_master": "sales.master",
-    "agents": [
-      "sales.contract-negotiator",
-      "sales.deal-desk",
-      "sales.account-executive"
-    ],
+    "agents": ["sales.contract-negotiator", "sales.deal-desk", "sales.account-executive"],
     "primary_agent": "sales.contract-negotiator",
-    "participants": [
-      "sales.deal-desk",
-      "sales.account-executive"
-    ],
+    "participants": ["sales.deal-desk", "sales.account-executive"],
     "parallel": true,
     "max_parallel_agents": 3
   },

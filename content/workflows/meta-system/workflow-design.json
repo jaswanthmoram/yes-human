@@ -10,15 +10,8 @@
     "create workflow definition",
     "workflow lifecycle start"
   ],
-  "aliases": [
-    "workflow creation",
-    "new workflow design"
-  ],
-  "negative_keywords": [
-    "modify existing workflow",
-    "delete workflow",
-    "agent creation"
-  ],
+  "aliases": ["workflow creation", "new workflow design"],
+  "negative_keywords": ["modify existing workflow", "delete workflow", "agent creation"],
   "inputs": [
     {
       "name": "workflow_requirement",
@@ -60,11 +53,7 @@
       "meta-system.dossier-evaluator"
     ],
     "primary_agent": "meta-system.workflow-architect",
-    "participants": [
-      "meta-system.system-architect",
-      "meta-system.fixture-engineer",
-      "meta-system.dossier-evaluator"
-    ],
+    "participants": ["meta-system.system-architect", "meta-system.fixture-engineer", "meta-system.dossier-evaluator"],
     "parallel": false,
     "max_parallel_agents": 2
   },

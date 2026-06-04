@@ -10,15 +10,8 @@
     "risk assessment update",
     "risk register maintenance"
   ],
-  "aliases": [
-    "risk assessment workflow",
-    "risk review process"
-  ],
-  "negative_keywords": [
-    "cybersecurity risk",
-    "code review",
-    "legal compliance"
-  ],
+  "aliases": ["risk assessment workflow", "risk review process"],
+  "negative_keywords": ["cybersecurity risk", "code review", "legal compliance"],
   "inputs": [
     {
       "name": "risk_context",
@@ -53,14 +46,9 @@
   "primary_agent": "finance.risk-manager",
   "route": {
     "domain_master": "finance.master",
-    "agents": [
-      "finance.risk-manager",
-      "finance.compliance-officer"
-    ],
+    "agents": ["finance.risk-manager", "finance.compliance-officer"],
     "primary_agent": "finance.risk-manager",
-    "participants": [
-      "finance.compliance-officer"
-    ],
+    "participants": ["finance.compliance-officer"],
     "parallel": true,
     "max_parallel_agents": 2
   },

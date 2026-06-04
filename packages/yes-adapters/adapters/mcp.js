@@ -23,7 +23,8 @@ function buildManifest(ctx) {
     tools: [
       {
         name: 'yes_route',
-        description: 'Resolve a task to its best route (agent + workflow + budget band). Pass dry_run:true for a PlanCard without executing.',
+        description:
+          'Resolve a task to its best route (agent + workflow + budget band). Pass dry_run:true for a PlanCard without executing.',
         inputSchema: {
           type: 'object',
           required: ['task'],

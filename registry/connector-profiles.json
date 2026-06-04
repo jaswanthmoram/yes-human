@@ -3,21 +3,11 @@
   "profiles": {
     "minimal": {
       "description": "Local dev: GitHub + filesystem + markitdown",
-      "enable": [
-        "github",
-        "filesystem",
-        "markitdown"
-      ]
+      "enable": ["github", "filesystem", "markitdown"]
     },
     "research": {
       "description": "Research lane",
-      "enable": [
-        "github",
-        "filesystem",
-        "markitdown",
-        "firecrawl",
-        "exa"
-      ]
+      "enable": ["github", "filesystem", "markitdown", "firecrawl", "exa"]
     },
     "enterprise": {
       "description": "Declared connectors; require env before enable",

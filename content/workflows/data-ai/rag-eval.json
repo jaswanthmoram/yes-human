@@ -9,16 +9,8 @@
     "run a retrieval quality review",
     "check whether this RAG system is good enough"
   ],
-  "aliases": [
-    "rag evaluation",
-    "retrieval and answer audit",
-    "rag quality check"
-  ],
-  "negative_keywords": [
-    "train a new model",
-    "general code review",
-    "write docs only"
-  ],
+  "aliases": ["rag evaluation", "retrieval and answer audit", "rag quality check"],
+  "negative_keywords": ["train a new model", "general code review", "write docs only"],
   "inputs": [
     {
       "name": "rag_architecture",
@@ -47,27 +39,18 @@
   "primary_agent": "data-ai.rag-engineer",
   "route": {
     "domain_master": "data-ai.master",
-    "agents": [
-      "data-ai.rag-engineer"
-    ],
+    "agents": ["data-ai.rag-engineer"],
     "parallel": false,
     "max_parallel_agents": 2,
     "primary": "data-ai.rag-engineer",
-    "participants": [
-      "data-ai.eval-engineer"
-    ]
+    "participants": ["data-ai.eval-engineer"]
   },
   "budget": {
     "band": "expanded",
     "max_context_tokens": 4200,
     "max_tool_calls": 12
   },
-  "gates": [
-    "pre-route",
-    "pre-tool",
-    "post-tool",
-    "on-task-complete"
-  ],
+  "gates": ["pre-route", "pre-tool", "post-tool", "on-task-complete"],
   "steps": [
     {
       "id": "define-eval-slice",
@@ -86,12 +69,7 @@
       "summary": "Tie weak metrics back to chunking, indexing, prompting, or evaluator design changes."
     }
   ],
-  "tools": [
-    "filesystem.read",
-    "eval_harness",
-    "dataset_reader",
-    "metrics_runner"
-  ],
+  "tools": ["filesystem.read", "eval_harness", "dataset_reader", "metrics_runner"],
   "verification": [
     "dataset_and_metrics_are_named",
     "retrieval_and_answer_metrics_are_separated",
@@ -106,9 +84,7 @@
     "mode": "no_write",
     "summary": "Evaluation workflow does not change runtime behavior."
   },
-  "source_references": [
-    "ref.workflow.data-ai.rag-eval.2026-06-01"
-  ],
+  "source_references": ["ref.workflow.data-ai.rag-eval.2026-06-01"],
   "promotion": {
     "can_learn": true,
     "quality_gate": "staging",

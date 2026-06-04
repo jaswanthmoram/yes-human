@@ -33,7 +33,13 @@
         "detection_source": "EDR alert from CrowdStrike",
         "timeline_of_events": "Initial alert at 02:15 UTC, lateral movement detected at 02:30 UTC"
       },
-      "expected_outputs": ["incident_timeline", "containment_actions", "eradication_plan", "recovery_steps", "post_incident_report"],
+      "expected_outputs": [
+        "incident_timeline",
+        "containment_actions",
+        "eradication_plan",
+        "recovery_steps",
+        "post_incident_report"
+      ],
       "expected_step_count": 7
     },
     {
@@ -45,7 +51,13 @@
         "affected_systems": ["prod-db-01"],
         "detection_source": "SIEM anomaly detection rule"
       },
-      "expected_outputs": ["incident_timeline", "containment_actions", "eradication_plan", "recovery_steps", "post_incident_report"],
+      "expected_outputs": [
+        "incident_timeline",
+        "containment_actions",
+        "eradication_plan",
+        "recovery_steps",
+        "post_incident_report"
+      ],
       "expected_step_count": 7
     },
     {
@@ -57,7 +69,12 @@
         "patch_availability": "Log4j 2.17.1 available",
         "business_impact_assessment": "Critical - remote code execution in production"
       },
-      "expected_outputs": ["remediation_plan", "patch_application_log", "verification_results", "residual_risk_assessment"],
+      "expected_outputs": [
+        "remediation_plan",
+        "patch_application_log",
+        "verification_results",
+        "residual_risk_assessment"
+      ],
       "expected_step_count": 6
     },
     {
@@ -69,7 +86,12 @@
         "patch_availability": "Mixed - some patches available, some require major version upgrades",
         "business_impact_assessment": "Medium - XSS and prototype pollution risks"
       },
-      "expected_outputs": ["remediation_plan", "patch_application_log", "verification_results", "residual_risk_assessment"],
+      "expected_outputs": [
+        "remediation_plan",
+        "patch_application_log",
+        "verification_results",
+        "residual_risk_assessment"
+      ],
       "expected_step_count": 6
     },
     {
@@ -82,7 +104,13 @@
         "authorization_documentation": "Signed ROE dated 2026-05-15",
         "previous_pentest_reports": "Last pentest 12 months ago with 3 high findings"
       },
-      "expected_outputs": ["reconnaissance_findings", "exploitation_results", "vulnerability_report", "risk_assessment", "remediation_recommendations"],
+      "expected_outputs": [
+        "reconnaissance_findings",
+        "exploitation_results",
+        "vulnerability_report",
+        "risk_assessment",
+        "remediation_recommendations"
+      ],
       "expected_step_count": 7
     },
     {
@@ -94,7 +122,13 @@
         "target_systems": ["10.0.0.0/8 internal network"],
         "authorization_documentation": "Signed ROE dated 2026-05-20"
       },
-      "expected_outputs": ["reconnaissance_findings", "exploitation_results", "vulnerability_report", "risk_assessment", "remediation_recommendations"],
+      "expected_outputs": [
+        "reconnaissance_findings",
+        "exploitation_results",
+        "vulnerability_report",
+        "risk_assessment",
+        "remediation_recommendations"
+      ],
       "expected_step_count": 7
     },
     {
@@ -106,7 +140,13 @@
         "previous_assessment": "SOC 2 Type I completed 6 months ago",
         "audit_scope": "Full organization scope for annual Type II audit"
       },
-      "expected_outputs": ["compliance_matrix", "control_gaps", "evidence_gaps", "remediation_plan", "certification_readiness_score"],
+      "expected_outputs": [
+        "compliance_matrix",
+        "control_gaps",
+        "evidence_gaps",
+        "remediation_plan",
+        "certification_readiness_score"
+      ],
       "expected_step_count": 6
     },
     {
@@ -117,7 +157,13 @@
         "current_controls_inventory": "Data protection controls for processing EU citizen data",
         "evidence_repository": "Confluence documentation and Jira tickets"
       },
-      "expected_outputs": ["compliance_matrix", "control_gaps", "evidence_gaps", "remediation_plan", "certification_readiness_score"],
+      "expected_outputs": [
+        "compliance_matrix",
+        "control_gaps",
+        "evidence_gaps",
+        "remediation_plan",
+        "certification_readiness_score"
+      ],
       "expected_step_count": 6
     },
     {

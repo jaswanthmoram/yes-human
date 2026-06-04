@@ -10,15 +10,8 @@
     "campaign messaging plan",
     "launch content calendar"
   ],
-  "aliases": [
-    "campaign launch",
-    "launch plan"
-  ],
-  "negative_keywords": [
-    "contract review",
-    "monthly forecast",
-    "incident response"
-  ],
+  "aliases": ["campaign launch", "launch plan"],
+  "negative_keywords": ["contract review", "monthly forecast", "incident response"],
   "inputs": [
     {
       "name": "launch_goal",
@@ -53,16 +46,9 @@
   "primary_agent": "marketing.marketing-strategist",
   "route": {
     "domain_master": "marketing.master",
-    "agents": [
-      "marketing.marketing-strategist",
-      "marketing.content-marketer",
-      "marketing.seo-analyst"
-    ],
+    "agents": ["marketing.marketing-strategist", "marketing.content-marketer", "marketing.seo-analyst"],
     "primary_agent": "marketing.marketing-strategist",
-    "participants": [
-      "marketing.content-marketer",
-      "marketing.seo-analyst"
-    ],
+    "participants": ["marketing.content-marketer", "marketing.seo-analyst"],
     "parallel": true,
     "max_parallel_agents": 3
   },

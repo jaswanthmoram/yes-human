@@ -4,18 +4,31 @@
   "status": "active",
   "summary": "Conduct multi-source research on a topic and produce a cited synthesis report with evidence quality grading.",
   "task_family": "research_synthesis",
-  "triggers": ["deep research synthesis", "multi source research report", "research topic investigation", "evidence synthesis report", "broad topic research"],
+  "triggers": [
+    "deep research synthesis",
+    "multi source research report",
+    "research topic investigation",
+    "evidence synthesis report",
+    "broad topic research"
+  ],
   "aliases": ["deep research", "research report"],
   "negative_keywords": ["code review", "financial forecast", "contract review"],
   "inputs": [
-    {"name": "research_question", "required": true, "description": "The topic or question to investigate."},
-    {"name": "source_constraints", "required": false, "description": "Preferred source types, date ranges, or domains to include or exclude."},
-    {"name": "depth_level", "required": false, "description": "Target depth: overview, standard, or comprehensive."}
+    { "name": "research_question", "required": true, "description": "The topic or question to investigate." },
+    {
+      "name": "source_constraints",
+      "required": false,
+      "description": "Preferred source types, date ranges, or domains to include or exclude."
+    },
+    { "name": "depth_level", "required": false, "description": "Target depth: overview, standard, or comprehensive." }
   ],
   "outputs": [
-    {"name": "synthesis_report", "description": "Structured report with findings, evidence quality, and source citations."},
-    {"name": "source_list", "description": "Annotated list of sources with quality and relevance scores."},
-    {"name": "open_questions", "description": "Gaps or unresolved questions identified during research."}
+    {
+      "name": "synthesis_report",
+      "description": "Structured report with findings, evidence quality, and source citations."
+    },
+    { "name": "source_list", "description": "Annotated list of sources with quality and relevance scores." },
+    { "name": "open_questions", "description": "Gaps or unresolved questions identified during research." }
   ],
   "primary_agent": "research.deep-researcher",
   "route": {
@@ -26,36 +39,63 @@
     "parallel": false,
     "max_parallel_agents": 2
   },
-  "budget": {"band": "expanded", "max_context_tokens": 4500, "max_tool_calls": 15},
+  "budget": { "band": "expanded", "max_context_tokens": 4500, "max_tool_calls": 15 },
   "gates": [
-    {"id": "pre-route", "rule": "Confirm the task is research synthesis, not code implementation or financial analysis."},
-    {"id": "pre-tool", "rule": "Require a clear research question before initiating source collection."},
-    {"id": "post-tool", "rule": "Verify sources are cited and evidence quality is graded before synthesis."},
-    {"id": "on-task-complete", "rule": "Report must distinguish confirmed findings from speculation."}
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is research synthesis, not code implementation or financial analysis."
+    },
+    { "id": "pre-tool", "rule": "Require a clear research question before initiating source collection." },
+    { "id": "post-tool", "rule": "Verify sources are cited and evidence quality is graded before synthesis." },
+    { "id": "on-task-complete", "rule": "Report must distinguish confirmed findings from speculation." }
   ],
   "steps": [
-    {"id": "decompose-question", "agent": "research.deep-researcher", "action": "Break the research question into sub-questions and identify source types needed."},
-    {"id": "collect-sources", "agent": "research.deep-researcher", "action": "Search and collect relevant sources using web search and documentation tools."},
-    {"id": "grade-evidence", "agent": "research.deep-researcher", "action": "Rate each source for authority, recency, and relevance."},
-    {"id": "synthesize-findings", "agent": "research.deep-researcher", "action": "Combine findings into a structured report with citations and open questions."}
+    {
+      "id": "decompose-question",
+      "agent": "research.deep-researcher",
+      "action": "Break the research question into sub-questions and identify source types needed."
+    },
+    {
+      "id": "collect-sources",
+      "agent": "research.deep-researcher",
+      "action": "Search and collect relevant sources using web search and documentation tools."
+    },
+    {
+      "id": "grade-evidence",
+      "agent": "research.deep-researcher",
+      "action": "Rate each source for authority, recency, and relevance."
+    },
+    {
+      "id": "synthesize-findings",
+      "agent": "research.deep-researcher",
+      "action": "Combine findings into a structured report with citations and open questions."
+    }
   ],
   "tools": [
-    {"name": "filesystem.read", "purpose": "Read local research inputs and prior reports."},
-    {"name": "web.search", "purpose": "Search for sources using firecrawl or exa."},
-    {"name": "web.fetch", "purpose": "Fetch and read source content."},
-    {"name": "filesystem.write", "purpose": "Save the synthesis report."}
+    { "name": "filesystem.read", "purpose": "Read local research inputs and prior reports." },
+    { "name": "web.search", "purpose": "Search for sources using firecrawl or exa." },
+    { "name": "web.fetch", "purpose": "Fetch and read source content." },
+    { "name": "filesystem.write", "purpose": "Save the synthesis report." }
   ],
   "verification": [
-    {"id": "sources-cited", "method": "Check that every major claim has at least one source citation."},
-    {"id": "evidence-graded", "method": "Check that sources have quality and relevance scores."},
-    {"id": "gaps-identified", "method": "Check that open questions or evidence gaps are listed."}
+    { "id": "sources-cited", "method": "Check that every major claim has at least one source citation." },
+    { "id": "evidence-graded", "method": "Check that sources have quality and relevance scores." },
+    { "id": "gaps-identified", "method": "Check that open questions or evidence gaps are listed." }
   ],
   "success_criteria": [
     "The report answers the research question with cited evidence.",
     "Source quality is graded so the reader can judge reliability.",
     "Open questions and evidence gaps are explicitly listed."
   ],
-  "rollback": {"mode": "no_write", "when": "If the report fabricates sources or misattributes claims, discard and restart with verified sources only."},
-  "source_references": [{"dossier_path": "references/workflows/research/deep-research-synthesis.sources.json", "relationship": "workflow_dossier"}],
-  "promotion": {"can_learn": true, "min_successes_before_update": 2, "quality_gate": "staging"}
+  "rollback": {
+    "mode": "no_write",
+    "when": "If the report fabricates sources or misattributes claims, discard and restart with verified sources only."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/research/deep-research-synthesis.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": { "can_learn": true, "min_successes_before_update": 2, "quality_gate": "staging" }
 }

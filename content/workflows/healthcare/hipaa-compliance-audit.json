@@ -11,16 +11,8 @@
     "hipaa privacy review",
     "healthcare compliance audit"
   ],
-  "aliases": [
-    "hipaa audit",
-    "hipaa assessment",
-    "phi compliance audit"
-  ],
-  "negative_keywords": [
-    "gdpr audit",
-    "financial compliance",
-    "software security audit"
-  ],
+  "aliases": ["hipaa audit", "hipaa assessment", "phi compliance audit"],
+  "negative_keywords": ["gdpr audit", "financial compliance", "software security audit"],
   "inputs": [
     {
       "name": "systems_inventory",
@@ -69,16 +61,11 @@
   "primary_agent": "healthcare.healthcare-compliance",
   "route": {
     "domain_master": "healthcare.master",
-    "agents": [
-      "healthcare.healthcare-compliance"
-    ],
+    "agents": ["healthcare.healthcare-compliance"],
     "parallel": false,
     "max_parallel_agents": 3,
     "primary": "healthcare.healthcare-compliance",
-    "participants": [
-      "healthcare.phi-compliance",
-      "healthcare.health-it"
-    ]
+    "participants": ["healthcare.phi-compliance", "healthcare.health-it"]
   },
   "budget": {
     "band": "expanded",
@@ -139,11 +126,7 @@
       "action": "Compile findings into prioritized remediation plan with risk ratings."
     }
   ],
-  "tools": [
-    "filesystem.read",
-    "filesystem.write",
-    "policy_scanner"
-  ],
+  "tools": ["filesystem.read", "filesystem.write", "policy_scanner"],
   "verification": [
     "all_hipaa_requirements_mapped_to_controls_or_gaps",
     "risk_assessment_updated_per_security_rule",

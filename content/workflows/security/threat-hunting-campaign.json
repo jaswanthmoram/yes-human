@@ -12,18 +12,8 @@
     "proactive threat detection",
     "search for indicators of compromise"
   ],
-  "aliases": [
-    "threat hunt",
-    "proactive threat detection",
-    "IOC hunting",
-    "advanced threat investigation"
-  ],
-  "negative_keywords": [
-    "routine log review",
-    "compliance reporting",
-    "vulnerability scanning",
-    "documentation update"
-  ],
+  "aliases": ["threat hunt", "proactive threat detection", "IOC hunting", "advanced threat investigation"],
+  "negative_keywords": ["routine log review", "compliance reporting", "vulnerability scanning", "documentation update"],
   "inputs": [
     {
       "name": "hunting_hypothesis",
@@ -66,28 +56,18 @@
   "primary_agent": "security.threat-hunter",
   "route": {
     "domain_master": "security.master",
-    "agents": [
-      "security.threat-hunter"
-    ],
+    "agents": ["security.threat-hunter"],
     "parallel": false,
     "max_parallel_agents": 2,
     "primary": "security.threat-hunter",
-    "participants": [
-      "security.incident-responder",
-      "security.forensics-analyst"
-    ]
+    "participants": ["security.incident-responder", "security.forensics-analyst"]
   },
   "budget": {
     "band": "expanded",
     "max_context_tokens": 5500,
     "max_tool_calls": 20
   },
-  "gates": [
-    "pre-route",
-    "pre-tool",
-    "post-tool",
-    "on-task-complete"
-  ],
+  "gates": ["pre-route", "pre-tool", "post-tool", "on-task-complete"],
   "steps": [
     {
       "id": "hypothesis-development",
@@ -140,9 +120,7 @@
     "mode": "no_write",
     "summary": "Read-only investigation workflow with no system modifications."
   },
-  "source_references": [
-    "ref.workflow.security.threat-hunting-campaign.2026-06-01"
-  ],
+  "source_references": ["ref.workflow.security.threat-hunting-campaign.2026-06-01"],
   "promotion": {
     "can_learn": true,
     "quality_gate": "staging",

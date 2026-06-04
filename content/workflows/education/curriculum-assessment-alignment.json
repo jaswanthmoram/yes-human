@@ -4,18 +4,36 @@
   "status": "active",
   "summary": "Align a curriculum map to assessment rubrics and learning objectives using backward design principles.",
   "task_family": "curriculum_design",
-  "triggers": ["curriculum assessment alignment", "align assessments to objectives", "backward design curriculum", "learning objective assessment check", "curriculum rubric alignment"],
+  "triggers": [
+    "curriculum assessment alignment",
+    "align assessments to objectives",
+    "backward design curriculum",
+    "learning objective assessment check",
+    "curriculum rubric alignment"
+  ],
   "aliases": ["curriculum alignment", "assessment alignment"],
   "negative_keywords": ["code review", "financial forecast", "contract review"],
   "inputs": [
-    {"name": "curriculum_map", "required": true, "description": "The curriculum sequence, units, or lesson plans to align."},
-    {"name": "learning_objectives", "required": true, "description": "Defined learning goals, standards, or competency targets."},
-    {"name": "existing_assessments", "required": false, "description": "Current assessments, rubrics, or evaluation tools to check against."}
+    {
+      "name": "curriculum_map",
+      "required": true,
+      "description": "The curriculum sequence, units, or lesson plans to align."
+    },
+    {
+      "name": "learning_objectives",
+      "required": true,
+      "description": "Defined learning goals, standards, or competency targets."
+    },
+    {
+      "name": "existing_assessments",
+      "required": false,
+      "description": "Current assessments, rubrics, or evaluation tools to check against."
+    }
   ],
   "outputs": [
-    {"name": "alignment_matrix", "description": "Mapping of objectives to curriculum units and assessments."},
-    {"name": "gap_report", "description": "Objectives without assessments or assessments without clear objectives."},
-    {"name": "revision_recommendations", "description": "Suggested changes to close alignment gaps."}
+    { "name": "alignment_matrix", "description": "Mapping of objectives to curriculum units and assessments." },
+    { "name": "gap_report", "description": "Objectives without assessments or assessments without clear objectives." },
+    { "name": "revision_recommendations", "description": "Suggested changes to close alignment gaps." }
   ],
   "primary_agent": "education.curriculum-designer",
   "route": {
@@ -26,33 +44,63 @@
     "parallel": false,
     "max_parallel_agents": 2
   },
-  "budget": {"band": "standard", "max_context_tokens": 3200, "max_tool_calls": 8},
+  "budget": { "band": "standard", "max_context_tokens": 3200, "max_tool_calls": 8 },
   "gates": [
-    {"id": "pre-route", "rule": "Confirm the task is curriculum-assessment alignment, not content creation or grading."},
-    {"id": "pre-tool", "rule": "Require both curriculum map and learning objectives before alignment."},
-    {"id": "on-task-complete", "rule": "Output must include an alignment matrix and explicit gap report."}
+    {
+      "id": "pre-route",
+      "rule": "Confirm the task is curriculum-assessment alignment, not content creation or grading."
+    },
+    { "id": "pre-tool", "rule": "Require both curriculum map and learning objectives before alignment." },
+    { "id": "on-task-complete", "rule": "Output must include an alignment matrix and explicit gap report." }
   ],
   "steps": [
-    {"id": "map-objectives", "agent": "education.curriculum-designer", "action": "Map each learning objective to the curriculum units that address it."},
-    {"id": "check-assessments", "agent": "education.assessment-designer", "action": "Check whether each mapped objective has a corresponding assessment or rubric."},
-    {"id": "identify-gaps", "agent": "education.curriculum-designer", "action": "List objectives without assessments and assessments without clear objectives."},
-    {"id": "recommend-revisions", "agent": "education.curriculum-designer", "action": "Propose curriculum or assessment changes to close identified gaps."}
+    {
+      "id": "map-objectives",
+      "agent": "education.curriculum-designer",
+      "action": "Map each learning objective to the curriculum units that address it."
+    },
+    {
+      "id": "check-assessments",
+      "agent": "education.assessment-designer",
+      "action": "Check whether each mapped objective has a corresponding assessment or rubric."
+    },
+    {
+      "id": "identify-gaps",
+      "agent": "education.curriculum-designer",
+      "action": "List objectives without assessments and assessments without clear objectives."
+    },
+    {
+      "id": "recommend-revisions",
+      "agent": "education.curriculum-designer",
+      "action": "Propose curriculum or assessment changes to close identified gaps."
+    }
   ],
   "tools": [
-    {"name": "filesystem.read", "purpose": "Read curriculum maps, standards documents, and existing assessments."},
-    {"name": "filesystem.write", "purpose": "Save the alignment matrix and gap report."}
+    { "name": "filesystem.read", "purpose": "Read curriculum maps, standards documents, and existing assessments." },
+    { "name": "filesystem.write", "purpose": "Save the alignment matrix and gap report." }
   ],
   "verification": [
-    {"id": "matrix-complete", "method": "Check that every objective appears in the alignment matrix."},
-    {"id": "gaps-explicit", "method": "Check that unmapped objectives and orphan assessments are listed."},
-    {"id": "recommendations-actionable", "method": "Check that revision suggestions are specific enough to implement."}
+    { "id": "matrix-complete", "method": "Check that every objective appears in the alignment matrix." },
+    { "id": "gaps-explicit", "method": "Check that unmapped objectives and orphan assessments are listed." },
+    {
+      "id": "recommendations-actionable",
+      "method": "Check that revision suggestions are specific enough to implement."
+    }
   ],
   "success_criteria": [
     "The alignment matrix maps every objective to curriculum and assessment.",
     "Gaps are explicitly listed with severity.",
     "Revision recommendations are specific and actionable for the educator."
   ],
-  "rollback": {"mode": "no_write", "when": "If the alignment invents objectives or misrepresents the curriculum, discard and restart from verified inputs."},
-  "source_references": [{"dossier_path": "references/workflows/education/curriculum-assessment-alignment.sources.json", "relationship": "workflow_dossier"}],
-  "promotion": {"can_learn": true, "min_successes_before_update": 2, "quality_gate": "staging"}
+  "rollback": {
+    "mode": "no_write",
+    "when": "If the alignment invents objectives or misrepresents the curriculum, discard and restart from verified inputs."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/education/curriculum-assessment-alignment.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "promotion": { "can_learn": true, "min_successes_before_update": 2, "quality_gate": "staging" }
 }

@@ -32,10 +32,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "documentation standards: LangGraph patterns and workflow references",
-        "verification pattern 3"
-      ],
+      "used_for": ["documentation standards: LangGraph patterns and workflow references", "verification pattern 3"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -71,10 +68,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "documentation standards: CrewAI patterns and workflow references",
-        "verification pattern 6"
-      ],
+      "used_for": ["documentation standards: CrewAI patterns and workflow references", "verification pattern 6"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -84,10 +78,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "documentation standards: AutoGen patterns and workflow references",
-        "verification pattern 7"
-      ],
+      "used_for": ["documentation standards: AutoGen patterns and workflow references", "verification pattern 7"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -97,10 +88,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "documentation standards: OpenHands patterns and workflow references",
-        "verification pattern 8"
-      ],
+      "used_for": ["documentation standards: OpenHands patterns and workflow references", "verification pattern 8"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -110,10 +98,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "documentation standards: MCP Agent patterns and workflow references",
-        "verification pattern 9"
-      ],
+      "used_for": ["documentation standards: MCP Agent patterns and workflow references", "verification pattern 9"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -136,10 +121,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "documentation standards: OpenPipe ART patterns and workflow references",
-        "verification pattern 11"
-      ],
+      "used_for": ["documentation standards: OpenPipe ART patterns and workflow references", "verification pattern 11"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"

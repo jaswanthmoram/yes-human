@@ -69,6 +69,7 @@ validators:
 ---
 
 ## Procedure
+
 1. Identify the campaign objective, primary KPI, budget, dates, audience, and channel mix.
 2. Build one clean table by channel with spend, impressions, clicks, sessions, leads, customers, revenue, and attribution notes.
 3. Compute channel efficiency metrics and compare them to prior campaign or baseline performance.
@@ -77,6 +78,7 @@ validators:
 6. Write next actions with owner, expected impact, and measurement plan.
 
 ## Verification
+
 - KPI and attribution model are stated.
 - Every recommendation references a metric or tracking limitation.
 - Budget changes include a measurement window.

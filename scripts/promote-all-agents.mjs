@@ -48,7 +48,12 @@ let agents = listAgentIds();
 if (domainArg) agents = agents.filter((a) => a.domain === domainArg);
 if (onlyStaging) agents = agents.filter((a) => a.gate !== 'production');
 if (idsArg) {
-  const want = new Set(idsArg.split(',').map((s) => s.trim()).filter(Boolean));
+  const want = new Set(
+    idsArg
+      .split(',')
+      .map((s) => s.trim())
+      .filter(Boolean)
+  );
   agents = agents.filter((a) => want.has(a.id));
 }
 const results = agents.map(({ id }) => {
@@ -58,7 +63,21 @@ const results = agents.map(({ id }) => {
 });
 const passed = results.filter((r) => r.allowed);
 const failed = results.filter((r) => !r.allowed);
-const lines = ['# Promotion gap report','', 'Generated: ' + new Date().toISOString(), 'Mode: ' + (apply ? 'apply' : 'check'), 'Scope: ' + agents.length + ' agents', 'Passed: ' + passed.length + '/' + results.length, '', '## Passed', ...passed.map((r) => '- ' + r.agent_id), '', '## Failed', ...failed.map((r) => '- ' + r.agent_id + ': ' + r.blockers.join('; ')), ''];
+const lines = [
+  '# Promotion gap report',
+  '',
+  'Generated: ' + new Date().toISOString(),
+  'Mode: ' + (apply ? 'apply' : 'check'),
+  'Scope: ' + agents.length + ' agents',
+  'Passed: ' + passed.length + '/' + results.length,
+  '',
+  '## Passed',
+  ...passed.map((r) => '- ' + r.agent_id),
+  '',
+  '## Failed',
+  ...failed.map((r) => '- ' + r.agent_id + ': ' + r.blockers.join('; ')),
+  ''
+];
 fs.writeFileSync(path.join(repoRoot, 'reports/promotion-gap.md'), lines.join('\n'));
 console.log('Wrote reports/promotion-gap.md', passed.length + '/' + results.length);
 if (failed.length) process.exit(1);

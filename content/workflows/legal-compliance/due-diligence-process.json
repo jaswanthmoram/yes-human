@@ -10,15 +10,8 @@
     "acquisition screening process",
     "legal diligence cycle"
   ],
-  "aliases": [
-    "due diligence",
-    "legal diligence process"
-  ],
-  "negative_keywords": [
-    "code diligence",
-    "technical review",
-    "financial audit"
-  ],
+  "aliases": ["due diligence", "legal diligence process"],
+  "negative_keywords": ["code diligence", "technical review", "financial audit"],
   "inputs": [
     {
       "name": "transaction_type",

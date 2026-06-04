@@ -4,21 +4,9 @@
   "status": "active",
   "summary": "Triage a CI failure, isolate the likely cause, and recommend the smallest corrective action with rerun guidance.",
   "task_family": "ci_triage",
-  "triggers": [
-    "ci failure triage",
-    "build pipeline broken",
-    "workflow run diagnosis",
-    "failing github actions job"
-  ],
-  "aliases": [
-    "ci triage",
-    "pipeline failure review"
-  ],
-  "negative_keywords": [
-    "campaign messaging",
-    "employment process",
-    "contract review"
-  ],
+  "triggers": ["ci failure triage", "build pipeline broken", "workflow run diagnosis", "failing github actions job"],
+  "aliases": ["ci triage", "pipeline failure review"],
+  "negative_keywords": ["campaign messaging", "employment process", "contract review"],
   "inputs": [
     {
       "name": "failure_log",
@@ -53,16 +41,9 @@
   "primary_agent": "platform.ci-cd-engineer",
   "route": {
     "domain_master": "platform.master",
-    "agents": [
-      "platform.ci-cd-engineer",
-      "platform.incident-responder",
-      "platform.devops-engineer"
-    ],
+    "agents": ["platform.ci-cd-engineer", "platform.incident-responder", "platform.devops-engineer"],
     "primary_agent": "platform.ci-cd-engineer",
-    "participants": [
-      "platform.incident-responder",
-      "platform.devops-engineer"
-    ],
+    "participants": ["platform.incident-responder", "platform.devops-engineer"],
     "parallel": true,
     "max_parallel_agents": 3
   },

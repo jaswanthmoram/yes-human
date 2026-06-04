@@ -10,15 +10,8 @@
     "landing page optimization",
     "funnel conversion improvement"
   ],
-  "aliases": [
-    "cro",
-    "conversion optimization"
-  ],
-  "negative_keywords": [
-    "traffic generation",
-    "seo audit",
-    "brand campaign"
-  ],
+  "aliases": ["cro", "conversion optimization"],
+  "negative_keywords": ["traffic generation", "seo audit", "brand campaign"],
   "inputs": [
     {
       "name": "conversion_goal",
@@ -53,14 +46,9 @@
   "primary_agent": "marketing.conversion-optimizer",
   "route": {
     "domain_master": "marketing.master",
-    "agents": [
-      "marketing.conversion-optimizer",
-      "marketing.marketing-analyst"
-    ],
+    "agents": ["marketing.conversion-optimizer", "marketing.marketing-analyst"],
     "primary_agent": "marketing.conversion-optimizer",
-    "participants": [
-      "marketing.marketing-analyst"
-    ],
+    "participants": ["marketing.marketing-analyst"],
     "parallel": true,
     "max_parallel_agents": 2
   },

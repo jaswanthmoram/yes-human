@@ -4,21 +4,9 @@
   "status": "active",
   "summary": "Run a product discovery cycle from problem identification through validated solution concepts.",
   "task_family": "discovery",
-  "triggers": [
-    "run product discovery",
-    "discover what to build next",
-    "product discovery cycle"
-  ],
-  "aliases": [
-    "discovery process",
-    "product exploration",
-    "opportunity discovery"
-  ],
-  "negative_keywords": [
-    "implement code now",
-    "deploy to production",
-    "security audit"
-  ],
+  "triggers": ["run product discovery", "discover what to build next", "product discovery cycle"],
+  "aliases": ["discovery process", "product exploration", "opportunity discovery"],
+  "negative_keywords": ["implement code now", "deploy to production", "security audit"],
   "inputs": [
     {
       "name": "problem_space",
@@ -47,27 +35,18 @@
   "primary_agent": "product-business.product-manager",
   "route": {
     "domain_master": "product-business.master",
-    "agents": [
-      "product-business.product-manager"
-    ],
+    "agents": ["product-business.product-manager"],
     "parallel": false,
     "max_parallel_agents": 2,
     "primary": "product-business.product-manager",
-    "participants": [
-      "product-business.user-researcher",
-      "product-business.product-analyst"
-    ]
+    "participants": ["product-business.user-researcher", "product-business.product-analyst"]
   },
   "budget": {
     "band": "standard",
     "max_context_tokens": 5000,
     "max_tool_calls": 15
   },
-  "gates": [
-    "pre-route",
-    "pre-tool",
-    "on-task-complete"
-  ],
+  "gates": ["pre-route", "pre-tool", "on-task-complete"],
   "steps": [
     {
       "id": "define-problem",
@@ -86,16 +65,8 @@
       "summary": "Validate top concepts and produce discovery report with recommendations."
     }
   ],
-  "tools": [
-    "filesystem.read",
-    "doc_parser",
-    "research_template"
-  ],
-  "verification": [
-    "problem_validated_with_user_evidence",
-    "solution_concepts_evaluated",
-    "recommendations_actionable"
-  ],
+  "tools": ["filesystem.read", "doc_parser", "research_template"],
+  "verification": ["problem_validated_with_user_evidence", "solution_concepts_evaluated", "recommendations_actionable"],
   "success_criteria": [
     "Problem is validated with real user data, not assumptions.",
     "Solution concepts are evaluated against user needs and feasibility.",
@@ -105,9 +76,7 @@
     "mode": "no_write",
     "summary": "Discovery workflow does not modify product scope by itself."
   },
-  "source_references": [
-    "ref.workflow.product-business.product-discovery.2026-05-31"
-  ],
+  "source_references": ["ref.workflow.product-business.product-discovery.2026-05-31"],
   "promotion": {
     "can_learn": true,
     "quality_gate": "staging",

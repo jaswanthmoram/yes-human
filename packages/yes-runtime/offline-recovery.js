@@ -18,7 +18,10 @@ export class OfflineRecovery {
     this.env = config.env || process.env;
     this.stateDir = path.join(this.repoRoot, this.policy.state_dir || 'graph/memory/offline');
     this.journalFile = path.join(this.repoRoot, this.policy.journal_file || 'graph/memory/offline/journal.jsonl');
-    this.checkpointFile = path.join(this.repoRoot, this.policy.checkpoint_file || 'graph/memory/offline/checkpoint.json');
+    this.checkpointFile = path.join(
+      this.repoRoot,
+      this.policy.checkpoint_file || 'graph/memory/offline/checkpoint.json'
+    );
   }
 
   isOffline() {

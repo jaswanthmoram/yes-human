@@ -33,10 +33,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "online course design: Claude Cookbook patterns and workflow references",
-        "verification pattern 3"
-      ],
+      "used_for": ["online course design: Claude Cookbook patterns and workflow references", "verification pattern 3"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"
@@ -137,10 +134,7 @@
       "source_type": "github_repo",
       "license": "MIT",
       "version_or_commit": "main",
-      "used_for": [
-        "online course design: Claude Engineer patterns and workflow references",
-        "verification pattern 11"
-      ],
+      "used_for": ["online course design: Claude Engineer patterns and workflow references", "verification pattern 11"],
       "copy_policy": "patterns_only",
       "stars": 500,
       "last_updated": "2026-05-15T00:00:00Z"

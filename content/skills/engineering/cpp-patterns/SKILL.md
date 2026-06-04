@@ -60,47 +60,59 @@ validators:
 ---
 
 ## Trigger
+
 Use this skill for tasks related to: c++ review, cpp review, review cpp.
 
 ## Prerequisites
+
 - Access to the relevant artifact (code, document, system)
 - Clear understanding of the goal and constraints
 
 ## Steps
 
 ### 1. Step
+
 Check for raw owning pointers — prefer unique_ptr/shared_ptr; raw new/delete should be rare and documented
 
 ### 2. Step
+
 Review RAII compliance — resources must be managed by destructors; no raw resource handles
 
 ### 3. Step
+
 Check for undefined behavior — signed integer overflow, out-of-bounds access, use-after-free
 
 ### 4. Step
+
 Review virtual destructor — any class with virtual methods needs a virtual destructor
 
 ### 5. Step
+
 Check const correctness — member functions that don't modify state must be const
 
 ### 6. Step
+
 Review move semantics — large objects should be moved, not copied; check for missing move constructors
 
 ## Verification
+
 - [ ] All steps completed
 - [ ] Output reviewed against quality gates
 - [ ] Sources cited where applicable
 
 ## Rollback
+
 No writes — read-only review
 
 ## Common Failures
-| Failure | Cause | Fix |
-|---------|-------|-----|
-| Raw new/delete without ownership documentation | See procedure | Address in review |
+
+| Failure                                         | Cause         | Fix               |
+| ----------------------------------------------- | ------------- | ----------------- |
+| Raw new/delete without ownership documentation  | See procedure | Address in review |
 | Missing virtual destructor on polymorphic class | See procedure | Address in review |
-| Signed integer overflow in arithmetic | See procedure | Address in review |
+| Signed integer overflow in arithmetic           | See procedure | Address in review |
 
 ## Examples
+
 **Example A:** Apply this skill to a typical instance of 'c++ review'.
 **Example B:** Apply this skill when facing 'review cpp' in a complex codebase.

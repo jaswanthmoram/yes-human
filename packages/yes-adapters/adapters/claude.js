@@ -98,8 +98,8 @@ function buildAgents(ctx) {
 
 function buildCommands(ctx) {
   return ctx.workflows
-    .filter(w => w.status === 'active')
-    .map(w => {
+    .filter((w) => w.status === 'active')
+    .map((w) => {
       const cmdName = w.id.replace(/\./g, '-');
       const agentList = (w.route?.agents || []).join(', ') || 'auto-routed';
       const body = `# /${cmdName}

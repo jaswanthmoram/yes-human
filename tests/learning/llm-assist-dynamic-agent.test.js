@@ -29,8 +29,8 @@ test('pre-route LLM routing assist hook', async () => {
             event: 'pre-route',
             runtime: 'node',
             entry: 'hooks/pre-route-llm-assist.js',
-            inputs: ["task", "routerConfidence"],
-            outputs: ["routing_hint"],
+            inputs: ['task', 'routerConfidence'],
+            outputs: ['routing_hint'],
             policy_dependencies: [],
             host_support: { cli: 'native' }
           }
@@ -47,6 +47,14 @@ test('pre-route LLM routing assist hook', async () => {
     const llmClientSource = fs.readFileSync(path.join(repoRoot, 'packages/yes-runtime/lib/llm-client.js'), 'utf8');
     fs.writeFileSync(path.join(dir, 'packages/yes-runtime/lib/llm-client.js'), llmClientSource);
 
+    // Copy packages/yes-core/secrets.js to satisfy relative import in llm-client.js
+    fs.mkdirSync(path.join(dir, 'packages/yes-core'), { recursive: true });
+    const secretsSource = fs.readFileSync(path.join(repoRoot, 'packages/yes-core/secrets.js'), 'utf8');
+    fs.writeFileSync(path.join(dir, 'packages/yes-core/secrets.js'), secretsSource);
+    // Copy logger.js too — the hook now imports it for structured logging (#12).
+    const loggerSource = fs.readFileSync(path.join(repoRoot, 'packages/yes-core/logger.js'), 'utf8');
+    fs.writeFileSync(path.join(dir, 'packages/yes-core/logger.js'), loggerSource);
+
     // Setup dummy route tables
     fs.writeFileSync(
       path.join(dir, 'graph/indexes/ROUTE_TABLE.min.json'),
@@ -61,8 +69,16 @@ test('pre-route LLM routing assist hook', async () => {
     fs.writeFileSync(
       path.join(dir, 'registry/routes.json'),
       JSON.stringify([
-        { route_id: 'route.data-ai.ai-ethics-specialist', target: { agent: 'data-ai.ai-ethics-specialist' }, match: { negative_keywords: [] } },
-        { route_id: 'route.meta-system.supreme-router', target: { agent: 'meta-system.supreme-router' }, match: { negative_keywords: [] } }
+        {
+          route_id: 'route.data-ai.ai-ethics-specialist',
+          target: { agent: 'data-ai.ai-ethics-specialist' },
+          match: { negative_keywords: [] }
+        },
+        {
+          route_id: 'route.meta-system.supreme-router',
+          target: { agent: 'meta-system.supreme-router' },
+          match: { negative_keywords: [] }
+        }
       ])
     );
 
@@ -70,13 +86,15 @@ test('pre-route LLM routing assist hook', async () => {
 
     // Test offline mock mode
     process.env.YES_MOCK_LLM = 'true';
-    
-    // Resolve route: this should trigger LLM pre-route hook because local confidence is 0
-    const route = await resolveRoute('run the ethical guidelines bias audit');
+
+    // Resolve route: should trigger LLM pre-route hook (local confidence is 0).
+    // The new mock LLM (#6 fix) scores query tokens against route-id tokens,
+    // so the query needs words that appear in the route id (ai, ethics) — the
+    // old hardcoded "ethical guidelines" shortcut was removed.
+    const route = await resolveRoute('ai ethics bias audit needed');
     assert.equal(route.route_id, 'route.data-ai.ai-ethics-specialist');
     assert.equal(route._match.stage, 'hint');
     assert.match(route._match.reason, /signal-word hint/);
-
   } finally {
     process.chdir(prev);
     fs.rmSync(dir, { recursive: true, force: true });
@@ -93,18 +111,25 @@ test('yes agent create command and compile', async () => {
 
     const cliPath = path.join(repoRoot, 'packages/yes-cli/index.js');
     const { spawnSync } = await import('child_process');
-    const result = spawnSync('node', [
-      cliPath,
-      'agent',
-      'create',
-      'data-ai.test-generated-agent',
-      '--triggers',
-      'test generated trigger',
-      '--aliases',
-      'test-gen-alias',
-      '--summary',
-      'Test Agent'
-    ], { cwd: repoRoot, encoding: 'utf8' });
+    // --rebuild forces compile + build all (previously implicit; now opt-in
+    // since #43 made the auto-rebuild expensive and surprising for users).
+    const result = spawnSync(
+      'node',
+      [
+        cliPath,
+        'agent',
+        'create',
+        'data-ai.test-generated-agent',
+        '--triggers',
+        'test generated trigger',
+        '--aliases',
+        'test-gen-alias',
+        '--summary',
+        'Test Agent',
+        '--rebuild'
+      ],
+      { cwd: repoRoot, encoding: 'utf8' }
+    );
 
     assert.equal(result.status, 0);
     assert.ok(fs.existsSync(agentFile), 'Agent markdown file should be created');
@@ -117,7 +142,6 @@ test('yes agent create command and compile', async () => {
     // Re-resolve route to verify the new route works end-to-end!
     const route = await resolveRoute('test-gen-alias');
     assert.equal(route.route_id, 'route.data-ai.test-generated-agent');
-
   } finally {
     // Clean up created file
     if (fs.existsSync(agentFile)) {

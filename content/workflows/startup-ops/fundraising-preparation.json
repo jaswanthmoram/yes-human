@@ -4,21 +4,9 @@
   "status": "active",
   "summary": "Prepare for a fundraising round with strategy, materials, investor targeting, and outreach planning.",
   "task_family": "startup_ops",
-  "triggers": [
-    "prepare fundraising",
-    "fundraising preparation",
-    "round preparation",
-    "get ready to raise"
-  ],
-  "aliases": [
-    "fundraise prep",
-    "raise prep"
-  ],
-  "negative_keywords": [
-    "loan application",
-    "grant writing",
-    "crowdfunding campaign"
-  ],
+  "triggers": ["prepare fundraising", "fundraising preparation", "round preparation", "get ready to raise"],
+  "aliases": ["fundraise prep", "raise prep"],
+  "negative_keywords": ["loan application", "grant writing", "crowdfunding campaign"],
   "inputs": [
     {
       "name": "company_stage",
@@ -53,15 +41,9 @@
   "primary_agent": "startup-ops.fundraising-specialist",
   "route": {
     "domain_master": "startup-ops.master",
-    "agents": [
-      "startup-ops.fundraising-specialist",
-      "startup-ops.pitch-deck-creator",
-      "startup-ops.financial-modeler"
-    ],
+    "agents": ["startup-ops.fundraising-specialist", "startup-ops.pitch-deck-creator", "startup-ops.financial-modeler"],
     "primary_agent": "startup-ops.fundraising-specialist",
-    "participants": [
-      "startup-ops.startup-strategist"
-    ],
+    "participants": ["startup-ops.startup-strategist"],
     "parallel": false,
     "max_parallel_agents": 3
   },

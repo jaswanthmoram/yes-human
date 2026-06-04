@@ -9,16 +9,8 @@
     "audit the LLM flow for prompt attacks",
     "check this RAG system for prompt injection risk"
   ],
-  "aliases": [
-    "llm prompt injection review",
-    "agent prompt attack audit",
-    "prompt security review"
-  ],
-  "negative_keywords": [
-    "general code review",
-    "secret scan only",
-    "marketing content"
-  ],
+  "aliases": ["llm prompt injection review", "agent prompt attack audit", "prompt security review"],
+  "negative_keywords": ["general code review", "secret scan only", "marketing content"],
   "inputs": [
     {
       "name": "architecture_diagram",
@@ -47,26 +39,18 @@
   "primary_agent": "security.threat-modeler",
   "route": {
     "domain_master": "security.master",
-    "agents": [
-      "security.threat-modeler"
-    ],
+    "agents": ["security.threat-modeler"],
     "parallel": false,
     "max_parallel_agents": 2,
     "primary": "security.threat-modeler",
-    "participants": [
-      "security.security-reviewer"
-    ]
+    "participants": ["security.security-reviewer"]
   },
   "budget": {
     "band": "expanded",
     "max_context_tokens": 4000,
     "max_tool_calls": 10
   },
-  "gates": [
-    "pre-route",
-    "pre-tool",
-    "on-task-complete"
-  ],
+  "gates": ["pre-route", "pre-tool", "on-task-complete"],
   "steps": [
     {
       "id": "map-trust-boundaries",
@@ -81,11 +65,7 @@
       "summary": "Check whether the implementation actually enforces the proposed mitigations."
     }
   ],
-  "tools": [
-    "filesystem.read",
-    "architecture_review",
-    "policy_check"
-  ],
+  "tools": ["filesystem.read", "architecture_review", "policy_check"],
   "verification": [
     "trust_boundaries_are_explicit",
     "mitigations_map_to_real_controls",
@@ -100,9 +80,7 @@
     "mode": "no_write",
     "summary": "Read-only review workflow."
   },
-  "source_references": [
-    "ref.workflow.security.prompt-injection-review.2026-06-01"
-  ],
+  "source_references": ["ref.workflow.security.prompt-injection-review.2026-06-01"],
   "promotion": {
     "can_learn": true,
     "quality_gate": "staging",

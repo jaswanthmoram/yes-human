@@ -64,48 +64,61 @@ rollback:
 validators:
   - skill.validator
 ---
+
 ## Trigger
+
 Use when building or redesigning analytics data models, defining business metrics, or diagnosing unreliable analytics data.
 
 ## Prerequisites
+
 - dbt project initialized with warehouse connection
 - Source tables and business metric definitions available
 
 ## Steps
 
 ### 1. Audit Existing State
+
 Run `dbt ls` and `dbt test` to see what exists and what's failing. Check documentation coverage with `dbt docs generate`.
 
 ### 2. Design Layer Architecture
+
 Sources (raw) → Staging (clean, typed, renamed) → Intermediate (business logic) → Marts (aggregated, business-facing). Never skip layers.
 
 ### 3. Build Staging Models
+
 One model per source table. Rename columns, cast types, add `not_null` and `unique` tests on primary keys. No business logic here.
 
 ### 4. Define Metrics
+
 Use dbt Semantic Layer or dbt_metrics. One metric per business concept: revenue, active_users, churn_rate. Document calculation logic.
 
 ### 5. Add Freshness Checks
+
 Configure `freshness` blocks on source tables. Set warn_after and error_after thresholds matching the business SLA.
 
 ### 6. Document and Test
+
 Run `dbt docs generate`. Write column-level descriptions for every mart table column. Target ≥80% documentation coverage.
 
 ## Verification
+
 - [ ] All staging models tested (not_null, unique on PKs)
 - [ ] Source freshness configured
 - [ ] dbt docs generated with ≥80% coverage
 
 ## Rollback
+
 `git revert` the model changes. Run `dbt run --select reverted_model`.
 
 ## Common Failures
-| Failure | Cause | Fix |
-|---------|-------|-----|
-| Duplicate rows in mart | Missing unique test | Add unique test and investigate source |
-| Stale data silently | No freshness checks | Add freshness to all sources |
-| Business logic drift | Logic duplicated across models | Centralize in intermediate layer |
+
+| Failure                | Cause                          | Fix                                    |
+| ---------------------- | ------------------------------ | -------------------------------------- |
+| Duplicate rows in mart | Missing unique test            | Add unique test and investigate source |
+| Stale data silently    | No freshness checks            | Add freshness to all sources           |
+| Business logic drift   | Logic duplicated across models | Centralize in intermediate layer       |
 
 ## Examples
+
 **Example A:** Build `fct_orders` mart from `stg_orders` and `stg_customers` with revenue metric.
 **Example B:** Define `active_users` metric as users with ≥1 session in last 30 days in dbt Semantic Layer.

@@ -19,9 +19,14 @@ before(() => {
   fs.mkdirSync(path.join(tmp, 'staging/promoted'), { recursive: true });
   fs.mkdirSync(path.join(tmp, 'registry'), { recursive: true });
   fs.writeFileSync(path.join(tmp, 'registry/ledger.jsonl'), '');
-  fs.writeFileSync(path.join(tmp, 'registry/license-registry.json'), JSON.stringify({
-    allowed: ['MIT'], restricted: [], forbidden: ['GPL-3.0']
-  }));
+  fs.writeFileSync(
+    path.join(tmp, 'registry/license-registry.json'),
+    JSON.stringify({
+      allowed: ['MIT'],
+      restricted: [],
+      forbidden: ['GPL-3.0']
+    })
+  );
   fs.writeFileSync(path.join(tmp, 'registry/provenance.json'), '[]');
   fs.writeFileSync(path.join(tmp, 'registry/agents.json'), '{"items":[]}');
   fs.writeFileSync(path.join(tmp, 'registry/skills.json'), '{"items":[]}');

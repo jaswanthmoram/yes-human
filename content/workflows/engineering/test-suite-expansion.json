@@ -12,16 +12,8 @@
     "write missing tests for this area",
     "increase coverage for this service"
   ],
-  "aliases": [
-    "test coverage expansion",
-    "test suite growth",
-    "coverage improvement"
-  ],
-  "negative_keywords": [
-    "remove tests",
-    "skip tests",
-    "docs only"
-  ],
+  "aliases": ["test coverage expansion", "test suite growth", "coverage improvement"],
+  "negative_keywords": ["remove tests", "skip tests", "docs only"],
   "inputs": [
     {
       "name": "target_module",
@@ -54,9 +46,7 @@
   "primary_agent": "engineering.test-expander",
   "route": {
     "domain_master": "engineering.master",
-    "agents": [
-      "engineering.test-expander"
-    ],
+    "agents": ["engineering.test-expander"],
     "parallel": false,
     "max_parallel_agents": 1,
     "primary": "engineering.test-expander",
@@ -67,12 +57,7 @@
     "max_context_tokens": 3200,
     "max_tool_calls": 14
   },
-  "gates": [
-    "pre-route",
-    "pre-tool",
-    "post-tool",
-    "on-task-complete"
-  ],
+  "gates": ["pre-route", "pre-tool", "post-tool", "on-task-complete"],
   "steps": [
     {
       "id": "analyze-coverage",
@@ -99,14 +84,7 @@
       "summary": "Summarize coverage improvement, remaining gaps, and any tests that were intentionally deferred."
     }
   ],
-  "tools": [
-    "filesystem.read",
-    "filesystem.write",
-    "test_runner",
-    "coverage_tool",
-    "lint_runner",
-    "diff_inspection"
-  ],
+  "tools": ["filesystem.read", "filesystem.write", "test_runner", "coverage_tool", "lint_runner", "diff_inspection"],
   "verification": [
     "all_new_tests_pass",
     "coverage_increased",
@@ -124,9 +102,7 @@
     "mode": "trace_based",
     "summary": "Remove newly added test files if they introduce failures or flakiness."
   },
-  "source_references": [
-    "ref.workflow.engineering.test-suite-expansion.2026-06-01"
-  ],
+  "source_references": ["ref.workflow.engineering.test-suite-expansion.2026-06-01"],
   "promotion": {
     "can_learn": true,
     "quality_gate": "staging",

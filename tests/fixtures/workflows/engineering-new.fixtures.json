@@ -118,7 +118,11 @@
         "migration_plan": "Convert all class components in src/components/forms to functional components with hooks",
         "source_pattern": "React.Component class with lifecycle methods",
         "target_pattern": "Functional component with useState, useEffect",
-        "affected_files": ["src/components/forms/LoginForm.tsx", "src/components/forms/SignupForm.tsx", "src/components/forms/ProfileForm.tsx"]
+        "affected_files": [
+          "src/components/forms/LoginForm.tsx",
+          "src/components/forms/SignupForm.tsx",
+          "src/components/forms/ProfileForm.tsx"
+        ]
       },
       "expected_outputs": ["migrated_files", "migration_report", "validation_results"],
       "expected_step_count": 7
