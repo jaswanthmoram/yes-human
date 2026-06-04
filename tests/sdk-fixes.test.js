@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { createRouter, TraceTracker } from "../packages/yes-core/dist/index.js";
-import { developerPack } from "../packages/yes-packs/dist/index.js";
+import { developerPack, businessPack } from "../packages/yes-packs/dist/index.js";
 import { PolicyEvaluator, StateMachine } from "../packages/yes-policy/dist/index.js";
 
 test("policy package basic integrity check", () => {
@@ -60,4 +60,31 @@ test("local semantic router with mock fetch", async () => {
   } finally {
     globalThis.fetch = originalFetch;
   }
+});
+
+test("router SDK routing and workflow execution verification", async () => {
+  const router = createRouter({
+    mode: "offline",
+    packs: [developerPack, businessPack],
+    trace: true
+  });
+
+  // Verify routing for developer pack
+  const res1 = await router.route("review code for bugs");
+  assert.equal(res1.route.id, "route.developer.code-review");
+  assert.equal(res1.route.stage, "exact");
+  assert.equal(res1.workflow.id, "developer.code-review");
+
+  // Verify routing for business pack
+  const res2 = await router.route("generate business plan");
+  assert.equal(res2.route.id, "route.business.business-plan");
+  assert.equal(res2.route.stage, "exact");
+  assert.equal(res2.workflow.id, "business.business-plan");
+
+  // Verify runWorkflow direct invocation
+  const res3 = await router.runWorkflow("business.financial-plan", "Forecast for 3 years");
+  assert.equal(res3.route.id, "route.business.financial-plan");
+  assert.equal(res3.route.stage, "exact");
+  assert.equal(res3.workflow.id, "business.financial-plan");
+  assert.ok(res3.trace.steps.some(s => s.step === "exec-step:calculate-cogs"));
 });
