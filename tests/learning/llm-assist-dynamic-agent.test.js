@@ -47,13 +47,18 @@ test('pre-route LLM routing assist hook', async () => {
     const llmClientSource = fs.readFileSync(path.join(repoRoot, 'packages/yes-runtime/lib/llm-client.js'), 'utf8');
     fs.writeFileSync(path.join(dir, 'packages/yes-runtime/lib/llm-client.js'), llmClientSource);
 
-    // Copy packages/yes-core/secrets.js to satisfy relative import in llm-client.js
-    fs.mkdirSync(path.join(dir, 'packages/yes-core'), { recursive: true });
+    // Copy packages/yes-core/secrets.js and dist/secrets.js to satisfy relative import in llm-client.js
+    fs.mkdirSync(path.join(dir, 'packages/yes-core/dist'), { recursive: true });
     const secretsSource = fs.readFileSync(path.join(repoRoot, 'packages/yes-core/secrets.js'), 'utf8');
     fs.writeFileSync(path.join(dir, 'packages/yes-core/secrets.js'), secretsSource);
-    // Copy logger.js too — the hook now imports it for structured logging (#12).
+    const secretsDist = fs.readFileSync(path.join(repoRoot, 'packages/yes-core/dist/secrets.js'), 'utf8');
+    fs.writeFileSync(path.join(dir, 'packages/yes-core/dist/secrets.js'), secretsDist);
+    
+    // Copy logger.js and dist/logger.js too — the hook now imports it for structured logging.
     const loggerSource = fs.readFileSync(path.join(repoRoot, 'packages/yes-core/logger.js'), 'utf8');
     fs.writeFileSync(path.join(dir, 'packages/yes-core/logger.js'), loggerSource);
+    const loggerDist = fs.readFileSync(path.join(repoRoot, 'packages/yes-core/dist/logger.js'), 'utf8');
+    fs.writeFileSync(path.join(dir, 'packages/yes-core/dist/logger.js'), loggerDist);
 
     // Setup dummy route tables
     fs.writeFileSync(

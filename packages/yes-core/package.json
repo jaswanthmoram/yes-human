@@ -1,8 +1,21 @@
 {
   "name": "@yes-human/core",
-  "version": "2.0.0",
+  "version": "2.4.0",
   "type": "module",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  },
   "engines": {
     "node": ">=20"
   }

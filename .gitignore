@@ -18,3 +18,7 @@ registry/ledger.jsonl
 .env
 .env.*
 
+
+# built/compiled directories
+dist/
+*.tsbuildinfo

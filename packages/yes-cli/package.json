@@ -1,12 +1,24 @@
 {
   "name": "@yes-human/cli",
-  "version": "2.0.0",
-  "description": "Yes-human Command Line Interface",
-  "main": "index.js",
-  "bin": {
-    "yes": "index.js"
-  },
-  "private": true,
+  "version": "2.4.0",
   "type": "module",
-  "dependencies": {}
+  "main": "./dist/index.js",
+  "bin": {
+    "yes": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@yes-human/core": "*",
+    "@yes-human/runtime": "*",
+    "@yes-human/packs": "*",
+    "@yes-human/adapters": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": ">=20"
+  }
 }

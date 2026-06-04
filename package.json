@@ -5,13 +5,15 @@
   "license": "MIT",
   "type": "module",
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "examples/*"
   ],
   "engines": {
     "node": ">=20"
   },
   "scripts": {
-    "yes": "node packages/yes-cli/index.js",
+    "yes": "node packages/yes-cli/dist/index.js",
+    "build": "npm run build --workspaces --if-present",
     "validate": "node packages/yes-schema/validate.js",
     "eval:cost": "node packages/yes-schema/eval-cost.js",
     "phase9:gate": "node packages/yes-cli/index.js evaluator gate",
@@ -48,6 +50,7 @@
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
+    "@types/node": "25.9.1",
     "c8": "11.0.0",
     "eslint": "10.4.1",
     "prettier": "3.8.3"

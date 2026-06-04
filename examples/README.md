@@ -1,21 +1,25 @@
-# Examples
+# yes-human Integration Examples
 
-Standalone examples for yes-human. Run from the project root after `npm ci`.
+This directory contains examples demonstrating how to integrate `yes-human` into offline apps, developer tools, CLI utilities, and other systems.
 
-## Route a task
-
+## 1. Node CLI Assistant (`examples/node-cli-assistant`)
+A standalone Node.js script showing how to route prompts using `yes-core` and execute trace steps using `yes-runtime` and `yes-packs`.
+To run:
 ```bash
-node examples/route-task.js
+npm run start --workspace=examples/node-cli-assistant
 ```
 
-## Build a host bundle
+## 2. React Local App (`examples/react-local-app`)
+A premium, offline-first dashboard demonstrating task routing and execution timeline logs in a beautiful glassmorphic UI. Open [index.html](file:///Users/moramvenkatasatyajaswanth/yes-human/examples/react-local-app/index.html) in your browser.
 
-```bash
-node examples/build-host-bundle.js cursor
-```
+## 3. Electron Offline App (`examples/electron-offline-app`)
+A boilerplate layout demonstrating how to build an offline desktop wrapper using the `@yes-human/core` SDK.
 
-## Custom routing with full output
+## 4. Tauri Offline App (`examples/tauri-offline-app`)
+A guide for integrating the routing engine into a Rust-backed local dashboard.
 
-```bash
-node examples/custom-routing.js "review my TypeScript code"
-```
+## 5. Codex Export Example (`examples/codex-export-example`)
+Exemplifies how developer teams export routing rules directly into Codex agents config.
+
+## 6. Antigravity Export Example (`examples/antigravity-export-example`)
+Exemplifies how to output workflows directly into Antigravity instruction sets.

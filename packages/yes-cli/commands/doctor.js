@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import { spawnSync } from 'child_process';
-import { validateHostBundle } from '../../validators/host-bundle.validator.js';
-import { readGraphRoutingConfig, isGraphStale } from '../yes-runtime/lib/code-graph-assist.js';
+import { validateHostBundle } from '../../../validators/host-bundle.validator.js';
+import { readGraphRoutingConfig, isGraphStale } from '../../yes-runtime/lib/code-graph-assist.js';
 import { repoRoot, readJSONSafe } from './helpers.js';
 
 export function cmdDoctor() {

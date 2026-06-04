@@ -1,10 +1,16 @@
 # @yes-human/core
 
-This package contains foundational control plane utilities for security policies, role-based access control (RBAC), auditing, trust scoring, and structured logging.
+The core engine for the yes-human routing system. Handles deterministic routing resolution and execution trace capturing offline.
 
-## Core Modules
+## Installation
 
-* **`policy-evaluator.js`**: Evaluating runtime security restrictions across categories (filesystem, network, safety, budget).
-* **`rbac.js`**: Core role definitions and permission validation helpers.
-* **`logger.js`**: Structured JSON logging utility.
-* **`trust-score.js`**: Rules validation matching trust scoring mechanisms.
+```bash
+npm install @yes-human/core
+```
+
+## Features
+
+- **Exact, Alias, and Containment matching** of prompts to workflows.
+- **Trace Tracking** to record step execution and metrics.
+- **Pack Scope** loading to restrict routed options.
+- Zero binary or external networking dependencies.
