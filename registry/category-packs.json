@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-06-04T12:29:21.887Z",
+  "generated_at": "2026-06-04T12:50:16.330Z",
   "count": 19,
   "items": [
     {
@@ -694,6 +694,8 @@
         "design-content.copy-and-a11y-review",
         "design-content.design-system-audit",
         "design-content.design-system-creation",
+        "design-content.image-to-design-spec",
+        "design-content.image-to-ui-code",
         "design-content.seo-content-creation",
         "design-content.visual-and-a11y-check"
       ],
@@ -727,7 +729,7 @@
       ],
       "dossier_coverage": {
         "agents": 18,
-        "workflows": 8
+        "workflows": 10
       },
       "status": "active"
     },

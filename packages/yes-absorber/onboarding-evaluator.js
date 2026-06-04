@@ -63,7 +63,7 @@ export async function evaluateHostConfigs(discovered, repoRoot) {
     reports.push({
       type: 'mcp',
       id: serverName,
-      source: 'Claude Desktop',
+      source: 'Local Config (Antigravity/Claude)',
       recommendation: isOverlap ? 'IGNORE' : 'CLONE',
       reason: isOverlap
         ? `MCP Server "${serverName}" is already supported by equivalent registered yes-human skills.`

@@ -168,12 +168,65 @@ async function executeAction(report, action) {
       console.log(`\n✗ ${action === 'MERGE' ? 'Merge' : 'Upgrade'} skipped: target agent dossier not found at ${agentPath}`);
     }
   } else if (action === 'CLONE') {
-    const targetCategory = 'startup-ops';
-    const agentName = `imported-${report.id.replace(/[^a-z0-9]/gi, '-').toLowerCase()}`;
-    const agentPath = path.join(repoRoot, 'content', 'agents', targetCategory, `${agentName}.md`);
+    if (report.type === 'mcp') {
+      const mcpsPath = path.join(repoRoot, 'registry', 'mcps.json');
+      console.log(`\nImporting MCP Server config to registry: ${report.id}`);
+      let mcps = { items: [] };
+      if (fs.existsSync(mcpsPath)) {
+        try {
+          mcps = JSON.parse(fs.readFileSync(mcpsPath, 'utf8'));
+        } catch {
+          mcps = { items: [] };
+        }
+      }
+      if (!mcps.items) mcps.items = [];
 
-    console.log(`\nCreating new workspace-only agent dossier: ${agentPath}`);
-    const agentContent = `---
+      // Check if already exists
+      if (!mcps.items.some(item => item.id === report.id)) {
+        const pkgName = report.details?.command === 'npx' ? report.details?.args[1] : report.id;
+        const newMcp = {
+          id: report.id,
+          provider: report.id,
+          kind: "mcp",
+          purpose: `MCP Server "${report.id}" imported from local config.`,
+          required_auth: false,
+          trust_level: "trusted",
+          allowed_agents: [],
+          allowed_workflows: [],
+          cost_profile: "local",
+          fallback: "None",
+          policy: "Verify commands before run.",
+          package: pkgName,
+          command: report.details?.command,
+          args: report.details?.args,
+          enabled: true
+        };
+        mcps.items.push(newMcp);
+        mcps.count = mcps.items.length;
+        fs.writeFileSync(mcpsPath, JSON.stringify(mcps, null, 2), 'utf8');
+        console.log(`✓ Added MCP Server "${report.id}" to registry/mcps.json`);
+
+        rollbackRecord.files_modified.push('registry/mcps.json');
+
+        appendProvenance({
+          id: `prov.onboard.mcp.${report.id}`,
+          item_id: report.id,
+          kind: 'cloned_mcp_config',
+          source: report.source,
+          created_at: new Date().toISOString(),
+          confidence: 1.0,
+          author: 'yes-onboarding'
+        });
+      } else {
+        console.log(`○ MCP Server "${report.id}" already exists in registry/mcps.json`);
+      }
+    } else {
+      const targetCategory = 'startup-ops';
+      const agentName = `imported-${report.id.replace(/[^a-z0-9]/gi, '-').toLowerCase()}`;
+      const agentPath = path.join(repoRoot, 'content', 'agents', targetCategory, `${agentName}.md`);
+
+      console.log(`\nCreating new workspace-only agent dossier: ${agentPath}`);
+      const agentContent = `---
 id: ${targetCategory}.${agentName}
 name: Imported ${report.id} Agent
 version: 1.0.0
@@ -193,22 +246,23 @@ Automatically onboarded ruleset.
 ## Scope
 Merged ruleset scope imports.
 `;
-    fs.mkdirSync(path.dirname(agentPath), { recursive: true });
-    fs.writeFileSync(agentPath, agentContent, 'utf8');
+      fs.mkdirSync(path.dirname(agentPath), { recursive: true });
+      fs.writeFileSync(agentPath, agentContent, 'utf8');
 
-    rollbackRecord.files_added.push(path.relative(repoRoot, agentPath));
+      rollbackRecord.files_added.push(path.relative(repoRoot, agentPath));
 
-    appendProvenance({
-      id: `prov.onboard.${report.id}`,
-      item_id: `${targetCategory}.${agentName}`,
-      kind: 'cloned_custom_agent',
-      source: report.id,
-      created_at: new Date().toISOString(),
-      confidence: 0.9,
-      author: 'yes-onboarding'
-    });
+      appendProvenance({
+        id: `prov.onboard.${report.id}`,
+        item_id: `${targetCategory}.${agentName}`,
+        kind: 'cloned_custom_agent',
+        source: report.id,
+        created_at: new Date().toISOString(),
+        confidence: 0.9,
+        author: 'yes-onboarding'
+      });
 
-    console.log(`✓ Created cloned agent. Run compile to build routing table.`);
+      console.log(`✓ Created cloned agent. Run compile to build routing table.`);
+    }
   }
 
   // Write rollback record

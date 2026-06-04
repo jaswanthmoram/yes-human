@@ -43,7 +43,6 @@
         "tools": { "type": "string" },
         "mcps": { "type": "string" },
         "category_packs": { "type": "string" },
-        "codex_plugins": { "type": "string" },
         "adapter_packs": { "type": "string" },
         "learning_policy": { "type": "string" },
         "team_mode": { "type": "string" },

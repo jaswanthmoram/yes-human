@@ -61,5 +61,50 @@
     "created_at": "2026-06-04T05:11:05.336Z",
     "confidence": 0.9,
     "author": "yes-absorber"
+  },
+  {
+    "id": "prov.onboard.mcp.StitchMCP",
+    "item_id": "StitchMCP",
+    "kind": "cloned_mcp_config",
+    "source": "Local Config (Antigravity/Claude)",
+    "created_at": "2026-06-04T12:38:35.354Z",
+    "confidence": 1,
+    "author": "yes-onboarding"
+  },
+  {
+    "id": "prov.onboard.mcp.chrome-devtools-mcp",
+    "item_id": "chrome-devtools-mcp",
+    "kind": "cloned_mcp_config",
+    "source": "Local Config (Antigravity/Claude)",
+    "created_at": "2026-06-04T12:38:43.012Z",
+    "confidence": 1,
+    "author": "yes-onboarding"
+  },
+  {
+    "id": "prov.onboard.mcp.firebase-mcp-server",
+    "item_id": "firebase-mcp-server",
+    "kind": "cloned_mcp_config",
+    "source": "Local Config (Antigravity/Claude)",
+    "created_at": "2026-06-04T12:38:45.784Z",
+    "confidence": 1,
+    "author": "yes-onboarding"
+  },
+  {
+    "id": "prov.onboard.mcp.kapture",
+    "item_id": "kapture",
+    "kind": "cloned_mcp_config",
+    "source": "Local Config (Antigravity/Claude)",
+    "created_at": "2026-06-04T12:38:51.146Z",
+    "confidence": 1,
+    "author": "yes-onboarding"
+  },
+  {
+    "id": "prov.absorb.local-yes-human.2026-06-04",
+    "item_id": "local-yes-human",
+    "kind": "absorbed_source",
+    "source": "/Users/moramvenkatasatyajaswanth/plugins/yes-human",
+    "created_at": "2026-06-04T12:47:54.055Z",
+    "confidence": 0.9,
+    "author": "yes-absorber"
   }
 ]

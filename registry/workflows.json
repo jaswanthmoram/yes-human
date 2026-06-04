@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-06-04T12:29:21.887Z",
-  "count": 119,
+  "generated_at": "2026-06-04T12:50:16.330Z",
+  "count": 121,
   "items": [
     {
       "id": "data-ai.rag-eval",
@@ -558,6 +558,160 @@
       "rollback": "file_revert",
       "source_references": [
         "ref.workflow.design-content.design-system-creation.2026-05-31"
+      ],
+      "promotion": {
+        "can_learn": true,
+        "min_successes_before_update": 2
+      }
+    },
+    {
+      "id": "design-content.image-to-design-spec",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "Extract component architecture, hierarchy, visual design rules, and color palettes from a UI screenshot to build a DESIGN.md design specification.",
+      "task_family": "design_review",
+      "triggers": [
+        "convert image to ui ux design",
+        "extract design system from screenshot",
+        "screenshot to design spec",
+        "image to design spec"
+      ],
+      "aliases": [
+        "ui image design spec",
+        "screenshot style extraction",
+        "image components analysis"
+      ],
+      "negative_keywords": [
+        "implement backend database",
+        "test unit case",
+        "deploy service mesh"
+      ],
+      "inputs": [
+        "image_path",
+        "brand_context"
+      ],
+      "outputs": [
+        "design_md",
+        "a11y_notes"
+      ],
+      "primary_agent": "design-content.ui-ux-designer",
+      "route": {
+        "domain_master": "design-content.master",
+        "agents": [
+          "design-content.ui-ux-designer"
+        ],
+        "parallel": false,
+        "max_parallel_agents": 1
+      },
+      "budget": {
+        "band": "standard",
+        "max_context_tokens": 6000,
+        "max_tool_calls": 10
+      },
+      "gates": [
+        "pre-route",
+        "on-task-complete"
+      ],
+      "steps": [
+        "extract-layout-and-components",
+        "extract-styles-and-tokens",
+        "generate-design-spec-md"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "verification": [
+        "structure-complete",
+        "design-tokens-defined"
+      ],
+      "success_criteria": [
+        "Components hierarchy is completely mapped from the image.",
+        "Styles, colors, and layout are extracted and formatted as reusable design tokens.",
+        "The output matches premium visual guidelines."
+      ],
+      "rollback": "no_write",
+      "source_references": [
+        "references/workflows/design-content/image-to-design-spec.sources.json"
+      ],
+      "promotion": {
+        "can_learn": true,
+        "min_successes_before_update": 2
+      }
+    },
+    {
+      "id": "design-content.image-to-ui-code",
+      "version": "1.0.0",
+      "status": "active",
+      "summary": "Deconstruct a UI screenshot into parts, spawn parallel subagents to annotate each subcomponent's styling and layout, and generate clean, responsive UI code.",
+      "task_family": "code_generation",
+      "triggers": [
+        "image to direct ui ux code",
+        "convert screenshot to code",
+        "generate code from image"
+      ],
+      "aliases": [
+        "screenshot to markup code",
+        "ui image to html react",
+        "generate code from design image"
+      ],
+      "negative_keywords": [
+        "database migration plan",
+        "unit tests implementation",
+        "release pipeline build"
+      ],
+      "inputs": [
+        "image_path",
+        "target_framework"
+      ],
+      "outputs": [
+        "component_annotations",
+        "generated_code"
+      ],
+      "primary_agent": "design-content.frontend-design-agent",
+      "route": {
+        "domain_master": "design-content.master",
+        "agents": [
+          "design-content.frontend-design-agent",
+          "design-content.ui-ux-designer",
+          "design-content.visual-designer",
+          "design-content.accessibility-auditor"
+        ],
+        "parallel": true,
+        "max_parallel_agents": 4
+      },
+      "budget": {
+        "band": "expanded",
+        "max_context_tokens": 12000,
+        "max_tool_calls": 20
+      },
+      "gates": [
+        "pre-route",
+        "on-task-complete"
+      ],
+      "steps": [
+        "spawn-annotation-subagents",
+        "extract-component-details",
+        "apply-visual-language",
+        "generate-ui-code-markup",
+        "audit-conformance"
+      ],
+      "tools": [
+        "filesystem.read",
+        "filesystem.write"
+      ],
+      "verification": [
+        "code-compiles",
+        "no-slop-placeholders"
+      ],
+      "success_criteria": [
+        "Generated code matches 1:1 visual structure of the screenshot.",
+        "Responsive styling and layout break rules are applied.",
+        "Accessibility contrast and aria attributes are included."
+      ],
+      "rollback": "file_revert",
+      "source_references": [
+        "references/workflows/design-content/image-to-ui-code.sources.json"
       ],
       "promotion": {
         "can_learn": true,

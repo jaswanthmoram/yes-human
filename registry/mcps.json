@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
   "generated_at": "2026-06-02T08:27:32.068Z",
-  "count": 30,
+  "count": 34,
   "items": [
     {
       "id": "firecrawl",
@@ -112,8 +112,15 @@
       "purpose": "Persistent memory for lessons, traces, and durable coordination context.",
       "required_auth": false,
       "trust_level": "reviewed",
-      "allowed_agents": ["meta-system.eval-runner", "meta-system.source-miner", "product-business.operations-planner"],
-      "allowed_workflows": ["meta-system.source-mine-and-dossier", "product-business.prd-to-plan"],
+      "allowed_agents": [
+        "meta-system.eval-runner",
+        "meta-system.source-miner",
+        "product-business.operations-planner"
+      ],
+      "allowed_workflows": [
+        "meta-system.source-mine-and-dossier",
+        "product-business.prd-to-plan"
+      ],
       "cost_profile": "low",
       "fallback": "Use local trace and registry artifacts only.",
       "policy": "Do not store secrets or raw third-party copyrighted content in memory entries.",
@@ -133,7 +140,10 @@
         "integrations.browser-auto",
         "platform.ci-cd-engineer"
       ],
-      "allowed_workflows": ["design-content.visual-and-a11y-check", "platform.ci-failure-triage"],
+      "allowed_workflows": [
+        "design-content.visual-and-a11y-check",
+        "platform.ci-failure-triage"
+      ],
       "cost_profile": "runtime-browser",
       "fallback": "Use static review when the app cannot be executed locally.",
       "policy": "Automated browser actions must stay within the local app or explicitly approved remote targets.",
@@ -147,8 +157,16 @@
       "purpose": "Structured reasoning support for decomposing complex plans and evaluations.",
       "required_auth": false,
       "trust_level": "reviewed",
-      "allowed_agents": ["meta-system.eval-runner", "research.deep-researcher", "data-ai.eval-engineer"],
-      "allowed_workflows": ["data-ai.rag-eval", "product-business.prd-to-plan", "meta-system.source-mine-and-dossier"],
+      "allowed_agents": [
+        "meta-system.eval-runner",
+        "research.deep-researcher",
+        "data-ai.eval-engineer"
+      ],
+      "allowed_workflows": [
+        "data-ai.rag-eval",
+        "product-business.prd-to-plan",
+        "meta-system.source-mine-and-dossier"
+      ],
       "cost_profile": "low",
       "fallback": "Use local checklist-driven reasoning.",
       "policy": "Use only for reasoning support; final workflow outputs still require concrete evidence and verification.",
@@ -167,7 +185,10 @@
         "sales.sales-strategist",
         "product-business.customer-success-advisor"
       ],
-      "allowed_workflows": ["sales.deal-review", "marketing.launch-campaign"],
+      "allowed_workflows": [
+        "sales.deal-review",
+        "marketing.launch-campaign"
+      ],
       "cost_profile": "moderate-api",
       "fallback": "Use exported CRM notes or manual pipeline summaries.",
       "policy": "Customer data is confidential and should be summarized minimally for the task at hand.",
@@ -180,8 +201,14 @@
       "purpose": "Support inbox and conversation history for customer feedback and launch readiness.",
       "required_auth": true,
       "trust_level": "reviewed",
-      "allowed_agents": ["product-business.customer-success-advisor", "marketing.content-marketer"],
-      "allowed_workflows": ["marketing.launch-campaign", "product-business.prd-to-plan"],
+      "allowed_agents": [
+        "product-business.customer-success-advisor",
+        "marketing.content-marketer"
+      ],
+      "allowed_workflows": [
+        "marketing.launch-campaign",
+        "product-business.prd-to-plan"
+      ],
       "cost_profile": "moderate-api",
       "fallback": "Use exported support summaries or manually curated feedback.",
       "policy": "Redact private customer information before carrying insights into planning artifacts.",
@@ -194,8 +221,16 @@
       "purpose": "Product analytics, experiment signals, and funnel metrics for planning and campaign review.",
       "required_auth": true,
       "trust_level": "reviewed",
-      "allowed_agents": ["marketing.seo-analyst", "product-business.product-manager", "data-ai.eval-engineer"],
-      "allowed_workflows": ["marketing.launch-campaign", "product-business.prd-to-plan", "data-ai.rag-eval"],
+      "allowed_agents": [
+        "marketing.seo-analyst",
+        "product-business.product-manager",
+        "data-ai.eval-engineer"
+      ],
+      "allowed_workflows": [
+        "marketing.launch-campaign",
+        "product-business.prd-to-plan",
+        "data-ai.rag-eval"
+      ],
       "cost_profile": "moderate-api",
       "fallback": "Use CSV exports or locally provided analytics snapshots.",
       "policy": "Aggregate behavior data should be used without exposing raw user identifiers.",
@@ -208,8 +243,15 @@
       "purpose": "Issue and roadmap tracking for product and delivery planning.",
       "required_auth": true,
       "trust_level": "reviewed",
-      "allowed_agents": ["product-business.operations-planner", "engineering.architect", "platform.ci-cd-engineer"],
-      "allowed_workflows": ["product-business.prd-to-plan", "platform.ci-failure-triage"],
+      "allowed_agents": [
+        "product-business.operations-planner",
+        "engineering.architect",
+        "platform.ci-cd-engineer"
+      ],
+      "allowed_workflows": [
+        "product-business.prd-to-plan",
+        "platform.ci-failure-triage"
+      ],
       "cost_profile": "moderate-api",
       "fallback": "Use local backlog files or exported issue lists.",
       "policy": "Treat issue data as operational context; avoid mass mutation from automated workflows.",
@@ -222,8 +264,14 @@
       "purpose": "Project plans, milestones, and structured delivery tracking.",
       "required_auth": true,
       "trust_level": "reviewed",
-      "allowed_agents": ["product-business.operations-planner", "engineering.architect"],
-      "allowed_workflows": ["product-business.prd-to-plan", "platform.ci-failure-triage"],
+      "allowed_agents": [
+        "product-business.operations-planner",
+        "engineering.architect"
+      ],
+      "allowed_workflows": [
+        "product-business.prd-to-plan",
+        "platform.ci-failure-triage"
+      ],
       "cost_profile": "moderate-api",
       "fallback": "Use markdown plans or exported milestone snapshots.",
       "policy": "Workflow outputs should recommend updates, not silently rewrite plan systems.",
@@ -236,8 +284,14 @@
       "purpose": "Accounting and ERP data for forecast inputs, budgets, and operating actuals.",
       "required_auth": true,
       "trust_level": "reviewed",
-      "allowed_agents": ["finance.forecasting-analyst", "finance.budget-planner", "finance.cash-flow-manager"],
-      "allowed_workflows": ["finance.monthly-forecast"],
+      "allowed_agents": [
+        "finance.forecasting-analyst",
+        "finance.budget-planner",
+        "finance.cash-flow-manager"
+      ],
+      "allowed_workflows": [
+        "finance.monthly-forecast"
+      ],
       "cost_profile": "moderate-api",
       "fallback": "Use exported actuals snapshots or manually supplied ledgers.",
       "policy": "Financial records require human review before any external-facing recommendation or booking action.",
@@ -250,8 +304,14 @@
       "purpose": "Finance and ERP records for monthly close support and forecast building.",
       "required_auth": true,
       "trust_level": "reviewed",
-      "allowed_agents": ["finance.forecasting-analyst", "finance.budget-planner", "finance.cash-flow-manager"],
-      "allowed_workflows": ["finance.monthly-forecast"],
+      "allowed_agents": [
+        "finance.forecasting-analyst",
+        "finance.budget-planner",
+        "finance.cash-flow-manager"
+      ],
+      "allowed_workflows": [
+        "finance.monthly-forecast"
+      ],
       "cost_profile": "moderate-api",
       "fallback": "Use exported general-ledger or cash reports.",
       "policy": "Treat ERP data as high-stakes and do not perform writes without explicit approval.",
@@ -264,8 +324,14 @@
       "purpose": "HR records and hiring operations context for structured people workflows.",
       "required_auth": true,
       "trust_level": "reviewed",
-      "allowed_agents": ["hr.hiring-manager", "hr.onboarding-coordinator", "hr.performance-reviewer"],
-      "allowed_workflows": ["hr.hiring-pipeline"],
+      "allowed_agents": [
+        "hr.hiring-manager",
+        "hr.onboarding-coordinator",
+        "hr.performance-reviewer"
+      ],
+      "allowed_workflows": [
+        "hr.hiring-pipeline"
+      ],
       "cost_profile": "moderate-api",
       "fallback": "Use redacted hiring templates or manually provided process notes.",
       "policy": "Employee and candidate data is sensitive and must remain within human-reviewed decision support.",
@@ -278,8 +344,14 @@
       "purpose": "People-operations records for recruiting, onboarding, and policy workflows.",
       "required_auth": true,
       "trust_level": "reviewed",
-      "allowed_agents": ["hr.hiring-manager", "hr.onboarding-coordinator", "hr.performance-reviewer"],
-      "allowed_workflows": ["hr.hiring-pipeline"],
+      "allowed_agents": [
+        "hr.hiring-manager",
+        "hr.onboarding-coordinator",
+        "hr.performance-reviewer"
+      ],
+      "allowed_workflows": [
+        "hr.hiring-pipeline"
+      ],
       "cost_profile": "moderate-api",
       "fallback": "Use exported HR reports or policy documents.",
       "policy": "Outputs remain advisory and require human review before affecting any employment decision.",
@@ -480,6 +552,91 @@
       "fallback": "Manual process",
       "policy": "Disabled until configured",
       "enabled": false
+    },
+    {
+      "id": "StitchMCP",
+      "provider": "StitchMCP",
+      "kind": "mcp",
+      "purpose": "MCP Server \"StitchMCP\" imported from local config.",
+      "required_auth": false,
+      "trust_level": "trusted",
+      "allowed_agents": [],
+      "allowed_workflows": [],
+      "cost_profile": "local",
+      "fallback": "None",
+      "policy": "Verify commands before run.",
+      "package": "mcp-remote",
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://stitch.googleapis.com/mcp",
+        "--header",
+        "X-Goog-Api-Key: $STITCH_API_KEY"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "chrome-devtools-mcp",
+      "provider": "chrome-devtools-mcp",
+      "kind": "mcp",
+      "purpose": "MCP Server \"chrome-devtools-mcp\" imported from local config.",
+      "required_auth": false,
+      "trust_level": "trusted",
+      "allowed_agents": [],
+      "allowed_workflows": [],
+      "cost_profile": "local",
+      "fallback": "None",
+      "policy": "Verify commands before run.",
+      "package": "chrome-devtools-mcp@latest",
+      "command": "npx",
+      "args": [
+        "-y",
+        "chrome-devtools-mcp@latest"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "firebase-mcp-server",
+      "provider": "firebase-mcp-server",
+      "kind": "mcp",
+      "purpose": "MCP Server \"firebase-mcp-server\" imported from local config.",
+      "required_auth": false,
+      "trust_level": "trusted",
+      "allowed_agents": [],
+      "allowed_workflows": [],
+      "cost_profile": "local",
+      "fallback": "None",
+      "policy": "Verify commands before run.",
+      "package": "firebase-tools@latest",
+      "command": "npx",
+      "args": [
+        "-y",
+        "firebase-tools@latest",
+        "mcp"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "kapture",
+      "provider": "kapture",
+      "kind": "mcp",
+      "purpose": "MCP Server \"kapture\" imported from local config.",
+      "required_auth": false,
+      "trust_level": "trusted",
+      "allowed_agents": [],
+      "allowed_workflows": [],
+      "cost_profile": "local",
+      "fallback": "None",
+      "policy": "Verify commands before run.",
+      "package": "kapture-mcp@latest",
+      "command": "npx",
+      "args": [
+        "-y",
+        "kapture-mcp@latest",
+        "bridge"
+      ],
+      "enabled": true
     }
   ]
 }

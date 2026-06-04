@@ -60,12 +60,37 @@ export function discoverHostConfigs(workspaceRoot = process.cwd()) {
       try {
         const config = JSON.parse(fs.readFileSync(p, 'utf8'));
         if (config.mcpServers) {
-          discovered.claude_desktop.mcp_servers = config.mcpServers;
+          discovered.claude_desktop.mcp_servers = {
+            ...discovered.claude_desktop.mcp_servers,
+            ...config.mcpServers
+          };
         }
       } catch {
         /* ignore */
       }
       break;
+    }
+  }
+
+  // Scan local Antigravity configs as well
+  const antigravityPaths = [
+    path.join(homeDir, '.gemini', 'config', 'mcp_config.json'),
+    path.join(homeDir, '.gemini', 'settings.json')
+  ];
+
+  for (const p of antigravityPaths) {
+    if (fs.existsSync(p)) {
+      try {
+        const config = JSON.parse(fs.readFileSync(p, 'utf8'));
+        if (config.mcpServers) {
+          discovered.claude_desktop.mcp_servers = {
+            ...discovered.claude_desktop.mcp_servers,
+            ...config.mcpServers
+          };
+        }
+      } catch {
+        /* ignore */
+      }
     }
   }
 

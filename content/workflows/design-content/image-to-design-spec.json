@@ -1,0 +1,113 @@
+{
+  "id": "design-content.image-to-design-spec",
+  "version": "1.0.0",
+  "status": "active",
+  "name": "Image to Design Specification",
+  "description": "Extract component architecture, hierarchy, visual design rules, and color palettes from a UI screenshot to build a DESIGN.md design specification.",
+  "task_family": "design_review",
+  "triggers": [
+    "convert image to ui ux design",
+    "extract design system from screenshot",
+    "screenshot to design spec",
+    "image to design spec"
+  ],
+  "aliases": ["ui image design spec", "screenshot style extraction", "image components analysis"],
+  "negative_keywords": ["implement backend database", "test unit case", "deploy service mesh"],
+  "inputs": [
+    {
+      "name": "image_path",
+      "required": true,
+      "description": "Path to the local screenshot or UI image file."
+    },
+    {
+      "name": "brand_context",
+      "required": false,
+      "description": "Optional guidelines representing the target brand voice and colors."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "design_md",
+      "description": "DESIGN.md file content detailing structure, components, styles, and guidelines."
+    },
+    {
+      "name": "a11y_notes",
+      "description": "Accessibility contrast and hierarchy assessment results."
+    }
+  ],
+  "primary_agent": "design-content.ui-ux-designer",
+  "route": {
+    "domain_master": "design-content.master",
+    "agents": ["design-content.ui-ux-designer"],
+    "parallel": false,
+    "max_parallel_agents": 1
+  },
+  "budget": {
+    "band": "standard",
+    "max_context_tokens": 6000,
+    "max_tool_calls": 10
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Ensure input is an image file path and matches the scope of design specification extraction."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Ensure findings pass design-system verification and visual hierarchy is structured."
+    }
+  ],
+  "steps": [
+    {
+      "id": "extract-layout-and-components",
+      "agent": "design-content.ui-ux-designer",
+      "description": "Analyze the visual screenshot to partition areas into headers, sidebars, main contents, grids, and separate component lists."
+    },
+    {
+      "id": "extract-styles-and-tokens",
+      "agent": "design-content.visual-designer",
+      "description": "Identify colors, primary/secondary styles, typography weights, size scales, borders, shadow styles, and spacing metrics."
+    },
+    {
+      "id": "generate-design-spec-md",
+      "agent": "design-content.ui-ux-designer",
+      "description": "Synthesize findings and compile them into a structured, production-grade DESIGN.md document."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read target files and templates."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Write generated DESIGN.md to target location."
+    }
+  ],
+  "verification": [
+    {
+      "id": "structure-complete",
+      "method": "Verify DESIGN.md contains sections for color system, typography, components, and layout."
+    },
+    {
+      "id": "design-tokens-defined",
+      "method": "Verify spacing, HSL tailormade colors, and sizes are quantified."
+    }
+  ],
+  "success_criteria": [
+    "Components hierarchy is completely mapped from the image.",
+    "Styles, colors, and layout are extracted and formatted as reusable design tokens.",
+    "The output matches premium visual guidelines."
+  ],
+  "rollback": {
+    "mode": "no_write",
+    "when": "If the design tokens cannot be extracted cleanly, stop without saving mock data."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/design-content/image-to-design-spec.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "quality_gate": "production"
+}

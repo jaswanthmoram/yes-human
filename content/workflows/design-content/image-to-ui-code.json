@@ -1,0 +1,132 @@
+{
+  "id": "design-content.image-to-ui-code",
+  "version": "1.0.0",
+  "status": "active",
+  "name": "Image to UI Code",
+  "description": "Deconstruct a UI screenshot into parts, spawn parallel subagents to annotate each subcomponent's styling and layout, and generate clean, responsive UI code.",
+  "task_family": "code_generation",
+  "triggers": [
+    "image to direct ui ux code",
+    "convert screenshot to code",
+    "generate code from image"
+  ],
+  "aliases": ["screenshot to markup code", "ui image to html react", "generate code from design image"],
+  "negative_keywords": ["database migration plan", "unit tests implementation", "release pipeline build"],
+  "inputs": [
+    {
+      "name": "image_path",
+      "required": true,
+      "description": "Path to the UI image or screenshot file."
+    },
+    {
+      "name": "target_framework",
+      "required": false,
+      "description": "Target UI framework: html/css (default), react/tailwind, nextjs/scss."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "component_annotations",
+      "description": "JSON/YAML hierarchy detailing sections and components extracted by subagents."
+    },
+    {
+      "name": "generated_code",
+      "description": "The responsive markup and styling matching the UI image."
+    }
+  ],
+  "primary_agent": "design-content.frontend-design-agent",
+  "route": {
+    "domain_master": "design-content.master",
+    "agents": ["design-content.frontend-design-agent"],
+    "parallel": true,
+    "max_parallel_agents": 4,
+    "primary": "design-content.frontend-design-agent",
+    "participants": [
+      "design-content.ui-ux-designer",
+      "design-content.visual-designer",
+      "design-content.accessibility-auditor"
+    ]
+  },
+  "budget": {
+    "band": "expanded",
+    "max_context_tokens": 12000,
+    "max_tool_calls": 20
+  },
+  "gates": [
+    {
+      "id": "pre-route",
+      "rule": "Verify vision capabilities or image path availability."
+    },
+    {
+      "id": "pre-write",
+      "rule": "Confirm code structure does not contain placeholders or AI slop patterns."
+    },
+    {
+      "id": "on-task-complete",
+      "rule": "Perform visual hierarchy verification and anti-slop quality check."
+    }
+  ],
+  "steps": [
+    {
+      "id": "spawn-annotation-subagents",
+      "agent": "design-content.frontend-design-agent",
+      "description": "Delegate screenshot analysis to parallel subagents to annotate layout coordinates and structure for header, sidebar, grid, and detail components."
+    },
+    {
+      "id": "extract-component-details",
+      "agent": "design-content.ui-ux-designer",
+      "description": "Assemble annotations and specify visual hierarchy mapping inputs, buttons, text nodes, and container constraints."
+    },
+    {
+      "id": "apply-visual-language",
+      "agent": "design-content.visual-designer",
+      "description": "Resolve typography rules, responsive breakpoints, borders, and colors to map visual fidelity."
+    },
+    {
+      "id": "generate-ui-code-markup",
+      "agent": "design-content.frontend-design-agent",
+      "description": "Synthesize markup structures and bundle CSS classes according to target_framework specification."
+    },
+    {
+      "id": "audit-conformance",
+      "agent": "design-content.accessibility-auditor",
+      "description": "Audit visual hierarchy, color contrast, and semantic markup for WCAG Level AA compatibility."
+    }
+  ],
+  "tools": [
+    {
+      "name": "filesystem.read",
+      "purpose": "Read templates and project assets."
+    },
+    {
+      "name": "filesystem.write",
+      "purpose": "Save generated component files and code stylesheets."
+    }
+  ],
+  "verification": [
+    {
+      "id": "code-compiles",
+      "method": "Ensure generated component passes typescript or html validation."
+    },
+    {
+      "id": "no-slop-placeholders",
+      "method": "Verify code contains zero lorem ipsum, mock comments, or unstyled blocks."
+    }
+  ],
+  "success_criteria": [
+    "Generated code matches 1:1 visual structure of the screenshot.",
+    "Responsive styling and layout break rules are applied.",
+    "Accessibility contrast and aria attributes are included."
+  ],
+  "rollback": {
+    "mode": "file_revert",
+    "when": "If code validation fails syntax check, revert generated changes and log error."
+  },
+  "source_references": [
+    {
+      "dossier_path": "references/workflows/design-content/image-to-ui-code.sources.json",
+      "relationship": "workflow_dossier"
+    }
+  ],
+  "quality_gate": "production"
+}

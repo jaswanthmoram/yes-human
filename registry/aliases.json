@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-06-04T12:29:21.887Z",
-  "count": 762,
+  "generated_at": "2026-06-04T12:50:16.330Z",
+  "count": 768,
   "items": [
     {
       "id": "ai-ethics",
@@ -2070,6 +2070,30 @@
     {
       "id": "design system build",
       "route_id": "route.workflow.design-content.design-system-creation"
+    },
+    {
+      "id": "ui image design spec",
+      "route_id": "route.workflow.design-content.image-to-design-spec"
+    },
+    {
+      "id": "screenshot style extraction",
+      "route_id": "route.workflow.design-content.image-to-design-spec"
+    },
+    {
+      "id": "image components analysis",
+      "route_id": "route.workflow.design-content.image-to-design-spec"
+    },
+    {
+      "id": "screenshot to markup code",
+      "route_id": "route.workflow.design-content.image-to-ui-code"
+    },
+    {
+      "id": "ui image to html react",
+      "route_id": "route.workflow.design-content.image-to-ui-code"
+    },
+    {
+      "id": "generate code from design image",
+      "route_id": "route.workflow.design-content.image-to-ui-code"
     },
     {
       "id": "seo content writing",

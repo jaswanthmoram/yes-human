@@ -977,8 +977,7 @@
     "target": {
       "domain_master": "design-content.master",
       "agent": "design-content.frontend-design-agent",
-      "skills": [],
-      "workflow": "design-content.visual-and-a11y-check"
+      "skills": []
     },
     "confidence": {
       "exact": 1,
@@ -1295,7 +1294,8 @@
     "target": {
       "domain_master": "design-content.master",
       "agent": "design-content.ui-ux-designer",
-      "skills": []
+      "skills": [],
+      "workflow": "design-content.image-to-design-spec"
     },
     "confidence": {
       "exact": 1,
@@ -12021,6 +12021,75 @@
       "agent": "design-content.design-systems",
       "skills": [],
       "workflow": "design-content.design-system-creation"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "expanded",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.workflow.design-content.image-to-design-spec",
+    "match": {
+      "keywords": [
+        "convert image to ui ux design",
+        "extract design system from screenshot",
+        "screenshot to design spec",
+        "image to design spec"
+      ],
+      "aliases": [
+        "ui image design spec",
+        "screenshot style extraction",
+        "image components analysis"
+      ],
+      "negative_keywords": [
+        "implement backend database",
+        "test unit case",
+        "deploy service mesh"
+      ]
+    },
+    "target": {
+      "domain_master": "design-content.master",
+      "agent": "design-content.ui-ux-designer",
+      "skills": [],
+      "workflow": "design-content.image-to-design-spec"
+    },
+    "confidence": {
+      "exact": 1,
+      "alias": 0.95,
+      "graph": 0.85,
+      "semantic": 0.7
+    },
+    "budget_band": "standard",
+    "fallback": "route.meta-system.supreme-router"
+  },
+  {
+    "route_id": "route.workflow.design-content.image-to-ui-code",
+    "match": {
+      "keywords": [
+        "image to direct ui ux code",
+        "convert screenshot to code",
+        "generate code from image"
+      ],
+      "aliases": [
+        "screenshot to markup code",
+        "ui image to html react",
+        "generate code from design image"
+      ],
+      "negative_keywords": [
+        "database migration plan",
+        "unit tests implementation",
+        "release pipeline build"
+      ]
+    },
+    "target": {
+      "domain_master": "design-content.master",
+      "agent": "design-content.frontend-design-agent",
+      "skills": [],
+      "workflow": "design-content.image-to-ui-code"
     },
     "confidence": {
       "exact": 1,
