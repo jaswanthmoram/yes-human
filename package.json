@@ -48,7 +48,8 @@
     "audit:skills": "node packages/yes-schema/audit-skills.js --strict",
     "report:health": "node scripts/agent-health-report.mjs",
     "validate:drift": "node packages/yes-schema/validate-drift.js",
-    "report:adapter-parity": "node packages/yes-schema/generate-adapter-parity.js"
+    "report:adapter-parity": "node packages/yes-schema/generate-adapter-parity.js",
+    "sync:antigravity": "node scripts/sync-antigravity-plugin.mjs"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
