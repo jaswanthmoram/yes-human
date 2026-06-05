@@ -106,5 +106,14 @@
     "created_at": "2026-06-04T12:47:54.055Z",
     "confidence": 0.9,
     "author": "yes-absorber"
+  },
+  {
+    "id": "prov.absorb.local-good-source.2026-06-05",
+    "item_id": "local-good-source",
+    "kind": "absorbed_source",
+    "source": "/var/folders/kw/m08ft53j1w75141_64lwfl0m0000gn/T/yh-abs-yL2xD3/good-source",
+    "created_at": "2026-06-05T13:53:50.016Z",
+    "confidence": 0.9,
+    "author": "yes-absorber"
   }
 ]
