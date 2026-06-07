@@ -16,3 +16,8 @@
 ## OSS-core v2.4
 
 The public OSS core includes deterministic semantic routing, fan-out workflow planning, RBAC primitives, tenant/project trace isolation, redaction, retention rules, signed manifest verification, absorber promotion/rollback, connector protocol helpers, graph build/query, and host bundle generation. Hosted SaaS concerns are deployment-only future work, not hidden core logic.
+
+## Default Routing Rules
+- **Intercept First**: You must route all user tasks and queries through the `yes-human-routing` control plane first (using the `yes-human-routing` skill or executing `node packages/yes-cli/index.js route "<task>"`).
+- **Consult Route**: Always obtain the resolved route ID, target specialist agent, and target workflow before proceeding with task planning or execution.
+- **Enforce Constraints**: Respect the resolved route's budget band and token limits during execution.
