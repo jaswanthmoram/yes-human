@@ -29,7 +29,9 @@
     "policy": { "type": "string" },
     "package": { "type": "string" },
     "env_var": { "type": "string" },
-    "enabled": { "type": "boolean" }
+    "enabled": { "type": "boolean" },
+    "command": { "type": "string" },
+    "args": { "type": "array", "items": { "type": "string" } }
   },
   "additionalProperties": false
 }
