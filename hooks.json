@@ -1,0 +1,15 @@
+{
+  "yes-human-policy": {
+    "PreToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node /Users/moramvenkatasatyajaswanth/yes-human/scripts/antigravity-hook.mjs"
+          }
+        ]
+      }
+    ]
+  }
+}

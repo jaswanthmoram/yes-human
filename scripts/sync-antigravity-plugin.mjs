@@ -188,6 +188,7 @@ function main() {
   // Create directories
   fs.mkdirSync(pluginDestDir, { recursive: true });
   fs.mkdirSync(path.join(pluginDestDir, 'skills'), { recursive: true });
+  fs.mkdirSync(path.join(pluginDestDir, 'scripts'), { recursive: true });
 
   // Write plugin.json
   fs.writeFileSync(
@@ -197,6 +198,20 @@ function main() {
   );
   console.log('✓ Synchronized plugin.json');
 
+  // Copy hooks.json from repo
+  const repoHooksPath = path.join(repoRoot, 'hooks.json');
+  if (fs.existsSync(repoHooksPath)) {
+    fs.copyFileSync(repoHooksPath, path.join(pluginDestDir, 'hooks.json'));
+    console.log('✓ Synchronized hooks.json');
+  }
+
+  // Copy antigravity-hook.mjs from repo
+  const repoHookScriptPath = path.join(repoRoot, 'scripts', 'antigravity-hook.mjs');
+  if (fs.existsSync(repoHookScriptPath)) {
+    fs.copyFileSync(repoHookScriptPath, path.join(pluginDestDir, 'scripts', 'antigravity-hook.mjs'));
+    console.log('✓ Synchronized scripts/antigravity-hook.mjs');
+  }
+
   // Write skill files
   for (const [name, content] of Object.entries(skills)) {
     const skillDir = path.join(pluginDestDir, 'skills', name);
@@ -205,7 +220,7 @@ function main() {
     console.log(`✓ Synchronized skill: ${name}`);
   }
 
-  console.log('\n✓ Sync complete! The latest yes-human plugin is active in Antigravity.');
+  console.log('\n✓ Sync complete! The latest yes-human plugin with hooks is active in Antigravity.');
 }
 
 main();
