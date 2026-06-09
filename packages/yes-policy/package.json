@@ -17,7 +17,7 @@
     "@yes-human/core": "*"
   },
   "devDependencies": {
-    "typescript": "^5.4.5"
+    "typescript": "^6.0.3"
   },
   "engines": {
     "node": ">=20"
